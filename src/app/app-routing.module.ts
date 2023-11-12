@@ -1,8 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CmsAuthGuard } from './core/services/cmsAuthGuard.service';
 
-const routes: Routes = [];
 
+export const routes: Routes = [
+  // {
+  //   path: 'auth',
+  //   loadChildren: () =>
+  //     import('./cms-modules/auth/auth.module').then((m) => m.AuthModule),
+  // },
+  {
+    path: 'error',
+    loadChildren: () =>
+      import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
+  },
+  {
+    path: '',
+    canActivate: [CmsAuthGuard],
+    loadChildren: () =>
+      import('./cms-modules/cms-modules.module').then((m) => m.CmsModulesModule),
+  },
+  { path: '**', redirectTo: 'error/404' },
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
