@@ -5,7 +5,8 @@ import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { PageInfoService } from 'src/app/_metronic/layout/core/page-info.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-cms-guide-notice',

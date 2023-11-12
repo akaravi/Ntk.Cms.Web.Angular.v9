@@ -4,11 +4,11 @@ import { CmsAuthGuard } from './core/services/cmsAuthGuard.service';
 
 
 export const routes: Routes = [
-  // {
-  //   path: 'auth',
-  //   loadChildren: () =>
-  //     import('./cms-modules/auth/auth.module').then((m) => m.AuthModule),
-  // },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./cms-modules/auth/auth.module').then((m) => m.AuthModule),
+  },
   {
     path: 'error',
     loadChildren: () =>
@@ -16,6 +16,11 @@ export const routes: Routes = [
   },
   {
     path: '',
+    loadChildren: () =>
+      import('./modules/pages/pages.module').then((m) => m.PagesModule),
+  },
+  {
+    path: 'panel',
     canActivate: [CmsAuthGuard],
     loadChildren: () =>
       import('./cms-modules/cms-modules.module').then((m) => m.CmsModulesModule),
