@@ -1,0 +1,17 @@
+.img-wrapper {
+  width: 10px;
+}
+
+img {
+  object-fit: cover;
+  transition: all .5s ease;
+}
+
+.symbol.symbol-50 .symbol-label {
+  width: 100px;
+  height: 100px;
+}
+
+.original-box-shadow {
+  box-shadow: 10px 20px 30px #888888;
+}

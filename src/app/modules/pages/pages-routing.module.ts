@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CmsAuthGuard } from 'src/app/core/services/cmsAuthGuard.service';
 import { PageAboutComponent } from './page-about/page-about.component';
 import { PageIndexComponent } from './page-index/page-index.component';
 import { PagePanelComponent } from './page-panel/page-panel.component';
@@ -19,8 +20,14 @@ const routes: Routes = [
         component: PageAboutComponent,
       },
       {
-        path: 'panel',
+        path: 'panel0',
         component: PagePanelComponent,
+      },
+      {
+        path: 'panel',
+        canActivate: [CmsAuthGuard],
+        loadChildren: () =>
+          import('../../cms-modules/cms-modules.module').then((m) => m.CmsModulesModule),
       },
       { path: '', redirectTo: '', pathMatch: 'full' },
       { path: '**', redirectTo: '', pathMatch: 'full' },

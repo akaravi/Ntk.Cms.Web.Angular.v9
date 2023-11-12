@@ -19,12 +19,6 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./modules/pages/pages.module').then((m) => m.PagesModule),
   },
-  {
-    path: 'panel',
-    canActivate: [CmsAuthGuard],
-    loadChildren: () =>
-      import('./cms-modules/cms-modules.module').then((m) => m.CmsModulesModule),
-  },
   { path: '**', redirectTo: 'error/404' },
 ];
 @NgModule({

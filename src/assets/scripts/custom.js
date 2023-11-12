@@ -8,15 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'use strict'
 
     //Global Variables
-    let isPWA = false;  // Enables or disables the service worker and PWA
-    let isAJAX = false; // AJAX transitions. Requires local server or server
-    var pwaName = "Appkit"; //Local Storage Names for PWA
-    var pwaRemind = 1; //Days to re-remind to add to home
-    var pwaNoCache = false; //Requires server and HTTPS/SSL. Will clear cache with each visit
 
-    //Setting Service Worker Locations scope = folder | location = service worker js location
-    var pwaScope = "https://designesia.ir/html/templates/appkit/";
-    var pwaLocation = "/_service-worker.js";
+    var pwaName = "Appkit"; //Local Storage Names for PWA
+
+
 
     //Place all your custom Javascript functions and plugin calls below this line
     function init_template(){
@@ -1515,21 +1510,5 @@ document.addEventListener('DOMContentLoaded', () => {
     //Fix Scroll for AJAX pages.
     if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
 
-    //End of Init Template
-    if(isAJAX === true){
-        if(window.location.protocol !== "file:"){
-            const options = {
-                containers: ["#page"],
-                cache:false,
-                animateHistoryBrowsing: false,
-                plugins: [
-                    new SwupPreloadPlugin()
-                ],
-                linkSelector:'a:not(.external-link):not(.default-link):not([href^="https"]):not([href^="http"]):not([data-gallery])'
-            };
-            const swup = new Swup(options);
-            document.addEventListener('swup:pageView',(e) => { init_template(); })
-        }
-    }
     init_template();
 });
