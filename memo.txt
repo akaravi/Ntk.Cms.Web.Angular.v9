@@ -1,0 +1,123 @@
+npm install --save --legacy-peer-deps
+npm i --legacy-peer-deps
+
+
+برای رفع مشکل نام فولدر ها
+git config core.ignorecase false
+git config --global core.ignorecase false
+========================*
+node --max-old-space-size=1024 index.js #increase to 1gb
+node --max-old-space-size=2048 index.js #increase to 2gb
+node --max-old-space-size=3072 index.js #increase to 3gb
+node --max-old-space-size=4096 index.js #increase to 4gb
+node --max-old-space-size=5120 index.js #increase to 5gb
+node --max-old-space-size=6144 index.js #increase to 6gb
+node --max-old-space-size=7168 index.js #increase to 7gb
+node --max-old-space-size=8192 index.js #increase to 8gb
+node --max-old-space-size=16384 index.js #increase to 16gb
+node --max-old-space-size=32768 index.js #increase to 32gb
+
+See the current value of max-old-space-size (in MB)
+node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
+
+setx NODE_OPTIONS "--max-old-space-size=8384"
+# formula:
+export NODE_OPTIONS="--max-old-space-size=(X * 1024)" # Increase to X GB
+
+node --max-old-space-size=4096 `which npm` install
+npm install --max-old-space-size=4096
+
+========================*
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/akaravi/Ntk.Cms.Web.AngularV3.git
+git push -u origin main
+
+
+npm run build-prod
+ng build --prod --source-map
+
+ng serve  --open
+===================RTL
+npm run rtl
+=========================================
+npm rebuild node-sass
+
+=========================================
+
+=========================================Update all npm
+npm i -g npm-check-updates
+ncu -u
+npm install --force
+ng serve --open
+
+
+=========================================Update all npm
+
+============================ this only ok
+Press the windows-button on your keyboard.
+Type ‘PowerShell’
+Right-click Windows PowerShell
+Click Run as Administrator
+Run the following command and confirm with ‘Y’
+Set-ExecutionPolicy RemoteSigned -Force     اجرای همین تک خط آخرین باز همه چیز درست شد
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+============================
+path Add
+%appdata%\npm
+=======================
+setx path %path%;%appdata%\npm
+npm install --global http-server
+==============================
+git config core.ignorecase false
+git config --global core.ignorecase false
+=============================
+ng update --next @angular/cli --force
+npm install typescript@latest
+=========================================
+ng build --prod
+ng build --prod --build-optimizer
+ng serve --disable-host-check
+./ngrok http 4200 -host-header=rewrite localhost:4200
+./ngrok http  -host-header=rewrite localhost:4200
+
+===============================================
+
+BabelEdit
+https://www.codeandweb.com/babeledit/start-download?os=win&bits=64
+
+=========================
+//it is version mismatch, just update all dependencies with npm-check-updates
+npm i -g npm-check-updates
+ncu -u
+npm install
+
+=========================
+npm uninstall -g @angular/cli
+npm cache clean
+
+
+
+npm update @angular/cli @angular/cdk rxjs
+npm install -S @angular/material @angular/cdk @angular/animations
+npm uninstall @angular/core
+npm install -S @angular/core
+=============================================================================================================================
+Check the unused dependencies
+npm install depcheck -g
+depcheck
+
+ENDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+http://localhost:4200/#/estate/property/edit/63fcd99b5513193e755bd4ad
+
+
+=============================================================================================================================
+https://blog.angular-university.io/angular-push-notifications/
+ web-push generate-vapid-keys --json
+{
+  "publicKey":"BOr78Ceadeel4AyuayJxgsPXC5Eo3yIpSq__q6uPF6losigIi9HTSFHnp-Itqhq4UGfujxeTf0PxScyyJO3lfng",
+  "privateKey":"VKfr1tI3yvJaO1B1B8J15XaZnLVQcwCyT_szcXOrQtU"
+}
