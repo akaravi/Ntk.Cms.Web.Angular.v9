@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageAboutComponent } from './page-about/page-about.component';
 import { PageIndexComponent } from './page-index/page-index.component';
 import { PagePanelComponent } from './page-panel/page-panel.component';
 import { PagesComponent } from './pages.component';
@@ -14,7 +15,11 @@ const routes: Routes = [
         component: PageIndexComponent,
       },
       {
-        path: '500',
+        path: 'about',
+        component: PageAboutComponent,
+      },
+      {
+        path: 'panel',
         component: PagePanelComponent,
       },
       { path: '', redirectTo: '', pathMatch: 'full' },
