@@ -42,7 +42,7 @@
     /*karavi add*/
   },
   /*karavi add*/
-  "include": ["**/*.js", "**/*.ts", "node_modules/@open-wc/**/*.js"],
+  "include": ["**/*.js", "**/*.ts", "node_modules/@open-wc/**/*.js", "src/app/modules/menus/header-bar/header-bar/.component.ts"],
   "exclude": [
     ".git",
     ".app-cache",

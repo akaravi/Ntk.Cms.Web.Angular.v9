@@ -213,11 +213,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         //Don't jump on Empty Links
-        const emptyHref = document.querySelectorAll('a[href="#"]')
-        emptyHref.forEach(el => el.addEventListener('click', e => {
-            e.preventDefault();
-            return false;
-        }));
+        // const emptyHref = document.querySelectorAll('a[href="#"]')
+        // emptyHref.forEach(el => el.addEventListener('click', e => {
+        //     e.preventDefault();
+        //     return false;
+        // }));
 
         //Map Page
         var fullMap = document.querySelectorAll('.hide-map');

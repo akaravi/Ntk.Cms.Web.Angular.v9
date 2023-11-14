@@ -3,298 +3,20 @@
 </div> -->
 
 <div id="page">
-  <div class="header header-auto-show header-fixed header-logo-center">
-    <a href="index.html" class="header-title">اپکیت</a>
-    <a href="#" data-menu="menu-main" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
-    <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-dark"><i class="fas fa-sun"></i></a>
-    <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-moon"></i></a>
-    <a href="#" data-menu="menu-share" class="header-icon header-icon-3"><i class="fas fa-share-alt"></i></a>
-  </div>
+  <app-header-bar></app-header-bar>
+  <app-footer-bar></app-footer-bar>
 
-
-  <div id="footer-bar" class="footer-bar-6">
-    <a href="index-components.html"><i class="fa fa-layer-group"></i><span>امکانات</span></a>
-    <a href="index-pages.html"><i class="fa fa-file"></i><span>صفحات</span></a>
-    <a href="index.html" class="circle-nav active-nav"><i class="fa fa-home"></i><span>خانه</span></a>
-    <a href="index-projects.html"><i class="fa fa-image"></i><span>پروژه ها</span></a>
-    <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>منو</span></a>
-  </div>
-
-  <div class="page-title page-title-fixed">
-    <h1>اپکیت</h1>
-    <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-share"><i
-        class="fa fa-share-alt"></i></a>
-    <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light" data-toggle-theme><i
-        class="fa fa-moon"></i></a>
-    <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i
-        class="fa fa-lightbulb color-yellow-dark"></i></a>
-    <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i
-        class="fa fa-bars"></i></a>
-  </div>
   <div class="page-title-clear"></div>
 
-  <div id="menu-main" class="menu menu-box-right rounded-0" data-menu-width="280" data-menu-active="nav-welcome"
-    data-menu-load-="menu-main.html">
-    <!--menu-main.html-->
-    <div class="card rounded-0 bg-6" data-card-height="150">
-      <div class="card-top">
-        <a href="#" class="close-menu float-end me-2 text-center mt-3 icon-40 notch-clear"><i
-            class="fa fa-times color-white"></i></a>
-      </div>
-      <div class="card-bottom">
-        <h1 class="color-white ps-3 mb-0 font-28">اپکیت</h1>
-        <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
-      </div>
-      <div class="card-overlay bg-gradient"></div>
-    </div>
-    <div class="mt-4"></div>
-    <h6 class="menu-divider">منو</h6>
-    <div class="list-group list-custom-small list-menu">
-      <a id="nav-welcome" href="index.html">
-        <i class="fa fa-heart gradient-red color-white"></i>
-        <span>خانه</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a id="nav-homepages" href="index-homepages.html">
-        <i class="fa fa-home gradient-green color-white"></i>
-        <span>صفحات اصلی</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a id="nav-components" href="index-components.html">
-        <i class="fa fa-cog gradient-blue color-white"></i>
-        <span>المان ها</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a id="nav-pages" href="index-pages.html">
-        <i class="fa fa-file gradient-brown color-white"></i>
-        <span>صفحات</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a id="nav-media" href="index-projects.html">
-        <i class="fa fa-camera gradient-magenta color-white"></i>
-        <span>پروژه ها</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a id="nav-contact" href="page-contact.html">
-        <i class="fa fa-envelope gradient-teal color-white"></i>
-        <span>ارتباط</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-    </div>
-    <h6 class="menu-divider mt-4">تنظیمات</h6>
-    <div class="list-group list-custom-small list-menu">
-      <a href="#" data-menu="menu-colors">
-        <i class="fa fa-brush gradient-highlight color-white"></i>
-        <span>رنگ بندی</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a href="#" data-toggle-theme="" data-trigger-switch="switch-dark-mode">
-        <i class="fa fa-moon gradient-dark color-white"></i>
-        <span>تم تاریک</span>
-        <div class="custom-control small-switch ios-switch">
-          <input data-toggle-theme type="checkbox" class="ios-input" id="toggle-dark-menu">
-          <label class="custom-control-label" for="toggle-dark-menu"></label>
-        </div>
-      </a>
-    </div>
-    <h6 class="menu-divider mt-4">مخاطبین</h6>
-    <div class="list-group list-custom-small list-menu ps-2">
-      <a href="#">
-        <img src="assets/images/pictures/1s.jpg">
-        <span>زانیار مدنی</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a href="#">
-        <img src="assets/images/pictures/5s.jpg">
-        <span>مالیا دانی</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a href="#">
-        <img src="assets/images/pictures/6s.jpg">
-        <span>اکرم محمدی</span>
-        <i class="fa fa-angle-left"></i>
-      </a>
-    </div>
-    <h6 class="menu-divider font-10 mt-4">ساخته شده با <i class="fa fa-heart color-red-dark pl-1 pr-1"></i> توسط
-      دیزاینسیا در <span class="copyright-year">1402</span></h6>
-
-    <!--menu-main.html-->
-  </div>
-  <div id="menu-share" class="menu menu-box-bottom rounded-m" data-menu-load-="menu-share.html" data-menu-height="370">
-    <!--"menu-share.html-->
-    <div class="menu-title">
-      <p class="color-highlight">اشتراک گذاری در</p>
-      <h1>شبکه های اجتماعی</h1>
-      <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
-    </div>
-    <div class="divider divider-margins mt-3 mb-0"></div>
-    <div class="content mt-0">
-      <div class="list-group list-custom-small list-icon-0">
-        <a href="auto_generated" class="external-link shareToFacebook">
-          <i class="fab fa-facebook-f font-12 bg-facebook color-white shadow-l rounded-s"></i>
-          <span>فیسبوک</span>
-          <i class="fa fa-angle-left pr-1"></i>
-        </a>
-        <a href="auto_generated" class="external-link shareToTwitter">
-          <i class="fab fa-twitter font-12 bg-twitter color-white shadow-l rounded-s"></i>
-          <span>تویتر</span>
-          <i class="fa fa-angle-left pr-1"></i>
-        </a>
-        <a href="auto_generated" class="external-link shareToLinkedIn">
-          <i class="fab fa-linkedin-in font-12 bg-linkedin color-white shadow-l rounded-s"></i>
-          <span>LinkedIn</span>
-          <i class="fa fa-angle-left pr-1"></i>
-        </a>
-        <a href="auto_generated" class="external-link shareToWhatsApp">
-          <i class="fab fa-whatsapp font-12 bg-whatsapp color-white shadow-l rounded-s"></i>
-          <span>واتساپ</span>
-          <i class="fa fa-angle-left pr-1"></i>
-        </a>
-        <a href="auto_generated" class="external-link shareToMail border-0">
-          <i class="fa fa-envelope font-12 bg-mail color-white shadow-l rounded-s"></i>
-          <span>ایمیل</span>
-          <i class="fa fa-angle-left pr-1"></i>
-        </a>
-      </div>
-    </div>
-
-    <!--"menu-share.html-->
-  </div>
-  <div id="menu-colors" class="menu menu-box-bottom rounded-m" data-menu-load-="menu-colors.html"
-    data-menu-height="480">
-    <!--menu-colors.html-->
-    <div class="menu-title">
-      <p class="color-highlight font-600">Choose your Favorite</p>
-      <h1>Highlight</h1>
-      <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
-    </div>
-    <div class="divider divider-margins mt-3 mb-2"></div>
-    <div class="content mt-0 ms-0 me-0">
-      <div class="row mb-0">
-        <div class="col-6">
-          <div class="list-group list-custom-small list-menu">
-            <a href="#" data-change-highlight="blue">
-              <i class="gradient-blue color-white"></i>
-              <span>Blue</span>
-            </a>
-            <a href="#" data-change-highlight="red">
-              <i class="gradient-red color-white"></i>
-              <span>Red</span>
-            </a>
-            <a href="#" data-change-highlight="orange">
-              <i class="gradient-orange color-white"></i>
-              <span>Orange</span>
-            </a>
-            <a href="#" data-change-highlight="green">
-              <i class="gradient-green color-white"></i>
-              <span>Green</span>
-            </a>
-            <a href="#" data-change-highlight="yellow">
-              <i class="gradient-yellow color-white"></i>
-              <span>Yellow</span>
-            </a>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="list-group list-custom-small list-menu">
-            <a href="#" data-change-highlight="dark">
-              <i class="gradient-dark color-white"></i>
-              <span>Dark</span>
-            </a>
-            <a href="#" data-change-highlight="gray">
-              <i class="gradient-gray color-white"></i>
-              <span>Gray</span>
-            </a>
-            <a href="#" data-change-highlight="teal">
-              <i class="gradient-teal color-white"></i>
-              <span>Teal</span>
-            </a>
-            <a href="#" data-change-highlight="magenta">
-              <i class="gradient-magenta color-white"></i>
-              <span>Plum</span>
-            </a>
-            <a href="#" data-change-highlight="brown">
-              <i class="gradient-brown color-white"></i>
-              <span>Brown</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="divider divider-margins mt-2"></div>
-    <a href="#"
-      class="close-menu btn btn-margins btn-m font-13 rounded-s shadow-xl btn-full gradient-highlight border-0 font-700">باشه!</a>
-
-    <!--menu-colors.html-->
-  </div>
   <div class="page-content">
     <router-outlet></router-outlet>
-    <div data-menu-load--="menu-footer.html">
+    <div data-menu-load-="menu-footer.html">
       <!--menu-footer.html-->
-      <div class="card card-style">
-        <h4 class="font-28 text-center color-theme font-800 pt-3 mt-3">اپکیت</h4>
-        <p class="boxed-text-l mb-4">
-          ساخته شده به منظور همخوانی با طراحی های مدرن، و به صفحه شما ظاهری عالی که شایسته آن است می دهد.
-        </p>
-        <div class="text-center mb-4">
-          <a href="#" class="icon icon-xs rounded-sm shadow-l mr-1 bg-facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="icon icon-xs rounded-sm shadow-l mr-1 bg-twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="icon icon-xs rounded-sm shadow-l mr-1 bg-phone"><i class="fa fa-phone"></i></a>
-          <a href="#" data-menu="menu-share" class="icon icon-xs rounded-sm mr-1 shadow-l bg-red-dark"><i
-              class="fa fa-share-alt"></i></a>
-          <a href="#" class="back-to-top icon icon-xs rounded-sm shadow-l bg-highlight color-white"><i
-              class="fa fa-arrow-up"></i></a>
-        </div>
-        <div class="divider mb-3"></div>
-        <div class="row text-center mb-3 pl-3 pr-3">
-          <a class="font-11 col-4" href="#">حریم خصوصی</a>
-          <a class="font-11 col-4" href="#">شرایط استفاده</a>
-          <a class="font-11 col-4" href="#">ارتباط با پشتیبانی</a>
-        </div>
-      </div>
+      <app-menu-footer></app-menu-footer>
       <!--menu-footer.html-->
     </div>
   </div>
   <!-- All Menus, Action Sheets, Modals, Notifications, Toasts, Snackbars get Placed outside the <div class="page-content"> -->
-
-  <!-- Menu Share -->
-  <div id="menu-share" class="menu menu-box-bottom menu-box-detached">
-    <div class="menu-title mt-n1">
-      <h1>اشتراک گذاری</h1>
-      <p class="color-highlight">کافیه روی آیکون کلیک کنی، ما لینک را اضافه میکنیم</p><a href="#" class="close-menu"><i
-          class="fa fa-times"></i></a>
-    </div>
-    <div class="content mb-0">
-      <div class="divider mb-0"></div>
-      <div class="list-group list-custom-small list-icon-0">
-        <a href="auto_generated" class="shareToFacebook external-link">
-          <i class="font-18 fab fa-facebook-square color-facebook"></i>
-          <span class="font-13">فیسبوک</span>
-          <i class="fa fa-angle-left"></i>
-        </a>
-        <a href="auto_generated" class="shareToTwitter external-link">
-          <i class="font-18 fab fa-twitter-square color-twitter"></i>
-          <span class="font-13">تویتر</span>
-          <i class="fa fa-angle-left"></i>
-        </a>
-        <a href="auto_generated" class="shareToLinkedIn external-link">
-          <i class="font-18 fab fa-linkedin color-linkedin"></i>
-          <span class="font-13">LinkedIn</span>
-          <i class="fa fa-angle-left"></i>
-        </a>
-        <a href="auto_generated" class="shareToWhatsApp external-link">
-          <i class="font-18 fab fa-whatsapp-square color-whatsapp"></i>
-          <span class="font-13">واتساپ</span>
-          <i class="fa fa-angle-left"></i>
-        </a>
-        <a href="auto_generated" class="shareToMail external-link border-0">
-          <i class="font-18 fa fa-envelope-square color-mail"></i>
-          <span class="font-13">ایمیل</span>
-          <i class="fa fa-angle-left"></i>
-        </a>
-      </div>
-    </div>
-  </div>
 
   <!-- Be sure this is on your main visiting page, for example, the index.html page-->
   <!-- Install Prompt for Android -->
@@ -328,3 +50,16 @@
   </div>
 
 </div>
+
+<!-- Main Menu-->
+
+<app-menu-main></app-menu-main>
+
+
+<!-- Share Menu-->
+
+<app-menu-share></app-menu-share>
+
+
+<!-- Colors Menu-->
+<app-menu-colors></app-menu-colors>

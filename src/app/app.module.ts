@@ -21,6 +21,7 @@ import { CmsStoreModule } from './core/reducers/cmsStore.module';
 import { CmsAuthService } from './core/services/cmsAuth.service';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
+import { MenusModule } from './modules/menus/menus.module';
 
 function appInitializer(authService: CmsAuthService) {
   return () => {
@@ -87,6 +88,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     }),
 
     RouterModule,
+    MenusModule,
   ],
   providers: [
     CoreAuthService,
