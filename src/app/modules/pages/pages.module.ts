@@ -6,6 +6,7 @@ import { PagesComponent } from '../pages/pages.component';
 import { PageIndexComponent } from './page-index/page-index.component';
 import { PagePanelComponent } from './page-panel/page-panel.component';
 import { PageAboutComponent } from './page-about/page-about.component';
+import { MenusModule } from '../menus/menus.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PageAboutComponent } from './page-about/page-about.component';
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    MenusModule,
   ]
 })
 export class PagesModule { }

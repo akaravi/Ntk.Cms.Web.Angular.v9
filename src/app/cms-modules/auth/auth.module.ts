@@ -12,6 +12,7 @@ import { AuthSingInComponent } from './singin/singin.component';
 import { AuthSingoutComponent } from './singout/singout.component';
 import { AuthSingUpComponent } from './singup/singup.component';
 import { SingupRuleComponent } from './singupRule/singupRule.Component';
+import { MenusModule } from 'src/app/modules/menus/menus.module';
 @NgModule({
   declarations: [
     AuthSingInComponent,
@@ -29,6 +30,7 @@ import { SingupRuleComponent } from './singupRule/singupRule.Component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MenusModule,
   ],
   providers: [
     CoreModuleService,

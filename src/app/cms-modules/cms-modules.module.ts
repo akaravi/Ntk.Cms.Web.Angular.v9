@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CoreConfigurationService, CoreCpMainMenuService } from 'ntk-cms-api';
 import { CmsModulesComponent } from './cms-modules.component';
 import { CmsModulesRouting } from './cms-modules.routing';
+import { MenusModule } from '../modules/menus/menus.module';
 
 const routes: Routes = [
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
     // EngagesModule,
     // DropdownMenusModule,
     // NgbTooltipModule,
-    // ThemeModeModule
+    // ThemeModeModule,
+    MenusModule,
   ],
   exports: [RouterModule],
   providers: [

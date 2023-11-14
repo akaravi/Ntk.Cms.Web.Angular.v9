@@ -25,8 +25,12 @@ const routes: Routes = [
         component: PagePanelComponent,
       },
       {
+        path: 'auth',
+        loadChildren: () => import('../../cms-modules/auth/auth.module').then((m) => m.AuthModule),
+      },
+      {
         path: 'dashboard',
-        //canActivate: [CmsAuthGuard],
+        canActivate: [CmsAuthGuard],
         component: PageDashboardComponent,
       },
       {

@@ -19,9 +19,7 @@ export class CmsAuthService implements OnDestroy {
     return this.currentUserSubject.value;
   }
 
-  constructor(
-    private router: Router
-  ) {
+  constructor(private router: Router) {
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
     this.currentUserSubject = new BehaviorSubject<TokenInfoModel>(undefined);
     this.currentUser$ = this.currentUserSubject.asObservable();
@@ -36,21 +34,8 @@ export class CmsAuthService implements OnDestroy {
     if (!auth || !auth.token) {
       return of(undefined);
     }
-
     this.isLoadingSubject.next(true);
-    // return this.authHttpService.getUserByToken(auth.authToken).pipe(
-    //   map((user: UserModel) => {
-    //     if (user) {
-    //       this.currentUserSubject = new BehaviorSubject<UserModel>(user);
-    //     } else {
-    //       this.logout();
-    //     }
-    //     return user;
-    //   }),
-    //   finalize(() => this.isLoadingSubject.next(false))
-    // );
   }
-
   private getAuthFromLocalStorage(): TokenInfoModel {
     try {
       const authData = JSON.parse(
