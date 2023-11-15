@@ -1,6 +1,6 @@
 <form class="form" #vform="ngForm" novalidate="novalidate" id="kt_login_signin_form" (ngSubmit)="onActionSubmit()">
   <app-progress-spinner [options]="loading"> </app-progress-spinner>
-  <p class="font-600 color-highlight mb-0">شروع کنید</p>
+  <p class="font-600 color-highlight mb-0"> {{'TRANSLATOR.WELCOME' | translate}}</p>
   <h1 class="font-30">ورود</h1>
   <p>
     برای ورود به حساب کاربری خود، اطلاعات کاربری خود را در زیر وارد کنید.
@@ -28,13 +28,13 @@
     <i class="fa fa-check disabled valid color-green-dark"></i>
     <em>(ضروری)</em>
   </div>
-  <ng-container *ngIf="firstRun">
+  <ng-container *ngIf="!firstRun">
 
     <!--captchaText Field-->
     <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
     <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
     <div class="input-style no-borders has-icon validate-field mb-4">
-      <i class="fa fa-user"></i>
+      <i class="fa fa-quote-left"></i>
       <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" id="dataModel.captchaText"
         [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name"
         placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off">
@@ -44,30 +44,30 @@
       <em>(ضروری)</em>
     </div>
   </ng-container>
-  <a href="#" data-back-button class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">ورود</a>
   <button type="submit"
     [disabled]="vform.invalid || !formInfo.buttonSubmittedEnabled || !connectionStatus.internetConnection"
-    class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s" style="margin: 1px;">
+    style="width: 100%;" class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">
     {{'AUTH.LOGIN.BUTTON' | translate}}
   </button>
+  <a href="#" [routerLink]="['/auth/singinbysms']" data-back-button
+    class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">{{'AUTH.LOGIN.SMS' | translate}}</a>
+
   <div class="row pt-3 mb-3">
     <div class="col-6 text-start">
-      <a href="page-system-forgot-1.html" class="color-highlight">فراموشی رمز عبور</a>
+      <a href="#" [routerLink]="['/auth/forgot-password']" class="color-highlight">{{'AUTH.FORGOT.TITLE' |
+        translate}}</a>
     </div>
     <div class="col-6 text-end">
-      <a href="page-system-signup-1.html" class="color-highlight">ایجاد حساب</a>
+      <a href="#" [routerLink]="['/auth/singup']" class="color-highlight">{{ 'AUTH.GENERAL.SIGNUP_BUTTON' | translate
+        }}</a>
     </div>
   </div>
 
   <div class="divider"></div>
-
   <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
       class="fab fa-facebook-f text-center"></i>با فیس بوک وارد شوید</a>
   <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
       class="fab fa-twitter text-center"></i>با توییتر وارد شوید</a>
   <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
       class="fab fa-apple text-center"></i>با اپل وارد شوید</a>
-
-
-
 </form>
