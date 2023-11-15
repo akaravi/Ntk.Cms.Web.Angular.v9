@@ -6,6 +6,7 @@ import { MenuColorsComponent } from './menu-colors/menu-colors.component';
 import { MenuFooterComponent } from './menu-footer/menu-footer.component';
 import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
+import { CoreCpMainMenuService } from 'ntk-cms-api';
 
 
 
@@ -28,6 +29,10 @@ import { HeaderBarComponent } from './header-bar/header-bar.component';
     MenuFooterComponent,
     HeaderBarComponent,
     FooterBarComponent,
+  ],
+  providers:[
+    CoreCpMainMenuService
   ]
 })
+
 export class ComponentsModule { }
