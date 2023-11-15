@@ -71,11 +71,11 @@
   <!--RePasswordModel Field-->
   <div class="input-style no-borders has-icon validate-field mb-4">
     <i class="fa fa-lock"></i>
-    <input type="password" class="form-control validate-name" id="RePasswordModel"
+    <input type="password" class="form-control validate-name" id="RePassword"
       placeholder="{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}" [(ngModel)]="RePasswordModel" name="RePasswordModel"
       [disabled]=" !formInfo.buttonSubmittedEnabled" #RePassword autocomplete="off" minlength="3" maxlength="50"
       required>
-    <label for="RePasswordModel" class="color-highlight">{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}</label>
+    <label for="RePassword" class="color-highlight">{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}</label>
     <i class="fa fa-times disabled invalid color-red-dark"></i>
     <i class="fa fa-check disabled valid color-green-dark"></i>
     <em>(ضروری)</em>
