@@ -31,7 +31,6 @@ export class MenuMainComponent implements OnInit {
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
       this.tokenInfo = value;
-
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
         setTimeout(() => { this.DataGetCpMenu(); }, 1000);
       }

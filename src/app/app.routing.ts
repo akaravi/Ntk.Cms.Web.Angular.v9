@@ -11,13 +11,13 @@ export const routes: Routes = [
       import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
   },
   {
-    path: 'panel',
+    path: '',
     canActivate: [CmsAuthGuard],
     loadChildren: () =>
       import('./modules/pages/page-panel/page-panel.module').then((m) => m.PagePanelModule),
   },
   {
-    path: '',
+    path: 'page',
     loadChildren: () =>
       import('./modules/pages/pages.module').then((m) => m.PagesModule),
   },
