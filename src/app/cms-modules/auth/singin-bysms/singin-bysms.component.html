@@ -1,5 +1,5 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-<div class="login-form login-forgot">
+
     <!--begin::Form-->
     <form *ngIf="forgetState==='sms'" class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate"
         #vformBySms="ngForm" (ngSubmit)="onActionSubmitOrderCodeBySms()" id="kt_login_forgot_form" [ngStyle]="{
@@ -170,7 +170,6 @@
             <!--end::Body-->
         </div>
     </ng-container>
-</div>
 <ng-template #formError let-control="control" let-message="message" let-validation="validation">
     <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
         <div class="fv-plugins-message-container">

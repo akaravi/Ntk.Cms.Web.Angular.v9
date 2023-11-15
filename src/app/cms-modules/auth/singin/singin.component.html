@@ -45,7 +45,11 @@
     </div>
   </ng-container>
   <a href="#" data-back-button class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">ورود</a>
-
+  <button type="submit"
+    [disabled]="vform.invalid || !formInfo.buttonSubmittedEnabled || !connectionStatus.internetConnection"
+    class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s" style="margin: 1px;">
+    {{'AUTH.LOGIN.BUTTON' | translate}}
+  </button>
   <div class="row pt-3 mb-3">
     <div class="col-6 text-start">
       <a href="page-system-forgot-1.html" class="color-highlight">فراموشی رمز عبور</a>

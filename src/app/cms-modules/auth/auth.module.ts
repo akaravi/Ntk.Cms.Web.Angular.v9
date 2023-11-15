@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreAuthService, CoreConfigurationService, CoreModuleService } from 'ntk-cms-api';
+import { ComponentsModule } from 'src/app/components/components.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth.routing';
@@ -12,7 +13,7 @@ import { AuthSingInComponent } from './singin/singin.component';
 import { AuthSingoutComponent } from './singout/singout.component';
 import { AuthSingUpComponent } from './singup/singup.component';
 import { SingupRuleComponent } from './singupRule/singupRule.Component';
-import { MenusModule } from 'src/app/modules/menus/menus.module';
+
 @NgModule({
   declarations: [
     AuthSingInComponent,
@@ -30,7 +31,7 @@ import { MenusModule } from 'src/app/modules/menus/menus.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MenusModule,
+    ComponentsModule,
   ],
   providers: [
     CoreModuleService,

@@ -2,20 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreConfigurationService, CoreCpMainMenuService } from 'ntk-cms-api';
-import { CmsModulesComponent } from './cms-modules.component';
-import { CmsModulesRouting } from './cms-modules.routing';
-import { MenusModule } from '../modules/menus/menus.module';
+import { ComponentsModule } from 'src/app/components/components.module';
+import { PagePanelComponent } from './page-panel.component';
+import { PagesPanelRoutingModule } from './page-panel.routing';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: CmsModulesComponent,
-    children: CmsModulesRouting,
-  },
-];
 
 @NgModule({
   declarations: [
+    PagePanelComponent,
     // CmsModulesComponent,
     // AsideComponent,
     // HeaderComponent,
@@ -31,7 +25,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    PagesPanelRoutingModule,
+    //RouterModule.forChild(routes),
     // SharedModule.forRoot(),
     // InlineSVGModule,
     // NgbDropdownModule,
@@ -43,7 +38,7 @@ const routes: Routes = [
     // DropdownMenusModule,
     // NgbTooltipModule,
     // ThemeModeModule,
-    MenusModule,
+    ComponentsModule,
   ],
   exports: [RouterModule],
   providers: [
@@ -51,4 +46,4 @@ const routes: Routes = [
     CoreConfigurationService
   ]
 })
-export class CmsModulesModule { }
+export class PagePanelModule { }

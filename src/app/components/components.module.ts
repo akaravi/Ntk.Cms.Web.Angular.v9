@@ -30,4 +30,4 @@ import { HeaderBarComponent } from './header-bar/header-bar.component';
     FooterBarComponent,
   ]
 })
-export class MenusModule { }
+export class ComponentsModule { }

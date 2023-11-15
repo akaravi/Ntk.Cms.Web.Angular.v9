@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from '../pages/pages.component';
 import { PageIndexComponent } from './page-index/page-index.component';
-import { PagePanelComponent } from './page-panel/page-panel.component';
 import { PageAboutComponent } from './page-about/page-about.component';
-import { MenusModule } from '../menus/menus.module';
+import { ComponentsModule } from 'src/app/components/components.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 
 @NgModule({
@@ -14,12 +14,13 @@ import { MenusModule } from '../menus/menus.module';
     PagesComponent,
     PageIndexComponent,
     PageAboutComponent,
-    PagePanelComponent,
+
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    MenusModule,
+    ComponentsModule,
+    SharedModule.forRoot(),
   ]
 })
 export class PagesModule { }
