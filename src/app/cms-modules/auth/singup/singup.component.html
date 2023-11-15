@@ -1,172 +1,128 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-<h2 mat-dialog-title> </h2>
-<mat-dialog-content>
-  <form (ngSubmit)="onActionSubmit()" #vform="ngForm" class="form form-horizontal">
-    <div class="form-body">
-      <h4 class="form-section mb-8">
-        <i class="ft-user"></i>
-        {{'AUTH.REGISTER.SIGNUP' | translate}}
-      </h4>
-      <h6>
-        {{'AUTH.REGISTER.DESC' | translate}}
-      </h6>
-      <div>
-        <mat-form-field class="ntk-full-width">
-          <mat-label class="form-label"> {{'AUTH.INPUT.FIRSTNAME' | translate}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.name" name="dataModel.name"
-            [disabled]=" !formInfo.buttonSubmittedEnabled" #Name type="text" autocomplete="off"
-            class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
-            placeholder=" {{'AUTH.INPUT.FIRSTNAME' | translate}}" minlength="3" maxlength="50" required />
-          <mat-icon matSuffix *ngIf="dataModel.name" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.name = ''">
-            close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ Name.value.length }} / 50</mat-hint>
-          <mat-error *ngIf="Name.errors?.required">
-            Name is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="ntk-full-width">
-          <mat-label class="form-label"> {{'AUTH.INPUT.LASTNAME' | translate}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.family" name="dataModel.family"
-            [disabled]=" !formInfo.buttonSubmittedEnabled" #Family type="text"
-            class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6" autocomplete="off"
-            placeholder=" {{'AUTH.INPUT.LASTNAME' | translate}}" minlength="3" maxlength="50" required />
-          <mat-icon matSuffix *ngIf="dataModel.family" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.family = ''">
-            close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ Family.value.length }} / 50</mat-hint>
-          <mat-error *ngIf="Family.errors?.required">
-            Family is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="ntk-full-width">
-          <mat-label class="form-label"> {{'AUTH.INPUT.EMAIL' | translate}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.email" name="dataModel.email"
-            [disabled]=" !formInfo.buttonSubmittedEnabled" #Email type="email" autocomplete="off"
-            class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6 input-ltr-center"
-            placeholder=" {{'AUTH.INPUT.EMAIL' | translate}}" minlength="5" maxlength="100" required />
-          <mat-icon matSuffix *ngIf="dataModel.email" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.email = ''">
-            close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ Email.value.length }} / 100</mat-hint>
-          <mat-error *ngIf="Email.errors?.required">
-            Email is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="ntk-full-width">
-          <mat-label class="form-label"> {{'AUTH.INPUT.MOBILE' | translate}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.mobile" name="dataModel.mobile" class="input-Mobile"
-            [disabled]=" !formInfo.buttonSubmittedEnabled" #Mobile type="text" autocomplete="off"
-            class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6 input-ltr-center"
-            placeholder="009891" minlength="0" maxlength="50" />
-          <mat-icon matSuffix *ngIf="dataModel.mobile" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.mobile = ''">
-            close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ Mobile.value.length }} / 15</mat-hint>
-          <mat-error *ngIf="Mobile.errors?.required">
-            Mobile is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="ntk-full-width">
-          <mat-label class="form-label"> {{'AUTH.INPUT.PASSWORD' | translate}}</mat-label>
-          <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="dataModel.password"
-            name="dataModel.password" [disabled]=" !formInfo.buttonSubmittedEnabled" #Password
-            type="{{(PasswordView? 'text':'password')}}"
-            class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6 input-ltr-center"
-            autocomplete="off" placeholder=" {{'AUTH.INPUT.PASSWORD' | translate}}" minlength="3" maxlength="100"
-            required />
-          <mat-icon mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hidePassword">
-            {{hidePassword ? 'visibility_off' : 'visibility'}}
-          </mat-icon>
-          <mat-icon matSuffix *ngIf="dataModel.password" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.password = ''">
-            close</mat-icon>
-          <mat-hint align="end">{{ Password.value.length }} / 50</mat-hint>
-          <mat-error *ngIf="Password.errors?.required">
-            Password is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <mat-icon matSuffix (click)="ActionPasswordGenerator()">mode_edit</mat-icon>
-        <app-password-strength [passwordToCheck]="dataModel.password" (passwordStrength)="passwordValid($event)">
-        </app-password-strength>
-        <mat-form-field class="ntk-full-width">
-          <mat-label class="form-label"> {{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}</mat-label>
-          <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="RePasswordModel"
-            name="RePasswordModel" [disabled]=" !formInfo.buttonSubmittedEnabled" #RePassword type="password"
-            class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6 input-ltr-center"
-            autocomplete="off" placeholder=" {{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}" minlength="3"
-            maxlength="100" required />
-          <mat-icon mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hidePassword">
-            {{hidePassword ? 'visibility_off' : 'visibility'}}
-          </mat-icon>
-          <mat-icon matSuffix *ngIf="RePasswordModel" matSuffix mat-icon-button aria-label="Clear"
-            (click)="RePasswordModel = ''">
-            close</mat-icon>
-          <mat-hint align="end">{{ RePassword.value.length }} / 50</mat-hint>
-          <mat-error *ngIf="RePassword.errors?.required">
-            RePassword is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-          <mat-error *ngIf=" RePassword.value!==Password.value">
-            {{'MESSAGE.Password_and_password_confirmation_are_different' | translate}}
-          </mat-error>
-        </mat-form-field>
-        <!--captchaText Field-->
-        <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
-        <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
-        <mat-form-field class="ntk-full-width">
-          <mat-label class="form-label"> {{'AUTH.INPUT.CAPTCHACODE' | translate}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText"
-            [disabled]=" !formInfo.buttonSubmittedEnabled" #captchaText type="number"
-            class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6 input-ltr-center"
-            autocomplete="off" placeholder=" {{'AUTH.INPUT.CAPTCHACODE' | translate}}" required />
-          <mat-icon matSuffix *ngIf="dataModel.captchaText" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.captchaText = ''">
-            close</mat-icon>
-          <mat-error *ngIf="captchaText.errors?.required">
-            captchaText is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!--begin::Form group-->
-        <div class="form-group">
-          <label class="checkbox mb-0">
-            <input [(ngModel)]="Roulaccespt" name="Roulaccespt" type="checkbox"
-              [disabled]=" !formInfo.buttonSubmittedEnabled" />
-            <a (click)="onRoulaccespt()">
-              {{'AUTH.REGISTER.AGREE_TERMS' | translate}}
-            </a>
-            <span class="mr-2"></span>
-          </label>
-        </div>
-        <!--end::Form group-->
-        <!--begin::Form group-->
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <button type="submit" id="kt_login_signup_submit"
-              [disabled]="!Roulaccespt ||vform.invalid || !formInfo.buttonSubmittedEnabled"
-              class="btn btn-primary font-weight-bolder font-size-h5  col-12" style="margin: 1px;">
-              {{'AUTH.REGISTER.CREATE_AN_ACCOUNT' | translate}}
-            </button>
-          </div>
-          <div class="col-12 col-lg-6">
-            <a routerLink="/auth/singin" type="button" id="kt_login_signup_cancel"
-              class="btn btn-primary font-weight-bolder font-size-h5  col-12" style="margin: 1px;">
-              {{'AUTH.REGISTER.RETURN_TO_LOGIN' | translate}}
-            </a>
-          </div>
-          <ng-container *ngIf="isLoading$ | async">
-            <span class="spinner spinner-primary ml-5"></span>
-          </ng-container>
-        </div>
-        <!--end::Form group-->
-      </div>
+<form (ngSubmit)="onActionSubmit()" #vform="ngForm" class="form form-horizontal">
+  <!--content-->
+  <p class="font-600 color-highlight mb-0">ایجاد حساب</p>
+  <h1 class="font-30">{{'AUTH.REGISTER.SIGNUP' | translate}}</h1>
+  <p>
+    {{'AUTH.REGISTER.DESC' | translate}}
+  </p>
+  <!--name Field-->
+  <div class="input-style no-borders has-icon validate-field mb-4">
+    <i class="fa fa-user"></i>
+    <input type="name" class="form-control validate-name" id="dataModel.name"
+      placeholder="{{'AUTH.INPUT.FIRSTNAME' | translate}}" [(ngModel)]="dataModel.name" name="dataModel.name"
+      [disabled]=" !formInfo.buttonSubmittedEnabled" #Name autocomplete="off" minlength="3" maxlength="50" required>
+    <label for="dataModel.name" class="color-highlight">{{'AUTH.INPUT.FIRSTNAME' | translate}}</label>
+    <i class="fa fa-times disabled invalid color-red-dark"></i>
+    <i class="fa fa-check disabled valid color-green-dark"></i>
+    <em>(ضروری)</em>
+    <mat-error *ngIf="Name.errors?.required">
+      {{'AUTH.INPUT.FIRSTNAME' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+    </mat-error>
+  </div>
+  <!--name Field-->
+  <div class="input-style no-borders has-icon validate-field mb-4">
+    <i class="fa fa-user"></i>
+    <input type="name" class="form-control validate-name" id="dataModel.family"
+      placeholder="{{'AUTH.INPUT.LASTNAME' | translate}}" [(ngModel)]="dataModel.family" name="dataModel.family"
+      [disabled]=" !formInfo.buttonSubmittedEnabled" #family autocomplete="off" minlength="3" maxlength="50" required>
+    <label for="dataModel.family" class="color-highlight">{{'AUTH.INPUT.LASTNAME' | translate}}</label>
+    <i class="fa fa-times disabled invalid color-red-dark"></i>
+    <i class="fa fa-check disabled valid color-green-dark"></i>
+    <em>(ضروری)</em>
+    <mat-error *ngIf="family.errors?.required">
+      {{'AUTH.INPUT.LASTNAME' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+    </mat-error>
+  </div>
+
+  <!--email Field-->
+  <div class="input-style no-borders has-icon validate-field mb-4">
+    <i class="fa fa-at"></i>
+    <input type="email" class="form-control validate-name" id="dataModel.email"
+      placeholder="{{'AUTH.INPUT.EMAIL' | translate}}" [(ngModel)]="dataModel.email" name="dataModel.email"
+      [disabled]=" !formInfo.buttonSubmittedEnabled" #email autocomplete="off" minlength="3" maxlength="50" required>
+    <label for="dataModel.email" class="color-highlight">{{'AUTH.INPUT.EMAIL' | translate}}</label>
+    <i class="fa fa-times disabled invalid color-red-dark"></i>
+    <i class="fa fa-check disabled valid color-green-dark"></i>
+    <em>(ضروری)</em>
+    <mat-error *ngIf="email.errors?.required">
+      {{'AUTH.INPUT.EMAIL' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+    </mat-error>
+  </div>
+
+
+
+  <!--password Field-->
+  <div class="input-style no-borders has-icon validate-field mb-4">
+    <i class="fa fa-lock"></i>
+    <input type="password" class="form-control validate-name" id="dataModel.password"
+      placeholder="{{'AUTH.INPUT.PASSWORD' | translate}}" [(ngModel)]="dataModel.password" name="dataModel.password"
+      [disabled]=" !formInfo.buttonSubmittedEnabled" #password autocomplete="off" minlength="3" maxlength="50" required>
+    <label for="dataModel.password" class="color-highlight">{{'AUTH.INPUT.PASSWORD' | translate}}</label>
+    <i class="fa fa-times disabled invalid color-red-dark"></i>
+    <i class="fa fa-check disabled valid color-green-dark"></i>
+    <em>(ضروری)</em>
+    <mat-error *ngIf="password.errors?.required">
+      {{'AUTH.INPUT.PASSWORD' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+    </mat-error>
+  </div>
+
+
+  <!--RePasswordModel Field-->
+  <div class="input-style no-borders has-icon validate-field mb-4">
+    <i class="fa fa-lock"></i>
+    <input type="password" class="form-control validate-name" id="RePasswordModel"
+      placeholder="{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}" [(ngModel)]="RePasswordModel" name="RePasswordModel"
+      [disabled]=" !formInfo.buttonSubmittedEnabled" #RePassword autocomplete="off" minlength="3" maxlength="50"
+      required>
+    <label for="RePasswordModel" class="color-highlight">{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}</label>
+    <i class="fa fa-times disabled invalid color-red-dark"></i>
+    <i class="fa fa-check disabled valid color-green-dark"></i>
+    <em>(ضروری)</em>
+    <mat-error *ngIf="RePassword.errors?.required">
+      {{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+    </mat-error>
+    <mat-error *ngIf="!RePassword.errors &&RePassword.value!==password.value">
+      {{'MESSAGE.Password_and_password_confirmation_are_different' | translate}}
+    </mat-error>
+  </div>
+  <!--captchaText Field-->
+  <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
+  <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
+  <div class="input-style no-borders has-icon validate-field mb-4">
+    <i class="fa fa-quote-left"></i>
+    <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" id="dataModel.captchaText"
+      [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name"
+      placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off" required>
+    <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' | translate}}</label>
+    <i class="fa fa-times disabled invalid color-red-dark"></i>
+    <i class="fa fa-check disabled valid color-green-dark"></i>
+    <em>(ضروری)</em>
+  </div>
+
+  <button type="submit" [disabled]="!Roulaccespt ||vform.invalid || !formInfo.buttonSubmittedEnabled"
+    style="width: 100%;" class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">
+    {{'AUTH.REGISTER.CREATE_AN_ACCOUNT' | translate}}
+  </button>
+
+  <div class="row pt-3 mb-3">
+    <div class="col-6 text-start">
+      <a href="#" [routerLink]="['/auth/forgot-password']">{{'AUTH.FORGOT.TITLE' |
+        translate}}</a>
     </div>
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions style="text-align: left;">
-</mat-dialog-actions>
+    <div class="col-6 text-end">
+      <a href="#" [routerLink]="['/auth/singin']">{{'AUTH.REGISTER.RETURN_TO_LOGIN' | translate}}</a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <ng-container *ngIf="loadDemoTheme">
+    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
+        class="fab fa-facebook-f text-center"></i>ثبت نام با حساب فیسبوک</a>
+    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
+        class="fab fa-twitter text-center"></i>با توییتر ثبت نام کنید</a>
+    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
+        class="fab fa-apple text-center"></i>با اپل ثبت نام کنید</a>
+  </ng-container>
+  <!--content-->
+</form>

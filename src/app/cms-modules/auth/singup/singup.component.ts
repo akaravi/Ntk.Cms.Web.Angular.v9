@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { SingupRuleComponent } from '../singupRule/singupRule.Component';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-auth-singup',
   templateUrl: './singup.component.html',
@@ -41,6 +42,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
   PasswordView = false;
   loginAuto = false;
   hidePassword = true;
+  loadDemoTheme = environment.loadDemoTheme;
   ngOnInit(): void {
     this.onCaptchaOrder();
   }
