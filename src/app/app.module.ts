@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 import { CmsStoreModule } from './core/reducers/cmsStore.module';
 import { CmsAuthService } from './core/services/cmsAuth.service';
 import { SharedModule } from './shared/shared.module';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 function appInitializer(authService: CmsAuthService) {
