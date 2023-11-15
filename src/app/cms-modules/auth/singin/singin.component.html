@@ -37,6 +37,7 @@
       <i class="fa fa-quote-left"></i>
       <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" id="dataModel.captchaText"
         [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name"
+        minlength="5" maxlength="5"
         placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off" required>
       <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
