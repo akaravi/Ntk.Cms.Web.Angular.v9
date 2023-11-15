@@ -8,6 +8,7 @@ import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-auth-singin',
   templateUrl: './singin.component.html',
@@ -31,6 +32,7 @@ export class AuthSingInComponent implements OnInit {
       this.connectionStatus = value.connectionStatus;
     });
   }
+  loadDemoTheme=environment.loadDemoTheme;
   connectionStatus = new ConnectionStatusModel();
   firstRun = true;
   hidePassword = true;

@@ -10,7 +10,7 @@
     <i class="fa fa-user"></i>
     <input [(ngModel)]="dataModel.email" name="dataModel.email" id="dataModel.email"
       [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name" placeholder="{{'AUTH.INPUT.MOBILE' | translate}} / {{'AUTH.INPUT.EMAIL' |
-    translate}}" autocomplete="off">
+    translate}}" autocomplete="off" required>
     <label for="dataModel.email" class="color-highlight">{{'AUTH.INPUT.MOBILE' | translate}} / {{'AUTH.INPUT.EMAIL' |
       translate}}</label>
     <i class="fa fa-times disabled invalid color-red-dark"></i>
@@ -22,14 +22,14 @@
     <i class="fa fa-lock"></i>
     <input [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="dataModel.password" name="dataModel.password"
       id="dataModel.password" [disabled]=" !formInfo.buttonSubmittedEnabled" #Password type="password"
-      class="form-control validate-password" placeholder="{{'AUTH.INPUT.PASSWORD' | translate}}" autocomplete="off">
+      class="form-control validate-password" placeholder="{{'AUTH.INPUT.PASSWORD' | translate}}" autocomplete="off"
+      required>
     <label for="dataModel.password" class="color-highlight">{{'AUTH.INPUT.PASSWORD' | translate}}</label>
     <i class="fa fa-times disabled invalid color-red-dark"></i>
     <i class="fa fa-check disabled valid color-green-dark"></i>
     <em>(ضروری)</em>
   </div>
   <ng-container *ngIf="!firstRun">
-
     <!--captchaText Field-->
     <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
     <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
@@ -37,7 +37,7 @@
       <i class="fa fa-quote-left"></i>
       <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" id="dataModel.captchaText"
         [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name"
-        placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off">
+        placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off" required>
       <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
       <i class="fa fa-check disabled valid color-green-dark"></i>
@@ -62,12 +62,13 @@
         }}</a>
     </div>
   </div>
-
-  <div class="divider"></div>
-  <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
-      class="fab fa-facebook-f text-center"></i>با فیس بوک وارد شوید</a>
-  <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
-      class="fab fa-twitter text-center"></i>با توییتر وارد شوید</a>
-  <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
-      class="fab fa-apple text-center"></i>با اپل وارد شوید</a>
+  <ng-container *ngIf="loadDemoTheme">
+    <div class="divider"></div>
+    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
+        class="fab fa-facebook-f text-center"></i>با فیس بوک وارد شوید</a>
+    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
+        class="fab fa-twitter text-center"></i>با توییتر وارد شوید</a>
+    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
+        class="fab fa-apple text-center"></i>با اپل وارد شوید</a>
+  </ng-container>
 </form>
