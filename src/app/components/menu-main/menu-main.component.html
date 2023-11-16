@@ -14,18 +14,18 @@
   <div class="mt-4"></div>
   <h6 class="menu-divider">منو</h6>
   <div class="list-group list-custom-small list-menu">
-
-    <a *ngFor="let item of dataModelResult.listItems;" href="index.html">
-      <i class="{{item.icon}} " [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
-      <span>{{item.titleML}}</span>
-      <i class="fa fa-angle-left"></i>
-    </a>
-
     <a id="nav-welcome" href="index.html">
       <i class="fa fa-heart gradient-red color-white"></i>
       <span>خانه</span>
       <i class="fa fa-angle-left"></i>
     </a>
+    <a *ngFor="let item of dataModelResult.listItems;" href="#" (click)="onActionClickMenu(item)">
+      <i class="{{item.icon}} " [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
+      <span>{{item.titleML}}</span>
+      <i class="fa fa-angle-left"></i>
+    </a>
+
+
     <a id="nav-homepages" href="index-homepages.html">
       <i class="fa fa-home gradient-green color-white"></i>
       <span>صفحات اصلی</span>

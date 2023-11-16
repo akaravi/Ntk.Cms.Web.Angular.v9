@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageDashboardComponent } from '../page-dashboard/page-dashboard.component';
+import { PageMenuComponent } from '../page-menu/page-menu.component';
 
 const CmsModulesRouting: Routes = [
 
@@ -217,6 +218,14 @@ const CmsModulesRouting: Routes = [
   {
     path: 'dashboard',
     component: PageDashboardComponent,
+  },
+  {
+    path: 'menu',
+    component: PageMenuComponent,
+  },
+  {
+    path: 'menu/LinkParentId/:LinkParentId',
+    component: PageMenuComponent,
   },
   {
     path: '',

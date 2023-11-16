@@ -1,55 +1,68 @@
 import { I } from '@angular/cdk/keycodes';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreCpMainMenuModel, CoreCpMainMenuService, ErrorExceptionResult, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-menu-main',
-  templateUrl: './menu-main.component.html',
-  styleUrls: ['./menu-main.component.scss']
+  selector: 'app-page-menu',
+  templateUrl: './page-menu.component.html',
+  styleUrls: ['./page-menu.component.scss']
 })
-export class MenuMainComponent implements OnInit {
-
+export class PageMenuComponent implements OnInit {
+  requestLinkParentId = 0;
   constructor(
     public tokenHelper: TokenHelper,
-    public publicHelper: PublicHelper,
-    private cmsToastrService: CmsToastrService,
     private coreCpMainMenuService: CoreCpMainMenuService,
+    private cmsToastrService: CmsToastrService,
     private cmsStoreService: CmsStoreService,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     public translate: TranslateService,
-    private cdr: ChangeDetectorRef,) {
-    this.loading.cdr = this.cdr;
+  ) {
+    this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
-        setTimeout(() => { this.DataGetCpMenu(); }, 1000);
+        setTimeout(() => {
+          const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+          if (storeSnapshot?.CoreCpMainResultStore?.isSuccess && storeSnapshot?.CoreCpMainResultStore?.listItems?.length > 0) {
+            this.dataModelResult = storeSnapshot.CoreCpMainResultStore;
+            this.DataListSelect();
+          } else {
+            this.DataGetCpMenu();
+          }
+        }, 1000);
       }
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
-        setTimeout(() => { this.DataGetCpMenu(); }, 1000);
+        setTimeout(() => {
+          const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+          if (storeSnapshot?.CoreCpMainResultStore?.isSuccess && storeSnapshot?.CoreCpMainResultStore?.listItems?.length > 0) {
+            this.dataModelResult = storeSnapshot.CoreCpMainResultStore;
+            this.DataListSelect();
+          } else {
+            this.DataGetCpMenu();
+          }
+        }, 1000);
       }
     });
   }
-  appAngularVersion: string = environment.appVersion;
-  appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
-
-  loadDemoTheme = environment.loadDemoTheme;
-  tokenInfo = new TokenInfoModel();
-  cmsApiStoreSubscribe: Subscription;
   loading = new ProgressSpinnerModel();
+  cmsApiStoreSubscribe: Subscription;
+  tokenInfo = new TokenInfoModel();
   dataModelResult: ErrorExceptionResult<CoreCpMainMenuModel> = new ErrorExceptionResult<CoreCpMainMenuModel>();
-  ngOnInit(): void { }
+  dataListResult: CoreCpMainMenuModel[] = [];
+  ngOnInit(): void {
+
+  }
   ngOnDestroy() {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
@@ -61,10 +74,10 @@ export class MenuMainComponent implements OnInit {
 
         if (ret.isSuccess) {
           this.dataModelResult = ret;
-          this.cmsStoreService.setState({ CoreCpMainResultStore: ret });
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
+        this.DataListSelect();
         this.loading.Stop(pName);
       },
       error: (er) => {
@@ -73,6 +86,17 @@ export class MenuMainComponent implements OnInit {
       }
     }
     );
+  }
+  DataListSelect() {
+
+    this.dataListResult = [];
+    if (!this.requestLinkParentId || this.requestLinkParentId === 0) {
+      this.dataListResult = this.dataModelResult.listItems;
+      return;
+    }
+    var findRow = this.dataModelResult.listItems.filter(x => x.id === this.requestLinkParentId);
+    if (findRow && findRow.length > 0 && findRow[0].children && findRow[0].children.length > 0)
+      this.dataListResult = findRow[0].children;
   }
   onActionClickMenu(item: CoreCpMainMenuModel) {
     if (!item)
@@ -86,5 +110,4 @@ export class MenuMainComponent implements OnInit {
       return;
     }
   }
-
 }
