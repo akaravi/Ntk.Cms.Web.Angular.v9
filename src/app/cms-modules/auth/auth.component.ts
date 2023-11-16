@@ -5,6 +5,7 @@ import { CoreConfigurationService } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-auth',
@@ -26,7 +27,7 @@ export class AuthComponent implements OnInit {
 
   showSplashModel = true;
   ngOnInit(): void {
-    if (window.innerWidth < 860) {
+    if (window.innerWidth < environment.cmsViewConfig.mobileWindowInnerWidth) {
       setTimeout(() => {
         this.showSplashModel = false;
         this.cdr.markForCheck();
