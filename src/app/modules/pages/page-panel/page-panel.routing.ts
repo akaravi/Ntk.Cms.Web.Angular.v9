@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageDashboardComponent } from '../page-dashboard/page-dashboard.component';
+import { PageMenuComponent } from '../page-menu/page-menu.component';
 
 const CmsModulesRouting: Routes = [
 
@@ -213,18 +215,29 @@ const CmsModulesRouting: Routes = [
       ),
   },
   // ** cms */
-  // {
-  //   path: '',
-  //   redirectTo: '/dashboard',
-  //   pathMatch: 'full',
-  // },
+  {
+    path: 'dashboard',
+    component: PageDashboardComponent,
+  },
+  {
+    path: 'menu',
+    component: PageMenuComponent,
+  },
+  {
+    path: 'menu/LinkParentId/:LinkParentId',
+    component: PageMenuComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full',
+  },
   {
     path: '**',
     redirectTo: 'error/404',
   },
 ];
 
-//export { CmsModulesRouting };
 @NgModule({
   imports: [RouterModule.forChild(CmsModulesRouting)],
   exports: [RouterModule],

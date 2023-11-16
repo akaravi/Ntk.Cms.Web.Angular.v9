@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreConfigurationService, CoreCpMainMenuService } from 'ntk-cms-api';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { PageDashboardComponent } from '../page-dashboard/page-dashboard.component';
+import { PageMenuComponent } from '../page-menu/page-menu.component';
 import { PagePanelComponent } from './page-panel.component';
 import { PagesPanelRoutingModule } from './page-panel.routing';
 
@@ -10,6 +12,8 @@ import { PagesPanelRoutingModule } from './page-panel.routing';
 @NgModule({
   declarations: [
     PagePanelComponent,
+    PageDashboardComponent,
+    PageMenuComponent
     // CmsModulesComponent,
     // AsideComponent,
     // HeaderComponent,

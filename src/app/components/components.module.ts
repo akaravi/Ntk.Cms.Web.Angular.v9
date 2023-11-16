@@ -7,6 +7,7 @@ import { MenuFooterComponent } from './menu-footer/menu-footer.component';
 import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { CoreCpMainMenuService } from 'ntk-cms-api';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -21,6 +22,7 @@ import { CoreCpMainMenuService } from 'ntk-cms-api';
   ],
   imports: [
     CommonModule,
+    RouterModule,
   ],
   exports: [
     MenuMainComponent,
@@ -30,7 +32,7 @@ import { CoreCpMainMenuService } from 'ntk-cms-api';
     HeaderBarComponent,
     FooterBarComponent,
   ],
-  providers:[
+  providers: [
     CoreCpMainMenuService
   ]
 })

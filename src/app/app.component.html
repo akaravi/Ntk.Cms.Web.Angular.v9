@@ -55,3 +55,6 @@
 
 <!-- Colors Menu-->
 <app-menu-colors></app-menu-colors>
+<div
+  *ngIf="dataSupportModelResult && dataSupportModelResult.isSuccess && dataSupportModelResult.item.supportHtmlBody?.length>0 "
+  [innerHtml]="dataSupportModelResult.item.supportHtmlBody | safeHtml" runScripts></div>
