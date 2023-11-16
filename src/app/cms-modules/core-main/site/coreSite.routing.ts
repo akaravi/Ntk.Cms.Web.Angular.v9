@@ -11,6 +11,7 @@ import { CoreSiteModuleListComponent } from './moduleList/moduleList.component';
 import { CoreSiteResellerChartComponent } from './reseller-chart/reseller-chart.component';
 import { CoreSiteSelectionComponent } from './selection/selection.component';
 import { CoreSiteUserListComponent } from './userList/userList.component';
+import { CmsAuthSiteGuard } from 'src/app/core/services/cmsAuthSiteGuard.service';
 
 const routes: Routes = [
   {
@@ -22,10 +23,12 @@ const routes: Routes = [
       },
       {
         path: 'list/LinkUserId/:LinkUserId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteListComponent
       },
       {
         path: 'list/LinkSiteCategoryId/:LinkSiteCategoryId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteListComponent
       },
       {
@@ -38,57 +41,70 @@ const routes: Routes = [
       },
       {
         path: 'add',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteAddComponent
       },
       {
         path: 'edit',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteEditComponent
       },
       {
         path: 'edit/:Id',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteEditComponent
       },
       /** modulelist */
       {
         path: 'modulelist',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteModuleListComponent
       },
       {
         path: 'modulelist/LinkSiteId/:LinkSiteId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteModuleListComponent
       },
       {
         path: 'modulelist/LinkModuleId/:LinkModuleId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteModuleListComponent
       },
       /** modulelist */
       {
         path: 'moduleadd/:LinkSiteId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteModuleAddComponent
       },
       {
         path: 'moduleadd/:LinkSiteId/:LinkModuleId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteModuleAddComponent
       },
       {
         path: 'moduleedit/:LinkSiteId/:LinkModuleId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteModuleEditComponent
       },
       /** userlist */
       {
         path: 'userlist',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteUserListComponent
       },
       {
         path: 'userlist/LinkSiteId/:LinkSiteId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteUserListComponent
       },
       {
         path: 'userlist/LinkUserGroupId/:LinkUserGroupId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteUserListComponent
       },
       {
         path: 'userlist/LinkUserId/:LinkUserId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteUserListComponent
       },
       /** userlist */

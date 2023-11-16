@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreComponent } from './core.component';
+import { CmsAuthSiteGuard } from 'src/app/core/services/cmsAuthSiteGuard.service';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
       /* Config */
       {
         path: 'config',
+         canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./config/core-config.module').then((m) => m.CoreConfigModule),
         data: { title: 'ROUTE.CORE' },
@@ -19,6 +21,7 @@ const routes: Routes = [
       /* Config */
       {
         path: 'action',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./action/core-main-action.module').then((m) => m.CoreMainActionModule),
         data: { title: 'ROUTE.CORE.ACTION' },
@@ -31,6 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'usergroup',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./user-group/coreUserGroup.module').then(
             (m) => m.CoreUserGroupCmsModule
@@ -39,6 +43,7 @@ const routes: Routes = [
       },
       {
         path: 'user-support-access',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./user-support-access/core-user-support-access.module').then(
             (m) => m.CoreUserSupportAccessCmsModule
@@ -47,6 +52,7 @@ const routes: Routes = [
       },
       {
         path: 'currency',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./currency/coreCurrency.module').then(
             (m) => m.CoreCurrencyCmsModule
@@ -60,6 +66,7 @@ const routes: Routes = [
       },
       {
         path: 'sitecategory',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./site-category/coreSiteCategory.module').then(
             (m) => m.CoreSiteCategoryCmsModule
@@ -68,6 +75,7 @@ const routes: Routes = [
       },
       {
         path: 'sitecategorymodule',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import(
             './site-category-module/coreSiteCategoryCmsModule.module'
@@ -76,6 +84,7 @@ const routes: Routes = [
       },
       {
         path: 'sitedomainalias',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./site-domain-alias/coreSiteDomainAlias.module').then(
             (m) => m.CoreSiteDomainAliasModule
@@ -84,6 +93,7 @@ const routes: Routes = [
       },
       {
         path: 'cpmainmenu',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./cp-main-menu/coreCpMainMenu.module').then(
             (m) => m.CoreCpMainMenu
@@ -92,12 +102,14 @@ const routes: Routes = [
       },
       {
         path: 'module',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./module/coreModule.module').then((m) => m.CoreModuleModule),
         data: { title: 'ROUTE.CORE.MODULE' },
       },
       {
         path: 'module-entity',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./module-entity/core-module-entity.module').then(
             (m) => m.CoreModuleEntityModule
@@ -106,6 +118,7 @@ const routes: Routes = [
       },
       {
         path: 'module-entity-report-file',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import(
             './module-entity-report-file/core-module-entity-report-file.module'
@@ -114,6 +127,7 @@ const routes: Routes = [
       },
       {
         path: 'modulesale',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./module-sale/core-module-sale.module').then(
             (m) => m.CoreModuleSaleModule
@@ -122,6 +136,7 @@ const routes: Routes = [
       },
       {
         path: 'userclaim',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./user-claim/core-user-claim.module').then(
             (m) => m.CoreUserClaimModule
@@ -130,6 +145,7 @@ const routes: Routes = [
       },
       {
         path: 'location',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./location/coreLocation.module').then(
             (m) => m.CoreLocationCmsModule
@@ -138,6 +154,7 @@ const routes: Routes = [
       },
       {
         path: 'device',
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./device/coreDevice.module').then((m) => m.CoreDeviceModule),
         data: { title: 'ROUTE.CORE.DEVICE' },

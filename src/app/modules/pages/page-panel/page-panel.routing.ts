@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageDashboardComponent } from '../page-dashboard/page-dashboard.component';
 import { PageMenuComponent } from '../page-menu/page-menu.component';
+import { CmsAuthSiteGuard } from 'src/app/core/services/cmsAuthSiteGuard.service';
 
 const CmsModulesRouting: Routes = [
 
@@ -14,6 +15,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'coremodule',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/core-module/coreModule.module').then(
         (m) => m.CoreModuleModule
@@ -22,6 +24,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'coremodulelog',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/core-module-log/core-module-log.module').then(
         (m) => m.CoreModuleLogModule
@@ -29,6 +32,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'coremoduledata',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/core-module-data/core-module-data.module').then(
         (m) => m.CoreModuleDataModule
@@ -36,6 +40,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'coretoken',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/core-token/core-token.module').then(
         (m) => m.CoreTokenModule
@@ -43,6 +48,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'corelog',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/core-log/coreLog.module').then(
         (m) => m.CoreLogModule
@@ -50,6 +56,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'estate',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/estate/estate.module').then((m) => m.EstateModule),
     data: { title: 'ROUTE.ESTATE' },
@@ -57,6 +64,7 @@ const CmsModulesRouting: Routes = [
 
   {
     path: 'member',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/member/member.module').then((m) => m.MemberModule),
     data: { title: 'ROUTE.MEMBER' },
@@ -64,6 +72,7 @@ const CmsModulesRouting: Routes = [
 
   {
     path: 'application',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/application/application.module').then(
         (m) => m.ApplicationModule
@@ -72,6 +81,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'apitelegram',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/api-telegram/api-telegram.module').then(
         (m) => m.ApiTelegramModule
@@ -80,6 +90,7 @@ const CmsModulesRouting: Routes = [
 
   {
     path: 'article',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/article/article.module').then(
         (m) => m.ArticleModule
@@ -88,6 +99,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'bankpayment',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/bank-payment/bank-payment.module').then(
         (m) => m.BankPaymentModule
@@ -95,6 +107,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'biography',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/biography/biography.module').then(
         (m) => m.BiographyModule
@@ -102,11 +115,13 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'blog',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/blog/blog.module').then((m) => m.BlogModule),
   },
   {
     path: 'catalog',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/catalog/catalog.module').then(
         (m) => m.CatalogModule
@@ -114,6 +129,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'hypershop',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/hyper-shop/hyper-shop.module').then(
         (m) => m.HyperShopModule
@@ -129,17 +145,20 @@ const CmsModulesRouting: Routes = [
 
   {
     path: 'news',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/news/news.module').then((m) => m.NewsModule),
   },
 
   {
     path: 'chart',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/chart/chart.module').then((m) => m.ChartModule),
   },
   {
     path: 'filemanager',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/file-manager/file-manager.module').then(
         (m) => m.FileManagerModule
@@ -148,6 +167,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'polling',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/polling/polling.module').then(
         (m) => m.PollingModule
@@ -155,6 +175,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'contact',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/contact/contact.module').then(
         (m) => m.ContactModule
@@ -162,11 +183,13 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'sms',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/sms/sms.module').then((m) => m.SmsModule),
   },
   {
     path: 'ticketing',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/ticketing/ticketing.module').then(
         (m) => m.TicketingModule
@@ -175,6 +198,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'universalmenu',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/universal-menu/universal-menu.module').then(
         (m) => m.UniversalMenuModule
@@ -182,6 +206,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'webdesigner',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/web-designer/web-designer.module').then(
         (m) => m.WebDesignerModule
@@ -189,6 +214,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'web-designer-builder',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import(
         '../../../cms-modules/web-designer-builder/web-designer-builder.module'
@@ -202,6 +228,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'data-provider',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/data-provider/data-provider.module').then(
         (m) => m.DataProviderModule
@@ -209,6 +236,7 @@ const CmsModulesRouting: Routes = [
   },
   {
     path: 'api-telegram',
+    canActivate: [CmsAuthSiteGuard],
     loadChildren: () =>
       import('../../../cms-modules/api-telegram/api-telegram.module').then(
         (m) => m.ApiTelegramModule
@@ -217,14 +245,17 @@ const CmsModulesRouting: Routes = [
   // ** cms */
   {
     path: 'dashboard',
+    canActivate: [CmsAuthSiteGuard],
     component: PageDashboardComponent,
   },
   {
     path: 'menu',
+    canActivate: [CmsAuthSiteGuard],
     component: PageMenuComponent,
   },
   {
     path: 'menu/LinkParentId/:LinkParentId',
+    canActivate: [CmsAuthSiteGuard],
     component: PageMenuComponent,
   },
   {
