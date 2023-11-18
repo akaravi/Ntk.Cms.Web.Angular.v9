@@ -272,7 +272,142 @@
         </app-cms-currency-selector>
 
 
+        <!-- SalePriceMin Field -->
+        <div *ngIf="fieldsInfo['salePriceMin']?.accessWatchField && contractTypeSelected?.hasSalePrice"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.salePriceMin" class="color-highlight">{{contractTypeSelected.titleSalePriceML}} {{'TITLE.Minimum' | translate}}</label>
+        <input matInput [(ngModel)]="dataModel.salePriceMin" name="dataModel.salePriceMin" #SalePriceMin type="text" currencyMask
+        [disabled]="!fieldsInfo['salePriceMin']?.accessEditField"  placeholder="{{fieldsInfo['salePriceMin']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.salePriceMin">
+        <i class="fa fa-times disabled invalid color-red-dark"></i>
+        <i class="fa fa-check disabled valid color-green-dark"></i>
+        <em></em>
+        </div>
 
+         <!-- RentPriceMin Field -->
+       <div *ngIf="fieldsInfo['rentPriceMin']?.accessWatchField && contractTypeSelected?.hasRentPrice"
+       class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+       <label for="dataModel.rentPriceMin" class="color-highlight">{{contractTypeSelected.titleRentPriceML}} {{'TITLE.Minimum' | translate}}</label>
+       <input matInput [(ngModel)]="dataModel.rentPriceMin" name="dataModel.rentPriceMin" #RentPriceMin type="text" currencyMask
+       [disabled]="!fieldsInfo['rentPriceMin']?.accessEditField"  placeholder="{{fieldsInfo['rentPriceMin']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.rentPriceMin">
+       <i class="fa fa-times disabled invalid color-red-dark"></i>
+       <i class="fa fa-check disabled valid color-green-dark"></i>
+       <em></em>
+       </div>
+
+         <!-- DepositPriceMin Field -->
+         <div *ngIf="fieldsInfo['depositPriceMin']?.accessWatchField && contractTypeSelected?.hasDepositPrice"
+       class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+       <label for="dataModel.depositPriceMin" class="color-highlight"> {{contractTypeSelected.titleDepositPriceML}} {{'TITLE.Minimum' | translate}}</label>
+       <input matInput [(ngModel)]="dataModel.depositPriceMin" name="dataModel.depositPriceMin" #DepositPriceMin type="text" currencyMask
+       [disabled]="!fieldsInfo['depositPriceMin']?.accessEditField"  placeholder="{{fieldsInfo['depositPriceMin']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.depositPriceMin">
+       <i class="fa fa-times disabled invalid color-red-dark"></i>
+       <i class="fa fa-check disabled valid color-green-dark"></i>
+       <em></em>
+         </div>
+
+         <!-- PeriodPriceMin Field -->
+         <div *ngIf="fieldsInfo['periodPriceMin']?.accessWatchField && contractTypeSelected?.hasDepositPrice"
+         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+         <label for="dataModel.periodPriceMin" class="color-highlight">   {{contractTypeSelected.titlePeriodPriceML}} {{'TITLE.Minimum' |
+          translate}}</label>
+         <input matInput [(ngModel)]="dataModel.periodPriceMin" name="dataModel.periodPriceMin" #PeriodPriceMin type="text" currencyMask
+         [disabled]="!fieldsInfo['periodPriceMin']?.accessEditField"  placeholder="{{fieldsInfo['periodPriceMin']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.periodPriceMin">
+         <i class="fa fa-times disabled invalid color-red-dark"></i>
+         <i class="fa fa-check disabled valid color-green-dark"></i>
+         <em></em>
+         </div>
+
+
+       <!-- SalePriceMax Field -->
+       <div *ngIf="fieldsInfo['salePriceMax']?.accessWatchField && contractTypeSelected?.hasSalePrice"
+       class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+       <label for="dataModel.salePriceMax" class="color-highlight">{{contractTypeSelected.titleSalePriceML}} {{'TITLE.Maximum' | translate}}</label>
+       <input matInput [(ngModel)]="dataModel.salePriceMax" name="dataModel.salePriceMax" #SalePriceMax type="text" currencyMask
+       [disabled]="!fieldsInfo['salePriceMax']?.accessEditField"  placeholder="{{fieldsInfo['salePriceMax']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.salePriceMax">
+       <i class="fa fa-times disabled invalid color-red-dark"></i>
+       <i class="fa fa-check disabled valid color-green-dark"></i>
+       <em></em>
+       </div>
+
+       <!-- RentPriceMax Field -->
+       <div *ngIf="fieldsInfo['rentPriceMax']?.accessWatchField && contractTypeSelected?.hasRentPrice"
+       class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+       <label for="dataModel.rentPriceMax" class="color-highlight"> {{contractTypeSelected.titleRentPriceML}} {{'TITLE.Maximum' |
+        translate}}</label>
+       <input matInput [(ngModel)]="dataModel.rentPriceMax" name="dataModel.rentPriceMax" #RentPriceMax type="text" currencyMask
+       [disabled]="!fieldsInfo['rentPriceMax']?.accessEditField"  placeholder="{{fieldsInfo['rentPriceMax']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.rentPriceMax">
+       <i class="fa fa-times disabled invalid color-red-dark"></i>
+       <i class="fa fa-check disabled valid color-green-dark"></i>
+       <em></em>
+       </div>
+
+       <!-- DepositPriceMax Field -->
+       <div *ngIf="fieldsInfo['depositPriceMax']?.accessWatchField && contractTypeSelected?.hasDepositPrice"
+     class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+     <label for="dataModel.depositPriceMax" class="color-highlight"> {{contractTypeSelected.titleDepositPriceML}} {{'TITLE.Maximum' |
+      translate}}</label>
+     <input matInput [(ngModel)]="dataModel.depositPriceMax" name="dataModel.depositPriceMax" #DepositPriceMax type="text" currencyMask
+     [disabled]="!fieldsInfo['depositPriceMax']?.accessEditField"  placeholder="{{fieldsInfo['depositPriceMax']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.depositPriceMax">
+     <i class="fa fa-times disabled invalid color-red-dark"></i>
+     <i class="fa fa-check disabled valid color-green-dark"></i>
+     <em></em>
+       </div>
+
+       <!-- PeriodPriceMax Field -->
+       <div *ngIf="fieldsInfo['periodPriceMax']?.accessWatchField && contractTypeSelected?.hasDepositPrice"
+   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+   <label for="dataModel.periodPriceMax" class="color-highlight"> {{contractTypeSelected.titlePeriodPriceML}} {{'TITLE.Maximum' |
+    translate}}</label>
+   <input matInput [(ngModel)]="dataModel.periodPriceMax" name="dataModel.periodPriceMax" #PeriodPriceMax type="text" currencyMask
+   [disabled]="!fieldsInfo['periodPriceMax']?.accessEditField"  placeholder="{{fieldsInfo['periodPriceMax']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.periodPriceMax">
+   <i class="fa fa-times disabled invalid color-red-dark"></i>
+   <i class="fa fa-check disabled valid color-green-dark"></i>
+   <em></em>
+       </div>
+
+
+      <!-- CreatedYaer Field -->
+      <div *ngIf="this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected?.titleCreatedYaer?.length>1"
+   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+   <label for="dataModel.createdYaer" class="color-highlight"> {{PropertyTypeSelected.titleCreatedYaer}}</label>
+   <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer type="number" placeholder="{{fieldsInfo['createdYaer']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.createdYaer">
+   <i class="fa fa-times disabled invalid color-red-dark"></i>
+   <i class="fa fa-check disabled valid color-green-dark"></i>
+   <em></em>
+       </div>
+
+       <!-- Partition Field -->
+       <div *ngIf="this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected?.titlePartition?.length>1"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.partition" class="color-highlight">{{PropertyTypeSelected.titlePartition}}</label>
+        <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"placeholder="{{PropertyTypeSelected.titlePartition}}" class="input-ltr-center form-control validate-name" id="dataModel.partition">
+        <i class="fa fa-times disabled invalid color-red-dark"></i>
+        <i class="fa fa-check disabled valid color-green-dark"></i>
+        <em></em>
+            </div>
+
+            <!-- Area Field -->
+            <div *ngIf="fieldsInfo['area']?.accessWatchField"
+              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataModel.area" class="color-highlight">{{fieldsInfo['area']?.fieldTitle}}</label>
+              <input matInput [(ngModel)]="dataModel.area" name="dataModel.partition" #Area type="text" currencyMask
+              disabled="{{!fieldsInfo['area']?.accessEditField}}" placeholder="{{fieldsInfo['area']?.fieldTitle}}" class="input-ltr-center form-control validate-name" id="dataModel.area">
+              <i class="fa fa-times disabled invalid color-red-dark"></i>
+              <i class="fa fa-check disabled valid color-green-dark"></i>
+              <em></em>
+                  </div>
+
+
+
+
+
+
+      
+
+          
+          
+                 
+            
 
 
 
