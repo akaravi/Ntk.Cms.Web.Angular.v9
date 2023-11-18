@@ -17,7 +17,7 @@ export class FloatComponent implements OnInit {
   @Input() optionValueMax: number = null;
   @Input() optionRequired = false;
   @Input() optionDisabled = false;
-  @Input() optionTitle = '';
+  @Input() optionLabel = '';
   @Input() optionPlaceholder = '';
 
 

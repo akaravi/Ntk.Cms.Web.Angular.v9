@@ -42,10 +42,11 @@ export class EstateCustomerCategorySelectorComponent implements OnInit, OnDestro
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
-  @Input() optionTitle = '';
+  @Input() optionLabel = '';
+  @Input() optionRequired = false;
   @Output() optionChange = new EventEmitter<EstateCustomerCategoryModel>();
   @Input() optionTypeView = 1;
-  @Input() optionRequired = false;
+
   typeUsageId = '';
   @Input() optionReload = () => this.onActionReload();
   cmsApiStoreSubscribe: Subscription;
@@ -62,8 +63,8 @@ export class EstateCustomerCategorySelectorComponent implements OnInit, OnDestro
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
       this.loadOptions();
     });
-    if (!this.optionTitle || this.optionTitle.length == 0 && this.optionPlaceholder?.length > 0)
-      this.optionTitle = this.optionPlaceholder;
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

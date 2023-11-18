@@ -15,7 +15,7 @@ export class TextAreaComponent implements OnInit {
   @Output() modelChange: EventEmitter<string> = new EventEmitter<string>();
   @Input() optionRequired = false;
   @Input() optionDisabled = false;
-  @Input() optionTitle = '';
+  @Input() optionLabel = '';
   @Input() optionPlaceholder = '';
 
   private privateModelDate = '';

@@ -15,7 +15,6 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-account-agency-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
 })
 export class EstateAccountAgencySelectorComponent implements OnInit {
 
@@ -36,6 +35,8 @@ export class EstateAccountAgencySelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
+  @Input() optionRequired = false;
   @Output() optionChange = new EventEmitter<EstateAccountAgencyModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | EstateAccountAgencyModel) {
@@ -58,6 +59,8 @@ export class EstateAccountAgencySelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+    this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

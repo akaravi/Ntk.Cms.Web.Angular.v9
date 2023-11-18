@@ -588,7 +588,7 @@
                       itemDetail.configValueForceUseDefaultValue
                     " [optionMultipleChoice]="
                       itemDetail.configValueMultipleChoice
-                    " [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionTitle]="itemDetail.title"
+                    " [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionLabel]="itemDetail.title"
                                         style="color:'{{ itemDetail.iconColor }}';"></app-input-string>
                                 </div>
                                 <!-- ngSwitchCase-->
@@ -596,7 +596,7 @@
                                     <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                                         aria-hidden="true"></i>&nbsp;&nbsp;
                                     <app-input-int [(model)]="propertyDetails[itemDetail.id]"
-                                        [optionTitle]="itemDetail.title"
+                                        [optionLabel]="itemDetail.title"
                                         style="color:'{{ itemDetail.iconColor }}';"></app-input-int>
                                 </div>
                                 <!-- ngSwitchCase-->
@@ -612,7 +612,7 @@
                                     <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                                         aria-hidden="true"></i>&nbsp;&nbsp;
                                     <app-input-float [(model)]="propertyDetails[itemDetail.id]"
-                                        [optionTitle]="itemDetail.title"
+                                        [optionLabel]="itemDetail.title"
                                         style="color:'{{ itemDetail.iconColor }}';"></app-input-float>
                                 </div>
                                 <!-- ngSwitchCase-->
@@ -629,7 +629,7 @@
                                     <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                                         aria-hidden="true"></i>&nbsp;&nbsp;
                                     <app-input-textarea [(model)]="propertyDetails[itemDetail.id]"
-                                        [optionTitle]="itemDetail.title"
+                                        [optionLabel]="itemDetail.title"
                                         style="color:'{{ itemDetail.iconColor }}';"></app-input-textarea>
                                 </div>
                                 <!-- ngSwitchCase-->
@@ -637,7 +637,7 @@
                                     <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                                         aria-hidden="true"></i>&nbsp;&nbsp;
                                     <app-input-string [(model)]="propertyDetails[itemDetail.id]"
-                                        [optionTitle]="itemDetail.title"
+                                        [optionLabel]="itemDetail.title"
                                         style="color:'{{ itemDetail.iconColor }}';"></app-input-string>
                                 </div>
                             </ng-container>

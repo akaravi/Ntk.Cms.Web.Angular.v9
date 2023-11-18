@@ -15,7 +15,6 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-account-user-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
 })
 export class EstateAccountUserSelectorComponent implements OnInit {
 
@@ -36,6 +35,8 @@ export class EstateAccountUserSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
+  @Input() optionRequired = false;
   @Output() optionChange = new EventEmitter<EstateAccountUserModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | number | EstateAccountUserModel) {
@@ -52,6 +53,8 @@ export class EstateAccountUserSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+    this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

@@ -19,18 +19,18 @@ export class CmsViewComponent implements OnInit, OnDestroy {
       this.optionMethod = data.optionMethod;
       this.optionListItems = data.optionListItems;
       this.optionItem = data.optionItem;
-      this.optionTitle = data.optionTitle;
+      this.optionLabel = data.optionLabel;
     }
   }
   @Input() optionMethod = 1;
   @Input() optionListItems: any[];
   @Input() optionItem: any;
-  @Input() optionTitle: "";
+  @Input() optionLabel: "";
   ngOnInit(): void {
   }
   ngOnDestroy(): void {
 
   }
-  
+
 }
 

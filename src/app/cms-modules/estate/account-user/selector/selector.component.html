@@ -1,16 +1,24 @@
-<mat-form-field class="ntk-full-width">
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="input-style has-borders has-icon  input-style-always-active validate-field mb-4">
+  <span matPrefix><img class="ntk-hover-zoom" *ngIf="dataModelSelect && dataModelSelect?.linkMainImageIdSrc"
+      style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden
+      src="{{dataModelSelect?.linkMainImageIdSrc | cmsthumbnail}}" height="25" width="25" /> &nbsp;</span>
 
-    <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null"
-        aria-label="Assignee" matInput [formControl]="formControl" [matAutocomplete]="matauto">
-    <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayFn"
-        (optionSelected)="onActionSelect($event.option.value)">
-        <mat-option *ngFor="let state of filteredOptions | async" [value]="state" [disabled]="optionDisabled">
-            <img *ngIf="state.linkMainImageIdSrc" style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden
-                src="{{state.linkMainImageIdSrc | cmsthumbnail}}" height="25" width="25" />
-            <span>{{ displayOption(state) }}</span>
-        </mat-option>
-    </mat-autocomplete>
-    <mat-icon matSuffix *ngIf="dataModelSelect?.id" matSuffix mat-icon-button aria-label="Clear"
-        (click)="onActionSelectClear()">close</mat-icon>
-    <ng-content></ng-content>
-</mat-form-field>
+  <i class="fa fa-user"></i>
+  <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null"
+    aria-label="Assignee" matInput [formControl]="formControl" [matAutocomplete]="matauto" id="forminput"
+    [required]="optionRequired">
+  <label for="forminput" class="color-highlight">{{optionLabel}}</label>
+  <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayFn"
+    (optionSelected)="onActionSelect($event.option.value)">
+    <mat-option *ngFor="let state of filteredOptions | async" [value]="state" [disabled]="optionDisabled">
+      <img *ngIf="state.linkMainImageIdSrc" style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden
+        src="{{state.linkMainImageIdSrc | cmsthumbnail}}" height="25" width="25" />
+      <span>{{ displayOption(state) }}</span>
+    </mat-option>
+  </mat-autocomplete>
+  <i *ngIf="!formControl.valid" class="fa fa-times  invalid color-red-dark" (click)="onActionSelectClear()"></i>
+  <i *ngIf="formControl.valid" class="fa fa-check  valid color-green-dark" (click)="onActionSelectClear()"></i>
+  <em *ngIf="optionRequired">(ضروری)</em>
+  <ng-content></ng-content>
+</div>

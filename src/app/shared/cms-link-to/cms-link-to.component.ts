@@ -32,7 +32,7 @@ export class CmsLinkToComponent implements OnInit {
     private publicHelper: PublicHelper,
   ) {
     if (data) {
-      this.optionTitle = data.title;
+      this.optionLabel = data.title;
       this.optionurlViewContentQRCodeBase64 = data.urlViewContentQRCodeBase64;
       this.optionurlViewContent = data.urlViewContent;
     }
@@ -46,13 +46,13 @@ export class CmsLinkToComponent implements OnInit {
 
   @ViewChild('Message') message: ElementRef;
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  @Input() optionTitle = '';
+  @Input() optionLabel = '';
   @Input() optionurlViewContentQRCodeBase64 = '';
   @Input() optionurlViewContent = '';
   QDocModel: any = {};
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
-    this.dataModel.message = `${this.optionTitle}
+    this.dataModel.message = `${this.optionLabel}
     ${this.optionurlViewContent}`;
 
     this.tokenHelper.getCurrentToken().then((value) => {

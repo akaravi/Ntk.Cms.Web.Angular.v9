@@ -1,13 +1,13 @@
 <ng-container *ngIf="!optionDefaultValue || optionDefaultValue.length===0">
   <mat-form-field class="ntk-full-width">
-    <mat-label>{{optionTitle}}</mat-label>
+    <mat-label>{{optionLabel}}</mat-label>
     <input matInput [(ngModel)]="modelDate" name="string" #string type="text" placeholder="{{optionPlaceholder}}"
       [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}" [required]="optionRequired" />
     <mat-icon matSuffix>mode_edit</mat-icon>
   </mat-form-field>
 </ng-container>
 <ng-container *ngIf="optionDefaultValue && optionDefaultValue.length>0">
-  <label style="color:'{{optionIconColor}}';">{{optionTitle}} :</label>
+  <label style="color:'{{optionIconColor}}';">{{optionLabel}} :</label>
   <br>
   <ng-container *ngIf="!optionMultipleChoice">
     <mat-radio-group [(ngModel)]="modelDate">

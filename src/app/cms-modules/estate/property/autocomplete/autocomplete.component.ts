@@ -36,6 +36,7 @@ export class EstatePropertyCompleteComponent implements OnInit {
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @Input() optionPlaceholder = '+ Tag';
   @Input() optionLabel = " Select"
+  @Input() optionRequired = false;
   @Output() optionChange = new EventEmitter<string[]>();
   @Input() set optionSelectForce(x: string[]) {
     this.onActionSelectForce(x);

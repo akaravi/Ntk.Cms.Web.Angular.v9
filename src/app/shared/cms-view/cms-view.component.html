@@ -1,15 +1,15 @@
 <div class="ntk-cms-html-card-header">
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ optionTitle }}
+  {{ optionLabel }}
   <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
 </div>
 <div class="ntk-cms-html-card-body">
 
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
-<div *ngIf="optionItem">
-  <app-cms-json-list [dataModel]="optionItem" [optionMethod]="1"></app-cms-json-list>
-</div>
+  <div *ngIf="optionItem">
+    <app-cms-json-list [dataModel]="optionItem" [optionMethod]="1"></app-cms-json-list>
+  </div>
   <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
 </div>
 <div class="ntk-cms-html-card-message">

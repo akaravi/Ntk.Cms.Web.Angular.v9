@@ -568,14 +568,14 @@ mobileeeeeeeeeeeeeeeee
                       itemDetail.configValueForceUseDefaultValue
                     " [optionMultipleChoice]="
                       itemDetail.configValueMultipleChoice
-                    " [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionTitle]="itemDetail.title"
+                    " [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionLabel]="itemDetail.title"
                     style="color:'{{ itemDetail.iconColor }}';"></app-input-string>
                 </div>
                 <!-- ngSwitchCase-->
                 <div *ngSwitchCase="enumInputDataType.Int" class="ntk-full-width">
                   <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                     aria-hidden="true"></i>&nbsp;&nbsp;
-                  <app-input-int [(model)]="propertyDetails[itemDetail.id]" [optionTitle]="itemDetail.title"
+                  <app-input-int [(model)]="propertyDetails[itemDetail.id]" [optionLabel]="itemDetail.title"
                     style="color:'{{ itemDetail.iconColor }}';"></app-input-int>
                 </div>
                 <!-- ngSwitchCase-->
@@ -590,7 +590,7 @@ mobileeeeeeeeeeeeeeeee
                 <div *ngSwitchCase="enumInputDataType.Float" class="ntk-full-width">
                   <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                     aria-hidden="true"></i>&nbsp;&nbsp;
-                  <app-input-float [(model)]="propertyDetails[itemDetail.id]" [optionTitle]="itemDetail.title"
+                  <app-input-float [(model)]="propertyDetails[itemDetail.id]" [optionLabel]="itemDetail.title"
                     style="color:'{{ itemDetail.iconColor }}';"></app-input-float>
                 </div>
                 <!-- ngSwitchCase-->
@@ -606,14 +606,14 @@ mobileeeeeeeeeeeeeeeee
                 <div *ngSwitchCase="enumInputDataType.TextArea" class="ntk-full-width">
                   <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                     aria-hidden="true"></i>&nbsp;&nbsp;
-                  <app-input-textarea [(model)]="propertyDetails[itemDetail.id]" [optionTitle]="itemDetail.title"
+                  <app-input-textarea [(model)]="propertyDetails[itemDetail.id]" [optionLabel]="itemDetail.title"
                     style="color:'{{ itemDetail.iconColor }}';"></app-input-textarea>
                 </div>
                 <!-- ngSwitchCase-->
                 <div *ngSwitchDefault>
                   <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                     aria-hidden="true"></i>&nbsp;&nbsp;
-                  <app-input-string [(model)]="propertyDetails[itemDetail.id]" [optionTitle]="itemDetail.title"
+                  <app-input-string [(model)]="propertyDetails[itemDetail.id]" [optionLabel]="itemDetail.title"
                     style="color:'{{ itemDetail.iconColor }}';"></app-input-string>
                 </div>
               </ng-container>

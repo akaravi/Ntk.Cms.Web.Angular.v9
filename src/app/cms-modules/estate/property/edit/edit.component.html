@@ -577,7 +577,7 @@
                     [optionForceUseDefaultValue]="itemDetail.configValueForceUseDefaultValue"
                     [optionMultipleChoice]="itemDetail.configValueMultipleChoice"
                     [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionRequired]="itemDetail.required"
-                    [optionTitle]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
+                    [optionLabel]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
                   </app-input-string>
                 </div>
                 <!-- ngSwitchCase-->
@@ -585,7 +585,7 @@
                   <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                     aria-hidden="true"></i>&nbsp;&nbsp;
                   <app-input-int [(model)]="propertyDetails[itemDetail.id]" [optionRequired]="itemDetail.required"
-                    [optionTitle]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
+                    [optionLabel]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
                   </app-input-int>
                 </div>
                 <!-- ngSwitchCase-->
@@ -600,7 +600,7 @@
                   <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                     aria-hidden="true"></i>&nbsp;&nbsp;
                   <app-input-float [(model)]="propertyDetails[itemDetail.id]" [optionRequired]="itemDetail.required"
-                    [optionTitle]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
+                    [optionLabel]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
                   </app-input-float>
                 </div>
                 <!-- ngSwitchCase-->
@@ -616,7 +616,7 @@
                   <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                     aria-hidden="true"></i>&nbsp;&nbsp;
                   <app-input-textarea [(model)]="propertyDetails[itemDetail.id]" [optionRequired]="itemDetail.required"
-                    [optionTitle]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
+                    [optionLabel]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
                   </app-input-textarea>
                 </div>
                 <!-- ngSwitchCase-->
@@ -627,7 +627,7 @@
                     [optionForceUseDefaultValue]="itemDetail.configValueForceUseDefaultValue"
                     [optionMultipleChoice]="itemDetail.configValueMultipleChoice"
                     [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionRequired]="itemDetail.required"
-                    [optionTitle]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
+                    [optionLabel]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
                   </app-input-string>
                 </div>
               </ng-container>

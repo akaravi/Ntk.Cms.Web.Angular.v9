@@ -23,7 +23,7 @@ export class StringComponent implements OnInit {
   @Input() optionDefaultValue: string[] = [];
   @Input() optionRequired = false;
   @Input() optionDisabled = false;
-  @Input() optionTitle = '';
+  @Input() optionLabel = '';
   @Input() optionPlaceholder = '';
   @Input() optionIconColor = '';
 
