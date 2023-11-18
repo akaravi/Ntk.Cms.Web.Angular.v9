@@ -1,27 +1,36 @@
 <ng-container *ngIf="!optionDefaultValue || optionDefaultValue.length===0">
-  <mat-form-field class="ntk-full-width">
-    <mat-label>{{optionLabel}}</mat-label>
-    <input matInput [(ngModel)]="modelDate" name="string" #string type="text" placeholder="{{optionPlaceholder}}"
-      [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}" [required]="optionRequired" />
-    <mat-icon matSuffix>mode_edit</mat-icon>
-  </mat-form-field>
+  <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+    <label for="string-{{id}}" class="color-highlight">{{ optionLabel }}</label>
+    <input [(ngModel)]="modelDate" name="string" #string type="text" placeholder="{{optionPlaceholder}}"
+      id="string-{{id}}" [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}" [required]="optionRequired"
+      class="form-control validate-name" />
+    <em *ngIf="optionRequired">(ضروری)</em>
+    <mat-error *ngIf="string.errors?.required">
+      {{ optionLabel }} <strong>{{ "MESSAGE.required" | translate }}</strong>
+    </mat-error>
+  </div>
 </ng-container>
+
+
 <ng-container *ngIf="optionDefaultValue && optionDefaultValue.length>0">
   <label style="color:'{{optionIconColor}}';">{{optionLabel}} :</label>
   <br>
   <ng-container *ngIf="!optionMultipleChoice">
-    <mat-radio-group [(ngModel)]="modelDate">
-      <mat-radio-button class="example-radio-button" *ngFor="let item of optionDefaultValue" [value]="item"
-        [disabled]="optionDisabled">
-        {{item}}
-      </mat-radio-button>
-    </mat-radio-group>
+    <div class="form-check icon-check" *ngFor="let item of optionDefaultValue,index as i ">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" [value]="item" id="string-{{id}}-{{i}}">
+      <label class="form-check-label" for="string-{{id}}-{{i}}">{{item}}</label>
+      <i class="icon-check-1 far fa-circle color-gray-dark font-16"></i>
+      <i class="icon-check-2 far fa-check-circle font-16 color-highlight"></i>
+    </div>
   </ng-container>
   <ng-container *ngIf="optionMultipleChoice">
-    <mat-checkbox *ngFor="let item of optionDefaultValue,index as i " (change)="onActionSelect(item)"
-      [disabled]="optionDisabled" class="example-radio-button checkbox" style="margin-left: 10px;"
-      [(ngModel)]="itemSelected[item]" [color]="colors[i]">
-      {{item}}&nbsp;|
-    </mat-checkbox>
+    <div *ngFor="let item of optionDefaultValue,index as i " (change)="onActionSelect(item)"
+      class="form-check icon-check">
+      <input [disabled]="optionDisabled" [(ngModel)]="itemSelected[item]" class="form-check-input" type="checkbox"
+        id="string-{{id}}-{{i}}">
+      <label class="form-check-label" for="string-{{id}}-{{i}}">{{item}}</label>
+      <i class="icon-check-1 far fa-square color-gray-dark font-16"></i>
+      <i class="icon-check-2 far fa-check-square font-16 color-highlight"></i>
+    </div>
   </ng-container>
 </ng-container>

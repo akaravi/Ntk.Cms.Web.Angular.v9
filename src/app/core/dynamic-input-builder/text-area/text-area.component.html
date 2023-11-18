@@ -1,6 +1,10 @@
-<mat-form-field class="ntk-full-width">
-    <mat-label>{{optionLabel}}</mat-label>
-    <textarea matInput [(ngModel)]="modelDate" name="string" #string type="text" placeholder="{{optionPlaceholder}}"
-        [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}" [required]="optionRequired" rows=5></textarea>
-    <mat-icon matSuffix>mode_edit</mat-icon>
-</mat-form-field>
+<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+  <label for="textarea-{{id}}" class="color-highlight">{{optionLabel}}</label>
+  <textarea [(ngModel)]="modelDate" name="string" #string type="text" placeholder="{{optionPlaceholder}}"
+    id="textarea-{{id}}" [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}" [required]="optionRequired"
+    rows=5 class="form-control validate-name"></textarea>
+  <em *ngIf="optionRequired">(ضروری)</em>
+  <mat-error *ngIf="string.errors?.required">
+    {{ optionLabel }} <strong>{{ "MESSAGE.required" | translate }}</strong>
+  </mat-error>
+</div>

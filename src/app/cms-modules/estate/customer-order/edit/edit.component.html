@@ -181,7 +181,6 @@
           <em></em>
         </div>
       </div>
-
       <!-- LinkCmsUserId Field -->
       <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
         [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
@@ -227,7 +226,7 @@
       (this.dataModel.linkCmsUserId === null ||
         this.dataModel.linkCmsUserId <= 0)">
         <div class="pt-1">
-          <h5 data-data-trigger-switch="dataModel.actionCreateCmsUserId" class="font-600 font-14">{{
+          <h5 data-trigger-switch="dataModel.actionCreateCmsUserId" class="font-600 font-14">{{
             "TITLE.Create_New_Account" | translate }}</h5>
         </div>
         <div class="ms-auto me-3 pe-2">
@@ -239,6 +238,20 @@
         </div>
       </div>
 
+      <!-- includeAllSite Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.includeAllSite" class="font-600 font-14">{{
+            fieldsInfo["includeAllSite"]?.fieldTitle }}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.includeAllSite"
+              [(ngModel)]="this.dataModel.includeAllSite">
+            <label class="custom-control-label" for="dataModel.includeAllSite"></label>
+          </div>
+        </div>
+      </div>
 
       <!-- AreaAddress Field -->
       <mat-form-field class="ntk-full-width" *ngIf="areaAddressView">
@@ -657,31 +670,6 @@
         </a>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- ******************************* -->
-
-
-
-
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
           <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
 
@@ -697,20 +685,7 @@
                 <hr />
 
 
-                <!-- includeAllSite Field -->
-                <!-- <div class="d-flex mb-3">
-                  <div class="pt-1">
-                    <h5 data-data-trigger-switch="dataModel.includeAllSite" class="font-600 font-14">{{
-                      fieldsInfo["includeAllSite"]?.fieldTitle }}</h5>
-                  </div>
-                  <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                      <input type="checkbox" class="ios-input" id="dataModel.includeAllSite"
-                        [(ngModel)]="this.dataModel.includeAllSite">
-                      <label class="custom-control-label" for="dataModel.includeAllSite"></label>
-                    </div>
-                  </div>
-                </div> -->
+
 
                 <div class="row">
                   <div class="col-md-10 col-sm-10 col-xs-16">

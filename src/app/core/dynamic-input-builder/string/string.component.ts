@@ -6,7 +6,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./string.component.scss']
 })
 export class StringComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++StringComponent.nextId;
   constructor() { }
   @Input()
   set model(value: string) {

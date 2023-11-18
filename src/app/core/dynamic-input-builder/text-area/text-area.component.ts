@@ -6,7 +6,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./text-area.component.scss']
 })
 export class TextAreaComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++TextAreaComponent.nextId;
   constructor() { }
   @Input()
   set model(value: string) {

@@ -6,7 +6,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./float.component.scss']
 })
 export class FloatComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++FloatComponent.nextId;
   constructor() { }
   @Input()
   set model(value: number) {

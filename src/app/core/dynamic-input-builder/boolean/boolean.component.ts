@@ -6,9 +6,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./boolean.component.scss']
 })
 export class BooleanComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++BooleanComponent.nextId;
   constructor() { }
   @Input() optionDisabled = false;
+  @Input() optionLabel = '';
   @Input() set model(val: any) {
     if (val && (val === true || val === 'true' || val === 1 || val === '1')) {
       this.checkedValue = true;

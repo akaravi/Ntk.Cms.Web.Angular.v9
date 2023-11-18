@@ -1,3 +1,14 @@
-<ng-content></ng-content>
-<mat-slide-toggle [checked]="checkedValue" (change)="setValueToggle($event )"  [disabled]="optionDisabled">
-</mat-slide-toggle>
+<div class="d-flex mb-3">
+  <div class="pt-1">
+    <h5 [attr.data-trigger-switch]="'boolean-'+id" class="font-600 font-14"><ng-content></ng-content>{{
+      optionLabel}}
+    </h5>
+  </div>
+  <div class="ms-auto me-3 pe-2">
+    <div class="custom-control ios-switch small-switch">
+      <input type="checkbox" class="ios-input" id="boolean-{{id}}" [checked]="checkedValue"
+        (change)="setValueToggle($event )" [disabled]="optionDisabled">
+      <label class="custom-control-label" for="boolean-{{id}}"></label>
+    </div>
+  </div>
+</div>
