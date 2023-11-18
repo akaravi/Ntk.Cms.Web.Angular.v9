@@ -62,11 +62,52 @@
         </mat-error>
       </div>
 
+
+
       <!-- LinkCategoryId Field -->
       <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)"
         [optionSelectForce]="dataModel.linkEstateCustomerCategoryId" [(optionLoading)]="loading"
         [optionPlaceholder]="this.translate.instant('TITLE.Category')">
       </app-estate-customer-category-selector>
+
+
+
+
+
+
+
+      <!-- CaseCode Field -->
+      <div *ngIf="fieldsInfo['caseCode']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <input matInput [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode type="text"
+          disabled="{{!fieldsInfo['caseCode']?.accessEditField}}" placeholder="{{fieldsInfo['caseCode']?.fieldTitle}}"
+          minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.caseCode">
+        <label for="dataModel.caseCode" class="color-highlight">{{fieldsInfo['caseCode']?.fieldTitle}}</label>
+        <i class="fa fa-times disabled invalid color-red-dark"></i>
+        <i class="fa fa-check disabled valid color-green-dark"></i>
+        <em>(ضروری)</em>
+        <mat-error *ngIf="CaseCode.errors?.required">
+          {{fieldsInfo['caseCode']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+
+      <!-- Description Field -->
+      <div class="input-style no-borders no-icon mb-4">
+        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="0" maxlength="500" rows=5
+          id="dataModel.description"></textarea>
+        <label for="form7a" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+        <em class="mt-n3">(ضروری)</em>
+      </div>
+
+
+
+
+
+
+
+
+
 
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <input type="name" class="form-control validate-name" id="form1" placeholder="جین">
@@ -209,6 +250,9 @@
             Title is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
         </mat-form-field>
+
+
+
         <!-- CaseCode Field -->
         <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['caseCode']?.accessWatchField">
           <mat-label>{{fieldsInfo['caseCode']?.fieldTitle}}</mat-label>
