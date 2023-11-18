@@ -262,6 +262,12 @@
         <br>
         <br>
 
+        <!-- linkCoreCurrencyId Field -->
+        <app-cms-currency-selector [optionSelectFirstItem]="true" [optionSelectForce]="dataModel.linkCoreCurrencyId"
+          (optionChange)="onActionSelectCurrency($event)" [(optionLoading)]="loading"
+          [optionPlaceholder]="this.translate.instant('TITLE.Specify_the_transaction_currency')">
+        </app-cms-currency-selector>
+
 
 
 
@@ -610,6 +616,9 @@
                     [(optionLoading)]="loading"
                     [optionPlaceholder]="this.translate.instant('TITLE.Specify_the_transaction_currency')">
                   </app-cms-currency-selector>
+
+
+                  
                   <!-- SalePriceMin Field -->
                   <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-9">
