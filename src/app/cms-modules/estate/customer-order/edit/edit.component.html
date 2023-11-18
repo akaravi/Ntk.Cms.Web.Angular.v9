@@ -17,10 +17,8 @@
         <label for="dataModel.recordStatus" class="color-highlight">{{fieldsInfo['recordStatus']?.fieldTitle}}</label>
         <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
           #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-          <option *ngFor="
-          let item of dataModelEnumRecordStatusResult.listItems;
-          index as i
-        " [ngValue]="item.value">{{ item.description }}</option>
+          <option *ngFor="let item of dataModelEnumRecordStatusResult.listItems;index as i" [ngValue]="item.value">{{
+            item.description }}</option>
         </select>
         <span><i class="fa fa-chevron-down"></i></span>
         <i class="fa fa-check disabled valid color-green-dark"></i>
@@ -29,23 +27,6 @@
         <mat-error *ngIf="RecordStatus.errors?.required">
           {{fieldsInfo['recordStatus']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
-      </div>
-
-
-      <div class="input-style has-borders no-icon mb-4">
-        <label for="form5" class="color-highlight">یک مقدار را انتخاب کنید</label>
-        <select id="form5">
-          <option value="default" disabled selected>یک مقدار را انتخاب کنید</option>
-          <option value="iOS">iOS</option>
-          <option value="Linux">Linux</option>
-          <option value="MacOS">MacOS</option>
-          <option value="Android">اندروید</option>
-          <option value="Windows">Windows</option>
-        </select>
-        <span><i class="fa fa-chevron-down"></i></span>
-        <i class="fa fa-check disabled valid color-green-dark"></i>
-        <i class="fa fa-check disabled invalid color-red-dark"></i>
-        <em></em>
       </div>
 
       <!-- Title Field -->
@@ -62,19 +43,11 @@
         </mat-error>
       </div>
 
-
-
       <!-- LinkCategoryId Field -->
       <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)"
         [optionSelectForce]="dataModel.linkEstateCustomerCategoryId" [(optionLoading)]="loading"
         [optionPlaceholder]="this.translate.instant('TITLE.Category')">
       </app-estate-customer-category-selector>
-
-
-
-
-
-
 
       <!-- CaseCode Field -->
       <div *ngIf="fieldsInfo['caseCode']?.accessWatchField"
@@ -92,13 +65,135 @@
       </div>
 
       <!-- Description Field -->
-      <div class="input-style no-borders no-icon mb-4">
+      <div class="input-style has-borders no-icon mb-4">
         <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
           placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="0" maxlength="500" rows=5
           id="dataModel.description"></textarea>
         <label for="form7a" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
         <em class="mt-n3">(ضروری)</em>
       </div>
+
+      <!-- DescriptionHidden Field -->
+      <div *ngIf="fieldsInfo['descriptionHidden']?.accessWatchField" class="input-style has-borders no-icon mb-4">
+        <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
+          #DescriptionHidden type="text" placeholder="{{fieldsInfo['descriptionHidden']?.fieldTitle}}" minlength="0"
+          maxlength="500" rows=5 id="dataModel.descriptionHidden"></textarea>
+        <label for="dataModel.descriptionHidden" class="color-highlight">{{'TITLE.Description_Hidden' |
+          translate}}</label>
+        <em class="mt-n3">(ضروری)</em>
+      </div>
+
+      <!-- score Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
+        <!-- scoreRushToBuy Field -->
+        <div class="input-style has-borders no-icon mb-4" *ngIf="fieldsInfo['scoreRushToBuy']?.accessWatchField">
+          <label for="dataModel.scoreRushToBuy" class="color-highlight">{{'MESSAGE.POINT_HURRY' | translate}}</label>
+          <select id="dataModel.scoreRushToBuy" [(ngModel)]="dataModel.scoreRushToBuy"
+            [disabled]="!fieldsInfo['scoreRushToBuy']?.accessEditField" name="dataModel.scoreRushToBuy"
+            #scoreRushToBuy="ngModel" ngClass="score-{{ dataModel.scoreRushToBuy }}">
+            <option *ngFor="let number of numbers;" [ngValue]="number">{{ number }}</option>
+          </select>
+          <span><i class="fa fa-chevron-down"></i></span>
+          <i class="fa fa-check disabled valid color-green-dark"></i>
+          <i class="fa fa-check disabled invalid color-red-dark"></i>
+          <em></em>
+          <p>{{'MESSAGE.POINT_HURRY' | translate}}</p>
+        </div>
+        <!-- scorePurchaseDecision Field -->
+        <div class="input-style has-borders no-icon mb-4" *ngIf="fieldsInfo['scorePurchaseDecision']?.accessWatchField">
+          <label for="dataModel.scorePurchaseDecision"
+            class="color-highlight">{{fieldsInfo['scorePurchaseDecision']?.fieldTitle}}</label>
+          <select id="dataModel.scorePurchaseDecision" [(ngModel)]="dataModel.scorePurchaseDecision"
+            [disabled]="!fieldsInfo['scorePurchaseDecision']?.accessEditField" name="dataModel.scorePurchaseDecision"
+            #scorePurchaseDecision="ngModel" ngClass="score-{{ dataModel.scorePurchaseDecision }}">
+            <option *ngFor="let number of numbers;" [ngValue]="number">{{ number }}</option>
+          </select>
+          <span><i class="fa fa-chevron-down"></i></span>
+          <i class="fa fa-check disabled valid color-green-dark"></i>
+          <i class="fa fa-check disabled invalid color-red-dark"></i>
+          <em></em>
+          <p>{{'MESSAGE.POINT_DECIDE' | translate}}</p>
+        </div>
+        <!-- scoreLiquidityPower Field -->
+        <div class="input-style has-borders no-icon mb-4" *ngIf="fieldsInfo['scoreLiquidityPower']?.accessWatchField">
+          <label for="dataModel.scoreLiquidityPower"
+            class="color-highlight">{{fieldsInfo['scoreLiquidityPower']?.fieldTitle}}</label>
+          <select id="dataModel.scoreLiquidityPower" [(ngModel)]="dataModel.scoreLiquidityPower"
+            [disabled]="!fieldsInfo['scoreLiquidityPower']?.accessEditField" name="dataModel.scoreLiquidityPower"
+            #scoreLiquidityPower="ngModel" ngClass="score-{{ dataModel.scoreLiquidityPower }}">
+            <option *ngFor="let number of numbers;" [ngValue]="number">{{ number }}</option>
+          </select>
+          <span><i class="fa fa-chevron-down"></i></span>
+          <i class="fa fa-check disabled valid color-green-dark"></i>
+          <i class="fa fa-check disabled invalid color-red-dark"></i>
+          <em></em>
+          <p>{{'MESSAGE.POINT_Liquidity' | translate}}</p>
+        </div>
+        <!-- scorePurchasingPower Field -->
+        <div class="input-style has-borders no-icon mb-4" *ngIf="fieldsInfo['scorePurchasingPower']?.accessWatchField">
+          <label for="dataModel.scoreRushToBuy"
+            class="color-highlight">{{fieldsInfo['scorePurchasingPower']?.fieldTitle}}</label>
+          <select id="dataModel.scoreRushToBuy" [(ngModel)]="dataModel.scorePurchasingPower"
+            [disabled]="!fieldsInfo['scorePurchasingPower']?.accessEditField" name="dataModel.scorePurchasingPower"
+            #scorePurchasingPower="ngModel" ngClass="score-{{ dataModel.scorePurchasingPower }}">
+            <option *ngFor="let number of numbers;" [ngValue]="number">{{ number }}</option>
+          </select>
+          <span><i class="fa fa-chevron-down"></i></span>
+          <i class="fa fa-check disabled valid color-green-dark"></i>
+          <i class="fa fa-check disabled invalid color-red-dark"></i>
+          <em></em>
+          <p>{{'MESSAGE.POINT_BUYING' | translate}}</p>
+        </div>
+      </div>
+
+        <!-- LinkCmsUserId Field -->
+        <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
+          [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
+          [optionSelectForce]="dataModel.linkCmsUserId"
+          [optionPlaceholder]="this.translate.instant('TITLE.Order_Owner')">
+        </app-cms-user-selector>
+
+        <!-- linkEstateAgencyId Field -->
+        <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
+          (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
+          [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessEditField"
+          [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
+          [optionPlaceholder]="this.translate.instant('TITLE.Property_agency')">
+        </app-estate-account-agency-selector>
+        
+        <!-- LinkEstateUserId Field -->
+        <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
+          [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessEditField"
+          [optionSelectForce]="dataModel.linkEstateUserId" [(optionLoading)]="loading"
+          [optionPlaceholder]="this.translate.instant('TITLE.Real_estate_customer_personnel')">
+        </app-estate-account-user-selector>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
