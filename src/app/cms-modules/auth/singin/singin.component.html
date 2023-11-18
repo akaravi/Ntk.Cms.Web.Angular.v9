@@ -36,9 +36,8 @@
     <div class="input-style no-borders has-icon validate-field mb-4">
       <i class="fa fa-quote-left"></i>
       <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" id="dataModel.captchaText"
-        [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name"
-        minlength="5" maxlength="5"
-        placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off" required>
+        [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name" minlength="5"
+        maxlength="5" placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off" required>
       <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
       <i class="fa fa-check disabled valid color-green-dark"></i>
@@ -50,16 +49,17 @@
     style="width: 100%;" class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">
     {{'AUTH.LOGIN.BUTTON' | translate}}
   </button>
-  <a href="#" [routerLink]="['/auth/singinbysms']" data-back-button
+  <a href="#" [routerLink]="['/page/auth/singinbysms']" data-back-button
     class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">{{'AUTH.LOGIN.SMS' | translate}}</a>
 
   <div class="row pt-3 mb-3">
     <div class="col-6 text-start">
-      <a href="#" [routerLink]="['/auth/forgot-password']" class="color-highlight">{{'AUTH.FORGOT.TITLE' |
+      <a href="#" [routerLink]="['/page/auth/forgot-password']" class="color-highlight">{{'AUTH.FORGOT.TITLE' |
         translate}}</a>
     </div>
     <div class="col-6 text-end">
-      <a href="#" [routerLink]="['/auth/singup']" class="color-highlight">{{ 'AUTH.GENERAL.SIGNUP_BUTTON' | translate
+      <a href="#" [routerLink]="['/page/auth/singup']" class="color-highlight">{{ 'AUTH.GENERAL.SIGNUP_BUTTON' |
+        translate
         }}</a>
     </div>
   </div>

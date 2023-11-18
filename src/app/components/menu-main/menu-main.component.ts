@@ -40,6 +40,7 @@ export class MenuMainComponent implements OnInit {
         setTimeout(() => { this.DataGetCpMenu(); }, 1000);
       }
     });
+
   }
   appAngularVersion: string = environment.appVersion;
   appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
@@ -78,7 +79,7 @@ export class MenuMainComponent implements OnInit {
     if (!item)
       return;
     if (item.children?.length > 0) {
-      this.router.navigate(['menu/LinkParentId', item.id]);
+      this.router.navigate(['/menu/LinkParentId/', item.id]);
       return;
     }
     if (item.routeAddressLink?.length > 0) {
