@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreConfigurationService, CoreCpMainMenuService } from 'ntk-cms-api';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { PageDashboardComponent } from './page-dashboard/page-dashboard.component';
 import { PageMenuComponent } from './page-menu/page-menu.component';
 import { PanelComponent } from './panel.component';
@@ -30,6 +31,7 @@ import { PagesPanelRoutingModule } from './panel.routing';
   imports: [
     CommonModule,
     PagesPanelRoutingModule,
+    SharedModule.forRoot(),
     //RouterModule.forChild(routes),
     // SharedModule.forRoot(),
     // InlineSVGModule,

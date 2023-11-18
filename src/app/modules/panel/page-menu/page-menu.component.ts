@@ -88,7 +88,6 @@ export class PageMenuComponent implements OnInit {
     );
   }
   DataListSelect() {
-
     this.dataListResult = [];
     if (!this.requestLinkParentId || this.requestLinkParentId === 0) {
       this.dataListResult = this.dataModelResult.listItems;
