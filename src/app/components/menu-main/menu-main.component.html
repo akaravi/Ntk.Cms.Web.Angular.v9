@@ -38,7 +38,7 @@
     </a>
 
 
-    <a *ngFor="let item of dataModelResult.listItems;" href="#" (click)="onActionClickMenu(item)">
+    <a *ngFor="let item of dataModelResult.listItems;" (click)="onActionClickMenu(item)">
       <i class="{{item.icon}} " [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
       <span>{{item.titleML}}</span>
       <i class="fa fa-angle-left"></i>

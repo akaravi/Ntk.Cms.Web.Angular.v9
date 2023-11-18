@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreConfigurationService, CoreCpMainMenuService } from 'ntk-cms-api';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { PageDashboardComponent } from '../page-dashboard/page-dashboard.component';
-import { PageMenuComponent } from '../page-menu/page-menu.component';
-import { PagePanelComponent } from './page-panel.component';
-import { PagesPanelRoutingModule } from './page-panel.routing';
+import { PageDashboardComponent } from './page-dashboard/page-dashboard.component';
+import { PageMenuComponent } from './page-menu/page-menu.component';
+import { PanelComponent } from './panel.component';
+import { PagesPanelRoutingModule } from './panel.routing';
 
 
 @NgModule({
   declarations: [
-    PagePanelComponent,
+    PanelComponent,
     PageDashboardComponent,
     PageMenuComponent
     // CmsModulesComponent,
@@ -50,4 +50,4 @@ import { PagesPanelRoutingModule } from './page-panel.routing';
     CoreConfigurationService
   ]
 })
-export class PagePanelModule { }
+export class PanelModule { }

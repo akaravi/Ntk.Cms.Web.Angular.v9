@@ -813,7 +813,8 @@ const routesMobile: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forChild(window.innerWidth < 1000 ? routesMobile : routesNormal),
+    //RouterModule.forChild(window.innerWidth < 1000 ? routesMobile : routesNormal),
+    RouterModule.forChild(routesNormal),
   ],
   exports: [RouterModule],
 })

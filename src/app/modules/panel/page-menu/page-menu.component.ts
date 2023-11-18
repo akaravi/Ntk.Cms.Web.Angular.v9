@@ -99,7 +99,6 @@ export class PageMenuComponent implements OnInit {
       this.dataListResult = findRow[0].children;
   }
   onActionClickMenu(item: CoreCpMainMenuModel) {
-    debugger
     if (!item)
       return;
     if (item.children?.length > 0) {

@@ -14,6 +14,7 @@ import {
 import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
+import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
 
 
 @Component({
@@ -40,7 +41,9 @@ export class CoreSiteSelectionComponent implements OnInit {
         return parseInt(item, 10);
       });
     }
+
   }
+  cmsImageThumbnailPipe = new CmsImageThumbnailPipe();
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
   get optionLoading(): ProgressSpinnerModel {
     return this.loading;

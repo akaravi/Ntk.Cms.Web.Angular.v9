@@ -14,7 +14,7 @@ export const routes: Routes = [
     path: '',
     canActivate: [CmsAuthGuard],
     loadChildren: () =>
-      import('./modules/pages/page-panel/page-panel.module').then((m) => m.PagePanelModule),
+      import('./modules/panel/panel.module').then((m) => m.PanelModule),
   },
   {
     path: 'page',

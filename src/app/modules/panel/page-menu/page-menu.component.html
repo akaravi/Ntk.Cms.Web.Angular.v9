@@ -1,7 +1,7 @@
 <div class="row mb-0">
   <ng-container *ngFor="let item of dataListResult;index as i">
     <div class="col pe-2">
-      <a href="#" (click)="onActionClickMenu(item)" data-back-button class="card card-style rounded-m me-0 p-3 mb-3">
+      <a (click)="onActionClickMenu(item)" class="card card-style rounded-m me-0 p-3 mb-3">
         <i class="fa fa-home color-red-light font-40 icon-50"></i>
         <h4 class="pt-3">{{item.titleML}}</h4>
         <p class="font-11 mt-n2 mb-0 color-highlight">{{item.titleML}}</p>

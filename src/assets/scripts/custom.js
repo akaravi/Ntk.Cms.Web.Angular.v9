@@ -347,14 +347,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         //Back Button
-        const backButton = document.querySelectorAll('[data-back-button]');
-        if(backButton.length){
-            backButton.forEach(el => el.addEventListener('click',e =>{
-                e.stopPropagation;
-                e.preventDefault;
-                window.history.go(-1);
-            }));
-        }
+        // const backButton = document.querySelectorAll('[data-back-button]');
+        // if(backButton.length){
+        //     backButton.forEach(el => el.addEventListener('click',e =>{
+        //         e.stopPropagation;
+        //         e.preventDefault;
+        //         window.history.go(-1);
+        //     }));
+        // }
 
 
         //Back to Top

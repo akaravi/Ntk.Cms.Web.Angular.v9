@@ -1,67 +1,53 @@
-<div *ngIf="this.statusCheckExistWebSite" class="card card-custom card-stretch gutter-b">
-    <!-- Header -->
-    <div class="card-header border-0 mt-4">
-        <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">{{'TITLE.Check_account' | translate}}</span>
-            <span class="text-muted mt-3 font-weight-bold font-size-sm">{{'TITLE.Check_Sites_You_Are_Member_of' |
-        translate}}</span>
-        </h3>
-        <div class="card-toolbar">
-            ...
-        </div>
-    </div>
-    <!-- Body -->
-    <div class="card-body pt-8">
-    </div>
-</div>
 <app-progress-spinner [options]="loading">
 </app-progress-spinner>
-<div *ngIf="!this.statusCheckExistWebSite">
-    <app-core-site-add-first *ngIf=" (!dataModelResult || !dataModelResult.listItems || dataModelResult.listItems.length === 0)">
-    </app-core-site-add-first>
-    <div *ngIf=" dataModelResult && dataModelResult.listItems && dataModelResult.listItems.length > 0" class=" container ">
-        <div class="row">
-            <div *ngFor="let item of dataModelResult.listItems" class=" col-xl-3 col-lg-4 col-md-6 col-sm-12" style="padding-bottom:10px;padding-top:10px">
-                <div *ngIf="selectSiteId===0 || selectSiteId===item.id" (click)="onActionClickSelectSite(item.virtual_CmsSite.id)" class="card card-custom card-stretch gutter-b cursor-pointer  original-box-shadow">
-                    <div class="card-body d-flex flex-column">
-                        <div class="flex-grow-1 pb-5">
-                            <div class="d-flex align-items-center pr-2 mb-6 ">
-                                <span class="text-muted font-weight-bold font-size-lg flex-grow-1" style="width: 100px;">
-                                    {{item.virtual_CmsSite.title}}
-                                </span>
-                                <div class="symbol symbol-50">
-                                    <span class="symbol-label bg-light-light">
-                                        <img src="{{item.virtual_CmsSite.mainImageSrc | cmsthumbnail}}" class="h-90px align-self-center custom" width="40px" height="40px" alt="">
-                                    </span>
-                                </div>
-                            </div>
-                            <p class="text-dark-50 font-weight-normal font-size-lg " style="text-align: left;">
-                                {{item.virtual_CmsSite.currentSiteDomainUrl}}
-                            </p>
-                        </div>
-                        <div>
-                            <p class="text-dark font-weight-bolder text-hover-primary font-size-h6 ">
-                                {{'TITLE.Accessibility' | translate}} :
-                            </p>
-                            <p class="text-dark-50 font-weight-normal font-size-lg " style="text-align: center;">
-                                {{item.virtual_CmsUserGroup.title}}
-                            </p>
-                        </div>
-                        <div *ngIf="item.expireDate" [style.backgroundColor]="item.expireDate < today ? 'red':''">
-                            <p class="text-dark font-weight-bolder text-hover-primary font-size-h6 ">
-                                {{'TITLE.Expire_Date' | translate}} :
-                            </p>
-                            <p class="text-dark-50 font-weight-normal font-size-lg " style="text-align: center;">
-                                {{item.expireDate|persianDate}}
-                            </p>
-                        </div>
-                        <br>
-                        <button *ngIf="this.formInfo.buttonSubmittedEnabled || selectSiteId===item.id" (click)="onActionClickSelectSite(item.virtual_CmsSite.id)" type="button" [disabled]="!this.formInfo.buttonSubmittedEnabled" class="btn btn-primary font-weight-bold font-size-h5 px-9 py-4">{{'ACTION.LOGIN' |
-              translate}}</button>
 
-                    </div>
-                </div>
-            </div>
-        </div>
+<ng-container *ngIf="this.statusCheckExistWebSite">
+
+  <div class="card card-style">
+    <div class="content">
+      <p class="mb-0 font-600 color-highlight">{{'TITLE.Check_account' | translate}}</p>
+      <h1>همین امروز درخواست دهد</h1>
+      <p>
+        {{'TITLE.Check_Sites_You_Are_Member_of' |
+        translate}}
+      </p>
     </div>
-</div>
+  </div>
+
+</ng-container>
+
+
+<ng-container
+  *ngIf="!this.statusCheckExistWebSite&& (!dataModelResult || !dataModelResult.listItems || dataModelResult.listItems.length === 0)">
+  <app-core-site-add-first>
+  </app-core-site-add-first>
+</ng-container>
+<ng-container
+  *ngIf="!this.statusCheckExistWebSite && dataModelResult && dataModelResult.listItems && dataModelResult.listItems.length > 0">
+
+
+  <div *ngFor="let item of dataModelResult.listItems" class="card card-style"
+    [ngStyle]="{'background-image': 'url('+ this.cmsImageThumbnailPipe.transform(item.virtual_CmsSite.mainImageSrc) + ')'}">
+    <div class="card-body p-3">
+      <p class="color-highlight font-500 mb-0">{{item.virtual_CmsUserGroup.titleML}}</p>
+      <h1 class="color-white">{{item.virtual_CmsSite.title}}</h1>
+      <ul class="color-white opacity-70 icon-list pt-4 pb-3">
+        <li><i class="fa fa-dollar-sign"></i>{{item.virtual_CmsSite.currentSiteDomainUrl}}</li>
+        <li><i class="fa fa-map-marker"></i> {{'TITLE.Accessibility' | translate}} : {{item.virtual_CmsUserGroup.title}}
+        </li>
+        <li *ngIf="item.expireDate" [style.backgroundColor]="item.expireDate < today ? 'red':''"><i
+            class="fa fa-clock"></i>{{'TITLE.Expire_Date' | translate}} : {{item.expireDate|persianDate}}</li>
+      </ul>
+      <p class="color-white mt-2">
+        {{item.virtual_CmsSite.seoDescription}}
+      </p>
+      <a *ngIf="this.formInfo.buttonSubmittedEnabled || selectSiteId===item.id"
+        (click)="onActionClickSelectSite(item.virtual_CmsSite.id)"
+        class="btn btn-s rounded-s font-600 bg-highlight">{{'ACTION.LOGIN' |
+        translate}}</a>
+    </div>
+    <div class="card-overlay bg-black opacity-80"></div>
+  </div>
+
+
+</ng-container>
