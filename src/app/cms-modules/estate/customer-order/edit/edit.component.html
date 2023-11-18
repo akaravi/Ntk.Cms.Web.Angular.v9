@@ -169,16 +169,26 @@
         </app-estate-account-user-selector>
 
 
+        <!-- ContactMobiles Field -->
+        <div class="input-style has-borders no-icon mb-4">
+          <textarea matInput [(ngModel)]="dataModel.contactMobiles" name="dataModel.contactMobiles" #ContactMobiles
+          type="text" placeholder="{{'TITLE.Mobile_customer' | translate}}" minlength="0"maxlength="100" rows=5 id="dataModel.contactMobiles"></textarea>
+          <label for="dataModel.contactMobiles" class="color-highlight">{{'TITLE.Mobile_customer' | translate}}</label>
+          <em class="mt-n3"></em>
+          <mat-error *ngIf="ContactMobiles.errors?.required">
+            ContactMobiles is <strong>{{'MESSAGE.required' | translate}}</strong>
+          </mat-error>
+        </div>
 
 
 
 
 
+        
 
 
 
-
-
+         
 
 
 
