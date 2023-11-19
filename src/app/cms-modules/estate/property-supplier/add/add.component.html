@@ -1,3 +1,4 @@
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
     <div class="ntk-cms-html-card-header">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
@@ -5,7 +6,6 @@
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </div>
     <div class="ntk-cms-html-card-body">
-        <app-progress-spinner [options]="loading"> </app-progress-spinner>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
         <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
             <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">

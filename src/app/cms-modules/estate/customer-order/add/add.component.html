@@ -29,7 +29,101 @@
             let item of dataModelEnumRecordStatusResult.listItems;
             index as i
           " [ngValue]="item.value">
+<<<<<<< HEAD
               {{ item.description }}
+=======
+            {{ item.description }}
+          </option>
+        </select>
+        <span><i class="fa fa-chevron-down"></i></span>
+        <i *ngIf="!RecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="RecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
+        <em class="mt-n3"></em>
+        <mat-error *ngIf="RecordStatus.errors?.required">
+          {{ fieldsInfo["recordStatus"]?.fieldTitle }}
+          <strong>{{ "MESSAGE.required" | translate }}</strong>
+        </mat-error>
+      </div>
+
+    <!-- LinkCategoryId Field -->
+    <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+      [optionSelectForce]="dataModel.linkEstateCustomerCategoryId"
+      [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+    </app-estate-customer-category-selector>
+  
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.title" class="color-highlight">{{
+        fieldsInfo["title"]?.fieldTitle
+        }}</label>
+      <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+        placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+        class="form-control validate-name" id="dataModel.title" />
+      <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+      <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+      <em></em>
+      <mat-error *ngIf="Title.errors?.required">
+        {{ fieldsInfo["title"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
+      </mat-error>
+      </div>
+
+      <!-- CaseCode Field -->
+      <div *ngIf="fieldsInfo['caseCode']?.accessWatchField"
+     class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+     <label for="dataModel.caseCode" class="color-highlight">{{
+       fieldsInfo["caseCode"]?.fieldTitle
+       }}</label>
+     <input matInput [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode type="text"
+       disabled="{{ !fieldsInfo['caseCode']?.accessAddField }}"
+       placeholder="{{ fieldsInfo['caseCode']?.fieldTitle }}" minlength="3" maxlength="100" required
+       class="form-control validate-name" id="dataModel.caseCode" />
+     <i *ngIf="!CaseCode.value" class="fa fa-times  invalid color-red-dark"></i>
+     <i *ngIf="CaseCode.value" class="fa fa-check  valid color-green-dark"></i>
+     <em></em>
+     <mat-error *ngIf="CaseCode.errors?.required">
+       {{ fieldsInfo["caseCode"]?.fieldTitle }}
+       <strong>{{ "MESSAGE.required" | translate }}</strong>
+     </mat-error>
+      </div>
+
+      <!-- Description Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+    <label for="dataModel.description" class="color-highlight">{{
+      fieldsInfo["description"]?.fieldTitle
+      }}</label>
+    <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+      placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="0" maxlength="500" rows="5"
+      id="dataModel.description" class="form-control validate-name"></textarea>
+      <em>{{ Description.value.length }} / 500</em>
+      </div>
+
+      <!-- DescriptionHidden Field -->
+      <div *ngIf="fieldsInfo['descriptionHidden']?.accessWatchField"
+   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+   <label for="dataModel.descriptionHidden" class="color-highlight">{{
+     "TITLE.Description_Hidden" | translate
+     }}</label>
+   <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
+     #DescriptionHidden type="text" placeholder="{{ fieldsInfo['descriptionHidden']?.fieldTitle }}" minlength="0"
+     maxlength="500" rows="5" id="dataModel.descriptionHidden" class="form-control validate-name"></textarea>
+     <em>{{ DescriptionHidden.value.length }} / 500</em>
+      </div>
+
+      <!-- score Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
+        <!-- scoreRushToBuy Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+          *ngIf="fieldsInfo['scoreRushToBuy']?.accessWatchField">
+          <label for="dataModel.scoreRushToBuy" class="color-highlight">{{
+            "MESSAGE.POINT_HURRY" | translate
+            }}</label>
+          <select id="dataModel.scoreRushToBuy" [(ngModel)]="dataModel.scoreRushToBuy"
+            [disabled]="!fieldsInfo['scoreRushToBuy']?.accessAddField" name="dataModel.scoreRushToBuy"
+            #ScoreRushToBuy="ngModel" ngClass="score-{{ dataModel.scoreRushToBuy }}"
+            class="form-control validate-name">
+            <option *ngFor="let number of numbers" [ngValue]="number">
+              {{ number }}
+>>>>>>> indonekoie
             </option>
           </select>
           <span><i class="fa fa-chevron-down"></i></span>
