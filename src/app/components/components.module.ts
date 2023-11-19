@@ -9,6 +9,8 @@ import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { CoreCpMainMenuService } from 'ntk-cms-api';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { MenuLanguageComponent } from './menu-language/menu-language.component';
+import { MenuProfileComponent } from './menu-profile/menu-profile.component';
 
 
 
@@ -17,6 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     MenuMainComponent,
     MenuShareComponent,
     MenuColorsComponent,
+    MenuLanguageComponent,
+    MenuProfileComponent,
     MenuFooterComponent,
     HeaderBarComponent,
     FooterBarComponent,
@@ -30,6 +34,8 @@ import { SharedModule } from '../shared/shared.module';
     MenuMainComponent,
     MenuShareComponent,
     MenuColorsComponent,
+    MenuLanguageComponent,
+    MenuProfileComponent,
     MenuFooterComponent,
     HeaderBarComponent,
     FooterBarComponent,
