@@ -186,6 +186,7 @@
         [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
         [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="this.translate.instant('TITLE.Order_Owner')">
       </app-cms-user-selector>
+
       <!-- linkEstateAgencyId Field -->
       <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
         (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
@@ -645,19 +646,22 @@
           " [optionPlaceholder]="this.translate.instant('TITLE.Property')"
           [optionSelectForce]="this.dataModel.linkPropertyIdsIgnored">
         </app-estate-property-autocomplete>
+
         <div>
           جستجو:
           <hr>
           <br>
+        </div>
+
         <!-- resultSortColumn Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.resultSortColumn" class="color-highlight">{{
+          <label for="dataModel.recordStatus" class="color-highlight">{{
             fieldsInfo["resultSortColumn"]?.fieldTitle
             }}</label>
           <select id="dataModel.resultSortColumn" [(ngModel)]="dataModel.resultSortColumn"
             name="dataModel.resultSortColumn" #RecordStatus="ngModel" class="form-control validate-name">
             <option *ngFor="let item of dataFieldInfoModel; index as i" [value]="item.fieldName">
-              {{ item.fieldTitle }}
+              {{ item.fieldTitle}}
             </option>
           </select>
           <span><i class="fa fa-chevron-down"></i></span>
@@ -665,14 +669,42 @@
           <i class="fa fa-check disabled invalid color-red-dark"></i>
           <em></em>
         </div>
+
         <div *ngIf="dataModel?.resultSortColumn?.length > 0" class="col-md-2 col-sm-2 col-xs-2 resultSortIcon">
         <a (click)="onActionSortArrow()">
           <i [ngClass]="dataModel.resultSortType | sortTypeIconClass" style="color: black"></i>
         </a>
-       </div>
       </div>
 
-      <div class="col-md-6 col-sm-6 col-xs-9" style="text-align: center" *ngIf="
+
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+          <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+
+          <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+
+          <div class="ntk-cms-html-card-body">
+            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+            <div class="row alert alert-custom alert-shadow gutter-b">
+              <!-- <div class="col-md-6 col-sm-6 col-xs-9"></div> -->
+              <div>
+                
+
+
+
+
+                <div class="row">
+                  <div class="col-md-10 col-sm-10 col-xs-16">
+                    
+
+
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-9" style="text-align: center" *ngIf="
                 dataModel?.urlViewContentQRCodeBase64?.length > 0 &&
                 dataModel?.urlViewContent?.length > 0
               ">
@@ -714,19 +746,32 @@
             <hr />
             <app-cms-qdoc [optionUrl]="dataModel.urlViewContent"></app-cms-qdoc>
           </div>
-
-          <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-            <button type="button" (click)="onFormCancel()" class="btn btn-light BTN-text">
-              <i class="ft-x"></i> {{ "ACTION.BACK" | translate }}
-            </button>
-            <button type="submit" (click)="onFormSubmit()" class="btn btn-success BTN-text"
-              [disabled]="!vform.form.valid">
-              <i class="fa fa-check-square-o"></i>
-              {{ "ACTION.SAVE" | translate }}
-            </button>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-18">
+              <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+                <button type="button" (click)="onFormCancel()" class="btn btn-light BTN-text">
+                  <i class="ft-x"></i> {{ "ACTION.BACK" | translate }}
+                </button>
+                <button type="submit" (click)="onFormSubmit()" class="btn btn-success BTN-text"
+                  [disabled]="!vform.form.valid">
+                  <i class="fa fa-check-square-o"></i>
+                  {{ "ACTION.SAVE" | translate }}
+                </button>
+              </div>
+            </div>
           </div>
+          <!-- </div> -->
 
-          <button type="button" (click)="onFormLoadEstateResult()" class="btn btn-info BTN-text"
+          <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+
+          <div class="ntk-cms-html-card-message">
+            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+
+            <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
+          </div>
+          <div class="ntk-cms-html-card-footer">
+            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+            <button type="button" (click)="onFormLoadEstateResult()" class="btn btn-info BTN-text"
               *ngIf="dataModel?.id?.length > 0">
               <i class="ft-x"></i> {{ "ACTION.VIEW_Estates" | translate }}
             </button>
@@ -765,54 +810,6 @@
               *ngIf="dataModel?.id?.length > 0">
               <i class="ft-x"></i> {{ "ACTION.HISTORY_ADD" | translate }}
             </button>
-
-<!-- ******************************************* -->
-
-
-
-
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-          <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-
-          <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-
-          <div class="ntk-cms-html-card-body">
-            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-            <div class="row alert alert-custom alert-shadow gutter-b">
-              <!-- <div class="col-md-6 col-sm-6 col-xs-9"></div> -->
-              <div>
-
-
-
-
-                <div class="row">
-                  <div class="col-md-10 col-sm-10 col-xs-16">
-                    
-
-
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-18">
-            </div>
-          </div>
-          <!-- </div> -->
-
-          <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-          <div class="ntk-cms-html-card-message">
-            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-
-            <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-          </div>
-          <div class="ntk-cms-html-card-footer">
-            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-          
 
             <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
           </div>
