@@ -33,9 +33,9 @@
             </option>
           </select>
           <span><i class="fa fa-chevron-down"></i></span>
-          <i class="fa fa-check disabled valid color-green-dark"></i>
-          <i class="fa fa-check disabled invalid color-red-dark"></i>
-          <em></em>
+          <i *ngIf="!RecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
+          <i *ngIf="RecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
+          <em class="mt-n3"></em>
           <mat-error *ngIf="RecordStatus.errors?.required">
             {{ fieldsInfo["recordStatus"]?.fieldTitle }}
             <strong>{{ "MESSAGE.required" | translate }}</strong>
@@ -52,7 +52,7 @@
             class="form-control validate-name" id="dataModel.title" />
           <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
           <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-          <em>(ضروری)</em>
+          <em></em>
           <mat-error *ngIf="Title.errors?.required">
             {{ fieldsInfo["title"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
           </mat-error>
@@ -74,9 +74,9 @@
           <label for="dataModel.caseCode" class="color-highlight">{{
             fieldsInfo["caseCode"]?.fieldTitle
             }}</label>
-          <i class="fa fa-times disabled invalid color-red-dark"></i>
-          <i class="fa fa-check disabled valid color-green-dark"></i>
-          <em>(ضروری)</em>
+            <i *ngIf="!CaseCode.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="CaseCode.value" class="fa fa-check  valid color-green-dark"></i>
+            <em></em>
           <mat-error *ngIf="CaseCode.errors?.required">
             {{ fieldsInfo["caseCode"]?.fieldTitle }}
             <strong>{{ "MESSAGE.required" | translate }}</strong>
@@ -91,8 +91,9 @@
           <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
             placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="0" maxlength="500" rows="5"
             id="dataModel.description" class="form-control validate-name"></textarea>
-
-          <em class="mt-n3">(ضروری)</em>
+            <i *ngIf="!Description.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="Description.value" class="fa fa-check  valid color-green-dark"></i>
+            <em></em>
         </div>
 
         <!-- DescriptionHidden Field -->
@@ -104,7 +105,9 @@
           <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
             #DescriptionHidden type="text" placeholder="{{ fieldsInfo['descriptionHidden']?.fieldTitle }}" minlength="0"
             maxlength="500" rows="5" id="dataModel.descriptionHidden" class="form-control validate-name"></textarea>
-          <em class="mt-n3">(ضروری)</em>
+            <i *ngIf="!DescriptionHidden.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="DescriptionHidden.value" class="fa fa-check  valid color-green-dark"></i>
+           <em></em>
         </div>
 
         <!-- score Field -->
@@ -117,15 +120,15 @@
               }}</label>
             <select id="dataModel.scoreRushToBuy" [(ngModel)]="dataModel.scoreRushToBuy"
               [disabled]="!fieldsInfo['scoreRushToBuy']?.accessEditField" name="dataModel.scoreRushToBuy"
-              #scoreRushToBuy="ngModel" ngClass="score-{{ dataModel.scoreRushToBuy }}"
+              #ScoreRushToBuy="ngModel" ngClass="score-{{ dataModel.scoreRushToBuy }}"
               class="form-control validate-name">
               <option *ngFor="let number of numbers" [ngValue]="number">
                 {{ number }}
               </option>
             </select>
             <span><i class="fa fa-chevron-down"></i></span>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
-            <i class="fa fa-check disabled invalid color-red-dark"></i>
+            <i *ngIf="!ScoreRushToBuy.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="ScoreRushToBuy.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
           <!-- scorePurchaseDecision Field -->
@@ -135,15 +138,15 @@
               }}</label>
             <select id="dataModel.scorePurchaseDecision" [(ngModel)]="dataModel.scorePurchaseDecision"
               [disabled]="!fieldsInfo['scorePurchaseDecision']?.accessEditField" name="dataModel.scorePurchaseDecision"
-              #scorePurchaseDecision="ngModel" ngClass="score-{{ dataModel.scorePurchaseDecision }}"
+              #ScorePurchaseDecision="ngModel" ngClass="score-{{ dataModel.scorePurchaseDecision }}"
               class="form-control validate-name">
               <option *ngFor="let number of numbers" [ngValue]="number">
                 {{ number }}
               </option>
             </select>
             <span><i class="fa fa-chevron-down"></i></span>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
-            <i class="fa fa-check disabled invalid color-red-dark"></i>
+            <i *ngIf="!ScorePurchaseDecision.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="ScorePurchaseDecision.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
           <!-- scoreLiquidityPower Field -->
@@ -154,15 +157,15 @@
               }}</label>
             <select id="dataModel.scoreLiquidityPower" [(ngModel)]="dataModel.scoreLiquidityPower"
               [disabled]="!fieldsInfo['scoreLiquidityPower']?.accessEditField" name="dataModel.scoreLiquidityPower"
-              #scoreLiquidityPower="ngModel" ngClass="score-{{ dataModel.scoreLiquidityPower }}"
+              #ScoreLiquidityPower="ngModel" ngClass="score-{{ dataModel.scoreLiquidityPower }}"
               class="form-control validate-name">
               <option *ngFor="let number of numbers" [ngValue]="number">
                 {{ number }}
               </option>
             </select>
             <span><i class="fa fa-chevron-down"></i></span>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
-            <i class="fa fa-check disabled invalid color-red-dark"></i>
+            <i *ngIf="!ScoreLiquidityPower.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="ScoreLiquidityPower.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
           <!-- scorePurchasingPower Field -->
@@ -173,15 +176,15 @@
               }}</label>
             <select id="dataModel.scoreRushToBuy" [(ngModel)]="dataModel.scorePurchasingPower"
               [disabled]="!fieldsInfo['scorePurchasingPower']?.accessEditField" name="dataModel.scorePurchasingPower"
-              #scorePurchasingPower="ngModel" ngClass="score-{{ dataModel.scorePurchasingPower }}"
+              #ScorePurchasingPower="ngModel" ngClass="score-{{ dataModel.scorePurchasingPower }}"
               class="form-control validate-name">
               <option *ngFor="let number of numbers" [ngValue]="number">
                 {{ number }}
               </option>
             </select>
             <span><i class="fa fa-chevron-down"></i></span>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
-            <i class="fa fa-check disabled invalid color-red-dark"></i>
+            <i *ngIf="!ScorePurchasingPower.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="ScorePurchasingPower.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
         </div>
@@ -237,7 +240,7 @@
           <div class="ms-auto me-3 pe-2">
             <div class="custom-control ios-switch small-switch">
               <input type="checkbox" class="ios-input" id="dataModel.actionCreateCmsUserId"
-                [(ngModel)]="this.dataModel.actionCreateCmsUserId">
+                [(ngModel)]="this.dataModel.actionCreateCmsUserId" name="dataModel.actionCreateCmsUserId">
               <label class="custom-control-label" for="dataModel.actionCreateCmsUserId"></label>
             </div>
           </div>
@@ -252,7 +255,7 @@
           <div class="ms-auto me-3 pe-2">
             <div class="custom-control ios-switch small-switch">
               <input type="checkbox" class="ios-input" id="dataModel.includeAllSite"
-                [(ngModel)]="this.dataModel.includeAllSite">
+                [(ngModel)]="this.dataModel.includeAllSite" name="dataModel.includeAllSite">
               <label class="custom-control-label" for="dataModel.includeAllSite"></label>
             </div>
           </div>
@@ -369,8 +372,8 @@
               currencyMask [disabled]="!fieldsInfo['salePriceMin']?.accessEditField"
               placeholder="{{ fieldsInfo['salePriceMin']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.salePriceMin" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -385,8 +388,8 @@
               currencyMask [disabled]="!fieldsInfo['rentPriceMin']?.accessEditField"
               placeholder="{{ fieldsInfo['rentPriceMin']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.rentPriceMin" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!RentPriceMin.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="RentPriceMin.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -402,8 +405,8 @@
               type="text" currencyMask [disabled]="!fieldsInfo['depositPriceMin']?.accessEditField"
               placeholder="{{ fieldsInfo['depositPriceMin']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.depositPriceMin" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!DepositPriceMin.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="DepositPriceMin.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -419,8 +422,8 @@
               type="text" currencyMask [disabled]="!fieldsInfo['periodPriceMin']?.accessEditField"
               placeholder="{{ fieldsInfo['periodPriceMin']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.periodPriceMin" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!PeriodPriceMin.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="PeriodPriceMin.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -435,8 +438,8 @@
               currencyMask [disabled]="!fieldsInfo['salePriceMax']?.accessEditField"
               placeholder="{{ fieldsInfo['salePriceMax']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.salePriceMax" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!SalePriceMax.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="SalePriceMax.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -452,8 +455,8 @@
               currencyMask [disabled]="!fieldsInfo['rentPriceMax']?.accessEditField"
               placeholder="{{ fieldsInfo['rentPriceMax']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.rentPriceMax" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!RentPriceMax.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="RentPriceMax.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -469,8 +472,8 @@
               type="text" currencyMask [disabled]="!fieldsInfo['depositPriceMax']?.accessEditField"
               placeholder="{{ fieldsInfo['depositPriceMax']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.depositPriceMax" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!DepositPriceMax.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="DepositPriceMax.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -486,8 +489,8 @@
               type="text" currencyMask [disabled]="!fieldsInfo['periodPriceMax']?.accessEditField"
               placeholder="{{ fieldsInfo['periodPriceMax']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.periodPriceMax" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!PeriodPriceMax.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="PeriodPriceMax.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -501,8 +504,8 @@
             <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer type="number"
               placeholder="{{ fieldsInfo['createdYaer']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.createdYaer" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!CreatedYaer.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="CreatedYaer.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -517,8 +520,8 @@
             <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"
               placeholder="{{ PropertyTypeSelected.titlePartition }}"
               class="input-ltr-center form-control validate-name" id="dataModel.partition" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!Partition.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="Partition.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -531,8 +534,8 @@
             <input matInput [(ngModel)]="dataModel.area" name="dataModel.partition" #Area type="text" currencyMask
               disabled="{{ !fieldsInfo['area']?.accessEditField }}" placeholder="{{ fieldsInfo['area']?.fieldTitle }}"
               class="input-ltr-center form-control validate-name" id="dataModel.area" />
-            <i class="fa fa-times disabled invalid color-red-dark"></i>
-            <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i *ngIf="!Area.value" class="fa fa-times  invalid color-red-dark"></i>
+              <i *ngIf="Area.value" class="fa fa-check  valid color-green-dark"></i>
             <em></em>
           </div>
 
@@ -675,14 +678,14 @@
                   fieldsInfo["resultSortColumn"]?.fieldTitle
                   }}</label>
                 <select id="dataModel.resultSortColumn" [(ngModel)]="dataModel.resultSortColumn"
-                  name="dataModel.resultSortColumn" #RecordStatus="ngModel" class="form-control validate-name">
+                  name="dataModel.resultSortColumn" #ResultSortColumn="ngModel" class="form-control validate-name">
                   <option *ngFor="let item of dataFieldInfoModel; index as i" [value]="item.fieldName">
                     {{ item.fieldTitle}}
                   </option>
                 </select>
                 <span><i class="fa fa-chevron-down"></i></span>
-                <i class="fa fa-check disabled valid color-green-dark"></i>
-                <i class="fa fa-check disabled invalid color-red-dark"></i>
+                <i *ngIf="!ResultSortColumn.value" class="fa fa-times  invalid color-red-dark"></i>
+                <i *ngIf="ResultSortColumn.value" class="fa fa-check  valid color-green-dark"></i>
                 <em></em>
               </div>
             </div>
