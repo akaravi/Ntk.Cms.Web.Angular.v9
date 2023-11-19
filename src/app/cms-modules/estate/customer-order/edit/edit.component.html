@@ -647,7 +647,13 @@
           [optionSelectForce]="this.dataModel.linkPropertyIdsIgnored">
         </app-estate-property-autocomplete>
 
+        <div>
+          جستجو:
+          <hr>
+          <br>
+        </div>
 
+        <!-- resultSortColumn Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="dataModel.recordStatus" class="color-highlight">{{
             fieldsInfo["resultSortColumn"]?.fieldTitle
@@ -664,10 +670,11 @@
           <em></em>
         </div>
 
-        <div *ngIf="dataModel?.resultSortColumn?.length > 0" class="col-md-2 col-sm-2 col-xs-2 resultSortIcon"></div>
+        <div *ngIf="dataModel?.resultSortColumn?.length > 0" class="col-md-2 col-sm-2 col-xs-2 resultSortIcon">
         <a (click)="onActionSortArrow()">
           <i [ngClass]="dataModel.resultSortType | sortTypeIconClass" style="color: black"></i>
         </a>
+      </div>
 
 
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
@@ -676,20 +683,18 @@
           <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
 
           <div class="ntk-cms-html-card-body">
-            <app-progress-spinner [options]="loading"> </app-progress-spinner>
             <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
             <div class="row alert alert-custom alert-shadow gutter-b">
               <!-- <div class="col-md-6 col-sm-6 col-xs-9"></div> -->
               <div>
-                جستجو:
-                <hr />
+                
 
 
 
 
                 <div class="row">
                   <div class="col-md-10 col-sm-10 col-xs-16">
-                    <!-- resultSortColumn Field -->
+                    
 
 
 
