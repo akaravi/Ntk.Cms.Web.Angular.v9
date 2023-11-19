@@ -45,6 +45,7 @@ export class EstateContractTypeSelectorComponent implements OnInit, OnDestroy {
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<EstateContractTypeModel>();
+  @Input() optionAllowUnSelect = false;
   @Input() optionTypeView = 1;
 
   typeUsageId = '';
@@ -149,6 +150,8 @@ export class EstateContractTypeSelectorComponent implements OnInit, OnDestroy {
     if (this.optionDisabled) {
       return;
     }
+    if (this.optionAllowUnSelect && this.dataModelSelect && this.dataModelSelect.id == model.id)
+      this.onActionSelectClear()
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }

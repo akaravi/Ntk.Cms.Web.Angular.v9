@@ -35,6 +35,7 @@ export class EstatePropertyTypeUsageSelectorComponent implements OnInit, OnDestr
   formControl = new FormControl();
   filteredOptions: Observable<EstatePropertyTypeUsageModel[]>;
   @Input() optionTypeView = 1;
+  @Input() optionAllowUnSelect = false;
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
@@ -129,7 +130,8 @@ export class EstatePropertyTypeUsageSelectorComponent implements OnInit, OnDestr
     if (this.optionDisabled) {
       return;
     }
-
+    if (this.optionAllowUnSelect && this.dataModelSelect && this.dataModelSelect.id == model.id)
+      this.onActionSelectClear()
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }

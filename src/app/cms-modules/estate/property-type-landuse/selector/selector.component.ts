@@ -45,6 +45,7 @@ export class EstatePropertyTypeLanduseSelectorComponent implements OnInit, OnDes
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<EstatePropertyTypeLanduseModel>();
   @Input() optionTypeView = 1;
+  @Input() optionAllowUnSelect = false;
 
   typeUsageId = '';
   @Input() optionReload = () => this.onActionReload();
@@ -147,6 +148,8 @@ export class EstatePropertyTypeLanduseSelectorComponent implements OnInit, OnDes
     if (this.optionDisabled) {
       return;
     }
+    if (this.optionAllowUnSelect && this.dataModelSelect && this.dataModelSelect.id == model.id)
+      this.onActionSelectClear()
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
