@@ -652,31 +652,38 @@
           <hr>
           <br>
         </div>
+        <div class="row mb-0">
+          <div class="col-10 pe-0">
+            <!-- resultSortColumn Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataModel.recordStatus" class="color-highlight">{{
+                fieldsInfo["resultSortColumn"]?.fieldTitle
+                }}</label>
+              <select id="dataModel.resultSortColumn" [(ngModel)]="dataModel.resultSortColumn"
+                name="dataModel.resultSortColumn" #RecordStatus="ngModel" class="form-control validate-name">
+                <option *ngFor="let item of dataFieldInfoModel; index as i" [value]="item.fieldName">
+                  {{ item.fieldTitle}}
+                </option>
+              </select>
+              <span><i class="fa fa-chevron-down"></i></span>
+              <i class="fa fa-check disabled valid color-green-dark"></i>
+              <i class="fa fa-check disabled invalid color-red-dark"></i>
+              <em></em>
+            </div>
+          </div>
+          <div class="col-2 ps-0">
+            <div *ngIf="dataModel?.resultSortColumn?.length > 0" class="col-md-2 col-sm-2 col-xs-2 resultSortIcon"
+              style="margin: auto">
+              <a (click)="onActionSortArrow()">
+                <i [ngClass]="dataModel.resultSortType | sortTypeIconClass" style="color: black"></i>
+              </a>
+            </div>
 
-        <!-- resultSortColumn Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.recordStatus" class="color-highlight">{{
-            fieldsInfo["resultSortColumn"]?.fieldTitle
-            }}</label>
-          <select id="dataModel.resultSortColumn" [(ngModel)]="dataModel.resultSortColumn"
-            name="dataModel.resultSortColumn" #RecordStatus="ngModel" class="form-control validate-name">
-            <option *ngFor="let item of dataFieldInfoModel; index as i" [value]="item.fieldName">
-              {{ item.fieldTitle}}
-            </option>
-          </select>
-          <span><i class="fa fa-chevron-down"></i></span>
-          <i class="fa fa-check disabled valid color-green-dark"></i>
-          <i class="fa fa-check disabled invalid color-red-dark"></i>
-          <em></em>
+          </div>
         </div>
 
-        <div *ngIf="dataModel?.resultSortColumn?.length > 0" class="col-md-2 col-sm-2 col-xs-2 resultSortIcon">
-        <a (click)="onActionSortArrow()">
-          <i [ngClass]="dataModel.resultSortType | sortTypeIconClass" style="color: black"></i>
-        </a>
-      </div>
 
-
+   <!-- form  -->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
           <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
 
@@ -687,14 +694,14 @@
             <div class="row alert alert-custom alert-shadow gutter-b">
               <!-- <div class="col-md-6 col-sm-6 col-xs-9"></div> -->
               <div>
-                
+
 
 
 
 
                 <div class="row">
                   <div class="col-md-10 col-sm-10 col-xs-16">
-                    
+
 
 
 
