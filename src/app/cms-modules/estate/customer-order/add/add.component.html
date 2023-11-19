@@ -47,39 +47,14 @@ aaaa
     [optionPlaceholder]="this.translate.instant('TITLE.Category')">
       </app-estate-customer-category-selector>
  
-<<<<<<< HEAD
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
-    <!-- RecordStatus Field
-    <mat-form-field class="ntk-full-width mt-3">
-      <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-        name="dataModel.recordStatus" #RecordStatus="ngModel"
-        ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-        <mat-option *ngFor="
-                      let item of dataModelEnumRecordStatusResult.listItems;
-                      index as i
-                    " [value]="item.value">{{ item.description }}</mat-option>
-      </mat-select>
-      <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-      <mat-error *ngIf="RecordStatus.errors?.required">
-        RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-      </mat-error>
-    </mat-form-field> -->
     <!-- LinkCategoryId Field -->
     <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
       [optionSelectForce]="dataModel.linkEstateCustomerCategoryId"
       [optionPlaceholder]="this.translate.instant('TITLE.Category')">
     </app-estate-customer-category-selector>
-    <!-- Title Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-        placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required />
-      <mat-icon matSuffix *ngIf="dataModel.title" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.title = ''"> close</mat-icon>
-      <mat-icon matSuffix> mode_edit</mat-icon>
-      <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
-=======
+  
       <!-- Title Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
       <label for="dataModel.title" class="color-highlight">{{
@@ -91,7 +66,6 @@ aaaa
       <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
       <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
       <em></em>
->>>>>>> indonekoie
       <mat-error *ngIf="Title.errors?.required">
         {{ fieldsInfo["title"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
       </mat-error>
