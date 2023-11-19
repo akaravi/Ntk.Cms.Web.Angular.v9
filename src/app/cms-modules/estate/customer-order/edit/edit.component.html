@@ -161,10 +161,10 @@
           <!-- scorePurchasingPower Field -->
           <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4"
             *ngIf="fieldsInfo['scorePurchasingPower']?.accessWatchField">
-            <label for="dataModel.scoreRushToBuy" class="color-highlight">{{
+            <label for="dataModel.PurchasingPower" class="color-highlight">{{
               "MESSAGE.POINT_BUYING" | translate
               }}</label>
-            <select id="dataModel.scoreRushToBuy" [(ngModel)]="dataModel.scorePurchasingPower"
+            <select id="dataModel.PurchasingPower" [(ngModel)]="dataModel.scorePurchasingPower"
               [disabled]="!fieldsInfo['scorePurchasingPower']?.accessEditField" name="dataModel.scorePurchasingPower"
               #ScorePurchasingPower="ngModel" ngClass="score-{{ dataModel.scorePurchasingPower }}"
               class="form-control validate-name">
@@ -643,7 +643,7 @@
             <div class="col-10 pe-0">
               <!-- resultSortColumn Field -->
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.recordStatus" class="color-highlight">{{
+                <label for="dataModel.resultSortColumn" class="color-highlight">{{
                   fieldsInfo["resultSortColumn"]?.fieldTitle
                   }}</label>
                 <select id="dataModel.resultSortColumn" [(ngModel)]="dataModel.resultSortColumn"
