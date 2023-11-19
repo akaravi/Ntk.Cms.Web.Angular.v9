@@ -11,11 +11,13 @@
         (click)="onActionSelectClear()">close</mat-icon>
     <ng-content></ng-content>
 </mat-form-field>
-
-<div *ngIf="optionTypeView===2" style="display: inline-block;">
-    <div class="ntk-pull-right" *ngFor="let state of filteredOptions | async">
-        <button type="button" mat-raised-button color="{{state.id===dataModelSelect.id ? 'primary' : 'info'}}"
-            (click)="onActionSelect(state)">{{ displayOption(state) }}</button>
-    </div>
-    <ng-content></ng-content>
+<div *ngIf="optionTypeView===2" class="row mb-0">
+  <div *ngFor="let state of filteredOptions | async" class="col-xl-2 col-lg-3 col-md-4 col-sm-12 pe-1">
+    <a [attr.disabled]="optionDisabled? true : null"
+      [ngClass]="state.id===dataModelSelect.id ? 'btn btn-3d btn-m btn-full mb-3 rounded-xl font-700 shadow-s  border-blue-dark bg-blue-light' : 'btn btn-border btn-m btn-full mb-3 rounded-xl font-700 border-blue-dark color-blue-dark bg-theme'"
+      (click)="onActionSelect(state)">{{
+      displayOption(state) }}</a>
+  </div>
+  <ng-content></ng-content>
 </div>
+
