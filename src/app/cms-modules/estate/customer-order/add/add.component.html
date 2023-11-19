@@ -1,22 +1,50 @@
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
 <app-cms-guide-notice [Key]="'customerorder.content.list.add'"
   [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
-
+aaaa
+<div class="card card-style">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <div class="mt-5 mb-3">
+      <!-- RecordStatus Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.recordStatus" class="color-highlight">{{
+          fieldsInfo["recordStatus"]?.fieldTitle
+          }}</label>
+        <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+          #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required
+          class="form-control validate-name">
+          <option *ngFor="
+            let item of dataModelEnumRecordStatusResult.listItems;
+            index as i
+          " [ngValue]="item.value">
+            {{ item.description }}
+          </option>
+        </select>
+        <span><i class="fa fa-chevron-down"></i></span>
+        <i *ngIf="!RecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="RecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
+        <em class="mt-n3"></em>
+        <mat-error *ngIf="RecordStatus.errors?.required">
+          {{ fieldsInfo["recordStatus"]?.fieldTitle }}
+          <strong>{{ "MESSAGE.required" | translate }}</strong>
+        </mat-error>
+      </div>
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <!-- <div class="ntk-cms-html-card-header"> -->
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  <!-- <h3 class="card-label">
-      {{formInfo.formTitle}}
-    </h3> -->
-
-
-
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  
   <!-- </div> -->
   <div class="ntk-cms-html-card-body">
-    <app-progress-spinner [options]="loading"> </app-progress-spinner>
+ 
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
-    <!-- RecordStatus Field -->
+    <!-- RecordStatus Field
     <mat-form-field class="ntk-full-width mt-3">
       <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
         name="dataModel.recordStatus" #RecordStatus="ngModel"
@@ -30,7 +58,7 @@
       <mat-error *ngIf="RecordStatus.errors?.required">
         RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
-    </mat-form-field>
+    </mat-form-field> -->
     <!-- LinkCategoryId Field -->
     <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
       [optionSelectForce]="dataModel.linkEstateCustomerCategoryId"
