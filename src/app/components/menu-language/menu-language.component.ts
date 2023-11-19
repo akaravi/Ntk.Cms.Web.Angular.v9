@@ -104,7 +104,6 @@ export class MenuLanguageComponent implements OnInit {
       if (indexId > 0)
         this.languages.splice(to, 0, this.languages.splice(indexId, 1)[0]);
     }
-    this.languages
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
