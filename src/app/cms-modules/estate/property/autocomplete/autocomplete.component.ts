@@ -19,6 +19,8 @@ class chipModel {
   templateUrl: './autocomplete.component.html'
 })
 export class EstatePropertyCompleteComponent implements OnInit {
+  static nextId = 0;
+  id = ++EstatePropertyCompleteComponent.nextId;
   constructor(
     public service: EstatePropertyService,
     private cmsToastrService: CmsToastrService,

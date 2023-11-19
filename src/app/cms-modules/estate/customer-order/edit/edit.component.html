@@ -91,7 +91,7 @@
           <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
             placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="0" maxlength="500" rows="5"
             id="dataModel.description" class="form-control validate-name"></textarea>
-            <em>{{ Description.value.length }} / 500</em>
+          <em>{{ Description.value.length }} / 500</em>
         </div>
 
         <!-- DescriptionHidden Field -->
@@ -103,7 +103,7 @@
           <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
             #DescriptionHidden type="text" placeholder="{{ fieldsInfo['descriptionHidden']?.fieldTitle }}" minlength="0"
             maxlength="500" rows="5" id="dataModel.descriptionHidden" class="form-control validate-name"></textarea>
-            <em>{{ DescriptionHidden.value.length }} / 500</em>
+          <em>{{ DescriptionHidden.value.length }} / 500</em>
         </div>
 
         <!-- score Field -->
@@ -207,7 +207,7 @@
           <textarea matInput [(ngModel)]="dataModel.contactMobiles" name="dataModel.contactMobiles" #ContactMobiles
             type="text" placeholder="{{ 'TITLE.Mobile_customer' | translate }}" minlength="0" maxlength="100" rows="5"
             id="dataModel.contactMobiles" class="form-control validate-name"></textarea>
-            <em>{{ ContactMobiles.value.length }} / 100</em>
+          <em>{{ ContactMobiles.value.length }} / 100</em>
           <mat-error *ngIf="ContactMobiles.errors?.required">
             ContactMobiles is
             <strong>{{ "MESSAGE.required" | translate }}</strong>
@@ -362,7 +362,7 @@
             <input matInput [(ngModel)]="dataModel.salePriceMin" name="dataModel.salePriceMin" #SalePriceMin type="text"
               currencyMask [disabled]="!fieldsInfo['salePriceMin']?.accessEditField"
               placeholder="{{ fieldsInfo['salePriceMin']?.fieldTitle }}"
-              class="input-ltr-center form-control validate-name" id="dataModel.salePriceMin"/>
+              class="input-ltr-center form-control validate-name" id="dataModel.salePriceMin" />
             <em></em>
           </div>
 
@@ -376,7 +376,7 @@
             <input matInput [(ngModel)]="dataModel.rentPriceMin" name="dataModel.rentPriceMin" #RentPriceMin type="text"
               currencyMask [disabled]="!fieldsInfo['rentPriceMin']?.accessEditField"
               placeholder="{{ fieldsInfo['rentPriceMin']?.fieldTitle }}"
-              class="input-ltr-center form-control validate-name" id="dataModel.rentPriceMin"/>
+              class="input-ltr-center form-control validate-name" id="dataModel.rentPriceMin" />
             <em></em>
           </div>
 
@@ -478,7 +478,7 @@
               {{ PropertyTypeSelected.titleCreatedYaer }}</label>
             <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer type="number"
               placeholder="{{ fieldsInfo['createdYaer']?.fieldTitle }}"
-              class="input-ltr-center form-control validate-name" id="dataModel.createdYaer"/>
+              class="input-ltr-center form-control validate-name" id="dataModel.createdYaer" />
             <em></em>
           </div>
 
@@ -509,12 +509,11 @@
           </div>
 
           <br />
-          {{ "TITLE.Geographical_Areas" | translate }} :
           <!-- LinkLocationIds Field -->
           <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)"
             [optionDisabled]="!fieldsInfo['linkLocationIds']?.accessEditField" [(optionLoading)]="loading"
-            [optionSelectForce]="dataModel.linkLocationIds"
-            [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+            [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="this.translate.instant('TITLE.Region')"
+            [optionLabel]="this.translate.instant('TITLE.Geographical_Areas')">
           </app-cms-location-autocomplete>
           <!-- propertyDetailGroups Field -->
           <mat-accordion class="example-headers-align">

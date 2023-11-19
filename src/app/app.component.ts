@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
         environment.cmsServerConfig.configApiServerPath
       );
       this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-        if (next.siteId > 0 && next.userId > 0)
+        if (next.siteId > 0 && next.userId > 0 && environment.production)
           this.getSupport();
         if (next.userId > 0) {
           this.singlarService.login(next.token);
@@ -158,8 +158,9 @@ export class AppComponent implements OnInit {
       measurementId: "G-45G43ESXQJ"
     };
     // Initialize Firebase
-    if (!environment.production) {
+    if (environment.production) {
       const app = initializeApp(firebaseConfig);
+      //todo: karavi
       const analytics = getAnalytics(app);
     }
   }
