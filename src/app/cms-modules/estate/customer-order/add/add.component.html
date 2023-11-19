@@ -41,13 +41,6 @@ aaaa
           <strong>{{ "MESSAGE.required" | translate }}</strong>
         </mat-error>
       </div>
-       <!-- LinkCategoryId Field -->
-      <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
-    [optionSelectForce]="dataModel.linkEstateCustomerCategoryId"
-    [optionPlaceholder]="this.translate.instant('TITLE.Category')">
-      </app-estate-customer-category-selector>
- 
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
     <!-- LinkCategoryId Field -->
     <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
