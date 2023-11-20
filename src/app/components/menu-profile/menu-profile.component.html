@@ -15,8 +15,14 @@
           class="rounded-sm" width="80">
       </div>
       <div class="w-100 ms-3 pt-1">
-        <h6 class="font-500 font-14 pb-2">هدست با رنگ صورتی و آداپتر آیفون </h6>
-        <h4>45،000 تومانءءء</h4>
+        <h6 class="font-500 font-14 pb-2">خلاصه مشخصات :</h6>
+        <a routerLink="{{'/core/user/edit/' +this.tokenInfo.userId}}">
+          <h5>{{'TITLE.User_Id'| translate}} : {{this.tokenInfo.userId}}</h5>
+        </a>
+        <a routerLink="{{'/core/site/edit/' +this.tokenInfo.siteId}}">
+          <h5>{{'TITLE.Site_Id'| translate}} : {{this.tokenInfo.siteId}}</h5>
+        </a>
+        <h5>{{'TITLE.Access'| translate}} : {{this.tokenInfo.userAccessUserTypeTitle}}</h5>
       </div>
     </div>
     <div class="divider"></div>
@@ -24,13 +30,13 @@
     <!-- userAccessAdminAllowToAllData Field -->
     <div
       *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)"
-      class="d-flex mb-3">
+      class="d-flex mb-4">
       <div class="pt-1">
         <h5 data-trigger-switch="dataModel.userAccessAdminAllowToAllData" class="font-600 font-14">
           {{'TITLE.Show_all_information'| translate}}</h5>
       </div>
       <div class="ms-auto me-3 pe-2">
-        <div class="custom-control ios-switch small-switch">
+        <div class=" ios-switch small-switch">
           <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToAllData"
             (click)="onActionbuttonUserAccessAdminAllowToAllData()"
             [(ngModel)]="tokenInfo.userAccessAdminAllowToAllData" name="dataModel.userAccessAdminAllowToAllData">
@@ -47,7 +53,7 @@
           {{'TITLE.Display_specialized_information'| translate}}</h5>
       </div>
       <div class="ms-auto me-3 pe-2">
-        <div class="custom-control ios-switch small-switch">
+        <div class=" ios-switch small-switch">
           <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToProfessionalData"
             (click)="onActionbuttonUserAccessAdminAllowToProfessionalData()"
             [(ngModel)]="tokenInfo.userAccessAdminAllowToProfessionalData"
@@ -56,43 +62,37 @@
         </div>
       </div>
     </div>
-    <div class="divider">
+    <div class="divider"
+      *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)">
     </div>
 
 
-    <div class="row mb-0">
-      <div class="col-4">
+    <div class="row mb-0"
+      *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)">
+      <h6 class="font-500 font-14 pb-2">انتقال سریع شما به حساب کاربری و یا سایت دیگران</h6>
+      <br>
+      <div class="col-6">
         <div class="input-style input-style-always-active has-borders mb-4">
-          <input type="text" class="form-control" id="form1" placeholder="1">
-          <label for="form1" class="color-highlight">تعداد</label>
+          <input type="text" [(ngModel)]="inputUserId" class="form-control" id="inputUserId"
+            placeholder="{{this.tokenInfo.userId}}">
+          <label for="inputUserId" class="color-highlight">{{'TITLE.User_Id'| translate}}</label>
         </div>
+        <button type="button" [disabled]="!inputUserId||inputUserId===0" style="width: 100%;"
+          class="close-menu btn btn-full gradient-blue font-13 btn-m font-600 mt-3 rounded-s">{{'ACTION.GO'|
+          translate}}</button>
       </div>
-      <div class="col-4">
-        <div class="input-style input-style-always-active has-borders no-icon mb-4">
-          <label for="form5" class="color-highlight">فضا</label>
-          <select id="form5">
-            <option value="default">فضا</option>
-            <option value="z" selected>64 گیگابایت</option>
-            <option value="a">128 گیگابایت</option>
-            <option value="b">256 گیگابایت</option>
-            <option value="c">512 گیگابایت</option>
-          </select>
-          <span><i class="fa fa-chevron-down"></i></span>
+
+      <div class="col-6">
+        <div class="input-style input-style-always-active has-borders mb-4">
+          <input type="text" [(ngModel)]="inputSiteId" class="form-control" id="inputSiteId"
+            placeholder="{{this.tokenInfo.siteId}}">
+          <label for="inputSiteId" class="color-highlight">{{'TITLE.Site_Id'| translate}}</label>
         </div>
-      </div>
-      <div class="col-4">
-        <div class="input-style input-style-always-active has-borders no-icon mb-4">
-          <label for="form51" class="color-highlight">اندازه</label>
-          <select id="form51">
-            <option value="default">اندازه</option>
-            <option value="z" selected>کوچک</option>
-            <option value="a">متوسط</option>
-            <option value="b">بزرگ</option>
-          </select>
-          <span><i class="fa fa-chevron-down"></i></span>
-        </div>
+        <button type="button" (click)="onActionbuttonSelectSite()" [disabled]="!inputSiteId||inputSiteId===0"
+          style="width: 100%;"
+          class="close-menu btn btn-full gradient-blue font-13 btn-m font-600 mt-3 rounded-s">{{'ACTION.GO'|
+          translate}}</button>
       </div>
     </div>
-    <a href="#" class="close-menu btn btn-full gradient-blue font-13 btn-m font-600 mt-3 rounded-s">اعمال تغییرات</a>
+    <br>
   </div>
-</div>
