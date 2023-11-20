@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
+import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
@@ -40,7 +41,9 @@ export class MenuMainComponent implements OnInit {
         setTimeout(() => { this.DataGetCpMenu(); }, 1000);
       }
     });
-
+    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+      this.themeStore = value.themeStore;
+    });
   }
   appAngularVersion: string = environment.appVersion;
   appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
@@ -50,6 +53,8 @@ export class MenuMainComponent implements OnInit {
   cmsApiStoreSubscribe: Subscription;
   loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<CoreCpMainMenuModel> = new ErrorExceptionResult<CoreCpMainMenuModel>();
+  themeStore = new ThemeStoreModel();
+
   ngOnInit(): void { }
   ngOnDestroy() {
     this.cmsApiStoreSubscribe.unsubscribe();

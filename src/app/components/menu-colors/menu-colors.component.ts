@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
+import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 
 @Component({
   selector: 'app-menu-colors',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuColorsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private publicHelper: PublicHelper,
+  ) { }
+  themeStore = new ThemeStoreModel();
 
   ngOnInit(): void {
+    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+      this.themeStore = value.themeStore;
+    });
   }
 
 }

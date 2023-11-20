@@ -25,6 +25,7 @@ import { CmsStoreService } from '../reducers/cmsStore.service';
 import { ReducerCmsStore } from '../reducers/reducer.factory';
 import { CmsToastrService } from '../services/cmsToastr.service';
 import { PageInfoService } from '../services/page-info.service';
+import { ThemeStoreModel } from '../models/themeStoreModel';
 // import { ProviderAst } from '@angular/compiler';
 
 @Injectable({
@@ -469,6 +470,12 @@ export class PublicHelper {
     if (storeSnapshot?.connectionStatus)
       return storeSnapshot.connectionStatus;
     return new ConnectionStatusModel();
+  }
+  async getThemeStore(): Promise<ThemeStoreModel> {
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    if (storeSnapshot?.themeStore)
+      return storeSnapshot.themeStore;
+    return new ThemeStoreModel();
   }
   getReducerCmsStoreOnChange(): Observable<ReducerCmsStore> {
     return this.cmsStoreService.getState();

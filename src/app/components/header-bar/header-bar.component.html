@@ -3,7 +3,8 @@
   <a data-menu="menu-share" class="header-icon header-icon-1"><i class="fas fa-share-alt"></i></a>
   <a data-toggle-theme class="header-icon header-icon-3 show-on-theme-dark"><i class="fas fa-sun"></i></a>
   <a data-toggle-theme class="header-icon header-icon-3 show-on-theme-light"><i class="fas fa-moon"></i></a>
-  <a data-menu="menu-main" class="header-icon header-icon-4"><i class="fas fa-bars"></i></a>
+  <a (click)="themeStore?.dataMenu!=='menu-main' ? themeStore.dataMenu='menu-main':themeStore.dataMenu=''"
+    class="header-icon header-icon-4"><i class="fas fa-bars"></i></a>
 </div>
 
 
@@ -14,7 +15,10 @@
       class="fa fa-moon"></i></a>
   <a class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i
       class="fa fa-lightbulb color-yellow-dark"></i></a>
-  <a *ngIf="this.tokenInfo?.userId>0" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-profile"><i
-      class="fa fa-user"></i></a>
-  <a class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
+  <a *ngIf="this.tokenInfo?.userId>0"
+    (click)="themeStore?.dataMenu!=='menu-profile' ? themeStore.dataMenu='menu-profile':themeStore.dataMenu=''"
+    class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-user"></i></a>
+  <a class="page-title-icon shadow-xl bg-theme color-theme"
+    (click)="themeStore?.dataMenu!=='menu-main' ? themeStore.dataMenu='menu-main':themeStore.dataMenu=''"><i
+      class="fa fa-bars"></i></a>
 </div>
