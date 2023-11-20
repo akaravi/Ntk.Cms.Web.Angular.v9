@@ -49,16 +49,22 @@
          class="form-control validate-name" id="dataModel.iconFont" />
         <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
       </div>
-      <!-- iconColor Field -->
-      <div *ngIf="fieldsInfo['iconColor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.iconColor" class="color-highlight">{{fieldsInfo['iconColor']?.fieldTitle}}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.iconColor" name="dataModel.iconColor" #iconColor type="text"
-        [style.background]="dataModel.iconColor" [ngxMatColorPicker]="iconColorPicker"
-         placeholder="{{fieldsInfo['iconColor']?.fieldTitle}}" [disabled]="!fieldsInfo['iconColor']?.accessAddField"
-         class="form-control validate-name" id="dataModel.iconColor" />
-        <ngx-ntk-mat-color-toggle matSuffix [for]="iconColorPicker"></ngx-ntk-mat-color-toggle>
-        <ngx-ntk-mat-color-picker #iconColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
+     <!-- iconColor Field -->
+     <div *ngIf="fieldsInfo['iconColor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.iconColor" class="color-highlight">{{fieldsInfo['iconColor']?.fieldTitle}}</label>
+      <div class="row mb-0">
+        <div class="col-11 pe-0">
+          <input matInput type="text" [(ngModel)]="dataModel.iconColor" name="dataModel.iconColor" #iconColor type="text"
+           [style.background]="dataModel.iconColor" [ngxMatColorPicker]="iconColorPicker"
+           placeholder="{{fieldsInfo['iconColor']?.fieldTitle}}" [disabled]="!fieldsInfo['iconColor']?.accessAddField"
+           class="form-control validate-name" id="dataModel.iconColor" />
+        </div>
+        <div class="col-1 ps-0">
+          <ngx-ntk-mat-color-toggle matSuffix [for]="iconColorPicker"></ngx-ntk-mat-color-toggle>
+          <ngx-ntk-mat-color-picker #iconColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
+        </div>
       </div>
+    </div>
       <!-- Description Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
