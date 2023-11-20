@@ -16,7 +16,7 @@
     <!-- form  -->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
       <!-- form  -->
-      <div class="mt-5 mb-3">
+      < class="mt-5 mb-3">
         <!-- RecordStatus Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="dataModel.recordStatus" class="color-highlight">{{
@@ -224,11 +224,11 @@
 
         <!-- actionCreateCmsUserId Field -->
         <div class="d-flex mb-3" *ngIf="
- fieldsInfo['linkCmsUserId']?.accessWatchField &&
- dataModel.contactMobiles &&
- dataModel.contactMobiles.length > 0 &&
- (this.dataModel.linkCmsUserId === null ||
-   this.dataModel.linkCmsUserId <= 0)">
+          fieldsInfo['linkCmsUserId']?.accessWatchField &&
+          dataModel.contactMobiles &&
+          dataModel.contactMobiles.length > 0 &&
+          (this.dataModel.linkCmsUserId === null ||
+            this.dataModel.linkCmsUserId <= 0)">
           <div class="pt-1">
             <h5 data-trigger-switch="dataModel.actionCreateCmsUserId" class="font-600 font-14">{{
               "TITLE.Create_New_Account" | translate }}</h5>
@@ -281,19 +281,16 @@
           <hr />
           {{ "TITLE.Type_Usage" | translate }} :
           <br />
+        </div>
 
           <!-- LinkPropertyTypeUsageId Field -->
-          <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
-            [optionDisabled]="
- !fieldsInfo['linkPropertyTypeUsageId']?.accessEditField
-" [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeUsageId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
-            <mat-icon matSuffix *ngIf="
-   dataModel.linkPropertyTypeUsageId &&
-   dataModel.linkPropertyTypeUsageId?.length > 0
- " matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkPropertyTypeUsageId = null">
-              close</mat-icon>
-          </app-estate-property-type-usage-selector>
+              <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
+                 [optionDisabled]=" !fieldsInfo['linkPropertyTypeUsageId']?.accessEditField"[optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeUsageId" [(optionLoading)]="loading"
+                 [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+                <mat-icon matSuffix *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId?.length > 0"
+                  matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkPropertyTypeUsageId = null">close</mat-icon>
+              </app-estate-property-type-usage-selector>
+                 
           <br>
           <br>
           <br>
@@ -323,9 +320,9 @@
             [optionSelectForce]="dataModel.linkContractTypeId" [(optionLoading)]="loading"
             [optionPlaceholder]="this.translate.instant('TITLE.Transaction_type')">
             <mat-icon matSuffix *ngIf="
-  dataModel.linkContractTypeId &&
-  dataModel.linkContractTypeId?.length > 0
-" matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkContractTypeId = null">
+              dataModel.linkContractTypeId &&
+              dataModel.linkContractTypeId?.length > 0
+            " matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkContractTypeId = null">
               close</mat-icon>
           </app-estate-contract-type-selector>
           <br>
@@ -333,12 +330,13 @@
           <!-- linkCoreCurrencyId Field -->
           <app-cms-currency-selector [optionSelectFirstItem]="true" [optionSelectForce]="dataModel.linkCoreCurrencyId"
             (optionChange)="onActionSelectCurrency($event)" [(optionLoading)]="loading" [optionPlaceholder]="
-      this.translate.instant('TITLE.Specify_the_transaction_currency')"></app-cms-currency-selector>
+             this.translate.instant('TITLE.Specify_the_transaction_currency')">
+          </app-cms-currency-selector>
           <!-- SalePriceMin Field -->
           <div *ngIf="
-fieldsInfo['salePriceMin']?.accessWatchField &&
-contractTypeSelected?.hasSalePrice
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              fieldsInfo['salePriceMin']?.accessWatchField &&
+              contractTypeSelected?.hasSalePrice
+              " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.salePriceMin" class="color-highlight">{{ contractTypeSelected.titleSalePriceML }}
               {{ "TITLE.Minimum" | translate }}</label>
             <input matInput [(ngModel)]="dataModel.salePriceMin" name="dataModel.salePriceMin" #SalePriceMin type="text"
@@ -349,9 +347,9 @@ contractTypeSelected?.hasSalePrice
           </div>
           <!-- RentPriceMin Field -->
           <div *ngIf="
- fieldsInfo['rentPriceMin']?.accessWatchField &&
- contractTypeSelected?.hasRentPrice
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            fieldsInfo['rentPriceMin']?.accessWatchField &&
+            contractTypeSelected?.hasRentPrice
+            " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.rentPriceMin" class="color-highlight">{{ contractTypeSelected.titleRentPriceML }}
               {{ "TITLE.Minimum" | translate }}</label>
             <input matInput [(ngModel)]="dataModel.rentPriceMin" name="dataModel.rentPriceMin" #RentPriceMin type="text"
@@ -362,9 +360,9 @@ contractTypeSelected?.hasSalePrice
           </div>
           <!-- DepositPriceMin Field -->
           <div *ngIf="
-fieldsInfo['depositPriceMin']?.accessWatchField &&
-contractTypeSelected?.hasDepositPrice
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            fieldsInfo['depositPriceMin']?.accessWatchField &&
+            contractTypeSelected?.hasDepositPrice
+            " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.depositPriceMin" class="color-highlight">
               {{ contractTypeSelected.titleDepositPriceML }}
               {{ "TITLE.Minimum" | translate }}</label>
@@ -376,9 +374,9 @@ contractTypeSelected?.hasDepositPrice
           </div>
           <!-- PeriodPriceMin Field -->
           <div *ngIf="
-fieldsInfo['periodPriceMin']?.accessWatchField &&
-contractTypeSelected?.hasDepositPrice
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            fieldsInfo['periodPriceMin']?.accessWatchField &&
+            contractTypeSelected?.hasDepositPrice
+            " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.periodPriceMin" class="color-highlight">
               {{ contractTypeSelected.titlePeriodPriceML }}
               {{ "TITLE.Minimum" | translate }}</label>
@@ -390,9 +388,9 @@ contractTypeSelected?.hasDepositPrice
           </div>
           <!-- SalePriceMax Field -->
           <div *ngIf="
-fieldsInfo['salePriceMax']?.accessWatchField &&
-contractTypeSelected?.hasSalePrice
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            fieldsInfo['salePriceMax']?.accessWatchField &&
+            contractTypeSelected?.hasSalePrice
+            " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.salePriceMax" class="color-highlight">{{ contractTypeSelected.titleSalePriceML }}
               {{ "TITLE.Maximum" | translate }}</label>
             <input matInput [(ngModel)]="dataModel.salePriceMax" name="dataModel.salePriceMax" #SalePriceMax type="text"
@@ -403,9 +401,9 @@ contractTypeSelected?.hasSalePrice
           </div>
           <!-- RentPriceMax Field -->
           <div *ngIf="
-fieldsInfo['rentPriceMax']?.accessWatchField &&
-contractTypeSelected?.hasRentPrice
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            fieldsInfo['rentPriceMax']?.accessWatchField &&
+            contractTypeSelected?.hasRentPrice
+            " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.rentPriceMax" class="color-highlight">
               {{ contractTypeSelected.titleRentPriceML }}
               {{ "TITLE.Maximum" | translate }}</label>
@@ -417,9 +415,9 @@ contractTypeSelected?.hasRentPrice
           </div>
           <!-- DepositPriceMax Field -->
           <div *ngIf="
-fieldsInfo['depositPriceMax']?.accessWatchField &&
-contractTypeSelected?.hasDepositPrice
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            fieldsInfo['depositPriceMax']?.accessWatchField &&
+            contractTypeSelected?.hasDepositPrice
+            " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.depositPriceMax" class="color-highlight">
               {{ contractTypeSelected.titleDepositPriceML }}
               {{ "TITLE.Maximum" | translate }}</label>
@@ -431,9 +429,8 @@ contractTypeSelected?.hasDepositPrice
           </div>
           <!-- PeriodPriceMax Field -->
           <div *ngIf="
-  fieldsInfo['periodPriceMax']?.accessWatchField &&
-  contractTypeSelected?.hasDepositPrice
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            fieldsInfo['periodPriceMax']?.accessWatchField &&
+            contractTypeSelected?.hasDepositPrice" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.periodPriceMax" class="color-highlight">
               {{ contractTypeSelected.titlePeriodPriceML }}
               {{ "TITLE.Maximum" | translate }}</label>
@@ -447,9 +444,9 @@ contractTypeSelected?.hasDepositPrice
           <br>
           <!-- CreatedYaer Field -->
           <div *ngIf="
- this.dataModel.linkPropertyTypeLanduseId &&
- PropertyTypeSelected?.titleCreatedYaer?.length > 1
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            this.dataModel.linkPropertyTypeLanduseId &&
+            PropertyTypeSelected?.titleCreatedYaer?.length > 1
+            " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.createdYaer" class="color-highlight">
               {{ PropertyTypeSelected.titleCreatedYaer }}</label>
             <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer type="number"
@@ -459,9 +456,9 @@ contractTypeSelected?.hasDepositPrice
           </div>
           <!-- Partition Field -->
           <div *ngIf="
- this.dataModel.linkPropertyTypeLanduseId &&
- PropertyTypeSelected?.titlePartition?.length > 1
-" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            this.dataModel.linkPropertyTypeLanduseId &&
+            PropertyTypeSelected?.titlePartition?.length > 1
+            " class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.partition" class="color-highlight">{{
               PropertyTypeSelected.titlePartition
               }}</label>
@@ -512,11 +509,11 @@ contractTypeSelected?.hasDepositPrice
                     <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                       aria-hidden="true"></i>&nbsp;
                     <app-input-string [(model)]="propertyDetails[itemDetail.id]" [optionForceUseDefaultValue]="
-            itemDetail.configValueForceUseDefaultValue
-          " [optionMultipleChoice]="
-            itemDetail.configValueMultipleChoice
-          " [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionRequired]="itemDetail.required"
-                      [optionLabel]="itemDetail.title" style="color:'{{ itemDetail.iconColor }}';">
+                      itemDetail.configValueForceUseDefaultValue
+                    " [optionMultipleChoice]="
+                      itemDetail.configValueMultipleChoice
+                    " [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionRequired]="itemDetail.required"
+                                [optionLabel]="itemDetail.title" style="color:'{{ itemDetail.iconColor }}';">
                     </app-input-string>
                   </div>
                   <!-- ngSwitchCase-->
@@ -566,11 +563,11 @@ contractTypeSelected?.hasDepositPrice
                     <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor"
                       aria-hidden="true"></i>&nbsp;
                     <app-input-string [(model)]="propertyDetails[itemDetail.id]" [optionForceUseDefaultValue]="
-            itemDetail.configValueForceUseDefaultValue
-          " [optionMultipleChoice]="
-            itemDetail.configValueMultipleChoice
-          " [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionRequired]="itemDetail.required"
-                      [optionLabel]="itemDetail.title" style="color:'{{ itemDetail.iconColor }}';">
+                    itemDetail.configValueForceUseDefaultValue
+                  " [optionMultipleChoice]="
+                    itemDetail.configValueMultipleChoice
+                  " [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionRequired]="itemDetail.required"
+                              [optionLabel]="itemDetail.title" style="color:'{{ itemDetail.iconColor }}';">
                     </app-input-string>
                   </div>
                 </ng-container>
@@ -602,9 +599,9 @@ contractTypeSelected?.hasDepositPrice
 
           <!-- linkPropertyIdsIgnored Field -->
           <app-estate-property-autocomplete (optionChange)="onActionSelectorPropertyIgnored($event)" [optionDisabled]="
-  !fieldsInfo['linkPropertyIdsIgnored']?.accessAddField
-" [optionPlaceholder]="this.translate.instant('TITLE.Property')"
-            [optionSelectForce]="this.dataModel.linkPropertyIdsIgnored">
+            !fieldsInfo['linkPropertyIdsIgnored']?.accessAddField
+          " [optionPlaceholder]="this.translate.instant('TITLE.Property')"
+                      [optionSelectForce]="this.dataModel.linkPropertyIdsIgnored">
           </app-estate-property-autocomplete>
 
           <div>
@@ -666,9 +663,6 @@ contractTypeSelected?.hasDepositPrice
           </div>
 
           <!-- </form> -->
-        </div>
-      </div>
-
     </form>
   </div>
 </div>
