@@ -3,12 +3,20 @@
 
   <div class="card rounded-0 bg-6" data-card-height="150">
     <div class="card-top">
-      <a href="#" class="close-menu float-end me-2 text-center mt-3 icon-40 notch-clear"><i
+      <a class="close-menu float-end me-2 text-center mt-3 icon-40 notch-clear"><i
           class="fa fa-times color-white"></i></a>
     </div>
-    <div class="card-bottom">
-      <h1 class="color-white ps-3 mb-0 font-28">اپکیت</h1>
-      <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
+    <div *ngIf="this.tokenInfo?.userId>0" class="card-bottom">
+      <a data-menu="menu-profile">
+        <h1 class="color-white ps-3 mb-0 font-28">{{ tokenInfo.name}} {{ tokenInfo.lastName }}</h1>
+        <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
+      </a>
+    </div>
+    <div *ngIf="!this.tokenInfo|| !this.tokenInfo.userId||this.tokenInfo.userId<=0" class="card-bottom">
+      <a [routerLink]="['/page/auth/singinbysms']">
+        <h1 class="color-white ps-3 mb-0 font-28">وارد شوید</h1>
+        <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
+      </a>
     </div>
     <div class="card-overlay bg-gradient"></div>
   </div>
@@ -21,17 +29,18 @@
       <i class="fa fa-angle-left"></i>
     </a>
 
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" href="#" [routerLink]="['/dashboard']">
+
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" [routerLink]="['/dashboard']">
       <i class="fa fa-home gradient-green color-white"></i>
       <span>داشبورد</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" href="#" [routerLink]="['/core/site/selection']">
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" [routerLink]="['/core/site/selection']">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>انتخاب سایت</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a *ngIf="!this.tokenInfo|| !this.tokenInfo.userId|| this.tokenInfo.userId<=0" id="nav-components" href="#"
+    <a *ngIf="!this.tokenInfo|| !this.tokenInfo.userId|| this.tokenInfo.userId<=0" id="nav-components"
       [routerLink]="['/page/auth/singinbysms']">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>ورود</span>
@@ -45,12 +54,12 @@
       <i class="fa fa-angle-left"></i>
     </a>
 
-    <a id="nav-contact" href="#" [routerLink]="['/page/aboutus']">
+    <a id="nav-contact" [routerLink]="['/page/aboutus']">
       <i class="fa fa-envelope gradient-teal color-white"></i>
       <span>درباره ما</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a id="nav-contact" href="#" [routerLink]="['/page/contactus']">
+    <a id="nav-contact" [routerLink]="['/page/contactus']">
       <i class="fa fa-envelope gradient-teal color-white"></i>
       <span>ارتباط با ما</span>
       <i class="fa fa-angle-left"></i>
@@ -58,24 +67,19 @@
   </div>
   <h6 class="menu-divider mt-4">تنظیمات</h6>
   <div class="list-group list-custom-small list-menu">
-    <a href="#" data-menu="menu-colors">
+    <a data-menu="menu-colors">
       <i class="fa fa-brush gradient-highlight color-white"></i>
       <span>رنگ بندی</span>
       <i class="fa fa-angle-left"></i>
     </a>
 
-    <a href="#" data-menu="menu-profile">
-      <i class="fa fa-brush gradient-highlight color-white"></i>
-      <span>شما</span>
-      <i class="fa fa-angle-left"></i>
-    </a>
 
-    <a href="#" data-menu="menu-language">
+    <a data-menu="menu-language">
       <i class="fa fa-globe gradient-highlight color-white"></i>
       <span>زبان</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a href="#" data-toggle-theme="" data-trigger-switch="switch-dark-mode">
+    <a data-toggle-theme="" data-trigger-switch="switch-dark-mode">
       <i class="fa fa-moon gradient-dark color-white"></i>
       <span>تم تاریک</span>
       <div class="custom-control small-switch ios-switch">
@@ -86,23 +90,24 @@
   </div>
   <h6 class="menu-divider mt-4">مخاطبین</h6>
   <div class="list-group list-custom-small list-menu ps-2">
-    <a href="#">
+    <a>
       <img src="assets/images/pictures/1s.jpg">
       <span>زانیار مدنی</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a href="#">
+    <a>
       <img src="assets/images/pictures/5s.jpg">
       <span>مالیا دانی</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a href="#">
+    <a>
       <img src="assets/images/pictures/6s.jpg">
       <span>اکرم محمدی</span>
       <i class="fa fa-angle-left"></i>
     </a>
   </div>
-  <h6 class="menu-divider font-10 mt-4">ساخته شده با <i class="fa fa-heart color-red-dark pl-1 pr-1"></i> توسط
-    دیزاینسیا در <span class="copyright-year">1402</span></h6>
+  <h6 class="menu-divider font-10 mt-4" style="direction: ltr;text-align: center;">client ver:
+    {{this.publicHelper.appClientVersion}} / server
+    ver:{{this.publicHelper.appServerVersion}}</h6>
 
 </div>

@@ -50,27 +50,27 @@
     style="width: 100%;" class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">
     {{'AUTH.LOGIN.BUTTON' | translate}}
   </button>
-  <a href="#" [routerLink]="['/page/auth/singinbysms']"
+  <a [routerLink]="['/page/auth/singinbysms']"
     class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">{{'AUTH.LOGIN.SMS' | translate}}</a>
 
   <div class="row pt-3 mb-3">
     <div class="col-6 text-start">
-      <a href="#" [routerLink]="['/page/auth/forgot-password']" class="color-highlight">{{'AUTH.FORGOT.TITLE' |
+      <a [routerLink]="['/page/auth/forgot-password']" class="color-highlight">{{'AUTH.FORGOT.TITLE' |
         translate}}</a>
     </div>
     <div class="col-6 text-end">
-      <a href="#" [routerLink]="['/page/auth/singup']" class="color-highlight">{{ 'AUTH.GENERAL.SIGNUP_BUTTON' |
+      <a [routerLink]="['/page/auth/singup']" class="color-highlight">{{ 'AUTH.GENERAL.SIGNUP_BUTTON' |
         translate
         }}</a>
     </div>
   </div>
   <ng-container *ngIf="loadDemoTheme">
     <div class="divider"></div>
-    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
+    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
         class="fab fa-facebook-f text-center"></i>با فیس بوک وارد شوید</a>
-    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
+    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
         class="fab fa-twitter text-center"></i>با توییتر وارد شوید</a>
-    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
+    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
         class="fab fa-apple text-center"></i>با اپل وارد شوید</a>
   </ng-container>
 </form>

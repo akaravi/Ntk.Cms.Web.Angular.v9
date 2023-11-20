@@ -107,21 +107,21 @@
 
   <div class="row pt-3 mb-3">
     <div class="col-6 text-start">
-      <a href="#" [routerLink]="['/page/auth/forgot-password']">{{'AUTH.FORGOT.TITLE' |
+      <a [routerLink]="['/page/auth/forgot-password']">{{'AUTH.FORGOT.TITLE' |
         translate}}</a>
     </div>
     <div class="col-6 text-end">
-      <a href="#" [routerLink]="['/page/auth/singin']">{{'AUTH.REGISTER.RETURN_TO_LOGIN' | translate}}</a>
+      <a [routerLink]="['/page/auth/singin']">{{'AUTH.REGISTER.RETURN_TO_LOGIN' | translate}}</a>
     </div>
   </div>
 
   <div class="divider"></div>
   <ng-container *ngIf="loadDemoTheme">
-    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
+    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
         class="fab fa-facebook-f text-center"></i>ثبت نام با حساب فیسبوک</a>
-    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
+    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
         class="fab fa-twitter text-center"></i>با توییتر ثبت نام کنید</a>
-    <a href="#" class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
+    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
         class="fab fa-apple text-center"></i>با اپل ثبت نام کنید</a>
   </ng-container>
   <!--content-->

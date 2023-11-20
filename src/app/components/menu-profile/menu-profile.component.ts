@@ -21,12 +21,9 @@ export class MenuProfileComponent implements OnInit {
   static nextId = 0;
   id = ++MenuProfileComponent.nextId;
   constructor(
-    private translationService: TranslationService,
     public coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
-    private router: Router,
-    private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -38,6 +35,7 @@ export class MenuProfileComponent implements OnInit {
 
     });
   }
+  loading = new ProgressSpinnerModel();
 
   cmsApiStoreSubscribe: Subscription;
   tokenInfo: TokenInfoModel = new TokenInfoModel();
@@ -69,6 +67,8 @@ export class MenuProfileComponent implements OnInit {
       message = this.translate.instant('MESSAGE.Request_to_terminate_access_to_all_information_has been_sent_to_the_server');
     }
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
+    const pName = this.constructor.name + 'main';
+    this.loading.Start(pName);
     this.loadingStatus = true;
     this.disabledAllow = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
@@ -88,11 +88,13 @@ export class MenuProfileComponent implements OnInit {
         } else {
           if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(ret.errorMessage);
         }
+        this.loading.Stop(pName);
       },
       error: (er) => {
         this.loadingStatus = false;
         this.disabledAllow = false;
         if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(er);
+        this.loading.Stop(pName);
       }
     }
     );
@@ -115,6 +117,8 @@ export class MenuProfileComponent implements OnInit {
       message = this.translate.instant('MESSAGE.Request_to_terminate_professional_access_has_been_sent_to_the_server');
     }
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
+    const pName = this.constructor.name + 'main';
+    this.loading.Start(pName);
     this.loadingStatus = true;
     this.disabledAllow = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
@@ -133,11 +137,13 @@ export class MenuProfileComponent implements OnInit {
         } else {
           if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(ret.errorMessage);
         }
+        this.loading.Stop(pName);
       },
       error: (er) => {
         this.loadingStatus = false;
         this.disabledAllow = false;
         if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(er);
+        this.loading.Stop(pName);
       }
     }
     );
@@ -160,6 +166,8 @@ export class MenuProfileComponent implements OnInit {
     const title = this.translate.instant('TITLE.Information');
     const message = this.translate.instant('MESSAGE.Request_to_change_user_was_sent_to_the_server');
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
+    const pName = this.constructor.name + 'main';
+    this.loading.Start(pName);
     this.loadingStatus = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe(
       {
@@ -177,10 +185,12 @@ export class MenuProfileComponent implements OnInit {
           } else {
             if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(ret.errorMessage);
           }
+          this.loading.Stop(pName);
         },
         error: (err) => {
           this.loadingStatus = false;
           if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(err);
+          this.loading.Stop(pName);
         }
       }
     );
@@ -203,6 +213,8 @@ export class MenuProfileComponent implements OnInit {
     const title = this.translate.instant('TITLE.Information');
     const message = this.translate.instant('MESSAGE.Request_to_change_site_was_sent_to_the_server');
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
+    const pName = this.constructor.name + 'main';
+    this.loading.Start(pName);
     this.loadingStatus = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
       next: (ret) => {
@@ -219,7 +231,7 @@ export class MenuProfileComponent implements OnInit {
           this.inputSiteId = this.tokenInfo.siteId;
           if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(ret.errorMessage);
         }
-
+        this.loading.Stop(pName);
       },
       error: (err) => {
         this.loadingStatus = false;
@@ -235,6 +247,31 @@ export class MenuProfileComponent implements OnInit {
         this.onActionbuttonSelectSite();
       }
     }
+  }
+  async logout() {
+    const pName = this.constructor.name + 'main';
+    this.loading.Start(pName, this.translate.instant('MESSAGE.Sign_out_of_user_account'));
+    this.cmsToastrService.typeOrderActionLogout();
+
+    this.coreAuthService.ServiceLogout().subscribe({
+      next: (ret) => {
+        this.loadingStatus = false;
+        if (ret.isSuccess) {
+          this.cmsToastrService.typeSuccessLogout();
+          document.location.reload();
+        } else {
+          this.cmsToastrService.typeErrorLogout();
+        }
+        this.loading.Stop(pName);
+      },
+      error: (err) => {
+        this.loadingStatus = false;
+        if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(err);
+        this.loading.Stop(pName);
+      }
+    }
+    );
+
   }
 
 }
