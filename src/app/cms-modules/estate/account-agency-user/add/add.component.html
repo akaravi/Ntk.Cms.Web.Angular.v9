@@ -10,33 +10,42 @@
         اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
         فقط یک صفحه ساختگی است.
       </p>
+      <!--content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
+            <!-- linkEstateAccountUserId Field -->
+            <app-estate-account-user-selector (optionChange)="onActionSelectorAccountUser($event)"
+             [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkEstateAccountUserId"
+             [optionPlaceholder]="'user'">
+            </app-estate-account-user-selector>
+
+            <!-- linkEstateAccountAgencyId Field -->
+            <app-estate-account-agency-selector (optionChange)="onActionSelectorAccountAgency($event)"
+             [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkEstateAccountAgencyId"
+             [optionSelectUserId]="this.tokenInfo.userId" [optionPlaceholder]="'Agency'">
+            </app-estate-account-agency-selector>
+
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+                <button type="button" (click)="onFormCancel()" class="btn btn-light">
+                  <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
+                </button>
+                <button type="submit" mat-raised-button (click)="onFormSubmit()"
+                  [disabled]="!vform.form.valid">
+                  <i class="fa fa-check-square-o"></i>
+                  {{ "ACTION.SAVE" | translate }}
+                </button>
+            </div>
+        </form>
+      <!--content-->
     </div>
 </div>
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
     <div class="ntk-cms-html-card-header">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </div>
     <div class="ntk-cms-html-card-body">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-
-        <!-- linkEstateAccountUserId Field -->
-        <app-estate-account-user-selector (optionChange)="onActionSelectorAccountUser($event)"
-            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkEstateAccountUserId"
-            [optionPlaceholder]="'user'">
-        </app-estate-account-user-selector>
-
-        <!-- linkEstateAccountAgencyId Field -->
-        <app-estate-account-agency-selector (optionChange)="onActionSelectorAccountAgency($event)"
-            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkEstateAccountAgencyId"
-            [optionSelectUserId]="this.tokenInfo.userId" [optionPlaceholder]="'Agency'">
-        </app-estate-account-agency-selector>
-
-
-
-
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </div>
     <div class="ntk-cms-html-card-message">
@@ -50,14 +59,6 @@
     </div>
     <div class="ntk-cms-html-card-footer">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()" class="btn btn-light">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" mat-raised-button (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
     </div>
 </form>
