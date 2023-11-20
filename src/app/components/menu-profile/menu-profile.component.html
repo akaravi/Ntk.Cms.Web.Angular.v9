@@ -1,11 +1,10 @@
-<div id="menu-profile" class="menu menu-box-bottom rounded-m bg-theme" data-menu-height="420">
+<div [ngClass]="themeStore.dataMenu==='menu-profile'?'menu-active':''" class="menu menu-box-bottom rounded-m bg-theme"
+  data-menu-height="420">
   <div class="menu-title">
     <p class="color-highlight">{{'TITLE.User_Profile'| translate}} </p>
     <h1 class="font-800">{{ tokenInfo.name}} {{ tokenInfo.lastName }}</h1>
     <a class="close-menu"><i class="fa fa-times-circle"></i></a>
   </div>
-
-
   <div class="content">
     <div class="divider mt-n2"></div>
     <div class="d-flex mb-4">

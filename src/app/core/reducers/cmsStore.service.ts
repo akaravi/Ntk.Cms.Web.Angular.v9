@@ -3,14 +3,16 @@ import { CmsStore, CoreCpMainMenuModel, CoreCurrencyModel, CoreModuleModel, Core
 import { ConnectionStatusModel } from '../models/connectionStatusModel';
 import { ProcessInfoModel } from '../models/progressSpinnerModel';
 import { ReducerCmsStore } from './reducer.factory';
+import { ThemeStoreModel } from '../models/themeStoreModel';
 const initialState: ReducerCmsStore = {
   CoreSiteResultStore: new ErrorExceptionResult<CoreSiteModel>(),
   CoreModuleResultStore: new ErrorExceptionResult<CoreModuleModel>(),
   CoreCpMainResultStore: new ErrorExceptionResult<CoreCpMainMenuModel>(),
   EnumRecordStatusResultStore: new ErrorExceptionResult<InfoEnumModel>(),
   CurrencyResultStore: new ErrorExceptionResult<CoreCurrencyModel>(),
-  processInfo: new Map<string, ProcessInfoModel>(),
-  connectionStatus: new ConnectionStatusModel()
+  processInfoStore: new Map<string, ProcessInfoModel>(),
+  connectionStatus: new ConnectionStatusModel(),
+  themeStore: new ThemeStoreModel(),
 };
 @Injectable({
   providedIn: 'root',

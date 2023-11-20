@@ -8,6 +8,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
+import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
@@ -25,6 +26,7 @@ export class MenuProfileComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
+    private publicHelper: PublicHelper,
   ) {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -43,9 +45,12 @@ export class MenuProfileComponent implements OnInit {
   inputUserId?: number;
   loadingStatus = false;
   disabledAllow = false;
+  themeStore = new ThemeStoreModel();
   ngOnInit(): void {
 
-
+    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+      this.themeStore = value.themeStore;
+    });
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

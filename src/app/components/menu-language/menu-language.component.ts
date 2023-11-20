@@ -8,6 +8,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
+import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
@@ -31,6 +32,7 @@ export class MenuLanguageComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
+    private publicHelper:PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
@@ -45,6 +47,7 @@ export class MenuLanguageComponent implements OnInit {
       this.setLanguage(value.language);
     });
   }
+  themeStore = new ThemeStoreModel();
 
   language: LanguageFlag;
   languages: LanguageFlag[] = [
@@ -104,6 +107,9 @@ export class MenuLanguageComponent implements OnInit {
       if (indexId > 0)
         this.languages.splice(to, 0, this.languages.splice(indexId, 1)[0]);
     }
+    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+      this.themeStore = value.themeStore;
+    });
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

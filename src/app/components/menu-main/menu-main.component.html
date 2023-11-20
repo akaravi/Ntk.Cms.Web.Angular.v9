@@ -1,5 +1,6 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-<div id="menu-main" class="menu menu-box-right rounded-0" data-menu-width="280" data-menu-active="nav-pages">
+<div [ngClass]="themeStore.dataMenu==='menu-main'?'menu-active':''" class="menu menu-box-right rounded-0"
+  data-menu-width="280" data-menu-active="nav-pages">
 
   <div class="card rounded-0 bg-6" data-card-height="150">
     <div class="card-top">
@@ -7,7 +8,7 @@
           class="fa fa-times color-white"></i></a>
     </div>
     <div *ngIf="this.tokenInfo?.userId>0" class="card-bottom">
-      <a data-menu="menu-profile">
+      <a (click)="themeStore?.dataMenu!=='menu-profile' ? themeStore.dataMenu='menu-profile':themeStore.dataMenu=''">
         <h1 class="color-white ps-3 mb-0 font-28">{{ tokenInfo.name}} {{ tokenInfo.lastName }}</h1>
         <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
       </a>
@@ -67,14 +68,12 @@
   </div>
   <h6 class="menu-divider mt-4">تنظیمات</h6>
   <div class="list-group list-custom-small list-menu">
-    <a data-menu="menu-colors">
+    <a (click)="themeStore?.dataMenu!=='menu-colors' ? themeStore.dataMenu='menu-colors':themeStore.dataMenu=''">
       <i class="fa fa-brush gradient-highlight color-white"></i>
       <span>رنگ بندی</span>
       <i class="fa fa-angle-left"></i>
     </a>
-
-
-    <a data-menu="menu-language">
+    <a (click)="themeStore?.dataMenu!=='menu-language' ? themeStore.dataMenu='menu-language':themeStore.dataMenu=''">
       <i class="fa fa-globe gradient-highlight color-white"></i>
       <span>زبان</span>
       <i class="fa fa-angle-left"></i>
