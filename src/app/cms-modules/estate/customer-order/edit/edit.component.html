@@ -291,56 +291,36 @@
             | translate
             }}</P>
           <hr />
-          {{ "TITLE.Type_Usage" | translate }} :
-          <br />
-
           <!-- LinkPropertyTypeUsageId Field -->
           <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
-            [optionDisabled]="
+            [optionAllowUnSelect]="true" [optionDisabled]="
             !fieldsInfo['linkPropertyTypeUsageId']?.accessEditField
           " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeUsageId" [(optionLoading)]="loading"
             [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
-            <mat-icon matSuffix *ngIf="
-              dataModel.linkPropertyTypeUsageId &&
-              dataModel.linkPropertyTypeUsageId?.length > 0
-            " matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkPropertyTypeUsageId = null">
-              close</mat-icon>
+
           </app-estate-property-type-usage-selector>
           <br />
           <br />
           <br />
-          {{ "TITLE.Type_Property" | translate }} :
-          <br />
 
           <!-- LinkPropertyTypeLanduseId Field -->
           <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)"
-            [optionDisabled]="
+            [optionAllowUnSelect]="true" [optionDisabled]="
             !fieldsInfo['linkPropertyTypeLanduseId']?.accessEditField
           " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId" [(optionLoading)]="loading"
             [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Property_type')">
-            <mat-icon matSuffix *ngIf="
-              dataModel.linkPropertyTypeLanduseId &&
-              dataModel.linkPropertyTypeLanduseId?.length > 0
-            " matSuffix mat-icon-button aria-label="Clear"
-              (click)="onActionSelectorSelectLanduse(null)">close</mat-icon>
+            [optionPlaceholder]="this.translate.instant('TITLE.Type_Property')">
+
           </app-estate-property-type-landuse-selector>
           <br />
           <br />
           <br />
-          {{ "TITLE.Type_Transaction" | translate }} :
-          <br />
-
           <!-- LinkContractTypeIds Field -->
           <app-estate-contract-type-selector (optionChange)="onActionSelectorContarctType($event)" [optionTypeView]="2"
-            [optionDisabled]="!fieldsInfo['linkContractTypeId']?.accessEditField"
+            [optionAllowUnSelect]="true" [optionDisabled]="!fieldsInfo['linkContractTypeId']?.accessEditField"
             [optionSelectForce]="dataModel.linkContractTypeId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Transaction_type')">
-            <mat-icon matSuffix *ngIf="
-              dataModel.linkContractTypeId &&
-              dataModel.linkContractTypeId?.length > 0
-            " matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkContractTypeId = null">
-              close</mat-icon>
+            [optionPlaceholder]="this.translate.instant('TITLE.Type_Transaction')">
+
           </app-estate-contract-type-selector>
           <br />
           <br />

@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   HostListener,
   OnInit
@@ -14,7 +15,7 @@ import { SwPush } from '@angular/service-worker';
 import { TranslateService } from '@ngx-translate/core';
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
-import { CoreAuthService, CoreSiteService, CoreSiteSupportModel, DeviceTypeEnum, ErrorExceptionResult, OperatingSystemTypeEnum, TokenDeviceClientInfoDtoModel, TokenDeviceSetNotificationIdDtoModel } from 'ntk-cms-api';
+import { CoreAuthService, CoreConfigurationService, CoreSiteService, CoreSiteSupportModel, DeviceTypeEnum, ErrorExceptionResult, OperatingSystemTypeEnum, TokenDeviceClientInfoDtoModel, TokenDeviceSetNotificationIdDtoModel } from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
 import { PublicHelper } from './core/helpers/publicHelper';
 import { TokenHelper } from './core/helpers/tokenHelper';
@@ -24,6 +25,7 @@ import { CmsStoreService } from './core/reducers/cmsStore.service';
 import { CmsSignalrService } from './core/services/cmsSignalr.service';
 import { CmsToastrService } from './core/services/cmsToastr.service';
 import { SplashScreenService } from './shared/splash-screen/splash-screen.service';
+import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
 
 
 @Component({
@@ -40,6 +42,7 @@ export class AppComponent implements OnInit {
     private translate: TranslateService,
     private coreAuthService: CoreAuthService,
     private coreSiteService: CoreSiteService,
+    private configService: CoreConfigurationService,
     //private modeService: ThemeModeService,
     private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
@@ -49,7 +52,8 @@ export class AppComponent implements OnInit {
     private swPush: SwPush,
     private cmsToastrService: CmsToastrService,
     private cmsStoreService: CmsStoreService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private cdr: ChangeDetectorRef
   ) {
     /**singlarService */
     this.singlarService.startConnection(null);
@@ -57,7 +61,7 @@ export class AppComponent implements OnInit {
     //this.singlarService.addListenerActionLogin();
     //this.singlarService.addListenerActionLogout();
     /**singlarService */
-
+    this.loading.cdr = this.cdr;
     //start change title when route happened
     this.router.events
       .pipe(
@@ -100,6 +104,8 @@ export class AppComponent implements OnInit {
 
     console.log('windows innerWidth size:', window.innerWidth);
   }
+  loading = new ProgressSpinnerModel();
+
   cmsApiStoreSubscribe: Subscription;
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
@@ -163,6 +169,23 @@ export class AppComponent implements OnInit {
       //todo: karavi
       const analytics = getAnalytics(app);
     }
+    this.getServiceVer();
+  }
+
+  getServiceVer(): void {
+    const pName = this.constructor.name + 'ServiceIp';
+    this.loading.Start(pName, this.translate.instant('MESSAGE.Receiving_Information_From_The_Server'));
+    this.configService.ServiceIp().subscribe({
+      next: (ret) => {
+        this.publicHelper.appServerVersion = ret.appVersion
+        this.loading.Stop(pName);
+      },
+      error: (er) => {
+        this.cmsToastrService.typeErrorGetOne(er);
+        this.loading.Stop(pName);
+      }
+    }
+    );
   }
   getDeviceToken(): void {
     const DeviceToken = this.coreAuthService.getDeviceToken();

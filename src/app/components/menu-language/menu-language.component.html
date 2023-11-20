@@ -1,0 +1,16 @@
+<div id="menu-language" class="menu menu-box-bottom rounded-m" data-menu-height="365" data-menu-effect="menu-over">
+  <div class="menu-title">
+    <p class="color-highlight">چند زبانه</p>
+    <h1 class="font-24">زبان خود را انتخاب کنید</h1>
+    <a class="close-menu"><i class="fa fa-times-circle"></i></a>
+  </div>
+  <div class="me-4 ms-3 mt-2">
+    <div class="list-group list-custom-small">
+      <a *ngFor="let language of languages" (click)="setLanguageWithRefresh(language?.lang)" style="cursor: pointer;">
+        <img class="me-3 mt-2" src="{{ language?.flag }}"><span>{{ language?.name }}</span>
+        <i class="fa fa-angle-left"></i>
+      </a>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

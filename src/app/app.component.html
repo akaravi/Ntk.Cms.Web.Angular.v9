@@ -19,9 +19,8 @@
       اپکیت را روی صفحه اصلی خود نصب کنید و مانند یک برنامه معمولی به آن دسترسی داشته باشید. به همین سادگی!
     </p>
     <div class="boxed-text-l">
-      <a href="#" class="pwa-install mx-auto btn btn-m font-600 bg-highlight">افزودن به صفحه اصلی</a>
-      <a href="#"
-        class="pwa-dismiss close-menu btn-full mt-3 pt-2 text-center font-600 color-red-light font-12 pb-4 mb-3">شاید
+      <a class="pwa-install mx-auto btn btn-m font-600 bg-highlight">افزودن به صفحه اصلی</a>
+      <a class="pwa-dismiss close-menu btn-full mt-3 pt-2 text-center font-600 color-red-light font-12 pb-4 mb-3">شاید
         بعدا</a>
     </div>
   </div>
@@ -35,8 +34,7 @@
         اپکیت را روی صفحه اصلی خود نصب کنید و مانند یک برنامه معمولی به آن دسترسی داشته باشید. مرورگر Safari خود را باز
         کنید و روی «Add to Home Screen» کلیک کنید.
       </p>
-      <a href="#"
-        class="pwa-dismiss close-menu btn-full mt-3 text-center font-700 color-red-light opacity-90 font-110 pb-5">شاید
+      <a class="pwa-dismiss close-menu btn-full mt-3 text-center font-700 color-red-light opacity-90 font-110 pb-5">شاید
         بعدا</a>
     </div>
   </div>
@@ -55,6 +53,7 @@
 
 <!-- Colors Menu-->
 <app-menu-colors></app-menu-colors>
+<app-menu-language></app-menu-language>
 <div
   *ngIf="dataSupportModelResult && dataSupportModelResult.isSuccess && dataSupportModelResult.item.supportHtmlBody?.length>0 "
   [innerHtml]="dataSupportModelResult.item.supportHtmlBody | safeHtml" runScripts></div>

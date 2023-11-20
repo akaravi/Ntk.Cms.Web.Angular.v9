@@ -33,21 +33,7 @@ export class AuthComponent implements OnInit {
         this.cdr.markForCheck();
       }, 5000);
     }
-    this.GetServiceVer();
+
   }
-  GetServiceVer(): void {
-    const pName = this.constructor.name + 'ServiceIp';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Receiving_Information_From_The_Server'));
-    this.configService.ServiceIp().subscribe({
-      next: (ret) => {
-        this.publicHelper.appServerVersion = ret.appVersion
-        this.loading.Stop(pName);
-      },
-      error: (er) => {
-        this.cmsToastrService.typeErrorGetOne(er);
-        this.loading.Stop(pName);
-      }
-    }
-    );
-  }
+
 }

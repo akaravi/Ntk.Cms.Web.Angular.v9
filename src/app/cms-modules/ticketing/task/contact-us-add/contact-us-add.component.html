@@ -494,12 +494,14 @@
                 <div class="form-group">
                   <label>{{'AUTH.INPUT.EMAIL' | translate}}</label>
                   <input type="email" [(ngModel)]="dataModel.email" name="dataModel.email" #Email required
-                    class="form-control form-control-solid form-control-lg " placeholder="{{'TITLE.Enter_emai' | translate}}" />
+                    class="form-control form-control-solid form-control-lg "
+                    placeholder="{{'TITLE.Enter_emai' | translate}}" />
 
                   <mat-error *ngIf="Email.errors?.required">
                     Email is <strong>{{'MESSAGE.required' | translate}}</strong>
                   </mat-error>
-                  <span class="form-text text-muted">{{'TITLE.We_will_never_share_your_email_with_anyone_else' | translate}}</span>
+                  <span class="form-text text-muted">{{'TITLE.We_will_never_share_your_email_with_anyone_else' |
+                    translate}}</span>
                 </div>
                 <!-- LinkTicketingDepartemenId -->
                 <label>{{'TITLE.Categories' | translate}}</label>
@@ -511,10 +513,11 @@
 
                 <!--begin::ورودی-->
                 <div class="form-group">
-                  <label for="example {{'TITLE.Tex_Aria' | translate}} ">{{'AUTH.INPUT.YOURMEESAGE' | translate}}</label>
+                  <label for="example {{'TITLE.Tex_Aria' | translate}} ">{{'AUTH.INPUT.YOURMEESAGE' |
+                    translate}}</label>
                   <textarea [(ngModel)]="dataModel.htmlBody" name="dataModel.htmlBody" #HtmlBody
-                    class="form-control form-control-solid form-control-lg" id="example {{'TITLE.Tex_Aria' | translate}} " rows="3"
-                    required></textarea>
+                    class="form-control form-control-solid form-control-lg"
+                    id="example {{'TITLE.Tex_Aria' | translate}} " rows="3" required></textarea>
 
                   <mat-error *ngIf="HtmlBody.errors?.required">
                     HtmlBody is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -567,8 +570,8 @@
                 <div class="d-flex align-items-center justify-content-between p-4">
                   <!--begin::Content-->
                   <div class="d-flex flex-column mr-5">
-                    <a href="#" class="h4 text-dark text-hover-primary mb-5">
-                     {{'TITLE.Your_message_has_been_registered_in_the_system' | translate}}
+                    <a class="h4 text-dark text-hover-primary mb-5">
+                      {{'TITLE.Your_message_has_been_registered_in_the_system' | translate}}
                     </a>
                     <p class="text-dark-50">
                       {{'TITLE.Note_the_tracking_code_for_further_tracking' | translate}}
@@ -582,7 +585,7 @@
                   <!--begin::دکمه-->
                   <div class="ml-6 flex-shrink-0" style="font-size: xx-large;">
                     <b>
-                       {{'TITLE.Tracking_Code' | translate}} :
+                      {{'TITLE.Tracking_Code' | translate}} :
                       {{this.dataModelResult.item.id}}
                     </b>
                   </div>

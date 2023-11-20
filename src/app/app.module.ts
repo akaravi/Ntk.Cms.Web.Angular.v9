@@ -14,7 +14,7 @@ import { CURRENCY_MASK_CONFIG, CurrencyMaskConfig } from 'ng2-currency-mask';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MAT_COLOR_FORMATS, MatColorFormats } from 'ngx-ntk-mat-color-picker';
 import { ToastrModule } from 'ngx-toastr';
-import { CoreAuthService, CoreEnumService, CoreModuleService } from 'ntk-cms-api';
+import { CoreAuthService, CoreConfigurationService, CoreEnumService, CoreModuleService } from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { CmsStoreModule } from './core/reducers/cmsStore.module';
@@ -94,6 +94,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     CoreAuthService,
     CoreEnumService,
     CoreModuleService,
+    CoreConfigurationService,
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializer,
