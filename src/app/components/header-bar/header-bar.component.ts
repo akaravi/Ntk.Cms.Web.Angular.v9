@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
+import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
+import { ThemeModeService, ThemeModeType } from 'src/app/core/services/themeMode.service';
 
 @Component({
   selector: 'app-header-bar',
@@ -15,6 +17,9 @@ export class HeaderBarComponent implements OnInit {
   constructor(
     public tokenHelper: TokenHelper,
     private publicHelper: PublicHelper,
+    private cmsStoreService: CmsStoreService,
+    private themeModeService:ThemeModeService,
+
   ) {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -36,4 +41,8 @@ export class HeaderBarComponent implements OnInit {
   ngOnDestroy() {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
+  onActionThemeSwitch(themeMode: ThemeModeType) {
+    this.themeModeService.updateMode(themeMode);
+  }
+
 }

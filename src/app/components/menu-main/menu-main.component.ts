@@ -10,6 +10,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { ThemeModeService, ThemeModeType } from 'src/app/core/services/themeMode.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -27,6 +28,7 @@ export class MenuMainComponent implements OnInit {
     private cmsStoreService: CmsStoreService,
     private router: Router,
     public translate: TranslateService,
+    private themeModeService: ThemeModeService,
     private cdr: ChangeDetectorRef,) {
     this.loading.cdr = this.cdr;
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -92,5 +94,7 @@ export class MenuMainComponent implements OnInit {
       return;
     }
   }
-
+  onActionThemeSwitch(themeMode: ThemeModeType) {
+    this.themeModeService.updateMode(themeMode);
+  }
 }

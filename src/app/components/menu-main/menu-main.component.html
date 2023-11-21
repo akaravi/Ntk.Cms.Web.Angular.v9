@@ -82,7 +82,8 @@
       <i class="fa fa-moon gradient-dark color-white"></i>
       <span>تم تاریک</span>
       <div class="custom-control small-switch ios-switch">
-        <input [(ngModel)]="themeStore.themeDark" data-toggle-theme type="checkbox" class="ios-input"
+        <input data-toggle-theme type="checkbox" class="ios-input" [checked]="themeStore.themeMode==='dark'"
+          (click)="themeStore.themeMode==='dark' ? onActionThemeSwitch('light'):onActionThemeSwitch('dark')"
           id="toggle-dark-menu">
         <label class="custom-control-label" for="toggle-dark-menu"></label>
       </div>

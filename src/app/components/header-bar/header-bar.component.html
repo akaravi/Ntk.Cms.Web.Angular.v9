@@ -1,9 +1,9 @@
 <div class="header header-auto-show header-fixed header-logo-center">
   <a href="index.html" class="header-title">header-bar</a>
   <a data-menu="menu-share" class="header-icon header-icon-1"><i class="fas fa-share-alt"></i></a>
-  <a *ngIf="!themeStore.themeDark" (click)="themeStore.themeDark=!themeStore.themeDark" data-toggle-theme
+  <a *ngIf="themeStore.themeMode==='dark'" (click)="onActionThemeSwitch('light')" data-toggle-theme
     class="header-icon header-icon-3 "><i class="fas fa-sun"></i></a>
-  <a *ngIf="themeStore.themeDark" (click)="themeStore.themeDark=!themeStore.themeDark" data-toggle-theme
+  <a *ngIf="themeStore.themeMode!=='dark'" (click)="onActionThemeSwitch('dark')" data-toggle-theme
     class="header-icon header-icon-3 "><i class="fas fa-moon"></i></a>
   <a (click)="themeStore?.dataMenu!=='menu-main' ? themeStore.dataMenu='menu-main':themeStore.dataMenu=''"
     class="header-icon header-icon-4"><i class="fas fa-bars"></i></a>
@@ -11,11 +11,11 @@
 
 
 <div class="page-title page-title-fixed">
-  <h1>menu-header {{themeStore.themeDark}}</h1>
+  <h1>menu-header {{themeStore.themeMode}}</h1>
   <a class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-share"><i class="fa fa-share-alt"></i></a>
-  <a *ngIf="!themeStore.themeDark" (click)="themeStore.themeDark=!themeStore.themeDark"
+  <a *ngIf="themeStore.themeMode!=='dark'" (click)="onActionThemeSwitch('dark')"
     class="page-title-icon shadow-xl bg-theme color-theme " data-toggle-theme><i class="fa fa-moon"></i></a>
-  <a *ngIf="themeStore.themeDark" (click)="themeStore.themeDark=!themeStore.themeDark"
+  <a *ngIf="themeStore.themeMode==='dark'" (click)="onActionThemeSwitch('light')"
     class="page-title-icon shadow-xl bg-theme color-theme " data-toggle-theme><i
       class="fa fa-lightbulb color-yellow-dark"></i></a>
   <a *ngIf="this.tokenInfo?.userId>0"

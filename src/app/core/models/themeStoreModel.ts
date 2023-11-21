@@ -1,5 +1,8 @@
+import { ThemeModeType } from "../services/themeMode.service";
+
 export class ThemeStoreModel {
   dataMenu: string = '';
-  themeDark: boolean = false;
+  themeMode: ThemeModeType = 'system';
+  //themeDark: boolean = false;
 }
 

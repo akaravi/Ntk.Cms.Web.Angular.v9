@@ -26,6 +26,7 @@ import { CmsSignalrService } from './core/services/cmsSignalr.service';
 import { CmsToastrService } from './core/services/cmsToastr.service';
 import { SplashScreenService } from './shared/splash-screen/splash-screen.service';
 import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
+import { ThemeModeService } from './core/services/themeMode.service';
 
 
 @Component({
@@ -43,7 +44,7 @@ export class AppComponent implements OnInit {
     private coreAuthService: CoreAuthService,
     private coreSiteService: CoreSiteService,
     private configService: CoreConfigurationService,
-    //private modeService: ThemeModeService,
+    private themeModeService: ThemeModeService,
     private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     private splashScreenService: SplashScreenService,
@@ -110,7 +111,7 @@ export class AppComponent implements OnInit {
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
     //todo: پیاده سازی شود
-    //this.modeService.init();
+    this.themeModeService.init();
 
     const url = window.location.href;
     if (url.includes('?')) {
