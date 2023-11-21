@@ -7,7 +7,7 @@ import {
   CoreAuthService,
   FormInfoModel
 } from 'ntk-cms-api';
-import { Observable } from 'rxjs';
+import { interval, Observable, Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
@@ -51,6 +51,7 @@ export class AuthSingInBySmsComponent implements OnInit {
   isLoading$: Observable<boolean>;
   dataModelAuthUserSignInBySms: AuthUserSignInBySmsDtoModel = new AuthUserSignInBySmsDtoModel();
   captchaModel: CaptchaModel = new CaptchaModel();
+  diffSecondsSubscribe: Subscription;
   // private fields
   forgetState = 'sms';
   loading = new ProgressSpinnerModel();
@@ -58,8 +59,11 @@ export class AuthSingInBySmsComponent implements OnInit {
   passwordIsValid = false;
   RePasswordModel = '';
   onCaptchaOrderInProcess = false;
+  diffSeconds: number;
+
   ngOnInit(): void {
     this.onCaptchaOrder();
+
   }
   ngAfterViewInit() {
     // var otp = document.querySelectorAll('.otp');
@@ -74,6 +78,21 @@ export class AuthSingInBySmsComponent implements OnInit {
   }
   prorocess: processModel;
   buttonnResendSmsDisable = true;
+  otpConfig = {
+    allowNumbersOnly: true,
+    length: 4,
+    isPasswordInput: false,
+    disableAutoFocus: false,
+    placeholder: '',
+    inputStyles: {
+      'width': '50px',
+      'height': '50px',
+      'margin': '5px',
+    }
+  }
+  onOtpChange(otp) {
+    this.dataModelAuthUserSignInBySms.code = otp;
+  }
   onActionSubmitOrderCodeBySms(): void {
 
     if (this.forgetState == 'entrycode') {
@@ -83,6 +102,7 @@ export class AuthSingInBySmsComponent implements OnInit {
       }
       this.dataModelAuthUserSignInBySms.code = '';
     }
+
     this.formInfo.buttonSubmittedEnabled = false;
     this.errorState = ErrorStates.NotSubmitted;
     this.dataModelAuthUserSignInBySms.captchaKey = this.captchaModel.key;
@@ -121,7 +141,7 @@ export class AuthSingInBySmsComponent implements OnInit {
             this.cmsToastrService.typeErrorMessage(res.errorMessage);
           }
           this.formInfo.buttonSubmittedEnabled = true;
-          if (!this.captchaModel || (new Date(this.captchaModel.expire).getTime() - new Date().getTime()) < 2) {
+          if (!this.captchaModel || this.diffSeconds < 2) {
             this.onCaptchaOrder();
           }
 
@@ -193,6 +213,8 @@ export class AuthSingInBySmsComponent implements OnInit {
     if (this.onCaptchaOrderInProcess) {
       return;
     }
+    if (this.diffSecondsSubscribe)
+      this.diffSecondsSubscribe.unsubscribe();
     this.dataModelAuthUserSignInBySms.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
     this.loading.Start(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
@@ -200,6 +222,13 @@ export class AuthSingInBySmsComponent implements OnInit {
       next: (ret) => {
         this.captchaModel = ret.item;
         this.onCaptchaOrderInProcess = false;
+        this.diffSecondsSubscribe = interval(1000).subscribe(x => {
+          this.diffSeconds = new Date(this.captchaModel.expire).getTime() - new Date().getTime();
+          if (this.diffSeconds < 0) {
+            this.diffSecondsSubscribe.unsubscribe();
+            this.onCaptchaOrder();
+          }
+        });
         this.loading.Stop(pName);
       },
       error: (er) => {
@@ -209,6 +238,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     }
     );
   }
+
   changeforgetState(model: string): void {
     this.forgetState = model;
   }
