@@ -1,18 +1,7 @@
-<div class="header header-auto-show header-fixed header-logo-center">
-  <a href="index.html" class="header-title">header-bar</a>
-  <a data-menu="menu-share" class="header-icon header-icon-1"><i class="fas fa-share-alt"></i></a>
-  <a *ngIf="themeStore.themeMode==='dark'" (click)="onActionThemeSwitch('light')" data-toggle-theme
-    class="header-icon header-icon-3 "><i class="fas fa-sun"></i></a>
-  <a *ngIf="themeStore.themeMode!=='dark'" (click)="onActionThemeSwitch('dark')" data-toggle-theme
-    class="header-icon header-icon-3 "><i class="fas fa-moon"></i></a>
-  <a (click)="themeStore?.dataMenu!=='menu-main' ? themeStore.dataMenu='menu-main':themeStore.dataMenu=''"
-    class="header-icon header-icon-4"><i class="fas fa-bars"></i></a>
-</div>
-
-
 <div class="page-title page-title-fixed">
   <h1>menu-header {{themeStore.themeMode}}</h1>
-  <a class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-share"><i class="fa fa-share-alt"></i></a>
+  <a (click)="themeStore?.dataMenu!=='menu-share' ? themeStore.dataMenu='menu-share':themeStore.dataMenu=''"
+    class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-share-alt"></i></a>
   <a *ngIf="themeStore.themeMode!=='dark'" (click)="onActionThemeSwitch('dark')"
     class="page-title-icon shadow-xl bg-theme color-theme " data-toggle-theme><i class="fa fa-moon"></i></a>
   <a *ngIf="themeStore.themeMode==='dark'" (click)="onActionThemeSwitch('light')"
@@ -24,4 +13,16 @@
   <a class="page-title-icon shadow-xl bg-theme color-theme"
     (click)="themeStore?.dataMenu!=='menu-main' ? themeStore.dataMenu='menu-main':themeStore.dataMenu=''"><i
       class="fa fa-bars"></i></a>
+</div>
+
+<div class="header header-auto-show header-fixed header-logo-center">
+  <a href="index.html" class="header-title">header-bar</a>
+  <a (click)="themeStore?.dataMenu!=='menu-share' ? themeStore.dataMenu='menu-share':themeStore.dataMenu=''"
+    class="header-icon header-icon-1"><i class="fas fa-share-alt"></i></a>
+  <a *ngIf="themeStore.themeMode==='dark'" (click)="onActionThemeSwitch('light')" data-toggle-theme
+    class="header-icon header-icon-3 "><i class="fas fa-sun"></i></a>
+  <a *ngIf="themeStore.themeMode!=='dark'" (click)="onActionThemeSwitch('dark')" data-toggle-theme
+    class="header-icon header-icon-3 "><i class="fas fa-moon"></i></a>
+  <a (click)="themeStore?.dataMenu!=='menu-main' ? themeStore.dataMenu='menu-main':themeStore.dataMenu=''"
+    class="header-icon header-icon-4"><i class="fas fa-bars"></i></a>
 </div>

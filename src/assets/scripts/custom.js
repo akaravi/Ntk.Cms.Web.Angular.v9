@@ -118,13 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // }
 
 		//OTP Boxes - Appkit 3.0
-		var otp = document.querySelectorAll('.otp');
-		if(otp[0]){
-			otp.forEach(el => {
-				el.addEventListener('focus', (e) => {el.value = "";})
-				el.addEventListener('input', (e) => {el.nextElementSibling ? el.nextElementSibling.focus() : el.blur();});
-			});
-		}
+		// var otp = document.querySelectorAll('.otp');
+		// if(otp[0]){
+		// 	otp.forEach(el => {
+		// 		el.addEventListener('focus', (e) => {el.value = "";})
+		// 		el.addEventListener('input', (e) => {el.nextElementSibling ? el.nextElementSibling.focus() : el.blur();});
+		// 	});
+		// }
 
         //Image Sliders
         var splide = document.getElementsByClassName('splide');
@@ -338,13 +338,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // }
         //menuFunction();
 
-        function activateMenus(){
-            const menuActive = document.querySelectorAll('[data-menu-active]')[0];
-            if(menuActive){
-                var selectedMenu = menuActive.getAttribute('data-menu-active');
-                document.querySelectorAll('#'+selectedMenu)[0].classList.add('active-nav');
-            }
-        }
+        // function activateMenus(){
+        //     const menuActive = document.querySelectorAll('[data-menu-active]')[0];
+        //     if(menuActive){
+        //         var selectedMenu = menuActive.getAttribute('data-menu-active');
+        //         document.querySelectorAll('#'+selectedMenu)[0].classList.add('active-nav');
+        //     }
+        // }
 
         //Back Button
         // const backButton = document.querySelectorAll('[data-back-button]');
@@ -1257,8 +1257,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if(dataMenuLoad[dataMenuLoad.length-1] === e){
                         menuFunction();
                         //checkDarkMode();
-                        activateMenus();
-                        shareLinks();
+                        // activateMenus();
+                        // shareLinks();
                         highlightColors();
                         selectHighlight();
                         card_extender();

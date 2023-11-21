@@ -1,6 +1,7 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
+
 <!--content-->
-<p class="font-600 color-highlight mb-0">بازنشانی حساب</p>
+<p class="font-600 color-highlight mb-0">ورود به حساب</p>
 <!--begin::Title-->
 <h1 class="font-30"> {{'AUTH.SINGINBYSMS.TITLE' | translate}}</h1>
 <p>
@@ -60,18 +61,21 @@
 </form>
 <!--end::Form-->
 <!--begin::Form-->
-<!-- *ngIf="forgetState==='entrycode'" -->
-<form class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate" #vformEntryCode="ngForm"
-  (ngSubmit)="onActionSubmitEntryPinCode()" id="kt_login_forgot_form" [ngStyle]="{
+<form *ngIf="forgetState==='entrycode'" class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate"
+  #vformEntryCode="ngForm" (ngSubmit)="onActionSubmitEntryPinCode()" id="kt_login_forgot_form" [ngStyle]="{
       display: errorState === errorStates.NoError ? 'none' : 'block'
     }">
-  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
-  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
-  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
-  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
-  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
+
+
+  <p>
+    عدد دریافتی را وارد فرمایید
+  </p>
   <!--code Field-->
-  <div class="input-style no-borders has-icon validate-field mb-4">
+  <div style="text-align: center;">
+    <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="otpConfig"></ng-otp-input>
+  </div>
+  <!--code Field-->
+  <!-- <div class="input-style no-borders has-icon validate-field mb-4">
     <i class="fa fa-at"></i>
     <input type="text" [(ngModel)]="dataModelAuthUserSignInBySms.code" name="dataModelAuthUserSignInBySms.code"
       [disabled]=" !formInfo.buttonSubmittedEnabled" #code class="form-control validate-name"
@@ -85,11 +89,11 @@
     <mat-error *ngIf="code.errors?.required">
       {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
     </mat-error>
-  </div>
+  </div> -->
   <!--captchaText Field-->
-  <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
-  <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
-  <div class="input-style no-borders has-icon validate-field mb-4">
+  <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="" *ngIf="this.diffSeconds<0">
+  <mat-icon *ngIf="this.diffSeconds<0" matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
+  <div class="input-style no-borders has-icon validate-field mb-4" *ngIf="this.diffSeconds<0">
     <i class="fa fa-quote-left"></i>
     <input [(ngModel)]="dataModelAuthUserSignInBySms.captchaText" name="dataModelAuthUserSignInBySms.captchaText"
       #captchaText id="dataModelAuthUserSignInBySms.captchaText" [disabled]=" !formInfo.buttonSubmittedEnabled"
@@ -106,7 +110,7 @@
   </div>
 
   <button type="submit"
-    [disabled]="vformEntryCode.invalid || !formInfo.buttonSubmittedEnabled|| !connectionStatus.internetConnection"
+    [disabled]="vformEntryCode.invalid || !formInfo.buttonSubmittedEnabled|| !connectionStatus.internetConnection || !dataModelAuthUserSignInBySms.code|| dataModelAuthUserSignInBySms.code.length<4"
     style="width: 100%;" class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">
     {{'AUTH.SINGINBYSMS.LOGIN' | translate}}
   </button>
