@@ -30,92 +30,92 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.menu').forEach(el=>{el.style.display='block'})
 
         //Validator
-        var inputField = document.querySelectorAll('input');
-        if(inputField.length){
-            var mailValidator = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
-            var phoneValidator = /^\d{11}$/;
-            var nameValidator = /^[\u0600-\u06FF\s]{4,}$/;
-            var passwordValidator = /[A-Za-z]{4}[A-Za-z]*[ ]?[A-Za-z]*/;
-            var numberValidator = /^(0|[1-9]\d*)$/;
-            var linkValidator = /^(http|https)?:\/\/[a-zA-Z0-9-\.]+\.[a-z]{2,4}/;
-            var textValidator = /[A-Za-z]{2}[A-Za-z]*[ ]?[A-Za-z]*/;
+        // var inputField = document.querySelectorAll('input');
+        // if(inputField.length){
+        //     var mailValidator = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
+        //     var phoneValidator = /^\d{11}$/;
+        //     var nameValidator = /^[\u0600-\u06FF\s]{4,}$/;
+        //     var passwordValidator = /[A-Za-z]{4}[A-Za-z]*[ ]?[A-Za-z]*/;
+        //     var numberValidator = /^(0|[1-9]\d*)$/;
+        //     var linkValidator = /^(http|https)?:\/\/[a-zA-Z0-9-\.]+\.[a-z]{2,4}/;
+        //     var textValidator = /[A-Za-z]{2}[A-Za-z]*[ ]?[A-Za-z]*/;
 
-            function valid(el){
-                el.parentElement.querySelectorAll('.valid')[0].classList.remove('disabled');
-                el.parentElement.querySelectorAll('.invalid')[0].classList.add('disabled');
-            }
-            function invalid(el){
-                el.parentElement.querySelectorAll('.valid')[0].classList.add('disabled');
-                el.parentElement.querySelectorAll('.invalid')[0].classList.remove('disabled');
-            }
-            function unfilled(el){
-                el.parentElement.querySelectorAll('em')[0].classList.remove('disabled');
-                el.parentElement.querySelectorAll('.valid')[0].classList.add('disabled');
-                el.parentElement.querySelectorAll('.invalid')[0].classList.add('disabled');
-            }
+        //     function valid(el){
+        //         el.parentElement.querySelectorAll('.valid')[0].classList.remove('disabled');
+        //         el.parentElement.querySelectorAll('.invalid')[0].classList.add('disabled');
+        //     }
+        //     function invalid(el){
+        //         el.parentElement.querySelectorAll('.valid')[0].classList.add('disabled');
+        //         el.parentElement.querySelectorAll('.invalid')[0].classList.remove('disabled');
+        //     }
+        //     function unfilled(el){
+        //         el.parentElement.querySelectorAll('em')[0].classList.remove('disabled');
+        //         el.parentElement.querySelectorAll('.valid')[0].classList.add('disabled');
+        //         el.parentElement.querySelectorAll('.invalid')[0].classList.add('disabled');
+        //     }
 
-            var regularField = document.querySelectorAll('.input-style input:not([type="date"])')
-            regularField.forEach(el => el.addEventListener('keyup', e => {
-                if(!el.value == ""){
-                    el.parentElement.classList.add('input-style-active');
-                    el.parentElement.querySelector('em').classList.add('disabled');
-                } else {
-                    el.parentElement.querySelectorAll('.valid')[0].classList.add('disabled');
-                    el.parentElement.querySelectorAll('.invalid')[0].classList.add('disabled');
-                    el.parentElement.classList.remove('input-style-active');
-                    el.parentElement.querySelector('em').classList.remove('disabled');
-                }
-            }));
+        //     var regularField = document.querySelectorAll('.input-style input:not([type="date"])')
+        //     regularField.forEach(el => el.addEventListener('keyup', e => {
+        //         if(!el.value == ""){
+        //             el.parentElement.classList.add('input-style-active');
+        //             el.parentElement.querySelector('em').classList.add('disabled');
+        //         } else {
+        //             el.parentElement.querySelectorAll('.valid')[0].classList.add('disabled');
+        //             el.parentElement.querySelectorAll('.invalid')[0].classList.add('disabled');
+        //             el.parentElement.classList.remove('input-style-active');
+        //             el.parentElement.querySelector('em').classList.remove('disabled');
+        //         }
+        //     }));
 
-            var regularTextarea = document.querySelectorAll('.input-style textarea')
-            regularTextarea.forEach(el => el.addEventListener('keyup', e => {
-                if(!el.value == ""){
-                    el.parentElement.classList.add('input-style-active');
-                    el.parentElement.querySelector('em').classList.add('disabled');
-                } else {
-                    el.parentElement.classList.remove('input-style-active');
-                    el.parentElement.querySelector('em').classList.remove('disabled');
-                }
-            }));
+        //     var regularTextarea = document.querySelectorAll('.input-style textarea')
+        //     regularTextarea.forEach(el => el.addEventListener('keyup', e => {
+        //         if(!el.value == ""){
+        //             el.parentElement.classList.add('input-style-active');
+        //             el.parentElement.querySelector('em').classList.add('disabled');
+        //         } else {
+        //             el.parentElement.classList.remove('input-style-active');
+        //             el.parentElement.querySelector('em').classList.remove('disabled');
+        //         }
+        //     }));
 
-            var selectField = document.querySelectorAll('.input-style select')
-            selectField.forEach(el => el.addEventListener('change', e => {
-                if(el.value !== "default"){
-                    el.parentElement.classList.add('input-style-active');
-                    el.parentElement.querySelectorAll('.valid')[0].classList.remove('disabled');
-                    el.parentElement.querySelectorAll('.invalid, em, span')[0].classList.add('disabled');
-                }
-                if(el.value == "default"){
-                    el.parentElement.querySelectorAll('span, .valid, em')[0].classList.add('disabled');
-                    el.parentElement.querySelectorAll('.invalid')[0].classList.remove('disabled');
-                    el.parentElement.classList.add('input-style-active');
-                }
-            }));
+        //     var selectField = document.querySelectorAll('.input-style select')
+        //     selectField.forEach(el => el.addEventListener('change', e => {
+        //         if(el.value !== "default"){
+        //             el.parentElement.classList.add('input-style-active');
+        //             el.parentElement.querySelectorAll('.valid')[0].classList.remove('disabled');
+        //             el.parentElement.querySelectorAll('.invalid, em, span')[0].classList.add('disabled');
+        //         }
+        //         if(el.value == "default"){
+        //             el.parentElement.querySelectorAll('span, .valid, em')[0].classList.add('disabled');
+        //             el.parentElement.querySelectorAll('.invalid')[0].classList.remove('disabled');
+        //             el.parentElement.classList.add('input-style-active');
+        //         }
+        //     }));
 
-            var dateField = document.querySelectorAll('.input-style input[type="date"]')
-            dateField.forEach(el => el.addEventListener('change', e => {
-                el.parentElement.classList.add('input-style-active');
-                el.parentElement.querySelectorAll('.valid')[0].classList.remove('disabled');
-                el.parentElement.querySelectorAll('.invalid')[0].classList.add('disabled');
-            }));
+        //     var dateField = document.querySelectorAll('.input-style input[type="date"]')
+        //     dateField.forEach(el => el.addEventListener('change', e => {
+        //         el.parentElement.classList.add('input-style-active');
+        //         el.parentElement.querySelectorAll('.valid')[0].classList.remove('disabled');
+        //         el.parentElement.querySelectorAll('.invalid')[0].classList.add('disabled');
+        //     }));
 
-            var validateField = document.querySelectorAll('.validate-field input, .validator-field textarea');
-            if(validateField.length){
-                validateField.forEach(el => el.addEventListener('keyup', e => {
-                    var getAttribute = el.getAttribute('type');
-                    switch(getAttribute){
-                        case 'name': nameValidator.test(el.value) ? valid(el) : invalid(el); break;
-                        case 'number': numberValidator.test(el.value) ? valid(el) : invalid(el); break;
-                        case 'email': mailValidator.test(el.value) ? valid(el) : invalid(el); break;
-                        case 'text': textValidator.test(el.value) ? valid(el) : invalid(el); break;
-                        case 'url': linkValidator.test(el.value) ? valid(el) : invalid(el); break;
-                        case 'tel': phoneValidator.test(el.value) ? valid(el) : invalid(el); break;
-                        case 'password': passwordValidator.test(el.value) ? valid(el) : invalid(el); break;
-                    }
-                    if(el.value === ""){unfilled(el);}
-                }));
-            }
-        }
+        //     var validateField = document.querySelectorAll('.validate-field input, .validator-field textarea');
+        //     if(validateField.length){
+        //         validateField.forEach(el => el.addEventListener('keyup', e => {
+        //             var getAttribute = el.getAttribute('type');
+        //             switch(getAttribute){
+        //                 case 'name': nameValidator.test(el.value) ? valid(el) : invalid(el); break;
+        //                 case 'number': numberValidator.test(el.value) ? valid(el) : invalid(el); break;
+        //                 case 'email': mailValidator.test(el.value) ? valid(el) : invalid(el); break;
+        //                 case 'text': textValidator.test(el.value) ? valid(el) : invalid(el); break;
+        //                 case 'url': linkValidator.test(el.value) ? valid(el) : invalid(el); break;
+        //                 case 'tel': phoneValidator.test(el.value) ? valid(el) : invalid(el); break;
+        //                 case 'password': passwordValidator.test(el.value) ? valid(el) : invalid(el); break;
+        //             }
+        //             if(el.value === ""){unfilled(el);}
+        //         }));
+        //     }
+        // }
 
 		//OTP Boxes - Appkit 3.0
 		var otp = document.querySelectorAll('.otp');
@@ -236,107 +236,107 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
 
-        var checkedCard = document.querySelectorAll('.check-card');
-        checkedCard.forEach(el => el.addEventListener('click', e => {
-            if(el.querySelector('input').getAttribute('checked') =="checked"){
-                el.querySelector('input').removeAttribute('checked');
-            } else {
-                el.querySelector('input').setAttribute('checked', 'checked');
-            }
-        }));
+        // var checkedCard = document.querySelectorAll('.check-card');
+        // checkedCard.forEach(el => el.addEventListener('click', e => {
+        //     if(el.querySelector('input').getAttribute('checked') =="checked"){
+        //         el.querySelector('input').removeAttribute('checked');
+        //     } else {
+        //         el.querySelector('input').setAttribute('checked', 'checked');
+        //     }
+        // }));
 
 
 
         //To Do List
-        var toDoList = document.querySelectorAll('.todo-list a');
-        toDoList.forEach(el => el.addEventListener('click', e => {
-            el.classList.toggle('opacity-80');
-            if(el.querySelector('input').getAttribute('checked') == "checked"){
-                el.querySelector('input').removeAttribute('checked');
-            } else {
-                el.querySelector('input').setAttribute('checked', 'checked');
-            }
-        }));
+        // var toDoList = document.querySelectorAll('.todo-list a');
+        // toDoList.forEach(el => el.addEventListener('click', e => {
+        //     el.classList.toggle('opacity-80');
+        //     if(el.querySelector('input').getAttribute('checked') == "checked"){
+        //         el.querySelector('input').removeAttribute('checked');
+        //     } else {
+        //         el.querySelector('input').setAttribute('checked', 'checked');
+        //     }
+        // }));
 
         //Setting Sidebar Widths
-        var menus = document.querySelectorAll('.menu');
-        function menuFunction(){
-            if(menus.length){
-                var menuSidebar = document.querySelectorAll('.menu-box-left, .menu-box-right');
-                menuSidebar.forEach(function(e){
-                    if(e.getAttribute('data-menu-width') === "cover"){
-                        e.style.width = '100%'
-                    } else {
-                        e.style.width = (e.getAttribute('data-menu-width')) +'px'
-                    }
-                })
-                var menuSheets = document.querySelectorAll('.menu-box-bottom, .menu-box-top, .menu-box-modal');
-                menuSheets.forEach(function(e){
-                    if(e.getAttribute('data-menu-width') === "cover"){
-                        e.style.width = '100%'
-                        e.style.height = '100%'
-                    } else {
-                        e.style.width = (e.getAttribute('data-menu-width')) +'px'
-                        e.style.height = (e.getAttribute('data-menu-height')) +'px'
-                    }
-                })
+        // var menus = document.querySelectorAll('.menu');
+        // function menuFunction(){
+        //     if(menus.length){
+        //         var menuSidebar = document.querySelectorAll('.menu-box-left, .menu-box-right');
+        //         menuSidebar.forEach(function(e){
+        //             if(e.getAttribute('data-menu-width') === "cover"){
+        //                 e.style.width = '100%'
+        //             } else {
+        //                 e.style.width = (e.getAttribute('data-menu-width')) +'px'
+        //             }
+        //         })
+        //         var menuSheets = document.querySelectorAll('.menu-box-bottom, .menu-box-top, .menu-box-modal');
+        //         menuSheets.forEach(function(e){
+        //             if(e.getAttribute('data-menu-width') === "cover"){
+        //                 e.style.width = '100%'
+        //                 e.style.height = '100%'
+        //             } else {
+        //                 e.style.width = (e.getAttribute('data-menu-width')) +'px'
+        //                 e.style.height = (e.getAttribute('data-menu-height')) +'px'
+        //             }
+        //         })
 
                 //Opening Menus
-                var menuOpen = document.querySelectorAll('[data-menu]');
-                var wrappers = document.querySelectorAll('.header, #footer-bar, .page-content');
+                // var menuOpen = document.querySelectorAll('[data-menu]');
+                // var wrappers = document.querySelectorAll('.header, #footer-bar, .page-content');
 
-                menuOpen.forEach(el => el.addEventListener('click',e =>{
-                    //Close Existing Opened Menus
-                    const activeMenu = document.querySelectorAll('.menu-active');
-                    for(let i=0; i < activeMenu.length; i++){activeMenu[i].classList.remove('menu-active');}
-                    //Open Clicked Menu
-                    var menuData = el.getAttribute('data-menu');
-                    document.getElementById(menuData).classList.add('menu-active');
-                    document.getElementsByClassName('menu-hider')[0].classList.add('menu-active');
-                    //Check and Apply Effects
-                    var menu = document.getElementById(menuData);
-                    var menuEffect = menu.getAttribute('data-menu-effect');
-                    var menuLeft = menu.classList.contains('menu-box-left');
-                    var menuRight = menu.classList.contains('menu-box-right');
-                    var menuTop = menu.classList.contains('menu-box-top');
-                    var menuBottom = menu.classList.contains('menu-box-bottom');
-                    var menuWidth = menu.offsetWidth;
-                    var menuHeight = menu.offsetHeight;
-                    var menuTimeout = menu.getAttribute('data-menu-hide');
+                // menuOpen.forEach(el => el.addEventListener('click',e =>{
+                //     //Close Existing Opened Menus
+                //     const activeMenu = document.querySelectorAll('.menu-active');
+                //     for(let i=0; i < activeMenu.length; i++){activeMenu[i].classList.remove('menu-active');}
+                //     //Open Clicked Menu
+                //     var menuData = el.getAttribute('data-menu');
+                //     document.getElementById(menuData).classList.add('menu-active');
+                //     document.getElementsByClassName('menu-hider')[0].classList.add('menu-active');
+                //     //Check and Apply Effects
+                //     var menu = document.getElementById(menuData);
+                //     var menuEffect = menu.getAttribute('data-menu-effect');
+                //     var menuLeft = menu.classList.contains('menu-box-left');
+                //     var menuRight = menu.classList.contains('menu-box-right');
+                //     var menuTop = menu.classList.contains('menu-box-top');
+                //     var menuBottom = menu.classList.contains('menu-box-bottom');
+                //     var menuWidth = menu.offsetWidth;
+                //     var menuHeight = menu.offsetHeight;
+                //     var menuTimeout = menu.getAttribute('data-menu-hide');
 
-                    if(menuTimeout){
-                        setTimeout(function(){
-                            document.getElementById(menuData).classList.remove('menu-active');
-                            document.getElementsByClassName('menu-hider')[0].classList.remove('menu-active');
-                        },menuTimeout)
-                    }
+                //     if(menuTimeout){
+                //         setTimeout(function(){
+                //             document.getElementById(menuData).classList.remove('menu-active');
+                //             document.getElementsByClassName('menu-hider')[0].classList.remove('menu-active');
+                //         },menuTimeout)
+                //     }
 
-                    if(menuEffect === "menu-push"){
-                        var menuWidth = document.getElementById(menuData).getAttribute('data-menu-width');
-                        if(menuLeft){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX("+menuWidth+"px)"}}
-                        if(menuRight){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX(-"+menuWidth+"px)"}}
-                        if(menuBottom){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateY(-"+menuHeight+"px)"}}
-                        if(menuTop){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateY("+menuHeight+"px)"}}
-                    }
-                    if(menuEffect === "menu-parallax"){
-                        var menuWidth = document.getElementById(menuData).getAttribute('data-menu-width');
-                        if(menuLeft){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX("+menuWidth/10+"px)"}}
-                        if(menuRight){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX(-"+menuWidth/10+"px)"}}
-                        if(menuBottom){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateY(-"+menuHeight/5+"px)"}}
-                        if(menuTop){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateY("+menuHeight/5+"px)"}}
-                    }
-                }));
+                //     if(menuEffect === "menu-push"){
+                //         var menuWidth = document.getElementById(menuData).getAttribute('data-menu-width');
+                //         if(menuLeft){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX("+menuWidth+"px)"}}
+                //         if(menuRight){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX(-"+menuWidth+"px)"}}
+                //         if(menuBottom){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateY(-"+menuHeight+"px)"}}
+                //         if(menuTop){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateY("+menuHeight+"px)"}}
+                //     }
+                //     if(menuEffect === "menu-parallax"){
+                //         var menuWidth = document.getElementById(menuData).getAttribute('data-menu-width');
+                //         if(menuLeft){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX("+menuWidth/10+"px)"}}
+                //         if(menuRight){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX(-"+menuWidth/10+"px)"}}
+                //         if(menuBottom){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateY(-"+menuHeight/5+"px)"}}
+                //         if(menuTop){for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateY("+menuHeight/5+"px)"}}
+                //     }
+                // }));
 
                 //Closing Menus
-                const menuClose = document.querySelectorAll('.close-menu, .menu-hider');
-                menuClose.forEach(el => el.addEventListener('click',e =>{
-                    const activeMenu = document.querySelectorAll('.menu-active');
-                    for(let i=0; i < activeMenu.length; i++){activeMenu[i].classList.remove('menu-active');}
-                    for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX(-"+0+"px)"}
-                }));
-            }
-        }
-        menuFunction();
+                // const menuClose = document.querySelectorAll('.close-menu, .menu-hider');
+                // menuClose.forEach(el => el.addEventListener('click',e =>{
+                //     const activeMenu = document.querySelectorAll('.menu-active');
+                //     for(let i=0; i < activeMenu.length; i++){activeMenu[i].classList.remove('menu-active');}
+                //     for(let i=0; i < wrappers.length; i++){wrappers[i].style.transform = "translateX(-"+0+"px)"}
+                // }));
+        //     }
+        // }
+        //menuFunction();
 
         function activateMenus(){
             const menuActive = document.querySelectorAll('[data-menu-active]')[0];
