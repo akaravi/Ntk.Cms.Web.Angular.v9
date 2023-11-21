@@ -1,6 +1,6 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div *ngIf="optionTypeView===1" class="input-style has-borders has-icon  input-style-always-active validate-field mb-4">
-  <i class="fa fa-user"></i>
+
   <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null"
     aria-label="Assignee" matInput [formControl]="formControl" [matAutocomplete]="matauto" id="forminput"
     [required]="optionRequired">

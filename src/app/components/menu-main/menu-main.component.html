@@ -4,7 +4,7 @@
 
   <div class="card rounded-0 bg-6" data-card-height="150">
     <div class="card-top">
-      <a  (click)="themeStore.dataMenu=''" class="close-menu float-end me-2 text-center mt-3 icon-40 notch-clear"><i
+      <a (click)="themeStore.dataMenu=''" class="close-menu float-end me-2 text-center mt-3 icon-40 notch-clear"><i
           class="fa fa-times color-white"></i></a>
     </div>
     <div *ngIf="this.tokenInfo?.userId>0" class="card-bottom">
@@ -82,7 +82,8 @@
       <i class="fa fa-moon gradient-dark color-white"></i>
       <span>تم تاریک</span>
       <div class="custom-control small-switch ios-switch">
-        <input data-toggle-theme type="checkbox" class="ios-input" id="toggle-dark-menu">
+        <input [(ngModel)]="themeStore.themeDark" data-toggle-theme type="checkbox" class="ios-input"
+          id="toggle-dark-menu">
         <label class="custom-control-label" for="toggle-dark-menu"></label>
       </div>
     </a>
