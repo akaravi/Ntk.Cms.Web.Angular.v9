@@ -14,7 +14,7 @@ export class ThemeModeService {
 
   }
 
-  public init() {
+  public onInit() {
     this.cmsStoreService.getState().subscribe((value) => {
       if (value.themeStore)
         this.themeStore = value.themeStore;
@@ -25,6 +25,14 @@ export class ThemeModeService {
       }
     });
     this.updateMode(this.mode.value);
+  }
+  public afterViewInit() {
+    //Activating Menus
+    document.querySelectorAll('.menu').forEach(el => {
+      const node = el as HTMLElement;
+      node.style.display = 'block'
+    })
+
   }
   themeStore = new ThemeStoreModel()
   getThemeModeFromLocalStorage(): ThemeModeType {

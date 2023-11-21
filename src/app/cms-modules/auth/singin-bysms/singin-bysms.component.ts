@@ -36,7 +36,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     private router: Router,
     private translationService: TranslationService,
     private cdr: ChangeDetectorRef,
-    private publicHelper:PublicHelper,
+    private publicHelper: PublicHelper,
   ) {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -60,6 +60,17 @@ export class AuthSingInBySmsComponent implements OnInit {
   onCaptchaOrderInProcess = false;
   ngOnInit(): void {
     this.onCaptchaOrder();
+  }
+  ngAfterViewInit() {
+    // var otp = document.querySelectorAll('.otp');
+    // if (otp[0]) {
+    //   otp.forEach(el => {
+    //     const node = el as Element;
+    //     el.addEventListener('focus', (e) => { el.value = ""; })
+    //     el.addEventListener('input', (e) => { el.nextElementSibling ? el.nextElementSibling.focus() : el.blur(); });
+    //   });
+    // }
+
   }
   prorocess: processModel;
   buttonnResendSmsDisable = true;

@@ -19,15 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
         var i, e, el; //https://www.w3schools.com/js/js_performance.asp
 
         //Attaching Menu Hider
-		var menuHider = document.getElementsByClassName('menu-hider');
-		if(!menuHider.length){var hider = document.createElement('div'); hider.setAttribute("class", "menu-hider");document.body.insertAdjacentElement('beforebegin', hider);}
-		if(menuHider[0].classList.contains('menu-active')){menuHider[0].classList.remove('menu-active');}
+		// var menuHider = document.getElementsByClassName('menu-hider');
+		// if(!menuHider.length){var hider = document.createElement('div'); hider.setAttribute("class", "menu-hider");document.body.insertAdjacentElement('beforebegin', hider);}
+		// if(menuHider[0].classList.contains('menu-active')){menuHider[0].classList.remove('menu-active');}
 
         //Demo function for programtic creation of Menu
         //menu('menu-settings', 'show', 250);
 
         //Activating Menus
-        document.querySelectorAll('.menu').forEach(el=>{el.style.display='block'})
+        //document.querySelectorAll('.menu').forEach(el=>{el.style.display='block'})
 
         //Validator
         // var inputField = document.querySelectorAll('input');
@@ -511,16 +511,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             //Activating Dark Mode
-            var darkModeSwitch = document.querySelectorAll('[data-toggle-theme]')
-            darkModeSwitch.forEach(el => el.addEventListener('click',e =>{
-                if(document.body.className == "theme-light"){ removeTransitions(); activateDarkMode();}
-                else if(document.body.className == "theme-dark"){ removeTransitions(); activateLightMode();}
-                setTimeout(function(){addTransitions();},350);
-            }));
+            // var darkModeSwitch = document.querySelectorAll('[data-toggle-theme]')
+            // darkModeSwitch.forEach(el => el.addEventListener('click',e =>{
+            //     if(document.body.className == "theme-light"){ removeTransitions(); activateDarkMode();}
+            //     else if(document.body.className == "theme-dark"){ removeTransitions(); activateLightMode();}
+            //     setTimeout(function(){addTransitions();},350);
+            // }));
 
             //Set Color Based on Remembered Preference.
-            if(localStorage.getItem(pwaName+'-Theme') == "dark-mode"){for(let i = 0; i < toggleDark.length; i++){toggleDark[i].checked="checked"};document.body.className = 'theme-dark';}
-            if(localStorage.getItem(pwaName+'-Theme') == "light-mode"){document.body.className = 'theme-light';} if(document.body.className == "detect-theme"){setColorScheme();}
+            // if(localStorage.getItem(pwaName+'-Theme') == "dark-mode"){for(let i = 0; i < toggleDark.length; i++){toggleDark[i].checked="checked"};document.body.className = 'theme-dark';}
+            // if(localStorage.getItem(pwaName+'-Theme') == "light-mode"){document.body.className = 'theme-light';} if(document.body.className == "detect-theme"){setColorScheme();}
 
             //Detect Dark/Light Mode
             const darkModeDetect = document.querySelectorAll('.detect-dark-mode');

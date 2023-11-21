@@ -110,8 +110,7 @@ export class AppComponent implements OnInit {
   cmsApiStoreSubscribe: Subscription;
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
-    //todo: پیاده سازی شود
-    this.themeModeService.init();
+    this.themeModeService.onInit();
 
     const url = window.location.href;
     if (url.includes('?')) {
@@ -172,7 +171,10 @@ export class AppComponent implements OnInit {
     }
     this.getServiceVer();
   }
+  ngAfterViewInit(){
+    this.themeModeService.afterViewInit();
 
+  }
   getServiceVer(): void {
     const pName = this.constructor.name + 'ServiceIp';
     this.loading.Start(pName, this.translate.instant('MESSAGE.Receiving_Information_From_The_Server'));

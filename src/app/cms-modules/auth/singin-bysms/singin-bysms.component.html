@@ -60,11 +60,16 @@
 </form>
 <!--end::Form-->
 <!--begin::Form-->
-<form *ngIf="forgetState==='entrycode'" class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate"
-  #vformEntryCode="ngForm" (ngSubmit)="onActionSubmitEntryPinCode()" id="kt_login_forgot_form" [ngStyle]="{
+<!-- *ngIf="forgetState==='entrycode'" -->
+<form class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate" #vformEntryCode="ngForm"
+  (ngSubmit)="onActionSubmitEntryPinCode()" id="kt_login_forgot_form" [ngStyle]="{
       display: errorState === errorStates.NoError ? 'none' : 'block'
     }">
-
+  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
+  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
+  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
+  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
+  <input class="otp mx-1 rounded-sm text-center font-20 font-700" type="tel" value="●">
   <!--code Field-->
   <div class="input-style no-borders has-icon validate-field mb-4">
     <i class="fa fa-at"></i>
