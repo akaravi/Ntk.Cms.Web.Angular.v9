@@ -1,67 +1,11 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, Renderer2 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs'
 import { CmsStoreService } from '../reducers/cmsStore.service';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 
 export type ThemeModeType = 'dark' | 'light' | 'system';
-//type Mode = 'light' | 'dark' | 'system'
 const themeModeLSKey = 'theme_mode';
-export class ThemeMode {
-  menu: HTMLElement | null = null
-  element: HTMLElement | null = null
-  public init = () => {
-    //this.menu = document.querySelector<HTMLElement>('[data-kt-element="theme-mode-menu"]')
-    this.element = document.documentElement
-
-    this.initMode();
-  }
-
-  private initMode = (): void => {
-    // this.setMode(this.getMode(), this.getMenuMode())
-    // if (this.element) {
-    //   EventHandlerUtil.trigger(this.element, 'kt.thememode.init')
-    // }
-  }
-  public setMode = (mode: ThemeModeType): void => {
-    // Check input values
-    if (mode !== 'light' && mode !== 'dark') {
-      return
-    }
-
-    // Store mode value in storage
-    if (localStorage) {
-      localStorage.setItem(themeModeLSKey, mode)
-    }
-  }
-  public getMode = (): ThemeModeType => {
-    const defaultMode = 'light'
-    if (!localStorage) {
-      return defaultMode
-    }
-    const ls = localStorage.getItem(themeModeLSKey)
-    if (ls) {
-      return ls as ThemeModeType
-    }
-    if (ls === 'system') {
-      return this.getSystemMode()
-    }
-    return ls as ThemeModeType
-  }
-
-
-  public getSystemMode = (): ThemeModeType => {
-    return window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light'
-  }
-}
-
-
-const ThemeModeComponent = new ThemeMode()
-const systemMode = ThemeModeComponent.getSystemMode() as 'light' | 'dark';
-
-
-export { ThemeModeComponent }
-
 @Injectable({
   providedIn: 'root',
 })
@@ -77,17 +21,17 @@ export class ThemeModeService {
       if (value.themeStore?.themeMode) {
         setTimeout(() => {
           this.updateModeHtmlDom(value.themeStore.themeMode);
-        }, 1000);
+        }, 100);
       }
     });
     this.updateMode(this.mode.value);
   }
   themeStore = new ThemeStoreModel()
-  getThemeModeFromLocalStorage(lsKey: string): ThemeModeType {
+  getThemeModeFromLocalStorage(): ThemeModeType {
     if (!localStorage) {
       return 'light';
     }
-    const data = localStorage.getItem(lsKey);
+    const data = localStorage.getItem(themeModeLSKey);
     if (!data) {
       return 'light';
     }
@@ -105,11 +49,14 @@ export class ThemeModeService {
 
   public mode: BehaviorSubject<ThemeModeType> =
     new BehaviorSubject<ThemeModeType>(
-      this.getThemeModeFromLocalStorage(themeModeLSKey)
+      this.getThemeModeFromLocalStorage()
     );
 
+  public getSystemMode = (): ThemeModeType => {
+    return window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light'
+  }
   public updateMode(_mode: ThemeModeType) {
-    const updatedMode = _mode === 'system' ? systemMode : _mode;
+    const updatedMode = _mode === 'system' ? this.getSystemMode() : _mode;
     this.mode.next(updatedMode);
     if (localStorage) {
       localStorage.setItem(themeModeLSKey, updatedMode);
@@ -118,6 +65,7 @@ export class ThemeModeService {
     this.cmsStoreService.setState({ themeStore: this.themeStore });
   }
   private updateModeHtmlDom(updatedMode: ThemeModeType) {
+
     if (updatedMode == 'dark') {
       document.documentElement.querySelectorAll('.theme-light').forEach((element) => {
         element.classList.remove('theme-light');
@@ -129,7 +77,7 @@ export class ThemeModeService {
         element.classList.add('theme-light');
       });
     }
-    //todo: تکمیل شود
-    //ThemeModeComponent.init();
+
   }
+
 }
