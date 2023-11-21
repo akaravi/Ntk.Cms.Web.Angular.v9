@@ -45,7 +45,7 @@
              type="number"  placeholder="{{fieldsInfo['stationLevel']?.fieldTitle}}" [disabled]="!fieldsInfo['stationLevel']?.accessEditField"
              id="dataModel.stationLevel" class="form-control validate-name">
         </div>
-         <!-- ViewLevel Field -->
+        <!-- ViewLevel Field -->
         <div *ngIf="fieldsInfo['viewLevel']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.viewLevel" class="color-highlight">{{fieldsInfo['viewLevel']?.fieldTitle}}</label>
             <input matInput [(ngModel)]="dataModel.viewLevel" name="dataModel.viewLevel" #ViewLevel
