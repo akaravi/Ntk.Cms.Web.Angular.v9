@@ -17,7 +17,7 @@
       <!-- Title Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
-        <input type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+        <input type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
          placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
          class="form-control validate-name" id="dataModel.title" />
         <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
@@ -52,24 +52,18 @@
         </mat-error>
        </div>
        <!-- SpeedView Field -->
-       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+       <div *ngIf="fieldsInfo['speedView']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.speedView" class="color-highlight">{{fieldsInfo['speedView']?.fieldTitle}}</label>
         <input type="number" [(ngModel)]="dataModel.speedView" name="dataModel.speedView" #SpeedView 
           placeholder="{{fieldsInfo['speedView']?.fieldTitle}}" [disabled]="!fieldsInfo['speedView']?.accessAddField" min="3" max="10" 
           class="form-control validate-name" id="dataModel.speedView" />
-        <mat-error *ngIf="Title.errors?.required">
-          {{ fieldsInfo["title"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
-        </mat-error>
        </div>
        <!-- ReloadViewPerMin Field -->
-       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+       <div *ngIf="fieldsInfo['reloadViewPerMin']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.reloadViewPerMin" class="color-highlight">{{fieldsInfo['reloadViewPerMin']?.fieldTitle}}</label>
         <input type="number" [(ngModel)]="dataModel.reloadViewPerMin" name="dataModel.reloadViewPerMin" #ReloadViewPerMin 
           placeholder="{{fieldsInfo['reloadViewPerMin']?.fieldTitle}}" [disabled]="!fieldsInfo['reloadViewPerMin']?.accessAddField" min="1" max="10" 
           class="form-control validate-name" id="dataModel.reloadViewPerMin" />
-        <mat-error *ngIf="Title.errors?.required">
-          {{ fieldsInfo["title"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
-        </mat-error>
        </div>
        <!-- LinkMainImageId Field -->
        <div class="mb-3">
