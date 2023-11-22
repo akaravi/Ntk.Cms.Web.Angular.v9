@@ -83,14 +83,22 @@ export class MenuMainComponent implements OnInit {
     );
   }
   onActionClickMenu(item: CoreCpMainMenuModel) {
+    setTimeout(() => {
+      this.themeStore.dataMenu = '';
+    }, 1000);
+
     if (!item)
       return;
     if (item.children?.length > 0) {
-      this.router.navigate(['/menu/LinkParentId/', item.id]);
+      setTimeout(() => {
+        this.router.navigate(['/menu/LinkParentId/', item.id]);
+      }, 1000);
       return;
     }
     if (item.routeAddressLink?.length > 0) {
-      this.router.navigate([item.routeAddressLink]);
+      setTimeout(() => {
+        this.router.navigate([item.routeAddressLink]);
+      }, 1000);
       return;
     }
   }

@@ -25,33 +25,24 @@ export class PageMenuComponent implements OnInit {
     private router: Router,
     public translate: TranslateService,
   ) {
-    this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
+    this.activatedRoute.params.subscribe((data) => {
+      this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
+      this.loadData();
+    });
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
         setTimeout(() => {
-          const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-          if (storeSnapshot?.CoreCpMainResultStore?.isSuccess && storeSnapshot?.CoreCpMainResultStore?.listItems?.length > 0) {
-            this.dataModelResult = storeSnapshot.CoreCpMainResultStore;
-            this.DataListSelect();
-          } else {
-            this.DataGetCpMenu();
-          }
-        }, 1000);
+          this.loadData();
+        }, 100);
       }
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
         setTimeout(() => {
-          const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-          if (storeSnapshot?.CoreCpMainResultStore?.isSuccess && storeSnapshot?.CoreCpMainResultStore?.listItems?.length > 0) {
-            this.dataModelResult = storeSnapshot.CoreCpMainResultStore;
-            this.DataListSelect();
-          } else {
-            this.DataGetCpMenu();
-          }
-        }, 1000);
+          this.loadData();
+        }, 100);
       }
     });
   }
@@ -65,6 +56,15 @@ export class PageMenuComponent implements OnInit {
   }
   ngOnDestroy() {
     this.cmsApiStoreSubscribe.unsubscribe();
+  }
+  loadData() {
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    if (storeSnapshot?.CoreCpMainResultStore?.isSuccess && storeSnapshot?.CoreCpMainResultStore?.listItems?.length > 0) {
+      this.dataModelResult = storeSnapshot.CoreCpMainResultStore;
+      this.DataListSelect();
+    } else {
+      this.DataGetCpMenu();
+    }
   }
   DataGetCpMenu(): void {
     const pName = this.constructor.name + 'main';
