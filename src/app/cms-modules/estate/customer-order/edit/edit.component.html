@@ -718,12 +718,14 @@
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-18">
               <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-                <button type="button" (click)="onFormCancel()" class="btn btn-light BTN-text">
+                <button type="button" (click)="onFormCancel()"
+                  class="btn font-13 btn-m font-600 m-1 rounded-s border-0 shadow-xl gradient-gray">
                   <i class="ft-x"></i> {{ "ACTION.BACK" | translate }}
                 </button>
-                <button type="submit" (click)="onFormSubmit()" class="btn btn-success BTN-text"
+                <button type="submit" (click)="onFormSubmit()"
+                  class="btn font-13 btn-m font-600 m-1 rounded-s border-0 shadow-xl gradient-green"
                   [disabled]="!vform.form.valid">
-                  <i class="fa fa-check-square-o"></i>
+                  <i class="fa fa-angle-left"></i>
                   {{ "ACTION.SAVE" | translate }}
                 </button>
               </div>
@@ -740,21 +742,25 @@
           </div>
           <div class="ntk-cms-html-card-footer">
             <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-            <button type="button" (click)="onFormLoadEstateResult()" class="btn btn-info BTN-text"
+            <button type="button" (click)="onFormLoadEstateResult()"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               *ngIf="dataModel?.id?.length > 0">
               <i class="ft-x"></i> {{ "ACTION.VIEW_Estates" | translate }}
             </button>
-            <button type="button" (click)="onFormLoadEstateHaveHistoryResult()" class="btn btn-info BTN-text"
+            <button type="button" (click)="onFormLoadEstateHaveHistoryResult()"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               *ngIf="dataModel?.id?.length > 0">
               <i class="ft-x"></i>
               {{ "ACTION.VIEW_Estate_Have_Histories" | translate }}
             </button>
-            <button type="button" (click)="onFormLoadEstateHistoryResult()" class="btn btn-info BTN-text"
+            <button type="button" (click)="onFormLoadEstateHistoryResult()"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               *ngIf="dataModel?.id?.length > 0">
               <i class="ft-x"></i>
               {{ "ACTION.VIEW_Estate_Histories" | translate }}
             </button>
-            <button type="button" (click)="onFormLoadEstateAgencyResult()" class="btn btn-info BTN-text" *ngIf="
+            <button type="button" (click)="onFormLoadEstateAgencyResult()"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" *ngIf="
                 dataModel?.id?.length > 0 &&
                 this.dataModel?.linkLocationIds &&
                 this.dataModel?.linkLocationIds.length > 0
@@ -762,7 +768,8 @@
               <i class="ft-x"></i>
               {{ "ACTION.VIEW_Estate_Agencys" | translate }}
             </button>
-            <button type="button" (click)="onFormLoadEstateUserResult()" class="btn btn-info BTN-text" *ngIf="
+            <button type="button" (click)="onFormLoadEstateUserResult()"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" *ngIf="
                 dataModel?.id?.length > 0 &&
                 this.dataModel?.linkLocationIds &&
                 this.dataModel?.linkLocationIds.length > 0
@@ -770,12 +777,14 @@
               <i class="ft-x"></i> {{ "ACTION.VIEW_Estate_Users" | translate }}
             </button>
 
-            <button type="button" (click)="onFormSendMessage()" class="btn btn-info BTN-text"
+            <button type="button" (click)="onFormSendMessage()"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               *ngIf="dataModel?.id?.length > 0 && this.tokenHelper.isAdminSite">
               <i class="ft-x"></i> {{ "ACTION.Send_Message" | translate }}
             </button>
 
-            <button type="button" (click)="onActionbuttonQuickHistoryAddRow()" class="btn btn-info BTN-text"
+            <button type="button" (click)="onActionbuttonQuickHistoryAddRow()"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               *ngIf="dataModel?.id?.length > 0">
               <i class="ft-x"></i> {{ "ACTION.HISTORY_ADD" | translate }}
             </button>

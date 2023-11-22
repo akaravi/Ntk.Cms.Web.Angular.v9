@@ -125,3 +125,24 @@ https://blog.angular-university.io/angular-push-notifications/
   "publicKey":"BOr78Ceadeel4AyuayJxgsPXC5Eo3yIpSq__q6uPF6losigIi9HTSFHnp-Itqhq4UGfujxeTf0PxScyyJO3lfng",
   "privateKey":"VKfr1tI3yvJaO1B1B8J15XaZnLVQcwCyT_szcXOrQtU"
 }
+##########################################################################################
+====normal
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight
+
+====save
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green
+====back cancel
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray
+====delete
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red
+
+
+
+====select ed
+btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full
+====select
+btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full
+
+
+
+##########################################################################################
