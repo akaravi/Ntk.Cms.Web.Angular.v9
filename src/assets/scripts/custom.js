@@ -426,47 +426,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         //Activate Remembered Highlight
-        function selectHighlight(){
-            var rememberHighlight = localStorage.getItem(pwaName+'-Highlight');
-            if(rememberHighlight){
-                document.querySelectorAll('[data-change-highlight="'+rememberHighlight+'"]')[0].classList.add('highlight-active');
-                document.body.setAttribute('data-highlight', rememberHighlight);
-            }
-        }
+        // function selectHighlight(){
+        //     var rememberHighlight = localStorage.getItem(pwaName+'-Highlight');
+        //     if(rememberHighlight){
+        //         document.querySelectorAll('[data-change-highlight="'+rememberHighlight+'"]')[0].classList.add('highlight-active');
+        //         document.body.setAttribute('data-highlight', rememberHighlight);
+        //     }
+        // }
 
         //Page Highlights
-        function highlightColors(){
-            var highlightData = document.querySelectorAll('[data-change-highlight]');
-            highlightData.forEach(el => el.addEventListener('click', e =>{
-                const activeHighlight = document.querySelectorAll('.highlight-active');
-                for(let i=0; i < activeHighlight.length; i++){activeHighlight[i].classList.remove('highlight-active');}
-                el.classList.add('highlight-active');
-                var highlight = el.getAttribute('data-change-highlight');
-                var pageHighlight = document.querySelectorAll('.page-highlight');
-                if(pageHighlight.length){pageHighlight.forEach(function(e){e.remove();});}
-                var loadHighlight = document.createElement("link");
-                loadHighlight.rel = "stylesheet";
-                loadHighlight.className = "page-highlight";
-                loadHighlight.type = "text/css";
-                loadHighlight.href = 'styles/highlights/highlight_' + highlight +'.css';
-                document.getElementsByTagName("head")[0].appendChild(loadHighlight);
-                document.body.setAttribute('data-highlight', 'highlight-'+highlight)
-                localStorage.setItem(pwaName+'-Highlight', highlight)
-            }))
-            var rememberHighlight = localStorage.getItem(pwaName+'-Highlight');
-            if(rememberHighlight){
-                var loadHighlight = document.createElement("link");
-                loadHighlight.rel = "stylesheet";
-                loadHighlight.className = "page-highlight";
-                loadHighlight.type = "text/css";
-                loadHighlight.href = 'styles/highlights/highlight_' + rememberHighlight +'.css';
-                if(!document.querySelectorAll('.page-highlight').length){
-                    document.getElementsByTagName("head")[0].appendChild(loadHighlight);
-                    document.body.setAttribute('data-highlight', 'highlight-'+rememberHighlight)
-                }
-            }
-        }
-        highlightColors();
+        // function highlightColors(){
+        //     var highlightData = document.querySelectorAll('[data-change-highlight]');
+        //     highlightData.forEach(el => el.addEventListener('click', e =>{
+        //         const activeHighlight = document.querySelectorAll('.highlight-active');
+        //         for(let i=0; i < activeHighlight.length; i++){activeHighlight[i].classList.remove('highlight-active');}
+        //         el.classList.add('highlight-active');
+        //         var highlight = el.getAttribute('data-change-highlight');
+        //         var pageHighlight = document.querySelectorAll('.page-highlight');
+        //         if(pageHighlight.length){pageHighlight.forEach(function(e){e.remove();});}
+        //         var loadHighlight = document.createElement("link");
+        //         loadHighlight.rel = "stylesheet";
+        //         loadHighlight.className = "page-highlight";
+        //         loadHighlight.type = "text/css";
+        //         loadHighlight.href = 'styles/highlights/highlight_' + highlight +'.css';
+        //         document.getElementsByTagName("head")[0].appendChild(loadHighlight);
+        //         document.body.setAttribute('data-highlight', 'highlight-'+highlight)
+        //         localStorage.setItem(pwaName+'-Highlight', highlight)
+        //     }))
+        //     var rememberHighlight = localStorage.getItem(pwaName+'-Highlight');
+        //     if(rememberHighlight){
+        //         var loadHighlight = document.createElement("link");
+        //         loadHighlight.rel = "stylesheet";
+        //         loadHighlight.className = "page-highlight";
+        //         loadHighlight.type = "text/css";
+        //         loadHighlight.href = 'styles/highlights/highlight_' + rememberHighlight +'.css';
+        //         if(!document.querySelectorAll('.page-highlight').length){
+        //             document.getElementsByTagName("head")[0].appendChild(loadHighlight);
+        //             document.body.setAttribute('data-highlight', 'highlight-'+rememberHighlight)
+        //         }
+        //     }
+        // }
+        // highlightColors();
 
 
         //Background Gradient Color
@@ -483,55 +483,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         //Dark Mode
-        function checkDarkMode(){
-            const toggleDark = document.querySelectorAll('[data-toggle-theme]');
-            function activateDarkMode(){
-                document.body.classList.add('theme-dark');
-                document.body.classList.remove('theme-light', 'detect-theme');
-                for(let i = 0; i < toggleDark.length; i++){toggleDark[i].checked="checked"};
-                localStorage.setItem(pwaName+'-Theme', 'dark-mode');
-            }
-            function activateLightMode(){
-                document.body.classList.add('theme-light');
-                document.body.classList.remove('theme-dark','detect-theme');
-                for(let i = 0; i < toggleDark.length; i++){toggleDark[i].checked=false};
-                localStorage.setItem(pwaName+'-Theme', 'light-mode');
-            }
-            function removeTransitions(){var falseTransitions = document.querySelectorAll('.btn, .header, #footer-bar, .menu-box, .menu-active'); for(let i = 0; i < falseTransitions.length; i++) {falseTransitions[i].style.transition = "all 0s ease";}}
-            function addTransitions(){var trueTransitions = document.querySelectorAll('.btn, .header, #footer-bar, .menu-box, .menu-active'); for(let i = 0; i < trueTransitions.length; i++) {trueTransitions[i].style.transition = "";}}
+        // function checkDarkMode(){
+        //     const toggleDark = document.querySelectorAll('[data-toggle-theme]');
+        //     function activateDarkMode(){
+        //         document.body.classList.add('theme-dark');
+        //         document.body.classList.remove('theme-light', 'detect-theme');
+        //         for(let i = 0; i < toggleDark.length; i++){toggleDark[i].checked="checked"};
+        //         localStorage.setItem(pwaName+'-Theme', 'dark-mode');
+        //     }
+        //     function activateLightMode(){
+        //         document.body.classList.add('theme-light');
+        //         document.body.classList.remove('theme-dark','detect-theme');
+        //         for(let i = 0; i < toggleDark.length; i++){toggleDark[i].checked=false};
+        //         localStorage.setItem(pwaName+'-Theme', 'light-mode');
+        //     }
+        //     function removeTransitions(){var falseTransitions = document.querySelectorAll('.btn, .header, #footer-bar, .menu-box, .menu-active'); for(let i = 0; i < falseTransitions.length; i++) {falseTransitions[i].style.transition = "all 0s ease";}}
+        //     function addTransitions(){var trueTransitions = document.querySelectorAll('.btn, .header, #footer-bar, .menu-box, .menu-active'); for(let i = 0; i < trueTransitions.length; i++) {trueTransitions[i].style.transition = "";}}
 
-            function setColorScheme() {
-                const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-                const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-                const isNoPreference = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-                window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && activateDarkMode())
-                window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && activateLightMode())
-                if(isDarkMode) activateDarkMode();
-                if(isLightMode) activateLightMode();
-            }
+        //     function setColorScheme() {
+        //         const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+        //         const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+        //         const isNoPreference = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+        //         window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && activateDarkMode())
+        //         window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && activateLightMode())
+        //         if(isDarkMode) activateDarkMode();
+        //         if(isLightMode) activateLightMode();
+        //     }
 
-            //Activating Dark Mode
-            // var darkModeSwitch = document.querySelectorAll('[data-toggle-theme]')
-            // darkModeSwitch.forEach(el => el.addEventListener('click',e =>{
-            //     if(document.body.className == "theme-light"){ removeTransitions(); activateDarkMode();}
-            //     else if(document.body.className == "theme-dark"){ removeTransitions(); activateLightMode();}
-            //     setTimeout(function(){addTransitions();},350);
-            // }));
+        //     //Activating Dark Mode
+        //     // var darkModeSwitch = document.querySelectorAll('[data-toggle-theme]')
+        //     // darkModeSwitch.forEach(el => el.addEventListener('click',e =>{
+        //     //     if(document.body.className == "theme-light"){ removeTransitions(); activateDarkMode();}
+        //     //     else if(document.body.className == "theme-dark"){ removeTransitions(); activateLightMode();}
+        //     //     setTimeout(function(){addTransitions();},350);
+        //     // }));
 
-            //Set Color Based on Remembered Preference.
-            // if(localStorage.getItem(pwaName+'-Theme') == "dark-mode"){for(let i = 0; i < toggleDark.length; i++){toggleDark[i].checked="checked"};document.body.className = 'theme-dark';}
-            // if(localStorage.getItem(pwaName+'-Theme') == "light-mode"){document.body.className = 'theme-light';} if(document.body.className == "detect-theme"){setColorScheme();}
+        //     //Set Color Based on Remembered Preference.
+        //     // if(localStorage.getItem(pwaName+'-Theme') == "dark-mode"){for(let i = 0; i < toggleDark.length; i++){toggleDark[i].checked="checked"};document.body.className = 'theme-dark';}
+        //     // if(localStorage.getItem(pwaName+'-Theme') == "light-mode"){document.body.className = 'theme-light';} if(document.body.className == "detect-theme"){setColorScheme();}
 
-            //Detect Dark/Light Mode
-            const darkModeDetect = document.querySelectorAll('.detect-dark-mode');
-            darkModeDetect.forEach(el => el.addEventListener('click',e =>{
-                document.body.classList.remove('theme-light', 'theme-dark');
-                document.body.classList.add('detect-theme')
-                setTimeout(function(){setColorScheme();},50)
-            }))
-        }
-        if(localStorage.getItem(pwaName+'-Theme') == "dark-mode"){document.body.className = 'theme-dark';}
-        if(localStorage.getItem(pwaName+'-Theme') == "light-mode"){document.body.className = 'theme-light';}
+        //     //Detect Dark/Light Mode
+        //     const darkModeDetect = document.querySelectorAll('.detect-dark-mode');
+        //     darkModeDetect.forEach(el => el.addEventListener('click',e =>{
+        //         document.body.classList.remove('theme-light', 'theme-dark');
+        //         document.body.classList.add('detect-theme')
+        //         setTimeout(function(){setColorScheme();},50)
+        //     }))
+        // }
+        // if(localStorage.getItem(pwaName+'-Theme') == "dark-mode"){document.body.className = 'theme-dark';}
+        // if(localStorage.getItem(pwaName+'-Theme') == "light-mode"){document.body.className = 'theme-light';}
 
         //Accordion Rotate
         const accordionBtn = document.querySelectorAll('.accordion-btn');
