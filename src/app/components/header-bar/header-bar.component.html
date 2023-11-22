@@ -1,5 +1,5 @@
 <div class="page-title page-title-fixed">
-  <h1>menu-header {{themeStore.themeMode}}</h1>
+  <h1>menu-header {{themeStore?.themeMode}}</h1>
   <a (click)="themeStore?.dataMenu!=='menu-share' ? themeStore.dataMenu='menu-share':themeStore.dataMenu=''"
     class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-share-alt"></i></a>
   <a *ngIf="themeStore.themeMode!=='dark'" (click)="onActionThemeSwitch('dark')"
