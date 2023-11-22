@@ -723,8 +723,7 @@
                   <i class="ft-x"></i> {{ "ACTION.BACK" | translate }}
                 </button>
                 <button type="submit" (click)="onFormSubmit()"
-                  class="btn font-13 btn-m font-600 m-1 rounded-s border-0 shadow-xl gradient-green"
-                  [disabled]="!vform.form.valid">
+                  [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
                   <i class="fa fa-angle-left"></i>
                   {{ "ACTION.SAVE" | translate }}
                 </button>

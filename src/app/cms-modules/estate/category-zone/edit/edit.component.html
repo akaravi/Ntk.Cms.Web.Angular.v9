@@ -92,11 +92,11 @@
     </div>
 
     <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-      <button type="button" (click)="onFormCancel()" class="btn btn-light">
+      <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
         <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
       </button>
       <button type="submit" mat-raised-button (click)="onFormSubmit()"
-        [disabled]="!vform.form.valid">
+        [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
         <i class="fa fa-check-square-o"></i>
         {{ "ACTION.SAVE" | translate }}
       </button>

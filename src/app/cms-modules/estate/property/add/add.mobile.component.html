@@ -239,7 +239,7 @@ mobileeeeeeeeeeeeeeeee
             </mat-error>
           </mat-form-field>
         </div>
-        <div *ngIf="formInfo.formSubmitAllow && !loading?.display" class="ntk-button-row">
+        <div *ngIf="formInfo.formSubmitAllow && !loading?.display" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
           <button type="button" mat-raised-button (click)="onActionBackToParent()">
             {{ "ACTION.CANCEL" | translate }}
           </button>
@@ -1052,7 +1052,7 @@ mobileeeeeeeeeeeeeeeee
             {{ "ACTION.NEXT" | translate }}
           </button>
           <button type="submit" mat-raised-button color="success"
-            [disabled]="!vform.form.valid || !connectionStatus.internetConnection">
+            [disabled]="!vform.form.valid || !connectionStatus.internetConnection" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
             {{ "ACTION.SAVE" | translate }}
           </button>
         </div>
@@ -1072,7 +1072,7 @@ mobileeeeeeeeeeeeeeeee
             {{ "ACTION.BEFOR" | translate }}
           </button>
           <button type="submit" mat-raised-button color="success"
-            [disabled]="!vform.form.valid || !connectionStatus.internetConnection">
+            [disabled]="!vform.form.valid || !connectionStatus.internetConnection" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
             {{ "ACTION.SAVE" | translate }}
           </button>
         </div>
