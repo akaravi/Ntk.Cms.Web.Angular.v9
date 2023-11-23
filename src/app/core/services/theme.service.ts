@@ -11,7 +11,7 @@ const themeHighLightLSKey = 'theme_highlight';
 @Injectable({
   providedIn: 'root',
 })
-export class ThemeModeService {
+export class ThemeService {
   constructor(private cmsStoreService: CmsStoreService,) {
 
   }

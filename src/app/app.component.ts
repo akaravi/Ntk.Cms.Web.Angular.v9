@@ -26,7 +26,7 @@ import { CmsSignalrService } from './core/services/cmsSignalr.service';
 import { CmsToastrService } from './core/services/cmsToastr.service';
 import { SplashScreenService } from './shared/splash-screen/splash-screen.service';
 import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
-import { ThemeModeService } from './core/services/themeMode.service';
+import { ThemeService } from './core/services/theme.service';
 
 
 @Component({
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     private coreAuthService: CoreAuthService,
     private coreSiteService: CoreSiteService,
     private configService: CoreConfigurationService,
-    private themeModeService: ThemeModeService,
+    private themeService: ThemeService,
     private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     private splashScreenService: SplashScreenService,
@@ -110,7 +110,7 @@ export class AppComponent implements OnInit {
   cmsApiStoreSubscribe: Subscription;
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
-    this.themeModeService.onInit();
+    this.themeService.onInit();
 
     const url = window.location.href;
     if (url.includes('?')) {
@@ -171,8 +171,8 @@ export class AppComponent implements OnInit {
     }
     this.getServiceVer();
   }
-  ngAfterViewInit(){
-    this.themeModeService.afterViewInit();
+  ngAfterViewInit() {
+    this.themeService.afterViewInit();
 
   }
   getServiceVer(): void {

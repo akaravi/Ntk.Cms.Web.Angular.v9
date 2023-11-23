@@ -1,4 +1,4 @@
-import { ThemeModeType } from "../services/themeMode.service";
+import { ThemeModeType } from "../services/theme.service";
 
 export class ThemeStoreModel {
   dataMenu: string = '';
