@@ -1372,17 +1372,31 @@ body {
 }
 
 .header-logo-center .header-icon-1 {
-  right: 0px;
-}
-.header-logo-center .header-icon-2 {
-  right: 45px;
-}
-.header-logo-center .header-icon-3 {
-  left: 45px;
-}
-.header-logo-center .header-icon-4 {
   left: 0px;
 }
+.header-logo-center .header-icon-2 {
+  left: 45px;
+}
+.header-logo-center .header-icon-3 {
+  left: 90px;
+}
+.header-logo-center .header-icon-4 {
+  left: 135px;
+}
+
+.header-logo-center .header-icon-5 {
+  right: 0px;
+}
+.header-logo-center .header-icon-6 {
+  right: 45px;
+}
+.header-logo-center .header-icon-7 {
+  right: 90px;
+}
+.header-logo-center .header-icon-8 {
+  right: 135px;
+}
+
 .header-logo-center .header-title {
   width: 150px;
   left: 50%;
