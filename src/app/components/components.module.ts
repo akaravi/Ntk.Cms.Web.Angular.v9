@@ -13,6 +13,7 @@ import { MenuLanguageComponent } from './menu-language/menu-language.component';
 import { MenuProfileComponent } from './menu-profile/menu-profile.component';
 import { MenuInstallPwaIosComponent } from './menu-install-pwa-ios/menu-install-pwa-ios.component';
 import { MenuInstallPwaAndroidComponent } from './menu-install-pwa-android/menu-install-pwa-android.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 
 
@@ -28,6 +29,7 @@ import { MenuInstallPwaAndroidComponent } from './menu-install-pwa-android/menu-
     FooterBarComponent,
     MenuInstallPwaIosComponent,
     MenuInstallPwaAndroidComponent,
+    ScrollTopComponent,
   ],
   imports: [
     CommonModule,
@@ -45,6 +47,7 @@ import { MenuInstallPwaAndroidComponent } from './menu-install-pwa-android/menu-
     FooterBarComponent,
     MenuInstallPwaIosComponent,
     MenuInstallPwaAndroidComponent,
+    ScrollTopComponent,
   ],
   providers: [
     CoreCpMainMenuService
