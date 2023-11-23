@@ -224,7 +224,7 @@
                   [disabled]="editdisabled || !editHotspot.text||editHotspot.text.length===0" *ngIf="postionView"
                   (click)="updateEdit()">{{'ACTION.Update' | translate}}</button>
                 <button type="button" mat-raised-button color="warn" [disabled]="editdisabled"
-                  (click)="cancelEdit()">{{'ACTION.CANCEL' | translate}}</button>
+                  (click)="cancelEdit()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.CANCEL' | translate}}</button>
                 <button type="button" mat-raised-button color="warn" matTooltip="ثبت آخرین نقطه کلیک شده"
                   [disabled]="editdisabled"
                   *ngIf="this.editHotspot.pitch !==postionView?.clickGetPitch && this.editHotspot.yaw!==postionView?.clickGetYaw"
@@ -251,7 +251,7 @@
       <button type="button" (click)="onActionSubmitView360()" class="btn btn-success">
         <i class="fa fa-check-square-o"></i> {{'ACTION.SUBMIT_BUTTON' | translate}}
       </button>
-      <button type="button" (click)="onActionCancellView360()" class="btn btn-light">
+      <button type="button" (click)="onActionCancellView360()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
         <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
       </button>
     </div>
