@@ -3,12 +3,13 @@ import {
   ChangeDetectorRef,
   Component,
   HostListener,
+  NgZone,
   OnInit
 } from '@angular/core';
 //start change title when route happened
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Subscription, filter, map } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, NavigationError, NavigationStart, Router, Event } from '@angular/router';
+import { Subscription, filter, map, take } from 'rxjs';
 //end change title when route happened
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SwPush } from '@angular/service-worker';
@@ -27,6 +28,7 @@ import { CmsToastrService } from './core/services/cmsToastr.service';
 import { SplashScreenService } from './shared/splash-screen/splash-screen.service';
 import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
 import { ThemeService } from './core/services/theme.service';
+
 
 
 @Component({
@@ -53,9 +55,27 @@ export class AppComponent implements OnInit {
     private swPush: SwPush,
     private cmsToastrService: CmsToastrService,
     private cmsStoreService: CmsStoreService,
-    private httpClient: HttpClient,
+    private ngZone: NgZone,
     private cdr: ChangeDetectorRef
   ) {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        //do something on start activity
+        // console.log('NavigationStart')
+        this.themeService.onNavigationStartAppComponent();
+      }
+      if (event instanceof NavigationError) {
+        // Handle error
+        console.error(event.error);
+      }
+
+      if (event instanceof NavigationEnd) {
+        //do something on end activity
+        // console.log('NavigationEnd')
+        this.themeService.onNavigationEndAppComponent();
+      }
+    });
+
     /**singlarService */
     this.singlarService.startConnection(null);
     this.singlarService.addListenerMessage(null);
@@ -105,13 +125,13 @@ export class AppComponent implements OnInit {
 
     console.log('windows innerWidth size:', window.innerWidth);
   }
+
   loading = new ProgressSpinnerModel();
 
   cmsApiStoreSubscribe: Subscription;
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
-    this.themeService.onInit();
-
+    this.themeService.onInitAppComponent();
     const url = window.location.href;
     if (url.includes('?')) {
       const httpParams = new HttpParams({ fromString: url.split('?')[1] });
@@ -171,10 +191,11 @@ export class AppComponent implements OnInit {
     }
     this.getServiceVer();
   }
-  ngAfterViewInit() {
-    this.themeService.afterViewInit();
+  ngAfterViewInit(): void {
+    this.themeService.afterViewInitAppComponent();
 
   }
+
   getServiceVer(): void {
     const pName = this.constructor.name + 'ServiceIp';
     this.loading.Start(pName, this.translate.instant('MESSAGE.Receiving_Information_From_The_Server'));

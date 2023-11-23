@@ -16,7 +16,7 @@ export class ThemeService {
 
   }
 
-  public onInit() {
+  public onInitAppComponent() {
     this.cmsStoreService.getState().subscribe((value) => {
       if (value.themeStore)
         this.themeStore = value.themeStore;
@@ -35,13 +35,32 @@ export class ThemeService {
     });
     this.updateMode(this.themeMode.value);
     this.updateHighLight(this.themeHighLight.value);
+
   }
-  public afterViewInit() {
+  public afterViewInitAppComponent() {
+
+    setTimeout(() => { this.htmlSelectorAddEvent(); }, 200);
+  }
+  onNavigationStartAppComponent(): void {
+
+
+  }
+  onNavigationEndAppComponent(): void {
+    setTimeout(() => { this.htmlSelectorAddEvent(); }, 200);
+  }
+  htmlSelectorAddEvent(): void {
     //Activating Menus
     document.querySelectorAll('.menu').forEach(el => {
       const node = el as HTMLElement;
       node.style.display = 'block'
     });
+    //Accordion Rotate
+    const accordionBtn = document.querySelectorAll('.accordion-btn');
+    if (accordionBtn?.length) {
+      accordionBtn.forEach(el => el.addEventListener('click', event => {
+        el.querySelector('i:last-child').classList.toggle('fa-rotate-180');
+      }));
+    }
   }
   themeStore = new ThemeStoreModel()
   getThemeModeFromLocalStorage(): ThemeModeType {

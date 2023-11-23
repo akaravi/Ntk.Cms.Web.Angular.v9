@@ -109,4 +109,7 @@ export class PageMenuComponent implements OnInit {
       return;
     }
   }
+  scrollToTop(){
+    window.scrollTo({ top: 0, behavior: `smooth` });
+  }
 }

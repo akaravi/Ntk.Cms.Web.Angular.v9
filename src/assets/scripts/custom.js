@@ -358,14 +358,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Back to Top
-    function backUp() {
-      const backToTop = document.querySelectorAll('.back-to-top-icon, .back-to-top-badge, .back-to-top');
-      if (backToTop) {
-        backToTop.forEach(el => el.addEventListener('click', e => {
-          window.scrollTo({ top: 0, behavior: `smooth` })
-        }));
-      }
-    }
+    // function backUp() {
+    //   const backToTop = document.querySelectorAll('.back-to-top-icon, .back-to-top-badge, .back-to-top');
+    //   if (backToTop) {
+    //     backToTop.forEach(el => el.addEventListener('click', e => {
+    //       window.scrollTo({ top: 0, behavior: `smooth` })
+    //     }));
+    //   }
+    // }
 
     //Check iOS Version and add min-ios15 class if higher or equal to iOS15
     function iOSversion() {

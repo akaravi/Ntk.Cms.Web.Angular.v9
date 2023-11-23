@@ -18,3 +18,8 @@
     <div *ngIf="i%2>0" class="w-100"></div>
   </ng-container>
 </div>
+<div *ngIf="dataListResult?.length>8" class="content mt-5 mb-5">
+  <a (click)="scrollToTop()" style="cursor: pointer;"
+    class="back-to-top-badge bg-highlight color-white shadow-xl py-2"><span>بازگشت به بالا</span><i
+      class="fa fa-caret-up"></i></a>
+</div>
