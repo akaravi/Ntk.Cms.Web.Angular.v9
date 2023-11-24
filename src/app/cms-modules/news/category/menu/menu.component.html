@@ -1,0 +1,35 @@
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="col pe-2">
+  <a *ngIf="requestLinkParentId>0" (click)="onActionClickMenu(null)" data-back-button
+    class="card card-style rounded-m me-0 p-3 mb-3">
+    <i class="fa fa-home color-red-light font-40 icon-50"></i>
+    <h4 class="pt-3">بازگشت</h4>
+    <p class="font-11 mt-n2 mb-0 color-highlight">بازگشت به قبل</p>
+  </a>
+  <a [routerLink]="[routerLinkContect]" data-back-button class="card card-style rounded-m me-0 p-3 mb-3">
+    <i class="fa fa-home color-red-light font-40 icon-50"></i>
+    <h4 class="pt-3">همه</h4>
+    <p class="font-11 mt-n2 mb-0 color-highlight">همه اطلاعات</p>
+  </a>
+  <div *ngIf="requestLinkParentId>0" class="w-100"></div>
+</div>
+<div class="row mb-0">
+  <ng-container *ngFor="let item of dataListResult;index as i">
+    <div class="col pe-2">
+      <a (click)="onActionClickMenu(item)" class="card card-style rounded-m me-0 p-3 mb-3"
+        style="cursor: pointer; color:color-white">
+        <i class="{{item.fontIcon}} font-40 icon-50"></i>
+        <h4 class="pt-3">{{item.title}}</h4>
+        <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
+        <img [src]="this.cmsImageThumbnailPipe.transform(item.linkMainImageIdSrc)" class="rounded-sm" width="100">
+      </a>
+
+    </div>
+    <div *ngIf="i%2>0" class="w-100"></div>
+  </ng-container>
+</div>
+<div *ngIf="dataListResult?.length>8" class="content mt-5 mb-5">
+  <a (click)="scrollToTop()" style="cursor: pointer;"
+    class="back-to-top-badge bg-highlight color-white shadow-xl py-2"><span>بازگشت به بالا</span><i
+      class="fa fa-caret-up"></i></a>
+</div>
