@@ -10,38 +10,42 @@
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
     </p>
+    </p>
+    <!--content-->
+      <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+        {{ formInfo.formTitle }}
+        <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+          <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
+            <!-- RecordStatus Field -->
+          <div  *ngIf="fieldsInfo['recordStatus']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.recordStatus" class="color-highlight">{{fieldsInfo['recordStatus']?.fieldTitle}}</label>
+            <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+              #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [disabled]="!fieldsInfo['recordStatus']?.accessEditField" required
+              class="form-control validate-name">
+              <option *ngFor=" let item of dataModelEnumRecordStatusResult.listItems; index as i" [ngValue]="item.value">{{ item.description }}</option>
+            </select>
+            <span><i class="fa fa-chevron-down"></i></span>
+            <i *ngIf="!RecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="RecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
+            <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
+            <mat-error *ngIf="RecordStatus.errors?.required">
+                RecordStatus is
+             <strong>{{ "MESSAGE.required" | translate }}</strong>
+            </mat-error>
+          </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </form>
+    <!--content-->
   </div>
 </div>
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
   <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
   </div>
   <div class="ntk-cms-html-card-body">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
       <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
-        <!-- RecordStatus Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['recordStatus']?.accessWatchField">
-          <mat-label>{{fieldsInfo['recordStatus']?.fieldTitle}}</mat-label>
-          <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-            [disabled]="!fieldsInfo['recordStatus']?.accessEditField" name="dataModel.recordStatus"
-            #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-            <mat-option *ngFor="
-                let item of dataModelEnumRecordStatusResult.listItems;
-                index as i
-              " [value]="item.value">{{ item.description }}</mat-option>
-          </mat-select>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['recordStatus']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-          <mat-error *ngIf="RecordStatus.errors?.required">
-            RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
         <!-- MainAdminRecordStatus Field -->
         <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['recordStatus']?.accessWatchField">
           <mat-select placeholder="{{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}}"
