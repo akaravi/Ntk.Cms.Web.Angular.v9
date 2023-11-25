@@ -3,11 +3,11 @@
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <button *ngIf="dataModelResult.access.accessAddRow" (click)="onActionAdd()" type="button"
-        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Teal">{{'ACTION.ADD' |
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
         translate}}</button>
     <button *ngIf="dataModelResult.access.accessEditRow && dataModelSelect.id && dataModelSelect?.id?.length>0"
         (click)="onActionEdit()" type="button"
-        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Plum">{{'ACTION.EDIT' |
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
         translate}}</button>
     <button *ngIf="dataModelResult.access.accessDeleteRow  && dataModelSelect.id && dataModelSelect?.id?.length>0"
         (click)="onActionDelete()" type="button"

@@ -19,11 +19,11 @@
       class="btn box-shadow-button btn-outline-success BTN-text">مشهده</button> -->
         <button *ngIf="dataModelResult.access.accessAddRow && this.categoryModelSelected?.id>0"
             (click)="onActionbuttonNewRow()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Teal">{{'ACTION.ADD' |
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
             translate}}</button>
         <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0" (click)="onActionbuttonEditRow()"
             type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Plum">{{'ACTION.EDIT' |
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
             translate}}</button>
         <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
             (click)="onActionbuttonDeleteRow()" type="button"
