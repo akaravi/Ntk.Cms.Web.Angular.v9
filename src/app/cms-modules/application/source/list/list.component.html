@@ -20,7 +20,7 @@
             translate}}</button>
         <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
             (click)="onActionbuttonDeleteRow()" type="button"
-            class="btn box-shadow-button btn-outline-danger">{{'ACTION.DELETE' | translate}}</button>
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' | translate}}</button>
 
         <a class="btn box-shadow-button btn-outline-info btn-sm BTN-text">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show">{{'ACTION.SEARCH' | translate}}</mat-slide-toggle>
@@ -152,7 +152,7 @@
                             <span>{{'ACTION.EDIT' | translate}}</span>
                         </button>
                         <button mat-menu-item (click)="onActionbuttonDeleteRow(row)"
-                            *ngIf="dataModelResult.access.accessDeleteRow">
+                            *ngIf="dataModelResult.access.accessDeleteRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
                             <mat-icon>delete_forever</mat-icon>
                             <span>{{'ACTION.DELETE' | translate}}</span>
                         </button>
