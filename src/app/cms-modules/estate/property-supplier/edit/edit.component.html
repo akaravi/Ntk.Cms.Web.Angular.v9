@@ -19,7 +19,7 @@
           <div  *ngIf="fieldsInfo['recordStatus']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.recordStatus" class="color-highlight">{{fieldsInfo['recordStatus']?.fieldTitle}}</label>
             <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-              #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [disabled]="!fieldsInfo['recordStatus']?.accessEditField" required
+              #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" [disabled]="!fieldsInfo['recordStatus']?.accessEditField" required
               class="form-control validate-name">
               <option *ngFor=" let item of dataModelEnumRecordStatusResult.listItems; index as i" [ngValue]="item.value">{{ item.description }}</option>
             </select>
@@ -35,7 +35,7 @@
            <!-- MainAdminRecordStatus Field -->
            <div *ngIf="fieldsInfo['recordStatus']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <select id="dataModel.mainAdminRecordStatus" [(ngModel)]="dataModel.mainAdminRecordStatus" name="dataModel.mainAdminRecordStatus"
-              #MainAdminRecordStatus="ngModel" placeholder="{{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}}" [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessEditField" panelClass="MainAdminRecordStatus-{{ dataModel.mainAdminRecordStatus }}" required
+              #MainAdminRecordStatus="ngModel"  [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessEditField" required
               class="form-control validate-name">
               <option *ngFor=" let item of dataModelEnumRecordStatusResult.listItems; index as i" [ngValue]="item.value">{{ item.description }}</option>
             </select>
@@ -43,7 +43,7 @@
             <i *ngIf="!MainAdminRecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
             <i *ngIf="MainAdminRecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
             <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
-            <mat-error *ngIf="RecordStatus.errors?.required">
+            <mat-error *ngIf="MainAdminRecordStatus.errors?.required">
                 {{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}}
              <strong>{{ "MESSAGE.required" | translate }}</strong>
             </mat-error>

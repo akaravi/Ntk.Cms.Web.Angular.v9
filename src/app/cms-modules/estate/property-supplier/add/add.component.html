@@ -19,7 +19,7 @@
                     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                         <label for="dataModel.recordStatus" class="color-highlight">{{fieldsInfo['recordStatus']?.fieldTitle}}</label>
                         <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-                          #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [disabled]="!fieldsInfo['recordStatus']?.accessAddField" required
+                          #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" [disabled]="!fieldsInfo['recordStatus']?.accessAddField" required
                           class="form-control validate-name">
                           <option *ngFor=" let item of dataModelEnumRecordStatusResult.listItems; index as i" [ngValue]="item.value">{{ item.description }}</option>
                         </select>
@@ -36,7 +36,7 @@
                     <div *ngIf="fieldsInfo['recordStatus']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                         <label for="dataModel.mainAdminRecordStatus" class="color-highlight">{{fieldsInfo['recordStatus']?.fieldTitle}}</label>
                         <select id="dataModel.mainAdminRecordStatus" [(ngModel)]="dataModel.mainAdminRecordStatus" name="dataModel.mainAdminRecordStatus"
-                          #MainAdminRecordStatus="ngModel" placeholder="{{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}}" [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessAddField" panelClass="MainAdminRecordStatus-{{ dataModel.mainAdminRecordStatus }}" required
+                          #MainAdminRecordStatus="ngModel"  [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessAddField" required
                           class="form-control validate-name">
                           <option *ngFor=" let item of dataModelEnumRecordStatusResult.listItems; index as i" [ngValue]="item.value">{{ item.description }}</option>
                         </select>

@@ -76,7 +76,7 @@
        <!-- InputDataType Field -->
        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <select id="dataModel.inputDataType" [(ngModel)]="dataModel.inputDataType" name="dataModel.inputDataType"
-          #MainAdminRecordStatus="ngModel" placeholder="{{'TITLE.TypeId' | translate}}" panelClass="InputDataType-{{ dataModel.inputDataType }}"
+          #MainAdminRecordStatus="ngModel"
           class="form-control validate-name">
           <option *ngFor=" let item of dataModelInputDataTypeEnumResult.listItems; index as i" [ngValue]="item.value">{{ item.description }}</option>
         </select>
