@@ -21,7 +21,8 @@
           </div>
         </div>
         <div class="cms-m-container-footer">
-          <button (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <button (click)="onFormCancel()"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -52,8 +53,8 @@
             لطفا درخواست خود را مشخص نمایید.
           </div>
           <div *ngIf="dataModelContractTypeResult?.listItems.length>0">
-            <button *ngFor="let state of dataModelContractTypeResult.listItems " type="button" mat-raised-button
-              class="cms-m-form-option"
+            <button *ngFor="let state of dataModelContractTypeResult.listItems " type="button"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               [class]="state.id===dataModel.linkContractTypeId ? 'background-blue' : 'background-white'"
               (click)="onActionSelectorContarctType(state)">{{ state.orderTitle }}</button>
           </div>
@@ -90,7 +91,8 @@
             لطفا نوع کاربری ملک خود را مشخص نمایید.
           </div>
           <div *ngIf="dataModelPropertyTypeUsageResult?.listItems.length>0">
-            <button *ngFor="let state of dataModelPropertyTypeUsageResult.listItems " type="button" mat-raised-button
+            <button *ngFor="let state of dataModelPropertyTypeUsageResult.listItems " type="button"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               class="cms-m-form-option"
               [class]="state.id===dataModel.linkPropertyTypeUsageId ? 'background-blue' : 'background-white'"
               (click)="dataModel.linkPropertyTypeUsageId=state.id;this.DataGetAllPropertyTypeLanduse();">{{ state.title
@@ -130,7 +132,8 @@
             لطفا نوع ملک خود را مشخص نمایید.
           </div>
           <div *ngIf="dataModelPropertyTypeLanduseResult?.listItems.length>0">
-            <button *ngFor="let state of dataModelPropertyTypeLanduseResult.listItems " type="button" mat-raised-button
+            <button *ngFor="let state of dataModelPropertyTypeLanduseResult.listItems " type="button"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               class="cms-m-form-option"
               [class]="state.id===dataModel.linkPropertyTypeLanduseId ? 'background-blue' : 'background-white'"
               (click)="onActionSelectorSelectLanduse(state)">{{ state.title }}</button>
@@ -533,12 +536,18 @@
                   </ng-container>
                 </ng-container>
                 <mat-action-row>
-                  <button mat-button type="button" color="warn" *ngIf="i>0" (click)="prevStep()">{{'ACTION.PREVIOUS' |
+                  <button type="button"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal" *ngIf="i>0"
+                    (click)="prevStep()">{{'ACTION.PREVIOUS' |
                     translate}}</button>
-                  <button mat-button type="button" color="primary" *ngIf="(i+1)<dataModel.propertyDetailGroups.length"
-                    (click)="nextStep()">{{'ACTION.NEXT' | translate}}</button>
-                  <button mat-button type="button" color="primary" *ngIf="(i+1)===dataModel.propertyDetailGroups.length"
-                    (click)="nextStep()">{{'ACTION.END' | translate}}</button>
+                  <button type="button"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                    *ngIf="(i+1)<dataModel.propertyDetailGroups.length" (click)="nextStep()">{{'ACTION.NEXT' |
+                    translate}}</button>
+                  <button type="button"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                    *ngIf="(i+1)===dataModel.propertyDetailGroups.length" (click)="nextStep()">{{'ACTION.END' |
+                    translate}}</button>
 
                 </mat-action-row>
               </mat-expansion-panel>

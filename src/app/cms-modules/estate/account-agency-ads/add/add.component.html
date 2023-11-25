@@ -1,120 +1,124 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-        حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-        فقط یک صفحه ساختگی است.
-      </p>
-      <!--content-->
-      <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-        {{ formInfo.formTitle }}
-        <!-- Title Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
-            <input matInput type="text"  [(ngModel)]="dataModel.title" name="dataModel.title" #Title 
-             placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
-             [disabled]="!fieldsInfo['title']?.accessAddField"
-             class="form-control validate-name" id="dataModel.title" />
-            <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
-            <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-            <em>{{ Title.value.length }} / 100</em>
-            <mat-error *ngIf="Title.errors?.required">
-              Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </div>
-        <!-- LinkPropertyId Field -->
-        <app-estate-account-agency-selector (optionChange)="onActionSelectorSelectLinkAccountAgencyId($event)"
-            [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkPropertyId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkAccountAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Agency_ID')">
-        </app-estate-account-agency-selector>
-          <!-- LinkAdsTypeId Field -->
-        <app-estate-ads-type-selector (optionChange)="onActionSelectorSelectLinkAdsTypeId($event)"
-          [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkAdsTypeId']?.accessAddField"
-          [optionSelectForce]="dataModel.linkAdsTypeId"
-          [optionPlaceholder]="this.translate.instant('TITLE.Ad_type_ID')">
-        </app-estate-ads-type-selector>
-        <!-- StationLevel Field -->
-        <div *ngIf="fieldsInfo['stationLevel']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.stationLevel" class="color-highlight">{{fieldsInfo['stationLevel']?.fieldTitle}}</label>
-            <input matInput [(ngModel)]="dataModel.stationLevel" name="dataModel.stationLevel" #StationLevel
-             type="number"  placeholder="{{fieldsInfo['stationLevel']?.fieldTitle}}" [disabled]="!fieldsInfo['stationLevel']?.accessEditField"
-             id="dataModel.stationLevel" class="form-control validate-name">
-        </div>
-        <!-- ViewLevel Field -->
-        <div *ngIf="fieldsInfo['viewLevel']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-         <label for="dataModel.viewLevel" class="color-highlight">{{fieldsInfo['viewLevel']?.fieldTitle}}</label>
-         <input matInput [(ngModel)]="dataModel.viewLevel" name="dataModel.viewLevel" #ViewLevel
-          type="number"  placeholder="{{fieldsInfo['viewLevel']?.fieldTitle}}" [disabled]="!fieldsInfo['viewLevel']?.accessEditField"
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
+          placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
+          [disabled]="!fieldsInfo['title']?.accessAddField" class="form-control validate-name" id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Title.value.length }} / 100</em>
+        <mat-error *ngIf="Title.errors?.required">
+          Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- LinkPropertyId Field -->
+      <app-estate-account-agency-selector (optionChange)="onActionSelectorSelectLinkAccountAgencyId($event)"
+        [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkPropertyId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkAccountAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
+        [optionPlaceholder]="this.translate.instant('TITLE.Agency_ID')">
+      </app-estate-account-agency-selector>
+      <!-- LinkAdsTypeId Field -->
+      <app-estate-ads-type-selector (optionChange)="onActionSelectorSelectLinkAdsTypeId($event)"
+        [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkAdsTypeId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkAdsTypeId" [optionPlaceholder]="this.translate.instant('TITLE.Ad_type_ID')">
+      </app-estate-ads-type-selector>
+      <!-- StationLevel Field -->
+      <div *ngIf="fieldsInfo['stationLevel']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.stationLevel" class="color-highlight">{{fieldsInfo['stationLevel']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.stationLevel" name="dataModel.stationLevel" #StationLevel type="number"
+          placeholder="{{fieldsInfo['stationLevel']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['stationLevel']?.accessEditField" id="dataModel.stationLevel"
+          class="form-control validate-name">
+      </div>
+      <!-- ViewLevel Field -->
+      <div *ngIf="fieldsInfo['viewLevel']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.viewLevel" class="color-highlight">{{fieldsInfo['viewLevel']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.viewLevel" name="dataModel.viewLevel" #ViewLevel type="number"
+          placeholder="{{fieldsInfo['viewLevel']?.fieldTitle}}" [disabled]="!fieldsInfo['viewLevel']?.accessEditField"
           id="dataModel.viewLevel" class="form-control validate-name">
-        </div>
-        <!-- FromDate Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.fromDate" class="color-highlight">{{fieldsInfo['fromDate']?.fieldTitle}}</label>
-            <input matInput [matDatepicker]="FromDate" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate"
-             id="dataModel.fromDate" class="form-control validate-name">
-             <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
-             <mat-datepicker touchUi #FromDate></mat-datepicker>
-        </div>
-        <!-- ExpireDate Field -->
-        <div *ngIf="fieldsInfo['expireDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.expireDate" class="color-highlight">{{fieldsInfo['expireDate']?.fieldTitle}}</label>
-            <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate"
-             id="dataModel.expireDate" class="form-control validate-name">
-             <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
-             <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-        </div>
-        <!-- Description Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-            <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-             placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-             id="dataModel.description" class="form-control validate-name">
+      </div>
+      <!-- FromDate Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.fromDate" class="color-highlight">{{fieldsInfo['fromDate']?.fieldTitle}}</label>
+        <input matInput [matDatepicker]="FromDate" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate"
+          id="dataModel.fromDate" class="form-control validate-name">
+        <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #FromDate></mat-datepicker>
+      </div>
+      <!-- ExpireDate Field -->
+      <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.expireDate" class="color-highlight">{{fieldsInfo['expireDate']?.fieldTitle}}</label>
+        <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate"
+          id="dataModel.expireDate" class="form-control validate-name">
+        <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #ExpireDate></mat-datepicker>
+      </div>
+      <!-- Description Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+          id="dataModel.description" class="form-control validate-name">
             </textarea>
-            <em>{{ Description.value.length }} / 500</em>
-            <mat-error *ngIf="Description.errors?.required">
-            Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </div>
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-            <button type="button" (click)="onFormCancel()"class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-              <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
-            </button>
-            <button type="submit" mat-raised-button (click)="onFormSubmit()"
-              [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
-              <i class="fa fa-check-square-o"></i>
-              {{ "ACTION.SAVE" | translate }}
-            </button>
-        </div>
-      </form>
-      <!--content-->
-    </div>
+        <em>{{ Description.value.length }} / 500</em>
+        <mat-error *ngIf="Description.errors?.required">
+          Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+          <i class="fa fa-check-square-o"></i>
+          {{ "ACTION.SAVE" | translate }}
+        </button>
+      </div>
+    </form>
+    <!--content-->
+  </div>
 </div>
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  <div class="ntk-cms-html-card-header">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  </div>
+  <div class="ntk-cms-html-card-body">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+  </div>
+  <div class="ntk-cms-html-card-message">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+    <div class="form-actions">
+      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
+      <small class="form-text text-muted danger">{{ formInfo.formError }}
+      </small>
     </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
+  </div>
+  <div class="ntk-cms-html-card-footer">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+  </div>
 </form>

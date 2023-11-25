@@ -42,6 +42,7 @@
 <ng-template #keyTemplate>
   <div style="text-align-last: center;">
     <p>{{this.Key}}</p>
-    <button mat-button (click)="onActionCopied()" [cdkCopyToClipboard]="this.Key">Copy</button>
+    <button (click)="onActionCopied()" [cdkCopyToClipboard]="this.Key"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">Copy</button>
   </div>
 </ng-template>

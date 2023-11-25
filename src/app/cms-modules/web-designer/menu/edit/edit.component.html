@@ -11,7 +11,7 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
-    
+
     <!--Content-->
   </div>
 </div>
@@ -147,9 +147,11 @@
           </mat-error>
         </mat-form-field>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button (click)="onFormCancel()" type="button" mat-raised-button>{{'ACTION.BACK' |
+          <button (click)="onFormCancel()" type="button"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.BACK' |
             translate}}</button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>

@@ -48,11 +48,13 @@
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
     </button>
     <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonSendMessage()" type="button" class="btn btn-primary" id="openModalButton"
-      data-toggle="modal" data-target="#categoryModal">{{'ACTION.SEND_ANSWER' | translate}}</button>
+      (click)="onActionbuttonSendMessage()" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEND_ANSWER' |
+      translate}}</button>
     <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonDetailRow()" type="button" class="btn btn-primary" id="openModalButton" data-toggle="modal"
-      data-target="#categoryModal">{{'ACTION.DETAIL' | translate}}</button>
+      (click)="onActionbuttonDetailRow()" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.DETAIL' |
+      translate}}</button>
     <button (click)="onActionBackToParent()" *ngIf="requestLinkPrivateConfigId?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
       translate}}</button>

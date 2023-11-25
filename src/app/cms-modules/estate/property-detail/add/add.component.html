@@ -124,36 +124,42 @@
         <!-- InputDataType Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <select id="dataModel.inputDataType" [(ngModel)]="dataModel.inputDataType" name="dataModel.inputDataType"
-            #MainAdminRecordStatus="ngModel"
-            class="form-control validate-name">
-            <option *ngFor=" let item of dataModelInputDataTypeEnumResult.listItems; index as i" [ngValue]="item.value">{{ item.description }}</option>
+            #MainAdminRecordStatus="ngModel" class="form-control validate-name">
+            <option *ngFor=" let item of dataModelInputDataTypeEnumResult.listItems; index as i" [ngValue]="item.value">
+              {{ item.description }}</option>
           </select>
           <span><i class="fa fa-chevron-down"></i></span>
           <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
         </div>
         <!-- Unit Field -->
-        <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="dataModel.unit" class="color-highlight">{{fieldsInfo['unit']?.fieldTitle}}</label>
           <input matInput type="text" [(ngModel)]="dataModel.unit" name="dataModel.unit" #Unit
-           placeholder="{{fieldsInfo['unit']?.fieldTitle}}"  minlength="1" maxlength="64"
-           class="form-control validate-name" id="dataModel.unit" />
-           <em>{{ Unit.value.length }} / 64</em>
+            placeholder="{{fieldsInfo['unit']?.fieldTitle}}" minlength="1" maxlength="64"
+            class="form-control validate-name" id="dataModel.unit" />
+          <em>{{ Unit.value.length }} / 64</em>
         </div>
-       <!-- ConfigValueIntValueMin Field -->
-        <div *ngIf="dataModel.inputDataType===1 ||dataModel.inputDataType===3" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.configValueIntValueMin" class="color-highlight">{{fieldsInfo['configValueIntValueMin']?.fieldTitle}}</label>
-            <input matInput type="number" [(ngModel)]="dataModel.configValueIntValueMin" name="dataModel.configValueIntValueMin" #ConfigValueIntValueMax
-             placeholder="{{fieldsInfo['configValueIntValueMin']?.fieldTitle}}"
-             class="form-control validate-name" id="dataModel.configValueIntValueMin" />
-             <em>{{ Unit.value.length }} / 64</em>
+        <!-- ConfigValueIntValueMin Field -->
+        <div *ngIf="dataModel.inputDataType===1 ||dataModel.inputDataType===3"
+          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.configValueIntValueMin"
+            class="color-highlight">{{fieldsInfo['configValueIntValueMin']?.fieldTitle}}</label>
+          <input matInput type="number" [(ngModel)]="dataModel.configValueIntValueMin"
+            name="dataModel.configValueIntValueMin" #ConfigValueIntValueMax
+            placeholder="{{fieldsInfo['configValueIntValueMin']?.fieldTitle}}" class="form-control validate-name"
+            id="dataModel.configValueIntValueMin" />
+          <em>{{ Unit.value.length }} / 64</em>
         </div>
         <!-- ConfigValueIntValueMax Field -->
-        <div *ngIf="dataModel.inputDataType===1 ||dataModel.inputDataType===3" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.configValueIntValueMax" class="color-highlight">{{fieldsInfo['configValueIntValueMax']?.fieldTitle}}</label>
-          <input matInput type="number" [(ngModel)]="dataModel.configValueIntValueMax" name="dataModel.configValueIntValueMax" #ConfigValueIntValueMax
-           placeholder="{{fieldsInfo['configValueIntValueMax']?.fieldTitle}}"
-           class="form-control validate-name" id="dataModel.configValueIntValueMax" />
-           <em>{{ Unit.value.length }} / 64</em>
+        <div *ngIf="dataModel.inputDataType===1 ||dataModel.inputDataType===3"
+          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.configValueIntValueMax"
+            class="color-highlight">{{fieldsInfo['configValueIntValueMax']?.fieldTitle}}</label>
+          <input matInput type="number" [(ngModel)]="dataModel.configValueIntValueMax"
+            name="dataModel.configValueIntValueMax" #ConfigValueIntValueMax
+            placeholder="{{fieldsInfo['configValueIntValueMax']?.fieldTitle}}" class="form-control validate-name"
+            id="dataModel.configValueIntValueMax" />
+          <em>{{ Unit.value.length }} / 64</em>
         </div>
         <!-- InvisibleForEndUser Field -->
         <div *ngIf="fieldsInfo['invisibleForEndUser']?.accessWatchField" class="d-flex mb-3">
@@ -303,10 +309,12 @@
       </div>
 
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-        <button type="button" (click)="onFormCancel()" class="btn btn-light">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
-        <button type="submit" mat-raised-button (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
           <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>
       </div>

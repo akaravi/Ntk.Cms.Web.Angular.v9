@@ -11,90 +11,95 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--content-->
-      <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-        {{ formInfo.formTitle }}
-        <!-- LinkMainImageId Field -->
-        <div class="mb-3">
-          <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
-            <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-              aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
-          </a>
-        </div>
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId" class="color-highlight">{{'TITLE.PICTURE' | translate}}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
-          placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off" (click)="fileManagerOpenForm = true"
-          class="form-control validate-name" id="dataModel.linkMainImageId"/>
-          <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- LinkMainImageId Field -->
+      <div class="mb-3">
+        <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
+          <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+            aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
+        </a>
+      </div>
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+          class="color-highlight">{{'TITLE.PICTURE' | translate}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+          #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+          (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
+        <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
           [openSelectFileDescription]="this.translate.instant('TITLE.The_dimensions_of_the_photo_should_be_600_x_600')"
           [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
-          [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage"
-          [openFilemanagerButtonView]="false">
-          </cms-file-manager>
-        </div>
-        <!-- Title Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
-          <input matInput type="text"  [(ngModel)]="dataModel.title" name="dataModel.title" #Title 
-           placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
-           class="form-control validate-name" id="dataModel.title" />
-          <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
-          <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-          <em>{{ Title.value.length }} / 100</em>
-          <mat-error *ngIf="Title.errors?.required">
-            {{fieldsInfo['title']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- IconFont Field -->
-        <div *ngIf="fieldsInfo['iconFont']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
-           [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
-           (iconPickerSelect)="onIconPickerSelect($event)"
-           placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}" [disabled]="!fieldsInfo['iconFont']?.accessEditField"
-           class="form-control validate-name" id="dataModel.iconFont" />
-          <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
-        </div>
-        <!-- iconColor Field -->
-        <div *ngIf="fieldsInfo['iconColor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.iconColor" class="color-highlight">{{fieldsInfo['iconColor']?.fieldTitle}}</label>
-          <div class="row mb-0">
-            <div class="col-11 pe-0">
-              <input matInput type="text" [(ngModel)]="dataModel.iconColor" name="dataModel.iconColor" #iconColor type="text"
-               [style.background]="dataModel.iconColor" [ngxMatColorPicker]="iconColorPicker"
-               placeholder="{{fieldsInfo['iconColor']?.fieldTitle}}" [disabled]="!fieldsInfo['iconColor']?.accessEditField"
-               class="form-control validate-name" id="dataModel.iconColor" />
-            </div>
-            <div class="col-1 ps-0">
-              <ngx-ntk-mat-color-toggle matSuffix [for]="iconColorPicker"></ngx-ntk-mat-color-toggle>
-              <ngx-ntk-mat-color-picker #iconColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
-            </div>
+          [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
+        </cms-file-manager>
+      </div>
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
+          placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Title.value.length }} / 100</em>
+        <mat-error *ngIf="Title.errors?.required">
+          {{fieldsInfo['title']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- IconFont Field -->
+      <div *ngIf="fieldsInfo['iconFont']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
+          [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
+          (iconPickerSelect)="onIconPickerSelect($event)" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['iconFont']?.accessEditField" class="form-control validate-name"
+          id="dataModel.iconFont" />
+        <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
+      </div>
+      <!-- iconColor Field -->
+      <div *ngIf="fieldsInfo['iconColor']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.iconColor" class="color-highlight">{{fieldsInfo['iconColor']?.fieldTitle}}</label>
+        <div class="row mb-0">
+          <div class="col-11 pe-0">
+            <input matInput type="text" [(ngModel)]="dataModel.iconColor" name="dataModel.iconColor" #iconColor
+              type="text" [style.background]="dataModel.iconColor" [ngxMatColorPicker]="iconColorPicker"
+              placeholder="{{fieldsInfo['iconColor']?.fieldTitle}}"
+              [disabled]="!fieldsInfo['iconColor']?.accessEditField" class="form-control validate-name"
+              id="dataModel.iconColor" />
+          </div>
+          <div class="col-1 ps-0">
+            <ngx-ntk-mat-color-toggle matSuffix [for]="iconColorPicker"></ngx-ntk-mat-color-toggle>
+            <ngx-ntk-mat-color-picker #iconColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
           </div>
         </div>
-        <!-- Description Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-          <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-           placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-           id="dataModel.description" class="form-control validate-name">
+      </div>
+      <!-- Description Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+          id="dataModel.description" class="form-control validate-name">
           </textarea>
-          <em>{{ Description.value.length }} / 500</em>
-          <mat-error *ngIf="Description.errors?.required">
-            Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
+        <em>{{ Description.value.length }} / 500</em>
+        <mat-error *ngIf="Description.errors?.required">
+          Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
 
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-          <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-            <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
-          </button>
-          <button type="submit" mat-raised-button (click)="onFormSubmit()"
-            [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
-            <i class="fa fa-check-square-o"></i>
-            {{ "ACTION.SAVE" | translate }}
-          </button>
-        </div>
-      </form>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+          <i class="fa fa-check-square-o"></i>
+          {{ "ACTION.SAVE" | translate }}
+        </button>
+      </div>
+    </form>
     <!--content-->
   </div>
 </div>

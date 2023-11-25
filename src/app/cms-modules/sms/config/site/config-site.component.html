@@ -62,7 +62,7 @@
             <mat-label>messageTextFiltering</mat-label>
             <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.messageTextFiltering"
               name="dataConfigSiteValuesModel.messageTextFiltering" #messageTextFiltering type="text" placeholder="..."
-              minlength="1" maxlength="2000" rows=5 ></textarea>
+              minlength="1" maxlength="2000" rows=5></textarea>
             <mat-icon matSuffix *ngIf="dataConfigSiteValuesModel.messageTextFiltering" matSuffix mat-icon-button
               aria-label="Clear" (click)="dataConfigSiteValuesModel.messageTextFiltering = ''">close</mat-icon>
             <mat-icon matSuffix>mode_edit</mat-icon>
@@ -90,7 +90,7 @@
             <mat-label>messageTextForbidden</mat-label>
             <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.messageTextForbidden"
               name="dataConfigSiteValuesModel.messageTextForbidden" #messageTextForbidden type="text" placeholder="..."
-              minlength="1" maxlength="2000" rows=5 ></textarea>
+              minlength="1" maxlength="2000" rows=5></textarea>
             <mat-icon matSuffix *ngIf="dataConfigSiteValuesModel.messageTextForbidden" matSuffix mat-icon-button
               aria-label="Clear" (click)="dataConfigSiteValuesModel.messageTextForbidden = ''">close</mat-icon>
             <mat-icon matSuffix>mode_edit</mat-icon>
@@ -116,7 +116,7 @@
             <mat-label>messageNumberFiltering</mat-label>
             <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.messageNumberFiltering"
               name="dataConfigSiteValuesModel.messageNumberFiltering" #messageNumberFiltering type="text"
-              placeholder="..." minlength="1" maxlength="2000" rows=5 ></textarea>
+              placeholder="..." minlength="1" maxlength="2000" rows=5></textarea>
             <mat-icon matSuffix *ngIf="dataConfigSiteValuesModel.messageNumberFiltering" matSuffix mat-icon-button
               aria-label="Clear" (click)="dataConfigSiteValuesModel.messageNumberFiltering = ''">
               close</mat-icon>
@@ -143,7 +143,7 @@
             <mat-label>messageNumberForbidden</mat-label>
             <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.messageNumberForbidden"
               name="dataConfigSiteValuesModel.messageNumberForbidden" #messageNumberForbidden type="text"
-              placeholder="..." minlength="1" maxlength="2000" rows=5 ></textarea>
+              placeholder="..." minlength="1" maxlength="2000" rows=5></textarea>
             <mat-icon matSuffix *ngIf="dataConfigSiteValuesModel.messageNumberForbidden" matSuffix mat-icon-button
               aria-label="Clear" (click)="dataConfigSiteValuesModel.messageNumberForbidden = ''">
               close</mat-icon>
@@ -162,13 +162,16 @@
         </div>
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button (click)="onActionBackToParent()">
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+            (click)="onActionBackToParent()">
             {{'ACTION.BACK' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>
@@ -210,13 +213,16 @@
           <div [innerHTML]="dataSiteStorageModel | prettyjson"></div>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>
@@ -251,13 +257,16 @@
           <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>

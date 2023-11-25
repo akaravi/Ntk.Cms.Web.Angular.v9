@@ -13,31 +13,34 @@
     <!--content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
       {{ formInfo.formTitle }}
-       <!-- Title Field -->
-       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
         <input type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
-         placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
-         class="form-control validate-name" id="dataModel.title" />
+          placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.title" />
         <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
         <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
         <em>{{ Title.value.length }} / 100</em>
         <mat-error *ngIf="Title.errors?.required">
           {{fieldsInfo['title']?.fieldTitle}} is <strong>{{ "MESSAGE.required" | translate }}</strong>
         </mat-error>
-       </div>
-       <!-- TitleML Field -->
-       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      </div>
+      <!-- TitleML Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.titleML" class="color-highlight">TitleML</label>
         <input type="text" [(ngModel)]="dataModel.titleML" name="dataModel.titleML" #TitleML
-         placeholder="{{fieldsInfo['titleML']?.fieldTitle}}" [disabled]="true" minlength="3" maxlength="100" required
-         class="form-control validate-name" id="dataModel.titleML" />
-       </div>
-       <!-- TitleResourceLanguage Field -->
-       <div *ngIf="fieldsInfo['titleResourceLanguage']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.titleResourceLanguage" class="color-highlight">{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.titleResourceLanguage" name="dataModel.titleResourceLanguage" #TitleResourceLanguage type="text"
-         placeholder="{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}" [disabled]="!fieldsInfo['titleResourceLanguage']?.accessEditField" minlength="3" maxlength="100" required
+          placeholder="{{fieldsInfo['titleML']?.fieldTitle}}" [disabled]="true" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.titleML" />
+      </div>
+      <!-- TitleResourceLanguage Field -->
+      <div *ngIf="fieldsInfo['titleResourceLanguage']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.titleResourceLanguage"
+          class="color-highlight">{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.titleResourceLanguage" name="dataModel.titleResourceLanguage"
+          #TitleResourceLanguage type="text" placeholder="{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['titleResourceLanguage']?.accessEditField" minlength="3" maxlength="100" required
           class="form-control validate-name" id="dataModel.titleResourceLanguage" />
         <i *ngIf="!TitleResourceLanguage.value" class="fa fa-times  invalid color-red-dark"></i>
         <i *ngIf="TitleResourceLanguage.value" class="fa fa-check  valid color-green-dark"></i>
@@ -45,170 +48,192 @@
         <mat-error *ngIf="TitleResourceLanguage.errors?.required">
           TitleResourceLanguage is <strong>{{ "MESSAGE.required" | translate }}</strong>
         </mat-error>
-       </div>
-       <!-- createdYearActive Field -->
-       <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-          <div class="pt-1">
-            <h5 data-trigger-switch="dataModel.createdYearActive" class="font-600 font-14">{{fieldsInfo['createdYearActive']?.fieldTitle}}</h5>
+      </div>
+      <!-- createdYearActive Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.createdYearActive" class="font-600 font-14">
+            {{fieldsInfo['createdYearActive']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.createdYearActive"
+              [(ngModel)]="this.dataModel.createdYearActive" name="dataModel.createdYearActive">
+            <label class="custom-control-label" for="dataModel.createdYearActive"></label>
           </div>
-          <div class="ms-auto me-3 pe-2">
-            <div class="custom-control ios-switch small-switch">
-              <input type="checkbox" class="ios-input" id="dataModel.createdYearActive"
-                [(ngModel)]="this.dataModel.createdYearActive" name="dataModel.createdYearActive">
-              <label class="custom-control-label" for="dataModel.createdYearActive"></label>
-            </div>
-          </div>
-       </div>
-       <!-- TitleCreatedYaer Field -->
-       <div *ngIf="dataModel.createdYearActive" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.titleCreatedYaer" class="color-highlight">{{fieldsInfo['titleCreatedYaer']?.fieldTitle}}</label>
+        </div>
+      </div>
+      <!-- TitleCreatedYaer Field -->
+      <div *ngIf="dataModel.createdYearActive"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.titleCreatedYaer"
+          class="color-highlight">{{fieldsInfo['titleCreatedYaer']?.fieldTitle}}</label>
         <input type="text" [(ngModel)]="dataModel.titleCreatedYaer" name="dataModel.titleCreatedYaer" #TitleCreatedYaer
-         placeholder="{{fieldsInfo['titleCreatedYaer']?.fieldTitle}}" minlength="3" maxlength="100" required
-         class="form-control validate-name" id="dataModel.titleCreatedYaer" />
+          placeholder="{{fieldsInfo['titleCreatedYaer']?.fieldTitle}}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.titleCreatedYaer" />
         <i *ngIf="!TitleCreatedYaer.value" class="fa fa-times  invalid color-red-dark"></i>
         <i *ngIf="TitleCreatedYaer.value" class="fa fa-check  valid color-green-dark"></i>
-        <em>{{  TitleCreatedYaer.value.length }} / 100</em>
+        <em>{{ TitleCreatedYaer.value.length }} / 100</em>
         <mat-error *ngIf="TitleCreatedYaer.errors?.required">
           TitleCreatedYaer is <strong>{{ "MESSAGE.required" | translate }}</strong>
         </mat-error>
-       </div>
-       <!-- TitleCreatedYaerML Field -->
-       <div *ngIf="dataModel.createdYearActive" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      </div>
+      <!-- TitleCreatedYaerML Field -->
+      <div *ngIf="dataModel.createdYearActive"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.titleCreatedYaerML" class="color-highlight">TitleCreatedYaerML</label>
-        <input type="text" [(ngModel)]="dataModel.titleCreatedYaerML" name="dataModel.titleCreatedYaerML" #TitleCreatedYaerML
-         placeholder="{{fieldsInfo['titleCreatedYaerML']?.fieldTitle}}"  [disabled]="true"
-         class="form-control validate-name" id="dataModel.titleCreatedYaerML" />
-       </div>
-       <!-- TitleCreatedYaerResourceLanguage Field -->
-       <div *ngIf="fieldsInfo['titleCreatedYaerResourceLanguage']?.accessWatchField && dataModel.createdYearActive" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.titleCreatedYaerResourceLanguage" class="color-highlight">{{fieldsInfo['titleCreatedYaerResourceLanguage']?.fieldTitle}}</label>
-        <input type="text" [(ngModel)]="dataModel.titleCreatedYaerResourceLanguage" name="dataModel.titleCreatedYaerResourceLanguage" #TitleCreatedYaerResourceLanguage
-         placeholder="{{fieldsInfo['titleCreatedYaerResourceLanguage']?.fieldTitle}}" [disabled]="!fieldsInfo['titleCreatedYaerResourceLanguage']?.accessEditField" minlength="3" maxlength="100" required
-         class="form-control validate-name" id="dataModel.titleCreatedYaerResourceLanguage" />
+        <input type="text" [(ngModel)]="dataModel.titleCreatedYaerML" name="dataModel.titleCreatedYaerML"
+          #TitleCreatedYaerML placeholder="{{fieldsInfo['titleCreatedYaerML']?.fieldTitle}}" [disabled]="true"
+          class="form-control validate-name" id="dataModel.titleCreatedYaerML" />
+      </div>
+      <!-- TitleCreatedYaerResourceLanguage Field -->
+      <div *ngIf="fieldsInfo['titleCreatedYaerResourceLanguage']?.accessWatchField && dataModel.createdYearActive"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.titleCreatedYaerResourceLanguage"
+          class="color-highlight">{{fieldsInfo['titleCreatedYaerResourceLanguage']?.fieldTitle}}</label>
+        <input type="text" [(ngModel)]="dataModel.titleCreatedYaerResourceLanguage"
+          name="dataModel.titleCreatedYaerResourceLanguage" #TitleCreatedYaerResourceLanguage
+          placeholder="{{fieldsInfo['titleCreatedYaerResourceLanguage']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['titleCreatedYaerResourceLanguage']?.accessEditField" minlength="3" maxlength="100"
+          required class="form-control validate-name" id="dataModel.titleCreatedYaerResourceLanguage" />
         <i *ngIf="!TitleCreatedYaerResourceLanguage.value" class="fa fa-times  invalid color-red-dark"></i>
         <i *ngIf="TitleCreatedYaerResourceLanguage.value" class="fa fa-check  valid color-green-dark"></i>
         <em>{{ TitleCreatedYaerResourceLanguage.value.length }} / 100</em>
         <mat-error *ngIf="TitleCreatedYaerResourceLanguage.errors?.required">
           TitleCreatedYaerResourceLanguage is <strong>{{ "MESSAGE.required" | translate }}</strong>
         </mat-error>
-       </div>
-        <!-- partitionActive Field -->
-        <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-          <div class="pt-1">
-            <h5 data-trigger-switch="dataModel.partitionActive" class="font-600 font-14">{{fieldsInfo['partitionActive']?.fieldTitle}}</h5>
+      </div>
+      <!-- partitionActive Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.partitionActive" class="font-600 font-14">
+            {{fieldsInfo['partitionActive']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.partitionActive"
+              [(ngModel)]="this.dataModel.partitionActive" name="dataModel.partitionActive">
+            <label class="custom-control-label" for="dataModel.partitionActive"></label>
           </div>
-          <div class="ms-auto me-3 pe-2">
-            <div class="custom-control ios-switch small-switch">
-              <input type="checkbox" class="ios-input" id="dataModel.partitionActive"
-                [(ngModel)]="this.dataModel.partitionActive" name="dataModel.partitionActive">
-              <label class="custom-control-label" for="dataModel.partitionActive"></label>
-            </div>
-          </div>
         </div>
-        <!-- TitlePartition Field -->
-        <div *ngIf="dataModel.partitionActive" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.titlePartition" class="color-highlight">{{fieldsInfo['titlePartition']?.fieldTitle}}</label>
-          <input type="text" [(ngModel)]="dataModel.titlePartition" name="dataModel.titlePartition" #TitlePartition
-           placeholder="{{fieldsInfo['titlePartition']?.fieldTitle}}" minlength="3" maxlength="100" required
-           class="form-control validate-name" id="dataModel.titlePartition" />
-          <i *ngIf="!TitlePartition.value" class="fa fa-times  invalid color-red-dark"></i>
-          <i *ngIf="TitlePartition.value" class="fa fa-check  valid color-green-dark"></i>
-          <em>{{ TitlePartition.value.length }} / 100</em>
-          <mat-error *ngIf="TitlePartition.errors?.required">
-            TitlePartition is <strong>{{ "MESSAGE.required" | translate }}</strong>
-          </mat-error>
-        </div>
-         <!-- TitlePartitionML Field -->
-         <div *ngIf="dataModel.partitionActive" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.titlePartitionML" class="color-highlight">TitlePartitionML</label>
-          <input type="text" [(ngModel)]="dataModel.titlePartitionML" name="dataModel.titlePartitionML" [disabled]="true"
-           class="form-control validate-name" id="dataModel.titlePartitionML" />
-         </div>
-         <!-- TitlePartitionResourceLanguage Field -->
-        <div *ngIf="fieldsInfo['titlePartitionResourceLanguage']?.accessWatchField && dataModel.partitionActive" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.titlePartitionResourceLanguage" class="color-highlight">{{fieldsInfo['titlePartitionResourceLanguage']?.fieldTitle}}</label>
-          <input type="text" [(ngModel)]="dataModel.titlePartitionResourceLanguage" name="dataModel.titlePartitionResourceLanguage" #TitlePartitionResourceLanguage
-           placeholder="{{fieldsInfo['titlePartitionResourceLanguage']?.fieldTitle}}" [disabled]="!fieldsInfo['titlePartitionResourceLanguage']?.accessEditField" minlength="3" maxlength="100" required
-           class="form-control validate-name" id="dataModel.titlePartitionResourceLanguage" />
-          <i *ngIf="!TitlePartitionResourceLanguage.value" class="fa fa-times  invalid color-red-dark"></i>
-          <i *ngIf="TitlePartitionResourceLanguage.value" class="fa fa-check  valid color-green-dark"></i>
-          <em>{{ TitlePartitionResourceLanguage.value.length }} / 100</em>
-          <mat-error *ngIf="TitlePartitionResourceLanguage.errors?.required">
-            TitlePartitionResourceLanguage is <strong>{{ "MESSAGE.required" | translate }}</strong>
-          </mat-error>
-        </div>
-        <!-- Description Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-          <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-           placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-           id="dataModel.description" class="form-control validate-name">
+      </div>
+      <!-- TitlePartition Field -->
+      <div *ngIf="dataModel.partitionActive"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.titlePartition"
+          class="color-highlight">{{fieldsInfo['titlePartition']?.fieldTitle}}</label>
+        <input type="text" [(ngModel)]="dataModel.titlePartition" name="dataModel.titlePartition" #TitlePartition
+          placeholder="{{fieldsInfo['titlePartition']?.fieldTitle}}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.titlePartition" />
+        <i *ngIf="!TitlePartition.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="TitlePartition.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ TitlePartition.value.length }} / 100</em>
+        <mat-error *ngIf="TitlePartition.errors?.required">
+          TitlePartition is <strong>{{ "MESSAGE.required" | translate }}</strong>
+        </mat-error>
+      </div>
+      <!-- TitlePartitionML Field -->
+      <div *ngIf="dataModel.partitionActive"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.titlePartitionML" class="color-highlight">TitlePartitionML</label>
+        <input type="text" [(ngModel)]="dataModel.titlePartitionML" name="dataModel.titlePartitionML" [disabled]="true"
+          class="form-control validate-name" id="dataModel.titlePartitionML" />
+      </div>
+      <!-- TitlePartitionResourceLanguage Field -->
+      <div *ngIf="fieldsInfo['titlePartitionResourceLanguage']?.accessWatchField && dataModel.partitionActive"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.titlePartitionResourceLanguage"
+          class="color-highlight">{{fieldsInfo['titlePartitionResourceLanguage']?.fieldTitle}}</label>
+        <input type="text" [(ngModel)]="dataModel.titlePartitionResourceLanguage"
+          name="dataModel.titlePartitionResourceLanguage" #TitlePartitionResourceLanguage
+          placeholder="{{fieldsInfo['titlePartitionResourceLanguage']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['titlePartitionResourceLanguage']?.accessEditField" minlength="3" maxlength="100"
+          required class="form-control validate-name" id="dataModel.titlePartitionResourceLanguage" />
+        <i *ngIf="!TitlePartitionResourceLanguage.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="TitlePartitionResourceLanguage.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ TitlePartitionResourceLanguage.value.length }} / 100</em>
+        <mat-error *ngIf="TitlePartitionResourceLanguage.errors?.required">
+          TitlePartitionResourceLanguage is <strong>{{ "MESSAGE.required" | translate }}</strong>
+        </mat-error>
+      </div>
+      <!-- Description Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+          id="dataModel.description" class="form-control validate-name">
           </textarea>
-          <em>{{ Description.value.length }} / 500</em>
-          <mat-error *ngIf="Description.errors?.required">
-            Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- IconFont Field -->
-        <div *ngIf="fieldsInfo['iconFont']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
-           [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
-           (iconPickerSelect)="onIconPickerSelect($event)"
-           placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}" [disabled]="!fieldsInfo['iconFont']?.accessAddField"
-           class="form-control validate-name" id="dataModel.iconFont" />
-          <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
-        </div>
-        <!-- iconColor Field -->
-        <div *ngIf="fieldsInfo['iconColor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.iconColor" class="color-highlight">{{fieldsInfo['iconColor']?.fieldTitle}}</label>
-          <div class="row mb-0">
-            <div class="col-11 pe-0">
-              <input matInput type="text" [(ngModel)]="dataModel.iconColor" name="dataModel.iconColor" #iconColor type="text"
-               [style.background]="dataModel.iconColor" [ngxMatColorPicker]="iconColorPicker"
-               placeholder="{{fieldsInfo['iconColor']?.fieldTitle}}" [disabled]="!fieldsInfo['iconColor']?.accessAddField"
-               class="form-control validate-name" id="dataModel.iconColor" />
-            </div>
-            <div class="col-1 ps-0">
-              <ngx-ntk-mat-color-toggle matSuffix [for]="iconColorPicker"></ngx-ntk-mat-color-toggle>
-              <ngx-ntk-mat-color-picker #iconColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
-            </div>
+        <em>{{ Description.value.length }} / 500</em>
+        <mat-error *ngIf="Description.errors?.required">
+          Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- IconFont Field -->
+      <div *ngIf="fieldsInfo['iconFont']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
+          [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
+          (iconPickerSelect)="onIconPickerSelect($event)" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['iconFont']?.accessAddField" class="form-control validate-name"
+          id="dataModel.iconFont" />
+        <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
+      </div>
+      <!-- iconColor Field -->
+      <div *ngIf="fieldsInfo['iconColor']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.iconColor" class="color-highlight">{{fieldsInfo['iconColor']?.fieldTitle}}</label>
+        <div class="row mb-0">
+          <div class="col-11 pe-0">
+            <input matInput type="text" [(ngModel)]="dataModel.iconColor" name="dataModel.iconColor" #iconColor
+              type="text" [style.background]="dataModel.iconColor" [ngxMatColorPicker]="iconColorPicker"
+              placeholder="{{fieldsInfo['iconColor']?.fieldTitle}}"
+              [disabled]="!fieldsInfo['iconColor']?.accessAddField" class="form-control validate-name"
+              id="dataModel.iconColor" />
+          </div>
+          <div class="col-1 ps-0">
+            <ngx-ntk-mat-color-toggle matSuffix [for]="iconColorPicker"></ngx-ntk-mat-color-toggle>
+            <ngx-ntk-mat-color-picker #iconColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
           </div>
         </div>
-        <!-- LinkMainImageId Field -->
-        <div class="mb-3">
-          <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
-            <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-              aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
-          </a>
-        </div>
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId" class="color-highlight">{{'TITLE.PICTURE' | translate}}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
-           placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off" (click)="fileManagerOpenForm = true"
-           class="form-control validate-name" id="dataModel.linkMainImageId"/>
-          <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
-           [openDirectUploadView]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree"
-           [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
-           [openFilemanagerButtonView]="false">
-          </cms-file-manager>
-        </div>
-        <app-estate-property-type-usage-selectionlist [optionSelectForce]="dataEstatePropertyTypeUsageIds"
-         [optionDisabled]="false" (optionChange)="onActionSelectorUserCategorySelect($event)"
-         (optionSelectAdded)="onActionSelectorUserCategorySelectAdded($event)"
-         (optionSelectRemoved)="onActionSelectorUserCategorySelectRemoved($event)">
-        </app-estate-property-type-usage-selectionlist>
+      </div>
+      <!-- LinkMainImageId Field -->
+      <div class="mb-3">
+        <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
+          <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+            aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
+        </a>
+      </div>
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+          class="color-highlight">{{'TITLE.PICTURE' | translate}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+          #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+          (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
+        <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
+          [openDirectUploadView]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree"
+          [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
+          [openFilemanagerButtonView]="false">
+        </cms-file-manager>
+      </div>
+      <app-estate-property-type-usage-selectionlist [optionSelectForce]="dataEstatePropertyTypeUsageIds"
+        [optionDisabled]="false" (optionChange)="onActionSelectorUserCategorySelect($event)"
+        (optionSelectAdded)="onActionSelectorUserCategorySelectAdded($event)"
+        (optionSelectRemoved)="onActionSelectorUserCategorySelectRemoved($event)">
+      </app-estate-property-type-usage-selectionlist>
 
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-          <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-            <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
-          </button>
-          <button type="submit" mat-raised-button (click)="onFormSubmit()"
-            [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
-            <i class="fa fa-check-square-o"></i>
-            {{ "ACTION.SAVE" | translate }}
-          </button>
-        </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+          <i class="fa fa-check-square-o"></i>
+          {{ "ACTION.SAVE" | translate }}
+        </button>
+      </div>
 
     </form>
     <!--content-->

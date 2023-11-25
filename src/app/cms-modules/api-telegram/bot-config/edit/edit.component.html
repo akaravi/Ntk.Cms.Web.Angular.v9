@@ -113,22 +113,15 @@
       </mat-slide-toggle>
     </div>
 
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button (click)="onActionbuttonGetMeAsync()" type="button"
-                class="btn btn-outline-primary">{{'ACTION.GetMeAsync' |
-                translate}}</button>
-            <button (click)="onActionbuttonSetWebhookAsync()" type="button"
-                class="btn btn-outline-primary">{{'ACTION.SetWebhookAsync' | translate}}</button>
-            <button (click)="onActionbuttonSetWebhookAsyncEmpty()" type="button"
-                class="btn btn-outline-primary">{{'ACTION.SetWebhookAsyncEmpty' | translate}}</button>
-            <button type="submit" mat-raised-button (click)="onFormSubmit()" [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+  </div>
+  <div class="ntk-cms-html-card-message">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+    <div class="form-actions">
+      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
+      <small class="form-text text-muted danger">{{ formInfo.formError }}
+      </small>
     </div>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
   </div>
@@ -149,7 +142,8 @@
       <button (click)="onActionbuttonSetWebhookAsyncEmpty()" type="button"
         class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SetWebhookAsyncEmpty'
         | translate}}</button>
-      <button type="submit" mat-raised-button (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+      <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+        (click)="onFormSubmit()" [disabled]="!vform.form.valid">
         <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
       </button>
     </div>

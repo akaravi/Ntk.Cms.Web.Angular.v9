@@ -1,72 +1,75 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-        حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-        فقط یک صفحه ساختگی است.
-      </p>
-      <!--content-->
-      <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-        {{ formInfo.formTitle }}
-          <!-- linkEstateAccountUserId Field -->
-          <app-estate-account-user-selector (optionChange)="onActionSelectorAccountUser($event)"
-          [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkEstateAccountUserId"
-          [optionPlaceholder]="'user'">
-          </app-estate-account-user-selector>
-          <!-- LinkLocationId Field -->
-          <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-            [optionSelectForce]="dataModel.linkCoreLocationId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Region')"
-            [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField">
-          </app-cms-location-selector>
-          <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-            <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-              <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
-            </button>
-            <button type="submit" mat-raised-button (click)="onFormSubmit()"
-              [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
-              <i class="fa fa-check-square-o"></i>
-              {{ "ACTION.SAVE" | translate }}
-            </button>
-          </div>
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- linkEstateAccountUserId Field -->
+      <app-estate-account-user-selector (optionChange)="onActionSelectorAccountUser($event)" [(optionLoading)]="loading"
+        [optionSelectForce]="dataModel.linkEstateAccountUserId" [optionPlaceholder]="'user'">
+      </app-estate-account-user-selector>
+      <!-- LinkLocationId Field -->
+      <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
+        [optionSelectForce]="dataModel.linkCoreLocationId" [(optionLoading)]="loading"
+        [optionPlaceholder]="this.translate.instant('TITLE.Region')"
+        [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField">
+      </app-cms-location-selector>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+          <i class="fa fa-check-square-o"></i>
+          {{ "ACTION.SAVE" | translate }}
+        </button>
+      </div>
 
-      </form>
-      <!--content-->
-    </div>
+    </form>
+    <!--content-->
+  </div>
 </div>
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  <div class="ntk-cms-html-card-header">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  </div>
+  <div class="ntk-cms-html-card-body">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+  </div>
+  <div class="ntk-cms-html-card-message">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+    <div class="form-actions">
+      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
+      <small class="form-text text-muted danger">{{ formInfo.formError }}
+      </small>
     </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
+  </div>
+  <div class="ntk-cms-html-card-footer">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <button type="button" (click)="onFormCancel()"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+      </button>
+      <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+        (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+        <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+      </button>
     </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" mat-raised-button (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+  </div>
 </form>

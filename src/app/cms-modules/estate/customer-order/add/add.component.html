@@ -567,15 +567,16 @@
               </ng-container>
             </ng-container>
             <mat-action-row>
-              <button mat-button type="button" color="warn" *ngIf="i > 0" (click)="prevStep()">
+              <button  type="button" color="warn" *ngIf="i > 0"
+                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal" (click)="prevStep()">
                 {{ "ACTION.PREVIOUS" | translate }}
               </button>
-              <button mat-button type="button" color="primary" *ngIf="i + 1 < dataModel.propertyDetailGroups.length"
-                (click)="nextStep()">
+              <button  type="button" color="primary" *ngIf="i + 1 < dataModel.propertyDetailGroups.length"
+                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue" (click)="nextStep()">
                 {{ "ACTION.NEXT" | translate }}
               </button>
-              <button mat-button type="button" color="primary" *ngIf="i + 1 === dataModel.propertyDetailGroups.length"
-                (click)="nextStep()">
+              <button  type="button" color="primary" *ngIf="i + 1 === dataModel.propertyDetailGroups.length"
+                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue" (click)="nextStep()">
                 {{ "ACTION.END" | translate }}
               </button>
             </mat-action-row>
@@ -646,11 +647,12 @@
         </div>
 
         <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-          <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <button type="button" (click)="onFormCancel()"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
             <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
           </button>
-          <button type="submit" (click)="onFormSubmit()"
-            [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+          <button type="submit" (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
             <i class="fa fa-check-square-o"></i>
             {{ "ACTION.SAVE" | translate }}
           </button>

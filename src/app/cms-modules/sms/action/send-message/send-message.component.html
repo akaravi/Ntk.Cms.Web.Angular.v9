@@ -23,13 +23,22 @@
                         </mat-expansion-panel-header>
 
                         <!-- LinkPrivateSiteConfigId Field -->
-                        <app-sms-apipath-selector (optionChange)="onActionSelectPrivateSiteConfig($event)" [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiPathId" [optionPlaceholder]="this.translate.instant('TITLE.Direction')" [optionSelectFirstItem]="true">
+                        <app-sms-apipath-selector (optionChange)="onActionSelectPrivateSiteConfig($event)"
+                            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiPathId"
+                            [optionPlaceholder]="this.translate.instant('TITLE.Direction')"
+                            [optionSelectFirstItem]="true">
                         </app-sms-apipath-selector>
-                        <app-sms-api-number-selector *ngIf="dataModel.linkApiPathId?.length>0" [(optionLoading)]="loading" (optionChange)="onActionSelectApiNumber($event)" [optionSelectForce]="" [optionLinkApiPathId]="dataModel.linkApiPathId" [optionPlaceholder]="this.translate.instant('TITLE.sender_number')" [optionSelectFirstItem]="true" [optionSelectFirstItemOnChangeApi]="true">
+                        <app-sms-api-number-selector *ngIf="dataModel.linkApiPathId?.length>0"
+                            [(optionLoading)]="loading" (optionChange)="onActionSelectApiNumber($event)"
+                            [optionSelectForce]="" [optionLinkApiPathId]="dataModel.linkApiPathId"
+                            [optionPlaceholder]="this.translate.instant('TITLE.sender_number')"
+                            [optionSelectFirstItem]="true" [optionSelectFirstItemOnChangeApi]="true">
                         </app-sms-api-number-selector>
                         <mat-action-row>
-                            <button type="button" mat-button color="primary" (click)="nextStep()">{{'ACTION.NEXT' |
-                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                                (click)="nextStep()">{{'ACTION.NEXT' |
+                                translate}}</button>
                         </mat-action-row>
                     </mat-expansion-panel>
 
@@ -44,21 +53,35 @@
                             </mat-panel-description>
                         </mat-expansion-panel-header>
 
-                        <app-sms-main-message-category-selector [(optionLoading)]="loading" (optionChange)="onActionSelectMessageCategory($event)">
+                        <app-sms-main-message-category-selector [(optionLoading)]="loading"
+                            (optionChange)="onActionSelectMessageCategory($event)">
                         </app-sms-main-message-category-selector>
-                        <app-sms-main-message-content-selector [(optionLoading)]="loading" (optionChange)="onActionSelectMessageContent($event)" [optionLinkCategryId]="dataMessageCategoryModel.id"></app-sms-main-message-content-selector>
+                        <app-sms-main-message-content-selector [(optionLoading)]="loading"
+                            (optionChange)="onActionSelectMessageContent($event)"
+                            [optionLinkCategryId]="dataMessageCategoryModel.id"></app-sms-main-message-content-selector>
 
-                        <textarea matInput [(ngModel)]="dataMessageContentModel.messageBody" name="dataMessageContentModel.messageBody" type="text" *ngIf="dataMessageContentModel?.messageBody?.length>0" rows="10"></textarea>
-                        <button type="button" (click)="onActionMessageContentAdd()" class="btn btn-light" *ngIf="dataMessageContentModel?.messageBody?.length>0 && dataModel.message?.length>0">
+                        <textarea matInput [(ngModel)]="dataMessageContentModel.messageBody"
+                            name="dataMessageContentModel.messageBody" type="text"
+                            *ngIf="dataMessageContentModel?.messageBody?.length>0" rows="10"></textarea>
+                        <button type="button" (click)="onActionMessageContentAdd()"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+                            *ngIf="dataMessageContentModel?.messageBody?.length>0 && dataModel.message?.length>0">
                             <i class="ft-x"></i> {{'TITLE.Added_to_the_text' | translate}}
                         </button>
-                        <button type="button" (click)="onActionMessageContentNew()" class="btn btn-light" *ngIf="dataMessageContentModel?.messageBody?.length>0">
+                        <button type="button" (click)="onActionMessageContentNew()"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+                            *ngIf="dataMessageContentModel?.messageBody?.length>0">
                             <i class="ft-x"></i> {{'TITLE.Message_Text' | translate}}
                         </button>
                         <mat-action-row>
-                            <button type="button" mat-button color="warn" (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-                            <button type="button" mat-button color="primary" (click)="nextStep()">{{'ACTION.NEXT' |
-                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
+                                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                                (click)="nextStep()">{{'ACTION.NEXT' |
+                                translate}}</button>
                         </mat-action-row>
                     </mat-expansion-panel>
 
@@ -73,12 +96,19 @@
                             </mat-panel-description>
                         </mat-expansion-panel-header>
 
-                        <app-cms-contact-category-tree-selector (optionSelectChecked)="onActionContactCategorySelectChecked($event)" (optionSelectDisChecked)="onActionContactCategorySelectDisChecked($event)">
+                        <app-cms-contact-category-tree-selector
+                            (optionSelectChecked)="onActionContactCategorySelectChecked($event)"
+                            (optionSelectDisChecked)="onActionContactCategorySelectDisChecked($event)">
                         </app-cms-contact-category-tree-selector>
                         <mat-action-row>
-                            <button type="button" mat-button color="warn" (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-                            <button type="button" mat-button color="primary" (click)="nextStep()">{{'ACTION.NEXT' |
-                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
+                                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                                (click)="nextStep()">{{'ACTION.NEXT' |
+                                translate}}</button>
                         </mat-action-row>
                     </mat-expansion-panel>
 
@@ -97,10 +127,14 @@
                                 <!-- scheduleSendStart Field -->
                                 <mat-form-field class="ntk-full-width">
                                     <mat-label> {{'TITLE.postage_date' | translate}}</mat-label>
-                                    <input matInput [matDatepicker]="scheduleSendStartDate" [(ngModel)]="dataModelDateByClockStart.date" name="scheduleSendStartDate" />
-                                    <mat-icon matSuffix *ngIf="scheduleSendStartDate" matSuffix mat-icon-button aria-label="Clear" (click)="onActionScheduleSendNow()">close</mat-icon>
-                                    <mat-datepicker-toggle matSuffix [for]="scheduleSendStartDate"></mat-datepicker-toggle>
-                                    <mat-datepicker touchUi #scheduleSendStartDate (closed)="onActionScheduleSendCheck()">
+                                    <input matInput [matDatepicker]="scheduleSendStartDate"
+                                        [(ngModel)]="dataModelDateByClockStart.date" name="scheduleSendStartDate" />
+                                    <mat-icon matSuffix *ngIf="scheduleSendStartDate" matSuffix mat-icon-button
+                                        aria-label="Clear" (click)="onActionScheduleSendNow()">close</mat-icon>
+                                    <mat-datepicker-toggle matSuffix
+                                        [for]="scheduleSendStartDate"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #scheduleSendStartDate
+                                        (closed)="onActionScheduleSendCheck()">
                                     </mat-datepicker>
                                 </mat-form-field>
                             </div>
@@ -108,10 +142,13 @@
                                 <!-- scheduleSendStartClock Field -->
                                 <mat-form-field class="ntk-full-width">
                                     <mat-label> {{'TITLE.Shipping_time' | translate}}</mat-label>
-                                    <input matInput [ngxTimepicker]="scheduleSendStartClock" [(ngModel)]="dataModelDateByClockStart.clock" [format]="24" name="scheduleSendStartClock" />
+                                    <input matInput [ngxTimepicker]="scheduleSendStartClock"
+                                        [(ngModel)]="dataModelDateByClockStart.clock" [format]="24"
+                                        name="scheduleSendStartClock" />
                                     <ngx-material-timepicker-toggle matSuffix [for]="scheduleSendStartClock">
                                     </ngx-material-timepicker-toggle>
-                                    <ngx-material-timepicker touchUi #scheduleSendStartClock (closed)="onActionScheduleSendCheck()">
+                                    <ngx-material-timepicker touchUi #scheduleSendStartClock
+                                        (closed)="onActionScheduleSendCheck()">
                                     </ngx-material-timepicker>
                                 </mat-form-field>
                             </div>
@@ -119,10 +156,14 @@
                                 <!-- scheduleSendExpire Field -->
                                 <mat-form-field class="ntk-full-width">
                                     <mat-label>{{'TITLE.Delivery_end_date' | translate}}</mat-label>
-                                    <input matInput [matDatepicker]="scheduleSendExpireDate" [(ngModel)]="dataModelDateByClockExpire.date" name="scheduleSendExpireDate" />
-                                    <mat-icon matSuffix *ngIf="scheduleSendExpireDate" matSuffix mat-icon-button aria-label="Clear" (click)="onActionScheduleSendNow()">close</mat-icon>
-                                    <mat-datepicker-toggle matSuffix [for]="scheduleSendExpireDate"></mat-datepicker-toggle>
-                                    <mat-datepicker touchUi #scheduleSendExpireDate (closed)="onActionScheduleSendCheck()">
+                                    <input matInput [matDatepicker]="scheduleSendExpireDate"
+                                        [(ngModel)]="dataModelDateByClockExpire.date" name="scheduleSendExpireDate" />
+                                    <mat-icon matSuffix *ngIf="scheduleSendExpireDate" matSuffix mat-icon-button
+                                        aria-label="Clear" (click)="onActionScheduleSendNow()">close</mat-icon>
+                                    <mat-datepicker-toggle matSuffix
+                                        [for]="scheduleSendExpireDate"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #scheduleSendExpireDate
+                                        (closed)="onActionScheduleSendCheck()">
                                     </mat-datepicker>
                                 </mat-form-field>
                             </div>
@@ -130,10 +171,13 @@
                                 <!-- scheduleSendExpireClock Field -->
                                 <mat-form-field class="ntk-full-width">
                                     <mat-label>{{'TITLE.Send_end_time' | translate}}</mat-label>
-                                    <input matInput [ngxTimepicker]="scheduleSendExpireClock" [(ngModel)]="dataModelDateByClockExpire.clock" [format]="24" name="scheduleSendExpireClock" />
+                                    <input matInput [ngxTimepicker]="scheduleSendExpireClock"
+                                        [(ngModel)]="dataModelDateByClockExpire.clock" [format]="24"
+                                        name="scheduleSendExpireClock" />
                                     <ngx-material-timepicker-toggle matSuffix [for]="scheduleSendExpireClock">
                                     </ngx-material-timepicker-toggle>
-                                    <ngx-material-timepicker touchUi #scheduleSendExpireClock (closed)="onActionScheduleSendCheck()">
+                                    <ngx-material-timepicker touchUi #scheduleSendExpireClock
+                                        (closed)="onActionScheduleSendCheck()">
                                     </ngx-material-timepicker>
                                 </mat-form-field>
                             </div>
@@ -141,9 +185,14 @@
                         <hr>
                         {{this.dataModel.scheduleSendStart}} >>> {{this.dataModel.scheduleSendExpire}}
                         <mat-action-row>
-                            <button type="button" mat-button color="warn" (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-                            <button type="button" mat-button color="primary" (click)="nextStep()">{{'ACTION.NEXT' |
-                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
+                                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                                (click)="nextStep()">{{'ACTION.NEXT' |
+                                translate}}</button>
                         </mat-action-row>
 
                     </mat-expansion-panel>
@@ -158,7 +207,8 @@
                             </mat-panel-description>
                         </mat-expansion-panel-header>
 
-                        <cron-editor [(cron)]="dataModel.scheduleCron" [disabled]="isCronDisabled" [options]="cronOptions">
+                        <cron-editor [(cron)]="dataModel.scheduleCron" [disabled]="isCronDisabled"
+                            [options]="cronOptions">
                         </cron-editor>
 
 
@@ -166,9 +216,14 @@
                         <h2 style="direction: ltr;">Resulting Cron: {{dataModel.scheduleCron}}</h2>
 
                         <mat-action-row>
-                            <button type="button" mat-button color="warn" (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-                            <button type="button" mat-button color="primary" (click)="nextStep()">{{'ACTION.NEXT' |
-                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
+                                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                                (click)="nextStep()">{{'ACTION.NEXT' |
+                                translate}}</button>
                         </mat-action-row>
                     </mat-expansion-panel>
                     <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)" hideToggle>
@@ -196,9 +251,14 @@
                         </div>
 
                         <mat-action-row>
-                            <button type="button" mat-button color="warn" (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-                            <button type="button" mat-button color="primary" (click)="nextStep()">{{'ACTION.END' |
-                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
+                                translate}}</button>
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                                (click)="nextStep()">{{'ACTION.END' |
+                                translate}}</button>
                         </mat-action-row>
                     </mat-expansion-panel>
                 </mat-accordion>
@@ -213,8 +273,10 @@
                         <!-- Message Field -->
                         <mat-form-field class="ntk-full-width">
                             <mat-label>{{'TITLE.Message_Text' | translate}}</mat-label>
-                            <textarea matInput [(ngModel)]="dataModel.message" name="dataModel.message" #Message type="text" placeholder="..." minlength="1" maxlength="500" rows="9"></textarea>
-                            <mat-icon *ngIf="dataModel.message" mat-icon-button aria-label="Clear" (click)="dataModel.message = ''">
+                            <textarea matInput [(ngModel)]="dataModel.message" name="dataModel.message" #Message
+                                type="text" placeholder="..." minlength="1" maxlength="500" rows="9"></textarea>
+                            <mat-icon *ngIf="dataModel.message" mat-icon-button aria-label="Clear"
+                                (click)="dataModel.message = ''">
                                 close</mat-icon>
                             <mat-icon (click)="onActionMessageRTL()">chevron_left</mat-icon>
                             <mat-icon (click)="onActionMessageLTR()">chevron_right</mat-icon>
@@ -226,20 +288,25 @@
                     </div>
                     <div class="row" style="height:83px">
                         <!-- ToNumbers Field -->
-                        <mat-form-field class="ntk-full-width input-ltr-center" *ngIf="(!this.dataModel.toContactCategories ||this.dataModel.toContactCategories?.length === 0) && (!this.dataModel.toContactContents||this.dataModel.toContactContents?.length === 0)">
+                        <mat-form-field class="ntk-full-width input-ltr-center"
+                            *ngIf="(!this.dataModel.toContactCategories ||this.dataModel.toContactCategories?.length === 0) && (!this.dataModel.toContactContents||this.dataModel.toContactContents?.length === 0)">
                             <mat-label>{{'TITLE.Receiver_number' | translate}}</mat-label>
-                            <textarea matInput [(ngModel)]="dataModel.toNumbers" name="dataModel.toNumbers" #ToNumbers type="text" placeholder="0912" rows="2"></textarea>
+                            <textarea matInput [(ngModel)]="dataModel.toNumbers" name="dataModel.toNumbers" #ToNumbers
+                                type="text" placeholder="0912" rows="2"></textarea>
                             <mat-hint align="start">
                                 <mat-icon class="info-field-icon">info</mat-icon>
-                                <strong class="info-field-text">{{'TITLE.You_can_separate_the_number_of_the_recipient_of_the_message_with_an_inter'
-                  | translate}}</strong>
+                                <strong
+                                    class="info-field-text">{{'TITLE.You_can_separate_the_number_of_the_recipient_of_the_message_with_an_inter'
+                                    | translate}}</strong>
                             </mat-hint>
 
                         </mat-form-field>
                     </div>
-                    <div class="row" *ngIf="formInfo.formSubmitAllow  && !loading?.display" style="height:140px;bottom: 4vh;justify-content: center;">
+                    <div class="row" *ngIf="formInfo.formSubmitAllow  && !loading?.display"
+                        style="height:140px;bottom: 4vh;justify-content: center;">
                         <app-progress-spinner [options]="loadingAction"> </app-progress-spinner>
-                        <button type="submit" (click)="onFormSubmit()" class="message-box-button" [disabled]="!vform.valid" *ngIf="!this.loading.display">
+                        <button type="submit" (click)="onFormSubmit()" class="message-box-button"
+                            [disabled]="!vform.valid" *ngIf="!this.loading.display">
                             <i class="fa fa-check-square-o"></i>
                             {{'ACTION.Send_Message' | translate}}
                         </button>

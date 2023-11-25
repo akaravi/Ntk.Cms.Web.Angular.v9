@@ -1,14 +1,16 @@
-<button (click)="onActionShowView360Add()" *ngIf="!showAddView360" type="button" mat-button
-  class="btn btn-primary font-size-h6 px-3 py-2" style="margin: 10px;">
+<button (click)="onActionShowView360Add()" *ngIf="!showAddView360" type="button"
+  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" style="margin: 10px;">
   {{'ACTION.Add_To_List' | translate}}
 </button>
 <button (click)="onActionImportFile360View()" *ngIf="privateDataImageModel && privateDataImageModel.length > 0"
-  type="button" mat-button class="btn btn-primary font-size-h6 px-3 py-2" style="margin: 10px ">
+  type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+  style="margin: 10px ">
   ورود اطلاعات عکس های 360
 </button>
 <button (click)="actionPannellumTourLoad()"
   *ngIf="this.privateDataModel && this.privateDataModel && this.privateDataModel.scenes && scenesList && scenesList.length > 0"
-  type="button" mat-button class="btn btn-primary font-size-h6 px-3 py-2" style="margin: 10px ">
+  type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+  style="margin: 10px ">
   نمایش تور
 </button>
 <div [id]="id" class="container" #container (click)="onActionPannellumClick($event)"
@@ -220,13 +222,15 @@
                 <mat-icon (click)="removeROw(row)">delete</mat-icon>
               </ng-container>
               <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-                <button type="button" mat-raised-button color="accent" class="mb-2"
-                  [disabled]="editdisabled || !editHotspot.text||editHotspot.text.length===0" *ngIf="postionView"
-                  (click)="updateEdit()">{{'ACTION.Update' | translate}}</button>
-                <button type="button" mat-raised-button color="warn" [disabled]="editdisabled"
-                  (click)="cancelEdit()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.CANCEL' | translate}}</button>
-                <button type="button" mat-raised-button color="warn" matTooltip="ثبت آخرین نقطه کلیک شده"
-                  [disabled]="editdisabled"
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                  class="mb-2" [disabled]="editdisabled || !editHotspot.text||editHotspot.text.length===0"
+                  *ngIf="postionView" (click)="updateEdit()">{{'ACTION.Update' | translate}}</button>
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                  [disabled]="editdisabled" (click)="cancelEdit()"
+                  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.CANCEL' |
+                  translate}}</button>
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                  matTooltip="ثبت آخرین نقطه کلیک شده" [disabled]="editdisabled"
                   *ngIf="this.editHotspot.pitch !==postionView?.clickGetPitch && this.editHotspot.yaw!==postionView?.clickGetYaw"
                   (click)="onActionPannellumClickLastPoint()">نقطه</button>
               </ng-container>
@@ -251,7 +255,8 @@
       <button type="button" (click)="onActionSubmitView360()" class="btn btn-success">
         <i class="fa fa-check-square-o"></i> {{'ACTION.SUBMIT_BUTTON' | translate}}
       </button>
-      <button type="button" (click)="onActionCancellView360()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+      <button type="button" (click)="onActionCancellView360()"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
         <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
       </button>
     </div>
