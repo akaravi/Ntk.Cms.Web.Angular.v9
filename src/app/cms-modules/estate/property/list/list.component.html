@@ -63,7 +63,7 @@
       translate}}</button>
     <button *ngIf="this.tokenHelper.isAdminSite && optionloadByRoute&& tableRowSelected?.id?.length>0 "
       (click)="onActionbuttonActionSendSmsToCustomerOrder()" type="button"
-      class="btn box-shadow-button btn-outline-danger BTN-text box-shadow-button">{{'ACTION.ActionSendSmsToCustomerOrder'
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red box-shadow-button">{{'ACTION.ActionSendSmsToCustomerOrder'
       |
       translate}}</button>
     <a class="btn box-shadow-button btn-outline-primary btn-sm BTN-text box-shadow-button">
@@ -549,7 +549,8 @@
               <span>{{'ACTION.EDIT' | translate}}</span>
               <mat-icon>mode_edit</mat-icon>
             </button>
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <span>{{'ACTION.DELETE' | translate}}</span>
               <mat-icon>delete_forever</mat-icon>
             </button>
