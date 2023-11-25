@@ -46,3 +46,7 @@
     <!--end::Footer-->
   </div>
 </div>
+<!-- Scroll Ad-->
+<div *ngIf="optionActionRowDisplay" class="scroll-ad shadow-xl bg-dark-dark scroll-ad-visible">
+  <ng-content select="[cms-action-row]"></ng-content>
+</div>

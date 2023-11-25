@@ -2,7 +2,8 @@
   <app-progress-spinner [options]="loading"> </app-progress-spinner>
   <div class="tr">
     <div class="td small-width">
-      <span class="svg-icon svg-icon-3x svg-icon-primary" [inlineSVG]="'./assets/media/svg/icons/Communication/Flag.svg'"></span>
+      <span class="svg-icon svg-icon-3x svg-icon-primary"
+        [inlineSVG]="'./assets/media/svg/icons/Communication/Flag.svg'"></span>
     </div>
     <div class="td large-width" style="color: darkblue;">
       <h5><b> {{'TITLE.Selected_News'|translate}} </b> </h5>
@@ -23,7 +24,8 @@
     <div class="td large-width">{{dataModelResult?.item?.title}}</div>
     <div class="td" style="text-align: left;">
       <abbr title="link to">
-        <button class="btn btn-outline-primary"  (click)="onActionbuttonLinkTo()">
+        <button class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          (click)="onActionbuttonLinkTo()">
           <mat-icon>&#8599;
           </mat-icon>
         </button>

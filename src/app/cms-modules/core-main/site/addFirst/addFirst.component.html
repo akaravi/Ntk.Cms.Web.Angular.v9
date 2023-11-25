@@ -102,8 +102,8 @@
         <!-- Domain Field -->
         <div class="row input-group mb-3 set-select" style="margin: 2px 17px 0 0; padding-left: 34px;">
           <div class="input-group-prepend col-4 ">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-              aria-haspopup="false" aria-expanded="false">{{ dataModel.domain === undefined ?
+            <button class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" type="button"
+              data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">{{ dataModel.domain === undefined ?
               this.translate.instant('TITLE.Domain') : dataModel.domain }}</button>
             <div class="dropdown-menu">
               <option (click)="domain(item)" class="cursor-pointer"
