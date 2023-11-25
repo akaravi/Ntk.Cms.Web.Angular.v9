@@ -36,7 +36,7 @@
       translate}}</button>
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show">{{'ACTION.SEARCH' | translate}}</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
@@ -56,8 +56,9 @@
       *ngIf="!this.requestLinkPropertyId|| this.requestLinkPropertyId.length===0">
       <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
         [checked]="searchInResponsibleChecked">
-        {{'ACTION.InResponsible' | translate}}
+
       </mat-slide-toggle>
+      {{'ACTION.InResponsible' | translate}}
     </a>
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
