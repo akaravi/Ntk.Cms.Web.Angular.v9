@@ -31,19 +31,12 @@ export class PageMenuComponent implements OnInit {
     });
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
-      if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
-        setTimeout(() => {
-          this.loadData();
-        }, 100);
-      }
+      if (!this.dataModelResult || !this.dataModelResult.listItems || this.dataModelResult.listItems.length === 0)
+        this.loadData();
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
       this.tokenInfo = value;
-      if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
-        setTimeout(() => {
-          this.loadData();
-        }, 100);
-      }
+      this.loadData();
     });
   }
   loading = new ProgressSpinnerModel();
@@ -58,12 +51,16 @@ export class PageMenuComponent implements OnInit {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   loadData() {
-    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.CoreCpMainResultStore?.isSuccess && storeSnapshot?.CoreCpMainResultStore?.listItems?.length > 0) {
-      this.dataModelResult = storeSnapshot.CoreCpMainResultStore;
-      this.DataListSelect();
-    } else {
-      this.DataGetCpMenu();
+    if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
+      setTimeout(() => {
+        const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+        if (storeSnapshot?.CoreCpMainResultStore?.isSuccess && storeSnapshot?.CoreCpMainResultStore?.listItems?.length > 0) {
+          this.dataModelResult = storeSnapshot.CoreCpMainResultStore;
+          this.DataListSelect();
+        } else {
+          this.DataGetCpMenu();
+        }
+      }, 100);
     }
   }
   DataGetCpMenu(): void {
@@ -109,7 +106,7 @@ export class PageMenuComponent implements OnInit {
       return;
     }
   }
-  scrollToTop(){
+  scrollToTop() {
     window.scrollTo({ top: 0, behavior: `smooth` });
   }
 }

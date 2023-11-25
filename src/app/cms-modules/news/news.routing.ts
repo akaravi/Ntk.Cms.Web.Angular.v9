@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NewsCategoryMenuComponent } from './category/menu/menu.component';
 import { NewsCommentListComponent } from './comment/list/list.component';
 import { NewsContentAddComponent } from './content/add/add.component';
 import { NewsContentEditComponent } from './content/edit/edit.component';
@@ -21,12 +22,26 @@ const routes: Routes = [
       },
       /* Config */
       {
+        path: 'category',
+        component: NewsCategoryMenuComponent,
+        data: { title: 'ROUTE.NEWS.CATEGORY' },
+      },
+      {
+        path: 'category/LinkParentId/:LinkParentId',
+        component: NewsCategoryMenuComponent,
+        data: { title: 'ROUTE.NEWS.CATEGORY' },
+      },
+      {
         path: 'content',
-        // resolve: {categoryList: CategoryResolver},
-        // loadChildren: () =>    import('./content/content.module').then(m => m.ContentModule)
         component: NewsContentListComponent,
         data: { title: 'ROUTE.NEWS.CONTENT' },
       },
+      {
+        path: 'content/LinkCategoryId/:LinkCategoryId',
+        component: NewsContentListComponent,
+        data: { title: 'ROUTE.NEWS.CONTENT' },
+      },
+
       {
         path: 'content/add/:CategoryId',
         component: NewsContentAddComponent,
@@ -54,4 +69,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class NewsRouting {}
+export class NewsRouting { }
