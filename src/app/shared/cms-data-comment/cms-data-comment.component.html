@@ -22,7 +22,8 @@
           <td>{{ publicHelper.LocaleDate(item.createdDate) }}</td>
           <td>{{ item.writer }}</td>
           <td>
-            <button type="button" mat-icon-button (click)="DataDeleteContent(item.id)" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+            <button type="button" mat-icon-button (click)="DataDeleteContent(item.id)"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <small>
                 <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before" aria-hidden="false"
                   style="color: red;">delete</mat-icon>
@@ -86,10 +87,11 @@
       [disabled]="!formGroup?.valid">
       <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
     </button>
-    <button type="button" *ngIf="!showFormAdd" class="btn btn-success btn-lg btn-block"
-      (click)="onActionAdd()">{{'ACTION.ADD'
+    <button type="button" *ngIf="!showFormAdd" (click)="onActionAdd()"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Teal">{{'ACTION.ADD'
       |translate}}</button>
-    <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+    <button type="button" (click)="onFormCancel()"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
     </button>
   </div>

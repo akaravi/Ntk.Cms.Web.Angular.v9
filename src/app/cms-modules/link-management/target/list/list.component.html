@@ -15,13 +15,15 @@
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <button *ngIf="dataModelResult.access.accessAddRow && this.categoryPatternModelSelected?.id>0"
-      (click)="onActionbuttonNewRow()" type="button" class="btn box-shadow-button btn-outline-primary BTN-text"
-      id="openModalButton" data-toggle="modal" data-target="#categoryModal">{{'ACTION.ADD' | translate}}</button>
+      (click)="onActionbuttonNewRow()" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Teal">{{'ACTION.ADD'' |
+      translate}}</button>
     <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0" (click)="onActionbuttonEditRow()"
       type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Plum">{{'ACTION.EDIT' |
       translate}}</button>
     <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0" (click)="onActionbuttonDeleteRow()"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' | translate}}</button>
+      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
+      translate}}</button>
     <button *ngIf=" tableRowSelected.id>0" (click)="onActionbuttonLog()" type="button"
       class="btn box-shadow-button btn-outline-success BTN-text">{{'ACTION.REPORTS' | translate}}</button>
     <a class="btn box-shadow-button btn-outline-info btn-sm BTN-text">
@@ -134,7 +136,8 @@
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
