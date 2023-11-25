@@ -1,18 +1,18 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-        حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-        فقط یک صفحه ساختگی است.
-      </p>
-      <!--Content-->
-      
-      <!--Content-->
+        <p class="mb-0 color-highlight font-600 font-12">
+            حساب کاربری خود را ویرایش کنید
+        </p>
+        <h4>اطلاعات</h4>
+        <h4>اطلاعات اولیه</h4>
+        <p>
+            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+            فقط یک صفحه ساختگی است.
+        </p>
+        <!--Content-->
+
+        <!--Content-->
     </div>
 </div>
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
@@ -138,10 +138,12 @@
     <div class="ntk-cms-html-card-footer">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
         <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+            <button type="button" (click)="onFormCancel()"
+                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
                 <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
             </button>
-            <button type="submit" mat-raised-button (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                 <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
             </button>
         </div>

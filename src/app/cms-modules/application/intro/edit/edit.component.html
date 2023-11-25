@@ -1,15 +1,15 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-        حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-        فقط یک صفحه ساختگی است.
-      </p>
+        <p class="mb-0 color-highlight font-600 font-12">
+            حساب کاربری خود را ویرایش کنید
+        </p>
+        <h4>اطلاعات</h4>
+        <h4>اطلاعات اولیه</h4>
+        <p>
+            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+            فقط یک صفحه ساختگی است.
+        </p>
     </div>
 </div>
 <app-cms-html-notice [svg]="'assets/media/svg/icons/Design/Edit.svg'">
@@ -94,11 +94,14 @@
                     </mat-error>
                 </mat-form-field>
                 <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button" mat-raised-button (click)="onActionBackToParent()">
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+                        (click)="onActionBackToParent()">
                         {{'ACTION.BACK' | translate}}
                     </button>
-                    <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid"
-                        matStepperNext>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                        [disabled]="!vform.form.valid" matStepperNext>
                         {{'ACTION.NEXT' | translate}}
                     </button>
                 </div>
@@ -165,10 +168,14 @@
                         [openFilemanagerButtonView]="false"></cms-file-manager>
                 </div>
                 <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button" mat-raised-button color="accent" matStepperPrevious>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                        matStepperPrevious>
                         {{'ACTION.BEFOR' | translate}}
                     </button>
-                    <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+                    <button type="submit"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                        [disabled]="!vform.form.valid">
                         {{'ACTION.SAVE' | translate}}
                     </button>
                 </div>

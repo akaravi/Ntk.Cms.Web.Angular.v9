@@ -1,7 +1,7 @@
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
   <div class="ntk-cms-html-card-header">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-      {{ formInfo.formTitle }}
+    {{ formInfo.formTitle }}
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
   </div>
   <div class="ntk-cms-html-card-body">
@@ -30,13 +30,16 @@
           <div [innerHTML]="dataConfigSiteValuesDefaultModel | prettyjson"></div>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button (click)="onActionBackToParent()">
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+            (click)="onActionBackToParent()">
             {{'ACTION.BACK' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>
@@ -63,24 +66,26 @@
         <mat-form-field class="ntk-full-width">
           <mat-label>{{'TITLE.Default_information_site_ID' | translate}}</mat-label>
           <input matInput [(ngModel)]="dataConfigAdminMainModel.useDataDefaulteSiteId"
-            name="dataConfigAdminMainModel.useDataDefaulteSiteId"
-            #dataConfigAdminMainModel_UseDataDefaulteSiteId type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.useDataDefaulteSiteId" matSuffix
-            mat-icon-button aria-label="Clear"
-            (click)="dataConfigAdminMainModel.useDataDefaulteSiteId = 0">close</mat-icon>
+            name="dataConfigAdminMainModel.useDataDefaulteSiteId" #dataConfigAdminMainModel_UseDataDefaulteSiteId
+            type="number" placeholder="0" />
+          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.useDataDefaulteSiteId" matSuffix mat-icon-button
+            aria-label="Clear" (click)="dataConfigAdminMainModel.useDataDefaulteSiteId = 0">close</mat-icon>
           <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
         <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
           <div [innerHTML]="dataConfigSiteAccessValuesDefaultModel | prettyjson"></div>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>
@@ -174,13 +179,16 @@
           <div [innerHTML]="dataConfigAdminMainModel | prettyjson"></div>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>

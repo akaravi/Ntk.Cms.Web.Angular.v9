@@ -126,11 +126,14 @@
                     <mat-datepicker touchUi #ExpireDate></mat-datepicker>
                 </mat-form-field>
                 <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button" mat-raised-button (click)="onActionBackToParent()">
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+                        (click)="onActionBackToParent()">
                         {{'ACTION.BACK' | translate}}
                     </button>
-                    <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid"
-                        matStepperNext>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                        [disabled]="!vform.form.valid" matStepperNext>
                         {{'ACTION.NEXT' | translate}}
                     </button>
                 </div>
@@ -465,11 +468,14 @@
                 <app-cms-map (map$)="receiveMap($event)" [optonCenter]="mapOptonCenter" [optonCenter]="mapOptonCenter"
                     id='main-map'></app-cms-map>
                 <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button" mat-raised-button color="accent" matStepperPrevious>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                        matStepperPrevious>
                         {{'ACTION.BEFOR' | translate}}
                     </button>
-                    <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid"
-                        matStepperNext>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                        [disabled]="!vform.form.valid" matStepperNext>
                         {{'ACTION.NEXT' | translate}}
                     </button>
                 </div>
@@ -542,11 +548,14 @@
                     <mat-hint align="end">{{ DownloadLinkUpdateSrc.value.length }} / 1000</mat-hint>
                 </mat-form-field>
                 <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button" mat-raised-button color="accent" matStepperPrevious>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                        matStepperPrevious>
                         {{'ACTION.BEFOR' | translate}}
                     </button>
-                    <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid"
-                        matStepperNext>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                        [disabled]="!vform.form.valid" matStepperNext>
                         {{'ACTION.NEXT' | translate}}
                     </button>
                 </div>
@@ -669,11 +678,14 @@
                         [openFilemanagerButtonView]="false"></cms-file-manager>
                 </div>
                 <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button" mat-raised-button color="accent" matStepperPrevious>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                        matStepperPrevious>
                         {{'ACTION.BEFOR' | translate}}
                     </button>
-                    <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid"
-                        matStepperNext>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                        [disabled]="!vform.form.valid" matStepperNext>
                         {{'ACTION.NEXT' | translate}}
                     </button>
                 </div>
@@ -902,11 +914,14 @@
                     </tr>
                 </table>
                 <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button" mat-raised-button color="accent" matStepperPrevious>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                        matStepperPrevious>
                         {{'ACTION.BEFOR' | translate}}
                     </button>
-                    <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid"
-                        matStepperNext>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                        [disabled]="!vform.form.valid" matStepperNext>
                         {{'ACTION.NEXT' | translate}}
                     </button>
                 </div>
@@ -1026,10 +1041,14 @@
                     <mat-icon matSuffix>mode_edit</mat-icon>
                 </mat-form-field>
                 <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button" mat-raised-button color="accent" matStepperPrevious>
+                    <button type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                        matStepperPrevious>
                         {{'ACTION.BEFOR' | translate}}
                     </button>
-                    <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+                    <button type="submit"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                        [disabled]="!vform.form.valid">
                         {{'ACTION.SAVE' | translate}}
                     </button>
                 </div>

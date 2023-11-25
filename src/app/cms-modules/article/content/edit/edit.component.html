@@ -97,13 +97,16 @@
         <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
           id="main" [(ngModel)]="dataModel.body" name="dataModel.body"></angular-editor>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button (click)="onActionBackToParent()">
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+            (click)="onActionBackToParent()">
             {{'ACTION.BACK' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>
@@ -114,10 +117,12 @@
           (optionSelectDisChecked)="onActionCategorySelectDisChecked($event)"></app-article-category-treeselector>
         <br>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
         </div>
@@ -159,10 +164,12 @@
         </mat-form-field>
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
         </div>
@@ -235,10 +242,12 @@
             [selectFileType]="selectFileTypeMovie" [openFilemanagerButtonView]="false"></cms-file-manager>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
         </div>
@@ -281,8 +290,9 @@
         <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
           id="OtherInfo" [(ngModel)]="contentOtherInfoSelected.htmlBody"
           name="contentOtherInfoSelected.htmlBody"></angular-editor>
-        <button (click)="onActionContentOtherInfoAddToLIst()" type="button" mat-button
-          class="btn btn-primary font-weight-bold font-size-h5 px-9 py-4" style="margin: 10px 0px;">
+        <button (click)="onActionContentOtherInfoAddToLIst()" type="button"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          style="margin: 10px 0px;">
           {{'ACTION.Add_To_List' | translate}}
         </button>
         <p>{{'TITLE.List_of_other_information' | translate}}</p>
@@ -326,10 +336,12 @@
         </div>
         <!-- TABLE  -->
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
         </div>
@@ -339,8 +351,7 @@
         <app-article-content-selector (optionChange)="onActionContentSimilarSelect($event)" [(optionLoading)]="loading"
           [optionPlaceholder]="this.translate.instant('TITLE.Similar_Content')">
           <button *ngIf="contentSimilarSelected && contentSimilarSelected.id"
-            (click)="onActionContentSimilarAddToLIst()" type="button" mat-button
-            class="btn btn-primary font-weight-bold text-uppercase px-9 py-4">
+            (click)="onActionContentSimilarAddToLIst()" type="button"   class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             {{'ACTION.Add_To_List' | translate}} ...
           </button>
         </app-article-content-selector>
@@ -395,10 +406,12 @@
         </div>
         <!-- TABLE  -->
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" mat-raised-button color="primary" [disabled]="!vform.form.valid" matStepperNext>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
         </div>
@@ -413,13 +426,16 @@
         <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
           id='main-map'></app-cms-map>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" mat-raised-button (click)="onActionBackToParent()">
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+            (click)="onActionBackToParent()">
             {{'ACTION.BACK' | translate}}
           </button>
-          <button type="button" mat-raised-button color="accent" matStepperPrevious>
+          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="submit" mat-raised-button color="success" [disabled]="!vform.form.valid">
+          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>
