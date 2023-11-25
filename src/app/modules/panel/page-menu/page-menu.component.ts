@@ -31,6 +31,8 @@ export class PageMenuComponent implements OnInit {
     });
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
+      if (!this.dataModelResult || !this.dataModelResult.listItems || this.dataModelResult.listItems.length === 0)
+        this.loadData();
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
       this.tokenInfo = value;
