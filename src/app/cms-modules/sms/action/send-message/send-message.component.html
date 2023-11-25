@@ -63,16 +63,20 @@
                         <textarea matInput [(ngModel)]="dataMessageContentModel.messageBody"
                             name="dataMessageContentModel.messageBody" type="text"
                             *ngIf="dataMessageContentModel?.messageBody?.length>0" rows="10"></textarea>
-                        <button type="button" (click)="onActionMessageContentAdd()" class="btn btn-light"
+                        <button type="button" (click)="onActionMessageContentAdd()"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
                             *ngIf="dataMessageContentModel?.messageBody?.length>0 && dataModel.message?.length>0">
                             <i class="ft-x"></i> {{'TITLE.Added_to_the_text' | translate}}
                         </button>
-                        <button type="button" (click)="onActionMessageContentNew()" class="btn btn-light"
+                        <button type="button" (click)="onActionMessageContentNew()"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
                             *ngIf="dataMessageContentModel?.messageBody?.length>0">
                             <i class="ft-x"></i> {{'TITLE.Message_Text' | translate}}
                         </button>
                         <mat-action-row>
-                            <button type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  (click)="prevStep()">{{'ACTION.BACK' |
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
                                 translate}}</button>
                             <button type="button"
                                 class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
@@ -97,7 +101,9 @@
                             (optionSelectDisChecked)="onActionContactCategorySelectDisChecked($event)">
                         </app-cms-contact-category-tree-selector>
                         <mat-action-row>
-                            <button type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  (click)="prevStep()">{{'ACTION.BACK' |
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
                                 translate}}</button>
                             <button type="button"
                                 class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
@@ -179,7 +185,9 @@
                         <hr>
                         {{this.dataModel.scheduleSendStart}} >>> {{this.dataModel.scheduleSendExpire}}
                         <mat-action-row>
-                            <button type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  (click)="prevStep()">{{'ACTION.BACK' |
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
                                 translate}}</button>
                             <button type="button"
                                 class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
@@ -208,7 +216,9 @@
                         <h2 style="direction: ltr;">Resulting Cron: {{dataModel.scheduleCron}}</h2>
 
                         <mat-action-row>
-                            <button type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  (click)="prevStep()">{{'ACTION.BACK' |
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
                                 translate}}</button>
                             <button type="button"
                                 class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
@@ -241,7 +251,9 @@
                         </div>
 
                         <mat-action-row>
-                            <button type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  (click)="prevStep()">{{'ACTION.BACK' |
+                            <button type="button"
+                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                                (click)="prevStep()">{{'ACTION.BACK' |
                                 translate}}</button>
                             <button type="button"
                                 class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"

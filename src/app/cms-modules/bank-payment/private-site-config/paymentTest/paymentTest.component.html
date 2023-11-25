@@ -103,7 +103,9 @@
         (click)="onFormSubmit()" *ngIf="!dataModelResultGotoBank" [disabled]="!vform.valid">
         <i class="fa fa-check-square-o"></i> {{'ACTION.PAYMENT' | translate}}
       </button>
-      <button type="button" (click)="onGotoBank()" class="btn btn-raised btn-info mr-1" *ngIf="dataModelResultGotoBank">
+      <button type="button" (click)="onGotoBank()"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        *ngIf="dataModelResultGotoBank">
         <i class="ft-x"></i> {{'ACTION.TRANSFER_TO_PORT' | translate}}
       </button>
     </div>

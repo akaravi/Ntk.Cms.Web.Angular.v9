@@ -2,10 +2,11 @@
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
   {{ formInfo.formTitle }}
   <button type="button" (click)="onActionNext()" *ngIf="requestNextItem&& requestNextItem?.id?.length>0"
-    class="btn btn-light">
+    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
     <i class="ft-x"></i>
     < </button> <button type="button" (click)="onActionPervious()"
-        *ngIf="requestPerviousItem&& requestPerviousItem?.id?.length>0" class="btn btn-light">
+        *ngIf="requestPerviousItem&& requestPerviousItem?.id?.length>0"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
         <i class="ft-x"></i>
         >
       </button>
@@ -64,14 +65,16 @@
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
 
   <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-    <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+    <button type="button" (click)="onFormCancel()"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
     </button>
     <button type="button" (click)="onActionNext()" *ngIf="requestNextItem&& requestNextItem?.id?.length>0"
-      class="btn btn-light">
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i>
       < </button> <button type="button" (click)="onActionPervious()"
-          *ngIf="requestPerviousItem&& requestPerviousItem?.id?.length>0" class="btn btn-light">
+          *ngIf="requestPerviousItem&& requestPerviousItem?.id?.length>0"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i>
           >
         </button>

@@ -1080,7 +1080,7 @@ mobileeeeeeeeeeeeeeeee
         </p>
         <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
           id="main-map"></app-cms-map>
-        <button type="button" class="btn btn-primary" (click)="ActionCurrentPoint()">
+        <button type="button" (click)="ActionCurrentPoint()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
           {{ "ACTION.MY_LOCATION" | translate }}
         </button>
         <div *ngIf="formInfo.formSubmitAllow && !loading?.display" class="ntk-button-row">

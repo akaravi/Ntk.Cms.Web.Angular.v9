@@ -86,16 +86,19 @@
         <mat-error *ngIf="checkingOnDayRange.controls.end.hasError('matEndDateInvalid')">{{'MESSAGE.InvalidEndDate' |
           translate}}</mat-error>
       </mat-form-field>
-      <button type="button" (click)="onActionNext()" class="btn btn-light">
+      <button type="button" (click)="onActionNext()"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
         <i class="ft-x"></i>
         < </button>
-          <button type="button" (click)="onActionPervious()" class="btn btn-light">
+          <button type="button" (click)="onActionPervious()"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
             <i class="ft-x"></i>
             > </button>
 
           <br>
           <a href="javascript:void(0)" (click)="onActionbuttonInCheckingOnDateSearch()"
-            class="btn btn-raised mr-1 shadow-z-3 btn-success">{{'ACTION.SEARCH' | translate}}</a>
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEARCH' |
+            translate}}</a>
     </div>
     <app-cms-search-list [(options)]="optionsSearch"></app-cms-search-list>
     <app-cms-statist-list [(options)]="optionsStatist"></app-cms-statist-list>

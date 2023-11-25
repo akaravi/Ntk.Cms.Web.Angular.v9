@@ -654,13 +654,15 @@
               </ng-container>
             </ng-container>
             <mat-action-row>
-              <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  *ngIf="i>0" (click)="prevStep()">{{'ACTION.PREVIOUS' |
+              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                *ngIf="i>0" (click)="prevStep()">{{'ACTION.PREVIOUS' |
                 translate}}</button>
-              <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="(i+1)<dataModel.propertyDetailGroups.length"
-                (click)="nextStep()">{{'ACTION.NEXT'
+              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                *ngIf="(i+1)<dataModel.propertyDetailGroups.length" (click)="nextStep()">{{'ACTION.NEXT'
                 | translate}}</button>
-              <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="(i+1)===dataModel.propertyDetailGroups.length"
-                (click)="nextStep()">{{'ACTION.END' | translate}}</button>
+              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                *ngIf="(i+1)===dataModel.propertyDetailGroups.length" (click)="nextStep()">{{'ACTION.END' |
+                translate}}</button>
 
             </mat-action-row>
           </mat-expansion-panel>
@@ -846,7 +848,8 @@
           </div>
           <br>
           <br>
-          <button (click)="onActionOptionAddToList()" type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" 
+          <button (click)="onActionOptionAddToList()" type="button"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
             *ngIf="contractTypeSelected && contractTypeSelected.id.length>0"
             class="btn btn-primary font-weight-bold font-size-h5 px-9 py-4" style="margin: 10px 0px;">
             {{'ACTION.Add_To_List' | translate}} ...
@@ -1047,7 +1050,9 @@
         <p>{{'TITLE.Click_on_the_map_to_specify_the_location' | translate}}</p>
         <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
           id='main-map'></app-cms-map>
-        <button type="button" class="btn btn-primary" (click)="ActionCurrentPoint()"> {{'ACTION.MY_LOCATION' |
+        <button type="button" (click)="ActionCurrentPoint()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"> {{'ACTION.MY_LOCATION'
+          |
           translate}}</button>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
           <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
