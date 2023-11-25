@@ -3,10 +3,13 @@
   <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
   <button *ngIf="dataModelResult.access.accessAddRow" (click)="onActionAdd()" type="button"
-    class="btn btn-outline-primary">{{'ACTION.ADD' | translate}}</button>
+    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
+    translate}}</button>
   <button *ngIf="dataModelResult.access.accessEditRow && dataModelSelect?.id>0" (click)="onActionEdit()" type="button"
-    class="btn btn-outline-warning">{{'ACTION.EDIT' | translate}}</button>
-  <button *ngIf="dataModelResult.access.accessWatchRow" (click)="onActionReload()" type="button" class="btn btn-outline-secondary BTN-icon">
+    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
+    translate}}</button>
+  <button *ngIf="dataModelResult.access.accessWatchRow" (click)="onActionReload()" type="button"
+    class="btn btn-outline-secondary BTN-icon">
     <mat-icon style="font-size: 20px;margin: -6px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
   </button>
   <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->

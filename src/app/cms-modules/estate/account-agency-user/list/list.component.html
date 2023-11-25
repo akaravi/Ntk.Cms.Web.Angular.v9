@@ -12,8 +12,7 @@
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
-      class="btn box-shadow-button btn-outline-primary" id="openModalButton" data-toggle="modal"
-      data-target="#categoryModal">{{'ACTION.ADD' |
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
     <button
       *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.linkEstateAccountUserId &&  tableRowSelected?.linkEstateAccountUserId?.length>0"
@@ -85,7 +84,8 @@
           </button>
           <mat-menu #actionMenu="matMenu">
 
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
