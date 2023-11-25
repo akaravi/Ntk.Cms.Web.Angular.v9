@@ -25,11 +25,11 @@
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
       translate}}</button>
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show">{{'ACTION.SEARCH' | translate}}</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonStatist()">{{'ACTION.STATIST' | translate}}
-      </mat-slide-toggle>
+      <mat-slide-toggle (click)="onActionbuttonStatist()">
+      </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
     </a>
     <button (click)="onActionbuttonExport()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
@@ -42,8 +42,8 @@
     </button>
     <a *ngIf="this.tableRowSelected?.id>0"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonWithHierarchy()">{{'ACTION.BATCHVIEW' |
-        translate}}</mat-slide-toggle>
+      <mat-slide-toggle (click)="onActionbuttonWithHierarchy()"></mat-slide-toggle>{{'ACTION.BATCHVIEW' |
+      translate}}
     </a>
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">

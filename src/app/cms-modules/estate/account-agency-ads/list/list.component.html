@@ -24,15 +24,16 @@
       translate}}</button>
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show">{{'ACTION.SEARCH' | translate}}</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonStatist()">{{'ACTION.STATIST' | translate}}
-      </mat-slide-toggle>
+      <mat-slide-toggle (click)="onActionbuttonStatist()">
+      </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
     </a>
 
-    <button (click)="onActionbuttonExport()" type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+    <button (click)="onActionbuttonExport()" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
@@ -41,8 +42,10 @@
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
     </button>
     <button *ngIf="requestLinkPropertyId && requestLinkPropertyId.length>0" (click)="onActionbuttonBuy()" type="button"
-      class="btn box-shadow-button btn-outline-danger">{{'ACTION.BUY' | translate}}</button>
-    <button (click)="onActionbuttonReload()" type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BUY' |
+      translate}}</button>
+    <button (click)="onActionbuttonReload()" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
     </button>
     <button type="button" (click)="onActionBackToParent()" class="btn btn-light">

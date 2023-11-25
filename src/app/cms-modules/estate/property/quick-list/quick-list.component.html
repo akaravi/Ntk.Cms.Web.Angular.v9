@@ -60,12 +60,12 @@
       <button *ngIf="this.tokenHelper.isAdminSite && optionloadByRoute&& tableRowSelected?.id?.length>0 "
         (click)="onActionbuttonActionSendSmsToCustomerOrder()" type="button"
         class="btn btn-outline-danger BTN-text">{{'ACTION.ActionSendSmsToCustomerOrder' | translate}}</button>
-      <a class="btn btn-outline-info btn-sm BTN-text">
-        <mat-slide-toggle [(ngModel)]="optionsSearch.data.show ">{{'ACTION.SEARCH' |
-          translate}}</mat-slide-toggle>
+      <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        <mat-slide-toggle [(ngModel)]="optionsSearch.data.show "></mat-slide-toggle>{{'ACTION.SEARCH' |
+        translate}}
       </a>
 
-      <a class="btn btn-outline-info btn-sm BTN-text">
+      <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
         <mat-slide-toggle (click)="onActionbuttonStatist()">{{'ACTION.STATIST' | translate}}
         </mat-slide-toggle>
       </a>
@@ -78,7 +78,7 @@
         class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
         <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
       </button>
-      <a class="btn btn-outline-info btn-sm BTN-text">
+      <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
         <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
           {{'ACTION.INCHECKING' | translate}}
         </mat-slide-toggle>
@@ -88,7 +88,8 @@
         <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
       </button>
       <button (click)="onActionBackToParent()" *ngIf="requestLinkPropertyTypeLanduseId?.length>0" type="button"
-        class="btn btn-outline-success BTN-text">{{'ACTION.BACK' | translate}}</button>
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
+        translate}}</button>
       <button (click)="onActionGridExpandRows(true)"
         class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
         <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.EXPAND_ALL' | translate}}">unfold_more_double

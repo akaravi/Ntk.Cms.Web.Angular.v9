@@ -20,8 +20,8 @@
       translate}}</button>
     <button *ngIf="dataModelResult.access.accessAddRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
       (click)="onActionbuttonCopyNewRow(tableRowSelected,$event)" type="button"
-      class="btn box-shadow-button btn-outline-primary BTN-text" id="openModalButton" data-toggle="modal"
-      data-target="#categoryModal">{{'ACTION.COPY' |
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" id="openModalButton"
+      data-toggle="modal" data-target="#categoryModal">{{'ACTION.COPY' |
       translate}}</button>
     <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
       (click)="onActionbuttonEditRow(tableRowSelected,$event)" type="button"
@@ -33,12 +33,12 @@
       translate}}</button>
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show">{{'ACTION.SEARCH' | translate}}</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonStatist()">{{'ACTION.STATIST' | translate}}
-      </mat-slide-toggle>
+      <mat-slide-toggle (click)="onActionbuttonStatist()">
+      </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
     </a>
     <button (click)="onActionbuttonExport()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
