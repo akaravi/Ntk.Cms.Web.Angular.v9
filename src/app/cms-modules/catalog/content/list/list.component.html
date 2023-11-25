@@ -19,8 +19,7 @@
             class="btn box-shadow-button btn-outline-primary" id="openModalButton" data-toggle="modal"
             data-target="#categoryModal">{{'ACTION.ADD' | translate}}</button>
         <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id?.length>0"
-            (click)="onActionbuttonEditRow()" type="button" class="btn box-shadow-button btn-outline-warning"
-            data-toggle="modal" data-target="#categoryModal">{{'ACTION.EDIT' |
+            (click)="onActionbuttonEditRow()" type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Plum">{{'ACTION.EDIT' |
             translate}}</button>
         <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id?.length>0"
             (click)="onActionbuttonDeleteRow()" type="button"

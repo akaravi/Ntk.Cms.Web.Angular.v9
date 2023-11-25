@@ -18,8 +18,7 @@
             data-target="#categoryModal">{{'ACTION.ADD' | translate}}</button>
         <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0"
             (click)="onActionbuttonEditRow(tableRowSelected,$event)" type="button"
-            class="btn box-shadow-button btn-outline-warning" data-toggle="modal"
-            data-target="#categoryModal">{{'ACTION.EDIT'
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Plum">{{'ACTION.EDIT'
             |
             translate}}</button>
         <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
