@@ -130,18 +130,28 @@ https://blog.angular-university.io/angular-push-notifications/
 btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight
 
 ====save
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green 
 ====back cancel
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray 
 ====delete
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red
-
-
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red 
+====edit
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum
+====add
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal
+====befor
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal
+====next
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue
 
 ====select ed
 btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full
-====select
+====select 
 btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full
+
+
+
+
 
 
 

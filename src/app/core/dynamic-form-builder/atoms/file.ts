@@ -17,7 +17,7 @@ import { FormGroup } from '@angular/forms';
           </p>
         </div>
         <div *ngIf="field.value">
-          <!-- <button type="button" class="btn btn-primary">Change</button> -->
+          <!-- <button type="button" >Change</button> -->
           <div class="card">
             <img class="card-img-top" [src]="field.value">
           </div>

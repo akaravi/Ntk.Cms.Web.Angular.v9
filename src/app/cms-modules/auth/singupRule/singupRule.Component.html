@@ -4,7 +4,9 @@
   <div [innerHTML]="dataModelResult.item"></div>
 </mat-dialog-content>
 <mat-dialog-actions style="text-align: left;" class="ntk-button-row">
-  <button mat-raised-button color="accent" class="btn" mat-dialog-close>{{'ACTION.DENY' | translate}}</button>
-  <button mat-raised-button color="success" class="btn" [mat-dialog-close]="true" cdkFocusInitial>{{'ACTION.ACCEPT' |
+  <button class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red"
+    mat-dialog-close>{{'ACTION.DENY' | translate}}</button>
+  <button class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green" [mat-dialog-close]="true"
+    cdkFocusInitial>{{'ACTION.ACCEPT' |
     translate}}</button>
 </mat-dialog-actions>

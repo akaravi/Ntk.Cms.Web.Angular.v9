@@ -10,244 +10,272 @@
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
     </p>
+    <!--content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+          placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Title.value.length }} / 100</em>
+        <mat-error *ngIf="Title.errors?.required">
+          Title is <strong>{{ "MESSAGE.required" | translate }}</strong>
+        </mat-error>
+      </div>
+      <!-- LinkPropertyTypeLanduseId Field -->
+      <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelect($event)"
+        [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId"
+        [optionPlaceholder]="this.translate.instant('TITLE.user')"
+        [optionDisabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessEditField">
+        <br>
+      </app-estate-property-type-landuse-selector>
+      <!-- LinkPropertyDetailGroupId Field -->
+      <app-estate-property-detail-group-selector (optionChange)="onActionSelectorDetailGroup($event)"
+        [optionSelectForce]="dataModel.linkPropertyDetailGroupId" [(optionLoading)]="loading"
+        [optionSelectParentForce]="dataModel.linkPropertyTypeLanduseId"
+        [optionPlaceholder]="this.translate.instant('TITLE.Category')"
+        [optionDisabled]="!fieldsInfo['linkPropertyDetailGroupId']?.accessEditField">
+      </app-estate-property-detail-group-selector>
+      <!-- IconFont Field -->
+      <div *ngIf="fieldsInfo['iconFont']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
+          [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
+          (iconPickerSelect)="onIconPickerSelect($event)" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['iconFont']?.accessEditField" class="form-control validate-name"
+          id="dataModel.iconFont" />
+        <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
+      </div>
+      <!-- iconColor Field -->
+      <div *ngIf="fieldsInfo['iconColor']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.iconColor" class="color-highlight">{{fieldsInfo['iconColor']?.fieldTitle}}</label>
+        <div class="row mb-0">
+          <div class="col-11 pe-0">
+            <input matInput type="text" [(ngModel)]="dataModel.iconColor" name="dataModel.iconColor" #iconColor
+              type="text" [style.background]="dataModel.iconColor" [ngxMatColorPicker]="iconColorPicker"
+              placeholder="{{fieldsInfo['iconColor']?.fieldTitle}}"
+              [disabled]="!fieldsInfo['iconColor']?.accessEditField" class="form-control validate-name"
+              id="dataModel.iconColor" />
+          </div>
+          <div class="col-1 ps-0">
+            <ngx-ntk-mat-color-toggle matSuffix [for]="iconColorPicker"></ngx-ntk-mat-color-toggle>
+            <ngx-ntk-mat-color-picker #iconColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
+          </div>
+        </div>
+      </div>
+      <!-- ShowInFormOrder Field -->
+      <div *ngIf="fieldsInfo['showInFormOrder']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.showInFormOrder"
+          class="color-highlight">{{fieldsInfo['showInFormOrder']?.fieldTitle}}</label>
+        <input matInput type="number" [(ngModel)]="dataModel.showInFormOrder" name="dataModel.showInFormOrder"
+          #ShowInFormOrder placeholder="{{fieldsInfo['showInFormOrder']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['showInFormOrder']?.accessEditField" class="form-control validate-name"
+          id="dataModel.showInFormOrder" />
+      </div>
+      <!-- InputDataType Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <select id="dataModel.inputDataType" [(ngModel)]="dataModel.inputDataType" name="dataModel.inputDataType"
+          class="form-control validate-name">
+          <option *ngFor=" let item of dataModelInputDataTypeEnumResult.listItems; index as i" [ngValue]="item.value">{{
+            item.description }}</option>
+        </select>
+        <span><i class="fa fa-chevron-down"></i></span>
+        <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
+      </div>
+      <!-- Unit Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.unit" class="color-highlight">{{fieldsInfo['unit']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.unit" name="dataModel.unit" #Unit
+          placeholder="{{fieldsInfo['unit']?.fieldTitle}}" minlength="1" maxlength="64"
+          class="form-control validate-name" id="dataModel.unit" />
+        <em>{{ Unit.value.length }} / 64</em>
+      </div>
+      <!-- ConfigValueIntValueMin Field -->
+      <div *ngIf="dataModel.inputDataType===1 ||dataModel.inputDataType===3"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.configValueIntValueMin"
+          class="color-highlight">{{fieldsInfo['configValueIntValueMin']?.fieldTitle}}</label>
+        <input matInput type="number" [(ngModel)]="dataModel.configValueIntValueMin"
+          name="dataModel.configValueIntValueMin" #ConfigValueIntValueMax
+          placeholder="{{fieldsInfo['configValueIntValueMin']?.fieldTitle}}" class="form-control validate-name"
+          id="dataModel.configValueIntValueMin" />
+        <em>{{ Unit.value.length }} / 64</em>
+      </div>
+      <!-- ConfigValueIntValueMax Field -->
+      <div *ngIf="dataModel.inputDataType===1 ||dataModel.inputDataType===3"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.configValueIntValueMax"
+          class="color-highlight">{{fieldsInfo['configValueIntValueMax']?.fieldTitle}}</label>
+        <input matInput type="number" [(ngModel)]="dataModel.configValueIntValueMax"
+          name="dataModel.configValueIntValueMax" #ConfigValueIntValueMax
+          placeholder="{{fieldsInfo['configValueIntValueMax']?.fieldTitle}}" class="form-control validate-name"
+          id="dataModel.configValueIntValueMax" />
+        <em>{{ Unit.value.length }} / 64</em>
+      </div>
+      <!-- InvisibleForEndUser Field -->
+      <div *ngIf="fieldsInfo['invisibleForEndUser']?.accessWatchField" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.invisibleForEndUser" class="font-600 font-14">
+            {{fieldsInfo['invisibleForEndUser']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.invisibleForEndUser"
+              [(ngModel)]="this.dataModel.invisibleForEndUser" name="dataModel.invisibleForEndUser">
+            <label class="custom-control-label" for="dataModel.invisibleForEndUser"></label>
+          </div>
+        </div>
+      </div>
+      <!-- InvisibleForSubmiter Field -->
+      <div *ngIf="fieldsInfo['invisibleForSubmiter']?.accessWatchField" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.invisibleForSubmiter" class="font-600 font-14">
+            {{fieldsInfo['invisibleForSubmiter']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.invisibleForSubmiter"
+              [(ngModel)]="this.dataModel.invisibleForSubmiter" name="dataModel.invisibleForSubmiter">
+            <label class="custom-control-label" for="dataModel.invisibleForSubmiter"></label>
+          </div>
+        </div>
+      </div>
+      <!-- Required Field -->
+      <div *ngIf="fieldsInfo['required']?.accessWatchField" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.required" class="font-600 font-14">
+            {{fieldsInfo['required']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.required" [(ngModel)]="this.dataModel.required"
+              name="dataModel.required">
+            <label class="custom-control-label" for="dataModel.required"></label>
+          </div>
+        </div>
+      </div>
+      <!-- IsHistoryable Field -->
+      <div *ngIf="fieldsInfo['isHistoryable']?.accessWatchField" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.isHistoryable" class="font-600 font-14">
+            {{fieldsInfo['isHistoryable']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.isHistoryable"
+              [(ngModel)]="this.dataModel.isHistoryable" name="dataModel.isHistoryable">
+            <label class="custom-control-label" for="dataModel.isHistoryable"></label>
+          </div>
+        </div>
+      </div>
+      <!-- showInFastSearch Field -->
+      <div *ngIf="fieldsInfo['showInFastSearch']?.accessWatchField" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.showInFastSearch" class="font-600 font-14">
+            {{fieldsInfo['showInFastSearch']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.showInFastSearch"
+              [(ngModel)]="this.dataModel.showInFastSearch" name="dataModel.showInFastSearch">
+            <label class="custom-control-label" for="dataModel.showInFastSearch"></label>
+          </div>
+        </div>
+      </div>
+      <!-- ConfigValueForceUseDefaultValue Field -->
+      <div *ngIf="fieldsInfo['configValueForceUseDefaultValue']?.accessWatchField" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.configValueForceUseDefaultValue" class="font-600 font-14">
+            {{fieldsInfo['configValueForceUseDefaultValue']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.configValueForceUseDefaultValue"
+              [(ngModel)]="this.dataModel.configValueForceUseDefaultValue"
+              name="dataModel.configValueForceUseDefaultValue">
+            <label class="custom-control-label" for="dataModel.configValueForceUseDefaultValue"></label>
+          </div>
+        </div>
+      </div>
+      <!-- ConfigValueMultipleChoice Field -->
+      <div
+        *ngIf="dataModel.configValueForceUseDefaultValue && fieldsInfo['configValueMultipleChoice']?.accessWatchField"
+        class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.configValueMultipleChoice" class="font-600 font-14">
+            {{fieldsInfo['configValueMultipleChoice']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.configValueMultipleChoice"
+              [(ngModel)]="this.dataModel.configValueMultipleChoice" name="dataModel.configValueMultipleChoice">
+            <label class="custom-control-label" for="dataModel.configValueMultipleChoice"></label>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 100%;" appearance="fill"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label class="color-highlight">{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</label>
+        <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+          <mat-chip *ngFor="let item of keywordDefaultDataModel" (removed)="removeTagDefault(item)">
+            {{item}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input placeholder="{{'TITLE.key_word' | translate}}+" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlurTag"
+            (matChipInputTokenEnd)="addTagDefault($event)" />
+        </mat-chip-grid>
+      </div>
+
+      <div style="width: 100%;" appearance="fill"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label class="color-highlight">{{'TITLE.Choose_keywords_relative_to_null_content' | translate}}</label>
+        <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+          <mat-chip *ngFor="let item of keywordNullDataModel" (removed)="removeTagNull(item)">
+            {{item}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input placeholder="{{'TITLE.key_word' | translate}}+" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlurTag"
+            (matChipInputTokenEnd)="addTagNull($event)" />
+        </mat-chip-grid>
+      </div>
+
+      <!-- Description Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+          id="dataModel.description" class="form-control validate-name"></textarea>
+        <em>{{ Description.value.length }} / 500</em>
+        <mat-error *ngIf="Description.errors?.required">
+          Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
+    </form>
+    <!--content-->
   </div>
 </div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-card-body">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-    <!-- Title Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-        placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required />
-      <mat-icon matSuffix *ngIf="dataModel.title" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.title = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-      <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
-      <mat-error *ngIf="Title.errors?.required">
-        Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-      </mat-error>
-    </mat-form-field>
-    <!-- LinkPropertyTypeLanduseId Field -->
-    <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelect($event)"
-      [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId"
-      [optionPlaceholder]="this.translate.instant('TITLE.user')"
-      [optionDisabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessEditField">
-      <br>
-    </app-estate-property-type-landuse-selector>
-    <!-- LinkPropertyDetailGroupId Field -->
-    <app-estate-property-detail-group-selector (optionChange)="onActionSelectorDetailGroup($event)"
-      [optionSelectForce]="dataModel.linkPropertyDetailGroupId" [(optionLoading)]="loading"
-      [optionSelectParentForce]="dataModel.linkPropertyTypeLanduseId"
-      [optionPlaceholder]="this.translate.instant('TITLE.Category')"
-      [optionDisabled]="!fieldsInfo['linkPropertyDetailGroupId']?.accessEditField">
-    </app-estate-property-detail-group-selector>
-    <!-- IconFont Field -->
-    <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['iconFont']?.accessWatchField">
-      <mat-label> {{fieldsInfo['iconFont']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont
-        [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
-        (iconPickerSelect)="onIconPickerSelect($event)" type="text"
-        [disabled]="!fieldsInfo['iconFont']?.accessEditField" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}" />
-      <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
-      <mat-icon>{{dataModel.iconFont}}</mat-icon>
-      <mat-icon matSuffix *ngIf="dataModel.iconFont" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.iconFont = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-    <!-- iconColor Field -->
-    <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['iconColor']?.accessWatchField">
-      <mat-label> {{fieldsInfo['iconColor']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.iconColor" name="dataModel.iconColor" #iconColor
-        [style.background]="dataModel.iconColor" [ngxMatColorPicker]="iconColorPicker" type="text"
-        [disabled]="!fieldsInfo['iconColor']?.accessEditField" placeholder="{{fieldsInfo['iconColor']?.fieldTitle}}" />
-      <mat-icon matSuffix *ngIf="dataModel.iconColor" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.iconColor = ''">close</mat-icon>
-      <ngx-ntk-mat-color-toggle matSuffix [for]="iconColorPicker"></ngx-ntk-mat-color-toggle>
-      <ngx-ntk-mat-color-picker #iconColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
-    </mat-form-field>
-
-    <!-- ShowInFormOrder Field -->
-    <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['showInFormOrder']?.accessWatchField">
-      <mat-label> {{fieldsInfo['showInFormOrder']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.showInFormOrder" name="dataModel.showInFormOrder" #ShowInFormOrder
-        type="number" [disabled]="!fieldsInfo['showInFormOrder']?.accessEditField"
-        placeholder="{{fieldsInfo['showInFormOrder']?.fieldTitle}}" />
-      <mat-icon matSuffix *ngIf="dataModel.showInFormOrder" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.showInFormOrder = 1">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-    <!-- InputDataType Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-select placeholder="{{'TITLE.TypeId' | translate}}" [(ngModel)]="dataModel.inputDataType"
-        name="dataModel.inputDataType" #InputDataType="ngModel"
-        panelClass="InputDataType-{{ dataModel.inputDataType }}">
-        <mat-option *ngFor="
-                      let item of dataModelInputDataTypeEnumResult.listItems;
-                      index as i
-                    " [value]="item.value">{{ item.description }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <!-- Unit Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{fieldsInfo['unit']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.unit" name="dataModel.unit" #Unit type="text"
-        placeholder="{{fieldsInfo['unit']?.fieldTitle}}" minlength="1" maxlength="64" />
-      <mat-icon matSuffix *ngIf="dataModel.unit" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.unit = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-      <mat-hint align="end">{{ Unit.value.length }} / 64</mat-hint>
-
-    </mat-form-field>
-
-    <!-- ConfigValueIntValueMin Field -->
-    <mat-form-field class="ntk-full-width" *ngIf="dataModel.inputDataType===1 ||dataModel.inputDataType===3">
-      <mat-label>{{fieldsInfo['configValueIntValueMin']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.configValueIntValueMin" name="dataModel.configValueIntValueMin"
-        #ConfigValueIntValueMin type="number" placeholder="{{fieldsInfo['configValueIntValueMin']?.fieldTitle}}" />
-      <mat-icon matSuffix *ngIf="dataModel.configValueIntValueMin" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.configValueIntValueMin = 0">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-    <!-- ConfigValueIntValueMax Field -->
-    <mat-form-field class="ntk-full-width" *ngIf="dataModel.inputDataType===1 ||dataModel.inputDataType===3">
-      <mat-label>{{fieldsInfo['configValueIntValueMax']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.configValueIntValueMax" name="dataModel.configValueIntValueMax"
-        #ConfigValueIntValueMax type="number" placeholder="{{fieldsInfo['configValueIntValueMax']?.fieldTitle}}" />
-      <mat-icon matSuffix *ngIf="dataModel.configValueIntValueMax" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.configValueIntValueMax = 0">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-    <!-- InvisibleForEndUser Field -->
-    <div class="ntk-full-width">
-      <mat-slide-toggle [(ngModel)]="dataModel.invisibleForEndUser"
-        *ngIf="fieldsInfo['invisibleForEndUser']?.accessWatchField"
-        [disabled]="!fieldsInfo['invisibleForEndUser']?.accessEditField" name="dataModel.invisibleForEndUser">
-        {{fieldsInfo['invisibleForEndUser']?.fieldTitle}}
-      </mat-slide-toggle>
-    </div>
-    <!-- InvisibleForSubmiter Field -->
-    <div class="ntk-full-width">
-      <mat-slide-toggle [(ngModel)]="dataModel.invisibleForSubmiter"
-        *ngIf="fieldsInfo['invisibleForSubmiter']?.accessWatchField"
-        [disabled]="!fieldsInfo['invisibleForSubmiter']?.accessEditField" name="dataModel.invisibleForSubmiter">
-        {{fieldsInfo['invisibleForSubmiter']?.fieldTitle}}
-      </mat-slide-toggle>
-    </div>
-    <!-- Required Field -->
-    <div class="ntk-full-width">
-      <mat-slide-toggle [(ngModel)]="dataModel.required" *ngIf="fieldsInfo['required']?.accessWatchField"
-        [disabled]="!fieldsInfo['required']?.accessEditField" name="dataModel.required">
-        {{fieldsInfo['required']?.fieldTitle}}
-      </mat-slide-toggle>
-    </div>
-    <!-- IsHistoryable Field -->
-    <div class="ntk-full-width">
-      <mat-slide-toggle [(ngModel)]="dataModel.isHistoryable" *ngIf="fieldsInfo['isHistoryable']?.accessWatchField"
-        [disabled]="!fieldsInfo['isHistoryable']?.accessEditField" name="dataModel.isHistoryable">
-        {{fieldsInfo['isHistoryable']?.fieldTitle}}
-      </mat-slide-toggle>
-    </div>
-    <!-- showInFastSearch Field -->
-    <div class="ntk-full-width">
-      <mat-slide-toggle [(ngModel)]="dataModel.showInFastSearch"
-        *ngIf="fieldsInfo['showInFastSearch']?.accessWatchField"
-        [disabled]="!fieldsInfo['showInFastSearch']?.accessEditField" name="dataModel.showInFastSearch">
-        {{fieldsInfo['showInFastSearch']?.fieldTitle}}
-      </mat-slide-toggle>
-    </div>
-
-    <!-- ConfigValueForceUseDefaultValue Field -->
-    <div class="ntk-full-width">
-      <mat-slide-toggle [(ngModel)]="dataModel.configValueForceUseDefaultValue"
-        *ngIf="fieldsInfo['configValueForceUseDefaultValue']?.accessWatchField"
-        [disabled]="!fieldsInfo['configValueForceUseDefaultValue']?.accessEditField"
-        name="dataModel.configValueForceUseDefaultValue">
-        {{fieldsInfo['configValueForceUseDefaultValue']?.fieldTitle}}
-      </mat-slide-toggle>
-    </div>
-    <!-- ConfigValueMultipleChoice Field -->
-    <div class="ntk-full-width">
-      <mat-slide-toggle [(ngModel)]="dataModel.configValueMultipleChoice"
-        *ngIf="dataModel.configValueForceUseDefaultValue && fieldsInfo['configValueMultipleChoice']?.accessWatchField"
-        [disabled]="!fieldsInfo['configValueMultipleChoice']?.accessEditField"
-        name="dataModel.configValueMultipleChoice">
-        {{fieldsInfo['configValueMultipleChoice']?.fieldTitle}}
-      </mat-slide-toggle>
-    </div>
-
-
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</mat-label>
-      <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
-        <mat-chip *ngFor="let item of keywordDefaultDataModel" (removed)="removeTagDefault(item)">
-          {{item}}
-          <button matChipRemove>
-            <mat-icon>cancel</mat-icon>
-          </button>
-        </mat-chip>
-        <input placeholder="{{'TITLE.key_word' | translate}}+" [matChipInputFor]="chipList"
-          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlurTag"
-          (matChipInputTokenEnd)="addTagDefault($event)" />
-      </mat-chip-grid>
-    </mat-form-field>
-
-
-
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>{{'TITLE.Choose_keywords_relative_to_null_content' | translate}}</mat-label>
-      <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
-        <mat-chip *ngFor="let item of keywordNullDataModel" (removed)="removeTagNull(item)">
-          {{item}}
-          <button matChipRemove>
-            <mat-icon>cancel</mat-icon>
-          </button>
-        </mat-chip>
-        <input placeholder="{{'TITLE.key_word' | translate}}+" [matChipInputFor]="chipList"
-          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlurTag"
-          (matChipInputTokenEnd)="addTagNull($event)" />
-      </mat-chip-grid>
-    </mat-form-field>
-    <!-- Description Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{fieldsInfo['description']?.fieldTitle}}</mat-label>
-      <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-        placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows=5></textarea>
-      <mat-icon matSuffix *ngIf="dataModel.description" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.description = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-      <mat-hint align="end">{{ Description.value.length }} / 500</mat-hint>
-      <mat-error *ngIf="Description.errors?.required">
-        Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-      </mat-error>
-    </mat-form-field>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    <div class="form-actions">
-      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-      <small class="form-text text-muted danger">{{ formInfo.formError }}
-      </small>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-      <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-      </button>
-      <button type="submit" mat-raised-button (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-        <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-      </button>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  </div>
-</form>

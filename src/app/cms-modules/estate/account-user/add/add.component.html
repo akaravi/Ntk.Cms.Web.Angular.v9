@@ -1,285 +1,302 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-        حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-        فقط یک صفحه ساختگی است.
-      </p>
-       <!--Content-->
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
-            {{ formInfo.formTitle }}
-            <!-- LinkMainImageId Field -->
-            <div class="mb-3">
-                <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
-                  <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-                    aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
-                </a>
-            </div>
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId" class="color-highlight">{{'TITLE.Profile_Picture'|translate}}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
-                 placeholder="{{'TITLE.Profile_Photo_File_ID'|translate}}" autocomplete="off" (click)="fileManagerOpenForm = true"
-                 class="form-control validate-name" id="dataModel.linkMainImageId"/>
-                <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
-                 [openSelectFileDescription]="this.translate.instant('TITLE.The_dimensions_of_the_photo_should_be_600_x_600')"
-                 [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
-                 [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage"
-                 [openFilemanagerButtonView]="false">
-                </cms-file-manager>
-            </div>
-            <!-- Title Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
-              <input matInput type="text"  [(ngModel)]="dataModel.title" name="dataModel.title" #Title 
-               placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
-               [disabled]="!fieldsInfo['title']?.accessAddField"
-               class="form-control validate-name" id="dataModel.title" />
-              <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
-              <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-              <em></em>
-              <mat-error *ngIf="Title.errors?.required">
-                Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-              </mat-error>
-            </div>
-            <!-- Description Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                 placeholder="{{fieldsInfo['description']?.fieldTitle}}" [disabled]="!fieldsInfo['description']?.accessAddField" minlength="1" maxlength="500" rows="5"
-                 id="dataModel.description" class="form-control validate-name">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
+      {{ formInfo.formTitle }}
+      <!-- LinkMainImageId Field -->
+      <div class="mb-3">
+        <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
+          <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+            aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
+        </a>
+      </div>
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+          class="color-highlight">{{'TITLE.Profile_Picture'|translate}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+          #LinkMainImageId placeholder="{{'TITLE.Profile_Photo_File_ID'|translate}}" autocomplete="off"
+          (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
+        <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
+          [openSelectFileDescription]="this.translate.instant('TITLE.The_dimensions_of_the_photo_should_be_600_x_600')"
+          [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
+          [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
+        </cms-file-manager>
+      </div>
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
+          placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required
+          [disabled]="!fieldsInfo['title']?.accessAddField" class="form-control validate-name" id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em></em>
+        <mat-error *ngIf="Title.errors?.required">
+          Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- Description Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['description']?.accessAddField" minlength="1" maxlength="500" rows="5"
+          id="dataModel.description" class="form-control validate-name">
                 </textarea>
-                <em>{{ Description.value.length }} / 500</em>
-                <mat-error *ngIf="Description.errors?.required">
-                Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- DescriptionHidden Field -->
-            <div *ngIf="fieldsInfo['descriptionHidden']?.accessWatchField"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.descriptionHidden" class="color-highlight">{{'TITLE.Description_Hidden' | translate}}</label>
-              <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
-                #DescriptionHidden type="text" placeholder="{{fieldsInfo['descriptionHidden']?.fieldTitle}}" minlength="0"
-                maxlength="500" rows="5" id="dataModel.descriptionHidden" class="form-control validate-name">
+        <em>{{ Description.value.length }} / 500</em>
+        <mat-error *ngIf="Description.errors?.required">
+          Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- DescriptionHidden Field -->
+      <div *ngIf="fieldsInfo['descriptionHidden']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.descriptionHidden" class="color-highlight">{{'TITLE.Description_Hidden' |
+          translate}}</label>
+        <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
+          #DescriptionHidden type="text" placeholder="{{fieldsInfo['descriptionHidden']?.fieldTitle}}" minlength="0"
+          maxlength="500" rows="5" id="dataModel.descriptionHidden" class="form-control validate-name">
               </textarea>
-              <em>{{ DescriptionHidden.value.length }} / 500</em>
-            </div>
-            <!-- LinkCmsUserId Field -->
-            <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorUser($event)"
-              [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
-              [optionSelectForce]="dataModel.linkCmsUserId"
-              [optionPlaceholder]="this.translate.instant('TITLE.USER')">
-            </app-cms-user-selector>
-            <!-- JoinId Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.joinId" class="color-highlight">{{fieldsInfo['joinId']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.joinId" name="dataModel.joinId" #JoinId
-                 type="text" placeholder="{{fieldsInfo['joinId']?.fieldTitle}}" [disabled]="!fieldsInfo['joinId']?.accessAddField" minlength="0" maxlength="64"
-                 id="dataModel.joinId" class="form-control validate-name">
-                <em>{{ JoinId.value.length }} / 64</em>
-            </div>
-            <!-- SerialRfId Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.serialRfId" class="color-highlight">{{fieldsInfo['serialRfId']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.serialRfId" name="dataModel.serialRfId" #SerialRfId
-                 type="text"  placeholder="{{fieldsInfo['serialRfId']?.fieldTitle}}" [disabled]="!fieldsInfo['serialRfId']?.accessAddField" minlength="0" maxlength="64"
-                 id="dataModel.serialRfId" class="form-control validate-name">
-                <em>{{ SerialRfId.value.length }} / 64</em>
-            </div>
-            <!-- SerialNumber Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.serialNumber" class="color-highlight">{{fieldsInfo['serialNumber']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.serialNumber" name="dataModel.serialNumber" #SerialNumber
-                 type="text"  placeholder="{{fieldsInfo['serialNumber']?.fieldTitle}}" [disabled]="!fieldsInfo['serialNumber']?.accessAddField" minlength="0" maxlength="64"
-                 id="dataModel.serialNumber" class="form-control validate-name">
-                <em>{{ SerialNumber.value.length }} / 64</em>
-            </div>
-            <!-- PlaceProduction Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.placeProduction" class="color-highlight">{{fieldsInfo['placeProduction']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.placeProduction" name="dataModel.placeProduction" #PlaceProduction
-                 type="text"  placeholder="{{fieldsInfo['placeProduction']?.fieldTitle}}" [disabled]="!fieldsInfo['placeProduction']?.accessAddField" minlength="0" maxlength="64"
-                 id="dataModel.placeProduction" class="form-control validate-name">
-                <!-- <em>{{ placeProduction.value.length }} / 64</em> -->
-            </div>
-            <!-- PhoneNumber Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.phoneNumber" class="color-highlight">{{fieldsInfo['phoneNumber']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.phoneNumber" name="dataModel.phoneNumber" #PhoneNumber
-                 type="text" placeholder="{{fieldsInfo['phoneNumber']?.fieldTitle}}" [disabled]="!fieldsInfo['phoneNumber']?.accessAddField" minlength="0" maxlength="64"
-                 id="dataModel.phoneNumber" class="form-control validate-name">
-                <em>{{ PhoneNumber.value.length }} / 64</em>
-            </div>
-            <!-- MobileNumber Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.mobileNumber" class="color-highlight">{{fieldsInfo['mobileNumber']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.mobileNumber" name="dataModel.mobileNumber"  #mobileNumber
-                 type="text" placeholder="{{fieldsInfo['mobileNumber']?.fieldTitle}}" [disabled]="!fieldsInfo['mobileNumber']?.accessAddField" minlength="0" maxlength="64"
-                 id="dataModel.mobileNumber" class="form-control validate-name">
-                <em>{{ mobileNumber.value.length }} / 64</em>
-            </div>
-            <!-- Address Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.address" class="color-highlight">{{fieldsInfo['address']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
-                 placeholder="{{fieldsInfo['address']?.fieldTitle}}" [disabled]="!fieldsInfo['address']?.accessAddField" minlength="1" maxlength="500" rows="5"
-                 id="dataModel.address" class="form-control validate-name" required>
+        <em>{{ DescriptionHidden.value.length }} / 500</em>
+      </div>
+      <!-- LinkCmsUserId Field -->
+      <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorUser($event)"
+        [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+      </app-cms-user-selector>
+      <!-- JoinId Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.joinId" class="color-highlight">{{fieldsInfo['joinId']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.joinId" name="dataModel.joinId" #JoinId type="text"
+          placeholder="{{fieldsInfo['joinId']?.fieldTitle}}" [disabled]="!fieldsInfo['joinId']?.accessAddField"
+          minlength="0" maxlength="64" id="dataModel.joinId" class="form-control validate-name">
+        <em>{{ JoinId.value.length }} / 64</em>
+      </div>
+      <!-- SerialRfId Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.serialRfId" class="color-highlight">{{fieldsInfo['serialRfId']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.serialRfId" name="dataModel.serialRfId" #SerialRfId type="text"
+          placeholder="{{fieldsInfo['serialRfId']?.fieldTitle}}" [disabled]="!fieldsInfo['serialRfId']?.accessAddField"
+          minlength="0" maxlength="64" id="dataModel.serialRfId" class="form-control validate-name">
+        <em>{{ SerialRfId.value.length }} / 64</em>
+      </div>
+      <!-- SerialNumber Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.serialNumber" class="color-highlight">{{fieldsInfo['serialNumber']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.serialNumber" name="dataModel.serialNumber" #SerialNumber type="text"
+          placeholder="{{fieldsInfo['serialNumber']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['serialNumber']?.accessAddField" minlength="0" maxlength="64"
+          id="dataModel.serialNumber" class="form-control validate-name">
+        <em>{{ SerialNumber.value.length }} / 64</em>
+      </div>
+      <!-- PlaceProduction Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.placeProduction"
+          class="color-highlight">{{fieldsInfo['placeProduction']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.placeProduction" name="dataModel.placeProduction" #PlaceProduction
+          type="text" placeholder="{{fieldsInfo['placeProduction']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['placeProduction']?.accessAddField" minlength="0" maxlength="64"
+          id="dataModel.placeProduction" class="form-control validate-name">
+        <!-- <em>{{ placeProduction.value.length }} / 64</em> -->
+      </div>
+      <!-- PhoneNumber Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.phoneNumber" class="color-highlight">{{fieldsInfo['phoneNumber']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.phoneNumber" name="dataModel.phoneNumber" #PhoneNumber type="text"
+          placeholder="{{fieldsInfo['phoneNumber']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['phoneNumber']?.accessAddField" minlength="0" maxlength="64"
+          id="dataModel.phoneNumber" class="form-control validate-name">
+        <em>{{ PhoneNumber.value.length }} / 64</em>
+      </div>
+      <!-- MobileNumber Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.mobileNumber" class="color-highlight">{{fieldsInfo['mobileNumber']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.mobileNumber" name="dataModel.mobileNumber" #mobileNumber type="text"
+          placeholder="{{fieldsInfo['mobileNumber']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['mobileNumber']?.accessAddField" minlength="0" maxlength="64"
+          id="dataModel.mobileNumber" class="form-control validate-name">
+        <em>{{ mobileNumber.value.length }} / 64</em>
+      </div>
+      <!-- Address Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.address" class="color-highlight">{{fieldsInfo['address']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
+          placeholder="{{fieldsInfo['address']?.fieldTitle}}" [disabled]="!fieldsInfo['address']?.accessAddField"
+          minlength="1" maxlength="500" rows="5" id="dataModel.address" class="form-control validate-name" required>
                 </textarea>
-                <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
-                <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-                <em>{{ Address.value.length }} / 500</em>
-                <mat-error *ngIf="Address.errors?.required">
-                 Address is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- LinkLocationId Field -->
-            <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-             [optionSelectForce]="dataModel.linkLocationId" [(optionLoading)]="loading"
-             [optionPlaceholder]="this.translate.instant('TITLE.Geographical_Region')"
-             [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField">
-            </app-cms-location-selector>
-            <br>
-            {{'TITLE.COVERED_AREAS' | translate}}
-            <!-- linkLocationWorkAreaIds Field -->
-            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocationWorkArea($event)" [(optionLoading)]="loading"
-             [optionSelectForce]="dataModel.linkLocationWorkAreaIds"
-             [optionPlaceholder]="this.translate.instant('TITLE.Region')">
-            </app-cms-location-autocomplete>
-            <hr> 
-            <!-- AccessWatchRowSite Field -->
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-                <div class="pt-1">
-                  <h5 data-trigger-switch="dataModel.accessWatchRowSite" class="font-600 font-14">{{fieldsInfo['accessWatchRowSite']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                  <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowSite"
-                    [(ngModel)]="this.dataModel.accessWatchRowSite" name="dataModel.accessWatchRowSite">
-                    <label class="custom-control-label" for="dataModel.accessWatchRowSite"></label>
-                 </div>
-                </div>
-            </div>
-            <!-- accessWatchRowOtherAgency Field -->
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-                <div class="pt-1">
-                  <h5 data-trigger-switch="dataModel.accessWatchRowOtherAgency" class="font-600 font-14">{{fieldsInfo['accessWatchRowOtherAgency']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                 <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowOtherAgency"
-                    [(ngModel)]="this.dataModel.accessWatchRowOtherAgency" name="dataModel.accessWatchRowOtherAgency">
-                    <label class="custom-control-label" for="dataModel.accessWatchRowOtherAgency"></label>
-                 </div>
-                </div>
-            </div>
-            <!-- accessWatchRowOtherAgent Field -->
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-                <div class="pt-1">
-                  <h5 data-trigger-switch="dataModel.accessWatchRowOtherAgent" class="font-600 font-14"> {{fieldsInfo['accessWatchRowOtherAgent']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                  <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowOtherAgent"
-                    [(ngModel)]="this.dataModel.accessWatchRowOtherAgent" name="dataModel.accessWatchRowOtherAgent">
-                    <label class="custom-control-label" for="dataModel.accessWatchRowOtherAgent"></label>
-                  </div>
-                </div>
-            </div>
-            <!-- accessAllowShareRowWatchOtherAgency Field -->
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-                <div class="pt-1">
-                 <h5 data-trigger-switch="dataModel.accessAllowShareRowWatchOtherAgency" class="font-600 font-14"> {{fieldsInfo['accessAllowShareRowWatchOtherAgency']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                 <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.accessAllowShareRowWatchOtherAgency"
-                    [(ngModel)]="this.dataModel.accessAllowShareRowWatchOtherAgency" name="dataModel.accessAllowShareRowWatchOtherAgency">
-                    <label class="custom-control-label" for="dataModel.accessAllowShareRowWatchOtherAgency"></label>
-                 </div>
-                </div>
-            </div>
-            <!-- accessAllowShareRowWatchOtherAgent Field -->
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-                <div class="pt-1">
-                 <h5 data-trigger-switch="dataModel.accessAllowShareRowWatchOtherAgent" class="font-600 font-14"> {{fieldsInfo['accessAllowShareRowWatchOtherAgent']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                 <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.accessAllowShareRowWatchOtherAgent"
-                    [(ngModel)]="this.dataModel.accessAllowShareRowWatchOtherAgent" name="dataModel.accessAllowShareRowWatchOtherAgent">
-                    <label class="custom-control-label" for="dataModel.accessAllowShareRowWatchOtherAgent"></label>
-                 </div>
-                </div>
-            </div>
-            <hr>
-            <!-- notificationWorkAreaEstate Field -->
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-                <div class="pt-1">
-                 <h5 data-trigger-switch="dataModel.notificationWorkAreaEstate" class="font-600 font-14">{{fieldsInfo['notificationWorkAreaEstate']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                 <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.notificationWorkAreaEstate"
-                    [(ngModel)]="this.dataModel.notificationWorkAreaEstate" name="dataModel.notificationWorkAreaEstate">
-                    <label class="custom-control-label" for="dataModel.notificationWorkAreaEstate"></label>
-                 </div>
-                </div>
-            </div>
-            <!-- notificationWorkAreaCustomerOrder Field -->
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
-                <div class="pt-1">
-                 <h5 data-trigger-switch="dataModel.notificationWorkAreaCustomerOrder" class="font-600 font-14">{{fieldsInfo['notificationWorkAreaCustomerOrder']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                 <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.notificationWorkAreaCustomerOrder"
-                    [(ngModel)]="this.dataModel.notificationWorkAreaCustomerOrder" name="dataModel.notificationWorkAreaCustomerOrder">
-                    <label class="custom-control-label" for="dataModel.notificationWorkAreaCustomerOrder"></label>
-                 </div>
-                </div>
-            </div>
-            <hr>
-            <p>{{'TITLE.Click_on_the_map_to_specify_the_location' | translate}}</p>
-            <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
-              id='main-map'>
-            </app-cms-map>
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-                <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                  <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
-                </button>
-                <button type="submit" mat-raised-button (click)="onFormSubmit()"
-                  [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
-                  <i class="fa fa-check-square-o"></i>
-                  {{ "ACTION.SAVE" | translate }}
-                </button>
-            </div>
-        </form>
-       <!--Content-->
-    </div>
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Address.value.length }} / 500</em>
+        <mat-error *ngIf="Address.errors?.required">
+          Address is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- LinkLocationId Field -->
+      <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
+        [optionSelectForce]="dataModel.linkLocationId" [(optionLoading)]="loading"
+        [optionPlaceholder]="this.translate.instant('TITLE.Geographical_Region')"
+        [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField">
+      </app-cms-location-selector>
+      <br>
+      {{'TITLE.COVERED_AREAS' | translate}}
+      <!-- linkLocationWorkAreaIds Field -->
+      <app-cms-location-autocomplete (optionChange)="onActionSelectorLocationWorkArea($event)"
+        [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkLocationWorkAreaIds"
+        [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+      </app-cms-location-autocomplete>
+      <hr>
+      <!-- AccessWatchRowSite Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.accessWatchRowSite" class="font-600 font-14">
+            {{fieldsInfo['accessWatchRowSite']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowSite"
+              [(ngModel)]="this.dataModel.accessWatchRowSite" name="dataModel.accessWatchRowSite">
+            <label class="custom-control-label" for="dataModel.accessWatchRowSite"></label>
+          </div>
+        </div>
+      </div>
+      <!-- accessWatchRowOtherAgency Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.accessWatchRowOtherAgency" class="font-600 font-14">
+            {{fieldsInfo['accessWatchRowOtherAgency']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowOtherAgency"
+              [(ngModel)]="this.dataModel.accessWatchRowOtherAgency" name="dataModel.accessWatchRowOtherAgency">
+            <label class="custom-control-label" for="dataModel.accessWatchRowOtherAgency"></label>
+          </div>
+        </div>
+      </div>
+      <!-- accessWatchRowOtherAgent Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.accessWatchRowOtherAgent" class="font-600 font-14">
+            {{fieldsInfo['accessWatchRowOtherAgent']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowOtherAgent"
+              [(ngModel)]="this.dataModel.accessWatchRowOtherAgent" name="dataModel.accessWatchRowOtherAgent">
+            <label class="custom-control-label" for="dataModel.accessWatchRowOtherAgent"></label>
+          </div>
+        </div>
+      </div>
+      <!-- accessAllowShareRowWatchOtherAgency Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.accessAllowShareRowWatchOtherAgency" class="font-600 font-14">
+            {{fieldsInfo['accessAllowShareRowWatchOtherAgency']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.accessAllowShareRowWatchOtherAgency"
+              [(ngModel)]="this.dataModel.accessAllowShareRowWatchOtherAgency"
+              name="dataModel.accessAllowShareRowWatchOtherAgency">
+            <label class="custom-control-label" for="dataModel.accessAllowShareRowWatchOtherAgency"></label>
+          </div>
+        </div>
+      </div>
+      <!-- accessAllowShareRowWatchOtherAgent Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.accessAllowShareRowWatchOtherAgent" class="font-600 font-14">
+            {{fieldsInfo['accessAllowShareRowWatchOtherAgent']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.accessAllowShareRowWatchOtherAgent"
+              [(ngModel)]="this.dataModel.accessAllowShareRowWatchOtherAgent"
+              name="dataModel.accessAllowShareRowWatchOtherAgent">
+            <label class="custom-control-label" for="dataModel.accessAllowShareRowWatchOtherAgent"></label>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- notificationWorkAreaEstate Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.notificationWorkAreaEstate" class="font-600 font-14">
+            {{fieldsInfo['notificationWorkAreaEstate']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.notificationWorkAreaEstate"
+              [(ngModel)]="this.dataModel.notificationWorkAreaEstate" name="dataModel.notificationWorkAreaEstate">
+            <label class="custom-control-label" for="dataModel.notificationWorkAreaEstate"></label>
+          </div>
+        </div>
+      </div>
+      <!-- notificationWorkAreaCustomerOrder Field -->
+      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.notificationWorkAreaCustomerOrder" class="font-600 font-14">
+            {{fieldsInfo['notificationWorkAreaCustomerOrder']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.notificationWorkAreaCustomerOrder"
+              [(ngModel)]="this.dataModel.notificationWorkAreaCustomerOrder"
+              name="dataModel.notificationWorkAreaCustomerOrder">
+            <label class="custom-control-label" for="dataModel.notificationWorkAreaCustomerOrder"></label>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <p>{{'TITLE.Click_on_the_map_to_specify_the_location' | translate}}</p>
+      <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
+        id='main-map'>
+      </app-cms-map>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+          <i class="fa fa-check-square-o"></i>
+          {{ "ACTION.SAVE" | translate }}
+        </button>
+      </div>
+    </form>
+    <!--Content-->
+  </div>
 </div>
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  <div class="ntk-cms-html-card-header">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  </div>
+  <div class="ntk-cms-html-card-body">
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+  </div>
+  <div class="ntk-cms-html-card-message">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+    <div class="form-actions">
+      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
+      <small class="form-text text-muted danger">{{ formInfo.formError }}
+      </small>
     </div>
-    <div class="ntk-cms-html-card-body">
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
+  </div>
+  <div class="ntk-cms-html-card-footer">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+  </div>
 </form>
