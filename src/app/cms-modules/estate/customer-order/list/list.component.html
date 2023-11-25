@@ -21,8 +21,8 @@
     <button
       *ngIf="optionloadByRoute && dataModelResult.access.accessAddRow   && tableRowSelected?.id &&  tableRowSelected?.id?.length>0"
       (click)="onActionbuttonCopyNewRow(tableRowSelected,$event)" type="button"
-      class="btn box-shadow-button btn-outline-primary BTN-text" id="openModalButton" data-toggle="modal"
-      data-target="#categoryModal">{{'ACTION.COPY' |
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" id="openModalButton"
+      data-toggle="modal" data-target="#categoryModal">{{'ACTION.COPY' |
       translate}}</button>
     <button
       *ngIf="optionloadByRoute && dataModelResult.access.accessEditRow   && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
@@ -52,7 +52,7 @@
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
     </button>
-    <a class="btn box-shadow-button btn-outline-info btn-sm BTN-text box-shadow-button"
+    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
       *ngIf="!this.requestLinkPropertyId|| this.requestLinkPropertyId.length===0">
       <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
         [checked]="searchInResponsibleChecked">
