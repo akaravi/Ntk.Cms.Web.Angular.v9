@@ -27,9 +27,9 @@
             *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0 && listTypeLanduse && listTypeLanduse.length > 0"
             style="clear: both">
             <div *ngFor="let state of listTypeLanduse">
-              <button type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" 
+              <button type="button"
                 [attr.disabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessAddField ? true : null"
-                color="{{state.id === dataModel.linkPropertyTypeLanduseId ? 'primary' : 'info'}}"
+                [ngClass]="state.id===dataModel.linkPropertyTypeLanduseId ? 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full' : 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full'"
                 (click)="onActionSelectorSelectLanduse(state)">{{ state.titleML }}
               </button>
             </div>
@@ -326,7 +326,7 @@
           </div>
 
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-            <button type="button"  matStepperPrevious
+            <button type="button" matStepperPrevious
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
               {{ "ACTION.BEFOR" | translate }}
             </button>
@@ -523,15 +523,16 @@
                 </ng-container>
               </ng-container>
               <mat-action-row>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  *ngIf="i > 0" (click)="prevStep()">
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                  *ngIf="i > 0" (click)="prevStep()">
                   {{ "ACTION.BEFOR" | translate }}
                 </button>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="i + 1 < dataModel.propertyDetailGroups.length"
-                  (click)="nextStep()">
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  *ngIf="i + 1 < dataModel.propertyDetailGroups.length" (click)="nextStep()">
                   {{ "ACTION.NEXT" | translate }}
                 </button>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="i + 1 === dataModel.propertyDetailGroups.length"
-                  (click)="nextStep()">
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  *ngIf="i + 1 === dataModel.propertyDetailGroups.length" (click)="nextStep()">
                   {{ "ACTION.END" | translate }}
                 </button>
               </mat-action-row>
@@ -742,7 +743,8 @@
             <br>
             <br>
           </div>
-          <button (click)="onActionOptionAddToList()" type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" 
+          <button (click)="onActionOptionAddToList()" type="button"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
             *ngIf="contractTypeSelected && contractTypeSelected.id.length > 0"
             class="btn btn-primary font-weight-bold font-size-h5 px-9 py-4" style="margin: 10px 0px">
             {{ "ACTION.Add_To_List" | translate }} ...
