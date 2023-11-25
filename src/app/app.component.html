@@ -32,6 +32,7 @@
 <!-- Colors Menu-->
 <app-menu-colors></app-menu-colors>
 <app-menu-language></app-menu-language>
+<app-scroll-top></app-scroll-top>
 <div
   *ngIf="dataSupportModelResult && dataSupportModelResult.isSuccess && dataSupportModelResult.item.supportHtmlBody?.length>0 "
   [innerHtml]="dataSupportModelResult.item.supportHtmlBody | safeHtml" runScripts></div>

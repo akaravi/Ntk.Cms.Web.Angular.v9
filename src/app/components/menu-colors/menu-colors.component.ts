@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
-import { ThemeModeService } from 'src/app/core/services/themeMode.service';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-menu-colors',
@@ -12,7 +12,7 @@ export class MenuColorsComponent implements OnInit {
 
   constructor(
     private publicHelper: PublicHelper,
-    private themeModeService: ThemeModeService,
+    private themeService: ThemeService,
   ) {
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
@@ -27,6 +27,6 @@ export class MenuColorsComponent implements OnInit {
     });
   }
   onActionHighLightSwitch(colorStr: string) {
-    this.themeModeService.updateHighLight(colorStr);
+    this.themeService.updateHighLight(colorStr);
   }
 }

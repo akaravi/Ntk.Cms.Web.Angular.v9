@@ -959,7 +959,7 @@ mobileeeeeeeeeeeeeeeee
                 {{ "TITLE.OPTION" | translate }}
               </mat-header-cell>
               <mat-cell *matCellDef="let row; let i = index" class="Action">
-                <button type="button" mat-icon-button (click)="onActionOptionRemoveFromList(i)">
+                <button type="button" mat-icon-button (click)="onActionOptionRemoveFromList(i)" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
                   <small>
                     <mat-icon matTooltip="{{ 'ACTION.DELETE' | translate }}" matTooltipPosition="before"
                       aria-hidden="false" style="color: red">delete</mat-icon>

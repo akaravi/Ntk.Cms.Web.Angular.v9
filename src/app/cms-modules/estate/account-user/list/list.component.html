@@ -1,5 +1,7 @@
-<app-cms-guide-notice [Key]="'accountuser.content.list'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
-<app-estate-account-agency-header *ngIf="this.requestLinkAccountAgencyId?.length>0" [optionId]="this.requestLinkAccountAgencyId">
+<app-cms-guide-notice [Key]="'accountuser.content.list'"
+    [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
+<app-estate-account-agency-header *ngIf="this.requestLinkAccountAgencyId?.length>0"
+    [optionId]="this.requestLinkAccountAgencyId">
 </app-estate-account-agency-header>
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false">
     <ng-container cms-tree>
@@ -14,11 +16,19 @@
     </ng-container>
     <ng-container cms-action>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-        <button *ngIf="optionloadByRoute && dataModelResult.access.accessAddRow  " (click)="onActionbuttonNewRow()" type="button" class="btn box-shadow-button btn-outline-primary" id="openModalButton" data-toggle="modal" data-target="#categoryModal">{{'ACTION.ADD' |
-      translate}}</button>
-        <button *ngIf="optionloadByRoute && dataModelResult.access.accessEditRow  && tableRowSelected.id &&  tableRowSelected?.id?.length>0" (click)="onActionbuttonEditRow()" type="button" class="btn box-shadow-button btn-outline-warning" data-toggle="modal" data-target="#categoryModal">{{'ACTION.EDIT' | translate}}</button>
-        <button *ngIf="optionloadByRoute && dataModelResult.access.accessDeleteRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0" (click)="onActionbuttonDeleteRow()" type="button" class="btn box-shadow-button btn-outline-danger">{{'ACTION.DELETE' |
-      translate}}</button>
+        <button *ngIf="optionloadByRoute && dataModelResult.access.accessAddRow  " (click)="onActionbuttonNewRow()"
+            type="button" class="btn box-shadow-button btn-outline-primary" id="openModalButton" data-toggle="modal"
+            data-target="#categoryModal">{{'ACTION.ADD' |
+            translate}}</button>
+        <button
+            *ngIf="optionloadByRoute && dataModelResult.access.accessEditRow  && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
+            (click)="onActionbuttonEditRow()" type="button" class="btn box-shadow-button btn-outline-warning"
+            data-toggle="modal" data-target="#categoryModal">{{'ACTION.EDIT' | translate}}</button>
+        <button
+            *ngIf="optionloadByRoute && dataModelResult.access.accessDeleteRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
+            (click)="onActionbuttonDeleteRow()" type="button"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
+            translate}}</button>
 
         <a class="btn box-shadow-button btn-outline-info btn-sm BTN-text">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show">{{'ACTION.SEARCH' | translate}}</mat-slide-toggle>
@@ -28,13 +38,17 @@
             <mat-slide-toggle (click)="onActionbuttonStatist()">{{'ACTION.STATIST' | translate}}
             </mat-slide-toggle>
         </a>
-        <button (click)="onActionbuttonExport()" type="button" class="btn box-shadow-button btn-outline-secondary BTN-icon">
-            <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
+        <button (click)="onActionbuttonExport()" type="button"
+            class="btn box-shadow-button btn-outline-secondary BTN-icon">
+            <mat-icon style="font-size: 20px;margin: -11px;"
+                title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
         </button>
-        <button (click)="onActionButtonPrintEntity()" *ngIf="tableRowSelected?.id?.length>0" type="button" class="btn box-shadow-button btn-outline-secondary BTN-icon">
+        <button (click)="onActionButtonPrintEntity()" *ngIf="tableRowSelected?.id?.length>0" type="button"
+            class="btn box-shadow-button btn-outline-secondary BTN-icon">
             <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
         </button>
-        <button (click)="onActionbuttonReload()" type="button" class="btn box-shadow-button btn-outline-secondary BTN-icon">
+        <button (click)="onActionbuttonReload()" type="button"
+            class="btn box-shadow-button btn-outline-secondary BTN-icon">
             <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
         </button>
 
@@ -46,12 +60,16 @@
 
             <!-- LinkLocationIds Field -->
             {{'ACTION.LOCATION' | translate}}
-            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading" [optionSelectForce]="filteModelContent.locationListIds" [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
+                [optionSelectForce]="filteModelContent.locationListIds"
+                [optionPlaceholder]="this.translate.instant('TITLE.Region')">
             </app-cms-location-autocomplete>
             <!-- LinkLocationIds Field -->
             <br>
             {{'ACTION.LOCATION_WORK_ACTIVITY' | translate}}
-            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocationWorkArea($event)" [(optionLoading)]="loading" [optionSelectForce]="filteModelContent.linkLocationWorkAreaIds" [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocationWorkArea($event)"
+                [(optionLoading)]="loading" [optionSelectForce]="filteModelContent.linkLocationWorkAreaIds"
+                [optionPlaceholder]="this.translate.instant('TITLE.Region')">
             </app-cms-location-autocomplete>
             <hr>
         </app-cms-search-list>
@@ -62,12 +80,14 @@
     </ng-container>
     <ng-container cms-body>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)" multiTemplateDataRows>
+        <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
+            multiTemplateDataRows>
             <!-- LinkMainImageIdSrc Column -->
             <ng-container matColumnDef="LinkMainImageIdSrc">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TITLE.PICTURE' | translate}} </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                    <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="40" width="40" />
+                    <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+                        aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="40" width="40" />
 
                 </mat-cell>
             </ng-container>
@@ -106,11 +126,13 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
+                        <button mat-menu-item (click)="onActionbuttonEditRow(row)"
+                            *ngIf="dataModelResult.access.accessEditRow">
                             <mat-icon>mode_edit</mat-icon>
                             <span>{{'ACTION.EDIT' | translate}}</span>
                         </button>
-                        <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow">
+                        <button mat-menu-item (click)="onActionbuttonDeleteRow(row)"
+                            *ngIf="dataModelResult.access.accessDeleteRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
                             <mat-icon>delete_forever</mat-icon>
                             <span>{{'ACTION.DELETE' | translate}}</span>
                         </button>
@@ -135,9 +157,12 @@
                     <div>
                         <table>
                             <tr>
-                                <th> <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="80" width="80" /></th>
+                                <th> <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
+                                        class="ntk-hover-zoom" aria-hidden
+                                        src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="80" width="80" /></th>
                                 <th>
-                                    <span class="navi-icon pointer" [cdkCopyToClipboard]="row.id" (click)="onActionCopied()">
+                                    <span class="navi-icon pointer" [cdkCopyToClipboard]="row.id"
+                                        (click)="onActionCopied()">
                                         <i class="flaticon2-copy"></i></span> {{row.id}}
 
                                 </th>
@@ -166,12 +191,16 @@
                                 <td></td>
                                 <td>
 
-                                    <a (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow" class="link-primary pointer"> {{'ACTION.EDIT' | translate}} </a>|
+                                    <a (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
+                                        class="link-primary pointer"> {{'ACTION.EDIT' | translate}} </a>|
 
-                                    <a (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow" class="link-primary pointer"> {{'ACTION.DELETE' | translate}} </a>|
+                                    <a (click)="onActionbuttonDeleteRow(row)"
+                                        *ngIf="dataModelResult.access.accessDeleteRow" class="link-primary pointer">
+                                        {{'ACTION.DELETE' | translate}} </a>|
 
-                                    <a (click)="onActionbuttonAgencyRow(row,$event)" class="link-primary pointer"> {{'ACTION.AGENCY' |
-                    translate}} </a>|
+                                    <a (click)="onActionbuttonAgencyRow(row,$event)" class="link-primary pointer">
+                                        {{'ACTION.AGENCY' |
+                                        translate}} </a>|
 
                                     <a (click)="onActionbuttonHistoryRow(row,$event)" class="link-primary pointer">
                                         {{'ACTION.HISTORY' | translate}} </a>|
@@ -188,9 +217,13 @@
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)" (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)" [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
+            <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
+                (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+                [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
             </mat-row>
-            <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowSelect(row)" (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)" [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
+            <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowSelect(row)"
+                (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+                [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
             </mat-row>
         </mat-table>
 
@@ -198,7 +231,9 @@
     </ng-container>
     <ng-container cms-footer>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <mat-paginator #paginator [length]="(dataModelResult.totalRowCount)" [pageIndex]="(dataModelResult.currentPageNumber-1)" [pageSize]="dataModelResult.rowPerPage" [pageSizeOptions]="[5, 10, 20, 100]" (page)="onTablePageingData($event)"></mat-paginator>
+        <mat-paginator #paginator [length]="(dataModelResult.totalRowCount)"
+            [pageIndex]="(dataModelResult.currentPageNumber-1)" [pageSize]="dataModelResult.rowPerPage"
+            [pageSizeOptions]="[5, 10, 20, 100]" (page)="onTablePageingData($event)"></mat-paginator>
 
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
     </ng-container>

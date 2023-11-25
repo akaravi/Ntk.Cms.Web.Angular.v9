@@ -8,8 +8,8 @@
 </div>
 <div class="row mb-0">
   <ng-container *ngFor="let item of dataListResult;index as i">
-    <div class="col pe-2" style="cursor: pointer;">
-      <a (click)="onActionClickMenu(item)" class="card card-style rounded-m me-0 p-3 mb-3">
+    <div class="col pe-2">
+      <a (click)="onActionClickMenu(item)" class="card card-style rounded-m me-0 p-3 mb-3" style="cursor: pointer;">
         <i class="{{item.icon}} font-40 icon-50" [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
         <h4 class="pt-3">{{item.titleML}}</h4>
         <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
@@ -17,4 +17,9 @@
     </div>
     <div *ngIf="i%2>0" class="w-100"></div>
   </ng-container>
+</div>
+<div *ngIf="dataListResult?.length>8" class="content mt-5 mb-5">
+  <a (click)="scrollToTop()" style="cursor: pointer;"
+    class="back-to-top-badge bg-highlight color-white shadow-xl py-2"><span>بازگشت به بالا</span><i
+      class="fa fa-caret-up"></i></a>
 </div>

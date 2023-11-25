@@ -65,7 +65,6 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     public pageInfo: PageInfoService,
   ) {
     super(contentService, new EstatePropertyModel(), pageInfo, publicHelper, dialog);
-
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeLanduseId =

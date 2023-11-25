@@ -135,7 +135,8 @@ btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green
 btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray
 ====delete
 btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red
-
+====edit
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-Plum
 
 
 ====select ed

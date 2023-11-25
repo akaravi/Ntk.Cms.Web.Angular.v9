@@ -1,0 +1,10 @@
+<div *ngIf="viewScrollTop" class="content"
+  style="position: fixed;bottom: 80px; right: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
+  <div class="row">
+    <div class="col-12">
+      <a (click)="scrollToTop()" style="cursor: pointer;"
+        class="back-to-top-icon rounded-xs back-to-top-icon-circle bg-highlight color-white shadow-m"><i
+          class="fa fa-angle-up"></i></a>
+    </div>
+  </div>
+</div>

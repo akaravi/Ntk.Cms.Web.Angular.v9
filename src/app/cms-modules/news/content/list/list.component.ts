@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ClauseTypeEnum, DataFieldInfoModel, ErrorExceptionResult,
@@ -27,24 +27,31 @@ import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerMod
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { NewsContentDeleteComponent } from '../delete/delete.component';
 import { environment } from 'src/environments/environment';
+import { I } from '@angular/cdk/keycodes';
 @Component({
   selector: 'app-news-content-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
 export class NewsContentListComponent implements OnInit, OnDestroy {
+  requestLinkCaregoryId = 0;
   constructor(
     public publicHelper: PublicHelper,
     public contentService: NewsContentService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
+    private activatedRoute: ActivatedRoute,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.activatedRoute.params.subscribe((data) => {
+      this.requestLinkCaregoryId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCategoryId'));
+      this.DataGetAll();
+    });
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -90,7 +97,7 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
-      this.DataGetAll();
+      //this.DataGetAll();
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((ret) => {
       this.tokenInfo = ret;
@@ -114,6 +121,8 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
       let selectId = 0;
       if (this.categoryModelSelected?.id > 0) {
         selectId = this.categoryModelSelected.id;
+      } else if (this.requestLinkCaregoryId > 0) {
+        selectId = this.requestLinkCaregoryId;
       }
       const pName = this.constructor.name + '.ServiceGetAllWithHierarchyCategoryId';
       this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
@@ -158,6 +167,21 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
         fastfilter.propertyName = 'ContentCategores';
         fastfilter.propertyAnyName = 'LinkCategoryId';
         fastfilter.value = this.categoryModelSelected.id;
+        fastfilter.clauseType = ClauseTypeEnum.Or;
+        filterChild.filters.push(fastfilter);
+        filterModel.filters.push(filterChild);
+      } else if (this.requestLinkCaregoryId > 0) {
+        const filterChild = new FilterDataModel();
+        let fastfilter = new FilterDataModel();
+        fastfilter.propertyName = 'LinkCategoryId';
+        fastfilter.value = this.requestLinkCaregoryId;
+        fastfilter.clauseType = ClauseTypeEnum.Or;
+        filterChild.filters.push(fastfilter);
+        /** N to N */
+        fastfilter = new FilterDataModel();
+        fastfilter.propertyName = 'ContentCategores';
+        fastfilter.propertyAnyName = 'LinkCategoryId';
+        fastfilter.value = this.requestLinkCaregoryId;
         fastfilter.clauseType = ClauseTypeEnum.Or;
         filterChild.filters.push(fastfilter);
         filterModel.filters.push(filterChild);
@@ -294,16 +318,17 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(NewsContentDeleteComponent, { 
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(NewsContentDeleteComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-       data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
       if (result && result.dialogChangedDate) {
@@ -360,10 +385,10 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
   onActionbuttonExport(): void {
     //open popup
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(CmsExportListComponent, {
       height: "50%",
       width: "50%",
@@ -398,10 +423,10 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
     }
     //open popup
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(CmsExportEntityComponent, {
       height: "50%",
       width: "50%",
@@ -488,8 +513,8 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

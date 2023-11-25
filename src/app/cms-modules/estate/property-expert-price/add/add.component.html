@@ -41,7 +41,7 @@
             <label for="dataModel.expertPriceType" class="color-highlight">{{
               fieldsInfo["expertPriceType"]?.fieldTitle
               }}</label>
-            <select id="dataModel.expertPriceType" [disabled]="!fieldsInfo['expertPriceType']?.accessEditField" [(ngModel)]="dataModel.expertPriceType"  name="dataModel.expertPriceType"  
+            <select id="dataModel.expertPriceType" [disabled]="!fieldsInfo['expertPriceType']?.accessEditField" [(ngModel)]="dataModel.expertPriceType"  name="dataModel.expertPriceType"
               #ExpertPriceType="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.expertPriceType }}" required
               class="form-control validate-name">
               <option *ngFor="
@@ -228,7 +228,7 @@
                         </div>
                     </td>
                 </tr>
-            </table>    
+            </table>
         </div>
         <hr>
         <!-- Description Field -->
