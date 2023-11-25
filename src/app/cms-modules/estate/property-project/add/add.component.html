@@ -134,7 +134,7 @@
            </div>
            <!-- KeywordModel Field -->
            <div style="width: 100%;" appearance="fill" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.source" class="color-highlight">{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</label>
+            <label class="color-highlight">{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</label>
             <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
                 <mat-chip *ngFor="let item of keywordDataModel" (removed)="removeTag(item)">
                     {{item}}
