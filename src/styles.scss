@@ -13,16 +13,12 @@
 /*
  karavi import
 */
-#parent {
-  width: 10rem;
-  height: 10rem;
-  background-color: #ababab;
+.tree-parent .tree-child-hidden{
+  display: none;
 }
 
-#parent .hidden-child{
-  visibility: hidden;
-}
-
-#parent:hover .hidden-child{
-  visibility: visible;
+.tree-parent:hover .tree-child-hidden,
+.tree-parent:focus .tree-child-hidden,
+.tree-parent:focus-within .tree-child-hidden{
+  display: block;
 }

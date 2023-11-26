@@ -1,17 +1,19 @@
 <div class="card card-style">
   <div class="content mb-0">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center tree-parent">
       <!--begin::cms-tree-header-->
       <div *ngIf="optionHeaderDisplay" class="font-14 opacity-50">
-        <ng-content select="[cms-tree-header]"></ng-content>
+        <p class="text-center">
+          <ng-content select="[cms-tree-header]"></ng-content>
+        </p>
       </div>
       <div *ngIf="optionHeaderDisplay" class="divider mb-3"></div>
       <!--end::cms-tree-header-->
       <!--begin::cms-tree-action-->
-      <div *ngIf="optionActionDisplay" class="col-12 pe-0">
+      <div *ngIf="optionActionDisplay" class="col-12 pe-0 tree-child-hidden">
         <ng-content select="[cms-tree-action]"></ng-content>
       </div>
-      <div *ngIf="optionActionDisplay" class="divider mb-3"></div>
+      <div *ngIf="optionActionDisplay" class="divider mb-3 tree-child-hidden"></div>
       <!--end::cms-tree-action-->
       <!--begin::cms-tree-body-->
       <div class="col-12 pe-0">
