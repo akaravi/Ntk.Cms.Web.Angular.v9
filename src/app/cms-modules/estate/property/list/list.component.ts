@@ -234,7 +234,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     "scoreEstatePrice",
     "CreatedDate",
     "UpdatedDate",
-    "Action",
+    //"Action",
     "LinkTo",
     "QuickView",
   ];
@@ -242,7 +242,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     "LinkMainImageIdSrc",
     "CaseCode",
     "IsSoldIt",
-    'Action',
+    //'Action',
     "LinkTo",
     "QuickView",
   ];

@@ -66,13 +66,12 @@
     <button (click)="onActionbuttonExport()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
       *ngIf="this.actionbuttonExportOn">
-      <mat-icon style="font-size: 20px;margin: -11px;"
-        title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
+      <mat-icon title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
 
     <button (click)="onActionbuttonMemo()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.MEMO' | translate}}">description</mat-icon>
+      <mat-icon title="{{'ACTION.MEMO' | translate}}">description</mat-icon>
     </button>
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
@@ -88,19 +87,19 @@
     </a>
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
+      <mat-icon title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
     </button>
     <button (click)="onActionBackToParent()" *ngIf="requestLinkPropertyTypeLanduseId?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray ">{{'ACTION.BACK' |
       translate}}</button>
     <button (click)=" onActionGridExpandRows(true)"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.EXPAND_ALL' | translate}}">unfold_more_double
+      <mat-icon title="{{'ACTION.EXPAND_ALL' | translate}}">unfold_more_double
       </mat-icon>
     </button>
     <button (click)="onActionGridExpandRows(false)"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.COLLPASE_ALL' |translate}}">
+      <mat-icon title="{{'ACTION.COLLPASE_ALL' |translate}}">
         unfold_less_double</mat-icon>
     </button>
 
@@ -127,8 +126,69 @@
       translate}}</button>
     <button (click)="onActionButtonPrintEntity()" *ngIf="tableRowSelected?.id?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
+      <mat-icon title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
     </button>
+
+    <button (click)="onActionbuttonAdsRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.ADS' | translate}}</span>
+      <mat-icon>ads_click</mat-icon>
+    </button>
+    <button (click)="onActionbuttonEditRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.EDIT' | translate}}</span>
+      <mat-icon>mode_edit</mat-icon>
+    </button>
+    <button (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+      <span>{{'ACTION.DELETE' | translate}}</span>
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+    <button (click)="onActionbuttonQuickHistoryAddRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.HISTORY_ADD' | translate}}</span>
+      <mat-icon>history</mat-icon>
+    </button>
+    <button (click)="onActionbuttonHistoryRow(tableRowSelected,$event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.HISTORY_LIST' | translate}}</span>
+      <mat-icon>history</mat-icon>
+    </button>
+
+
+
+    <button (click)="onActionbuttonQuickViewRow(tableRowSelected)"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'ACTION.QUICK_VIEW' |
+      translate}} </button>
+
+    <button (click)="onActionbuttonAdsRow(tableRowSelected,$event)"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'ACTION.ADS' |
+      translate}} </button>
+
+    <button (click)="onActionbuttonHistoryRow(tableRowSelected,$event)"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'ACTION.HISTORY' |
+      translate}} </button>
+
+    <button (click)="onActionbuttonEditRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow"
+       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'ACTION.EDIT' | translate}} </button>
+
+    <button (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
+       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'ACTION.DELETE' | translate}} </button>
+
+    <button (click)="onActionbuttonViewOtherUserAdvertise(tableRowSelected)"
+       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.VIEW_OTHER_USER_ADVERTISE' | translate}}
+    </button>
+
+    <button routerLink="{{'/core/user/edit/' +this.tableRowSelected.createdBy}}" target="_blank"
+       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"> {{'ACTION.VIEW_USER' | translate}}
+    </button>
+
+    <ng-container *ngIf="tableRowSelected.linkSiteId!==tokenHelper.tokenInfo.siteId">
+      <button routerLink="{{'/core/site/edit/'+tableRowSelected.linkSiteId}}" target="_blank"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        {{'ACTION.VIEW_SITE' | translate}} </button>
+    </ng-container>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
   <ng-container cms-action-area>
@@ -552,29 +612,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonAdsRow(row,$event)"
-              *ngIf="dataModelResult.access.accessEditRow">
-              <span>{{'ACTION.ADS' | translate}}</span>
-              <mat-icon>ads_click</mat-icon>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonEditRow(row,$event)"
-              *ngIf="dataModelResult.access.accessEditRow">
-              <span>{{'ACTION.EDIT' | translate}}</span>
-              <mat-icon>mode_edit</mat-icon>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <span>{{'ACTION.DELETE' | translate}}</span>
-              <mat-icon>delete_forever</mat-icon>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonQuickHistoryAddRow(row)">
-              <span>{{'ACTION.HISTORY_ADD' | translate}}</span>
-              <mat-icon>history</mat-icon>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonHistoryRow(row,$event)">
-              <span>{{'ACTION.HISTORY_LIST' | translate}}</span>
-              <mat-icon>history</mat-icon>
-            </button>
+
 
 
           </mat-menu>
@@ -647,39 +685,7 @@
               <tr>
                 <td></td>
                 <td>
-                  <a (click)="onActionbuttonQuickViewRow(row)" class="link-primary pointer">
-                    {{'ACTION.QUICK_VIEW' |
-                    translate}} </a>|
 
-                  <a (click)="onActionbuttonAdsRow(row,$event)" class="link-primary pointer">
-                    {{'ACTION.ADS' |
-                    translate}} </a>|
-
-                  <a (click)="onActionbuttonHistoryRow(row,$event)" class="link-primary pointer">
-                    {{'ACTION.HISTORY' |
-                    translate}} </a>|
-
-                  <a (click)="onActionbuttonEditRow(row,$event)" *ngIf="dataModelResult.access.accessEditRow"
-                    class="link-primary pointer">
-                    {{'ACTION.EDIT' | translate}} </a>|
-
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                    class="link-primary pointer">
-                    {{'ACTION.DELETE' | translate}} </a>|
-
-                  <a (click)="onActionbuttonViewOtherUserAdvertise(row)"
-                    class="link-primary pointer">{{'ACTION.VIEW_OTHER_USER_ADVERTISE' | translate}}
-                  </a>|
-
-                  <a routerLink="{{'/core/user/edit/' +this.tableRowSelected.createdBy}}" target="_blank"
-                    class="link-primary pointer"> {{'ACTION.VIEW_USER' | translate}}
-                  </a>|
-
-                  <ng-container *ngIf="row.linkSiteId!==tokenHelper.tokenInfo.siteId">
-                    <a routerLink="{{'/core/site/edit/'+row.linkSiteId}}" target="_blank" class="link-primary pointer">
-                      {{'ACTION.VIEW_SITE' | translate}} </a>
-                    |
-                  </ng-container>
                 </td>
               </tr>
 
