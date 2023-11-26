@@ -15,7 +15,7 @@ mobileeeeeeeeeeeeeeeee
         <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)" [optionDisabled]="
             !fieldsInfo['linkPropertyTypeUsageId']?.accessAddField
           " [optionTypeView]="2" [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
-          [optionPlaceholder]="this.translate.instant('TITLE.User_Type')">
+          [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
         </app-estate-property-type-usage-selector>
 
         <!-- LinkPropertyTypeLanduseId Field -->
@@ -26,13 +26,11 @@ mobileeeeeeeeeeeeeeeee
             listTypeLanduse.length > 0
           " style="clear: both">
           <div class="ntk-pull-right" *ngFor="let state of listTypeLanduse">
-            <button type="button" 
-              [attr.disabled]="
+            <button type="button" [attr.disabled]="
                 !fieldsInfo['linkPropertyTypeLanduseId']?.accessAddField
                   ? true
                   : null
-              " 
-              
+              "
               [ngClass]="state.id===dataModel.linkPropertyTypeLanduseId ? 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full' : 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full'"
               (click)="onActionSelectorSelectLanduse(state)">
               {{ state.titleML }}
@@ -626,15 +624,16 @@ mobileeeeeeeeeeeeeeeee
               </ng-container>
             </ng-container>
             <mat-action-row>
-              <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  *ngIf="i > 0" (click)="prevStep()">
+              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                *ngIf="i > 0" (click)="prevStep()">
                 {{ "ACTION.BEFOR" | translate }}
               </button>
-              <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="i + 1 < dataModel.propertyDetailGroups.length"
-                (click)="nextStep()">
+              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                *ngIf="i + 1 < dataModel.propertyDetailGroups.length" (click)="nextStep()">
                 {{ "ACTION.NEXT" | translate }}
               </button>
-              <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="i + 1 === dataModel.propertyDetailGroups.length"
-                (click)="nextStep()">
+              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                *ngIf="i + 1 === dataModel.propertyDetailGroups.length" (click)="nextStep()">
                 {{ "ACTION.END" | translate }}
               </button>
             </mat-action-row>
@@ -874,7 +873,8 @@ mobileeeeeeeeeeeeeeeee
           <br />
         </div>
 
-        <button (click)="onActionOptionAddToList()" type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" 
+        <button (click)="onActionOptionAddToList()" type="button"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
           *ngIf="contractTypeSelected && contractTypeSelected.id.length > 0"
           class="btn btn-primary font-weight-bold font-size-h5 px-9 py-4" style="margin: 10px 0px">
           {{ "ACTION.Add_To_List" | translate }} ...
@@ -1080,7 +1080,8 @@ mobileeeeeeeeeeeeeeeee
         </p>
         <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
           id="main-map"></app-cms-map>
-        <button type="button" (click)="ActionCurrentPoint()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        <button type="button" (click)="ActionCurrentPoint()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
           {{ "ACTION.MY_LOCATION" | translate }}
         </button>
         <div *ngIf="formInfo.formSubmitAllow && !loading?.display" class="ntk-button-row">

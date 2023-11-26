@@ -111,7 +111,7 @@
       <app-estate-property-type-landuse-autocomplete (optionChange)="onActionSelectorSelectLanduse($event)"
         *ngIf="!LinkPropertyIdsInUse" [optionDisabled]="!fieldsInfo['linkPropertyTypeLanduseIds']?.accessEditField"
         [optionSelectForce]="dataModel.linkPropertyTypeLanduseIds"
-        [optionPlaceholder]="this.translate.instant('TITLE.Property_type')">
+        [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')">
       </app-estate-property-type-landuse-autocomplete>
       <br>
       <!-- LinkContractTypeIds Field -->
@@ -193,11 +193,13 @@
       </div>
 
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-        <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
         </button>
-        <button type="submit"  (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-          <i class="fa fa-check-square-o" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"></i>
+        <button type="submit" (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"></i>
           {{ "ACTION.SAVE" | translate }}
         </button>
         <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"

@@ -17,24 +17,28 @@
       <mat-horizontal-stepper (selectionChange)="onStepClick($event, stepper)" #stepper>
         <mat-step label="{{ 'TITLE.REQUIRED_INFORMATION' | translate }}" state="main">
           <!-- LinkPropertyTypeUsageId Field -->
+          <p>{{'TITLE.Type_Usage' | translate }}</p>
           <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
             [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageId']?.accessAddField" [optionTypeView]="2"
             [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
-            [optionPlaceholder]="this.translate.instant('TITLE.User_Type')">
+            [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
           </app-estate-property-type-usage-selector>
+
+          <p
+            *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0 && listTypeLanduse && listTypeLanduse.length > 0">
+            {{'TITLE.Property_Type' | translate }}</p>
           <!-- LinkPropertyTypeLanduseId Field -->
           <div
             *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0 && listTypeLanduse && listTypeLanduse.length > 0"
-            style="clear: both">
-            <div *ngFor="let state of listTypeLanduse">
-              <button type="button"
-                [attr.disabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessAddField ? true : null"
+            class="row mb-0">
+            <div *ngFor="let state of listTypeLanduse" class="col-xl-2 col-lg-3 col-md-4 col-sm-12 pe-1">
+              <a [attr.disabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessAddField ? true : null"
                 [ngClass]="state.id===dataModel.linkPropertyTypeLanduseId ? 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full' : 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full'"
-                (click)="onActionSelectorSelectLanduse(state)">{{ state.titleML }}
-              </button>
+                (click)="onActionSelectorSelectLanduse(state)">{{ state.titleML }}</a>
             </div>
           </div>
           <!-- LinkPropertyTypeLanduseId Field -->
+
           <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)" *ngIf="
               (!listTypeLanduse || listTypeLanduse.length === 0) &&
               dataModel.linkPropertyTypeUsageId &&

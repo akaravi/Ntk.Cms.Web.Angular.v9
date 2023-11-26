@@ -304,7 +304,7 @@
             !fieldsInfo['linkPropertyTypeLanduseId']?.accessEditField
           " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId" [(optionLoading)]="loading"
           [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId"
-          [optionPlaceholder]="this.translate.instant('TITLE.Property_type')">
+          [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')">
           <mat-icon matSuffix *ngIf="
               dataModel.linkPropertyTypeLanduseId &&
               dataModel.linkPropertyTypeLanduseId?.length > 0
@@ -567,15 +567,15 @@
               </ng-container>
             </ng-container>
             <mat-action-row>
-              <button  type="button" color="warn" *ngIf="i > 0"
+              <button type="button" color="warn" *ngIf="i > 0"
                 class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal" (click)="prevStep()">
                 {{ "ACTION.PREVIOUS" | translate }}
               </button>
-              <button  type="button" color="primary" *ngIf="i + 1 < dataModel.propertyDetailGroups.length"
+              <button type="button" color="primary" *ngIf="i + 1 < dataModel.propertyDetailGroups.length"
                 class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue" (click)="nextStep()">
                 {{ "ACTION.NEXT" | translate }}
               </button>
-              <button  type="button" color="primary" *ngIf="i + 1 === dataModel.propertyDetailGroups.length"
+              <button type="button" color="primary" *ngIf="i + 1 === dataModel.propertyDetailGroups.length"
                 class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue" (click)="nextStep()">
                 {{ "ACTION.END" | translate }}
               </button>

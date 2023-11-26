@@ -119,7 +119,7 @@
         <!-- LinkPropertyTypeLanduseId Field -->
         <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)"
           [optionTypeView]="2" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Property_type')">
+          [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')">
 
           <mat-icon matSuffix
             *ngIf="filteModelContent.linkPropertyTypeLanduseId && filteModelContent.linkPropertyTypeLanduseId?.length>0"
@@ -342,12 +342,15 @@
                 </ng-container>
               </ng-container>
               <mat-action-row>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  *ngIf="i>0" (click)="prevStep()">{{'ACTION.PREVIOUS' |
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                  *ngIf="i>0" (click)="prevStep()">{{'ACTION.PREVIOUS' |
                   translate}}</button>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="(i+1)<dataModelPropertyDetailGroups.length"
-                  (click)="nextStep()">{{'ACTION.NEXT' | translate}}</button>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="(i+1)===dataModelPropertyDetailGroups.length"
-                  (click)="nextStep()">{{'ACTION.END' | translate}}</button>
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  *ngIf="(i+1)<dataModelPropertyDetailGroups.length" (click)="nextStep()">{{'ACTION.NEXT' |
+                  translate}}</button>
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  *ngIf="(i+1)===dataModelPropertyDetailGroups.length" (click)="nextStep()">{{'ACTION.END' |
+                  translate}}</button>
 
               </mat-action-row>
             </mat-expansion-panel>
