@@ -3233,6 +3233,60 @@ button {
   transform: translateY(-50%);
 }
 
+/*Scroll Fixed cms-action-row*/
+.scroll-cms-action-row-visible {
+  transform: translateY(0%) !important;
+}
+
+.is-on-homescreen .scroll-cms-action-row {
+  bottom: 110px;
+}
+
+.scroll-cms-action-row {
+  position: fixed;
+  bottom: 75px;
+  left: 10px;
+  right: 10px;
+  background-color: #FFF;
+  z-index: 93;
+  /*height: 80px;karavi14020905*/
+  padding-right: 30px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  transform: translateY(150%);
+  transition: all 300ms ease;
+}
+.scroll-cms-action-row img {
+  width: 60px;
+  position: absolute;
+  margin: 10px;
+  border-radius: 10px;
+}
+.scroll-cms-action-row h1 {
+  display: block;
+  font-size: 18px;
+  padding: 7px 10px 0px 0px;
+  margin-bottom: -3px;
+}
+.scroll-cms-action-row em {
+  padding: 0px 80px 0px 85px;
+  font-style: normal;
+  font-size: 11px;
+  opacity: 0.7;
+  display: block;
+  line-height: 15px;
+}
+.scroll-cms-action-row a {
+  width: 60px;
+  font-size: 9px;
+  left: 15px;
+  text-align: center;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  border-radius: 5px;
+  transform: translateY(-50%);
+}
 .alert h4 {
   padding-right: 47px;
   margin-bottom: -5px;

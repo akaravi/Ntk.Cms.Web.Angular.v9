@@ -108,6 +108,7 @@
   </ng-container>
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
+    <h1>{{tableRowSelected?.title}}</h1>
     <button
       *ngIf="dataModelResult.access.accessEditRow && (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
       (click)="onActionbuttonEditRow(tableRowSelected,$event)" type="button"
@@ -395,12 +396,15 @@
                 </ng-container>
               </ng-container>
               <mat-action-row>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  *ngIf="i>0" (click)="prevStep()">{{'ACTION.PREVIOUS' |
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                  *ngIf="i>0" (click)="prevStep()">{{'ACTION.PREVIOUS' |
                   translate}}</button>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="(i+1)<dataModelPropertyDetailGroups.length"
-                  (click)="nextStep()">{{'ACTION.NEXT' | translate}}</button>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="(i+1)===dataModelPropertyDetailGroups.length"
-                  (click)="nextStep()">{{'ACTION.END' | translate}}</button>
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  *ngIf="(i+1)<dataModelPropertyDetailGroups.length" (click)="nextStep()">{{'ACTION.NEXT' |
+                  translate}}</button>
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  *ngIf="(i+1)===dataModelPropertyDetailGroups.length" (click)="nextStep()">{{'ACTION.END' |
+                  translate}}</button>
 
               </mat-action-row>
             </mat-expansion-panel>

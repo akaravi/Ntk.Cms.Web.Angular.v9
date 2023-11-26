@@ -5,48 +5,40 @@
     <!--end::tree-->
   </div>
   <div [ngClass]="optionTreeDisplay?optionClassList:'col-xl-12'">
-    <!--begin::Header-->
-    <div class="card card-style" *ngIf="optionHeaderDisplay ||optionActionDisplay">
+    <div class="card card-style">
       <div class="content mb-0">
         <div class="row justify-content-center">
-          <div class="col-12 pe-0">
+          <!--begin::Header-->
+          <div class="col-12 pe-0" *ngIf="optionHeaderDisplay||optionActionDisplay">
             <ng-content *ngIf="optionHeaderDisplay" select="[cms-header]"></ng-content>
             <ng-content *ngIf="optionActionDisplay" select="[cms-action]"></ng-content>
           </div>
-        </div>
-      </div>
-    </div>
-    <!--end::Header-->
-    <ng-content select="[cms-action-area]"></ng-content>
-    <!--begin::Body-->
-    <div class="card card-style">
-      <div class="content mb-0">
-        <div class="row justify-content-center">
+          <ng-content select="[cms-action-area]"></ng-content>
+          <!--end::Header-->
+          <hr *ngIf="optionHeaderDisplay||optionActionDisplay">
+          <!--begin::Body-->
           <div class="col-12 pe-0" [ngClass]="optionClassBody">
-            <app-progress-spinner [options]="loading"> </app-progress-spinner>
-            <ng-content select="[cms-body]"></ng-content>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--end::Body-->
-    <!--begin::Footer-->
-    <div class="card card-style">
-      <div class="content mb-0">
-        <div class="row justify-content-center">
-          <div class="col-12 pe-0">
             <p class="text-center">
-              <ng-content select="[cms-message]"></ng-content>
-              <ng-content *ngIf="optionFooterDisplay && !loading?.display" select="[cms-footer]"></ng-content>
+              <app-progress-spinner [options]="loading"> </app-progress-spinner>
+              <ng-content select="[cms-body]"></ng-content>
             </p>
           </div>
+          <!--end::Body-->
+          <!--begin::Footer-->
+          <div class="col-12 pe-0" *ngIf="optionFooterDisplay&& !loading?.display">
+            <p class="text-center">
+              <ng-content select="[cms-message]"></ng-content>
+              <ng-content select="[cms-footer]"></ng-content>
+            </p>
+          </div>
+          <!--end::Footer-->
         </div>
       </div>
     </div>
-    <!--end::Footer-->
   </div>
 </div>
-<!-- Scroll Ad-->
-<div *ngIf="optionActionRowDisplay" class="scroll-ad shadow-xl bg-dark-dark scroll-ad-visible">
+<!--begin::cms-action-row-->
+<div *ngIf="optionActionRowDisplay" class="scroll-cms-action-row shadow-xl bg-dark-dark scroll-cms-action-row-visible">
   <ng-content select="[cms-action-row]"></ng-content>
 </div>
+<!--end::cms-action-row-->
