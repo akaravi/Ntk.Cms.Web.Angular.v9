@@ -25,6 +25,318 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+              <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+                      <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
+                        <!-- LinkPropertyTypeUsageId Field -->
+                        <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
+                          [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageId']?.accessEditField" [optionTypeView]="2"
+                          [optionSelectForce]="dataModel.linkPropertyTypeUsageId" [(optionLoading)]="loading"
+                          [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+                        </app-estate-property-type-usage-selector>
+                        <br>
+                        <!-- LinkPropertyTypeLanduseId Field -->
+                        <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)"
+                          *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0"
+                          [optionDisabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessEditField" [optionTypeView]="2"
+                          [optionSelectForce]="dataModel.linkPropertyTypeLanduseId" [(optionLoading)]="loading"
+                          [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')"
+                          [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId">
+                        </app-estate-property-type-landuse-selector>
+                        <br>
+                        <!-- RecordStatus Field -->
+                        <div *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+                            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                            <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus"
+                              name="dataModel.recordStatus" #RecordStatus="ngModel"
+                              [disabled]="!fieldsInfo['recordStatus']?.accessEditField" required
+                              ngClass="recordStatus-{{ dataModel.recordStatus }}" class="form-control validate-name">
+                              <option *ngFor="
+                                  let item of dataModelEnumRecordStatusResult.listItems;
+                                  index as i
+                                    " [ngValue]="item.value">
+                                {{ item.description }}
+                              </option>
+                            </select>
+                            <em class="mt-n3">{{
+                              "TITLE.SELECT_STATUS" | translate}}
+                            </em>
+                            <mat-error *ngIf="RecordStatus.errors?.required">
+                              {{fieldsInfo['recordStatus']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+                            </mat-error>
+                        </div>
+                        <!-- Title Field -->
+                        <div *ngIf="fieldsInfo['title']?.accessWatchField"
+                           class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                           <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+                           <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+                               placeholder="{{fieldsInfo['title']?.fieldTitle }}" disabled="{{ !fieldsInfo['title']?.accessEditField }}"
+                                minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.title" />
+                            <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+                            <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+                            <em>{{ Title.value.length }} / 100</em>
+                            <mat-error *ngIf="Title.errors?.required">
+                             {{ fieldsInfo["title"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
+                            </mat-error>
+                        </div>
+                        <!-- CaseCode Field -->
+                        <div *ngIf="fieldsInfo['caseCode']?.accessWatchField"
+                           class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                         <label for="dataModel.caseCode" class="color-highlight">{{ fieldsInfo["caseCode"]?.fieldTitle }}</label>
+                         <input matInput type="text" [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode
+                          type="text" placeholder="{{fieldsInfo['caseCode']?.fieldTitle }}"
+                          disabled="{{ !fieldsInfo['caseCode']?.accessEditField }}" minlength="3" maxlength="100" required
+                          class="form-control validate-name" id="dataModel.caseCode" />
+                          <i *ngIf="!CaseCode.value" class="fa fa-times  invalid color-red-dark"></i>
+                          <i *ngIf="CaseCode.value" class="fa fa-check  valid color-green-dark"></i>
+                          <em>{{ CaseCode.value.length }} / 100</em>
+                          <mat-error *ngIf="CaseCode.errors?.required">
+                            {{ fieldsInfo["caseCode"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
+                          </mat-error>
+                        </div>
+                        <!-- SharingKey Field -->
+                        <div *ngIf="fieldsInfo['sharingKey']?.accessWatchField"
+                           class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                           <label for="dataModel.sharingKey" class="color-highlight">{{ fieldsInfo["sharingKey"]?.fieldTitle }}</label>
+                           <input matInput type="text" [(ngModel)]="dataModel.sharingKey" name="dataModel.sharingKey" #SharingKey type="text"
+                               placeholder="{{fieldsInfo['sharingKey']?.fieldTitle }}" disabled="{{ !fieldsInfo['sharingKey']?.accessEditField }}"
+                               class="form-control validate-name" id="dataModel.sharingKey" />
+                            <i *ngIf="!SharingKey.value" class="fa fa-times  invalid color-red-dark"></i>
+                            <i *ngIf="SharingKey.value" class="fa fa-check  valid color-green-dark"></i>
+                            <mat-error *ngIf="SharingKey.errors?.required">
+                              {{fieldsInfo['sharingKey']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+                            </mat-error>
+                        </div>
+                        <!-- ViewConfigHiddenInList Field -->
+                        <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+                          <div class="pt-1">
+                            <h5 data-trigger-switch="dataModel.viewConfigHiddenInList" class="font-600 font-14">{{
+                              fieldsInfo["viewConfigHiddenInList"]?.fieldTitle }}</h5>
+                          </div>
+                          <div style="position: inherit" class="ms-auto me-3 pe-2">
+                            <div class="custom-control ios-switch small-switch">
+                              <input type="checkbox" class="ios-input" id="dataModel.viewConfigHiddenInList"
+                                [(ngModel)]="dataModel.viewConfigHiddenInList" name="dataModel.viewConfigHiddenInList">
+                              <label class="custom-control-label" for="dataModel.viewConfigHiddenInList"></label>
+                            </div>
+                          </div>
+                        </div>
+                         <!-- CreatedYaer Field -->
+                        <div *ngIf="this.dataModel.linkPropertyTypeLanduseId&& this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected.titleCreatedYaer?.length>1 && PropertyTypeSelected.titleCreatedYaer!=='---'"
+                            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                           <label for="dataModel.createdYaer" class="color-highlight">
+                                 {{ PropertyTypeSelected.titleCreatedYaer }}</label>
+                           <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer
+                               type="number" placeholder="{{ fieldsInfo['createdYaer']?.fieldTitle }}" disabled="{{!fieldsInfo['createdYaer']?.accessEditField}}"
+                               class="input-ltr-center form-control validate-name" id="dataModel.createdYaer" />
+                        </div>
+                        <!-- Partition Field -->
+                        <div *ngIf="this.dataModel.linkPropertyTypeLanduseId&& this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected.titlePartition?.length>1 && PropertyTypeSelected.titlePartition!=='---'"
+                            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                            <label for="dataModel.partition" class="color-highlight">{{
+                                  PropertyTypeSelected.titlePartition}}
+                            </label>
+                          <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"
+                            placeholder="{{ PropertyTypeSelected.titlePartition }}"  disabled="{{!fieldsInfo['partition']?.accessEditField}}"
+                            class="input-ltr-center form-control validate-name" id="dataModel.partition" />
+                        </div>
+                        <!-- Area Field -->
+                        <div *ngIf="this.dataModel.linkPropertyTypeLanduseId"
+                         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                         <label for="dataModel.area" class="color-highlight">{{
+                          fieldsInfo["area"]?.fieldTitle}}
+                         </label>
+                         <input matInput [(ngModel)]="dataModel.area" name="dataModel.partition" #Area type="text" currencyMask
+                          disabled="{{ !fieldsInfo['area']?.accessEditField }}" placeholder="{{ fieldsInfo['area']?.fieldTitle }}"
+                          class="input-ltr-center form-control validate-name" id="dataModel.area" />
+                        </div>
+                         <!-- LinkLocationId Field -->
+                        <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
+                         [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField" [(optionLoading)]="loading"
+                         [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+                        </app-cms-location-selector>
+                        <!-- Address Field -->
+                        <div *ngIf="fieldsInfo['address']?.accessWatchField"
+                          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                         <label for="dataModel.address" class="color-highlight">{{ fieldsInfo["address"]?.fieldTitle }}</label>
+                         <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
+                          placeholder="{{ fieldsInfo['address']?.fieldTitle }}"
+                          [disabled]="!fieldsInfo['address']?.accessEditField" minlength="1" maxlength="500" rows="5"
+                          id="dataModel.address" class="form-control validate-name">
+                          </textarea>
+                         <em>{{ Address.value.length }} / 500</em>
+                        </div>
+                        <!-- Description Field -->
+                        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                          <label for="dataModel.description" class="color-highlight">{{ "TITLE.General_Description" | translate
+                            }}</label>
+                          <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                            type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}"  disabled="{{!fieldsInfo['description']?.accessEditField}}" minlength="1" maxlength="2000"
+                            rows="5" required id="dataModel.description" class="form-control validate-name">
+                          </textarea>
+                          <em>{{ Description.value.length }} / 2000</em>
+                          <i *ngIf="!Description.value" class="fa fa-times  invalid color-red-dark"></i>
+                          <i *ngIf="Description.value" class="fa fa-check  valid color-green-dark"></i>
+                          <mat-error *ngIf="Description.errors?.required">
+                            Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+                          </mat-error>
+                        </div>
+                        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+                          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+                            (click)="onActionBackToParent()">
+                            {{'ACTION.BACK_TO_PROPERTY_LIST' | translate}}
+                          </button>
+                
+                
+                          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                            [disabled]="!vform.form.valid" matStepperNext>
+                            {{'ACTION.NEXT' | translate}}
+                          </button>
+                          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                            [disabled]="!vform.form.valid || !connectionStatus.internetConnection">
+                            {{'ACTION.SAVE' | translate}}
+                          </button>
+                        </div>
+                      </mat-step>
+
+                      <mat-step label="{{'TITLE.Admin_Config' | translate}}" state="main" *ngIf="tokenHelper.isAdminSite">
+                        <!-- LinkSiteId Field -->
+                        <div *ngIf="fieldsInfo['linkSiteId']?.accessWatchField && this.tokenHelper.isAdminSite"
+                           class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                           <label for="dataModel.title" class="color-highlight">{{fieldsInfo['linkSiteId']?.fieldTitle}}</label>
+                           <input type="text" [(ngModel)]="dataModel.linkSiteId" name="dataModel.linkSiteId" #LinkSiteId
+                              placeholder="{{ fieldsInfo['linkSiteId']?.fieldTitle }}"
+                              disabled="{{ !fieldsInfo['linkSiteId']?.accessEitField }}" minlength="3" maxlength="100"
+                              class="form-control validate-name" id="dataModel.linkSiteId" />
+                        </div>
+                        <!-- viewContentHidden Field -->
+                        <div *ngIf="fieldsInfo['viewContentHidden']?.accessWatchField" class="d-flex mb-3">
+                          <div class="pt-1">
+                            <h5 data-trigger-switch="dataModel.viewContentHidden" class="font-600 font-14">{{
+                              fieldsInfo["viewContentHidden"]?.fieldTitle }}</h5>
+                          </div>
+                          <div style="position: inherit" class="ms-auto me-3 pe-2">
+                            <div class="custom-control ios-switch small-switch">
+                              <input type="checkbox" class="ios-input" id="dataModel.viewContentHidden"
+                                [(ngModel)]="dataModel.viewContentHidden" name="dataModel.viewContentHidden">
+                              <label class="custom-control-label" for="dataModel.viewContentHidden"></label>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- MainAdminRecordStatus Field -->
+                        <div *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
+                           class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                           <label for="dataModel.mainAdminRecordStatus" class="color-highlight">{{
+                             fieldsInfo["mainAdminRecordStatus"]?.fieldTitle }}</label>
+                           <select id="dataModel.mainAdminRecordStatus" [(ngModel)]="dataModel.mainAdminRecordStatus"
+                             name="dataModel.mainAdminRecordStatus" #MainAdminRecordStatus="ngModel"
+                             [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessEditField"
+                              ngClass="recordStatus-{{ dataModel.mainAdminRecordStatus }}" class="form-control validate-name" required>
+                               <option *ngFor="
+                                 let item of dataModelEnumRecordStatusResult.listItems;
+                                 index as i
+                                " [ngValue]="item.value">
+                                {{ item.description }}
+                               </option>
+                          </select>
+                          <em class="mt-n3">{{
+                            "TITLE.SELECT_STATUS" | translate}}
+                          </em>
+                          <mat-error *ngIf="MainAdminRecordStatus.errors?.required">
+                             {{ fieldsInfo["mainAdminRecordStatus"]?.fieldTitle }}
+                             <strong>{{ "MESSAGE.required" | translate }}</strong>
+                          </mat-error>
+                        </div>
+                        <!-- score Field -->
+                         <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
+                            <!-- scoreEstateLocation Field -->
+                            <div *ngIf="fieldsInfo['scoreEstateLocation']?.accessWatchField"
+                              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                              <label for="dataModel.scoreEstateLocation" class="color-highlight">{{
+                                fieldsInfo["scoreEstateLocation"]?.fieldTitle }}</label>
+                              <select id="dataModel.scoreEstateLocation" [(ngModel)]="dataModel.scoreEstateLocation"
+                                  name="dataModel.scoreEstateLocation" #scoreEstateLocation="ngModel"
+                                 [disabled]="!fieldsInfo['scoreEstateLocation']?.accessEditField"
+                                 ngClass="score-{{ dataModel.scoreEstateLocation }}" class="form-control validate-name">
+                                  <option *ngFor="
+                                  let number of numbers" [ngValue]="number">
+                                  {{ number }}
+                                  </option>
+                              </select>
+                            </div>
+                            <!-- scoreEstateBuild Field -->
+                            <div *ngIf="fieldsInfo['scoreEstateBuild']?.accessWatchField"
+                             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                             <label for="dataModel.scoreEstateBuild" class="color-highlight">{{
+                              fieldsInfo["scoreEstateBuild"]?.fieldTitle }}</label>
+                             <select id="dataModel.scoreEstateBuild" [(ngModel)]="dataModel.scoreEstateBuild"
+                                name="dataModel.scoreEstateBuild" #scoreEstateBuild="ngModel"
+                                [disabled]="!fieldsInfo['scoreEstateBuild']?.accessEditField"
+                               ngClass="score-{{ dataModel.scoreEstateBuild }}" class="form-control validate-name">
+                                <option *ngFor="
+                                    let number of numbers" [ngValue]="number">
+                                {{ number }}
+                               </option>
+                             </select>
+                            </div>
+                             <!-- scoreEstatePrice Field -->
+                            <div *ngIf="fieldsInfo['scoreEstatePrice']?.accessWatchField"
+                                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                                <label for="dataModel.scoreEstatePrice" class="color-highlight">{{
+                                  fieldsInfo["scoreEstatePrice"]?.fieldTitle }}</label>
+                                <select id="dataModel.scoreEstatePrice" [(ngModel)]="dataModel.scoreEstatePrice"
+                                  name="dataModel.scoreEstatePrice" #scoreEstatePrice="ngModel"
+                                   [disabled]="!fieldsInfo['scoreEstatePrice']?.accessEditField"
+                                   ngClass="score-{{ dataModel.scoreEstatePrice }}" class="form-control validate-name">
+                                  <option *ngFor="
+                                      let number of numbers" [ngValue]="number">
+                                  {{ number }}
+                                  </option>
+                                </select>
+                            </div>
+                         </div>
+
+                         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+                          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                            matStepperPrevious>
+                            {{'ACTION.BEFOR' | translate}}
+                          </button>
+                          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                            [disabled]="!vform.form.valid" matStepperNext
+                            *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0">
+                            {{'ACTION.NEXT' | translate}}
+                          </button>
+                         </div>
+                      </mat-step>
+
+                      <mat-step label="{{'TITLE.Personal_Information' | translate}}" state="main">
+                        <!-- LinkCmsUserId Field -->
+                        <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
+                         [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
+                         [optionSelectForce]="dataModel.linkCmsUserId"
+                         [optionPlaceholder]="this.translate.instant('TITLE.Order_Owner')">
+                        </app-cms-user-selector>
+                        <!-- linkEstateAgencyId Field -->
+                        <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
+                          (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
+                          [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessEditField"
+                          [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
+                          [optionPlaceholder]="this.translate.instant('TITLE.Property_agency')">
+                        </app-estate-account-agency-selector>
+                        <!-- LinkEstateUserId Field -->
+                        <app-estate-account-user-selector *ngIf="this.tokenHelper.isAdminSite"
+                          (optionChange)="onActionSelectorEstateUser($event)" [(optionLoading)]="loading"
+                          [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessEditField"
+                          [optionSelectForce]="dataModel.linkEstateUserId"
+                          [optionPlaceholder]="this.translate.instant('TITLE.Property_personnel')">
+                        </app-estate-account-user-selector>
+                      </mat-step>
+
+
+              </mat-horizontal-stepper>
+
+        </form>
+
     <!--content-->
   </div>
 </div>
@@ -32,379 +344,7 @@
   <div class="ntk-cms-html-card-body">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-
-      <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
-
-        <!-- LinkPropertyTypeUsageId Field -->
-        <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
-          [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageId']?.accessEditField" [optionTypeView]="2"
-          [optionSelectForce]="dataModel.linkPropertyTypeUsageId" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
-        </app-estate-property-type-usage-selector>
-        <br>
-        <!-- LinkPropertyTypeLanduseId Field -->
-        <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)"
-          *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0"
-          [optionDisabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessEditField" [optionTypeView]="2"
-          [optionSelectForce]="dataModel.linkPropertyTypeLanduseId" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')"
-          [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId">
-        </app-estate-property-type-landuse-selector>
-        <br>
-        <!-- RecordStatus Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['recordStatus']?.accessWatchField">
-          <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}"
-            [disabled]="!fieldsInfo['recordStatus']?.accessEditField" [(ngModel)]="dataModel.recordStatus"
-            name="dataModel.recordStatus" #RecordStatus="ngModel"
-            ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-            <mat-option *ngFor="
-                  let item of dataModelEnumRecordStatusResult.listItems;
-                  index as i
-                " [value]="item.value">{{ item.description }}</mat-option>
-          </mat-select>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['recordStatus']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-          <mat-error *ngIf="RecordStatus.errors?.required">
-            {{fieldsInfo['recordStatus']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-
-
-        <!-- Title Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['title']?.accessWatchField">
-          <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-            disabled="{{!fieldsInfo['title']?.accessEditField}}" placeholder="{{fieldsInfo['title']?.fieldTitle}}"
-            minlength="3" maxlength="100" required />
-          <mat-icon matSuffix *ngIf="dataModel.title" class="pointer" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.title = ''">close</mat-icon>
-          <mat-icon matSuffix *ngIf="dataModel.title" class="pointer" (click)="onActionbuttonQuickListSearchTitle()">
-            find_replace
-          </mat-icon>
-          <mat-icon class="pointer" matSuffix>mode_edit</mat-icon>
-
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['title']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
-          <mat-error *ngIf="Title.errors?.required">
-            {{fieldsInfo['title']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-
-        <!-- CaseCode Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['caseCode']?.accessWatchField">
-          <mat-label>{{fieldsInfo['caseCode']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode type="text"
-            disabled="{{!fieldsInfo['caseCode']?.accessEditField}}" placeholder="{{fieldsInfo['caseCode']?.fieldTitle}}"
-            minlength="3" maxlength="100" required />
-          <mat-icon matSuffix *ngIf="dataModel.caseCode" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.caseCode = ''">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['caseCode']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{ CaseCode.value.length }} / 100</mat-hint>
-          <mat-error *ngIf="CaseCode.errors?.required">
-            {{fieldsInfo['caseCode']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- SharingKey Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['sharingKey']?.accessWatchField">
-          <mat-label>{{fieldsInfo['sharingKey']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.sharingKey" name="dataModel.sharingKey" #SharingKey type="text"
-            disabled="{{!fieldsInfo['sharingKey']?.accessEditField}}"
-            placeholder="{{fieldsInfo['sharingKey']?.fieldTitle}}" />
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['sharingKey']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-error *ngIf="SharingKey.errors?.required">
-            {{fieldsInfo['sharingKey']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- ViewConfigHiddenInList Field -->
-        <div class="ntk-full-width">
-          <mat-slide-toggle [(ngModel)]="dataModel.viewConfigHiddenInList"
-            *ngIf="fieldsInfo['viewConfigHiddenInList']?.accessWatchField"
-            [disabled]="!fieldsInfo['viewConfigHiddenInList']?.accessEditField" name="dataModel.viewConfigHiddenInList">
-            {{fieldsInfo['viewConfigHiddenInList']?.fieldTitle}}
-          </mat-slide-toggle>
-        </div>
-        <!-- CreatedYaer Field -->
-        <mat-form-field class="ntk-full-width"
-          *ngIf="this.dataModel.linkPropertyTypeLanduseId&& this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected.titleCreatedYaer?.length>1 && PropertyTypeSelected.titleCreatedYaer!=='---'">
-          <mat-label>{{PropertyTypeSelected.titleCreatedYaer}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer type="number"
-            disabled="{{!fieldsInfo['createdYaer']?.accessEditField}}"
-            placeholder="{{fieldsInfo['createdYaer']?.fieldTitle}}" />
-          <mat-icon matSuffix *ngIf="dataModel.createdYaer" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.createdYaer = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['createdYaer']?.fieldDescription}}</strong>
-          </mat-hint>
-        </mat-form-field>
-        <!-- Partition Field -->
-        <mat-form-field class="ntk-full-width"
-          *ngIf="this.dataModel.linkPropertyTypeLanduseId&& this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected.titlePartition?.length>1 && PropertyTypeSelected.titlePartition!=='---'">
-          <mat-label>{{PropertyTypeSelected.titlePartition}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"
-            disabled="{{!fieldsInfo['partition']?.accessEditField}}"
-            placeholder="{{PropertyTypeSelected.titlePartition}}" />
-          <mat-icon matSuffix *ngIf="dataModel.partition" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.partition = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['partition']?.fieldDescription}}</strong>
-          </mat-hint>
-
-        </mat-form-field>
-        <!-- Area Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="this.dataModel.linkPropertyTypeLanduseId">
-          <mat-label>{{fieldsInfo['area']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.area" name="dataModel.area" #Area type="text" currencyMask
-            class="input-ltr" disabled="{{!fieldsInfo['area']?.accessEditField}}"
-            placeholder="{{fieldsInfo['area']?.fieldTitle}}" />
-          <mat-icon matSuffix *ngIf="dataModel.area" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.area = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['area']?.fieldDescription}}</strong>
-          </mat-hint>
-        </mat-form-field>
-
-        <!-- LinkLocationId Field -->
-        <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-          [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField" [(optionLoading)]="loading"
-          [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="this.translate.instant('TITLE.Region')">
-        </app-cms-location-selector>
-
-        <!-- Address Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['address']?.accessWatchField">
-          <mat-label>{{fieldsInfo['address']?.fieldTitle}}</mat-label>
-          <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
-            disabled="{{!fieldsInfo['address']?.accessEditField}}" placeholder="{{fieldsInfo['address']?.fieldTitle}}"
-            minlength="1" maxlength="500" rows=5 [disabled]="!fieldsInfo['address']?.accessEditField"></textarea>
-          <mat-icon matSuffix *ngIf="dataModel.address" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.address = ''">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['address']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{ Address.value.length }} / 500</mat-hint>
-        </mat-form-field>
-
-        <!-- Description Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>{{'TITLE.General_Description' | translate}}</mat-label>
-          <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-            disabled="{{!fieldsInfo['description']?.accessEditField}}"
-            placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="2000" rows=5
-            required></textarea>
-          <mat-icon matSuffix *ngIf="dataModel.description" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.description = ''">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['description']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{ Description.value.length }} / 2000</mat-hint>
-          <mat-error *ngIf="Description.errors?.required">
-            Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
-            (click)="onActionBackToParent()">
-            {{'ACTION.BACK_TO_PROPERTY_LIST' | translate}}
-          </button>
-
-
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-            [disabled]="!vform.form.valid" matStepperNext>
-            {{'ACTION.NEXT' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-            [disabled]="!vform.form.valid || !connectionStatus.internetConnection">
-            {{'ACTION.SAVE' | translate}}
-          </button>
-        </div>
-      </mat-step>
-      <mat-step label="{{'TITLE.Admin_Config' | translate}}" state="main" *ngIf="tokenHelper.isAdminSite">
-        <!-- LinkSiteId Field -->
-        <mat-form-field class="ntk-full-width mb-1"
-          *ngIf="fieldsInfo['linkSiteId']?.accessWatchField && this.tokenHelper.isAdminSite">
-          <mat-label>{{fieldsInfo['linkSiteId']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.linkSiteId" name="dataModel.linkSiteId" #LinkSiteId type="text"
-            disabled="{{!fieldsInfo['linkSiteId']?.accessEditField}}"
-            placeholder="{{fieldsInfo['linkSiteId']?.fieldTitle}}" minlength="3" maxlength="100" required />
-
-
-          <!-- viewContentHidden Field -->
-          <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.viewContentHidden"
-              *ngIf="fieldsInfo['viewContentHidden']?.accessWatchField"
-              [disabled]="!fieldsInfo['viewContentHidden']?.accessEditField" name="dataModel.viewContentHidden">
-              {{fieldsInfo['viewContentHidden']?.fieldTitle}}
-            </mat-slide-toggle>
-          </div>
-          <!-- siteAdminViewContentHidden Field -->
-          <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.siteAdminViewContentHidden"
-              *ngIf="fieldsInfo['siteAdminViewContentHidden']?.accessWatchField"
-              [disabled]="!fieldsInfo['siteAdminViewContentHidden']?.accessEditField"
-              name="dataModel.siteAdminViewContentHidden">
-              {{fieldsInfo['siteAdminViewContentHidden']?.fieldTitle}}
-            </mat-slide-toggle>
-          </div>
-
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['linkSiteId']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{ LinkSiteId.value.length }} / 100</mat-hint>
-          <mat-error *ngIf="LinkSiteId.errors?.required">
-            {{fieldsInfo['linkSiteId']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- MainAdminRecordStatus Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField">
-          <mat-select placeholder="{{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}}"
-            [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessEditField"
-            [(ngModel)]="dataModel.mainAdminRecordStatus" name="dataModel.mainAdminRecordStatus"
-            #MainAdminRecordStatus="ngModel" ngClass="recordStatus-{{ dataModel.mainAdminRecordStatus }}" required>
-            <mat-option *ngFor="
-  let item of dataModelEnumRecordStatusResult.listItems;
-  index as i
-" [value]="item.value">{{ item.description }}</mat-option>
-          </mat-select>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['mainAdminRecordStatus']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-          <mat-error *ngIf="MainAdminRecordStatus.errors?.required">
-            {{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}} <strong>{{'MESSAGE.required' |
-              translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-
-        <!-- score Field -->
-        <div class="content" *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
-          <div class="row">
-            <div class="col-lg-3 col-md-12">
-              <!-- scoreEstateLocation Field -->
-              <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['scoreEstateLocation']?.accessWatchField">
-                <mat-select placeholder="{{fieldsInfo['scoreEstateLocation']?.fieldTitle}}"
-                  [(ngModel)]="dataModel.scoreEstateLocation"
-                  [disabled]="!fieldsInfo['scoreEstateLocation']?.accessEditField" name="dataModel.scoreEstateLocation"
-                  #scoreEstateLocation="ngModel" ngClass="score-{{ dataModel.scoreEstateLocation }}">
-                  <mat-option *ngFor="
-      let number of numbers;
-    " [value]="number">{{ number }}</mat-option>
-                </mat-select>
-                <mat-hint align="start">
-                  <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                  <strong class="info-field-text">{{'MESSAGE.POINT_LOCATION' | translate}}
-                  </strong>
-                </mat-hint>
-              </mat-form-field>
-
-            </div>
-            <div class="col-lg-3 col-md-12">
-              <!-- scoreEstateBuild Field -->
-              <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['scoreEstateBuild']?.accessWatchField">
-                <mat-select placeholder="{{fieldsInfo['scoreEstateBuild']?.fieldTitle}}"
-                  [(ngModel)]="dataModel.scoreEstateBuild" [disabled]="!fieldsInfo['scoreEstateBuild']?.accessEditField"
-                  name="dataModel.scoreEstateBuild" #scoreEstateBuild="ngModel"
-                  ngClass="score-{{ dataModel.scoreEstateBuild }}">
-                  <mat-option *ngFor="
-      let number of numbers;
-    " [value]="number">{{ number }}</mat-option>
-                </mat-select>
-                <mat-hint align="start">
-                  <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                  <strong class="info-field-text">{{'MESSAGE.POINT_CONSTRUCTION' | translate}}
-                  </strong>
-                </mat-hint>
-              </mat-form-field>
-
-            </div>
-            <div class="col-lg-3 col-md-12">
-              <!-- scoreEstatePrice Field -->
-              <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['scoreEstatePrice']?.accessWatchField">
-                <mat-select placeholder="{{fieldsInfo['scoreEstatePrice']?.fieldTitle}}"
-                  [(ngModel)]="dataModel.scoreEstatePrice" [disabled]="!fieldsInfo['scoreEstatePrice']?.accessEditField"
-                  name="dataModel.scoreEstatePrice" #scoreEstatePrice="ngModel"
-                  ngClass="score-{{ dataModel.scoreEstatePrice }}">
-                  <mat-option *ngFor="
-      let number of numbers;
-    " [value]="number">{{ number }}</mat-option>
-                </mat-select>
-                <mat-hint align="start">
-                  <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                  <strong class="info-field-text">{{'MESSAGE.POINT_PRICE' | translate}}
-                  </strong>
-                </mat-hint>
-              </mat-form-field>
-
-            </div>
-            <div class="col-lg-3 col-md-12">
-
-
-            </div>
-          </div>
-        </div>
-
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-            matStepperPrevious>
-            {{'ACTION.BEFOR' | translate}}
-          </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-            [disabled]="!vform.form.valid" matStepperNext
-            *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0">
-            {{'ACTION.NEXT' | translate}}
-          </button>
-        </div>
-      </mat-step>
       <mat-step label="{{'TITLE.Personal_Information' | translate}}" state="main">
-        <!-- LinkCmsUserId Field -->
-        <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
-          [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
-          [optionSelectForce]="dataModel.linkCmsUserId"
-          [optionPlaceholder]="this.translate.instant('TITLE.Order_Owner')">
-        </app-cms-user-selector>
-
-
-
-        <!-- linkEstateAgencyId Field -->
-        <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
-          (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
-          [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessEditField"
-          [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
-          [optionPlaceholder]="this.translate.instant('TITLE.Property_agency')">
-        </app-estate-account-agency-selector>
-        <!-- LinkEstateUserId Field -->
-        <app-estate-account-user-selector *ngIf="this.tokenHelper.isAdminSite"
-          (optionChange)="onActionSelectorEstateUser($event)" [(optionLoading)]="loading"
-          [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessEditField"
-          [optionSelectForce]="dataModel.linkEstateUserId"
-          [optionPlaceholder]="this.translate.instant('TITLE.Property_personnel')">
-        </app-estate-account-user-selector>
-
         <!-- AboutAgentMobile Field -->
         <mat-form-field class="ntk-full-width " *ngIf="fieldsInfo['aboutAgentMobile']?.accessWatchField">
           <mat-label>{{fieldsInfo['aboutAgentMobile']?.fieldTitle}}</mat-label>
