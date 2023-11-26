@@ -76,14 +76,14 @@
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
-        {{'ACTION.INCHECKING' | translate}}
       </mat-slide-toggle>
+      {{'ACTION.INCHECKING' | translate}}
     </a>
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
         [checked]="searchInResponsibleChecked">
-        {{'ACTION.InResponsible' | translate}}
       </mat-slide-toggle>
+      {{'ACTION.InResponsible' | translate}}
     </a>
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
@@ -111,19 +111,23 @@
     <button
       *ngIf="dataModelResult.access.accessEditRow && (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
       (click)="onActionbuttonEditRow(tableRowSelected,$event)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-      translate}}</button>
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta"><span>{{'ACTION.EDIT' |
+        translate}}</span>
+      <mat-icon>mode_edit</mat-icon>
+    </button>
 
     <button
       *ngIf="dataModelResult.access.accessDeleteRow && optionloadByRoute&& (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
-      (click)="onActionbuttonDeleteRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-      translate}}</button>
+      (click)="onActionbuttonDeleteRow(tableRowSelected)" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red"><span>{{'ACTION.DELETE' |
+        translate}}</span>
+      <mat-icon>delete_forever</mat-icon>
+    </button>
     <button *ngIf="this.tokenHelper.isAdminSite && optionloadByRoute&& tableRowSelected?.id?.length>0 "
       (click)="onActionbuttonActionSendSmsToCustomerOrder()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.ActionSendSmsToCustomerOrder'
-      |
-      translate}}</button>
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"><span>{{'ACTION.ActionSendSmsToCustomerOrder'
+        |
+        translate}}</span></button>
     <button (click)="onActionButtonPrintEntity()" *ngIf="tableRowSelected?.id?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
@@ -133,16 +137,6 @@
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.ADS' | translate}}</span>
       <mat-icon>ads_click</mat-icon>
-    </button>
-    <button (click)="onActionbuttonEditRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <span>{{'ACTION.EDIT' | translate}}</span>
-      <mat-icon>mode_edit</mat-icon>
-    </button>
-    <button (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-      <span>{{'ACTION.DELETE' | translate}}</span>
-      <mat-icon>delete_forever</mat-icon>
     </button>
     <button (click)="onActionbuttonQuickHistoryAddRow(tableRowSelected)"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
@@ -154,39 +148,26 @@
       <span>{{'ACTION.HISTORY_LIST' | translate}}</span>
       <mat-icon>history</mat-icon>
     </button>
-
-
-
-    <button (click)="onActionbuttonQuickViewRow(tableRowSelected)"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      {{'ACTION.QUICK_VIEW' |
-      translate}} </button>
-
-    <button (click)="onActionbuttonAdsRow(tableRowSelected,$event)"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      {{'ACTION.ADS' |
-      translate}} </button>
-
-    <button (click)="onActionbuttonHistoryRow(tableRowSelected,$event)"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      {{'ACTION.HISTORY' |
-      translate}} </button>
-
-    <button (click)="onActionbuttonEditRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow"
-       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      {{'ACTION.EDIT' | translate}} </button>
-
-    <button (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
-       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      {{'ACTION.DELETE' | translate}} </button>
-
+    <button (click)="onActionbuttonQuickViewRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.QUICK_VIEW' |
+        translate}}</span>
+      <mat-icon>visibility</mat-icon>
+    </button>
     <button (click)="onActionbuttonViewOtherUserAdvertise(tableRowSelected)"
-       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.VIEW_OTHER_USER_ADVERTISE' | translate}}
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"><span>{{'ACTION.VIEW_OTHER_USER_ADVERTISE'
+        | translate}}</span>
     </button>
 
     <button routerLink="{{'/core/user/edit/' +this.tableRowSelected.createdBy}}" target="_blank"
-       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"> {{'ACTION.VIEW_USER' | translate}}
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"> <span>{{'ACTION.VIEW_USER'
+        |
+        translate}}</span>
     </button>
 
     <ng-container *ngIf="tableRowSelected.linkSiteId!==tokenHelper.tokenInfo.siteId">
-      <button routerLink="{{'/core/site/edit/'+tableRowSelected.linkSiteId}}" target="_blank"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <button routerLink="{{'/core/site/edit/'+tableRowSelected.linkSiteId}}" target="_blank"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
         {{'ACTION.VIEW_SITE' | translate}} </button>
     </ng-container>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->

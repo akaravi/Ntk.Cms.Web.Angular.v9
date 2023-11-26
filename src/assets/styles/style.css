@@ -2750,13 +2750,17 @@ img.mx-auto {
 }
 .btn i{
   margin: -7px;
-  padding-right: 31px;
-  padding-left: 3px;
+  padding-right: 3px;
+  padding-left: 0px;
 }
 .btn mat-icon{
   margin: -7px;
-  padding-right: 31px;
-  padding-left: 3px;
+  padding-right: 3px;
+  padding-left: 0px;
+}
+.btn span{
+  padding-right: 0px;
+  padding-left: 8px;
 }
 
 .btn:hover {
