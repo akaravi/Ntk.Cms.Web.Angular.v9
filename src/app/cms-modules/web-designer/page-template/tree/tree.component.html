@@ -1,21 +1,21 @@
-<app-cms-html-tree [optionLoading]="loading" [optionHeaderDisplay]="true" [optionActionDisplay]="true"
+<app-cms-html-tree [optionLoading]="loading" [optionHeaderDisplay]="true" [optionActionDisplay]="false"
   [optionFooterDisplay]="false">
   <ng-container cms-tree-header>
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-  <button *ngIf="dataModelResult.access.accessAddRow" (click)="onActionAdd()" type="button"
-    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
-    translate}}</button>
-  <button *ngIf="dataModelResult.access.accessEditRow && dataModelSelect.id?.length>0" (click)="onActionEdit()"
-    type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT'
-    |
-    translate}}</button>
-  <button *ngIf="dataModelResult.access.accessWatchRow" (click)="onActionReload()" type="button"
-    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-    <mat-icon style="font-size: 20px;margin: -6px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
-  </button>
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
+    <button *ngIf="dataModelResult.access.accessAddRow" (click)="onActionAdd()" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
+      translate}}</button>
+    <button *ngIf="dataModelResult.access.accessEditRow && dataModelSelect.id?.length>0" (click)="onActionEdit()"
+      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT'
+      |
+      translate}}</button>
+    <button *ngIf="dataModelResult.access.accessWatchRow" (click)="onActionReload()" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <mat-icon style="font-size: 20px;margin: -6px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
+    </button>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
   </ng-container>
   <ng-container cms-tree-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
