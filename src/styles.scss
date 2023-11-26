@@ -13,3 +13,16 @@
 /*
  karavi import
 */
+#parent {
+  width: 10rem;
+  height: 10rem;
+  background-color: #ababab;
+}
+
+#parent .hidden-child{
+  visibility: hidden;
+}
+
+#parent:hover .hidden-child{
+  visibility: visible;
+}

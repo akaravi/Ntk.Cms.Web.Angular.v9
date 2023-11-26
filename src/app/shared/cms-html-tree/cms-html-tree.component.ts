@@ -21,8 +21,10 @@ export class CmsHtmlTreeComponent implements OnInit {
 
   }
   /*
-  <app-cms-html-tree [optionLoading]="loading" [optionHeaderDisplay]="true" [optionActionDisplay]="false" [optionFooterDisplay]="false">
+  <app-cms-html-tree [optionLoading]="loading" [optionHeaderDisplay]="false" [optionActionDisplay]="true" [optionFooterDisplay]="false">
 <ng-container cms-tree-header>
+ </ng-container>
+ <ng-container cms-tree-action>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->

@@ -1,27 +1,31 @@
 <div class="card card-style">
   <div class="content mb-0">
     <div class="row justify-content-center">
-      <!--begin::Header-->
-      <div class="col-12 pe-0" *ngIf="optionHeaderDisplay||optionActionDisplay">
-        <ng-content *ngIf="optionHeaderDisplay" select="[cms-tree-header]"></ng-content>
-        <ng-content *ngIf="optionActionDisplay" select="[cms-tree-action]"></ng-content>
+      <!--begin::cms-tree-header-->
+      <div *ngIf="optionHeaderDisplay" class="font-14 opacity-50">
+        <ng-content select="[cms-tree-header]"></ng-content>
       </div>
-      <!--end::Header-->
-      <hr *ngIf="optionHeaderDisplay||optionActionDisplay">
-      <!--begin::Body-->
+      <div *ngIf="optionHeaderDisplay" class="divider mb-3"></div>
+      <!--end::cms-tree-header-->
+      <!--begin::cms-tree-action-->
+      <div *ngIf="optionActionDisplay" class="col-12 pe-0">
+        <ng-content select="[cms-tree-action]"></ng-content>
+      </div>
+      <div *ngIf="optionActionDisplay" class="divider mb-3"></div>
+      <!--end::cms-tree-action-->
+      <!--begin::cms-tree-body-->
       <div class="col-12 pe-0">
-        <p class="text-center">
-          <ng-content select="[cms-tree-body]"></ng-content>
-        </p>
+        <ng-content select="[cms-tree-body]"></ng-content>
       </div>
-      <!--end::Body-->
-      <!--begin::Footer-->
+      <!--end::cms-tree-body-->
+      <!--begin::cms-tree-footer-->
+      <div *ngIf="optionFooterDisplay" class="divider mb-3"></div>
       <div class="col-12 pe-0" *ngIf="optionFooterDisplay">
         <p class="text-center">
           <ng-content select="[cms-tree-footer]"></ng-content>
         </p>
       </div>
-      <!--end::Footer-->
+      <!--end::cms-tree-footer-->
     </div>
   </div>
 </div>
