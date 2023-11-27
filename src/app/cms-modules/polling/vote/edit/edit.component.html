@@ -11,58 +11,43 @@
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
+            <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+                  {{ formInfo.formTitle }}
+                   <!-- RecordStatus Field -->
+                  <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
+                    <label for="dataModel.recordStatus" class="color-highlight">{{ fieldsInfo["recordStatus"]?.fieldTitle
+                    }}</label>
+                    <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+                  #RecordStatus="ngModel"
+                  ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required class="form-control validate-name">
+                   <option *ngFor="
+                          let item of dataModelEnumRecordStatusResult.listItems;
+                          index as i
+                          " [ngValue]="item.value">
+                      {{ item.description }}
+                   </option>
+                    </select>
+                    <em class="mt-n3">{{
+                     "TITLE.SELECT_STATUS" | translate}}
+                    </em>
+                    <mat-error *ngIf="RecordStatus.errors?.required">
+                       RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+                     </mat-error>
+                  </div>
 
+                  <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                    <button type="button" (click)="onFormCancel()"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                    </button>
+                    <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                        (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                        <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                    </button>
+                  </div>
+
+            </form>
+    
         <!--Content-->
     </div>
 </div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-
-        <mat-form-field class="ntk-full-width">
-            <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-                name="dataModel.recordStatus" #RecordStatus="ngModel"
-                ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-                <mat-option *ngFor="
-                  let item of dataModelEnumRecordStatusResult.listItems;
-                  index as i
-                " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-                RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
