@@ -22,3 +22,10 @@
 .tree-parent:focus-within .tree-child-hidden{
   display: block;
 }
+.input-ltr {
+  direction: ltr !important;
+}
+.input-ltr-center {
+  direction: ltr !important;
+  text-align: center !important;
+}

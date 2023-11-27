@@ -1,7 +1,7 @@
 <app-cms-html-tree [optionLoading]="loading" [optionHeaderDisplay]="true" [optionActionDisplay]="true"
   [optionFooterDisplay]="false">
   <ng-container cms-tree-header>
-    {{dataModelResult?.access?.moduleEntityName| translate}}
+    {{'TABLE.'+dataModelResult?.access?.moduleEntityName| translate}}
   </ng-container>
   <ng-container cms-tree-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->

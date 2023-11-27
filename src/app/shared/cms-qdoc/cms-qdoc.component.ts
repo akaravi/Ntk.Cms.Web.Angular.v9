@@ -19,7 +19,18 @@ export class CmsQDocComponent implements OnInit {
   ) { }
   @Input() optionUrl = '';
   QDocModel: any = {};
-
+  otpConfig = {
+    allowNumbersOnly: true,
+    length: 5,
+    isPasswordInput: false,
+    disableAutoFocus: false,
+    placeholder: '',
+    inputStyles: {
+      'width': '50px',
+      'height': '50px',
+      'margin': '5px',
+    }
+  }
   ngOnInit(): void {
   }
   onActionSendUrlToQDoc(): void {
@@ -36,9 +47,12 @@ export class CmsQDocComponent implements OnInit {
         map((ret: any) => {
           this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.The_order_was_sent_to_the_website'));
         })
-        // 
+        //
         //   this.cmsToastrService.typeErrorMessage('برروز خطا در ارسال دستور');
-        // 
+        //
       ).toPromise();
+  }
+  onOtpChange(otp) {
+    this.QDocModel.username = otp;
   }
 }

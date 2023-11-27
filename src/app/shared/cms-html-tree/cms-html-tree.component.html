@@ -1,33 +1,33 @@
 <div class="card card-style">
-  <div class="content mb-0">
-    <div class="row justify-content-center tree-parent">
-      <!--begin::cms-tree-header-->
-      <div *ngIf="optionHeaderDisplay" class="font-14 opacity-50">
-        <p class="text-center">
-          <ng-content select="[cms-tree-header]"></ng-content>
-        </p>
-      </div>
-      <div *ngIf="optionHeaderDisplay" class="divider mb-3"></div>
-      <!--end::cms-tree-header-->
-      <!--begin::cms-tree-action-->
-      <div *ngIf="optionActionDisplay" class="col-12 pe-0 tree-child-hidden">
-        <ng-content select="[cms-tree-action]"></ng-content>
-      </div>
-      <div *ngIf="optionActionDisplay" class="divider mb-3 tree-child-hidden"></div>
-      <!--end::cms-tree-action-->
-      <!--begin::cms-tree-body-->
-      <div class="col-12 pe-0">
-        <ng-content select="[cms-tree-body]"></ng-content>
-      </div>
-      <!--end::cms-tree-body-->
-      <!--begin::cms-tree-footer-->
-      <div *ngIf="optionFooterDisplay" class="divider mb-3"></div>
-      <div class="col-12 pe-0" *ngIf="optionFooterDisplay">
-        <p class="text-center">
-          <ng-content select="[cms-tree-footer]"></ng-content>
-        </p>
-      </div>
-      <!--end::cms-tree-footer-->
+
+  <div class="row justify-content-center tree-parent">
+    <!--begin::cms-tree-header-->
+    <div *ngIf="optionHeaderDisplay" class="font-14 opacity-50">
+      <p class="text-center mb-2 mt-2 color-highlight font-600">
+        <ng-content select="[cms-tree-header]"></ng-content>
+      </p>
     </div>
+    <div *ngIf="optionHeaderDisplay" class="divider mb-1"></div>
+    <!--end::cms-tree-header-->
+    <!--begin::cms-tree-action-->
+    <div *ngIf="optionActionDisplay" class="col-12 pe-0 tree-child-hidden">
+      <ng-content select="[cms-tree-action]"></ng-content>
+    </div>
+    <div *ngIf="optionActionDisplay" class="divider mb-1 tree-child-hidden"></div>
+    <!--end::cms-tree-action-->
+    <!--begin::cms-tree-body-->
+    <div class="col-12 pe-0">
+      <ng-content select="[cms-tree-body]"></ng-content>
+    </div>
+    <!--end::cms-tree-body-->
+    <!--begin::cms-tree-footer-->
+    <div *ngIf="optionFooterDisplay" class="divider mb-1"></div>
+    <div class="col-12 pe-0" *ngIf="optionFooterDisplay">
+      <p class="text-center">
+        <ng-content select="[cms-tree-footer]"></ng-content>
+      </p>
+    </div>
+    <!--end::cms-tree-footer-->
   </div>
+
 </div>

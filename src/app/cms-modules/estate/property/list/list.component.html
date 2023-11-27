@@ -159,14 +159,14 @@
         | translate}}</span>
     </button>
 
-    <button routerLink="{{'/core/user/edit/' +this.tableRowSelected.createdBy}}" target="_blank"
+    <button routerLink="{{'/core/user/edit/' +this.tableRowSelected?.createdBy}}" target="_blank"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"> <span>{{'ACTION.VIEW_USER'
         |
         translate}}</span>
     </button>
 
-    <ng-container *ngIf="tableRowSelected.linkSiteId!==tokenHelper.tokenInfo.siteId">
-      <button routerLink="{{'/core/site/edit/'+tableRowSelected.linkSiteId}}" target="_blank"
+    <ng-container *ngIf="tableRowSelected&&tableRowSelected?.linkSiteId!==tokenHelper.tokenInfo.siteId">
+      <button routerLink="{{'/core/site/edit/'+tableRowSelected?.linkSiteId}}" target="_blank"
         class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
         {{'ACTION.VIEW_SITE' | translate}} </button>
     </ng-container>

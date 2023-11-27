@@ -166,6 +166,7 @@ import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './material/mat
 import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
+import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
 
 @NgModule({
   imports: [
@@ -223,7 +224,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     //PerfectScrollbarModule,
     NgbNavModule,
 
-
+    NgOtpInputModule,
   ],
   declarations: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.
