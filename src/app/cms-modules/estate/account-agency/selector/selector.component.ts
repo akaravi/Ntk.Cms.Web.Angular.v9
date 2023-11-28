@@ -60,7 +60,7 @@ export class EstateAccountAgencySelectorComponent implements OnInit {
   ngOnInit(): void {
     this.loadOptions();
     if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
-    this.optionLabel = this.optionPlaceholder;
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

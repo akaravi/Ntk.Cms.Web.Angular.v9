@@ -11,7 +11,7 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
-    
+
     <!--Content-->
   </div>
 </div>
@@ -39,9 +39,9 @@
       </mat-error>
     </mat-form-field>
 
-    <!-- LinkUserId Field -->
-    <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
-      [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.SITE')"></app-cms-site-selector>
+  <!-- linkSiteId Field -->
+  <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
+    [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.SITE')"></app-cms-site-selector>
 
     <!-- LinkMemberId Field -->
     <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
