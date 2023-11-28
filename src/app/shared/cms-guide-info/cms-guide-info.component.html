@@ -1,9 +1,9 @@
 
-<button mat-icon-button color="primary" (click)="onActionGuideClick(content)" title="View Contact"><mat-icon>info</mat-icon></button>
+<button mat-icon-button class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" (click)="onActionGuideClick(content)" title="View Contact"><mat-icon>info</mat-icon></button>
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">{{ title }}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -11,6 +11,6 @@
 
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray" (click)="modal.close('Save click')">Close</button>
   </div>
 </ng-template>

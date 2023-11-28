@@ -63,12 +63,12 @@
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
   <br>
   <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-    <button type="submit" *ngIf="showFormAdd" (click)="onFormSubmit()" class="btn btn-success btn-lg btn-block"
+    <button type="submit" *ngIf="showFormAdd" (click)="onFormSubmit()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
       [disabled]="!formGroup?.valid">
       <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
     </button>
     <button type="button" *ngIf="!showFormAdd" (click)="onActionAdd()"
-      class="btn btn-success btn-lg btn-block">{{'ACTION.ADD'
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.ADD'
       |translate}}</button>
     <button type="button" (click)="onFormCancel()"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
