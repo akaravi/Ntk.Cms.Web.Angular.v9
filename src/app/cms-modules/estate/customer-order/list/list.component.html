@@ -469,29 +469,29 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonEditRow(row,$event)"
+            <button (click)="onActionbuttonEditRow(row,$event)"
               *ngIf="dataModelResult.access.accessEditRow">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
+            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonQuickHistoryAddRow(row)">
+            <button (click)="onActionbuttonQuickHistoryAddRow(row)">
               <span>{{'ACTION.HISTORY_ADD' | translate}}</span>
               <mat-icon>history</mat-icon>
             </button>
-            <button mat-menu-item (click)="onActionbuttonHistoryRow(row,$event)">
+            <button (click)="onActionbuttonHistoryRow(row,$event)">
               <mat-icon>history</mat-icon>
               <span>{{'ACTION.HISTORY_LIST' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonContentList(row,$event)">
+            <button (click)="onActionbuttonContentList(row,$event)">
               <mat-icon>list</mat-icon>
               <span>{{'ACTION.THEPROPERTY_INCLUDESVIEWS' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonOpenCustomerOrder(row)">
+            <button (click)="onActionbuttonOpenCustomerOrder(row)">
               <mat-icon>slideshow</mat-icon>
               <span>{{'ACTION.DISPLAYCLIENTPAGE' | translate}}</span>
             </button>
