@@ -18,6 +18,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class ContactContentSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++ContactContentSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -32,6 +34,7 @@ export class ContactContentSelectorComponent implements OnInit {
   formControl = new FormControl();
   filteredOptions: Observable<ContactContentModel[]>;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<ContactContentModel>();
@@ -49,6 +52,8 @@ export class ContactContentSelectorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+    this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

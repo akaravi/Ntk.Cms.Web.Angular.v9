@@ -17,7 +17,8 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 })
 export class CoreCurrencySelectorComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++CoreCurrencySelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
@@ -33,6 +34,7 @@ export class CoreCurrencySelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreCurrencyModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreCurrencyModel) {
@@ -49,6 +51,8 @@ export class CoreCurrencySelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

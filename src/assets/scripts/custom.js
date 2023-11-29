@@ -675,25 +675,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //Ads
-    let fixedAds = document.querySelectorAll('.fixed-ad')[0];
-    let scrollAds = document.querySelectorAll('.scroll-ad')[0];
+    // let fixedAds = document.querySelectorAll('.fixed-ad')[0];
+    // let scrollAds = document.querySelectorAll('.scroll-ad')[0];
 
-    if (fixedAds || scrollAds) {
-      //Activate scroll Ad
-      var activateScrollAd = document.getElementById('activate-scroll-ad');
-      activateScrollAd.addEventListener('click', function () {
-        scrollAds.classList.add('scroll-ad-visible');
-        scrollAds.classList.remove('disabled');
-        fixedAds.classList.add('disabled');
-      })
+    // if (fixedAds || scrollAds) {
+    //   //Activate scroll Ad
+    //   var activateScrollAd = document.getElementById('activate-scroll-ad');
+    //   activateScrollAd.addEventListener('click', function () {
+    //     scrollAds.classList.add('scroll-ad-visible');
+    //     scrollAds.classList.remove('disabled');
+    //     fixedAds.classList.add('disabled');
+    //   })
 
-      //Activate Fixed Ad
-      var activateFixedAd = document.getElementById('activate-fixed-ad');
-      activateFixedAd.addEventListener('click', function () {
-        scrollAds.classList.add('disabled');
-        fixedAds.classList.remove('disabled');
-      })
-    }
+    //   //Activate Fixed Ad
+    //   var activateFixedAd = document.getElementById('activate-fixed-ad');
+    //   activateFixedAd.addEventListener('click', function () {
+    //     scrollAds.classList.add('disabled');
+    //     fixedAds.classList.remove('disabled');
+    //   })
+    // }
 
     //Scroll Ads
     var scrollItems = document.querySelectorAll('.scroll-ad, .header-auto-show')
@@ -1373,12 +1373,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Lazy Loading
-    var lazyLoad = new LazyLoad();
+    // var lazyLoad = new LazyLoad();
 
     // Check راهنما folder for detailed explanations on
     // Externally loading Javascript files for better performance.
 
-    var plugIdent, plugClass, plugMain, plugCall;
+    // var plugIdent, plugClass, plugMain, plugCall;
     var plugLoc = "plugins/"
 
     let plugins = [

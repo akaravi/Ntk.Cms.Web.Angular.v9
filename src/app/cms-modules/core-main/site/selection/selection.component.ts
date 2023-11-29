@@ -37,7 +37,7 @@ export class CoreSiteSelectionComponent implements OnInit {
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loading.cdr = cdr;
     if (localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY)) {
-      this.lastselectSiteId = localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY).split(',').map(function (item) {
+      this.lastSelectSiteId = localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY).split(',').map(function (item) {
         return parseInt(item, 10);
       });
     }
@@ -58,8 +58,8 @@ export class CoreSiteSelectionComponent implements OnInit {
   formInfo: FormInfoModel = new FormInfoModel();
   statusCheckExistWebSite = true;
   selectSiteId = 0;
-  SELECT_SITE_LOCAL_STORAGE_KEY = 'lastselectSiteId';
-  lastselectSiteId: number[] = [];
+  SELECT_SITE_LOCAL_STORAGE_KEY = 'lastSelectSiteId';
+  lastSelectSiteId: number[] = [];
   ngOnInit(): void {
     // this.dataModel = this.activatedRoute.snapshot.data.list;
     this.DataGetAll();
@@ -78,8 +78,8 @@ export class CoreSiteSelectionComponent implements OnInit {
               this.onActionClickSelectSite(this.dataModelResult.listItems[0].linkSiteId);
             }, 1000);
           }
-          else if (this.lastselectSiteId && this.lastselectSiteId.length > 0) {
-            this.lastselectSiteId.forEach(element => {
+          else if (this.lastSelectSiteId && this.lastSelectSiteId.length > 0) {
+            this.lastSelectSiteId.forEach(element => {
               const indexId = this.dataModelResult.listItems.findIndex(x => x.linkSiteId == element);
               if (indexId > 0) {
                 const to = 0;
@@ -124,13 +124,13 @@ export class CoreSiteSelectionComponent implements OnInit {
           this.loading.Stop(pName);
           setTimeout(() => this.router.navigate(['/']), 5000);
           /**Select Site */
-          if (!this.lastselectSiteId)
-            this.lastselectSiteId = [];
-          const indexId = this.lastselectSiteId.findIndex(x => x == res.item.siteId);
+          if (!this.lastSelectSiteId)
+            this.lastSelectSiteId = [];
+          const indexId = this.lastSelectSiteId.findIndex(x => x == res.item.siteId);
           if (indexId >= 0)
-            this.lastselectSiteId.splice(indexId, 1);
-          this.lastselectSiteId.push(res.item.siteId);
-          localStorage.setItem(this.SELECT_SITE_LOCAL_STORAGE_KEY, this.lastselectSiteId + '');
+            this.lastSelectSiteId.splice(indexId, 1);
+          this.lastSelectSiteId.push(res.item.siteId);
+          localStorage.setItem(this.SELECT_SITE_LOCAL_STORAGE_KEY, this.lastSelectSiteId + '');
           /**Select Site */
         }
         else {

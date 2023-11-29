@@ -143,58 +143,58 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
+            <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
+            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonLoginToRow(row)"
+            <button (click)="onActionbuttonLoginToRow(row)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>login</mat-icon>
               <span>{{'ACTION.LOGIN_TO_THIS_SITE' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonModuleListRow(row)"
+            <button (click)="onActionbuttonModuleListRow(row)"
               *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>view_module</mat-icon>
               <span>{{'ACTION.MODULES' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonDomainAliasListRow(row)"
+            <button (click)="onActionbuttonDomainAliasListRow(row)"
               *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>domain</mat-icon>
               <span>{{'ACTION.DOMAINS' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonUserListRow(row)"
+            <button (click)="onActionbuttonUserListRow(row)"
               *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>switch_account</mat-icon>
               <span>{{'ACTION.USERS' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonDeviceListRow(row)"
+            <button (click)="onActionbuttonDeviceListRow(row)"
               *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>devices</mat-icon>
               <span>{{'ACTION.DEVICES' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonResller(row)"
+            <button (click)="onActionbuttonResller(row)"
               *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>devices</mat-icon>
               <span> {{'ACTION.MARKETING_SUBSET' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonModuleSiteInfo(row)"
+            <button (click)="onActionbuttonModuleSiteInfo(row)"
               *ngIf="tokenInfo.userAccessAdminAllowToAllData ||tokenInfo.userAccessAdminAllowToProfessionalData || tokenInfo.siteId===row.id"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>bar_chart</mat-icon>
               <span>{{'ACTION.SITE_STATISTICS' | translate}} </span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonModuleSiteOptimaze(row)"
+            <button (click)="onActionbuttonModuleSiteOptimaze(row)"
               *ngIf="tokenInfo.userAccessAdminAllowToAllData ||tokenInfo.userAccessAdminAllowToProfessionalData || tokenInfo.siteId===row.id"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>bar_chart</mat-icon>

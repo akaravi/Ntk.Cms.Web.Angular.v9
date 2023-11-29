@@ -126,14 +126,11 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button mat-menu-item (click)="onActionbuttonEditRow(row)"
-                            *ngIf="dataModelResult.access.accessEditRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
                             <mat-icon>mode_edit</mat-icon>
                             <span>{{'ACTION.EDIT' | translate}}</span>
                         </button>
-                        <button mat-menu-item (click)="onActionbuttonDeleteRow(row)"
-                            *ngIf="dataModelResult.access.accessDeleteRow"
+                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
                             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
                             <mat-icon>delete_forever</mat-icon>
                             <button mat-menu-item (click)="onActionbuttonViewRow(row)"
@@ -143,8 +140,11 @@
                             </button>
                             <span>{{'ACTION.DELETE' | translate}}</span>
                         </button>
-                        <button mat-menu-item (click)="onActionbuttonTargetPeriodList(row)"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+                        <button (click)="onActionbuttonViewRow(row)">
+                            <mat-icon>visibility</mat-icon>
+                            <span>{{'ACTION.VIEW' | translate}}</span>
+                        </button>
+                        <button (click)="onActionbuttonTargetPeriodList(row)">
                             <mat-icon>list</mat-icon>
                             <span>{{'ACTION.TARGET_PERIOD' | translate}}</span>
                         </button>

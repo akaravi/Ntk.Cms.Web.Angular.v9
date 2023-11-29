@@ -21,6 +21,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class CoreModuleTagSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++CoreModuleTagSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
@@ -37,6 +39,8 @@ export class CoreModuleTagSelectorComponent implements OnInit {
   filteredOptions: Observable<CoreModuleTagModel[]>;
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreModuleTagModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreModuleTagModel) {
@@ -52,6 +56,8 @@ export class CoreModuleTagSelectorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

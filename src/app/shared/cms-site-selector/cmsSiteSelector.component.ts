@@ -28,7 +28,7 @@ export class CmsSiteSelectorComponent implements OnInit {
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     if (localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY)) {
-      this.lastselectSiteId = localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY).split(',').map(function (item) {
+      this.lastSelectSiteId = localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY).split(',').map(function (item) {
         return parseInt(item, 10);
       });
     }
@@ -53,8 +53,8 @@ export class CmsSiteSelectorComponent implements OnInit {
   @Input() set optionSelectForce(x: number | CoreSiteModel) {
     this.onActionSelectForce(x);
   }
-  SELECT_SITE_LOCAL_STORAGE_KEY = 'lastselectSiteId';
-  lastselectSiteId: number[] = [];
+  SELECT_SITE_LOCAL_STORAGE_KEY = 'lastSelectSiteId';
+  lastSelectSiteId: number[] = [];
   ngOnInit(): void {
     this.loadOptions();
     if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
@@ -131,8 +131,8 @@ export class CmsSiteSelectorComponent implements OnInit {
       .then(
         (response) => {
           this.dataModelResult = response;
-          if (this.lastselectSiteId && this.lastselectSiteId.length > 0) {
-            this.lastselectSiteId.forEach(element => {
+          if (this.lastSelectSiteId && this.lastSelectSiteId.length > 0) {
+            this.lastSelectSiteId.forEach(element => {
               const indexId = this.dataModelResult.listItems.findIndex(x => x.id == element);
               if (indexId > 0) {
                 const to = 0;
@@ -162,13 +162,13 @@ export class CmsSiteSelectorComponent implements OnInit {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
     /**Select Site */
-    if (!this.lastselectSiteId)
-      this.lastselectSiteId = [];
-    const indexId = this.lastselectSiteId.findIndex(x => x == model.id);
+    if (!this.lastSelectSiteId)
+      this.lastSelectSiteId = [];
+    const indexId = this.lastSelectSiteId.findIndex(x => x == model.id);
     if (indexId >= 0)
-      this.lastselectSiteId.splice(indexId, 1);
-    this.lastselectSiteId.push(model.id);
-    localStorage.setItem(this.SELECT_SITE_LOCAL_STORAGE_KEY, this.lastselectSiteId + '');
+      this.lastSelectSiteId.splice(indexId, 1);
+    this.lastSelectSiteId.push(model.id);
+    localStorage.setItem(this.SELECT_SITE_LOCAL_STORAGE_KEY, this.lastSelectSiteId + '');
     /**Select Site */
   }
   onActionSelectClear(): void {

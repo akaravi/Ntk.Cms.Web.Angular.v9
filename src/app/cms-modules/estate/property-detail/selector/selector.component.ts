@@ -16,6 +16,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html'
 })
 export class EstatePropertyDetailSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++EstatePropertyDetailSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -31,6 +33,8 @@ export class EstatePropertyDetailSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
+
   @Output() optionChange = new EventEmitter<EstatePropertyDetailModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | EstatePropertyDetailModel) {

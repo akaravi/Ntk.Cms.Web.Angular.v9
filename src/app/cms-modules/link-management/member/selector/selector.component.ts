@@ -20,6 +20,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./selector.component.scss']
 })
 export class LinkManagementMemberSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++LinkManagementMemberSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -34,7 +36,9 @@ export class LinkManagementMemberSelectorComponent implements OnInit {
   formControl = new FormControl();
   filteredOptions: Observable<LinkManagementMemberModel[]>;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<LinkManagementMemberModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | LinkManagementMemberModel) {
@@ -51,6 +55,8 @@ export class LinkManagementMemberSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

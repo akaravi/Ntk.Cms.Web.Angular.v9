@@ -119,26 +119,26 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionButtonRowBillboard(row,$event)"
+            <button (click)="onActionButtonRowBillboard(row,$event)"
               *ngIf="dataModelResult.access.accessEditRow">
               <mat-icon>mode_edit</mat-icon>
               <span>بیلبورد ها</span>
             </button>
-            <button mat-menu-item (click)="onActionButtonRowTarget(row,$event)"
+            <button (click)="onActionButtonRowTarget(row,$event)"
               *ngIf="dataModelResult.access.accessEditRow">
               <mat-icon>mode_edit</mat-icon>
               <span>تبلیغات</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
+            <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
+            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
-            <!-- <button mat-menu-item (click)="onActionbuttonComment(row)">
+            <!-- <button (click)="onActionbuttonComment(row)">
               <mat-icon>list</mat-icon>
               <span>{{'ACTION.STATIST' | translate}}</span>
             </button> -->

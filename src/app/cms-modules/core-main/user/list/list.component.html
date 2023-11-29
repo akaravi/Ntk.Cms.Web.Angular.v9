@@ -161,59 +161,59 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonViewRow(row)"
+            <button (click)="onActionbuttonViewRow(row)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>visibility</mat-icon>
               <span>{{'ACTION.VIEW' | translate}}</span>
             </button>
-            <button mat-menu-item *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
+            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
               (click)="onActionbuttonEditRow(row,$event)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
-            <button mat-menu-item *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
+            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
               (click)="onActionbuttonChangePassword(row)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>lock</mat-icon>
               <span>{{'ACTION.CHANGE_PASSWORD' | translate}}</span>
             </button>
-            <button mat-menu-item *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
+            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
               (click)="onActionbuttonDeleteRow(row)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
-            <button mat-menu-item *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
+            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
               (click)="onActionbuttonLoginToRow(row)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>login</mat-icon>
               <span>{{'ACTION.LOGIN_TO_THIS_USER' | translate}}</span>
             </button>
 
-            <button mat-menu-item (click)="onActionbuttonUserSupportList(row)" *ngIf="this.tokenHelper.isAdminSite"
+            <button (click)="onActionbuttonUserSupportList(row)" *ngIf="this.tokenHelper.isAdminSite"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>supervised_user_circle</mat-icon>
               <span>{{'ACTION.ACEESS' | translate}}</span>
             </button>
 
-            <button mat-menu-item (click)="onActionbuttonSiteList(row,$event)"
+            <button (click)="onActionbuttonSiteList(row,$event)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>supervised_user_circle</mat-icon>
               <span>{{'ACTION.MEMBER_SITES' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonSiteByGroupList(row,$event)"
+            <button (click)="onActionbuttonSiteByGroupList(row,$event)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>supervisor_account</mat-icon>
               <span>{{'ACTION.ACCESS_MEMBER_SITES' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonResller(row,$event)"
+            <button (click)="onActionbuttonResller(row,$event)"
               *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>devices</mat-icon>
               <span>{{'ACTION.MARKETING_SUBCATEGORY' | translate}}</span>
             </button>
-            <button mat-menu-item **ngIf="this.dataModelResult.emailConfirmed" (click)="onActionbuttonEmailConfirm()"
+            <button **ngIf="this.dataModelResult.emailConfirmed" (click)="onActionbuttonEmailConfirm()"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>visibility</mat-icon>
               <span>{{'ACTION.CONFIRMEMAIL' | translate}}</span>

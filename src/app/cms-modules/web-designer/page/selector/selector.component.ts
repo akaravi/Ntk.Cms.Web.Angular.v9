@@ -14,6 +14,8 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   templateUrl: './selector.component.html',
 })
 export class WebDesignerMainPageSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++WebDesignerMainPageSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
@@ -35,6 +37,7 @@ export class WebDesignerMainPageSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionMasterPage = false;
+  @Input() optionLabel = '';
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<WebDesignerMainPageModel>();
   masterTemplateId = '';
@@ -49,6 +52,9 @@ export class WebDesignerMainPageSelectorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loadOptions();
+
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges
