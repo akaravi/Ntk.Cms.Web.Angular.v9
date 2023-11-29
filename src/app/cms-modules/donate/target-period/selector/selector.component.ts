@@ -18,6 +18,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class DonateTargetPeriodSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++DonateTargetPeriodSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -27,12 +29,15 @@ export class DonateTargetPeriodSelectorComponent implements OnInit {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
   }
+
   dataModelResult: ErrorExceptionResult<DonateTargetPeriodModel> = new ErrorExceptionResult<DonateTargetPeriodModel>();
   dataModelSelect: DonateTargetPeriodModel = new DonateTargetPeriodModel();
   formControl = new FormControl();
   filteredOptions: Observable<DonateTargetPeriodModel[]>;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<DonateTargetPeriodModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | DonateTargetPeriodModel) {
@@ -46,9 +51,10 @@ export class DonateTargetPeriodSelectorComponent implements OnInit {
   @Input() set optionLoading(value: ProgressSpinnerModel) {
     this.loading = value;
   }
-
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+    this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

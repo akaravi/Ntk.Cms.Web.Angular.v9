@@ -16,9 +16,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-core-usercategory-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
 })
 export class CoreUserGroupSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++CoreUserGroupSelectorComponent.nextId;
 
   constructor(
     public coreEnumService: CoreEnumService,
@@ -36,6 +37,7 @@ export class CoreUserGroupSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreUserGroupModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreUserGroupModel) {
@@ -52,6 +54,8 @@ export class CoreUserGroupSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

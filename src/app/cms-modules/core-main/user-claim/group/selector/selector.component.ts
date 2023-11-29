@@ -16,10 +16,11 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-core-userclaimgroup-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
+
 })
 export class CoreUserClaimGroupSelectorComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++CoreUserClaimGroupSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -36,6 +37,7 @@ export class CoreUserClaimGroupSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreUserClaimGroupModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreUserClaimGroupModel) {
@@ -52,6 +54,8 @@ export class CoreUserClaimGroupSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges
