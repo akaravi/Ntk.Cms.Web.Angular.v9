@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'chart.content.list'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true" [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-chart-category-tree (optionChange)="onActionSelectorSelect($event)"></app-chart-category-tree>

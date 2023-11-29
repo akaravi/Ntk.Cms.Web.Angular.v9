@@ -3,7 +3,7 @@
 <app-donate-target-period-header *ngIf="this.requestLinkTargetPeriodId>0" [optionId]="this.requestLinkTargetPeriodId">
 </app-donate-target-period-header>
 
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowDisplay]="tableRowSelected?.id>0">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         --------------------------------------

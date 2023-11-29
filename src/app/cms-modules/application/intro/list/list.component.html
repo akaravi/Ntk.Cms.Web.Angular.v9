@@ -1,6 +1,6 @@
 <app-cms-guide-notice [Key]="'application.intro.list'"
   [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="requestLinkApplicationId===0">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="requestLinkApplicationId===0" [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-application-app-tree (optionChange)="onActionSelectorSelect($event)"></app-application-app-tree>

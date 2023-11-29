@@ -3,7 +3,7 @@
 <app-estate-account-user-header *ngIf="this.requestLinkAccountUserId?.length>0"
   [optionId]="this.requestLinkAccountUserId">
 </app-estate-account-user-header>
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     --------------------------------------

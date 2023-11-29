@@ -1,5 +1,5 @@
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionTreeDisplay]="!requestLinkPrivateConfigId || requestLinkPrivateConfigId.length===0">
+  [optionTreeDisplay]="!requestLinkPrivateConfigId || requestLinkPrivateConfigId.length===0" [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-sms-apipath-tree (optionChange)="onActionSelectorSelect($event)"></app-sms-apipath-tree>

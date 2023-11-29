@@ -3,7 +3,7 @@
   <br>
 </app-cms-html-notice>
 <br>
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     --------------------------------------

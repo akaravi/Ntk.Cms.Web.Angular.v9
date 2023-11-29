@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'contact.content.list'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <app-cms-html-list [optionLoading]="loading"
-  [optionTreeDisplay]="!requestLinkCategoryId || requestLinkCategoryId.length ===0">
+  [optionTreeDisplay]="!requestLinkCategoryId || requestLinkCategoryId.length ===0" [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-contact-category-tree (optionChange)="onActionSelectorSelect($event)"></app-contact-category-tree>
