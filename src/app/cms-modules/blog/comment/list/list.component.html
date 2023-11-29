@@ -125,12 +125,14 @@
                 <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
                 <mat-cell *matCellDef="let row" class='Action'>
                     <!-- Action Menu -->
-                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
                         <button mat-menu-item (click)="onActionbuttonEditRow(row)"
-                            *ngIf="dataModelResult.access.accessEditRow">
+                            *ngIf="dataModelResult.access.accessEditRow"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
                             <mat-icon>mode_edit</mat-icon>
                             <span>{{'ACTION.EDIT' | translate}}</span>
                         </button>
@@ -141,12 +143,14 @@
                             <span>{{'ACTION.DELETE' | translate}}</span>
                         </button>
                         <button mat-menu-item (click)="onActionbuttonViewContent(row)"
-                            *ngIf="dataModelResult.access.accessDeleteRow">
+                            *ngIf="dataModelResult.access.accessDeleteRow"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                             <mat-icon>visibility</mat-icon>
                             <span>{{'ACTION.VIEW_BLOG' | translate}}</span>
                         </button>
                         <button mat-menu-item (click)="onActionbuttonEditContent(row)"
-                            *ngIf="dataModelResult.access.accessDeleteRow">
+                            *ngIf="dataModelResult.access.accessDeleteRow"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                             <mat-icon>visibility</mat-icon>
                             <span>{{'ACTION.EDIT_BLOG' | translate}}</span>
                         </button>
@@ -158,7 +162,8 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TITLE.LINKTO' | translate}}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                    <button mat-icon-button (click)="onActionbuttonLinkTo(row)">
+                    <button mat-icon-button (click)="onActionbuttonLinkTo(row)"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                         <mat-icon>&#8599;</mat-icon>
                     </button>
                 </mat-cell>

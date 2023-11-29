@@ -14,14 +14,16 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-tree class="category-tree cursor-pointer" [dataSource]="dataSource" [treeControl]="treeControl">
       <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-        <button type="button" mat-icon-button disabled></button>
+        <button type="button" mat-icon-button disabled
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"></button>
         <mat-checkbox class="checklist-leaf-node" [checked]="checklistSelection.isSelected(node)"
           (change)="checklistSelection.toggle(node);">{{node.title}}</mat-checkbox>
       </mat-tree-node>
       <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
         <li>
           <div class="mat-tree-node">
-            <button type="button" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.title">
+            <button type="button" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.title"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon class="mat-icon-rtl-mirror">
                 {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
               </mat-icon>

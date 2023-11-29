@@ -192,7 +192,8 @@
             style="height:140px;bottom: 4vh;justify-content: center;">
             <app-progress-spinner [options]="loadingAction"> </app-progress-spinner>
             <button type="submit" (click)="onFormSubmit()" class="message-box-button" [disabled]="!vform.valid"
-              *ngIf="!this.loading.display">
+              *ngIf="!this.loading.display"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <i class="fa fa-check-square-o"></i>
               {{'ACTION.Send_Message' | translate}}
             </button>

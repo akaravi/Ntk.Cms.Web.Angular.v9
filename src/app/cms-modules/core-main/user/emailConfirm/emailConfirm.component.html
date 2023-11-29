@@ -1,7 +1,7 @@
 <form (ngSubmit)="onEmailConfirm()" #vform="ngForm">
   <div class="ntk-cms-html-card-header">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-      {{ formInfo.formTitle }}
+    {{ formInfo.formTitle }}
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
   </div>
   <div class="ntk-cms-html-card-body">
@@ -35,10 +35,13 @@
   <div class="ntk-cms-html-card-footer">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
     <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-      <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+      <button type="button" (click)="onFormCancel()"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
         <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
       </button>
-      <button type="submit" (click)="onEmailConfirm()" class="btn btn-success" [disabled]="!vform.form.valid">
+      <button type="submit" (click)="onEmailConfirm()"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        [disabled]="!vform.form.valid">
         <i class="fa fa-check-square-o"></i> {{'ACTION.CONFIRM' | translate}}
       </button>
     </div>

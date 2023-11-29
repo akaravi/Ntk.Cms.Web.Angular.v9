@@ -101,12 +101,14 @@
                 <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
                 <mat-cell *matCellDef="let row" class=' Action'>
                     <!-- Action Menu -->
-                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
                         <button mat-menu-item (click)="onActionbuttonEditRow(row)"
-                            *ngIf="dataModelResult.access.accessEditRow">
+                            *ngIf="dataModelResult.access.accessEditRow"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
                             <mat-icon>mode_edit</mat-icon>
                             <span>{{'ACTION.EDIT' | translate}}</span>
                         </button>
