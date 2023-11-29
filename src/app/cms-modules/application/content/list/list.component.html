@@ -144,11 +144,11 @@
         <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
         <mat-cell *matCellDef="let row" class=' Action'>
           <!-- Action Menu -->
-          <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+          <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
+            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
@@ -157,23 +157,23 @@
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonBuildApp(row)">
+            <button mat-menu-item (click)="onActionbuttonBuildApp(row)" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>devices_other</mat-icon>
               <span>{{'ACTION.BUILD_AN_APP' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonDownloadApp(row)" *ngIf="row.lastSuccessfullyBuildDate">
+            <button mat-menu-item (click)="onActionbuttonDownloadApp(row)" *ngIf="row.lastSuccessfullyBuildDate" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>download</mat-icon>
               <span>{{'ACTION.DOWNLOAD_THE_APP' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonMemberList(row)" *ngIf="row.lastSuccessfullyBuildDate">
+            <button mat-menu-item (click)="onActionbuttonMemberList(row)" *ngIf="row.lastSuccessfullyBuildDate" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>person</mat-icon>
               <span>{{'ACTION.USERS' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonIntroList(row)" *ngIf="row.lastSuccessfullyBuildDate">
+            <button mat-menu-item (click)="onActionbuttonIntroList(row)" *ngIf="row.lastSuccessfullyBuildDate" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>help</mat-icon>
               <span>{{'ACTION.GUIDE' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonNotifictionActionSend(row)">
+            <button mat-menu-item (click)="onActionbuttonNotifictionActionSend(row)" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>sms</mat-icon>
               <span>{{'ACTION.SEND_NOTIFICATIONS' | translate}}</span>
             </button>
