@@ -17,9 +17,11 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-sms-publicconfig-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
 })
 export class SmsMainApiPathPublicConfigSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++SmsMainApiPathPublicConfigSelectorComponent.nextId;
+
 
   constructor(
     public coreEnumService: CoreEnumService,
@@ -36,6 +38,7 @@ export class SmsMainApiPathPublicConfigSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<SmsMainApiPathPublicConfigModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | SmsMainApiPathPublicConfigModel) {
@@ -52,6 +55,8 @@ export class SmsMainApiPathPublicConfigSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

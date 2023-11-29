@@ -16,10 +16,11 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-property-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
+
 })
 export class EstatePropertySelectorComponent implements OnInit, OnDestroy {
-
+  static nextId = 0;
+  id = ++EstatePropertySelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -37,6 +38,8 @@ export class EstatePropertySelectorComponent implements OnInit, OnDestroy {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
+
   @Output() optionChange = new EventEmitter<EstatePropertyModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | EstatePropertyModel) {
@@ -56,6 +59,8 @@ export class EstatePropertySelectorComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
       this.loadOptions();
     });
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

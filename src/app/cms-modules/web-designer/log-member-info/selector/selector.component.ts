@@ -16,6 +16,8 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   templateUrl: './selector.component.html',
 })
 export class WebDesignerLogMemberInfoSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++WebDesignerLogMemberInfoSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
@@ -31,6 +33,7 @@ export class WebDesignerLogMemberInfoSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<WebDesignerLogMemberInfoModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | WebDesignerLogMemberInfoModel) {
@@ -46,6 +49,8 @@ export class WebDesignerLogMemberInfoSelectorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

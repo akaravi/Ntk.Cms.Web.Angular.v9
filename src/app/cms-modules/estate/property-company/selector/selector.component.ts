@@ -15,6 +15,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class EstatePropertyCompanySelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++EstatePropertyCompanySelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -29,7 +31,9 @@ export class EstatePropertyCompanySelectorComponent implements OnInit {
   formControl = new FormControl();
   filteredOptions: Observable<EstatePropertyCompanyModel[]>;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<EstatePropertyCompanyModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | EstatePropertyCompanyModel) {

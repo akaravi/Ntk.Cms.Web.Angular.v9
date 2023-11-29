@@ -17,9 +17,11 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-sms-apipathcompany-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
 })
 export class SmsMainApiPathCompanySelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++SmsMainApiPathCompanySelectorComponent.nextId;
+
 
   constructor(
     public coreEnumService: CoreEnumService,
@@ -37,6 +39,7 @@ export class SmsMainApiPathCompanySelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<SmsMainApiPathCompanyModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | SmsMainApiPathCompanyModel) {
@@ -53,6 +56,8 @@ export class SmsMainApiPathCompanySelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+    this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

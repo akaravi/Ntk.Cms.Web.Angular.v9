@@ -18,6 +18,8 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   styleUrls: ['./selector.component.scss']
 })
 export class ApiTelegramBotConfigSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++ApiTelegramBotConfigSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
@@ -32,7 +34,9 @@ export class ApiTelegramBotConfigSelectorComponent implements OnInit {
   formControl = new FormControl();
   filteredOptions: Observable<ApiTelegramBotConfigModel[]>;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<ApiTelegramBotConfigModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | ApiTelegramBotConfigModel) {
@@ -49,6 +53,8 @@ export class ApiTelegramBotConfigSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

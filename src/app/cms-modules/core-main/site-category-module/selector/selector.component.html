@@ -1,7 +1,11 @@
-<mat-form-field class="ntk-full-width">
 
-    <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null"
-        aria-label="Assignee" matInput [formControl]="formControl" [matAutocomplete]="matauto">
+<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+  <app-progress-spinner [options]="loading"> </app-progress-spinner>
+  <label *ngIf="optionLabel?.length>0" for="app-cms-site-selector-{{id}}"
+    class="color-highlight">{{optionLabel}}</label>
+  <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null" matInput
+    [formControl]="formControl" [matAutocomplete]="matauto" class="form-control validate-name"
+    id="app-cms-site-selector-{{id}}">
     <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayFn"
         (optionSelected)="onActionSelect($event.option.value)">
         <mat-option *ngFor="let state of filteredOptions | async" [value]="state" [disabled]="optionDisabled">
@@ -11,4 +15,4 @@
     <mat-icon matSuffix *ngIf="dataModelSelect?.id" matSuffix mat-icon-button aria-label="Clear"
         (click)="onActionSelectClear()">close</mat-icon>
     <ng-content></ng-content>
-</mat-form-field>
+</div>
