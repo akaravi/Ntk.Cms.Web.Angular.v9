@@ -82,6 +82,9 @@ export class MenuMainComponent implements OnInit {
     }
     );
   }
+  onActionCleanDataMenu(): void {
+    this.themeService.cleanDataMenu();
+  }
   onActionClickMenu(item: CoreCpMainMenuModel) {
     setTimeout(() => {
       this.themeStore.dataMenu = '';
@@ -105,4 +108,5 @@ export class MenuMainComponent implements OnInit {
   onActionThemeSwitch(themeMode: ThemeModeType) {
     this.themeService.updateMode(themeMode);
   }
+
 }

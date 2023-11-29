@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-footer-bar',
@@ -11,6 +12,7 @@ export class FooterBarComponent implements OnInit {
 
   constructor(
     private publicHelper: PublicHelper,
+    private themeService:ThemeService
   ) { }
   themeStore = new ThemeStoreModel();
 
@@ -19,5 +21,7 @@ export class FooterBarComponent implements OnInit {
       this.themeStore = value.themeStore;
     });
   }
-
+  onActionCleanDataMenu(): void {
+    this.themeService.cleanDataMenu();
+}
 }

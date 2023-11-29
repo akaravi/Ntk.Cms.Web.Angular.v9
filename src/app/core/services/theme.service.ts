@@ -152,4 +152,10 @@ export class ThemeService {
     document.getElementsByTagName("head")[0].appendChild(loadHighlight);
     //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
   }
+  public cleanDataMenu(): void {
+    if (this.themeStore?.dataMenu?.length > 0) {
+      this.themeStore.dataMenu = '';
+      this.cmsStoreService.setState({ themeStore: this.themeStore });
+    }
+  }
 }
