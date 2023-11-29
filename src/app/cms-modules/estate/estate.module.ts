@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -419,6 +419,7 @@ import { EstatePropertyHistoryEditMobileComponent } from './property-history/edi
     NgxMatColorPickerModule,
     InlineSVGModule,
     NgxMatColorPickerModule,
+    NgOptimizedImage
   ],
   providers: [
     CoreModuleService,

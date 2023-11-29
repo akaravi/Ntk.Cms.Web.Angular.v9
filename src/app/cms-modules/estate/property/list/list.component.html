@@ -469,7 +469,7 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
           <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-            aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="40" width="40" />
+            aria-hidden ngSrc="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="40" width="40" />
         </mat-cell>
       </ng-container>
       <!-- ID Column -->
@@ -627,7 +627,7 @@
             <table>
               <tr>
                 <th> <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
-                    class="ntk-hover-zoom" aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="80"
+                    class="ntk-hover-zoom" aria-hidden ngSrc="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="80"
                     width="80" /></th>
                 <th class="col-form-label">
                   <span class="navi-icon pointer" [cdkCopyToClipboard]="row.id" (click)="onActionCopied()">

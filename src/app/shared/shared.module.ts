@@ -225,7 +225,7 @@ import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input
     NgbNavModule,
 
     NgOtpInputModule,
-    NgOptimizedImage
+
   ],
   declarations: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.
