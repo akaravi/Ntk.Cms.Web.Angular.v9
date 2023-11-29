@@ -54,6 +54,21 @@
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
   </ng-container>
+  <ng-container cms-action-row>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
+    <h1>{{tableRowSelected?.id}}</h1>
+    <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
+    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+    <span>{{'ACTION.EDIT' | translate}}</span>
+    <mat-icon>mode_edit</mat-icon>
+  </button>
+  <button (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
+    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+    <span>{{'ACTION.DELETE' | translate}}</span>
+    <mat-icon>delete_forever</mat-icon>
+  </button>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
+  </ng-container>
   <ng-container cms-action-area>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
     <app-cms-search-list [(options)]="optionsSearch"></app-cms-search-list>
