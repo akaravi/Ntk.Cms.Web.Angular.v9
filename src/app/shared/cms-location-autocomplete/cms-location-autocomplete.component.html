@@ -4,7 +4,7 @@
   <mat-chip-grid #chipList aria-label="tag selection" [disabled]="optionDisabled">
     <mat-chip *ngFor="let item of tagDataModel" (removed)="remove(item)">
       {{item.display}}
-      <button matChipRemove>
+      <button matChipRemove class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
         <mat-icon>cancel</mat-icon>
       </button>
     </mat-chip>
