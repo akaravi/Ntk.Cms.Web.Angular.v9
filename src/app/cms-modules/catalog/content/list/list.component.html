@@ -131,12 +131,14 @@
 
 
                     <!-- Action Menu -->
-                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
                         <button mat-menu-item (click)="onActionbuttonEditRow(row)"
-                            *ngIf="dataModelResult.access.accessEditRow">
+                            *ngIf="dataModelResult.access.accessEditRow"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
                             <mat-icon>mode_edit</mat-icon>
                             <span>{{'ACTION.EDIT' | translate}}</span>
                         </button>
@@ -146,7 +148,8 @@
                             <mat-icon>delete_forever</mat-icon>
                             <span>{{'ACTION.DELETE' | translate}}</span>
                         </button>
-                        <button mat-menu-item (click)="onActionbuttonComment(row)">
+                        <button mat-menu-item (click)="onActionbuttonComment(row)"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                             <mat-icon>comment</mat-icon>
                             <span>{{'ACTION.COMMENT' | translate}}</span>
                         </button>
@@ -158,7 +161,8 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TITLE.LINKTO' | translate}}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                    <button mat-icon-button (click)="onActionbuttonLinkTo(row)">
+                    <button mat-icon-button (click)="onActionbuttonLinkTo(row)"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                         <mat-icon>&#8599;</mat-icon>
                     </button>
                 </mat-cell>

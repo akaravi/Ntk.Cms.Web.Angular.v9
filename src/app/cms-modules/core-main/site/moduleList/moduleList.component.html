@@ -138,11 +138,13 @@
         <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
         <mat-cell *matCellDef="let row" class=' Action'>
           <!-- Action Menu -->
-          <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+          <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
+            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
@@ -151,22 +153,26 @@
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonConfigSiteRow(row)">
+            <button mat-menu-item (click)="onActionbuttonConfigSiteRow(row)"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>extension</mat-icon>
               <span>{{'ACTION.MODULE_SETTINGS' | translate}}</span>
             </button>
             <button mat-menu-item (click)="onActionbuttonConfigMainAdminRow(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+              *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>extension</mat-icon>
               <span>{{'ACTION.ADMINISTRATIVE_SETTINGS' | translate}}</span>
             </button>
             <button mat-menu-item (click)="onActionbuttonSiteCreditAccountRow(row)"
-              *ngIf="row.virtual_CmsModule.NeedSiteCreditAccount">
+              *ngIf="row.virtual_CmsModule.NeedSiteCreditAccount"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>extension</mat-icon>
               <span>{{'ACTION.CREDIT_SITE' | translate}}</span>
             </button>
             <button mat-menu-item (click)="onActionbuttonSiteUserCreditAccountRow(row)"
-              *ngIf="row.virtual_CmsModule.NeedSiteUserCreditAccount">
+              *ngIf="row.virtual_CmsModule.NeedSiteUserCreditAccount"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>extension</mat-icon>
               <span>{{'ACTION.YOUR_USER_CREDENTIALS' | translate}}</span>
             </button>

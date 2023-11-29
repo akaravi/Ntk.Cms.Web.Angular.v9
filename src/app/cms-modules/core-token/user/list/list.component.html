@@ -153,11 +153,13 @@
         <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
         <mat-cell *matCellDef="let row" class=' Action'>
           <!-- Action Menu -->
-          <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+          <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
+            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
@@ -166,19 +168,23 @@
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonViewSiteRow(row)">
+            <button mat-menu-item (click)="onActionbuttonViewSiteRow(row)"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>web</mat-icon>
               <span>{{'ACTION.SITE' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonViewUserRow(row)">
+            <button mat-menu-item (click)="onActionbuttonViewUserRow(row)"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>supervisor_account</mat-icon>
               <span>{{'ACTION.USER' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonViewMemberRow(row)">
+            <button mat-menu-item (click)="onActionbuttonViewMemberRow(row)"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>assignment_ind</mat-icon>
               <span>{{'ACTION.MEMBER' | translate}}</span>
             </button>
-            <button mat-menu-item (click)="onActionbuttonViewDeviceRow(row)">
+            <button mat-menu-item (click)="onActionbuttonViewDeviceRow(row)"
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>device_unknown</mat-icon>
               <span>{{'ACTION.DEVICE' | translate}}</span>
             </button>

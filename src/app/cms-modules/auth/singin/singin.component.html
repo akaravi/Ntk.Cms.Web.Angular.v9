@@ -47,7 +47,7 @@
   </ng-container>
   <button type="submit"
     [disabled]="vform.invalid || !formInfo.buttonSubmittedEnabled || !connectionStatus.internetConnection"
-    style="width: 100%;" class="btn btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s">
+    style="width: 100%;" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
     {{'AUTH.LOGIN.BUTTON' | translate}}
   </button>
   <a [routerLink]="['/page/auth/singinbysms']"

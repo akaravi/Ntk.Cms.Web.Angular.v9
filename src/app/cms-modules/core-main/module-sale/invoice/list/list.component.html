@@ -122,7 +122,8 @@
                 <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
                 <mat-cell *matCellDef="let row" class=' Action'>
                     <!-- Action Menu -->
-                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
@@ -133,12 +134,14 @@
                             <span>{{'ACTION.DELETE' | translate}}</span>
                         </button>
                         <button mat-menu-item (click)="onActionbuttonViewRow(row)"
-                            *ngIf="dataModelResult.access.accessWatchRow">
+                            *ngIf="dataModelResult.access.accessWatchRow"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                             <mat-icon>visibility</mat-icon>
                             <span>{{'ACTION.VIEW' | translate}}</span>
                         </button>
                         <button mat-menu-item (click)="onActionbuttonViewDetail(row)"
-                            *ngIf="dataModelResult.access.accessWatchRow">
+                            *ngIf="dataModelResult.access.accessWatchRow"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                             <mat-icon>view_module</mat-icon>
                             <span>{{'ACTION.DETAIL' | translate}}</span>
                         </button>
