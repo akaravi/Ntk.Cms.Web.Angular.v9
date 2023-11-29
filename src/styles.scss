@@ -29,3 +29,26 @@
   direction: ltr !important;
   text-align: center !important;
 }
+.mat-option{
+  word-wrap:break-word !important;
+  white-space:normal !important;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.mat-option-text{
+  line-height:initial !important;
+}
+
+/*
+ NTK optimaze
+*/
+.mdc-text-field {
+  padding: 0px !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}
+/*
+ NTK optimaze
+*/

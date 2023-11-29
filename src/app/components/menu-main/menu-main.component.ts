@@ -82,17 +82,22 @@ export class MenuMainComponent implements OnInit {
     }
     );
   }
+  onActionCleanDataMenu(routerAddress: string = ''): void {
+    if (routerAddress?.length > 0)
+      this.router.navigate([routerAddress]);
+    this.themeService.cleanDataMenu();
+  }
   onActionClickMenu(item: CoreCpMainMenuModel) {
     setTimeout(() => {
       this.themeStore.dataMenu = '';
-    }, 1000);
+    }, 200);
 
     if (!item)
       return;
     if (item.children?.length > 0) {
       setTimeout(() => {
         this.router.navigate(['/menu/LinkParentId/', item.id]);
-      }, 1000);
+      }, 100);
       return;
     }
     if (item.routeAddressLink?.length > 0) {
@@ -105,4 +110,5 @@ export class MenuMainComponent implements OnInit {
   onActionThemeSwitch(themeMode: ThemeModeType) {
     this.themeService.updateMode(themeMode);
   }
+
 }

@@ -1,7 +1,7 @@
 ﻿import { ClipboardModule } from '@angular/cdk/clipboard';
 import { PlatformModule } from '@angular/cdk/platform';
 import { CdkTableModule } from '@angular/cdk/table';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -225,6 +225,7 @@ import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input
     NgbNavModule,
 
     NgOtpInputModule,
+
   ],
   declarations: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.

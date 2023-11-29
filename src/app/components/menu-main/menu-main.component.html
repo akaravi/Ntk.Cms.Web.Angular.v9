@@ -14,7 +14,7 @@
       </a>
     </div>
     <div *ngIf="!this.tokenInfo|| !this.tokenInfo.userId||this.tokenInfo.userId<=0" class="card-bottom">
-      <a [routerLink]="['/page/auth/singinbysms']">
+      <a (click)="onActionCleanDataMenu('/page/auth/singinbysms')">
         <h1 class="color-white ps-3 mb-0 font-28">وارد شوید</h1>
         <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
       </a>
@@ -31,18 +31,18 @@
     </a>
 
 
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" [routerLink]="['/dashboard']">
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" (click)="onActionCleanDataMenu('/dashboard')">
       <i class="fa fa-home gradient-green color-white"></i>
       <span>داشبورد</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" [routerLink]="['/core/site/selection']">
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>انتخاب سایت</span>
       <i class="fa fa-angle-left"></i>
     </a>
     <a *ngIf="!this.tokenInfo|| !this.tokenInfo.userId|| this.tokenInfo.userId<=0" id="nav-components"
-      [routerLink]="['/page/auth/singinbysms']">
+      (click)="onActionCleanDataMenu('/page/auth/singinbysms')">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>ورود</span>
       <i class="fa fa-angle-left"></i>
@@ -55,12 +55,12 @@
       <i class="fa fa-angle-left"></i>
     </a>
 
-    <a id="nav-contact" [routerLink]="['/page/aboutus']">
+    <a id="nav-contact" (click)="onActionCleanDataMenu('/page/aboutus')">
       <i class="fa fa-envelope gradient-teal color-white"></i>
       <span>درباره ما</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a id="nav-contact" [routerLink]="['/page/contactus']">
+    <a id="nav-contact" (click)="onActionCleanDataMenu('/page/contactus')">
       <i class="fa fa-envelope gradient-teal color-white"></i>
       <span>ارتباط با ما</span>
       <i class="fa fa-angle-left"></i>
