@@ -16,6 +16,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class BiographyCategorySelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++BiographyCategorySelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -31,6 +33,9 @@ export class BiographyCategorySelectorComponent implements OnInit {
   filteredOptions: Observable<BiographyCategoryModel[]>;
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<BiographyCategoryModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | BiographyCategoryModel) {
@@ -46,6 +51,8 @@ export class BiographyCategorySelectorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

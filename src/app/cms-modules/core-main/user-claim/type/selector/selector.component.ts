@@ -16,10 +16,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-core-userclaimtype-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
 })
 export class CoreUserClaimTypeSelectorComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++CoreUserClaimTypeSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -33,9 +33,11 @@ export class CoreUserClaimTypeSelectorComponent implements OnInit {
   dataModelSelect: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();
   formControl = new FormControl();
   filteredOptions: Observable<CoreUserClaimTypeModel[]>;
-  @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreUserClaimTypeModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreUserClaimTypeModel) {
@@ -52,6 +54,8 @@ export class CoreUserClaimTypeSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

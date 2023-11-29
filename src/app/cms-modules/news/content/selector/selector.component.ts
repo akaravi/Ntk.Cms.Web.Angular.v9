@@ -17,6 +17,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class NewsContentSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++NewsContentSelectorComponent.nextId;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,
@@ -31,6 +33,9 @@ export class NewsContentSelectorComponent implements OnInit {
   filteredOptions: Observable<NewsContentModel[]>;
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<NewsContentModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | NewsContentModel) {

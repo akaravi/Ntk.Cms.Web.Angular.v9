@@ -15,9 +15,10 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
   selector: 'app-ticketing-departemen-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
 })
 export class TicketingDepartemenSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++TicketingDepartemenSelectorComponent.nextId;
 
   constructor(
     public coreEnumService: CoreEnumService,
@@ -33,6 +34,8 @@ export class TicketingDepartemenSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<TicketingDepartemenModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | TicketingDepartemenModel) {

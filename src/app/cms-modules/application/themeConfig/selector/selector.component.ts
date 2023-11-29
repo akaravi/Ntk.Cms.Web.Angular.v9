@@ -18,7 +18,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class ApplicationThemeConfigSelectorComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++ApplicationThemeConfigSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
@@ -40,14 +41,18 @@ export class ApplicationThemeConfigSelectorComponent implements OnInit {
   formControl = new FormControl();
   filteredOptions: Observable<ApplicationThemeConfigModel[]>;
   parentId = 0;
-  @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ApplicationThemeConfigModel>();
 
   @Input() optionReload = () => this.onActionReload();
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
 
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();

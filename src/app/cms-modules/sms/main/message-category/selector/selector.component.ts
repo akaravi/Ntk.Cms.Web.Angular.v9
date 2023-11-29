@@ -19,6 +19,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class SmsMainMessageCategorySelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++SmsMainMessageCategorySelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -33,6 +35,9 @@ export class SmsMainMessageCategorySelectorComponent implements OnInit {
   formControl = new FormControl();
   filteredOptions: Observable<SmsMainMessageCategoryModel[]>;
   @Input() optionPlaceholder = '';
+  @Input() optionRequired = false;
+  @Input() optionDisabled = false;
+  @Input() optionLabel = '';
   @Input() optionSelectFirstItem = false;
   @Output() optionChange = new EventEmitter<SmsMainMessageCategoryModel>();
   @Input() optionReload = () => this.onActionReload();

@@ -14,9 +14,11 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
   selector: 'app-data-provider-plan-category-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
 })
 export class DataProviderPlanCategorySelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++DataProviderPlanCategorySelectorComponent.nextId;
+
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
@@ -31,6 +33,9 @@ export class DataProviderPlanCategorySelectorComponent implements OnInit {
   filteredOptions: Observable<DataProviderPlanCategoryModel[]>;
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<DataProviderPlanCategoryModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | DataProviderPlanCategoryModel) {
@@ -47,6 +52,8 @@ export class DataProviderPlanCategorySelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

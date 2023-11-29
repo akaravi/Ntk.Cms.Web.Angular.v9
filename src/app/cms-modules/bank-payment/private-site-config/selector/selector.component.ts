@@ -16,6 +16,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class BankPaymentPrivateSiteConfigSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++BankPaymentPrivateSiteConfigSelectorComponent.nextId;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,
@@ -36,9 +38,11 @@ export class BankPaymentPrivateSiteConfigSelectorComponent implements OnInit {
   formControl = new FormControl();
   filteredOptions: Observable<BankPaymentPrivateSiteConfigModel[]>;
   parentId = 0;
-  @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<BankPaymentPrivateSiteConfigModel>();
   @Input() optionReload = () => this.onActionReload();
 
@@ -52,6 +56,8 @@ export class BankPaymentPrivateSiteConfigSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

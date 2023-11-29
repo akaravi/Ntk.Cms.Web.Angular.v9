@@ -16,6 +16,9 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   templateUrl: './selector.component.html',
 })
 export class DataProviderPlanPriceSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++DataProviderPlanPriceSelectorComponent.nextId;
+
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
@@ -30,6 +33,9 @@ export class DataProviderPlanPriceSelectorComponent implements OnInit {
   filteredOptions: Observable<DataProviderPlanPriceModel[]>;
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<DataProviderPlanPriceModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | DataProviderPlanPriceModel) {
@@ -46,6 +52,8 @@ export class DataProviderPlanPriceSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges
