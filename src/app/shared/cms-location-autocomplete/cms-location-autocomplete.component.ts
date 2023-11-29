@@ -63,6 +63,8 @@ export class CmsLocationCompleteComponent implements OnInit {
   filteredOptions: Observable<chipModel[]>;
   addOnBlur = true;
   ngOnInit(): void {
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
 
   displayOption(model?: CoreLocationModel): string | undefined {

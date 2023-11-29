@@ -1,6 +1,7 @@
-<mat-form-field style="width:100%" appearance="fill">
-  <!-- <app-progress-spinner [options]="loading"> </app-progress-spinner> -->
-  <mat-label>{{optionLabel}}</mat-label>
+<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+  <app-progress-spinner [options]="loading"> </app-progress-spinner>
+  <label *ngIf="optionLabel?.length>0" for="app-cms-site-selector-{{id}}"
+    class="color-highlight">{{optionLabel}}</label>
   <mat-chip-grid #chipList aria-label="tag selection" [disabled]="optionDisabled">
     <mat-chip *ngFor="let item of tagDataModel" (removed)="remove(item)">
       {{item.display}}
@@ -17,4 +18,4 @@
       {{item.display}}
     </mat-option>
   </mat-autocomplete>
-</mat-form-field>
+</div>
