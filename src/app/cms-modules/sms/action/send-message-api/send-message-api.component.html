@@ -1,21 +1,29 @@
-<mat-form-field class="ntk-full-width">
-    <input type="text" placeholder="{{'TITLE.sending_route' | translate}}" [attr.disabled]="optionDisabled? true : null" aria-label="Assignee" matInput [formControl]="formPathControl" [matAutocomplete]="matauto">
-    <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayPathFn" (optionSelected)="onActionSelectPath($event.option.value)">
-        <mat-option *ngFor="let state of filteredPathOptions | async" [value]="state" [disabled]="optionDisabled">
-            <span>{{ displayPathOption(state) }}</span>
-        </mat-option>
-    </mat-autocomplete>
-    <mat-icon matSuffix *ngIf="dataPathModelSelect.id" matSuffix mat-icon-button aria-label="Clear" (click)="onActionSelectClearPath()">close</mat-icon>
-    <ng-content></ng-content>
-</mat-form-field>
+<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
 
-<mat-form-field class="ntk-full-width">
-    <input type="text" placeholder="{{'TITLE.No' | translate}}" [attr.disabled]="optionDisabled? true : null" aria-label="Assignee" matInput [formControl]="formNumberControl" [matAutocomplete]="matauto">
-    <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayNumberFn" (optionSelected)="onActionSelectNumber($event.option.value)">
-        <mat-option *ngFor="let state of filteredNumberOptions | async" [value]="state" [disabled]="optionDisabled">
-            <span>{{ displayNumberOption(state) }}</span>
-        </mat-option>
-    </mat-autocomplete>
-    <mat-icon matSuffix *ngIf="dataNumberModelSelect.id" matSuffix mat-icon-button aria-label="Clear" (click)="onActionSelectClearNumber()">close</mat-icon>
-    <ng-content></ng-content>
-</mat-form-field>
+  <label  for="app-sms-action-send-message-api-{{id}}"    class="color-highlight">{{'TITLE.sending_route' | translate}}</label>
+  <input type="text" placeholder="{{'TITLE.sending_route' | translate}}" id="app-sms-action-send-message-api-{{id}}" [attr.disabled]="optionDisabled? true : null"
+    aria-label="Assignee" matInput [formControl]="formPathControl" [matAutocomplete]="matauto">
+  <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayPathFn"
+    (optionSelected)="onActionSelectPath($event.option.value)">
+    <mat-option *ngFor="let state of filteredPathOptions | async" [value]="state" [disabled]="optionDisabled">
+      <span>{{ displayPathOption(state) }}</span>
+    </mat-option>
+  </mat-autocomplete>
+  <mat-icon matSuffix *ngIf="dataPathModelSelect.id" matSuffix mat-icon-button aria-label="Clear"
+    (click)="onActionSelectClearPath()">close</mat-icon>
+</div>
+
+<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+  <label  for="app-sms-action-send-message-api-n-{{id}}"    class="color-highlight">{{'TITLE.sending_route' | translate}}</label>
+  <input type="text" placeholder="{{'TITLE.No' | translate}}" id="app-sms-action-send-message-api-n-{{id}}" [attr.disabled]="optionDisabled? true : null"
+    aria-label="Assignee" matInput [formControl]="formNumberControl" [matAutocomplete]="matauto">
+  <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayNumberFn"
+    (optionSelected)="onActionSelectNumber($event.option.value)">
+    <mat-option *ngFor="let state of filteredNumberOptions | async" [value]="state" [disabled]="optionDisabled">
+      <span>{{ displayNumberOption(state) }}</span>
+    </mat-option>
+  </mat-autocomplete>
+  <mat-icon matSuffix *ngIf="dataNumberModelSelect.id" matSuffix mat-icon-button aria-label="Clear"
+    (click)="onActionSelectClearNumber()">close</mat-icon>
+</div>
+<ng-content></ng-content>

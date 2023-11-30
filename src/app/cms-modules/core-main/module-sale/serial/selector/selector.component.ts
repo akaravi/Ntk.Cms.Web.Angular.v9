@@ -18,7 +18,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class CoreModuleSaleSerialSelectorComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++CoreModuleSaleSerialSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -35,6 +36,7 @@ export class CoreModuleSaleSerialSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel='';
   @Output() optionChange = new EventEmitter<CoreModuleSaleSerialModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreModuleSaleSerialModel) {
