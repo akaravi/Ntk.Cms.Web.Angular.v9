@@ -20,7 +20,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 })
 export class CmsSmsMainApiPathSelectorComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++CmsSmsMainApiPathSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -37,6 +38,7 @@ export class CmsSmsMainApiPathSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel='';
   @Output() optionChange = new EventEmitter<SmsMainApiPathModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | SmsMainApiPathModel) {

@@ -44,15 +44,11 @@
             <app-progress-spinner [options]="loading"> </app-progress-spinner>
             <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
             <!-- SubjectTitle Field -->
-            <mat-form-field class="ntk-full-width">
-                <mat-label>SubjectTitle</mat-label>
-                <input matInput [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle" #SubjectTitle
-                    type="text" placeholder="SubjectTitle" required>
-                <mat-icon matSuffix *ngIf="dataModel.subjectTitle" matSuffix mat-icon-button aria-label="Clear"
-                    (click)="dataModel.subjectTitle = null">close</mat-icon>
-                <mat-icon matSuffix>mode_edit</mat-icon>
-            </mat-form-field>
-
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataModel.subjectTitle" class="color-highlight">{{ "TITILE.subjectTitle" | translate }}</label>
+              <input type="text" [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle"
+                id="dataModel.subjectTitle" placeholder="{{'TITILE.subjectTitle' | translate }}" required/>
+            </div>
 
             <!-- Priority Field -->
             <mat-form-field class="ntk-full-width">

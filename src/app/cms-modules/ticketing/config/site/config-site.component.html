@@ -111,16 +111,6 @@
           </mat-error>
         </mat-form-field>
 
-        <!-- UseDataDefaulteSiteId Field -->
-        <!-- <mat-form-field class="ntk-full-width">
-          <mat-label>{{'TITLE.Default_information_site_ID' | translate}}</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
-            name="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
-            #dataConfigSiteAccessValuesModel_UseDataDefaulteSiteId type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field> -->
         <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
           <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
         </div>

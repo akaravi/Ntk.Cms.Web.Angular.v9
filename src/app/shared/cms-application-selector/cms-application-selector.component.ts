@@ -39,7 +39,9 @@ export class CmsApplicationSelectorComponent implements OnInit {
   filteredOptions: Observable<ApplicationAppModel[]>;
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
+  @Input() optionRequired=false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel='';
   @Output() optionChange = new EventEmitter<ApplicationAppModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | ApplicationAppModel) {
