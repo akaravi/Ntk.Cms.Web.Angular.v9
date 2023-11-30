@@ -42,7 +42,7 @@
                 class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.receiverDate" class="color-highlight">{{ fieldsInfo["receiverDate"]?.fieldTitle }}</label>
                 <input matInput [matDatepicker]="ReceiverDate" type="text" [(ngModel)]="dataModel.receiverDate" name="dataModel.receiverDate"
-                    placeholder="{{fieldsInfo['receiverDate']?.fieldTitle }}" disabled="{{ !fieldsInfo['title']?.accessEditField }}"
+                    placeholder="{{fieldsInfo['receiverDate']?.fieldTitle }}" disabled="{{ !fieldsInfo['receiverDate']?.accessEditField }}"
                     class="form-control validate-name" id="dataModel.receiverDate" />
                 <mat-datepicker-toggle matSuffix [for]="ReceiverDate"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #ReceiverDate></mat-datepicker>
