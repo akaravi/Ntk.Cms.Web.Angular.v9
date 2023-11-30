@@ -15,6 +15,8 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   templateUrl: './selector.component.html',
 })
 export class ApplicationAppSelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++ApplicationAppSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
@@ -27,9 +29,11 @@ export class ApplicationAppSelectorComponent implements OnInit {
   dataModelSelect: ApplicationAppModel = new ApplicationAppModel();
   formControl = new FormControl();
   filteredOptions: Observable<ApplicationAppModel[]>;
-  @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ApplicationAppModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | ApplicationAppModel) {
@@ -46,6 +50,8 @@ export class ApplicationAppSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

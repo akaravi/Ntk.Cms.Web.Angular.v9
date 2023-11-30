@@ -18,6 +18,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class CoreModuleTagCategorySelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++CoreModuleTagCategorySelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -34,6 +36,9 @@ export class CoreModuleTagCategorySelectorComponent implements OnInit {
   filteredOptions: Observable<CoreModuleTagCategoryModel[]>;
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreModuleTagCategoryModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreModuleTagCategoryModel) {
@@ -50,6 +55,8 @@ export class CoreModuleTagCategorySelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

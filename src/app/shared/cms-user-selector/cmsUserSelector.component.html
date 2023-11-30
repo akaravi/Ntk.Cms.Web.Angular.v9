@@ -1,14 +1,13 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-<div  class="input-style has-borders has-icon  input-style-always-active validate-field mb-4">
+<div class="input-style has-borders has-icon  input-style-always-active validate-field mb-4">
+  <label *ngIf="optionLabel?.length>0" for="app-cms-site-selector-{{id}}"
+    class="color-highlight">{{optionLabel}}</label>
   <span matPrefix><img class="ntk-hover-zoom" *ngIf="dataModelSelect && dataModelSelect?.linkMainImageIdSrc"
       style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden
       src="{{dataModelSelect?.linkMainImageIdSrc | cmsthumbnail}}" height="25" width="25" /> &nbsp;</span>
-
-
   <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null"
     aria-label="Assignee" matInput [formControl]="formControl" [matAutocomplete]="matauto" id="forminput"
-    [required]="optionRequired">
-  <label for="forminput" class="color-highlight">{{optionLabel}}</label>
+    [required]="optionRequired" id="app-cms-site-selector-{{id}}">
   <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayFn"
     (optionSelected)="onActionSelect($event.option.value)">
     <mat-option *ngFor="let state of filteredOptions | async" [value]="state" [disabled]="optionDisabled">

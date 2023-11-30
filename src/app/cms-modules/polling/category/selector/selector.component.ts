@@ -17,9 +17,11 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-polling-category-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
+
 })
 export class PollingCategorySelectorComponent implements OnInit {
+  static nextId = 0;
+  id = ++PollingCategorySelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -35,6 +37,9 @@ export class PollingCategorySelectorComponent implements OnInit {
   filteredOptions: Observable<PollingCategoryModel[]>;
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<PollingCategoryModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | PollingCategoryModel) {

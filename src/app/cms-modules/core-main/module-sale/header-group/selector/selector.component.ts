@@ -18,7 +18,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './selector.component.html',
 })
 export class CoreModuleSaleHeaderGroupSelectorComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++CoreModuleSaleHeaderGroupSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -32,9 +33,11 @@ export class CoreModuleSaleHeaderGroupSelectorComponent implements OnInit {
   dataModelSelect: CoreModuleSaleHeaderGroupModel = new CoreModuleSaleHeaderGroupModel();
   formControl = new FormControl();
   filteredOptions: Observable<CoreModuleSaleHeaderGroupModel[]>;
-  @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionDisabled = false;
+  @Input() optionRequired = false;
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreModuleSaleHeaderGroupModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreModuleSaleHeaderGroupModel) {
@@ -51,6 +54,8 @@ export class CoreModuleSaleHeaderGroupSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOptions();
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges
