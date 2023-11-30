@@ -20,7 +20,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 })
 export class SmsActionSendMessageApiComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++SmsActionSendMessageApiComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,

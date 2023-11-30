@@ -39,6 +39,7 @@ export class CmsMemberSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
+  @Input() optionLabel='';
   @Output() optionChange = new EventEmitter<CoreLogMemberModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | CoreLogMemberModel) {

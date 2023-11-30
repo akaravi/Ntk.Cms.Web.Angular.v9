@@ -17,10 +17,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-cms-sms-api-number-selector',
   templateUrl: './cms-sms-api-number-selector.component.html',
-  styleUrls: ['./cms-sms-api-number-selector.component.scss']
 })
 export class CmsSmsMainApiNumberSelectorComponent implements OnInit {
-
+  static nextId = 0;
+  id = ++CmsSmsMainApiNumberSelectorComponent.nextId;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
@@ -38,7 +38,7 @@ export class CmsSmsMainApiNumberSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionSelectFirstItemOnChangeApi = false;
-
+@Input() optionLabel='';
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<SmsMainApiNumberModel>();
   @Input() optionReload = () => this.onActionReload();
