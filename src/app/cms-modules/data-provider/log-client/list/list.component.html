@@ -1,4 +1,5 @@
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowDisplay]="tableRowSelected?.id>0">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
+  [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-tree-->
@@ -34,6 +35,15 @@
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
       translate}}</button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
+  </ng-container>
+  <ng-container cms-action-row>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
+    <h1>{{tableRowSelected?.id}}</h1>
+    <button (click)="onActionbuttonViewRow(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow">
+      <span>{{'ACTION.VIEW' | translate}}</span>
+      <mat-icon>visibility</mat-icon>
+    </button>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
   <ng-container cms-action-area>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-area-->

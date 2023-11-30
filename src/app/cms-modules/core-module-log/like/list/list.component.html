@@ -1,4 +1,5 @@
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowDisplay]="tableRowSelected?.id>0">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
+    [optionActionRowDisplay]="tableRowSelected?.id>0">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         --------------------------------------
@@ -51,6 +52,26 @@
             translate}}</button>
 
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
+    </ng-container>
+    <ng-container cms-action-row>
+        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
+        <h1>{{tableRowSelected?.id}}</h1>
+        <button (click)="onActionbuttonViewRow(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            <span>{{'ACTION.VIEW' | translate}}</span>
+            <mat-icon>view</mat-icon>
+        </button>
+        <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+            <span>{{'ACTION.EDIT' | translate}}</span>
+            <mat-icon>mode_edit</mat-icon>
+        </button>
+        <button (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+            <span>{{'ACTION.DELETE' | translate}}</span>
+            <mat-icon>delete_forever</mat-icon>
+        </button>
+        <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>
     <ng-container cms-action-area>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
@@ -137,20 +158,17 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonViewRow(row)"
-                            *ngIf="dataModelResult.access.accessWatchRow"
+                        <button (click)="onActionbuttonViewRow(row)" *ngIf="dataModelResult.access.accessWatchRow"
                             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                             <mat-icon>view</mat-icon>
                             <span>{{'ACTION.VIEW' | translate}}</span>
                         </button>
-                        <button (click)="onActionbuttonEditRow(row)"
-                            *ngIf="dataModelResult.access.accessEditRow"
+                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
                             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
                             <mat-icon>mode_edit</mat-icon>
                             <span>{{'ACTION.EDIT' | translate}}</span>
                         </button>
-                        <button (click)="onActionbuttonDeleteRow(row)"
-                            *ngIf="dataModelResult.access.accessDeleteRow"
+                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
                             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
                             <mat-icon>delete_forever</mat-icon>
                             <span>{{'ACTION.DELETE' | translate}}</span>
