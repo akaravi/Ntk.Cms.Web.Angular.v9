@@ -73,7 +73,7 @@
                 <div *ngIf="fieldsInfo['title']?.accessWatchField"
                  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                  <label for="dataModel.maxVoteForThisContent" class="color-highlight">{{'TITLE.Maximum_Total_Score' | translate}}</label>
-                 <input matInput type="text" [(ngModel)]="dataModel.maxVoteForThisContent" name="dataModel.maxVoteForThisContent" #MaxVoteForThisContent type="number"
+                 <input matInput type="number" [(ngModel)]="dataModel.maxVoteForThisContent" name="dataModel.maxVoteForThisContent" #MaxVoteForThisContent type="number"
                  placeholder="{{'MESSAGE.Maximum_Score_That_User_Can_Give' | translate}}"
                    minlength="1" maxlength="100" required class="form-control validate-name" id="dataModel.maxVoteForThisContent" />
                  <i *ngIf="!MaxVoteForThisContent.value" class="fa fa-times  invalid color-red-dark"></i>
@@ -87,7 +87,7 @@
                 <div *ngIf="fieldsInfo['title']?.accessWatchField"
                  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                  <label for="dataModel.maxVoteForEachOption" class="color-highlight">{{'TITLE.Maximum_Score_For_Per_Option' | translate}}</label>
-                 <input matInput type="text" [(ngModel)]="dataModel.maxVoteForEachOption" name="dataModel.maxVoteForEachOption" #MaxVoteForEachOption type="number"
+                 <input matInput type="number" [(ngModel)]="dataModel.maxVoteForEachOption" name="dataModel.maxVoteForEachOption" #MaxVoteForEachOption type="number"
                    placeholder="{{'MESSAGE.Maximum_Score_That_User_Can_Give' | translate}}"
                    minlength="1" maxlength="100" required class="form-control validate-name" id="dataModel.maxVoteForEachOption" />
                  <i *ngIf="!MaxVoteForEachOption.value" class="fa fa-times  invalid color-red-dark"></i>
@@ -98,7 +98,7 @@
                   </mat-error>
                 </div>
                  <!-- ViewStatisticsAfterVote Field -->
-                <div *ngIf="fieldsInfo['viewStatisticsAfterVote']?.accessWatchField" class="d-flex mb-3">
+                <div *ngIf="fieldsInfo['viewStatisticsBeforeVote']?.accessWatchField" class="d-flex mb-3">
                   <div class="pt-1">
                     <h5 data-trigger-switch="dataModel.viewStatisticsAfterVote" class="font-600 font-14">
                       {{'TITLE.View_Statistics_After_Vote' | translate}}</h5>
@@ -164,7 +164,7 @@
                  <input matInput type="text" [(ngModel)]="optionSelected.option" name="optionSelected.option" #optionSelected_Option type="text"
                    placeholder="{{'TITLE.OPTION' | translate}}" 
                    minlength="1" maxlength="200"  class="form-control validate-name" id="optionSelected.option" />
-                 <em>{{ optionSelected_Option.value.length }} / 100</em>
+                 <em>{{ optionSelected_Option.value.length }} / 200</em>
              </div>
 
              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
