@@ -72,7 +72,7 @@
   </ng-container>
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-    <h1>{{tableRowSelected?.title}}</h1>
+    <h1>{{tableRowSelected?.id}}</h1>
     <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
       <span>{{'ACTION.EDIT' | translate}}</span>

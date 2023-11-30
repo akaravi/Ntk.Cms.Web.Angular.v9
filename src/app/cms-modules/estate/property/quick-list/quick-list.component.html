@@ -105,7 +105,7 @@
     </ng-container>
     <ng-container cms-action-row>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-      <h1>{{tableRowSelected?.title}}</h1>
+      <h1>{{tableRowSelected?.id}}</h1>
       <button
         *ngIf="dataModelResult.access.accessEditRow && (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
         (click)="onActionbuttonEditRow(tableRowSelected)" type="button"

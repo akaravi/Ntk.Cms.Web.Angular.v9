@@ -55,7 +55,7 @@
   </ng-container>
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-    <h1>{{tableRowSelected?.title}}</h1>
+    <h1>{{tableRowSelected?.id}}</h1>
     <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
