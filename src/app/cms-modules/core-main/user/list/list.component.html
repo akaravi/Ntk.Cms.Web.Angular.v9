@@ -1,6 +1,7 @@
 <app-cms-guide-notice [Key]="'core.user.list'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowDisplay]="tableRowSelected?.id>0">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
+  [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     --------------------------------------
@@ -63,6 +64,27 @@
         unfold_less_double</mat-icon>
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
+  </ng-container>
+  <ng-container cms-action-row>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
+    <h1>{{tableRowSelected?.id}}</h1>
+    <button (click)="onActionbuttonViewRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.VIEW' | translate}}</span>
+      <mat-icon>visibility</mat-icon>
+    </button>
+    <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || tableRowSelected.id===tokenInfo.userId"
+      (click)="onActionbuttonEditRow(tableRowSelected,$event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+      <span>{{'ACTION.EDIT' | translate}}</span>
+      <mat-icon>mode_edit</mat-icon>
+    </button>
+    <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData" (click)="onActionbuttonDeleteRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+      <span>{{'ACTION.DELETE' | translate}}</span>
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
   <ng-container cms-action-area>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
@@ -178,14 +200,12 @@
               <mat-icon>lock</mat-icon>
               <span>{{'ACTION.CHANGE_PASSWORD' | translate}}</span>
             </button>
-            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-              (click)="onActionbuttonDeleteRow(row)"
+            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData" (click)="onActionbuttonDeleteRow(row)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
               <mat-icon>delete_forever</mat-icon>
               <span>{{'ACTION.DELETE' | translate}}</span>
             </button>
-            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-              (click)="onActionbuttonLoginToRow(row)"
+            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData" (click)="onActionbuttonLoginToRow(row)"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <mat-icon>login</mat-icon>
               <span>{{'ACTION.LOGIN_TO_THIS_USER' | translate}}</span>
