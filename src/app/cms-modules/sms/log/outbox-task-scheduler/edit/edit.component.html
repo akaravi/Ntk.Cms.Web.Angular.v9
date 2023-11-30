@@ -1,87 +1,79 @@
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+    <div class="content mb-0">
+      <p class="mb-0 color-highlight font-600 font-12">
+        حساب کاربری خود را ویرایش کنید
+      </p>
+      <h4>اطلاعات</h4>
+      <h4>اطلاعات اولیه</h4>
+      <p>
+        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+        فقط یک صفحه ساختگی است.
+      </p>
+      <!--content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+               {{ formInfo.formTitle }}
+               <!-- RecordStatus Field -->
+               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
+                <label for="dataModel.recordStatus" class="color-highlight">{{ fieldsInfo["recordStatus"]?.fieldTitle}}</label>
+                <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+                 #RecordStatus="ngModel" 
+                 ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
+                  <option *ngFor="
+                    let item of dataModelEnumRecordStatusResult.listItems;
+                    index as i
+                    " [ngValue]="item.value">
+                  {{ item.description }}
+                  </option>
+                </select>
+                <em class="mt-n3">{{
+                "TITLE.SELECT_STATUS" | translate}}
+                </em>
+                <mat-error *ngIf="RecordStatus.errors?.required">
+                 RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+               </div>
+                <!-- ScheduleSendStart Field -->
+                <div *ngIf="fieldsInfo['scheduleSendStart']?.accessWatchField"
+                    class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                  <label for="dataModel.scheduleSendStart" class="color-highlight">{{ fieldsInfo["receiverDate"]?.fieldTitle }}</label>
+                  <input matInput [matDatepicker]="ScheduleSendStart" type="text" [(ngModel)]="dataModel.scheduleSendStart" name="dataModel.scheduleSendStart"
+                    placeholder="{{fieldsInfo['scheduleSendStart']?.fieldTitle }}" disabled="{{ !fieldsInfo['scheduleSendStart']?.accessEditField }}"
+                    class="form-control validate-name" id="dataModel.scheduleSendStart" />
+                  <mat-datepicker-toggle matSuffix [for]="ScheduleSendStart"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #ScheduleSendStart></mat-datepicker>
+                </div>
+                <!-- ToNumbers Field -->
+                <div *ngIf="fieldsInfo['toNumbers']?.accessWatchField"
+                   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                     <label for="dataModel.toNumbers" class="color-highlight">{{ fieldsInfo["toNumbers"]?.fieldTitle }}</label>
+                      <input matInput type="text" [(ngModel)]="dataModel.toNumbers" name="dataModel.toNumbers" #ToNumbers
+                          placeholder="123" disabled="{{ !fieldsInfo['toNumbers']?.accessEditField }}"
+                         class="form-control validate-name" id="dataModel.toNumbers" />
+                         <em style="text-align: right;">{{ ToNumbers.value.length }} / 100</em>
+                </div>
+                 <!-- Message Field -->
+                <div *ngIf="fieldsInfo['message']?.accessWatchField"
+                  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                  <label for="dataModel.message" class="color-highlight">{{ fieldsInfo["message"]?.fieldTitle }}</label>
+                  <input matInput type="text" [(ngModel)]="dataModel.message" #Message name="dataModel.message"
+                  placeholder="123" disabled="{{ !fieldsInfo['message']?.accessEditField }}"
+                  class="form-control validate-name" id="dataModel.message" />
+                  <em style="text-align: right;">{{ Message.value.length }} / 100</em>
+                </div>
+                
+                <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                    <button type="button" (click)="onFormCancel()"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                    </button>
+                    <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                        (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                        <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                    </button>
+                </div>
+        </form>
+
+      <!--content-->
     </div>
-    <div class="ntk-cms-html-card-body">
-        <app-progress-spinner [options]="loading"> </app-progress-spinner>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-        <!-- RecordStatus Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-                name="dataModel.recordStatus" #RecordStatus="ngModel"
-                ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-                <mat-option *ngFor="
-                  let item of dataModelEnumRecordStatusResult.listItems;
-                  index as i
-                " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint style="text-align: left;">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-                RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <!-- ScheduleSendStart Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['scheduleSendStart']?.accessWatchField">
-            <mat-label>{{fieldsInfo['receiverDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="ScheduleSendStart" [(ngModel)]="dataModel.scheduleSendStart"
-                name="dataModel.scheduleSendStart" disabled="{{!fieldsInfo['scheduleSendStart']?.accessEditField}}"
-                placeholder="{{fieldsInfo['scheduleSendStart']?.fieldTitle}}" />
-            <mat-icon matSuffix *ngIf="dataModel.scheduleSendStart && fieldsInfo['scheduleSendStart']?.accessEditField"
-                matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.scheduleSendStart = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="ScheduleSendStart"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #ScheduleSendStart></mat-datepicker>
-        </mat-form-field>
-
-        <!-- ToNumbers Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['toNumbers']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['toNumbers']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.toNumbers" [disabled]="!fieldsInfo['toNumbers']?.accessEditField"
-                name="dataModel.toNumbers" #ToNumbers type="text" placeholder="123" />
-            <mat-icon matSuffix *ngIf="dataModel.toNumbers && fieldsInfo['toNumbers']?.accessEditField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.toNumbers = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['toNumbers']?.accessEditField" matSuffix>mode_edit</mat-icon>
-            <mat-hint style="text-align: right;">{{ ToNumbers.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!-- Message Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['message']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['message']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.message" [disabled]="!fieldsInfo['message']?.accessEditField"
-                name="dataModel.message" #Message type="text" placeholder="123" />
-            <mat-icon matSuffix *ngIf="dataModel.message && fieldsInfo['message']?.accessEditField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.message = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['message']?.accessEditField" matSuffix>mode_edit</mat-icon>
-            <mat-hint style="text-align: right;">{{ Message.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
+</div>
