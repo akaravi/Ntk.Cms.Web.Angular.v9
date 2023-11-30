@@ -3,7 +3,7 @@
 </app-cms-guide-notice>
 <app-estate-property-project-header *ngIf="this.requestLinkProjectId?.length>0" [optionId]="this.requestLinkProjectId">
 </app-estate-property-project-header>
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true" [optionActionRowDisplay]="tableRowSelected?.id>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-estate-property-supplier-category-tree [(optionLoading)]="loading"

@@ -4,7 +4,7 @@
 <app-donate-target-header *ngIf="this.requestLinkTargeId>0" [optionId]="this.requestLinkTargeId">
 </app-donate-target-header>
 
-<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false">
+<app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowDisplay]="tableRowSelected?.id>0">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         --------------------------------------

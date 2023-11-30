@@ -5,7 +5,7 @@
 </app-news-content-header>
 
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionActionRowDisplay]="tableRowSelected?.id>0">
+  [optionActionRowDisplay]="tableRowSelected?.id>0" >
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     --------------------------------------
@@ -73,7 +73,7 @@
       <span>{{'ACTION.VIEW_NEWS' | translate}}</span>
       <mat-icon>visibility</mat-icon>
     </button>
-
+    
     <button (click)="onActionbuttonEditContent(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessDeleteRow"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.NEWS_EDITING' | translate}} </span>
