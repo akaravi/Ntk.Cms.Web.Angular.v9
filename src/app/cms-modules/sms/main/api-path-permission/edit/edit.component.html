@@ -1,138 +1,145 @@
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+    <div class="content mb-0">
+      <p class="mb-0 color-highlight font-600 font-12">
+        حساب کاربری خود را ویرایش کنید
+      </p>
+      <h4>اطلاعات</h4>
+      <h4>اطلاعات اولیه</h4>
+      <p>
+        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+        فقط یک صفحه ساختگی است.
+      </p>
+      <!--content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
+            <!-- RecordStatus Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
+                <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+                 #RecordStatus="ngModel" required
+                 ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
+                 <option *ngFor="
+                    let item of dataModelEnumRecordStatusResult.listItems;
+                    index as i
+                    " [ngValue]="item.value">
+                 {{ item.description }}
+                 </option>
+                </select>
+                <em class="mt-n3">{{
+                 "TITLE.SELECT_STATUS" | translate}}
+                </em>
+                <mat-error *ngIf="RecordStatus.errors?.required">
+                 RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- LinkCoreUserId Field -->
+            <app-cms-user-selector (optionChange)="onActionSelectorCmsUser($event)" [(optionLoading)]="loading"
+                [optionDisabled]="!fieldsInfo['linkCoreUserId']?.accessAddField"
+                [optionSelectForce]="dataModel.linkCoreUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+            </app-cms-user-selector>
+            <!-- LinkCoreSiteId Field -->
+            <app-cms-site-selector (optionChange)="onActionSelectorCmsSite($event)" [(optionLoading)]="loading"
+                [optionDisabled]="!fieldsInfo['linkCoreSiteId']?.accessAddField"
+                [optionSelectForce]="dataModel.linkCoreSiteId" [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
+            </app-cms-site-selector>
+            <!-- LinkCoreUserGroupId Field -->
+            <app-cms-usergroup-selector (optionChange)="onActionSelectorCoreUserGroup($event)"
+                [optionDisabled]="!fieldsInfo['linkCoreUserGroupId']?.accessAddField"
+                [optionSelectForce]="dataModel.linkCoreUserGroupId" [(optionLoading)]="loading"
+                [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+            </app-cms-usergroup-selector>
+            <!-- LinkCoreSiteCategoryId Field -->
+            <app-cms-sitecategory-selector (optionChange)="onActionSelectorCoreSiteCategory($event)"
+                [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField"
+                [optionSelectForce]="dataModel.linkCoreSiteCategoryId" [(optionLoading)]="loading"
+                [optionPlaceholder]="this.translate.instant('TITLE.Site_Type')">
+            </app-cms-sitecategory-selector>
+            <!-- LinkApiPathId Field -->
+            <app-sms-apipath-selector (optionChange)="onActionSelectorSelectLinkApiPathId($event)"
+                [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiPathId"
+                [optionPlaceholder]="this.translate.instant('TITLE.Direction')">
+            </app-sms-apipath-selector>
+            <!-- HasInherits Field -->
+            <div  *ngIf="fieldsInfo['hasInherits']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.hasInherits" class="font-600 font-14">
+                    {{fieldsInfo['hasInherits']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.hasInherits"
+                    [(ngModel)]="this.dataModel.hasInherits" name="dataModel.hasInherits">
+                    <label class="custom-control-label" for="dataModel.hasInherits"></label>
+                </div>
+                </div>
+            </div>
+            <!-- AccessStatus Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
+                <select id="dataModel.accessStatus" [(ngModel)]="dataModel.accessStatus" name="dataModel.accessStatus"
+                 #AccessStatus="ngModel" required
+                  class="form-control validate-name">
+                 <option *ngFor="
+                    let item of dataModelEnumApiPathPermissionAccessStatusResult.listItems;
+                    index as i
+                    " [ngValue]="item.value">
+                 {{ item.description }}
+                 </option>
+                </select>
+                <em align="end">{{
+                "TITLE.Select_type_of_content" | translate}}
+                </em>
+                <mat-error *ngIf="AccessStatus.errors?.required">
+                    AccessStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+              <!-- Action Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
+                <select id="dataModel.action" [(ngModel)]="dataModel.action" name="dataModel.action"
+                 #Action="ngModel" required
+                 class="form-control validate-name">
+                  <option *ngFor="
+                    let item of dataModelEnumApiPathPermissionActionResult.listItems;
+                    index as i
+                    " [ngValue]="item.value">
+                 {{ item.description }}
+                 </option>
+                </select>
+                <em align="end">{{
+                 "TITLE.Select_type_of_content" | translate}}
+                </em>
+                <mat-error *ngIf="Action.errors?.required">
+                    Action is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- FromDate Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.fromDate" class="color-highlight">{{fieldsInfo['fromDate']?.fieldTitle}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.fromDate" [matDatepicker]="FromDate" name="dataModel.fromDate"
+                    class="form-control validate-name" id="dataModel.fromDate" />
+                <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #FromDate></mat-datepicker>
+            </div>
+            <!-- ExpireDate Field -->
+            <div  *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.expireDate" class="color-highlight">{{'TITLE.Expire_Date' | translate}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.expireDate" [matDatepicker]="ExpireDate" name="dataModel.expireDate"
+                class="form-control validate-name" id="dataModel.expireDate" />
+                <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #ExpireDate></mat-datepicker>
+            </div>
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                </button>
+            </div>
+        </form>
+
+      <!--content-->
     </div>
-    <div class="ntk-cms-html-card-body">
-        <app-progress-spinner [options]="loading"> </app-progress-spinner>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <!-- RecordStatus Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-                name="dataModel.recordStatus" #RecordStatus="ngModel"
-                ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-                <mat-option *ngFor="
-                  let item of dataModelEnumRecordStatusResult.listItems;
-                  index as i
-                " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-                RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-
-        <!-- LinkCoreUserId Field -->
-        <app-cms-user-selector (optionChange)="onActionSelectorCmsUser($event)" [(optionLoading)]="loading"
-            [optionDisabled]="!fieldsInfo['linkCoreUserId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkCoreUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
-        </app-cms-user-selector>
-        <!-- LinkCoreSiteId Field -->
-        <app-cms-site-selector (optionChange)="onActionSelectorCmsSite($event)" [(optionLoading)]="loading"
-            [optionDisabled]="!fieldsInfo['linkCoreSiteId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkCoreSiteId" [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
-        </app-cms-site-selector>
-        <!-- LinkCoreUserGroupId Field -->
-        <app-cms-usergroup-selector (optionChange)="onActionSelectorCoreUserGroup($event)"
-            [optionDisabled]="!fieldsInfo['linkCoreUserGroupId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkCoreUserGroupId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
-        </app-cms-usergroup-selector>
-        <!-- LinkCoreSiteCategoryId Field -->
-        <app-cms-sitecategory-selector (optionChange)="onActionSelectorCoreSiteCategory($event)"
-            [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkCoreSiteCategoryId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Site_Type')">
-        </app-cms-sitecategory-selector>
-
-        <!-- LinkApiPathId Field -->
-        <app-sms-apipath-selector (optionChange)="onActionSelectorSelectLinkApiPathId($event)"
-            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiPathId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Direction')">
-        </app-sms-apipath-selector>
-        <!-- HasInherits Field -->
-        <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.hasInherits" *ngIf="fieldsInfo['hasInherits']?.accessWatchField"
-                [disabled]="!fieldsInfo['hasInherits']?.accessEditField" name="dataModel.hasInherits">
-                {{fieldsInfo['hasInherits']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <!-- AccessStatus Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-select placeholder="{{'TITLE.Status_Type' | translate}}" [(ngModel)]="dataModel.accessStatus"
-                name="dataModel.accessStatus" #AccessStatus="ngModel"
-                panelClass="recordStatus-{{ dataModel.accessStatus }}" required>
-                <mat-option *ngFor="
-                          let item of dataModelEnumApiPathPermissionAccessStatusResult.listItems;
-                          index as i
-                        " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint align="end">{{'TITLE.Select_type_of_content' | translate}}</mat-hint>
-            <mat-error *ngIf="AccessStatus.errors?.required">
-                AccessStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <!-- Action Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-select placeholder="{{'TITLE.Type_of_Activity' | translate}}" [(ngModel)]="dataModel.action"
-                name="dataModel.action" #Action="ngModel" panelClass="recordStatus-{{ dataModel.action }}" required>
-                <mat-option *ngFor="
-                              let item of dataModelEnumApiPathPermissionActionResult.listItems;
-                              index as i
-                            " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint align="end">{{'TITLE.Select_type_of_content' | translate}}</mat-hint>
-            <mat-error *ngIf="Action.errors?.required">
-                Action is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-        <!-- FromDate Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['fromDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="FromDate" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate" />
-            <mat-icon matSuffix *ngIf="dataModel.fromDate && fieldsInfo['fromDate']?.accessEditField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.fromDate = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #FromDate></mat-datepicker>
-        </mat-form-field>
-        <!-- ExpireDate Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['expireDate']?.accessWatchField">
-            <mat-label>{{fieldsInfo['expireDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate"
-                name="dataModel.expireDate" />
-            <mat-icon matSuffix *ngIf="dataModel.expireDate && fieldsInfo['expireDate']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.expireDate = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-        </mat-form-field>
-        <hr class="pb-5" />
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
+</div>

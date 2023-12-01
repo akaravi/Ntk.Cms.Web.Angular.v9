@@ -1,168 +1,182 @@
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+    <div class="content mb-0">
+      <p class="mb-0 color-highlight font-600 font-12">
+        حساب کاربری خود را ویرایش کنید
+      </p>
+      <h4>اطلاعات</h4>
+      <h4>اطلاعات اولیه</h4>
+      <p>
+        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+        فقط یک صفحه ساختگی است.
+      </p>
+      <!--content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+              {{ formInfo.formTitle }}
+            <!-- RecordStatus Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
+                <label for="dataModel.recordStatus" class="color-highlight">{{ fieldsInfo["recordStatus"]?.fieldTitle}}</label>
+                <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+                 #RecordStatus="ngModel" [disabled]="!fieldsInfo['recordStatus']?.accessAddField"
+                 ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
+                 <option *ngFor="
+                    let item of dataModelEnumRecordStatusResult.listItems;
+                    index as i
+                    " [ngValue]="item.value">
+                 {{ item.description }}
+                 </option>
+                </select>
+                <em class="mt-n3">{{
+                 "TITLE.SELECT_STATUS" | translate}}
+                </em>
+                <mat-error *ngIf="RecordStatus.errors?.required">
+                 RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- NumberChar Field -->
+            <div *ngIf="fieldsInfo['numberChar']?.accessWatchField"
+              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataModel.numberChar" class="color-highlight">{{ fieldsInfo["numberChar"]?.fieldTitle }}</label>
+              <input matInput type="text" [(ngModel)]="dataModel.numberChar" name="dataModel.numberChar" #NumberChar 
+                placeholder="123" disabled="{{ !fieldsInfo['numberChar']?.accessAddField }}"
+                class="form-control validate-name" id="dataModel.numberChar" />
+                <em align="start">{{ NumberChar.value.length }} / 100</em>
+            </div>
+            <!-- IsPublic Field -->
+            <div *ngIf="fieldsInfo['isPublic']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                  <h5 data-trigger-switch="dataModel.isPublic" class="font-600 font-14">
+                    {{fieldsInfo['isPublic']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                  <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.isPublic"
+                      [(ngModel)]="this.dataModel.isPublic" name="dataModel.isPublic">
+                    <label class="custom-control-label" for="dataModel.isPublic"></label>
+                  </div>
+                </div>
+            </div>
+            <!-- SaleStatus Field -->
+            <div  *ngIf="fieldsInfo['saleStatus']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.saleStatus" class="font-600 font-14">
+                    {{fieldsInfo['saleStatus']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.saleStatus"
+                    [(ngModel)]="this.dataModel.saleStatus" name="dataModel.saleStatus">
+                    <label class="custom-control-label" for="dataModel.saleStatus"></label>
+                </div>
+                </div>
+            </div>
+            <!-- Priority Field -->
+            <div *ngIf="fieldsInfo['priority']?.accessWatchField"
+              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataModel.priority" class="color-highlight">{{ fieldsInfo["priority"]?.fieldTitle }}</label>
+              <input matInput type="number" [(ngModel)]="dataModel.priority" name="dataModel.priority" #Priority 
+                placeholder="1" disabled="{{ !fieldsInfo['priority']?.accessEditField }}"
+               class="form-control validate-name" id="dataModel.priority" />
+              <em align="start">{{ Priority.value.length }} / 100</em>
+            </div>
+            <!-- DeliveryRelayStatus Field -->
+            <div  *ngIf="fieldsInfo['deliveryRelayStatus']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.deliveryRelayStatus" class="font-600 font-14">
+                    {{fieldsInfo['deliveryRelayStatus']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.deliveryRelayStatus"
+                    [(ngModel)]="this.dataModel.deliveryRelayStatus" name="dataModel.deliveryRelayStatus">
+                    <label class="custom-control-label" for="dataModel.deliveryRelayStatus"></label>
+                </div>
+                </div>
+            </div>
+            <!-- DeliveryRelayUrl Field -->
+            <div *ngIf="fieldsInfo['deliveryRelayUrl']?.accessWatchField && dataModel.deliveryRelayStatus"
+               class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+               <label for="dataModel.deliveryRelayUrl" class="color-highlight">{{ fieldsInfo["deliveryRelayUrl"]?.fieldTitle }}</label>
+               <input matInput type="text" [(ngModel)]="dataModel.deliveryRelayUrl" name="dataModel.deliveryRelayUrl" #DeliveryRelayUrl 
+                placeholder="1" [disabled]="!fieldsInfo['deliveryRelayUrl']?.accessAddField"
+                class="form-control validate-name input-ltr" id="dataModel.deliveryRelayUrl" />
+               <em align="end">{{ DeliveryRelayUrl.value.length }} / 100</em>
+            </div>
+            <!-- SmsRelayStatus Field -->
+            <div  *ngIf="fieldsInfo['smsRelayStatus']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.smsRelayStatus" class="font-600 font-14">
+                    {{fieldsInfo['smsRelayStatus']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.smsRelayStatus"
+                    [(ngModel)]="this.dataModel.smsRelayStatus" name="dataModel.smsRelayStatus">
+                    <label class="custom-control-label" for="dataModel.smsRelayStatus"></label>
+                </div>
+                </div>
+            </div>
+            <!-- SmsRelayUrl Field -->
+            <div *ngIf="fieldsInfo['smsRelayUrl']?.accessWatchField && dataModel.smsRelayStatus"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.smsRelayUrl" class="color-highlight">{{ fieldsInfo["smsRelayUrl"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.smsRelayUrl" name="dataModel.smsRelayUrl" #SmsRelayUrl 
+                    placeholder="1" [disabled]="!fieldsInfo['smsRelayUrl']?.accessAddField"
+                    class="form-control validate-name input-ltr" id="dataModel.smsRelayUrl" />
+                <em align="end">{{ SmsRelayUrl.value.length }} / 100</em>
+            </div>
+            <!-- FirstSubmit Field -->
+            <div
+                    class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="dataModel.firstSubmit" class="color-highlight">{{ fieldsInfo["firstSubmit"]?.fieldTitle }}</label>
+                    <input matInput [matDatepicker]="FirstSubmit" type="text" [(ngModel)]="dataModel.firstSubmit" name="dataModel.firstSubmit" 
+                        class="form-control validate-name input-ltr" id="dataModel.firstSubmit" />
+                    <mat-datepicker-toggle matSuffix [for]="FirstSubmit"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #FirstSubmit></mat-datepicker>
+            </div>
+            <!-- UsanceDate Field -->
+            <div *ngIf="fieldsInfo['usanceDate']?.accessWatchField"
+                    class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="dataModel.usanceDate" class="color-highlight">{{ fieldsInfo["usanceDate"]?.fieldTitle }}</label>
+                    <input matInput [matDatepicker]="UsanceDate" type="text" [(ngModel)]="dataModel.usanceDate" name="dataModel.usanceDate"
+                        class="form-control validate-name input-ltr" id="dataModel.usanceDate" />
+                    <mat-datepicker-toggle matSuffix [for]="UsanceDate"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #UsanceDate></mat-datepicker>
+            </div>
+            <!-- ExpireDate Field -->
+            <div  *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataModel.expireDate" class="color-highlight">{{fieldsInfo['expireDate']?.fieldTitle}}</label>
+              <input matInput type="text" [(ngModel)]="dataModel.expireDate" [matDatepicker]="ExpireDate" name="dataModel.expireDate"
+              class="form-control validate-name" id="dataModel.expireDate" />
+              <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #ExpireDate></mat-datepicker>
+            </div>
+            <!-- ActionMemo Field -->
+            <div *ngIf="fieldsInfo['actionMemo']?.accessWatchField"
+                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                        <label for="dataModel.actionMemo" class="color-highlight">{{ fieldsInfo["actionMemo"]?.fieldTitle }}</label>
+                        <input matInput type="text" [(ngModel)]="dataModel.actionMemo" #ActionMemo name="dataModel.actionMemo" [disabled]="!fieldsInfo['actionMemo']?.accessEditField" placeholder="1"
+                            class="form-control validate-name" id="dataModel.actionMemo" />
+            </div>
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                </button>
+            </div>
+
+
+
+
+
+
+        </form>
+
+      <!--content-->
     </div>
-    <div class="ntk-cms-html-card-body">
-        <app-progress-spinner [options]="loading"> </app-progress-spinner>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <!-- RecordStatus Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-                name="dataModel.recordStatus" #RecordStatus="ngModel"
-                ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-                <mat-option *ngFor="
-              let item of dataModelEnumRecordStatusResult.listItems;
-              index as i
-            " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-                RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <!-- NumberChar Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['numberChar']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['numberChar']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.numberChar" [disabled]="!fieldsInfo['numberChar']?.accessAddField"
-                name="dataModel.numberChar" #NumberChar type="text" placeholder="123" />
-            <mat-icon matSuffix *ngIf="dataModel.numberChar && fieldsInfo['numberChar']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.numberChar = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['numberChar']?.accessAddField" matSuffix>mode_edit</mat-icon>
-            <mat-hint align="start">{{ NumberChar.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!-- IsPublic Field -->
-        <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.isPublic" *ngIf="fieldsInfo['isPublic']?.accessWatchField"
-                [disabled]="!fieldsInfo['isPublic']?.accessAddField" name="dataModel.isPublic">
-                {{fieldsInfo['isPublic']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-
-        <!-- SaleStatus Field -->
-        <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.saleStatus" *ngIf="fieldsInfo['saleStatus']?.accessWatchField"
-                [disabled]="!fieldsInfo['saleStatus']?.accessAddField" name="dataModel.saleStatus">
-                {{fieldsInfo['saleStatus']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <!-- Priority Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['priority']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['priority']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.priority" [disabled]="!fieldsInfo['priority']?.accessEditField"
-                name="dataModel.priority" #Priority type="number" placeholder="1" />
-            <mat-icon matSuffix *ngIf="dataModel.priority && fieldsInfo['priority']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.priority = 1">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['priority']?.accessEditField" matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- DeliveryRelayStatus Field -->
-        <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.deliveryRelayStatus"
-                *ngIf="fieldsInfo['deliveryRelayStatus']?.accessWatchField"
-                [disabled]="!fieldsInfo['deliveryRelayStatus']?.accessAddField" name="dataModel.deliveryRelayStatus">
-                {{fieldsInfo['deliveryRelayStatus']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <!-- DeliveryRelayUrl Field -->
-        <mat-form-field class="ntk-full-width"
-            *ngIf="fieldsInfo['deliveryRelayUrl']?.accessWatchField && dataModel.deliveryRelayStatus">
-            <mat-label>{{ fieldsInfo['deliveryRelayUrl']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.deliveryRelayUrl"
-                [disabled]="!fieldsInfo['deliveryRelayUrl']?.accessAddField" name="dataModel.deliveryRelayUrl"
-                #DeliveryRelayUrl type="text" class="input-ltr" placeholder="" />
-            <mat-icon matSuffix *ngIf="dataModel.deliveryRelayUrl && fieldsInfo['deliveryRelayUrl']?.accessAddField"
-                matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.deliveryRelayUrl = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['deliveryRelayUrl']?.accessAddField" matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ DeliveryRelayUrl.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!-- SmsRelayStatus Field -->
-        <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.smsRelayStatus"
-                *ngIf="fieldsInfo['smsRelayStatus']?.accessWatchField"
-                [disabled]="!fieldsInfo['smsRelayStatus']?.accessAddField" name="dataModel.smsRelayStatus">
-                {{fieldsInfo['smsRelayStatus']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <!-- SmsRelayUrl Field -->
-        <mat-form-field class="ntk-full-width"
-            *ngIf="fieldsInfo['smsRelayUrl']?.accessWatchField && dataModel.smsRelayStatus">
-            <mat-label>{{ fieldsInfo['smsRelayUrl']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.smsRelayUrl" [disabled]="!fieldsInfo['smsRelayUrl']?.accessAddField"
-                name="dataModel.smsRelayUrl" #SmsRelayUrl type="text" class="input-ltr" placeholder="" />
-            <mat-icon matSuffix *ngIf="dataModel.smsRelayUrl && fieldsInfo['smsRelayUrl']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.smsRelayUrl = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['smsRelayUrl']?.accessAddField" matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ SmsRelayUrl.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!-- FirstSubmit Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['firstSubmit']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="FirstSubmit" [(ngModel)]="dataModel.firstSubmit"
-                name="dataModel.firstSubmit" />
-            <mat-icon matSuffix *ngIf="dataModel.firstSubmit && fieldsInfo['firstSubmit']?.accessEditField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.firstSubmit = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="FirstSubmit"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #FirstSubmit></mat-datepicker>
-        </mat-form-field>
-        <!-- UsanceDate Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['usanceDate']?.accessWatchField">
-            <mat-label>{{fieldsInfo['usanceDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="UsanceDate" [(ngModel)]="dataModel.usanceDate"
-                name="dataModel.usanceDate" />
-            <mat-icon matSuffix *ngIf="dataModel.usanceDate && fieldsInfo['usanceDate']?.accessEditField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.usanceDate = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="UsanceDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #UsanceDate></mat-datepicker>
-        </mat-form-field>
-        <!-- ExpireDate Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['expireDate']?.accessWatchField">
-            <mat-label>{{fieldsInfo['expireDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate"
-                name="dataModel.expireDate" />
-            <mat-icon matSuffix *ngIf="dataModel.expireDate && fieldsInfo['expireDate']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.expireDate = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-        </mat-form-field>
-
-        <!-- ActionMemo Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['actionMemo']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['actionMemo']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.actionMemo" [disabled]="!fieldsInfo['actionMemo']?.accessEditField"
-                name="dataModel.actionMemo" #ActionMemo type="text" placeholder="1" />
-            <mat-icon matSuffix *ngIf="dataModel.actionMemo && fieldsInfo['actionMemo']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.actionMemo = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['actionMemo']?.accessEditField" matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
+</div>

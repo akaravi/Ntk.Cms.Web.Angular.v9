@@ -1,179 +1,140 @@
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+    <div class="content mb-0">
+      <p class="mb-0 color-highlight font-600 font-12">
+        حساب کاربری خود را ویرایش کنید
+      </p>
+      <h4>اطلاعات</h4>
+      <h4>اطلاعات اولیه</h4>
+      <p>
+        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+        فقط یک صفحه ساختگی است.
+      </p>
+      <!--content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
+            <!-- RecordStatus Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
+                <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+                 #RecordStatus="ngModel" required
+                 ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
+                 <option *ngFor="
+                    let item of dataModelEnumRecordStatusResult.listItems;
+                    index as i
+                    " [ngValue]="item.value">
+                 {{ item.description }}
+                 </option>
+                </select>
+                <em class="mt-n3">{{
+                 "TITLE.SELECT_STATUS" | translate}}
+                </em>
+                <mat-error *ngIf="RecordStatus.errors?.required">
+                 RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- Number Field -->
+            <div  *ngIf="fieldsInfo['number']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.number" class="color-highlight">{{ fieldsInfo["number"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.number" name="dataModel.number" #Number
+                placeholder="123" [disabled]="!fieldsInfo['number']?.accessAddField" class="form-control validate-name" id="dataModel.number" />
+            </div>
+            <!-- Description Field -->
+            <div  *ngIf="fieldsInfo['description']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.description" class="color-highlight">{{ fieldsInfo["description"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                placeholder="123" [disabled]="!fieldsInfo['description']?.accessAddField" class="form-control validate-name" id="dataModel.description" />
+            </div>
+            <!-- Debtor Field -->
+            <div  *ngIf="fieldsInfo['debtor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.debtor" class="color-highlight">{{ fieldsInfo["debtor"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.debtor" name="dataModel.debtor" #Debtor
+                placeholder="1" [disabled]="!fieldsInfo['debtor']?.accessEditField" class="form-control validate-name" id="dataModel.debtor" />
+            </div>
+            <!-- Creditor Field -->
+            <div  *ngIf="fieldsInfo['creditor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.creditor" class="color-highlight">{{ fieldsInfo["creditor"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.creditor" name="dataModel.creditor" #Creditor
+                placeholder="1" [disabled]="!fieldsInfo['creditor']?.accessEditField" class="form-control validate-name" id="dataModel.creditor" />
+            </div>
+            <!-- AcceptDate Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.acceptDate" class="color-highlight">{{ fieldsInfo["acceptDate"]?.fieldTitle }}</label>
+                <input matInput type="number" [matDatepicker]="AcceptDate" [(ngModel)]="dataModel.acceptDate" name="dataModel.acceptDate"
+                class="form-control validate-name" id="dataModel.acceptDate" />
+                <mat-datepicker-toggle matSuffix [for]="AcceptDate"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #AcceptDate></mat-datepicker>
+            </div>
+            <!-- UserAcceptor Field -->
+            <div  *ngIf="fieldsInfo['userAcceptor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.userAcceptor" class="color-highlight">{{ fieldsInfo["userAcceptor"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.userAcceptor" name="dataModel.userAcceptor" #UserAcceptor
+                placeholder="1" [disabled]="!fieldsInfo['userAcceptor']?.accessEditField" class="form-control validate-name" id="dataModel.userAcceptor" />
+            </div>
+            <!-- IsAccepted Field -->
+            <div  *ngIf="fieldsInfo['isAccepted']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.isAccepted" class="font-600 font-14">
+                    {{fieldsInfo['isAccepted']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.isAccepted"
+                    [(ngModel)]="this.dataModel.isAccepted" name="dataModel.isAccepted">
+                    <label class="custom-control-label" for="dataModel.isAccepted"></label>
+                </div>
+                </div>
+            </div>
+            <!-- IsBankAccepted Field -->
+            <div  *ngIf="fieldsInfo['isBankAccepted']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.isBankAccepted" class="font-600 font-14">
+                    {{fieldsInfo['isBankAccepted']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.isBankAccepted"
+                    [(ngModel)]="this.dataModel.isBankAccepted" name="dataModel.isBankAccepted">
+                    <label class="custom-control-label" for="dataModel.isBankAccepted"></label>
+                </div>
+                </div>
+            </div>
+            <!-- BankAcceptDate Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.bankAcceptDate" class="color-highlight">{{ fieldsInfo["bankAcceptDate"]?.fieldTitle }}</label>
+                <input matInput type="number" [matDatepicker]="BankAcceptDate" [(ngModel)]="dataModel.bankAcceptDate" name="dataModel.bankAcceptDate"
+                class="form-control validate-name" id="dataModel.bankAcceptDate" />
+                <mat-datepicker-toggle matSuffix [for]="BankAcceptDate"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #BankAcceptDate></mat-datepicker>
+            </div>
+            <!-- UserBankAcceptor Field -->
+            <div  *ngIf="fieldsInfo['userBankAcceptor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.userBankAcceptor" class="color-highlight">{{ fieldsInfo["userBankAcceptor"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.userBankAcceptor" name="dataModel.userBankAcceptor" #UserBankAcceptor
+                placeholder="1" [disabled]="!fieldsInfo['userBankAcceptor']?.accessEditField" class="form-control validate-name" id="dataModel.userBankAcceptor" />
+            </div>
+            <!-- CardNumber Field -->
+            <div  *ngIf="fieldsInfo['cardNumber']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.cardNumber" class="color-highlight">{{ fieldsInfo["cardNumber"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.cardNumber" name="dataModel.cardNumber" #CardNumber
+                placeholder="123" [disabled]="!fieldsInfo['cardNumber']?.accessAddField" class="form-control validate-name" id="dataModel.cardNumber" />
+            </div>
+            <!-- AccountNumber Field -->
+            <div  *ngIf="fieldsInfo['accountNumber']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.accountNumber" class="color-highlight">{{ fieldsInfo["accountNumber"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.accountNumber" name="dataModel.accountNumber" #AccountNumber
+                placeholder="123" [disabled]="!fieldsInfo['accountNumber']?.accessAddField" class="form-control validate-name" id="dataModel.accountNumber" />
+            </div>
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                </button>
+            </div>
+        </form>
+      <!--content-->
     </div>
-    <div class="ntk-cms-html-card-body">
-        <app-progress-spinner [options]="loading"> </app-progress-spinner>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <!-- RecordStatus Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-                name="dataModel.recordStatus" #RecordStatus="ngModel"
-                ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-                <mat-option *ngFor="
-                  let item of dataModelEnumRecordStatusResult.listItems;
-                  index as i
-                " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-                RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-
-
-        <!-- Number Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['number']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['number']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.number" [disabled]="!fieldsInfo['number']?.accessAddField"
-                name="dataModel.number" #Number type="text" placeholder="123" />
-            <mat-icon matSuffix *ngIf="dataModel.number && fieldsInfo['number']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.number = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['number']?.accessAddField" matSuffix>mode_edit</mat-icon>
-            <mat-hint align="start">{{ Number.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!-- Description Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['description']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['description']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.description" [disabled]="!fieldsInfo['description']?.accessAddField"
-                name="dataModel.description" #Description type="text" placeholder="123" />
-            <mat-icon matSuffix *ngIf="dataModel.description && fieldsInfo['description']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.description = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['description']?.accessAddField" matSuffix>mode_edit</mat-icon>
-            <mat-hint align="start">{{ Description.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!-- Debtor Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['debtor']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['debtor']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.debtor" [disabled]="!fieldsInfo['debtor']?.accessEditField"
-                name="dataModel.debtor" #Debtor type="number" placeholder="1" />
-            <mat-icon matSuffix *ngIf="dataModel.debtor && fieldsInfo['debtor']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.debtor = 1">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['debtor']?.accessEditField" matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- Creditor Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['creditor']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['creditor']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.creditor" [disabled]="!fieldsInfo['creditor']?.accessEditField"
-                name="dataModel.creditor" #Creditor type="number" placeholder="1" />
-            <mat-icon matSuffix *ngIf="dataModel.creditor && fieldsInfo['creditor']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.creditor = 1">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['creditor']?.accessEditField" matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- AcceptDate Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['acceptDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="AcceptDate" [(ngModel)]="dataModel.acceptDate"
-                name="dataModel.acceptDate" />
-            <mat-icon matSuffix *ngIf="dataModel.acceptDate && fieldsInfo['acceptDate']?.accessEditField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.acceptDate = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="AcceptDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #AcceptDate></mat-datepicker>
-        </mat-form-field>
-
-        <!-- UserAcceptor Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['userAcceptor']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['userAcceptor']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.userAcceptor"
-                [disabled]="!fieldsInfo['userAcceptor']?.accessEditField" name="dataModel.userAcceptor" #UserAcceptor
-                type="number" placeholder="1" />
-            <mat-icon matSuffix *ngIf="dataModel.userAcceptor && fieldsInfo['userAcceptor']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.userAcceptor = 1">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['userAcceptor']?.accessEditField" matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- IsAccepted Field -->
-        <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.isAccepted" *ngIf="fieldsInfo['isAccepted']?.accessWatchField"
-                [disabled]="!fieldsInfo['isAccepted']?.accessEditField" name="dataModel.isAccepted">
-                {{fieldsInfo['isAccepted']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-
-        <!-- IsBankAccepted Field -->
-        <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.isBankAccepted"
-                *ngIf="fieldsInfo['isBankAccepted']?.accessWatchField"
-                [disabled]="!fieldsInfo['isBankAccepted']?.accessEditField" name="dataModel.isBankAccepted">
-                {{fieldsInfo['isBankAccepted']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-
-        <!-- BankAcceptDate Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['bankAcceptDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="BankAcceptDate" [(ngModel)]="dataModel.bankAcceptDate"
-                name="dataModel.bankAcceptDate" />
-            <mat-icon matSuffix *ngIf="dataModel.bankAcceptDate && fieldsInfo['bankAcceptDate']?.accessEditField"
-                matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.bankAcceptDate = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="BankAcceptDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #BankAcceptDate></mat-datepicker>
-        </mat-form-field>
-
-        <!-- UserBankAcceptor Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['userBankAcceptor']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['userBankAcceptor']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.userBankAcceptor"
-                [disabled]="!fieldsInfo['userBankAcceptor']?.accessEditField" name="dataModel.userBankAcceptor"
-                #UserBankAcceptor type="number" placeholder="1" />
-            <mat-icon matSuffix *ngIf="dataModel.userBankAcceptor && fieldsInfo['userBankAcceptor']?.accessAddField"
-                matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.userBankAcceptor = 1">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['userBankAcceptor']?.accessEditField" matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- CardNumber Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['cardNumber']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['cardNumber']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.cardNumber" [disabled]="!fieldsInfo['cardNumber']?.accessAddField"
-                name="dataModel.cardNumber" #CardNumber type="text" placeholder="123" />
-            <mat-icon matSuffix *ngIf="dataModel.cardNumber && fieldsInfo['cardNumber']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.cardNumber = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['cardNumber']?.accessAddField" matSuffix>mode_edit</mat-icon>
-            <mat-hint align="start">{{ CardNumber.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!-- AccountNumber Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['accountNumber']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['accountNumber']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.accountNumber"
-                [disabled]="!fieldsInfo['accountNumber']?.accessAddField" name="dataModel.accountNumber" #AccountNumber
-                type="text" placeholder="123" />
-            <mat-icon matSuffix *ngIf="dataModel.accountNumber && fieldsInfo['accountNumber']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.accountNumber = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['accountNumber']?.accessAddField" matSuffix>mode_edit</mat-icon>
-            <mat-hint align="start">{{ AccountNumber.value.length }} / 100</mat-hint>
-        </mat-form-field>
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
+</div>
