@@ -39,7 +39,7 @@ export class CmsLocationCompleteComponent implements OnInit {
   @Input() optionDisabled = false;
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @Input() optionPlaceholder = '+ Tag';
-  @Input() optionLabel = " Select";
+  @Input() optionLabel = "";
   @Input() optionCssClassInputText = "";
   @Input() optionCssClassSelectOption = "";
   @Output() optionChange = new EventEmitter<number[]>();

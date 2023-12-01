@@ -23,7 +23,7 @@ export class CmsQDocComponent implements OnInit {
     allowNumbersOnly: true,
     length: 5,
     isPasswordInput: false,
-    disableAutoFocus: false,
+    disableAutoFocus: true,
     placeholder: '',
     inputStyles: {
       'width': '50px',

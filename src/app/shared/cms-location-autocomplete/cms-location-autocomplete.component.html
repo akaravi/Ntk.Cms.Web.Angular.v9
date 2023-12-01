@@ -1,15 +1,14 @@
-<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-  <app-progress-spinner [options]="loading"> </app-progress-spinner>
-  <label *ngIf="optionLabel?.length>0" for="app-cms-site-selector-{{id}}"
-    class="color-highlight">{{optionLabel}}</label>
+<mat-form-field style="width:100%" appearance="fill">
+  <!-- <app-progress-spinner [options]="loading"> </app-progress-spinner> -->
+  <mat-label>{{optionLabel}}</mat-label>
   <mat-chip-grid #chipList aria-label="tag selection" [disabled]="optionDisabled">
     <mat-chip *ngFor="let item of tagDataModel" (removed)="remove(item)">
       {{item.display}}
-      <button matChipRemove class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+      <button matChipRemove>
         <mat-icon>cancel</mat-icon>
       </button>
     </mat-chip>
-    <input [placeholder]="optionPlaceholder" #tagInput [matChipInputAddOnBlur]="addOnBlur" [formControl]="tagCtrl"
+    <input [placeholder]="' + '+optionPlaceholder" #tagInput [matChipInputAddOnBlur]="addOnBlur" [formControl]="tagCtrl"
       [ngClass]="optionCssClassInputText" [matAutocomplete]="auto" [matChipInputFor]="chipList"
       [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
   </mat-chip-grid>
@@ -18,4 +17,4 @@
       {{item.display}}
     </mat-option>
   </mat-autocomplete>
-</div>
+</mat-form-field>

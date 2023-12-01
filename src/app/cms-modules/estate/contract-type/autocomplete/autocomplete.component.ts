@@ -18,7 +18,6 @@ class chipModel {
 @Component({
   selector: 'app-estate-contract-type-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.scss']
 })
 export class EstateContractTypeCompleteComponent implements OnInit {
   constructor(
@@ -37,7 +36,7 @@ export class EstateContractTypeCompleteComponent implements OnInit {
   @Input() optionDisabled = false;
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @Input() optionPlaceholder = '+ Tag';
-  @Input() optionLabel = " Select"
+  @Input() optionLabel = ""
   @Output() optionChange = new EventEmitter<string[]>();
   @Input() set optionSelectForce(x: string[]) {
     this.onActionSelectForce(x);
@@ -50,6 +49,8 @@ export class EstateContractTypeCompleteComponent implements OnInit {
   filteredOptions: Observable<chipModel[]>;
   addOnBlur = true;
   ngOnInit(): void {
+    if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
+      this.optionLabel = this.optionPlaceholder;
   }
 
   // filter and return the values

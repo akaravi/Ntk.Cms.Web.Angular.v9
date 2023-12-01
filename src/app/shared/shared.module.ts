@@ -167,6 +167,7 @@ import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
+import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
 
 @NgModule({
   imports: [
@@ -321,6 +322,7 @@ import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input
     CmsHtmlTreeBodyDirective,
     CmsHtmlTreeFooterDirective,
     MatInputCommifiedDirective,
+    MatVerticalStepperScrollerDirective,
     SelfSaveDirective,
     CmsRecordStatusSelfSaveDirective,
   ],
@@ -462,6 +464,7 @@ import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input
     CmsHtmlTreeBodyDirective,
     CmsHtmlTreeFooterDirective,
     MatInputCommifiedDirective,
+    MatVerticalStepperScrollerDirective,
     SelfSaveDirective,
     CmsRecordStatusSelfSaveDirective,
 

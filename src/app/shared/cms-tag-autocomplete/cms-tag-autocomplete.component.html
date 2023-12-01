@@ -7,7 +7,7 @@
         <mat-icon>cancel</mat-icon>
       </button>
     </mat-chip>
-    <input [placeholder]="optionPlaceholder" #tagInput [matChipInputAddOnBlur]="addOnBlur" [formControl]="tagCtrl"
+    <input [placeholder]="' + '+optionPlaceholder" #tagInput [matChipInputAddOnBlur]="addOnBlur" [formControl]="tagCtrl"
       [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
       (matChipInputTokenEnd)="add($event)">
   </mat-chip-grid>
