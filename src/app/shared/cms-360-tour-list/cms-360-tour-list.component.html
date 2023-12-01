@@ -20,26 +20,28 @@
   <div class="m-2">
 
     <!-- Title Field -->
-    <mat-form-field class="ntk-full-width mb-1">
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
       <mat-label>{{'TITLE.Photography_Place' | translate}}</mat-label>
-      <input matInput [(ngModel)]="dataDetailModel.title" name="dataDetailModel.title" #Title type="text"
-        placeholder="{{'TITLE.Photography_Place' | translate}}" minlength="3" maxlength="100" required />
+      <label for="dataDetailModel.title" class="color-highlight">{{'TITLE.title' | translate}}</label>
+      <input type="text" [(ngModel)]="dataDetailModel.title" name="dataDetailModel.title" #Title
+        id="dataDetailModel.title" placeholder="{{'TITLE.Photography_Place' | translate}}" minlength="3" maxlength="100"
+        required />
       <mat-icon matSuffix *ngIf="dataDetailModel.title" class="pointer" matSuffix mat-icon-button aria-label="Clear"
         (click)="dataDetailModel.title = ''">close</mat-icon>
       <mat-icon class="pointer" matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
+    </div>
 
 
 
 
 
-    <mat-form-field class="ntk-full-width">
-      <input matInput [(ngModel)]="dataDetailModel.linkFileId" name="dataDetailModel.linkFileId" #LinkFileId type="text"
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <input type="text" [(ngModel)]="dataDetailModel.linkFileId" name="dataDetailModel.linkFileId" #LinkFileId
         placeholder="{{'TITLE.View_360_File_ID' | translate}}" (click)="fileManagerOpenFormReport = true" />
       <mat-icon matSuffix *ngIf="dataDetailModel.linkFileId" matSuffix mat-icon-button aria-label="Clear"
         (click)="dataDetailModel.linkFileId = null">close</mat-icon>
       <mat-icon matSuffix (click)="fileManagerOpenFormReport = true">mode_edit</mat-icon>
-    </mat-form-field>
+    </div>
     <cms-file-manager (itemSelected)="onActionFileSelect($event)" [language]="appLanguage" [isPopup]="true"
       [(openForm)]="fileManagerOpenFormReport" [tree]="fileManagerTree" [openDirectUploadView]="true"
       [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeReport"
@@ -85,12 +87,12 @@
               <p class="text-truncate grid-row-ltr-center">{{row.type}}</p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-              <mat-form-field appearance="outline" style="width: 100%;">
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <mat-select placeholder="Select" [disabled]="editdisabled" name="type" [(ngModel)]="row.type">
                   <mat-option [value]="'scene'">صحنه</mat-option>
                   <mat-option [value]="'info'">اطلاعات</mat-option>
                 </mat-select>
-              </mat-form-field>
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
@@ -101,10 +103,10 @@
               <p class="text-truncate">{{row.sceneId || 'N/A'}} </p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid && row.type==='scene'">
-              <mat-form-field appearance="outline" style="width: 100%;">
-                <input matInput style="direction: ltr; text-align: left;" placeholder="sceneId"
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <input type="text" style="direction: ltr; text-align: left;" placeholder="sceneId"
                   [disabled]="editdisabled" name="sceneId" [(ngModel)]="row.sceneId">
-              </mat-form-field>
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
@@ -116,14 +118,14 @@
               <p class="text-truncate grid-row-ltr-center">{{row.sceneId}}</p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid  && row.type==='scene'">
-              <mat-form-field appearance="outline" style="width: 100%;">
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <mat-select placeholder="Select" [disabled]="editdisabled" name="sceneId" [(ngModel)]="row.sceneId">
                   <mat-option *ngFor="
                   let item of this.scenesList;
                   index as i
                 " [value]="item.linkFileId">{{ item.title }}</mat-option>
                 </mat-select>
-              </mat-form-field>
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
@@ -134,10 +136,10 @@
               <p class="text-truncate">{{row.pitch || 'N/A'}} </p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-              <mat-form-field appearance="outline" style="width: 100%;">
-                <input matInput style="direction: ltr; text-align: left;" type="number" placeholder="pitch"
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <input type="number" style="direction: ltr; text-align: left;" placeholder="pitch"
                   [disabled]="editdisabled" name="pitch" [(ngModel)]="row.pitch">
-              </mat-form-field>
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
@@ -148,10 +150,10 @@
               <p class="text-truncate grid-row-ltr-center">{{row.yaw || 'N/A'}} </p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-              <mat-form-field appearance="outline" style="width: 100%;">
-                <input matInput style="direction: ltr; text-align: left;" type="number" placeholder="yaw"
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <input type="number" style="direction: ltr; text-align: left;" placeholder="yaw"
                   [disabled]="editdisabled" name="yaw" [(ngModel)]="row.yaw">
-              </mat-form-field>
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
@@ -163,10 +165,10 @@
               <p class="text-truncate grid-row-ltr-center">{{row.targetYaw || 'N/A'}} </p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-              <mat-form-field appearance="outline" style="width: 100%;">
-                <input matInput style="direction: ltr; text-align: left;" placeholder="targetYaw"
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <input type="text" style="direction: ltr; text-align: left;" placeholder="targetYaw"
                   [disabled]="editdisabled" name="targetYaw" [(ngModel)]="row.targetYaw">
-              </mat-form-field>
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
@@ -177,10 +179,10 @@
               <p class="text-truncate grid-row-ltr-center">{{row.targetPitch || 'N/A'}} </p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-              <mat-form-field appearance="outline" style="width: 100%;">
-                <input matInput style="direction: ltr; text-align: left;" placeholder="targetPitch"
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <input type="text" style="direction: ltr; text-align: left;" placeholder="targetPitch"
                   [disabled]="editdisabled" name="targetPitch" [(ngModel)]="row.targetPitch">
-              </mat-form-field>
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
@@ -191,10 +193,10 @@
               <p class="text-truncate">{{row.text || 'N/A'}} </p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-              <mat-form-field appearance="outline" style="width: 100%;">
-                <input matInput style="direction: ltr; text-align: left;" placeholder="text" [disabled]="editdisabled"
-                  name="text" [(ngModel)]="row.text">
-              </mat-form-field>
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <input type="text" style="direction: ltr; text-align: left;" placeholder="text"
+                  [disabled]="editdisabled" name="text" [(ngModel)]="row.text">
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
@@ -205,10 +207,10 @@
               <p class="text-truncate grid-row-ltr">{{row.url || 'N/A'}} </p>
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-              <mat-form-field appearance="outline" style="width: 100%;">
-                <input matInput style="direction: ltr; text-align: left;" placeholder="url" [disabled]="editdisabled"
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <input type="text"  style="direction: ltr; text-align: left;" placeholder="url" [disabled]="editdisabled"
                   name="url" [(ngModel)]="row.url">
-              </mat-form-field>
+              </div>
             </ng-container>
           </mat-cell>
         </ng-container>
