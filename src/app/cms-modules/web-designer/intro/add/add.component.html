@@ -11,115 +11,76 @@
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
-
-        <!--Content-->
-    </div>
-</div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+             {{ formInfo.formTitle }}
         <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
             <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
                 <!-- RecordStatus Field -->
-                <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['recordStatus']?.accessWatchField">
-                    <mat-label>{{fieldsInfo['recordStatus']?.fieldTitle}}</mat-label>
-                    <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}"
-                        [(ngModel)]="dataModel.recordStatus" [disabled]="!fieldsInfo['recordStatus']?.accessAddField"
-                        name="dataModel.recordStatus" #RecordStatus="ngModel"
-                        ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-                        <mat-option *ngFor="
-                let item of dataModelEnumRecordStatusResult.listItems;
-                index as i
-              " [value]="item.value">{{ item.description }}</mat-option>
-                    </mat-select>
-                    <mat-hint align="start">
-                        <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                        <strong class="info-field-text">{{fieldsInfo['recordStatus']?.fieldDescription}}</strong>
-                    </mat-hint>
-                    <mat-hint align="end">{{ 'Application.source.recordStatus_hint' | translate }}</mat-hint>
+                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
+                    <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+                     #RecordStatus="ngModel" required
+                     ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
+                     <option *ngFor="
+                        let item of dataModelEnumRecordStatusResult.listItems;
+                        index as i
+                        " [ngValue]="item.value">
+                      {{ item.description }}
+                     </option>
+                    </select>
+                    <em class="mt-n3">{{
+                     "TITLE.SELECT_STATUS" | translate}}
+                    </em>
                     <mat-error *ngIf="RecordStatus.errors?.required">
-                        {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' |
-                            translate}}</strong>
+                        {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
-                </mat-form-field>
+                </div>
                 <!-- Title Field -->
-                <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['title']?.accessWatchField">
-                    <mat-label>{{ fieldsInfo['title']?.fieldTitle }}</mat-label>
-                    <input matInput [(ngModel)]="dataModel.title" [disabled]="!fieldsInfo['title']?.accessAddField"
-                        name="dataModel.title" #Title type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}"
-                        minlength="3" maxlength="100" required />
-                    <mat-icon matSuffix *ngIf="dataModel.title && fieldsInfo['title']?.accessAddField" matSuffix
-                        mat-icon-button aria-label="Clear" (click)="dataModel.title = ''">close</mat-icon>
-                    <mat-icon *ngIf="fieldsInfo['title']?.accessAddField" matSuffix>mode_edit</mat-icon>
-                    <mat-hint align="start">
-                        <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                        <strong class="info-field-text">{{fieldsInfo['title']?.fieldDescription}}</strong>
-                    </mat-hint>
-                    <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
+                <div  *ngIf="fieldsInfo['title']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+                    <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+                     placeholder="{{fieldsInfo['title']?.fieldTitle }}"  [disabled]="!fieldsInfo['title']?.accessAddField"
+                     minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.title" />
+                    <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+                    <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+                    <em>{{ Title.value.length }} / 100</em>
                     <mat-error *ngIf="Title.errors?.required">
-                        {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                        {{ fieldsInfo['title']?.fieldTitle }}  is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
-                </mat-form-field>
+                </div>
                 <!-- LinkPageId Field -->
-                <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['linkPageId']?.accessWatchField">
-                    <mat-label>{{ fieldsInfo['linkPageId']?.fieldTitle }}</mat-label>
-                    <input matInput [(ngModel)]="dataModel.linkPageId"
-                        [disabled]="!fieldsInfo['linkPageId']?.accessAddField" name="dataModel.linkPageId" #LinkPageId
-                        type="text" placeholder="Page Id" minlength="3" maxlength="100" />
-                    <mat-icon matSuffix *ngIf="dataModel.linkPageId && fieldsInfo['linkPageId']?.accessAddField"
-                        matSuffix mat-icon-button aria-label="Clear"
-                        (click)="dataModel.linkPageId = ''">close</mat-icon>
-                    <mat-icon *ngIf="fieldsInfo['linkPageId']?.accessAddField" matSuffix>mode_edit</mat-icon>
-                    <mat-hint align="start">
-                        <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                        <strong class="info-field-text">{{fieldsInfo['linkPageId']?.fieldDescription}}</strong>
-                    </mat-hint>
-                    <mat-hint align="end">{{ LinkPageId.value.length }} / 100</mat-hint>
-                </mat-form-field>
+                <div  *ngIf="fieldsInfo['linkPageId']?.accessWatchField"  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="dataModel.linkPageId" class="color-highlight">{{ fieldsInfo["linkPageId"]?.fieldTitle }}</label>
+                    <input matInput type="text" [(ngModel)]="dataModel.linkPageId" name="dataModel.linkPageId" #LinkPageId
+                     placeholder="Page Id" [disabled]="!fieldsInfo['linkPageId']?.accessAddField"
+                     minlength="3" maxlength="100"  class="form-control validate-name" id="dataModel.linkPageId" />
+                    <em>{{ LinkPageId.value.length }} / 100</em>
+                </div>
                 <!-- Priority Field -->
-                <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['priority']?.accessWatchField">
-                    <mat-label>{{ fieldsInfo['priority']?.fieldTitle }}</mat-label>
-                    <input matInput [(ngModel)]="dataModel.priority"
-                        [disabled]="!fieldsInfo['priority']?.accessAddField" name="dataModel.priority" #Priority
-                        type="number" placeholder="{{'TITLE.priority' | translate}}" required />
-                    <mat-icon matSuffix *ngIf="dataModel.priority && fieldsInfo['priority']?.accessAddField" matSuffix
-                        mat-icon-button aria-label="Clear" (click)="dataModel.priority = 1">close</mat-icon>
-                    <mat-icon *ngIf="fieldsInfo['priority']?.accessAddField" matSuffix>mode_edit</mat-icon>
+                <div  *ngIf="fieldsInfo['priority']?.accessWatchField"  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="dataModel.priority" class="color-highlight">{{ fieldsInfo["priority"]?.fieldTitle }}</label>
+                    <input matInput type="number" [(ngModel)]="dataModel.priority" name="dataModel.priority" #Priority
+                     placeholder="{{'TITLE.priority' | translate}}"  [disabled]="!fieldsInfo['priority']?.accessAddField"
+                     class="form-control validate-name" id="dataModel.priority" />
                     <mat-error *ngIf="Priority.errors?.required">
                         {{ fieldsInfo['priority']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
-                    <mat-hint align="start">
-                        <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                        <strong class="info-field-text">{{fieldsInfo['priority']?.fieldDescription}}</strong>
-                    </mat-hint>
-                </mat-form-field>
+                </div>
                 <!-- Description Field -->
-                <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['description']?.accessWatchField">
-                    <mat-label>{{ fieldsInfo['description']?.fieldDescription }}</mat-label>
-                    <textarea matInput [(ngModel)]="dataModel.description"
-                        [disabled]="!fieldsInfo['description']?.accessAddField" name="dataModel.description"
-                        #Description type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" row="10"
-                        minlength="3" maxlength="100" required></textarea>
-                    <mat-icon matSuffix *ngIf="dataModel.description && fieldsInfo['description']?.accessAddField"
-                        matSuffix mat-icon-button aria-label="Clear"
-                        (click)="dataModel.description = ''">close</mat-icon>
-                    <mat-icon *ngIf="fieldsInfo['description']?.accessAddField" matSuffix>mode_edit</mat-icon>
-                    <mat-hint align="start">
-                        <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                        <strong class="info-field-text">{{fieldsInfo['description']?.fieldDescription}}</strong>
-                    </mat-hint>
-                    <mat-hint align="end">{{ Description.value.length }} / 100</mat-hint>
+                <div *ngIf="fieldsInfo['description']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="dataModel.description" class="color-highlight">{{ "TITLE.General_Description" | translate
+                    }}</label>
+                    <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                     type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" [disabled]="!fieldsInfo['description']?.accessAddField" minlength="3" maxlength="100"
+                     rows="10" required id="dataModel.description" class="form-control validate-name">
+                    </textarea>
+                    <em>{{ Description.value.length }} / 100</em>
+                    <i *ngIf="!Description.value" class="fa fa-times  invalid color-red-dark"></i>
+                    <i *ngIf="Description.value" class="fa fa-check  valid color-green-dark"></i>
                     <mat-error *ngIf="Description.errors?.required">
-                        {{ fieldsInfo['description']?.fieldDescription }} is <strong>{{'MESSAGE.required' |
-                            translate}}</strong>
+                     {{ fieldsInfo["description"]?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
-                </mat-form-field>
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+                </div>
+                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
                     <button type="button"
                         class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
                         (click)="onActionBackToParent()">
@@ -137,61 +98,43 @@
                 <!-- LinkMainImageId Field -->
                 <div class="mb-3">
                     <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
-                        <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
-                            class="ntk-hover-zoom" aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}"
-                            height="50" width="50" />
+                    <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+                        aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
                     </a>
                 </div>
-                <div class="mb-9">
-                    <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['linkMainImageId']?.accessWatchField">
-                        <mat-label
-                            (click)="fileManagerOpenForm = true">{{fieldsInfo['linkMainImageId']?.fieldTitle}}</mat-label>
-                        <input matInput [(ngModel)]="dataModel.linkMainImageId"
-                            [disabled]="!fieldsInfo['linkMainImageId']?.accessAddField" name="dataModel.linkMainImageId"
-                            #LinkMainImageId type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}"
-                            autocomplete="off" (click)="fileManagerOpenForm = true" />
-                        <mat-icon matSuffix
-                            *ngIf="dataModel.linkMainImageId && fieldsInfo['linkMainImageId']?.accessAddField" matSuffix
-                            mat-icon-button aria-label="Clear"
-                            (click)="dataModel.linkMainImageId = null">close</mat-icon>
-                        <mat-icon *ngIf="fieldsInfo['linkMainImageId']?.accessAddField" matSuffix
-                            (click)="fileManagerOpenForm = true">mode_edit</mat-icon>
-                    </mat-form-field>
+                <div *ngIf="fieldsInfo['linkMainImageId']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+                     class="color-highlight">{{"TITLE.Icon_File" | translate}}</label>
+                    <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+                     #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+                     (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
                     <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainImageId($event)"
-                        [language]="appLanguage" [isPopup]="true" [(openForm)]="fileManagerOpenForm"
-                        [tree]="fileManagerTree" [openDirectUploadView]="true"
-                        [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
-                        [openFilemanagerButtonView]="false"></cms-file-manager>
+                     [language]="appLanguage" [isPopup]="true" [(openForm)]="fileManagerOpenForm"
+                     [tree]="fileManagerTree" [openDirectUploadView]="true"
+                     [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
+                     [openFilemanagerButtonView]="false">
+                    </cms-file-manager>
                 </div>
-                <!-- LinkMainVideoId Field -->
+                <!-- linkMainVideoId Field -->
                 <div class="mb-3">
                     <img *ngIf="dataModel?.linkMainVideoIdSrc?.length>0" style="vertical-align:middle;"
                         class="ntk-hover-zoom" aria-hidden src="{{dataModel.linkMainVideoIdSrc | cmsthumbnail}}"
                         height="50" width="50" />
                 </div>
-                <div class="mb-9">
-                    <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['linkMainVideoId']?.accessWatchField">
-                        <mat-label
-                            (click)="fileManagerOpenFormVideo = true">{{fieldsInfo['linkMainVideoId']?.fieldTitle}}
-                        </mat-label>
-                        <input matInput [(ngModel)]="dataModel.linkMainVideoId"
-                            [disabled]="!fieldsInfo['linkMainVideoId']?.accessAddField" name="dataModel.linkMainVideoId"
-                            #LinkMainVideoId type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}"
-                            autocomplete="off" (click)="fileManagerOpenFormVideo = true" />
-                        <mat-icon matSuffix
-                            *ngIf="dataModel.linkMainVideoId && fieldsInfo['linkMainVideoId']?.accessAddField" matSuffix
-                            mat-icon-button aria-label="Clear"
-                            (click)="dataModel.linkMainVideoId = null">close</mat-icon>
-                        <mat-icon *ngIf="fieldsInfo['linkMainVideoId']?.accessAddField" matSuffix
-                            (click)="fileManagerOpenFormVideo = true">mode_edit</mat-icon>
-                    </mat-form-field>
-                    <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainVideoId($event)"
-                        [language]="appLanguage" [isPopup]="true" [(openForm)]="fileManagerOpenFormVideo"
-                        [tree]="fileManagerTree" [openDirectUploadView]="true"
-                        [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainVideo"
-                        [openFilemanagerButtonView]="false"></cms-file-manager>
+                <div *ngIf="fieldsInfo['linkMainVideoId']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label (click)="fileManagerOpenFormVideo = true" for="dataModel.linkMainVideoId"
+                     class="color-highlight">{{fieldsInfo['linkMainVideoId']?.fieldTitle}}</label>
+                    <input matInput type="text" [(ngModel)]="dataModel.linkMainVideoId" name="dataModel.linkMainVideoId"
+                     #LinkMainVideoId placeholder="{{'TITLE.Original_File_ID' | translate}}" [disabled]="!fieldsInfo['linkMainVideoId']?.accessAddField" autocomplete="off"
+                     (click)="fileManagerOpenFormVideo = true" class="form-control validate-name" id="dataModel.linkMainVideoId" />
+                     <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainVideoId($event)"
+                      [language]="appLanguage" [isPopup]="true" [(openForm)]="fileManagerOpenFormVideo"
+                      [tree]="fileManagerTree" [openDirectUploadView]="true"
+                      [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainVideo"
+                      [openFilemanagerButtonView]="false">
+                     </cms-file-manager>
                 </div>
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
                     <button type="button"
                         class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
                         matStepperPrevious>
@@ -203,16 +146,15 @@
                         {{'ACTION.SAVE' | translate}}
                     </button>
                 </div>
+
             </mat-step>
+
+
         </mat-horizontal-stepper>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+
+
+        </form>
+
+        <!--Content-->
     </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
+</div>
