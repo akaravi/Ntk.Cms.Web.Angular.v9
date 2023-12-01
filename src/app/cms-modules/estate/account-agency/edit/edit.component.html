@@ -13,7 +13,7 @@
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
       {{ formInfo.formTitle }}
-      <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
         <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
           <!-- LinkMainImageId Field -->
           <div class="mb-3">
@@ -357,7 +357,7 @@
           <mat-icon>forum</mat-icon>
         </ng-template>
 
-      </mat-horizontal-stepper>
+      </mat-vertical-stepper>
 
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
         <button type="button" (click)="onFormCancel()"
@@ -382,9 +382,9 @@
   </div>
   <div class="ntk-cms-html-card-body">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+    <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
 
-    </mat-horizontal-stepper>
+    </mat-vertical-stepper>
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
   </div>

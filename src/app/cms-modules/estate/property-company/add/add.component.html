@@ -13,7 +13,7 @@
     <!--content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
       {{ formInfo.formTitle }}
-      <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
         <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
           <!-- RecordStatus Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -314,7 +314,7 @@
         <ng-template matStepperIcon="loaction">
           <mat-icon>forum</mat-icon>
         </ng-template>
-      </mat-horizontal-stepper>
+      </mat-vertical-stepper>
 
     </form>
     <!--content-->

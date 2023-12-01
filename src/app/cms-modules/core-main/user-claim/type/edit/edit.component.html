@@ -23,7 +23,7 @@
     </div>
     <div class="ntk-cms-html-card-body">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+        <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
             <mat-step label="{{'TITLE.Details_Claim' | translate}}" state="main">
                 <!-- RecordStatus Field -->
                 <mat-form-field class="ntk-full-width">
@@ -149,7 +149,7 @@
                 </app-core-userclaimgroup-selectionlist>
             </mat-step>
 
-        </mat-horizontal-stepper>
+        </mat-vertical-stepper>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </div>
     <div class="ntk-cms-html-card-message">

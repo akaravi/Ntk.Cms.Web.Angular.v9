@@ -10,7 +10,7 @@
     <div class="ntk-cms-html-card-body">
         <app-progress-spinner [options]="loading"> </app-progress-spinner>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+        <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
             <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
                 <!-- RecordStatus Field -->
                 <mat-form-field class="ntk-full-width">
@@ -275,7 +275,8 @@
                     [config]="publicHelper.editorConfig" id="OtherInfo" [(ngModel)]="contentOtherInfoSelected.htmlBody"
                     name="contentOtherInfoSelected.htmlBody"></angular-editor>
 
-                <button (click)="onActionContentOtherInfoAddToLIst()" type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+                <button (click)="onActionContentOtherInfoAddToLIst()" type="button"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                     {{'ACTION.Add_To_List' | translate}}
                 </button>
                 <p>{{'TITLE.List_of_other_information' | translate}}</p>
@@ -333,7 +334,8 @@
                 <app-chart-content-selector (optionChange)="onActionContentSimilarSelect($event)"
                     [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Similar_Content')">
                     <button *ngIf="contentSimilarSelected && contentSimilarSelected.id"
-                        (click)="onActionContentSimilarAddToLIst()" type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+                        (click)="onActionContentSimilarAddToLIst()" type="button"
+                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
                         {{'ACTION.Add_To_List' | translate}}
                     </button>
                 </app-chart-content-selector>
@@ -444,7 +446,7 @@
                 <mat-icon>forum</mat-icon>
             </ng-template>
 
-        </mat-horizontal-stepper>
+        </mat-vertical-stepper>
 
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </div>

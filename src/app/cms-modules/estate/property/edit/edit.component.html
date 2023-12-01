@@ -3,15 +3,6 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <app-cms-html-notice>
   <div style="color: black;">{{'TITLE.Edit' | translate}} "{{ formInfo.formTitle }}"</div>
-  <br>
-  <a routerLink="{{'/core/user/edit/' +this.dataModel.createdBy}}" target="_blank" class="link-primary pointer ">
-    {{'ACTION.VIEW_USER' | translate}} </a>
-
-  <div *ngIf="dataModel.linkSiteId!==tokenHelper.tokenInfo.siteId" style="float:right;">
-    <a routerLink="{{'/core/site/edit/'+dataModel.linkSiteId}}" target="_blank" class="link-primary pointer">
-      {{'ACTION.VIEW_SITE' | translate}} </a>
-    |&nbsp;
-  </div>
 </app-cms-html-notice>
 <div class="card card-style">
   <div class="content mb-0">
@@ -26,7 +17,7 @@
     </p>
     <!--content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-      <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
         <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
           <!-- LinkPropertyTypeUsageId Field -->
           <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
@@ -970,24 +961,9 @@
         <ng-template matStepperIcon="loaction">
           <mat-icon>forum</mat-icon>
         </ng-template>
-      </mat-horizontal-stepper>
+      </mat-vertical-stepper>
     </form>
     <!--content-->
-  </div>
-</div>
-
-
-
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <div class="ntk-cms-html-card-body">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-
-
-    </mat-horizontal-stepper>
-
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
   </div>
   <div class="ntk-cms-html-card-message">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
@@ -1036,7 +1012,11 @@
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
   </div>
-</form>
+</div>
+
+
+
+
 <div class="row alert alert-custom alert-white alert-shadow gutter-b">
 
   <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult==='estateAccountAgencyList'">

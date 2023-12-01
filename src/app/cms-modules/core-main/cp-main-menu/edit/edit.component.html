@@ -23,7 +23,7 @@
   </div>
   <div class="ntk-cms-html-card-body">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+    <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
       <mat-step label="{{'TITLE.Menu_Profile' | translate}}" state="main">
         <!-- RecordStatus Field -->
         <mat-form-field class="ntk-full-width">
@@ -163,7 +163,8 @@
         </mat-form-field>
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button (click)="onFormCancel()" type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray" >{{'ACTION.BACK' |
+          <button (click)="onFormCancel()" type="button"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.BACK' |
             translate}}</button>
 
           <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
@@ -231,7 +232,7 @@
         <mat-icon>forum</mat-icon>
       </ng-template>
 
-    </mat-horizontal-stepper>
+    </mat-vertical-stepper>
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
   </div>

@@ -11,7 +11,7 @@
   <div class="ntk-cms-html-card-body" [ngStyle]="{'direction' : tokenInfo.direction }">
     <app-progress-spinner [options]="loading"> </app-progress-spinner>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+    <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
 
       <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
 
@@ -640,7 +640,7 @@ index as i
         <mat-icon>forum</mat-icon>
       </ng-template>
 
-    </mat-horizontal-stepper>
+    </mat-vertical-stepper>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
   </div>
   <div class="ntk-cms-html-card-message">

@@ -9,7 +9,7 @@ mobileeeeeeeeeeeeeeeee
   <div class="ntk-cms-html-card-body">
     <app-progress-spinner [options]="loading"> </app-progress-spinner>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-horizontal-stepper (selectionChange)="onStepClick($event, stepper)" #stepper>
+    <mat-vertical-stepper (selectionChange)="onStepClick($event, stepper)" #stepper>
       <mat-step label="{{ 'TITLE.REQUIRED_INFORMATION' | translate }}" state="main">
         <!-- LinkPropertyTypeUsageId Field -->
         <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)" [optionDisabled]="
@@ -1109,7 +1109,7 @@ mobileeeeeeeeeeeeeeeee
       <ng-template matStepperIcon="loaction">
         <mat-icon>forum</mat-icon>
       </ng-template>
-    </mat-horizontal-stepper>
+    </mat-vertical-stepper>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
   </div>
   <div class="ntk-cms-html-card-message">

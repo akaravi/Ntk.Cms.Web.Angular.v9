@@ -14,7 +14,7 @@
     </p>
     <!--content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-      <mat-horizontal-stepper (selectionChange)="onStepClick($event, stepper)" #stepper>
+      <mat-vertical-stepper (selectionChange)="onStepClick($event, stepper)" #stepper>
         <mat-step label="{{ 'TITLE.REQUIRED_INFORMATION' | translate }}" state="main">
           <!-- LinkPropertyTypeUsageId Field -->
           <p>{{'TITLE.Type_Usage' | translate }}</p>
@@ -981,7 +981,7 @@
         <ng-template matStepperIcon="loaction">
           <mat-icon>forum</mat-icon>
         </ng-template>
-      </mat-horizontal-stepper>
+      </mat-vertical-stepper>
     </form>
     <!--content-->
   </div>
