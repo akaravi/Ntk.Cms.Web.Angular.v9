@@ -11,120 +11,99 @@
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
-
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
+            <!-- RecordStatus Field -->
+            <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+                [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+                [optionSelectFirstItem]="true">
+            </app-cms-enum-record-status-selector>
+            <!-- LinkManagementMemberId Field -->
+            <app-linkmanagement-member-selector (optionChange)="onActionSelectorSelectLinkManagementMemberId($event)"
+                [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkManagementMemberId"
+                [optionPlaceholder]="this.translate.instant('TITLE.User_Account')">
+            </app-linkmanagement-member-selector>
+             <!-- IsCertainDocument Field -->
+            <div *ngIf="fieldsInfo['isCertainDocument']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.isCertainDocument" class="font-600 font-14">
+                        {{fieldsInfo['isCertainDocument']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.isCertainDocument"
+                            [(ngModel)]="this.dataModel.isCertainDocument"
+                            name="dataModel.isCertainDocument">
+                        <label class="custom-control-label" for="dataModel.isCertainDocument"></label>
+                    </div>
+                </div>
+            </div>
+             <!-- Description Field -->
+            <div *ngIf="fieldsInfo['description']?.accessWatchField"
+             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+             <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+             <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+                placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+                id="dataModel.description" class="form-control validate-name">
+             </textarea>
+             <em>{{ Description.value.length }} / 500</em>
+             <mat-error *ngIf="Description.errors?.required">
+                {{ fieldsInfo["description"]?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+             </mat-error>
+            </div>
+            <!-- Debtor Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.debtor" class="color-highlight">{{ fieldsInfo["debtor"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.debtor" name="dataModel.debtor" #Debtor
+                placeholder="{{'TITLE.Debtor_Credit' | translate}}" minlength="0" required
+                  class="form-control validate-name" id="dataModel.debtor" />
+                <i *ngIf="!Debtor.value" class="fa fa-times  invalid color-red-dark"></i>
+                <i *ngIf="Debtor.value" class="fa fa-check  valid color-green-dark"></i>
+                <mat-error *ngIf="Debtor.errors?.required">
+                    Debtor is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- Creditor Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.creditor" class="color-highlight">{{ fieldsInfo["creditor"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.creditor" name="dataModel.creditor" #Creditor
+                placeholder="{{'TITLE.Creditor_Credit' | translate}}" minlength="0" required
+                class="form-control validate-name" id="dataModel.creditor" />
+                <i *ngIf="!Creditor.value" class="fa fa-times  invalid color-red-dark"></i>
+                <i *ngIf="Creditor.value" class="fa fa-check  valid color-green-dark"></i>
+                <mat-error *ngIf="Creditor.errors?.required">
+                    Creditor is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- BeginDate Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.beginDate" class="color-highlight">{{ fieldsInfo["beginDate"]?.fieldTitle }}</label>
+                <input matInput [matDatepicker]="BeginDate" [(ngModel)]="dataModel.beginDate" name="dataModel.beginDate"
+                class="form-control validate-name" id="dataModel.beginDate" />
+                <mat-datepicker-toggle matSuffix [for]="BeginDate"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #BeginDate></mat-datepicker>
+            </div>
+            <!-- EndDate Field -->
+            <div  *ngIf="fieldsInfo['endDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.endDate" class="color-highlight">{{ fieldsInfo["endDate"]?.fieldTitle }}</label>
+                <input matInput [matDatepicker]="EndDate" [(ngModel)]="dataModel.endDate" name="dataModel.endDate"
+                class="form-control validate-name" id="dataModel.endDate" />
+                <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #EndDate></mat-datepicker>
+            </div>
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                </button>
+            </div>
+        </form>
         <!--Content-->
     </div>
 </div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <!-- RecordStatus Field -->
-        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
-
-
-        <!-- LinkManagementMemberId Field -->
-        <app-linkmanagement-member-selector (optionChange)="onActionSelectorSelectLinkManagementMemberId($event)"
-            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkManagementMemberId"
-            [optionPlaceholder]="this.translate.instant('TITLE.User_Account')">
-        </app-linkmanagement-member-selector>
-        <!-- IsCertainDocument Field -->
-        <div class="ntk-full-width">
-            <mat-slide-toggle [(ngModel)]="dataModel.isCertainDocument"
-                *ngIf="fieldsInfo['isCertainDocument']?.accessWatchField"
-                [disabled]="!fieldsInfo['isCertainDocument']?.accessEditField" name="dataModel.isCertainDocument">
-                {{fieldsInfo['isCertainDocument']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <!-- Description Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['description']?.fieldTitle}}</mat-label>
-            <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows=5></textarea>
-            <mat-icon matSuffix *ngIf="dataModel.description" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.description = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ Description.value.length }} / 500</mat-hint>
-            <mat-error *ngIf="Description.errors?.required">
-                Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <!-- Debtor Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['debtor']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.debtor" name="dataModel.debtor" #Debtor type="number"
-                placeholder="{{'TITLE.Debtor_Credit' | translate}}" min="0" required />
-            <mat-icon matSuffix *ngIf="dataModel.debtor" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.debtor = 0">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-error *ngIf="Debtor.errors?.required">
-                Debtor is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-        <!-- Creditor Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['creditor']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.creditor" name="dataModel.creditor" #Creditor type="number"
-                placeholder="{{'TITLE.Creditor_Credit' | translate}}" min="0" required />
-            <mat-icon matSuffix *ngIf="dataModel.creditor" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.creditor = 0">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-error *ngIf="Creditor.errors?.required">
-                Creditor is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-        <!-- BeginDate Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['beginDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="BeginDate" [(ngModel)]="dataModel.beginDate" name="dataModel.beginDate" />
-            <mat-icon matSuffix *ngIf="dataModel.beginDate && fieldsInfo['beginDate']?.accessEditField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.beginDate = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="BeginDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #BeginDate></mat-datepicker>
-        </mat-form-field>
-
-        <!-- EndDate Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['endDate']?.accessWatchField">
-            <mat-label>{{fieldsInfo['endDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="EndDate" [(ngModel)]="dataModel.endDate" name="dataModel.endDate" />
-            <mat-icon matSuffix *ngIf="dataModel.endDate && fieldsInfo['endDate']?.accessAddField" matSuffix
-                mat-icon-button aria-label="Clear" (click)="dataModel.endDate = null">close</mat-icon>
-            <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #EndDate></mat-datepicker>
-        </mat-form-field>
-        <hr class="pb-5" />
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>

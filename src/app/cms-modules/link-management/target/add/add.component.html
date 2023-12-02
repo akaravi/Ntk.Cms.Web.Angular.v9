@@ -11,188 +11,163 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
-
-    <!--Content-->
-  </div>
-</div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-card-body">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
     <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-      <!-- RecordStatus Field -->
+
       <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
         <br>
-        <mat-slide-toggle style="position: inherit;" [(ngModel)]="dataProfessional" name="dataProfessional">
-          {{'TITLE.Would_you_like_to_complete_your_information' | translate}}
-        </mat-slide-toggle>
+        <div style="position: inherit;" class="d-flex mb-3">
+          <div class="pt-1">
+              <h5 data-trigger-switch="dataProfessional" class="font-600 font-14">
+                {{'TITLE.Would_you_like_to_complete_your_information' | translate}}</h5>
+          </div>
+          <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                  <input type="checkbox" class="ios-input" id="dataProfessional"
+                      [(ngModel)]="dataProfessional"
+                      name="dataProfessionalt">
+                  <label class="custom-control-label" for="dataProfessional"></label>
+              </div>
+          </div>
+        </div>
         <br>
-
+        <!-- RecordStatus Field -->
         <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-          [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
-
-
-
+         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+         [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+         [optionSelectFirstItem]="true">
+        </app-cms-enum-record-status-selector>
         <!-- Title Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-            placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" />
-          <mat-icon matSuffix *ngIf="dataModel.title" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.title = ''">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+          <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+          placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.title" />
+          <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+          <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+          <em>{{ Title.value.length }} / 100</em>
           <mat-error *ngIf="Title.errors?.required">
-            Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+          {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
-
-
+        </div>
         <!-- LinkBillboardPatternId Field -->
         <app-linkmanagement-billboard-pattern-selector *ngIf="dataProfessional"
-          (optionChange)="onActionSelectorSelectLinkBillboardPatternId($event)"
-          [optionSelectForce]="dataModel.linkBillboardPatternId" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Billboard_Pattern')">
+         (optionChange)="onActionSelectorSelectLinkBillboardPatternId($event)"
+         [optionSelectForce]="dataModel.linkBillboardPatternId" [(optionLoading)]="loading"
+         [optionPlaceholder]="this.translate.instant('TITLE.Billboard_Pattern')">
         </app-linkmanagement-billboard-pattern-selector>
-
         <!-- SharingLinkType Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-select placeholder="{{'TITLE.Sharing_Type' | translate}}" [(ngModel)]="dataModel.sharingLinkType"
-            name="dataModel.sharingLinkType" #SharingLinkType="ngModel"
-            panelClass="recordStatus-{{ dataModel.sharingLinkType }}">
-            <mat-option *ngFor="
-                          let item of dataModelEnumSharingPriceTypeResult.listItems;
-                          index as i
-                        " [value]="item.value">{{ item.description }}</mat-option>
-          </mat-select>
-          <mat-hint align="end">{{'TITLE.Select_type_of_content' | translate}}</mat-hint>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <select id="dataModel.sharingLinkType" [(ngModel)]="dataModel.sharingLinkType" name="dataModel.sharingLinkType"
+          #SharingLinkType="ngModel"
+          class="form-control validate-name">
+          <option *ngFor="let item of dataModelEnumSharingPriceTypeResult.listItems; index as i" [value]="item.value">{{ item.description }}</option>
+          </select>
+          <em align="end">{{'TITLE.Select_type_of_content' | translate}}</em>
           <mat-error *ngIf="SharingLinkType.errors?.required">
-            SharingLinkType is <strong>{{'MESSAGE.required' | translate}}</strong>
+              SharingLinkType is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
-
+        </div>
         <!-- isPublic Field -->
-        <div class="ntk-full-width">
-          <mat-slide-toggle [(ngModel)]="dataModel.isPublic" *ngIf="fieldsInfo['isPublic']?.accessWatchField"
-            [disabled]="!fieldsInfo['isPublic']?.accessEditField" name="dataModel.isPublic">
-            {{fieldsInfo['isPublic']?.fieldTitle}}
-          </mat-slide-toggle>
+        <div *ngIf="fieldsInfo['isPublic']?.accessWatchField" class="d-flex mb-3">
+          <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.isPublic" class="font-600 font-14">
+                  {{fieldsInfo['isPublic']?.fieldTitle}}</h5>
+          </div>
+          <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                  <input type="checkbox" class="ios-input" id="dataModel.isPublic"
+                      [(ngModel)]="this.dataModel.isPublic"
+                      name="dataModel.isPublic">
+                  <label class="custom-control-label" for="dataModel.isPublic"></label>
+              </div>
+          </div>
         </div>
         <!-- ToWebAddress Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-label>{{fieldsInfo['toWebAddress']?.fieldTitle}}</mat-label>
-          <input style="direction: ltr; text-align: left !important;" matInput [(ngModel)]="dataModel.toWebAddress"
-            name="dataModel.toWebAddress" #ToWebAddress type="text"
-            placeholder="{{fieldsInfo['toWebAddress']?.fieldTitle}}" minlength="3" maxlength="2000" />
-          <mat-icon matSuffix *ngIf="dataModel.toWebAddress" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.toWebAddress = ''">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ ToWebAddress.value.length }} / 2000</mat-hint>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.toWebAddress" class="color-highlight">{{ fieldsInfo["toWebAddress"]?.fieldTitle }}</label>
+          <input style="direction: ltr; text-align: left !important;" matInput type="text" [(ngModel)]="dataModel.toWebAddress" name="dataModel.toWebAddress" #ToWebAddress
+          placeholder="{{fieldsInfo['toWebAddress']?.fieldTitle }}" minlength="3" maxlength="2000" 
+          class="form-control validate-name" id="dataModel.toWebAddress" />
+          <em>{{ ToWebAddress.value.length }} / 100</em>
           <mat-error *ngIf="ToWebAddress.errors?.required">
             ToWebAddress is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
+        </div>
         <!-- WebAddress Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-label>{{fieldsInfo['webAddress']?.fieldTitle}}</mat-label>
-          <input style="direction: ltr; text-align: left !important;" matInput [(ngModel)]="dataModel.webAddress"
-            name="dataModel.webAddress" #WebAddress type="text" placeholder="{{fieldsInfo['webAddress']?.fieldTitle}}"
-            minlength="3" maxlength="100" />
-          <mat-icon matSuffix *ngIf="dataModel.webAddress" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.webAddress = ''">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ WebAddress.value.length }} / 100</mat-hint>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.webAddress" class="color-highlight">{{ fieldsInfo["webAddress"]?.fieldTitle }}</label>
+          <input style="direction: ltr; text-align: left !important;" matInput type="text" [(ngModel)]="dataModel.webAddress" name="dataModel.webAddress" #WebAddress
+          placeholder="{{fieldsInfo['webAddress']?.fieldTitle }}" minlength="3" maxlength="100" 
+          class="form-control validate-name" id="dataModel.webAddress" />
+          <em>{{ WebAddress.value.length }} / 100</em>
           <mat-error *ngIf="WebAddress.errors?.required">
             WebAddress is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
+        </div>
         <!-- SmallPreview Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-label>{{fieldsInfo['smallPreview']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.smallPreview" name="dataModel.smallPreview" #SmallPreview type="text"
-            placeholder="{{fieldsInfo['smallPreview']?.fieldTitle}}" minlength="3" maxlength="100" />
-          <mat-icon matSuffix *ngIf="dataModel.smallPreview" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.smallPreview = ''">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ SmallPreview.value.length }} / 100</mat-hint>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.smallPreview" class="color-highlight">{{ fieldsInfo["smallPreview"]?.fieldTitle }}</label>
+          <input  matInput type="text" [(ngModel)]="dataModel.smallPreview" name="dataModel.smallPreview" #SmallPreview
+          placeholder="{{fieldsInfo['smallPreview']?.fieldTitle }}" minlength="3" maxlength="100" 
+          class="form-control validate-name" id="dataModel.smallPreview" />
+          <em align="end">{{ SmallPreview.value.length }} / 100</em>
           <mat-error *ngIf="SmallPreview.errors?.required">
             SmallPreview is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
-
+        </div>
         <!-- ClickPrice Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-label>{{fieldsInfo['clickPrice']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.clickPrice" name="dataModel.clickPrice" #ClickPrice type="number"
-            placeholder="{{'TITLE.Amount_Per_Click' | translate}}" min="0" />
-          <mat-icon matSuffix *ngIf="dataModel.clickPrice" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.clickPrice = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.clickPrice" class="color-highlight">{{ fieldsInfo["clickPrice"]?.fieldTitle }}</label>
+          <input  matInput type="number" [(ngModel)]="dataModel.clickPrice" name="dataModel.clickPrice" #ClickPrice
+           placeholder="{{'TITLE.Amount_Per_Click' | translate}}" minlength="0" 
+          class="form-control validate-name" id="dataModel.clickPrice" />
           <mat-error *ngIf="ClickPrice.errors?.required">
             ClickPrice is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
+        </div>
         <!-- ViewPrice Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-label>{{fieldsInfo['viewPrice']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.viewPrice" name="dataModel.viewPrice" #ViewPrice type="number"
-            placeholder="{{'TITLE.Amount_Per_Show' | translate}}" min="0" />
-          <mat-icon matSuffix *ngIf="dataModel.viewPrice" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.viewPrice = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.viewPrice" class="color-highlight">{{ fieldsInfo["viewPrice"]?.fieldTitle }}</label>
+          <input  matInput type="number" [(ngModel)]="dataModel.viewPrice" name="dataModel.viewPrice" #ViewPrice
+           placeholder="{{'TITLE.Amount_Per_Show' | translate}}" minlength="0" 
+          class="form-control validate-name" id="dataModel.viewPrice" />
           <mat-error *ngIf="ViewPrice.errors?.required">
             ViewPrice is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
-
+        </div>
         <!-- MaxPriceOfSharePerDay Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-label>{{fieldsInfo['maxPriceOfSharePerDay']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.maxPriceOfSharePerDay" name="dataModel.maxPriceOfSharePerDay"
-            #MaxPriceOfSharePerDay type="number" placeholder="{{'TITLE.Number_of_views_so_far' | translate}}" min="0" />
-          <mat-icon matSuffix *ngIf="dataModel.maxPriceOfSharePerDay" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.maxPriceOfSharePerDay = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.maxPriceOfSharePerDay" class="color-highlight">{{ fieldsInfo["maxPriceOfSharePerDay"]?.fieldTitle }}</label>
+          <input  matInput type="number" [(ngModel)]="dataModel.maxPriceOfSharePerDay" name="dataModel.maxPriceOfSharePerDay" #MaxPriceOfSharePerDay
+           placeholder="{{'TITLE.Number_of_views_so_far' | translate}}" minlength="0" 
+          class="form-control validate-name" id="dataModel.maxPriceOfSharePerDay" />
           <mat-error *ngIf="MaxPriceOfSharePerDay.errors?.required">
             MaxPriceOfSharePerDay is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
+        </div>
         <!-- MaxPriceOfShareTotal Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-label>{{fieldsInfo['maxPriceOfShareTotal']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.maxPriceOfShareTotal" name="dataModel.maxPriceOfShareTotal"
-            #MaxPriceOfShareTotal type="number" placeholder="{{'TITLE.Number_of_click_so_far' | translate}}" min="0" />
-          <mat-icon matSuffix *ngIf="dataModel.maxPriceOfShareTotal" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.maxPriceOfShareTotal = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.maxPriceOfShareTotal" class="color-highlight">{{ fieldsInfo["maxPriceOfShareTotal"]?.fieldTitle }}</label>
+          <input  matInput type="number" [(ngModel)]="dataModel.maxPriceOfShareTotal" name="dataModel.maxPriceOfShareTotal" #MaxPriceOfShareTotal
+           placeholder="{{'TITLE.Number_of_click_so_far' | translate}}" minlength="0" 
+          class="form-control validate-name" id="dataModel.maxPriceOfShareTotal" />
           <mat-error *ngIf="MaxPriceOfShareTotal.errors?.required">
             MaxPriceOfShareTotal is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
-
+        </div>
         <!-- FormulaPercent Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="dataProfessional">
-          <mat-label>{{fieldsInfo['formulaPercent']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.formulaPercent" name="dataModel.formulaPercent" #FormulaPercent
-            type="number" placeholder="{{'TITLE.Number_of_views_so_far' | translate}}" min="1" />
-          <mat-icon matSuffix *ngIf="dataModel.formulaPercent" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.formulaPercent = 1">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
+        <div *ngIf="dataProfessional" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.formulaPercent" class="color-highlight">{{ fieldsInfo["formulaPercent"]?.fieldTitle }}</label>
+          <input  matInput type="number" [(ngModel)]="dataModel.formulaPercent" name="dataModel.formulaPercent" #FormulaPercent
+           placeholder="{{'TITLE.Number_of_views_so_far' | translate}}" minlength="1" 
+          class="form-control validate-name" id="dataModel.formulaPercent" />
           <mat-error *ngIf="FormulaPercent.errors?.required">
             FormulaPercent is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
-
-
-
-
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+        </div>
+        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
           <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
             (click)="onActionBackToParent()">
             {{'ACTION.BACK' | translate}}
@@ -203,12 +178,13 @@
           </button>
         </div>
       </mat-step>
+
       <mat-step label="{{'TITLE.TARGET_SELECTION' | translate}}" state="seo">
         <app-linkmanagement-category-treeselector [(optionModel)]="dataContentCategoryModel"
           (optionSelectChecked)="onActionCategorySelectChecked($event)"
           (optionSelectDisChecked)="onActionCategorySelectDisChecked($event)"></app-linkmanagement-category-treeselector>
         <br>
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
           <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
@@ -220,35 +196,30 @@
         </div>
       </mat-step>
 
-
       <mat-step label="{{'TITLE.ATTACH_FILES' | translate}}" state="file">
         <p>{{'TITLE.CONTENT_ATTACH_FILES' | translate}}</p>
+        <!-- LinkMainImageId Field -->
         <div class="mb-3">
           <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
             <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
               aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
           </a>
         </div>
-        <div class="mb-9">
-          <mat-form-field class="ntk-full-width">
-
-            <mat-label (click)="fileManagerOpenForm = true">{{'TITLE.Original_Photo' |
-              translate}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
-              type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-              (click)="fileManagerOpenForm = true" />
-            <mat-icon matSuffix *ngIf="dataModel.linkMainImageId" matSuffix mat-icon-button aria-label="Clear"
-              (click)="dataModel.linkMainImageId = null">close</mat-icon>
-            <mat-icon matSuffix (click)="fileManagerOpenForm = true">mode_edit</mat-icon>
-          </mat-form-field>
-
+        <div *ngIf="fieldsInfo['linkMainImageId']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+          class="color-highlight">{{'TITLE.Original_Photo' | translate}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+          #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+          (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
           <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainImageId($event)" [language]="appLanguage"
-            [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openDirectUploadView]="true"
-            [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
-            [openFilemanagerButtonView]="false"></cms-file-manager>
+           [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openDirectUploadView]="true"
+           [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
+           [openFilemanagerButtonView]="false">
+          </cms-file-manager>
         </div>
 
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
           <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
@@ -258,35 +229,30 @@
             {{'ACTION.SAVE' | translate}}
           </button>
         </div>
+
       </mat-step>
 
-
-      <!-- Icon overrides. -->
-      <ng-template matStepperIcon="main">
-        <mat-icon>call_end</mat-icon>
-      </ng-template>
-      <ng-template matStepperIcon="seo">
-        <mat-icon>call_end</mat-icon>
-      </ng-template>
-      <ng-template matStepperIcon="file">
-        <mat-icon>forum</mat-icon>
-      </ng-template>
-      <ng-template matStepperIcon="loaction">
-        <mat-icon>forum</mat-icon>
-      </ng-template>
-
+       <!-- Icon overrides. -->
+        <ng-template matStepperIcon="main">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="seo">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="file">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="loaction">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
     </mat-vertical-stepper>
 
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+      
 
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
 
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+
+    </form>
+
+    <!--Content-->
   </div>
-</form>
+</div>
