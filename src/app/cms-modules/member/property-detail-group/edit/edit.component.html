@@ -11,90 +11,55 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
-
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">\
+      {{ formInfo.formTitle }}
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+          placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Title.value.length }} / 100</em>
+        <mat-error *ngIf="Title.errors?.required">
+        {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- LinkPropertyTypeId Field -->
+      <!-- <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelect($event)"
+        [optionSelectForce]="dataModel.linkPropertyTypeId" [optionPlaceholder]="this.translate.instant('TITLE.Category')"
+        [optionDisabled]="!fieldsInfo['linkPropertyTypeId']?.accessEditField">
+      </app-estate-property-type-landuse-selector> -->
+      <!-- IconFont Field -->
+      <div *ngIf="fieldsInfo['iconFont']?.accessWatchField"
+       class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+       <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
+       <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
+         [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
+         (iconPickerSelect)="onIconPickerSelect($event)" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}" [disabled]="!fieldsInfo['iconFont']?.accessEditField"
+         [disabled]="!fieldsInfo['iconFont']?.accessAddField" class="form-control validate-name"
+         id="dataModel.iconFont" />
+       <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
+      </div>
+      <!-- ShowInFormOrder Field -->
+      <div *ngIf="fieldsInfo['showInFormOrder']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.showInFormOrder" class="color-highlight">{{ fieldsInfo["showInFormOrder"]?.fieldTitle }}</label>
+        <input matInput type="number" [(ngModel)]="dataModel.showInFormOrder" name="dataModel.showInFormOrder" #ShowInFormOrder [disabled]="!fieldsInfo['showInFormOrder']?.accessEditField"
+          placeholder="{{fieldsInfo['showInFormOrder']?.fieldTitle }}"
+          class="form-control validate-name" id="dataModel.showInFormOrder" />
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
+    </form>
     <!--Content-->
   </div>
 </div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-card-body">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-    <!-- Title Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-        placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required />
-      <mat-icon matSuffix *ngIf="dataModel.title" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.title = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-      <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
-      <mat-error *ngIf="Title.errors?.required">
-        Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-      </mat-error>
-    </mat-form-field>
-
-
-
-    <!-- LinkPropertyTypeId Field -->
-    <!-- <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelect($event)"
-      [optionSelectForce]="dataModel.linkPropertyTypeId" [optionPlaceholder]="this.translate.instant('TITLE.Category')"
-      [optionDisabled]="!fieldsInfo['linkPropertyTypeId']?.accessEditField">
-    </app-estate-property-type-landuse-selector> -->
-
-
-
-    <!-- IconFont Field -->
-    <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['iconFont']?.accessWatchField">
-      <mat-label> {{fieldsInfo['iconFont']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont
-        [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
-        (iconPickerSelect)="onIconPickerSelect($event)" type="text"
-        [disabled]="!fieldsInfo['iconFont']?.accessEditField" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}" />
-      <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
-      <mat-icon>{{dataModel.iconFont}}</mat-icon>
-      <mat-icon matSuffix *ngIf="dataModel.iconFont" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.iconFont = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-
-    <!-- ShowInFormOrder Field -->
-    <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['showInFormOrder']?.accessWatchField">
-      <mat-label> {{fieldsInfo['showInFormOrder']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.showInFormOrder" name="dataModel.showInFormOrder" #ShowInFormOrder
-        type="number" [disabled]="!fieldsInfo['showInFormOrder']?.accessEditField"
-        placeholder="{{fieldsInfo['showInFormOrder']?.fieldTitle}}" />
-      <mat-icon matSuffix *ngIf="dataModel.showInFormOrder" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.showInFormOrder = 1">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    <div class="form-actions">
-      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-      <small class="form-text text-muted danger">{{ formInfo.formError }}
-      </small>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-      <button type="button" (click)="onFormCancel()"
-        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-      </button>
-      <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-        (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-        <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-      </button>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  </div>
-</form>
