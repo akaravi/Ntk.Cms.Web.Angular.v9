@@ -40,10 +40,7 @@
             <mat-icon style="font-size: 20px;margin: -11px;"
                 title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
         </button>
-        <button (click)="onActionButtonPrintEntity()" *ngIf="tableRowSelected?.id?.length>0" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
-        </button>
+        
         <button (click)="onActionbuttonReload()" type="button"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -63,6 +60,20 @@
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
+        </button>
+        <button (click)="onActionbuttonModuleEntityReportFileList(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            <span>{{'ACTION.Module_Entity_REPORT_FILE_List' | translate}}</span>
+            <mat-icon>extension</mat-icon>
+        </button>
+        <button (click)="onActionbuttonModuleEntityDataReportRow(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            <span>{{'ACTION.REPORTS' | translate}}</span>
+            <mat-icon>description</mat-icon>
+        </button>
+        <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0"
+            type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
         </button>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>

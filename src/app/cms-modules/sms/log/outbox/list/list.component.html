@@ -40,10 +40,7 @@
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    <button (click)="onActionButtonPrintEntity()" *ngIf="tableRowSelected?.id?.length>0" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
-    </button>
+    
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -72,6 +69,34 @@
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
+    </button>
+    <button (click)="onActionbuttonSendMessage(tableRowSelected)">
+      <span>{{'ACTION.Send_Message' | translate}}</span>
+      <mat-icon>payment</mat-icon>
+    </button>
+    <button (click)="onActionbuttonSuperSedersList(tableRowSelected)">
+      <span>{{'ACTION.BACKUP_ROUTES' | translate}}</span>
+      <mat-icon>view_module</mat-icon>
+    </button>
+    <button (click)="onActionbuttonMustSuperSedersList(tableRowSelected)">
+      <span>{{'ACTION.SUPPORTED_ROUTES' | translate}}</span>
+      <mat-icon>view_module</mat-icon>
+    </button>
+    <button (click)="onActionbuttonNumbersList(tableRowSelected)">
+      <span>{{'ACTION.SPECIFIC_NUMBERS' | translate}}</span>
+      <mat-icon>view_module</mat-icon>
+    </button>
+    <button (click)="onActionbuttonPriceServicesList(tableRowSelected)">
+      <span>{{'ACTION.PRICE_LIST' | translate}}</span>
+      <mat-icon>view_module</mat-icon>
+    </button>
+    <button (click)="onActionbuttonPermitionList(tableRowSelected)">
+      <span>{{'ACTION.ACEESS' | translate}}</span>
+      <mat-icon>view_module</mat-icon>
+    </button>
+    <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>

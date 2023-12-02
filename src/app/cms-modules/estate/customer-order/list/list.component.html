@@ -73,25 +73,21 @@
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
-    <button
-      *ngIf="optionloadByRoute && dataModelResult.access.accessAddRow   && tableRowSelected?.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonCopyNewRow(tableRowSelected,$event)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" id="openModalButton"
-      data-toggle="modal" data-target="#categoryModal">{{'ACTION.COPY' |
-      translate}}</button>
-    <button
-      *ngIf="optionloadByRoute && dataModelResult.access.accessEditRow   && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonEditRow(tableRowSelected,$event)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-      translate}}</button>
-    <button
-      *ngIf="optionloadByRoute && dataModelResult.access.accessDeleteRow   && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonDeleteRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-      translate}}</button>
-    <button (click)="onActionButtonPrintEntity()" *ngIf="tableRowSelected?.id?.length>0" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
+    <button (click)="onActionbuttonQuickHistoryAddRow(tableRowSelected)">
+      <span>{{'ACTION.HISTORY_ADD' | translate}}</span>
+      <mat-icon>history</mat-icon>
+    </button>
+    <button (click)="onActionbuttonHistoryRow(tableRowSelected,$event)">
+      <span>{{'ACTION.HISTORY_LIST' | translate}}</span>
+      <mat-icon>history</mat-icon>
+    </button>
+    <button (click)="onActionbuttonContentList(tableRowSelected,$event)">
+      <span>{{'ACTION.THEPROPERTY_INCLUDESVIEWS' | translate}}</span>
+      <mat-icon>list</mat-icon>
+    </button>
+    <button (click)="onActionbuttonOpenCustomerOrder(tableRowSelected)">
+      <span>{{'ACTION.DISPLAYCLIENTPAGE' | translate}}</span>
+      <mat-icon>slideshow</mat-icon>
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>

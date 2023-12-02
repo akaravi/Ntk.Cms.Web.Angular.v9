@@ -38,10 +38,7 @@
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    <button (click)="onActionButtonPrintEntity()" *ngIf="tableRowSelected?.id?.length>0" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
-    </button>
+    
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -65,10 +62,38 @@
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
-    <button mat-menu-item (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
+    <button mat-menu-item (click)="onActionbuttonDeleteRow(tableRowSelected)"
+      *ngIf="dataModelResult.access.accessDeleteRow"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
+    </button>
+    <button mat-menu-item (click)="onActionbuttonConfigSiteRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.MODULE_SETTINGS' | translate}}</span>
+      <mat-icon>extension</mat-icon>
+    </button>
+    <button mat-menu-item (click)="onActionbuttonConfigMainAdminRow(tableRowSelected)"
+      *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.ADMINISTRATIVE_SETTINGS' | translate}}</span>
+      <mat-icon>extension</mat-icon>
+    </button>
+    <!-- <button mat-menu-item (click)="onActionbuttonSiteCreditAccountRow(tableRowSelected)"
+    *ngIf="tableRowSelected.virtual_CmsModule.NeedSiteCreditAccount"
+    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+    <span>{{'ACTION.CREDIT_SITE' | translate}}</span>
+    <mat-icon>extension</mat-icon>
+  </button>
+  <button mat-menu-item (click)="onActionbuttonSiteUserCreditAccountRow(tableRowSelected)"
+    *ngIf="tableRowSelected.virtual_CmsModule.NeedSiteUserCreditAccount"
+    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+    <span>{{'ACTION.YOUR_USER_CREDENTIALS' | translate}}</span>
+    <mat-icon>extension</mat-icon>
+  </button> -->
+    <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
