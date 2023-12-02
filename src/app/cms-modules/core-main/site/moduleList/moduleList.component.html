@@ -61,7 +61,7 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
     <button mat-menu-item (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
@@ -160,7 +160,7 @@
           </button>
           <mat-menu #actionMenu="matMenu">
             <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>

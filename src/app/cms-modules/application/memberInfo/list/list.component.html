@@ -51,7 +51,7 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
     <button (click)="onActionbuttonViewRow(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.VIEW' | translate}}</span>
       <mat-icon>visibility</mat-icon>
     </button>
@@ -147,7 +147,7 @@
           </button>
           <mat-menu #actionMenu="matMenu">
             <button (click)="onActionbuttonViewRow(row)" *ngIf="dataModelResult.access.accessWatchRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
               <mat-icon>visibility</mat-icon>
               <span>{{'ACTION.VIEW' | translate}}</span>
             </button>

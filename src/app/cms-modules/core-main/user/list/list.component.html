@@ -75,7 +75,7 @@
     </button>
     <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || tableRowSelected.id===tokenInfo.userId"
       (click)="onActionbuttonEditRow(tableRowSelected,$event)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
@@ -190,7 +190,7 @@
             </button>
             <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
               (click)="onActionbuttonEditRow(row,$event)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-plum">
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
               <mat-icon>mode_edit</mat-icon>
               <span>{{'ACTION.EDIT' | translate}}</span>
             </button>
