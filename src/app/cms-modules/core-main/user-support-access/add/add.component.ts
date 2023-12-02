@@ -55,7 +55,7 @@ export class CoreUserSupportAccessAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   fileManagerOpenForm = false;
@@ -68,11 +68,9 @@ export class CoreUserSupportAccessAddComponent implements OnInit {
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
     this.getEnumManageUserAccessUserTypes();
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   getEnumManageUserAccessUserTypes(): void {
     this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe((next) => {

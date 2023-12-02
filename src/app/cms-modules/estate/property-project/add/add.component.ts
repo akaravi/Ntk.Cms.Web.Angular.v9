@@ -45,7 +45,7 @@ export class EstatePropertyProjectAddComponent implements OnInit, AfterViewInit 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   dataModel = new EstatePropertyProjectModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyProjectModel> = new ErrorExceptionResult<EstatePropertyProjectModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataFileModelImgaes = new Map<number, string>();
   dataFileModelFiles = new Map<number, string>();
   loading = new ProgressSpinnerModel();
@@ -75,7 +75,7 @@ export class EstatePropertyProjectAddComponent implements OnInit, AfterViewInit 
   mapOptonCenter = new PoinModel();
   ngOnInit(): void {
 
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
   }
   ngAfterViewInit(): void {
@@ -117,9 +117,7 @@ export class EstatePropertyProjectAddComponent implements OnInit, AfterViewInit 
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   receiveMap(model: leafletMap = this.mapModel): void {
     if (!model) {

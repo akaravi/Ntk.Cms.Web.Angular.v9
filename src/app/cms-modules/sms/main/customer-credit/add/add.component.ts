@@ -49,7 +49,7 @@ export class SmsMainCustomerCreditAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumApiPathPermissionAccessStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumApiPathPermissionActionResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -60,14 +60,12 @@ export class SmsMainCustomerCreditAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.getEnumApiPathPermissionAccessStatus();
     this.getEnumApiPathPermissionAction();
     this.DataGetAccess();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEnumApiPathPermissionAccessStatus(): void {
     this.smsEnumService.ServiceSmsApiPathPermissionAccessStatusEnum().subscribe((res) => {
       this.dataModelEnumApiPathPermissionAccessStatusResult = res;

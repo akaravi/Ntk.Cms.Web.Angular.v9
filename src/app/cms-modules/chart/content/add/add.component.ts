@@ -56,7 +56,7 @@ export class ChartContentAddComponent implements OnInit, AfterViewInit {
   formInfo: FormInfoModel = new FormInfoModel();
   dataModel = new ChartContentModel();
   dataModelResult: ErrorExceptionResult<ChartContentModel> = new ErrorExceptionResult<ChartContentModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -94,7 +94,7 @@ export class ChartContentAddComponent implements OnInit, AfterViewInit {
     }
     this.dataModel.linkCategoryId = this.requestCategoryId;
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
 
@@ -138,9 +138,7 @@ export class ChartContentAddComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   receiveMap(model: leafletMap = this.mapModel): void {
     if (!model) {

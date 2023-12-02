@@ -44,7 +44,7 @@ export class TicketingDepartemenOperatorAddComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new TicketingDepartemenOperatorModel();
   dataModelResult: ErrorExceptionResult<TicketingDepartemenOperatorModel> = new ErrorExceptionResult<TicketingDepartemenOperatorModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerOpenForm = false;
@@ -62,11 +62,9 @@ export class TicketingDepartemenOperatorAddComponent implements OnInit {
     }
     this.dataModel.linkDepartemenId = this.requestDepartemenId;
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   onFormSubmit(): void {
     if (!this.formGroup.valid) {

@@ -50,19 +50,17 @@ export class EstatePropertyTypeLanduseAddComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
   dataModel: EstatePropertyTypeLanduseModel = new EstatePropertyTypeLanduseModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
 
   ngOnInit(): void {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
 
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onActionFileSelected(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;

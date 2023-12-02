@@ -49,7 +49,7 @@ export class EstateActivityTypeEditComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateActivityTypeModel = new EstateActivityTypeModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
 
   dataEstatePropertyTypeUsageModel: EstatePropertyTypeUsageModel[];
@@ -64,12 +64,10 @@ export class EstateActivityTypeEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
     this.DataGetAllEstatePropertyUsage();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onActionFileSelected(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;

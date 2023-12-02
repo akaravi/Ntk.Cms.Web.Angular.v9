@@ -50,7 +50,7 @@ export class CatalogContentEditComponent implements OnInit, AfterViewInit {
   dataModel = new CatalogContentModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataContentOtherInfoModelResult: ErrorExceptionResult<CatalogContentOtherInfoModel> = new ErrorExceptionResult<CatalogContentOtherInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataContentCategoryModel: number[] = [];
   similarDataModel = new Array<CatalogContentModel>();
   otherInfoDataModel = new Array<CatalogContentOtherInfoModel>();
@@ -90,7 +90,7 @@ export class CatalogContentEditComponent implements OnInit, AfterViewInit {
     }
     this.DataGetOne();
     this.DataCategoryGetAll();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
 
@@ -108,9 +108,7 @@ export class CatalogContentEditComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   onFormSubmit(): void {

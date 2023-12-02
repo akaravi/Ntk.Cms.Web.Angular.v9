@@ -44,8 +44,8 @@ export class ApplicationIntroAddComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new ApplicationIntroModel();
   dataModelResult: ErrorExceptionResult<ApplicationIntroModel> = new ErrorExceptionResult<ApplicationIntroModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
-  
+
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypeMainVideo = ['mp4'];
   fileManagerOpenForm = false;
@@ -60,11 +60,9 @@ export class ApplicationIntroAddComponent implements OnInit {
     }
     this.dataModel.linkApplicationId = this.requestLinkApplicationId;
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       this.cmsToastrService.typeErrorFormInvalid();

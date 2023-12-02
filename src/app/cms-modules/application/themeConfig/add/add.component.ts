@@ -61,17 +61,15 @@ export class ApplicationThemeConfigAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
 
   ngOnInit(): void {
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'main';

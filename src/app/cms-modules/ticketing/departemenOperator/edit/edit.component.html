@@ -1,71 +1,57 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-        <p class="mb-0 color-highlight font-600 font-12">
-            حساب کاربری خود را ویرایش کنید
-        </p>
-        <h4>اطلاعات</h4>
-        <h4>اطلاعات اولیه</h4>
-        <p>
-            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-            فقط یک صفحه ساختگی است.
-        </p>
-        <!--Content-->
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-            {{ formInfo.formTitle }}
-             <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-                <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
-                    <!-- RecordStatus Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-                        #RecordStatus="ngModel" required [disabled]="!fieldsInfo['recordStatus']?.accessEditField"
-                        ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
-                        <option *ngFor="
-                            let item of dataModelEnumRecordStatusResult.listItems;
-                            index as i
-                            " [ngValue]="item.value">
-                        {{ item.description }}
-                        </option>
-                        </select>
-                        <em class="mt-n3">{{ 'Application.source.recordStatus_hint' | translate }}
-                        </em>
-                        <mat-error *ngIf="RecordStatus.errors?.required">
-                            {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
-                        </mat-error>
-                    </div>
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
-                            (click)="onActionBackToParent()">
-                            {{'ACTION.BACK' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+        <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
+          <!-- RecordStatus Field -->
+          <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
 
-                <mat-step label="{{'ACTION.ABOUT' | translate}}" state="seo">
-                    <p> {{'TITLE.Content_Of_The_About_Us_App' | translate}} </p>
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
 
-             </mat-horizontal-stepper>
 
-        </form>
-        <!--Content-->
-    </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+        <mat-step label="{{'ACTION.ABOUT' | translate}}" state="seo">
+          <p> {{'TITLE.Content_Of_The_About_Us_App' | translate}} </p>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+      </mat-horizontal-stepper>
+
+    </form>
+    <!--Content-->
+  </div>
 </div>

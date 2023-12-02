@@ -55,7 +55,7 @@ export class SmsMainApiNumberPermissionEditComponent implements OnInit {
   dataModel: SmsMainApiNumberPermissionModel = new SmsMainApiNumberPermissionModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumApiNumberPermissionAccessStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumApiNumberPermissionActionResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -73,11 +73,9 @@ export class SmsMainApiNumberPermissionEditComponent implements OnInit {
     this.DataGetOneContent();
     this.getEnumApiNumberPermissionAccessStatus();
     this.getEnumApiNumberPermissionAction();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEnumApiNumberPermissionAccessStatus(): void {
     this.smsEnumService.ServiceSmsApiNumberPermissionAccessStatusEnum().subscribe((res) => {
       this.dataModelEnumApiNumberPermissionAccessStatusResult = res;

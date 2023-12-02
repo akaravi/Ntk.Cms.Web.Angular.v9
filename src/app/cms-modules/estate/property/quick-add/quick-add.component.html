@@ -227,26 +227,13 @@
           </mat-error>
         </mat-form-field>
         <!-- MainAdminRecordStatus Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField">
-          <mat-select placeholder="{{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}}"
-            [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessAddField"
-            [(ngModel)]="dataModel.mainAdminRecordStatus" name="dataModel.mainAdminRecordStatus"
-            #MainAdminRecordStatus="ngModel" panelClass="MainAdminRecordStatus-{{ dataModel.mainAdminRecordStatus }}">
-            <mat-option *ngFor="
-let item of dataModelEnumRecordStatusResult.listItems;
-index as i
-" [value]="item.value">{{ item.description }}</mat-option>
-          </mat-select>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['mainAdminRecordStatus']?.fieldDescription}}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-          <mat-error *ngIf="MainAdminRecordStatus.errors?.required">
-            {{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}} <strong>{{'MESSAGE.required' |
-              translate}}</strong>
-          </mat-error>
-        </mat-form-field>
+
+        <app-cms-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
+          [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
+          [optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
+          [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
           <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
             matStepperPrevious>

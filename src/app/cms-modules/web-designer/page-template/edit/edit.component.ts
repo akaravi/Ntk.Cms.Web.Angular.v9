@@ -46,7 +46,7 @@ export class WebDesignerMainPageTemplateEditComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
   dataModel: WebDesignerMainPageTemplateModel = new WebDesignerMainPageTemplateModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   dataCoreSiteCategoryModel: CoreSiteCategoryModel[];
   dataCoreSiteCategoryIds: number[] = [];
@@ -60,12 +60,10 @@ export class WebDesignerMainPageTemplateEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
     this.DataGetAllSourceSiteCategory();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
     this.formInfo.formError = '';

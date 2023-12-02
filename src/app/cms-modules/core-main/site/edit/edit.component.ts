@@ -68,7 +68,7 @@ export class CoreSiteEditComponent implements OnInit, OnDestroy {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new CoreSiteModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumSiteStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumLanguageResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
@@ -90,7 +90,7 @@ export class CoreSiteEditComponent implements OnInit, OnDestroy {
   mapOptonCenter = new PoinModel();
   keywordDataModel = [];
   ngOnInit(): void {
-    this.getEnumRecordStatus();
+
     this.getEnumSiteStatus();
     this.getEnumLanguage();
 
@@ -108,9 +108,7 @@ export class CoreSiteEditComponent implements OnInit, OnDestroy {
       this.dataModelEnumLanguageResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   onFormSubmit(): void {
     if (!this.formGroup.valid) {

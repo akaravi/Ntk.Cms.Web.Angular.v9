@@ -39,11 +39,11 @@ export class CmsRecordStatusSelfSaveDirective {
     // @Optional() @Host() select: SelectControlValueAccessor
   ) {
 
-    this.getEnumRecordStatus();
+
   }
   async getEnumRecordStatus(): Promise<void> {
-    const dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-    dataModelEnumRecordStatusResult.listItems.forEach(co => {
+    const dataModelResult = await this.publicHelper.getEnumRecordStatus();
+    dataModelResult.listItems.forEach(co => {
       const option = document.createElement('option');
       option.innerHTML = ' ' + co.title + ' ' + '<i Class="' + this.iconStatus(co.value) + '"></i>';
       option.value = co.value.toString();

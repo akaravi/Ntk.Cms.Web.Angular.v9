@@ -1,706 +1,642 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-        <p class="mb-0 color-highlight font-600 font-12">
-            حساب کاربری خود را ویرایش کنید
-        </p>
-        <h4>اطلاعات</h4>
-        <h4>اطلاعات اولیه</h4>
-        <p>
-            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-            فقط یک صفحه ساختگی است.
-        </p>
-        <!--content-->
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-            {{ formInfo.formTitle }}
-            <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-                <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
-                    <!-- RecordStatus Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus"
-                            name="dataModel.recordStatus" #RecordStatus="ngModel" required
-                            ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}"
-                            class="form-control validate-name">
-                            <option *ngFor="
-                        let item of dataModelEnumRecordStatusResult.listItems;
-                        index as i
-                        " [ngValue]="item.value">
-                                {{ item.description }}
-                            </option>
-                        </select>
-                        <em class="mt-n3">{{
-                            "TITLE.SELECT_STATUS" | translate}}
-                        </em>
-                        <mat-error *ngIf="RecordStatus.errors?.required">
-                            RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-                        </mat-error>
-                    </div>
-                    <!-- Title Field -->
-                    <div *ngIf="fieldsInfo['title']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle
-                            }}</label>
-                        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
-                            type="text" placeholder="{{fieldsInfo['title']?.fieldTitle }}"
-                            [disabled]="!fieldsInfo['title']?.accessEditField" minlength="3" maxlength="100" required
-                            class="form-control validate-name" id="dataModel.title" />
-                        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
-                        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-                        <em>{{ Title.value.length }} / 100</em>
-                        <mat-error *ngIf="Title.errors?.required">
-                            Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-                        </mat-error>
-                    </div>
-                    <!-- LinkPublicConfigId Field -->
-                    <app-sms-publicconfig-selector (optionChange)="onActionSelectSource($event)"
-                        [(optionLoading)]="loading"
-                        [optionDisabled]="!fieldsInfo['linkPublicConfigId']?.accessEditField"
-                        [optionSelectForce]="dataModel.linkPublicConfigId"
-                        [optionPlaceholder]="this.translate.instant('TITLE.Route_Type')">
-                    </app-sms-publicconfig-selector>
-                    <!-- LinkApiPathCompanyId Field -->
-                    <app-sms-apipathcompany-selector (optionChange)="onActionSelectorSelectLinkApiPathCompanyId($event)"
-                        [optionSelectForce]="dataModel.linkApiPathCompanyId" [(optionLoading)]="loading"
-                        [optionPlaceholder]="this.translate.instant('TITLE.Service_Company')">
-                    </app-sms-apipathcompany-selector>
-                    <!-- ApiIdentity Field -->
-                    <div *ngIf="fieldsInfo['apiIdentity']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.apiIdentity" class="color-highlight">{{
-                            fieldsInfo["apiIdentity"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.apiIdentity" name="dataModel.apiIdentity" #ApiIdentity
-                            type="number" placeholder="1" [disabled]="!fieldsInfo['apiIdentity']?.accessEditField"
-                            class="form-control validate-name" id="dataModel.apiIdentity" />
-                    </div>
-                    <!-- apiMinPathNeedToCheck Field -->
-                    <div *ngIf="fieldsInfo['apiMinPathNeedToCheck']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.apiMinPathNeedToCheck" class="color-highlight">{{
-                            fieldsInfo["apiMinPathNeedToCheck"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.apiMinPathNeedToCheck"
-                            name="dataModel.apiMinPathNeedToCheck" #ApiMinPathNeedToCheck type="number" placeholder="1"
-                            [disabled]="!fieldsInfo['apiMinPathNeedToCheck']?.accessEditField"
-                            class="form-control validate-name" id="dataModel.apiMinPathNeedToCheck" />
-                    </div>
-                    <!-- ApiReceiveKey Field -->
-                    <div *ngIf="fieldsInfo['apiReceiveKey']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.apiReceiveKey" class="color-highlight">{{
-                            fieldsInfo["apiReceiveKey"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.apiReceiveKey" name="dataModel.apiReceiveKey"
-                            #ApiReceiveKey type="text" placeholder="1"
-                            [disabled]="!fieldsInfo['apiReceiveKey']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.apiReceiveKey" />
-                    </div>
-                    <!-- HookAddressAPIById Field -->
-                    <div *ngIf="fieldsInfo['hookAddressAPIById']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.hookAddressAPIById" class="color-highlight">{{
-                            fieldsInfo["hookAddressAPIById"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.hookAddressAPIById" name="dataModel.hookAddressAPIById"
-                            #HookAddressAPIById type="text" readonly placeholder="1"
-                            class="form-control validate-name input-ltr" id="dataModel.hookAddressAPIById" />
-                    </div>
-                    <!-- apiAbilityLengthMinToSend Field -->
-                    <div *ngIf="fieldsInfo['apiAbilityLengthMinToSend']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.apiAbilityLengthMinToSend" class="color-highlight">{{
-                            fieldsInfo["apiAbilityLengthMinToSend"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.apiAbilityLengthMinToSend"
-                            name="dataModel.apiAbilityLengthMinToSend" #ApiAbilityLengthMinToSend type="number"
-                            placeholder="1" [disabled]="!fieldsInfo['apiAbilityLengthMinToSend']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.apiAbilityLengthMinToSend" />
-                    </div>
-                    <!-- apiAbilityLengthMaxToSend Field -->
-                    <div *ngIf="fieldsInfo['apiAbilityLengthMaxToSend']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.apiAbilityLengthMaxToSend" class="color-highlight">{{
-                            fieldsInfo["apiAbilityLengthMaxToSend"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.apiAbilityLengthMaxToSend"
-                            name="dataModel.apiAbilityLengthMaxToSend" #ApiAbilityLengthMaxToSend type="number"
-                            placeholder="1" [disabled]="!fieldsInfo['apiAbilityLengthMaxToSend']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.apiAbilityLengthMaxToSend" />
-                    </div>
-                    <!-- Priority Field -->
-                    <div *ngIf="fieldsInfo['priority']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.priority" class="color-highlight">{{ fieldsInfo["priority"]?.fieldTitle
-                            }}</label>
-                        <input matInput [(ngModel)]="dataModel.priority" name="dataModel.priority" #Priority
-                            type="number" placeholder="1" [disabled]="!fieldsInfo['priority']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.priority" />
-                    </div>
-                    <!-- MaxProcessFlowAmount Field -->
-                    <div *ngIf="fieldsInfo['maxProcessFlowAmount']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.maxProcessFlowAmount" class="color-highlight">{{
-                            fieldsInfo["maxProcessFlowAmount"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.maxProcessFlowAmount"
-                            name="dataModel.maxProcessFlowAmount" #MaxProcessFlowAmount type="number" placeholder="1"
-                            [disabled]="!fieldsInfo['maxProcessFlowAmount']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.maxProcessFlowAmount" />
-                    </div>
-                    <!-- MinProcessFlowAmount Field -->
-                    <div *ngIf="fieldsInfo['minProcessFlowAmount']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.minProcessFlowAmount" class="color-highlight">{{
-                            fieldsInfo["minProcessFlowAmount"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.minProcessFlowAmount"
-                            name="dataModel.minProcessFlowAmount" #MinProcessFlowAmount type="number"
-                            placeholder="Min Transaction Amount"
-                            [disabled]="!fieldsInfo['minProcessFlowAmount']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.minProcessFlowAmount" />
-                    </div>
-                    <!-- FixFeeProcessFlowAmount Field -->
-                    <div *ngIf="fieldsInfo['fixFeeProcessFlowAmount']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.fixFeeProcessFlowAmount" class="color-highlight">{{
-                            fieldsInfo["fixFeeProcessFlowAmount"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.fixFeeProcessFlowAmount"
-                            name="dataModel.fixFeeProcessFlowAmount" #FixFeeProcessFlowAmount type="number"
-                            placeholder="Max Transaction Amount"
-                            [disabled]="!fieldsInfo['fixFeeProcessFlowAmount']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.fixFeeProcessFlowAmount" />
-                    </div>
-                    <!-- PercentFeeProcessFlowAmount Field -->
-                    <div *ngIf="fieldsInfo['percentFeeProcessFlowAmount']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.percentFeeProcessFlowAmount" class="color-highlight">{{
-                            fieldsInfo["percentFeeProcessFlowAmount"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.percentFeeProcessFlowAmount"
-                            name="dataModel.percentFeeProcessFlowAmount" #PercentFeeProcessFlowAmount type="number"
-                            placeholder="Percent Fee Transaction Amount"
-                            [disabled]="!fieldsInfo['percentFeeProcessFlowAmount']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.percentFeeProcessFlowAmount" />
-                    </div>
-                    <!-- PerriodStartWorkTime Field -->
-                    <div *ngIf="fieldsInfo['perriodStartWorkTime']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.perriodStartWorkTime" class="color-highlight">{{
-                            fieldsInfo["perriodStartWorkTime"]?.fieldTitle }}</label>
-                        <input matInput [ngxTimepicker]="PerriodStartWorkTime"
-                            [(ngModel)]="dataModel.perriodStartWorkTime" name="dataModel.perriodStartWorkTime"
-                            type="number" [format]="24" class="form-control validate-name input-ltr"
-                            id="dataModel.perriodStartWorkTime" />
-                        <ngx-material-timepicker-toggle matSuffix
-                            [for]="PerriodStartWorkTime"></ngx-material-timepicker-toggle>
-                        <ngx-material-timepicker touchUi #PerriodStartWorkTime></ngx-material-timepicker>
-                    </div>
-                    <!-- PerriodEndWorkTime Field -->
-                    <div *ngIf="fieldsInfo['perriodEndWorkTime']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.perriodEndWorkTime" class="color-highlight">{{
-                            fieldsInfo["perriodEndWorkTime"]?.fieldTitle }}</label>
-                        <input matInput [ngxTimepicker]="PerriodEndWorkTime" [(ngModel)]="dataModel.perriodEndWorkTime"
-                            name="dataModel.perriodEndWorkTime" type="number" [format]="24"
-                            class="form-control validate-name input-ltr" id="dataModel.perriodEndWorkTime" />
-                        <ngx-material-timepicker-toggle matSuffix
-                            [for]="PerriodEndWorkTime"></ngx-material-timepicker-toggle>
-                        <ngx-material-timepicker touchUi #PerriodEndWorkTime></ngx-material-timepicker>
-                    </div>
-                    <!-- Description Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.description"
-                            class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
-                            type="text" placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="1"
-                            maxlength="500" rows="5" id="dataModel.description"
-                            class="form-control validate-name"></textarea>
-                        <em>{{ Description.value.length }} / 500</em>
-                        <mat-error *ngIf="Description.errors?.required">
-                            Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-                        </mat-error>
-                    </div>
-                    <!-- Memo Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.memo" class="color-highlight">{{fieldsInfo['memo']?.fieldTitle}}</label>
-                        <textarea matInput [(ngModel)]="dataModel.memo" name="dataModel.memo" type="text"
-                            placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="1" maxlength="500"
-                            rows="5" id="dataModel.memo" class="form-control validate-name">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+        <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
+          <!-- RecordStatus Field -->
+          <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+
+          <!-- Title Field -->
+          <div *ngIf="fieldsInfo['title']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle
+              }}</label>
+            <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+              placeholder="{{fieldsInfo['title']?.fieldTitle }}" [disabled]="!fieldsInfo['title']?.accessEditField"
+              minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.title" />
+            <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+            <em>{{ Title.value.length }} / 100</em>
+            <mat-error *ngIf="Title.errors?.required">
+              Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- LinkPublicConfigId Field -->
+          <app-sms-publicconfig-selector (optionChange)="onActionSelectSource($event)" [(optionLoading)]="loading"
+            [optionDisabled]="!fieldsInfo['linkPublicConfigId']?.accessEditField"
+            [optionSelectForce]="dataModel.linkPublicConfigId"
+            [optionPlaceholder]="this.translate.instant('TITLE.Route_Type')">
+          </app-sms-publicconfig-selector>
+          <!-- LinkApiPathCompanyId Field -->
+          <app-sms-apipathcompany-selector (optionChange)="onActionSelectorSelectLinkApiPathCompanyId($event)"
+            [optionSelectForce]="dataModel.linkApiPathCompanyId" [(optionLoading)]="loading"
+            [optionPlaceholder]="this.translate.instant('TITLE.Service_Company')">
+          </app-sms-apipathcompany-selector>
+          <!-- ApiIdentity Field -->
+          <div *ngIf="fieldsInfo['apiIdentity']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.apiIdentity" class="color-highlight">{{
+              fieldsInfo["apiIdentity"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.apiIdentity" name="dataModel.apiIdentity" #ApiIdentity type="number"
+              placeholder="1" [disabled]="!fieldsInfo['apiIdentity']?.accessEditField"
+              class="form-control validate-name" id="dataModel.apiIdentity" />
+          </div>
+          <!-- apiMinPathNeedToCheck Field -->
+          <div *ngIf="fieldsInfo['apiMinPathNeedToCheck']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.apiMinPathNeedToCheck" class="color-highlight">{{
+              fieldsInfo["apiMinPathNeedToCheck"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.apiMinPathNeedToCheck" name="dataModel.apiMinPathNeedToCheck"
+              #ApiMinPathNeedToCheck type="number" placeholder="1"
+              [disabled]="!fieldsInfo['apiMinPathNeedToCheck']?.accessEditField" class="form-control validate-name"
+              id="dataModel.apiMinPathNeedToCheck" />
+          </div>
+          <!-- ApiReceiveKey Field -->
+          <div *ngIf="fieldsInfo['apiReceiveKey']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.apiReceiveKey" class="color-highlight">{{
+              fieldsInfo["apiReceiveKey"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.apiReceiveKey" name="dataModel.apiReceiveKey" #ApiReceiveKey
+              type="text" placeholder="1" [disabled]="!fieldsInfo['apiReceiveKey']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.apiReceiveKey" />
+          </div>
+          <!-- HookAddressAPIById Field -->
+          <div *ngIf="fieldsInfo['hookAddressAPIById']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.hookAddressAPIById" class="color-highlight">{{
+              fieldsInfo["hookAddressAPIById"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.hookAddressAPIById" name="dataModel.hookAddressAPIById"
+              #HookAddressAPIById type="text" readonly placeholder="1" class="form-control validate-name input-ltr"
+              id="dataModel.hookAddressAPIById" />
+          </div>
+          <!-- apiAbilityLengthMinToSend Field -->
+          <div *ngIf="fieldsInfo['apiAbilityLengthMinToSend']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.apiAbilityLengthMinToSend" class="color-highlight">{{
+              fieldsInfo["apiAbilityLengthMinToSend"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.apiAbilityLengthMinToSend" name="dataModel.apiAbilityLengthMinToSend"
+              #ApiAbilityLengthMinToSend type="number" placeholder="1"
+              [disabled]="!fieldsInfo['apiAbilityLengthMinToSend']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.apiAbilityLengthMinToSend" />
+          </div>
+          <!-- apiAbilityLengthMaxToSend Field -->
+          <div *ngIf="fieldsInfo['apiAbilityLengthMaxToSend']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.apiAbilityLengthMaxToSend" class="color-highlight">{{
+              fieldsInfo["apiAbilityLengthMaxToSend"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.apiAbilityLengthMaxToSend" name="dataModel.apiAbilityLengthMaxToSend"
+              #ApiAbilityLengthMaxToSend type="number" placeholder="1"
+              [disabled]="!fieldsInfo['apiAbilityLengthMaxToSend']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.apiAbilityLengthMaxToSend" />
+          </div>
+          <!-- Priority Field -->
+          <div *ngIf="fieldsInfo['priority']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.priority" class="color-highlight">{{ fieldsInfo["priority"]?.fieldTitle
+              }}</label>
+            <input matInput [(ngModel)]="dataModel.priority" name="dataModel.priority" #Priority type="number"
+              placeholder="1" [disabled]="!fieldsInfo['priority']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.priority" />
+          </div>
+          <!-- MaxProcessFlowAmount Field -->
+          <div *ngIf="fieldsInfo['maxProcessFlowAmount']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.maxProcessFlowAmount" class="color-highlight">{{
+              fieldsInfo["maxProcessFlowAmount"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.maxProcessFlowAmount" name="dataModel.maxProcessFlowAmount"
+              #MaxProcessFlowAmount type="number" placeholder="1"
+              [disabled]="!fieldsInfo['maxProcessFlowAmount']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.maxProcessFlowAmount" />
+          </div>
+          <!-- MinProcessFlowAmount Field -->
+          <div *ngIf="fieldsInfo['minProcessFlowAmount']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.minProcessFlowAmount" class="color-highlight">{{
+              fieldsInfo["minProcessFlowAmount"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.minProcessFlowAmount" name="dataModel.minProcessFlowAmount"
+              #MinProcessFlowAmount type="number" placeholder="Min Transaction Amount"
+              [disabled]="!fieldsInfo['minProcessFlowAmount']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.minProcessFlowAmount" />
+          </div>
+          <!-- FixFeeProcessFlowAmount Field -->
+          <div *ngIf="fieldsInfo['fixFeeProcessFlowAmount']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.fixFeeProcessFlowAmount" class="color-highlight">{{
+              fieldsInfo["fixFeeProcessFlowAmount"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.fixFeeProcessFlowAmount" name="dataModel.fixFeeProcessFlowAmount"
+              #FixFeeProcessFlowAmount type="number" placeholder="Max Transaction Amount"
+              [disabled]="!fieldsInfo['fixFeeProcessFlowAmount']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.fixFeeProcessFlowAmount" />
+          </div>
+          <!-- PercentFeeProcessFlowAmount Field -->
+          <div *ngIf="fieldsInfo['percentFeeProcessFlowAmount']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.percentFeeProcessFlowAmount" class="color-highlight">{{
+              fieldsInfo["percentFeeProcessFlowAmount"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.percentFeeProcessFlowAmount"
+              name="dataModel.percentFeeProcessFlowAmount" #PercentFeeProcessFlowAmount type="number"
+              placeholder="Percent Fee Transaction Amount"
+              [disabled]="!fieldsInfo['percentFeeProcessFlowAmount']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.percentFeeProcessFlowAmount" />
+          </div>
+          <!-- PerriodStartWorkTime Field -->
+          <div *ngIf="fieldsInfo['perriodStartWorkTime']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.perriodStartWorkTime" class="color-highlight">{{
+              fieldsInfo["perriodStartWorkTime"]?.fieldTitle }}</label>
+            <input matInput [ngxTimepicker]="PerriodStartWorkTime" [(ngModel)]="dataModel.perriodStartWorkTime"
+              name="dataModel.perriodStartWorkTime" type="number" [format]="24"
+              class="form-control validate-name input-ltr" id="dataModel.perriodStartWorkTime" />
+            <ngx-material-timepicker-toggle matSuffix [for]="PerriodStartWorkTime"></ngx-material-timepicker-toggle>
+            <ngx-material-timepicker touchUi #PerriodStartWorkTime></ngx-material-timepicker>
+          </div>
+          <!-- PerriodEndWorkTime Field -->
+          <div *ngIf="fieldsInfo['perriodEndWorkTime']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.perriodEndWorkTime" class="color-highlight">{{
+              fieldsInfo["perriodEndWorkTime"]?.fieldTitle }}</label>
+            <input matInput [ngxTimepicker]="PerriodEndWorkTime" [(ngModel)]="dataModel.perriodEndWorkTime"
+              name="dataModel.perriodEndWorkTime" type="number" [format]="24"
+              class="form-control validate-name input-ltr" id="dataModel.perriodEndWorkTime" />
+            <ngx-material-timepicker-toggle matSuffix [for]="PerriodEndWorkTime"></ngx-material-timepicker-toggle>
+            <ngx-material-timepicker touchUi #PerriodEndWorkTime></ngx-material-timepicker>
+          </div>
+          <!-- Description Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+            <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+              placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="1" maxlength="500" rows="5"
+              id="dataModel.description" class="form-control validate-name"></textarea>
+            <em>{{ Description.value.length }} / 500</em>
+            <mat-error *ngIf="Description.errors?.required">
+              Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- Memo Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.memo" class="color-highlight">{{fieldsInfo['memo']?.fieldTitle}}</label>
+            <textarea matInput [(ngModel)]="dataModel.memo" name="dataModel.memo" type="text"
+              placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="1" maxlength="500" rows="5"
+              id="dataModel.memo" class="form-control validate-name">
                     </textarea>
-                    </div>
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
-                            (click)="onActionBackToParent()">
-                            {{'ACTION.BACK' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-                <mat-step label="{{'TITLE.Dispatch_variables' | translate}}" state="seo">
-                    <p>{{'TITLE.Port_settings' | translate}}</p>
-                    <dynamic-form-builder-cms [formGroup]="vform.form" [(jsonValue)]="dataModel.privateConfigJsonValues"
-                        [propertiesInfos]="dataModel.privateConfigJsonFormatter"></dynamic-form-builder-cms>
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+        <mat-step label="{{'TITLE.Dispatch_variables' | translate}}" state="seo">
+          <p>{{'TITLE.Port_settings' | translate}}</p>
+          <dynamic-form-builder-cms [formGroup]="vform.form" [(jsonValue)]="dataModel.privateConfigJsonValues"
+            [propertiesInfos]="dataModel.privateConfigJsonFormatter"></dynamic-form-builder-cms>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-                <mat-step label="{{'TITLE.Api_path_send_variables' | translate}}" state="seo">
-                    <p>{{'TITLE.Set_acess' | translate}}</p>
-                    <!-- apiSendMessageIsOn Field -->
-                    <div *ngIf="fieldsInfo['apiSendMessageIsOn']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.apiSendMessageIsOn" class="font-600 font-14">
-                                {{fieldsInfo['apiSendMessageIsOn']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.apiSendMessageIsOn"
-                                    [(ngModel)]="this.dataModel.apiSendMessageIsOn" name="dataModel.apiSendMessageIsOn">
-                                <label class="custom-control-label" for="dataModel.apiSendMessageIsOn"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- apiSendMessageAddTextFirst Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.apiSendMessageAddTextFirst"
-                            class="color-highlight">{{fieldsInfo['apiSendMessageAddTextFirst']?.fieldTitle}}</label>
-                        <textarea matInput [(ngModel)]="dataModel.apiSendMessageAddTextFirst"
-                            name="dataModel.apiSendMessageAddTextFirst" #apiSendMessageAddTextFirst type="text"
-                            placeholder="{{ fieldsInfo['apiSendMessageAddTextFirst']?.fieldTitle }}" minlength="1"
-                            maxlength="500" rows="5" id="dataModel.apiSendMessageAddTextFirst"
-                            class="form-control validate-name"></textarea>
-                        <em>{{ apiSendMessageAddTextFirst.value.length }} / 500</em>
-                        <mat-error *ngIf="apiSendMessageAddTextFirst.errors?.required">
-                            apiSendMessageAddTextFirst is <strong>{{'MESSAGE.required' | translate}}</strong>
-                        </mat-error>
-                    </div>
-                    <!-- apiSendMessageAddTextEnd Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.apiSendMessageAddTextEnd"
-                            class="color-highlight">{{fieldsInfo['apiSendMessageAddTextEnd']?.fieldTitle}}</label>
-                        <textarea matInput [(ngModel)]="dataModel.apiSendMessageAddTextEnd"
-                            name="dataModel.apiSendMessageAddTextEnd" #apiSendMessageAddTextEnd type="text"
-                            placeholder="{{ fieldsInfo['apiSendMessageAddTextEnd']?.fieldTitle }}" minlength="1"
-                            maxlength="500" rows="5" id="dataModel.apiSendMessageAddTextEnd"
-                            class="form-control validate-name"></textarea>
-                        <em>{{ apiSendMessageAddTextEnd.value.length }} / 500</em>
-                        <mat-error *ngIf="apiSendMessageAddTextEnd.errors?.required">
-                            apiSendMessageAddTextEnd is <strong>{{'MESSAGE.required' | translate}}</strong>
-                        </mat-error>
-                    </div>
-                    <!-- sendMessageAddTextFirst Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.sendMessageAddTextFirst"
-                            class="color-highlight">{{fieldsInfo['sendMessageAddTextFirst']?.fieldTitle}}</label>
-                        <textarea matInput [(ngModel)]="dataModel.sendMessageAddTextFirst"
-                            name="dataModel.sendMessageAddTextFirst" #sendMessageAddTextFirst type="text"
-                            placeholder="{{ fieldsInfo['sendMessageAddTextFirst']?.fieldTitle }}" minlength="1"
-                            maxlength="500" rows="5" id="dataModel.sendMessageAddTextFirst"
-                            class="form-control validate-name"></textarea>
-                        <em>{{ sendMessageAddTextFirst.value.length }} / 500</em>
-                        <mat-error *ngIf="sendMessageAddTextFirst.errors?.required">
-                            sendMessageAddTextFirst is <strong>{{'MESSAGE.required' | translate}}</strong>
-                        </mat-error>
-                    </div>
-                    <!-- sendMessageAddTextEnd Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.sendMessageAddTextEnd"
-                            class="color-highlight">{{fieldsInfo['sendMessageAddTextEnd']?.fieldTitle}}</label>
-                        <textarea matInput [(ngModel)]="dataModel.sendMessageAddTextEnd"
-                            name="dataModel.sendMessageAddTextEnd" #sendMessageAddTextEnd type="text"
-                            placeholder="{{ fieldsInfo['sendMessageAddTextEnd']?.fieldTitle }}" minlength="1"
-                            maxlength="500" rows="5" id="dataModel.sendMessageAddTextEnd"
-                            class="form-control validate-name"></textarea>
-                        <em>{{ sendMessageAddTextEnd.value.length }} / 500</em>
-                        <mat-error *ngIf="sendMessageAddTextEnd.errors?.required">
-                            sendMessageAddTextEnd is <strong>{{'MESSAGE.required' | translate}}</strong>
-                        </mat-error>
-                    </div>
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+        <mat-step label="{{'TITLE.Api_path_send_variables' | translate}}" state="seo">
+          <p>{{'TITLE.Set_acess' | translate}}</p>
+          <!-- apiSendMessageIsOn Field -->
+          <div *ngIf="fieldsInfo['apiSendMessageIsOn']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.apiSendMessageIsOn" class="font-600 font-14">
+                {{fieldsInfo['apiSendMessageIsOn']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.apiSendMessageIsOn"
+                  [(ngModel)]="this.dataModel.apiSendMessageIsOn" name="dataModel.apiSendMessageIsOn">
+                <label class="custom-control-label" for="dataModel.apiSendMessageIsOn"></label>
+              </div>
+            </div>
+          </div>
+          <!-- apiSendMessageAddTextFirst Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.apiSendMessageAddTextFirst"
+              class="color-highlight">{{fieldsInfo['apiSendMessageAddTextFirst']?.fieldTitle}}</label>
+            <textarea matInput [(ngModel)]="dataModel.apiSendMessageAddTextFirst"
+              name="dataModel.apiSendMessageAddTextFirst" #apiSendMessageAddTextFirst type="text"
+              placeholder="{{ fieldsInfo['apiSendMessageAddTextFirst']?.fieldTitle }}" minlength="1" maxlength="500"
+              rows="5" id="dataModel.apiSendMessageAddTextFirst" class="form-control validate-name"></textarea>
+            <em>{{ apiSendMessageAddTextFirst.value.length }} / 500</em>
+            <mat-error *ngIf="apiSendMessageAddTextFirst.errors?.required">
+              apiSendMessageAddTextFirst is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- apiSendMessageAddTextEnd Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.apiSendMessageAddTextEnd"
+              class="color-highlight">{{fieldsInfo['apiSendMessageAddTextEnd']?.fieldTitle}}</label>
+            <textarea matInput [(ngModel)]="dataModel.apiSendMessageAddTextEnd"
+              name="dataModel.apiSendMessageAddTextEnd" #apiSendMessageAddTextEnd type="text"
+              placeholder="{{ fieldsInfo['apiSendMessageAddTextEnd']?.fieldTitle }}" minlength="1" maxlength="500"
+              rows="5" id="dataModel.apiSendMessageAddTextEnd" class="form-control validate-name"></textarea>
+            <em>{{ apiSendMessageAddTextEnd.value.length }} / 500</em>
+            <mat-error *ngIf="apiSendMessageAddTextEnd.errors?.required">
+              apiSendMessageAddTextEnd is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- sendMessageAddTextFirst Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.sendMessageAddTextFirst"
+              class="color-highlight">{{fieldsInfo['sendMessageAddTextFirst']?.fieldTitle}}</label>
+            <textarea matInput [(ngModel)]="dataModel.sendMessageAddTextFirst" name="dataModel.sendMessageAddTextFirst"
+              #sendMessageAddTextFirst type="text" placeholder="{{ fieldsInfo['sendMessageAddTextFirst']?.fieldTitle }}"
+              minlength="1" maxlength="500" rows="5" id="dataModel.sendMessageAddTextFirst"
+              class="form-control validate-name"></textarea>
+            <em>{{ sendMessageAddTextFirst.value.length }} / 500</em>
+            <mat-error *ngIf="sendMessageAddTextFirst.errors?.required">
+              sendMessageAddTextFirst is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- sendMessageAddTextEnd Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.sendMessageAddTextEnd"
+              class="color-highlight">{{fieldsInfo['sendMessageAddTextEnd']?.fieldTitle}}</label>
+            <textarea matInput [(ngModel)]="dataModel.sendMessageAddTextEnd" name="dataModel.sendMessageAddTextEnd"
+              #sendMessageAddTextEnd type="text" placeholder="{{ fieldsInfo['sendMessageAddTextEnd']?.fieldTitle }}"
+              minlength="1" maxlength="500" rows="5" id="dataModel.sendMessageAddTextEnd"
+              class="form-control validate-name"></textarea>
+            <em>{{ sendMessageAddTextEnd.value.length }} / 500</em>
+            <mat-error *ngIf="sendMessageAddTextEnd.errors?.required">
+              sendMessageAddTextEnd is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-                <mat-step label="{{'TITLE.Status_receiving_variables' | translate}}" state="seo">
-                    <p>{{'TITLE.Set_acess' | translate}}</p>
-                    <!-- apiAbilitySendUnicodeMessage Field -->
-                    <div *ngIf="fieldsInfo['apiAbilitySendUnicodeMessage']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.apiAbilitySendUnicodeMessage" class="font-600 font-14">
-                                {{fieldsInfo['apiAbilitySendUnicodeMessage']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendUnicodeMessage"
-                                    [(ngModel)]="this.dataModel.apiAbilitySendUnicodeMessage"
-                                    name="dataModel.apiAbilitySendUnicodeMessage">
-                                <label class="custom-control-label"
-                                    for="dataModel.apiAbilitySendUnicodeMessage"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- apiAbilitySendNormalMessage Field -->
-                    <div *ngIf="fieldsInfo['apiAbilitySendNormalMessage']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.apiAbilitySendNormalMessage" class="font-600 font-14">
-                                {{fieldsInfo['apiAbilitySendNormalMessage']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendNormalMessage"
-                                    [(ngModel)]="this.dataModel.apiAbilitySendNormalMessage"
-                                    name="dataModel.apiAbilitySendNormalMessage">
-                                <label class="custom-control-label" for="dataModel.apiAbilitySendNormalMessage"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- apiAllowSuperSeder Field -->
-                    <div *ngIf="fieldsInfo['apiAllowSuperSeder']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.apiAllowSuperSeder" class="font-600 font-14">
-                                {{fieldsInfo['apiAllowSuperSeder']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.apiAllowSuperSeder"
-                                    [(ngModel)]="this.dataModel.apiAllowSuperSeder" name="dataModel.apiAllowSuperSeder">
-                                <label class="custom-control-label" for="dataModel.apiAllowSuperSeder"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- apiAbilityUseWebservice Field -->
-                    <div *ngIf="fieldsInfo['apiAbilityUseWebservice']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.apiAbilityUseWebservice" class="font-600 font-14">
-                                {{fieldsInfo['apiAbilityUseWebservice']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.apiAbilityUseWebservice"
-                                    [(ngModel)]="this.dataModel.apiAbilityUseWebservice"
-                                    name="dataModel.apiAbilityUseWebservice">
-                                <label class="custom-control-label" for="dataModel.apiAbilityUseWebservice"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- apiAbilityUseInside Field -->
-                    <div *ngIf="fieldsInfo['apiAbilityUseInside']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.apiAbilityUseInside" class="font-600 font-14">
-                                {{fieldsInfo['apiAbilityUseInside']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.apiAbilityUseInside"
-                                    [(ngModel)]="this.dataModel.apiAbilityUseInside"
-                                    name="dataModel.apiAbilityUseInside">
-                                <label class="custom-control-label" for="dataModel.apiAbilityUseInside"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- apiAbilitySendByQueue Field -->
-                    <div *ngIf="fieldsInfo['apiAbilitySendByQueue']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.apiAbilitySendByQueue" class="font-600 font-14">
-                                {{fieldsInfo['apiAbilitySendByQueue']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendByQueue"
-                                    [(ngModel)]="this.dataModel.apiAbilitySendByQueue"
-                                    name="dataModel.apiAbilitySendByQueue">
-                                <label class="custom-control-label" for="dataModel.apiAbilitySendByQueue"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- apiAbilitySendByDirect Field -->
-                    <div *ngIf="fieldsInfo['apiAbilitySendByDirect']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.apiAbilitySendByDirect" class="font-600 font-14">
-                                {{fieldsInfo['apiAbilitySendByDirect']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendByDirect"
-                                    [(ngModel)]="this.dataModel.apiAbilitySendByDirect"
-                                    name="dataModel.apiAbilitySendByDirect">
-                                <label class="custom-control-label" for="dataModel.apiAbilitySendByDirect"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+        <mat-step label="{{'TITLE.Status_receiving_variables' | translate}}" state="seo">
+          <p>{{'TITLE.Set_acess' | translate}}</p>
+          <!-- apiAbilitySendUnicodeMessage Field -->
+          <div *ngIf="fieldsInfo['apiAbilitySendUnicodeMessage']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.apiAbilitySendUnicodeMessage" class="font-600 font-14">
+                {{fieldsInfo['apiAbilitySendUnicodeMessage']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendUnicodeMessage"
+                  [(ngModel)]="this.dataModel.apiAbilitySendUnicodeMessage"
+                  name="dataModel.apiAbilitySendUnicodeMessage">
+                <label class="custom-control-label" for="dataModel.apiAbilitySendUnicodeMessage"></label>
+              </div>
+            </div>
+          </div>
+          <!-- apiAbilitySendNormalMessage Field -->
+          <div *ngIf="fieldsInfo['apiAbilitySendNormalMessage']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.apiAbilitySendNormalMessage" class="font-600 font-14">
+                {{fieldsInfo['apiAbilitySendNormalMessage']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendNormalMessage"
+                  [(ngModel)]="this.dataModel.apiAbilitySendNormalMessage" name="dataModel.apiAbilitySendNormalMessage">
+                <label class="custom-control-label" for="dataModel.apiAbilitySendNormalMessage"></label>
+              </div>
+            </div>
+          </div>
+          <!-- apiAllowSuperSeder Field -->
+          <div *ngIf="fieldsInfo['apiAllowSuperSeder']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.apiAllowSuperSeder" class="font-600 font-14">
+                {{fieldsInfo['apiAllowSuperSeder']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.apiAllowSuperSeder"
+                  [(ngModel)]="this.dataModel.apiAllowSuperSeder" name="dataModel.apiAllowSuperSeder">
+                <label class="custom-control-label" for="dataModel.apiAllowSuperSeder"></label>
+              </div>
+            </div>
+          </div>
+          <!-- apiAbilityUseWebservice Field -->
+          <div *ngIf="fieldsInfo['apiAbilityUseWebservice']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.apiAbilityUseWebservice" class="font-600 font-14">
+                {{fieldsInfo['apiAbilityUseWebservice']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.apiAbilityUseWebservice"
+                  [(ngModel)]="this.dataModel.apiAbilityUseWebservice" name="dataModel.apiAbilityUseWebservice">
+                <label class="custom-control-label" for="dataModel.apiAbilityUseWebservice"></label>
+              </div>
+            </div>
+          </div>
+          <!-- apiAbilityUseInside Field -->
+          <div *ngIf="fieldsInfo['apiAbilityUseInside']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.apiAbilityUseInside" class="font-600 font-14">
+                {{fieldsInfo['apiAbilityUseInside']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.apiAbilityUseInside"
+                  [(ngModel)]="this.dataModel.apiAbilityUseInside" name="dataModel.apiAbilityUseInside">
+                <label class="custom-control-label" for="dataModel.apiAbilityUseInside"></label>
+              </div>
+            </div>
+          </div>
+          <!-- apiAbilitySendByQueue Field -->
+          <div *ngIf="fieldsInfo['apiAbilitySendByQueue']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.apiAbilitySendByQueue" class="font-600 font-14">
+                {{fieldsInfo['apiAbilitySendByQueue']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendByQueue"
+                  [(ngModel)]="this.dataModel.apiAbilitySendByQueue" name="dataModel.apiAbilitySendByQueue">
+                <label class="custom-control-label" for="dataModel.apiAbilitySendByQueue"></label>
+              </div>
+            </div>
+          </div>
+          <!-- apiAbilitySendByDirect Field -->
+          <div *ngIf="fieldsInfo['apiAbilitySendByDirect']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.apiAbilitySendByDirect" class="font-600 font-14">
+                {{fieldsInfo['apiAbilitySendByDirect']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendByDirect"
+                  [(ngModel)]="this.dataModel.apiAbilitySendByDirect" name="dataModel.apiAbilitySendByDirect">
+                <label class="custom-control-label" for="dataModel.apiAbilitySendByDirect"></label>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-                <mat-step label="{{'TITLE.Credit_return_status' | translate}}" state="seo">
-                    <!-- StatusOutOfServiceMonitorApiChar Field -->
-                    <div *ngIf="fieldsInfo['statusOutOfServiceMonitorApiChar']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.statusOutOfServiceMonitorApiChar" class="color-highlight">{{
-                            fieldsInfo["statusOutOfServiceMonitorApiChar"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.statusOutOfServiceMonitorApiChar"
-                            name="dataModel.statusOutOfServiceMonitorApiChar" #StatusOutOfServiceMonitorApiChar
-                            type="number" placeholder="1"
-                            [disabled]="!fieldsInfo['statusOutOfServiceMonitorApiChar']?.accessEditField"
-                            class="form-control validate-name input-ltr"
-                            id="dataModel.statusOutOfServiceMonitorApiChar" />
-                    </div>
-                    <!-- StatusOutOfServiceActive Field -->
-                    <div *ngIf="fieldsInfo['statusOutOfServiceActive']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.statusOutOfServiceActive" class="font-600 font-14">
-                                {{fieldsInfo['statusOutOfServiceActive']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.statusOutOfServiceActive"
-                                    [(ngModel)]="this.dataModel.statusOutOfServiceActive"
-                                    name="dataModel.statusOutOfServiceActive">
-                                <label class="custom-control-label" for="dataModel.statusOutOfServiceActive"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- StatusOutOfServiceExpire Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.statusOutOfServiceExpire" class="color-highlight">{{
-                            fieldsInfo["statusOutOfServiceExpire"]?.fieldTitle }}</label>
-                        <input matInput [matDatepicker]="StatusOutOfServiceExpire"
-                            [(ngModel)]="dataModel.statusOutOfServiceExpire" name="dataModel.statusOutOfServiceExpire"
-                            type="text" class="form-control validate-name input-ltr"
-                            id="dataModel.statusOutOfServiceExpire" />
-                        <mat-datepicker-toggle matSuffix [for]="StatusOutOfServiceExpire"></mat-datepicker-toggle>
-                        <mat-datepicker touchUi #StatusOutOfServiceExpire></mat-datepicker>
-                    </div>
-                    <!-- StatusNotStableMonitorApiChar Field -->
-                    <div *ngIf="fieldsInfo['statusNotStableMonitorApiChar']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.statusNotStableMonitorApiChar" class="color-highlight">{{
-                            fieldsInfo["statusNotStableMonitorApiChar"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.statusNotStableMonitorApiChar"
-                            name="dataModel.statusNotStableMonitorApiChar" #StatusNotStableMonitorApiChar type="number"
-                            placeholder="1" [disabled]="!fieldsInfo['statusNotStableMonitorApiChar']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.statusNotStableMonitorApiChar" />
-                    </div>
-                    <!-- StatusNotStableActive Field -->
-                    <div *ngIf="fieldsInfo['apiAbilityUseInside']?.accessWatchField" class="d-flex mb-3">
-                        <div class="pt-1">
-                            <h5 data-trigger-switch="dataModel.statusNotStableActive" class="font-600 font-14">
-                                {{fieldsInfo['apiAbilityUseInside']?.fieldTitle}}</h5>
-                        </div>
-                        <div class="ms-auto me-3 pe-2">
-                            <div class="custom-control ios-switch small-switch">
-                                <input type="checkbox" class="ios-input" id="dataModel.statusNotStableActive"
-                                    [(ngModel)]="this.dataModel.statusNotStableActive"
-                                    name="dataModel.statusNotStableActive">
-                                <label class="custom-control-label" for="dataModel.statusNotStableActive"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- StatusNotStableExpire Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.statusNotStableExpire" class="color-highlight">{{
-                            fieldsInfo["statusNotStableExpire"]?.fieldTitle }}</label>
-                        <input matInput [matDatepicker]="StatusNotStableExpire"
-                            [(ngModel)]="dataModel.statusNotStableExpire" name="dataModel.statusNotStableExpire"
-                            type="text" class="form-control validate-name input-ltr"
-                            id="dataModel.statusNotStableExpire" />
-                        <mat-datepicker-toggle matSuffix [for]="StatusNotStableExpire"></mat-datepicker-toggle>
-                        <mat-datepicker touchUi #StatusNotStableExpire></mat-datepicker>
-                    </div>
-                    <!-- StatusNotStableCount Field -->
-                    <div *ngIf="fieldsInfo['statusNotStableCount']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.statusNotStableCount" class="color-highlight">{{
-                            fieldsInfo["statusNotStableCount"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.statusNotStableCount"
-                            name="dataModel.statusNotStableCount" #StatusNotStableCount type="number" placeholder="1"
-                            [disabled]="!fieldsInfo['statusNotStableCount']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.statusNotStableCount" />
-                    </div>
-                    <!-- StatusNotStableCountLimit Field -->
-                    <div *ngIf="fieldsInfo['statusNotStableCountLimit']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.statusNotStableCountLimit" class="color-highlight">{{
-                            fieldsInfo["statusNotStableCountLimit"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.statusNotStableCountLimit"
-                            name="dataModel.statusNotStableCountLimit" #StatusNotStableCountLimit type="number"
-                            placeholder="1" [disabled]="!fieldsInfo['statusNotStableCountLimit']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.statusNotStableCountLimit" />
-                    </div>
-                    <!-- StatusNotStableRunForMin Field -->
-                    <div *ngIf="fieldsInfo['statusNotStableRunForMin']?.accessWatchField"
-                        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.statusNotStableRunForMin" class="color-highlight">{{
-                            fieldsInfo["statusNotStableRunForMin"]?.fieldTitle }}</label>
-                        <input matInput [(ngModel)]="dataModel.statusNotStableRunForMin"
-                            name="dataModel.statusNotStableRunForMin" #StatusNotStableRunForMin type="number"
-                            placeholder="1" [disabled]="!fieldsInfo['statusNotStableRunForMin']?.accessEditField"
-                            class="form-control validate-name input-ltr" id="dataModel.statusNotStableRunForMin" />
-                    </div>
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+        <mat-step label="{{'TITLE.Credit_return_status' | translate}}" state="seo">
+          <!-- StatusOutOfServiceMonitorApiChar Field -->
+          <div *ngIf="fieldsInfo['statusOutOfServiceMonitorApiChar']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.statusOutOfServiceMonitorApiChar" class="color-highlight">{{
+              fieldsInfo["statusOutOfServiceMonitorApiChar"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.statusOutOfServiceMonitorApiChar"
+              name="dataModel.statusOutOfServiceMonitorApiChar" #StatusOutOfServiceMonitorApiChar type="number"
+              placeholder="1" [disabled]="!fieldsInfo['statusOutOfServiceMonitorApiChar']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.statusOutOfServiceMonitorApiChar" />
+          </div>
+          <!-- StatusOutOfServiceActive Field -->
+          <div *ngIf="fieldsInfo['statusOutOfServiceActive']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.statusOutOfServiceActive" class="font-600 font-14">
+                {{fieldsInfo['statusOutOfServiceActive']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.statusOutOfServiceActive"
+                  [(ngModel)]="this.dataModel.statusOutOfServiceActive" name="dataModel.statusOutOfServiceActive">
+                <label class="custom-control-label" for="dataModel.statusOutOfServiceActive"></label>
+              </div>
+            </div>
+          </div>
+          <!-- StatusOutOfServiceExpire Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.statusOutOfServiceExpire" class="color-highlight">{{
+              fieldsInfo["statusOutOfServiceExpire"]?.fieldTitle }}</label>
+            <input matInput [matDatepicker]="StatusOutOfServiceExpire" [(ngModel)]="dataModel.statusOutOfServiceExpire"
+              name="dataModel.statusOutOfServiceExpire" type="text" class="form-control validate-name input-ltr"
+              id="dataModel.statusOutOfServiceExpire" />
+            <mat-datepicker-toggle matSuffix [for]="StatusOutOfServiceExpire"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #StatusOutOfServiceExpire></mat-datepicker>
+          </div>
+          <!-- StatusNotStableMonitorApiChar Field -->
+          <div *ngIf="fieldsInfo['statusNotStableMonitorApiChar']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.statusNotStableMonitorApiChar" class="color-highlight">{{
+              fieldsInfo["statusNotStableMonitorApiChar"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.statusNotStableMonitorApiChar"
+              name="dataModel.statusNotStableMonitorApiChar" #StatusNotStableMonitorApiChar type="number"
+              placeholder="1" [disabled]="!fieldsInfo['statusNotStableMonitorApiChar']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.statusNotStableMonitorApiChar" />
+          </div>
+          <!-- StatusNotStableActive Field -->
+          <div *ngIf="fieldsInfo['apiAbilityUseInside']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.statusNotStableActive" class="font-600 font-14">
+                {{fieldsInfo['apiAbilityUseInside']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.statusNotStableActive"
+                  [(ngModel)]="this.dataModel.statusNotStableActive" name="dataModel.statusNotStableActive">
+                <label class="custom-control-label" for="dataModel.statusNotStableActive"></label>
+              </div>
+            </div>
+          </div>
+          <!-- StatusNotStableExpire Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.statusNotStableExpire" class="color-highlight">{{
+              fieldsInfo["statusNotStableExpire"]?.fieldTitle }}</label>
+            <input matInput [matDatepicker]="StatusNotStableExpire" [(ngModel)]="dataModel.statusNotStableExpire"
+              name="dataModel.statusNotStableExpire" type="text" class="form-control validate-name input-ltr"
+              id="dataModel.statusNotStableExpire" />
+            <mat-datepicker-toggle matSuffix [for]="StatusNotStableExpire"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #StatusNotStableExpire></mat-datepicker>
+          </div>
+          <!-- StatusNotStableCount Field -->
+          <div *ngIf="fieldsInfo['statusNotStableCount']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.statusNotStableCount" class="color-highlight">{{
+              fieldsInfo["statusNotStableCount"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.statusNotStableCount" name="dataModel.statusNotStableCount"
+              #StatusNotStableCount type="number" placeholder="1"
+              [disabled]="!fieldsInfo['statusNotStableCount']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.statusNotStableCount" />
+          </div>
+          <!-- StatusNotStableCountLimit Field -->
+          <div *ngIf="fieldsInfo['statusNotStableCountLimit']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.statusNotStableCountLimit" class="color-highlight">{{
+              fieldsInfo["statusNotStableCountLimit"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.statusNotStableCountLimit" name="dataModel.statusNotStableCountLimit"
+              #StatusNotStableCountLimit type="number" placeholder="1"
+              [disabled]="!fieldsInfo['statusNotStableCountLimit']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.statusNotStableCountLimit" />
+          </div>
+          <!-- StatusNotStableRunForMin Field -->
+          <div *ngIf="fieldsInfo['statusNotStableRunForMin']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.statusNotStableRunForMin" class="color-highlight">{{
+              fieldsInfo["statusNotStableRunForMin"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.statusNotStableRunForMin" name="dataModel.statusNotStableRunForMin"
+              #StatusNotStableRunForMin type="number" placeholder="1"
+              [disabled]="!fieldsInfo['statusNotStableRunForMin']?.accessEditField"
+              class="form-control validate-name input-ltr" id="dataModel.statusNotStableRunForMin" />
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
 
-                <mat-step label="{{'TITLE.Receiving_variable' | translate}}" state="seo">
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+        <mat-step label="{{'TITLE.Receiving_variable' | translate}}" state="seo">
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-                <mat-step label="{{'TITLE.Check_validity' | translate}}" state="seo">
+        <mat-step label="{{'TITLE.Check_validity' | translate}}" state="seo">
 
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-                <mat-step label=" {{'TITLE.Variables_for_sending_voice_messagesy' | translate}}" state="seo">
+        <mat-step label=" {{'TITLE.Variables_for_sending_voice_messagesy' | translate}}" state="seo">
 
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                            [disabled]="!vform.form.valid" matStepperNext>
-                            {{'ACTION.NEXT' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-                <mat-step label="{{'TITLE.Error_variables' | translate}}" state="seo">
+        <mat-step label="{{'TITLE.Error_variables' | translate}}" state="seo">
 
-                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                        <button type="button"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                            matStepperPrevious>
-                            {{'ACTION.BEFOR' | translate}}
-                        </button>
-                        <button type="submit"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                            [disabled]="!vform.form.valid">
-                            {{'ACTION.SAVE' | translate}}
-                        </button>
-                    </div>
-                </mat-step>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-                <!-- Icon overrides. -->
-                <ng-template matStepperIcon="main">
-                    <mat-icon>call_end</mat-icon>
-                </ng-template>
-                <ng-template matStepperIcon="seo">
-                    <mat-icon>call_end</mat-icon>
-                </ng-template>
-                <ng-template matStepperIcon="file">
-                    <mat-icon>forum</mat-icon>
-                </ng-template>
-                <ng-template matStepperIcon="loaction">
-                    <mat-icon>forum</mat-icon>
-                </ng-template>
+        <!-- Icon overrides. -->
+        <ng-template matStepperIcon="main">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="seo">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="file">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="loaction">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
 
 
-            </mat-vertical-stepper>
+      </mat-vertical-stepper>
 
 
-        </form>
+    </form>
 
-        <!--content-->
-    </div>
+    <!--content-->
+  </div>
 </div>

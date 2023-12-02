@@ -54,7 +54,7 @@ export class CoreDeviceEditComponent implements OnInit {
   dataModel: CoreDeviceModel = new CoreDeviceModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumDeviceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumOperatingSystemTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   fileManagerOpenForm = false;
@@ -71,7 +71,7 @@ export class CoreDeviceEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
     this.getServiceDeviceTypeEnum();
     this.getServiceOperatingSystemTypeEnum();
   }
@@ -85,9 +85,7 @@ export class CoreDeviceEditComponent implements OnInit {
       this.dataModelEnumOperatingSystemTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

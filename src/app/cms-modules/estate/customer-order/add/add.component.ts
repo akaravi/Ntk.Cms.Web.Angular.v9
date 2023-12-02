@@ -69,7 +69,7 @@ export class EstateCustomerOrderAddComponent implements OnInit {
   dataModel: EstateCustomerOrderModel = new EstateCustomerOrderModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   PropertyTypeSelected = new EstatePropertyTypeLanduseModel();
   propertyDetails: Map<string, string> = new Map<string, string>();
@@ -85,7 +85,7 @@ export class EstateCustomerOrderAddComponent implements OnInit {
   areaAddressView = false;
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
     this.DataGetAccessEstate();
     this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
@@ -96,9 +96,7 @@ export class EstateCustomerOrderAddComponent implements OnInit {
       this.dataModel.linkEstateCustomerCategoryId = this.linkParentId;
     }
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   dataFieldInfoModel: DataFieldInfoModel[];
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';

@@ -85,7 +85,7 @@ export class EstatePropertyEditComponent implements OnInit, OnDestroy {
   dataFileModelImgaes = new Map<number, string>();
   dataFileModelFiles = new Map<number, string>();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   currencyOptionSelectFirstItem = true;
   contractTypeSelected: EstateContractTypeModel;
@@ -116,13 +116,13 @@ export class EstatePropertyEditComponent implements OnInit, OnDestroy {
     }
     this.formInfo.formTitle = this.translate.instant('TITLE.Edit');
     this.DataGetOne();
-    this.getEnumRecordStatus();
+
     this.getEstateContractType();
 
 
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
       this.DataGetOne();
-      this.getEnumRecordStatus();
+
       this.getEstateContractType();
     });
   }
@@ -141,9 +141,7 @@ export class EstatePropertyEditComponent implements OnInit, OnDestroy {
     });
 
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   lastRecordStatus: RecordStatusEnum;
   DataGetOne(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');

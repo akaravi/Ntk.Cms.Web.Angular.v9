@@ -52,7 +52,7 @@ export class CoreUserClaimGroupDetailEditComponent implements OnInit {
   dataModel: CoreUserClaimGroupDetailModel = new CoreUserClaimGroupDetailModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -67,11 +67,9 @@ export class CoreUserClaimGroupDetailEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
 
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');

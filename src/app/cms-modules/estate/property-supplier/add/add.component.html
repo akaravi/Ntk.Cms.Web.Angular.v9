@@ -16,45 +16,20 @@
       <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
         <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
           <!-- RecordStatus Field -->
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.recordStatus"
-              class="color-highlight">{{fieldsInfo['recordStatus']?.fieldTitle}}</label>
-            <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-              #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}"
-              [disabled]="!fieldsInfo['recordStatus']?.accessAddField" required class="form-control validate-name">
-              <option *ngFor=" let item of dataModelEnumRecordStatusResult.listItems; index as i"
-                [ngValue]="item.value">{{ item.description }}</option>
-            </select>
-            <span><i class="fa fa-chevron-down"></i></span>
-            <i *ngIf="!RecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
-            <i *ngIf="RecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
-            <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-              RecordStatus is
-              <strong>{{ "MESSAGE.required" | translate }}</strong>
-            </mat-error>
-          </div>
+
+          <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
           <!-- mainAdminRecordStatus Field -->
-          <div *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.mainAdminRecordStatus"
-              class="color-highlight">{{fieldsInfo['recordStatus']?.fieldTitle}}</label>
-            <select id="dataModel.mainAdminRecordStatus" [(ngModel)]="dataModel.mainAdminRecordStatus"
-              name="dataModel.mainAdminRecordStatus" #mainAdminRecordStatus="ngModel"
-              [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessAddField" required
-              class="form-control validate-name">
-              <option *ngFor=" let item of dataModelEnumRecordStatusResult.listItems; index as i"
-                [ngValue]="item.value">{{ item.description }}</option>
-            </select>
-            <span><i class="fa fa-chevron-down"></i></span>
-            <i *ngIf="!mainAdminRecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
-            <i *ngIf="mainAdminRecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
-            <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-              {{fieldsInfo['mainAdminRecordStatus']?.fieldTitle}}
-              <strong>{{ "MESSAGE.required" | translate }}</strong>
-            </mat-error>
-          </div>
+
+          <app-cms-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
+            [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
           <!-- Title Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>

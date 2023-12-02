@@ -59,7 +59,7 @@ export class EstatePropertyExpertPriceEditComponent implements OnInit {
   dataModel: EstatePropertyExpertPriceModel = new EstatePropertyExpertPriceModel();
   dataModelEstatePropertyExpertPriceTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelCorCurrencySelector = new CoreCurrencyModel();
   PropertyTypeSelected = new EstatePropertyTypeLanduseModel();
   fileManagerOpenForm = false;
@@ -74,12 +74,10 @@ export class EstatePropertyExpertPriceEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
     this.getEstatePropertyExpertPriceTypeEnum();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEstatePropertyExpertPriceTypeEnum(): void {
     this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe((next) => {
       this.dataModelEstatePropertyExpertPriceTypeEnumResult = next;

@@ -39,7 +39,7 @@ export class EstatePropertySupplierHeaderComponent implements OnInit, OnDestroy 
   dataModelResult: ErrorExceptionResult<EstatePropertySupplierModel> = new ErrorExceptionResult<EstatePropertySupplierModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -50,14 +50,12 @@ export class EstatePropertySupplierHeaderComponent implements OnInit, OnDestroy 
       });
     }
 
-    this.getEnumRecordStatus();
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);

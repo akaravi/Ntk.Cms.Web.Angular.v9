@@ -49,7 +49,7 @@ export class WebDesignerMainPageEditComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
   dataModel: WebDesignerMainPageModel = new WebDesignerMainPageModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumPageAbilityTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   fileManagerOpenForm = false;
   ngOnInit(): void {
@@ -61,7 +61,7 @@ export class WebDesignerMainPageEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
     this.getEnumPageAbilityType();
   }
   getEnumPageAbilityType(): void {
@@ -69,9 +69,7 @@ export class WebDesignerMainPageEditComponent implements OnInit {
       this.dataModelEnumPageAbilityTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
     this.formInfo.formError = '';

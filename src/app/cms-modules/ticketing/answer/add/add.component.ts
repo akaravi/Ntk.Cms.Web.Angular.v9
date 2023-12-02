@@ -52,7 +52,7 @@ export class TicketingAnswerAddComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new TicketingAnswerModel();
   dataModelResult: ErrorExceptionResult<TicketingAnswerModel> = new ErrorExceptionResult<TicketingAnswerModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerOpenForm = false;
@@ -70,11 +70,9 @@ export class TicketingAnswerAddComponent implements OnInit {
     }
     this.dataModel.linkTaskId = this.requestLinkTaskId;
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       this.cmsToastrService.typeErrorFormInvalid();

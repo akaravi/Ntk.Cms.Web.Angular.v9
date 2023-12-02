@@ -56,7 +56,7 @@ export class ChartContentEditComponent implements OnInit, AfterViewInit {
   dataContentSimilarModelResult: ErrorExceptionResult<ChartContentSimilarModel> = new ErrorExceptionResult<ChartContentSimilarModel>();
   dataContentOtherInfoModelResult: ErrorExceptionResult<ChartContentOtherInfoModel>
     = new ErrorExceptionResult<ChartContentOtherInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataContentCategoryModel: number[] = [];
   similarDataModel = new Array<ChartContentModel>();
   otherInfoDataModel = new Array<ChartContentOtherInfoModel>();
@@ -99,7 +99,7 @@ export class ChartContentEditComponent implements OnInit, AfterViewInit {
     }
     this.DataGetOne();
     this.DataCategoryGetAll();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
 
@@ -117,9 +117,7 @@ export class ChartContentEditComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   onFormSubmit(): void {

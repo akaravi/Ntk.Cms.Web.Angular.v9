@@ -54,7 +54,7 @@ export class CatalogCategoryEditComponent implements OnInit {
   dataModel: CatalogCategoryModel = new CatalogCategoryModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -74,11 +74,9 @@ export class CatalogCategoryEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
     if (!this.requestId || this.requestId.length === 0) {

@@ -43,7 +43,7 @@ export class ApplicationIntroEditComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new ApplicationIntroModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypeMainVideo = ['mp4'];
@@ -57,11 +57,9 @@ export class ApplicationIntroEditComponent implements OnInit {
       return;
     }
     this.DataGetOne(this.requestId);
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       this.cmsToastrService.typeErrorFormInvalid();

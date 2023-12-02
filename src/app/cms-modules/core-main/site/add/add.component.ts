@@ -50,7 +50,7 @@ export class CoreSiteAddComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new CoreSiteModel();
   dataModelResult: ErrorExceptionResult<CoreSiteModel> = new ErrorExceptionResult<CoreSiteModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumSiteStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumLanguageResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
@@ -75,7 +75,7 @@ export class CoreSiteAddComponent implements OnInit {
       this.dataModel.linkCreatedBySiteId = this.requestId;
     }
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
     this.getEnumSiteStatus();
     this.getEnumLanguage();
   }
@@ -89,9 +89,7 @@ export class CoreSiteAddComponent implements OnInit {
       this.dataModelEnumLanguageResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       this.cmsToastrService.typeErrorFormInvalid();

@@ -50,7 +50,7 @@ export class LinkManagementBillboardPatternAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumManagementContentSettingTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumSharingPriceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -72,7 +72,7 @@ export class LinkManagementBillboardPatternAddComponent implements OnInit {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.Register_New_Categories');
 
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
 
     this.getEnumSharingPriceType();
@@ -88,9 +88,7 @@ export class LinkManagementBillboardPatternAddComponent implements OnInit {
       this.dataModelEnumSharingPriceTypeResult = res;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   DataGetAccess(): void {

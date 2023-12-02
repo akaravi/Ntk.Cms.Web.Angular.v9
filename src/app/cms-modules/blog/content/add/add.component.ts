@@ -56,7 +56,7 @@ export class BlogContentAddComponent implements OnInit, AfterViewInit {
   formInfo: FormInfoModel = new FormInfoModel();
   dataModel = new BlogContentModel();
   dataModelResult: ErrorExceptionResult<BlogContentModel> = new ErrorExceptionResult<BlogContentModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -93,7 +93,7 @@ export class BlogContentAddComponent implements OnInit, AfterViewInit {
       return;
     }
     this.dataModel.linkCategoryId = this.requestCategoryId;
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
   }
   ngAfterViewInit(): void {
@@ -143,9 +143,7 @@ export class BlogContentAddComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   receiveMap(model: leafletMap = this.mapModel): void {
     if (!model) {

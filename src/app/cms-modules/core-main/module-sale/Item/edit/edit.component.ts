@@ -54,7 +54,7 @@ export class CoreModuleSaleItemEditComponent implements OnInit {
   dataModel: CoreModuleSaleItemModel = new CoreModuleSaleItemModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumCmsModuleSaleItemTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   fileManagerOpenForm = false;
@@ -70,7 +70,7 @@ export class CoreModuleSaleItemEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
     this.getEnumCmsModuleSaleItemType();
   }
   getEnumCmsModuleSaleItemType(): void {
@@ -79,9 +79,7 @@ export class CoreModuleSaleItemEditComponent implements OnInit {
     });
   }
 
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

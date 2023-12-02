@@ -52,14 +52,14 @@ export class EstatePropertyExpertPriceInquiryListComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   PropertyTypeSelected = new EstatePropertyTypeLanduseModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();
   fileManagerOpenForm = false;
 
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.Expert_Price_Inquiry');
-    this.getEnumRecordStatus();
+
     this.getEstatePropertyExpertPriceTypeEnum();
     if (this.dataModel.linkLocationId > 0 &&
       this.dataModel.linkCoreCurrencyId > 0 &&
@@ -70,9 +70,7 @@ export class EstatePropertyExpertPriceInquiryListComponent implements OnInit {
       this.DataActionContent();
     }
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   getEstatePropertyExpertPriceTypeEnum(): void {
     this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe((next) => {

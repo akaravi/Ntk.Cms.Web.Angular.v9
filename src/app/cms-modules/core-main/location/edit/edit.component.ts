@@ -54,7 +54,7 @@ export class CoreLocationEditComponent implements OnInit {
   dataModel: CoreLocationModel = new CoreLocationModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumLocationTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   fileManagerOpenForm = false;
@@ -70,7 +70,7 @@ export class CoreLocationEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
     this.getEnumLocationType();
   }
   getEnumLocationType(): void {
@@ -78,9 +78,7 @@ export class CoreLocationEditComponent implements OnInit {
       this.dataModelEnumLocationTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

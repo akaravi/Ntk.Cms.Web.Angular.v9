@@ -55,19 +55,10 @@
           </mat-slide-toggle>
         </div>
         <!-- UserRegidteryRecordStatus Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-select placeholder="{{'TITLE.Status' | translate}}"
-            [(ngModel)]="dataConfigSiteValuesModel.userRegidteryRecordStatus"
-            name="dataConfigSiteValuesModel.userRegidteryRecordStatus" #UserRegidteryRecordStatus="ngModel"
-            panelClass="UserRegidteryRecordStatus-{{ dataConfigSiteValuesModel.userRegidteryRecordStatus }}">
-            <mat-option *ngFor="
-                let item of dataModelEnumRecordStatusResult.listItems;
-                index as i
-              " [value]="item.value">{{ item.description }}</mat-option>
-          </mat-select>
-          <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
+        <app-cms-record-status-selector [(model)]="dataConfigSiteValuesModel.userRegidteryRecordStatus" [optionDisabled]="false"
+        [optionLabel]="this.translate.instant('TITLE.SELECT_STATUS')" [optionRequired]="true"
+          [optionSelectFirstItem]="true"></app-cms-record-status-selector>
 
-        </mat-form-field>
         <!-- UserRegidteryExpireDateDay Field -->
         <mat-form-field class="ntk-full-width">
           <mat-label>UserRegidteryExpireDateDay</mat-label>

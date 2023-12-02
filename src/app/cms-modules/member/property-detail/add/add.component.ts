@@ -60,7 +60,7 @@ export class MemberPropertyDetailAddComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<MemberPropertyDetailModel> = new ErrorExceptionResult<MemberPropertyDetailModel>();
   dataModel: MemberPropertyDetailModel = new MemberPropertyDetailModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
 
   dataModelEnumInputDataTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
@@ -69,7 +69,7 @@ export class MemberPropertyDetailAddComponent implements OnInit {
   ngOnInit(): void {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
     // this.getEnumInputDataType();
   }
@@ -78,9 +78,7 @@ export class MemberPropertyDetailAddComponent implements OnInit {
   //     this.dataModelEnumInputDataTypeResult = next;
   //   });
   // }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';

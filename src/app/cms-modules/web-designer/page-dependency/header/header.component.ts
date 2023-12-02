@@ -29,16 +29,14 @@ export class WebDesignerMainPageDependencyHeaderComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<WebDesignerMainPageDependencyModel>
     = new ErrorExceptionResult<WebDesignerMainPageDependencyModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   ngOnInit(): void {
     if (this.optionId.length > 0) {
       this.DataGetOneContent();
     }
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);

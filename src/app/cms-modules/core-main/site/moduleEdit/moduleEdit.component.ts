@@ -52,7 +52,7 @@ export class CoreSiteModuleEditComponent implements OnInit {
   dataModel: CoreModuleSiteModel = new CoreModuleSiteModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -65,12 +65,10 @@ export class CoreSiteModuleEditComponent implements OnInit {
       return;
     }
     this.formInfo.formTitle = this.translate.instant('TITLE.Edit_Modules');
-    this.getEnumRecordStatus();
+
     this.DataGetOneContent();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
 

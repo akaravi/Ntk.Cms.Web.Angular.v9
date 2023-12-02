@@ -44,7 +44,7 @@ export class WebDesignerMainMenuEditComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: WebDesignerMainMenuModel = new WebDesignerMainMenuModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataAccessModel: AccessModel;
   fileManagerOpenForm = false;
@@ -59,7 +59,7 @@ export class WebDesignerMainMenuEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
     this.getEnumMenuPlaceType();
   }
   getEnumMenuPlaceType(): void {
@@ -67,9 +67,7 @@ export class WebDesignerMainMenuEditComponent implements OnInit {
       this.dataModelEnumMenuPlaceTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
     this.formInfo.formError = '';

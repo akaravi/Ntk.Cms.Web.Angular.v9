@@ -53,7 +53,7 @@ export class SmsMainApiNumberEditComponent implements OnInit {
   dataModel: SmsMainApiNumberModel = new SmsMainApiNumberModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumApiNumberAccessStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumApiNumberActionResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -69,11 +69,9 @@ export class SmsMainApiNumberEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
     if (this.requestId.length <= 0) {

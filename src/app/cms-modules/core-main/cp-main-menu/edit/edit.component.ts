@@ -58,7 +58,7 @@ export class CoreCpMainMenuEditComponent implements OnInit {
   dataModel: CoreCpMainMenuModel = new CoreCpMainMenuModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataAccessModel: AccessModel;
 
@@ -78,7 +78,7 @@ export class CoreCpMainMenuEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
     this.getEnumMenuPlaceType();
   }
   getEnumMenuPlaceType(): void {
@@ -86,9 +86,7 @@ export class CoreCpMainMenuEditComponent implements OnInit {
       this.dataModelEnumMenuPlaceTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

@@ -37,7 +37,7 @@ export class BlogContentHeaderComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<BlogContentModel> = new ErrorExceptionResult<BlogContentModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
 
 
@@ -45,11 +45,9 @@ export class BlogContentHeaderComponent implements OnInit {
     if (this.optionId > 0) {
       this.DataGetOneContent();
     }
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);

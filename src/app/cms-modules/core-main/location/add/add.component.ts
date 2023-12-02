@@ -56,7 +56,7 @@ export class CoreLocationAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumLocationTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   fileManagerOpenForm = false;
@@ -67,7 +67,7 @@ export class CoreLocationAddComponent implements OnInit {
   ngOnInit(): void {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.getEnumLocationType();
     this.DataGetAccess();
 
@@ -77,9 +77,7 @@ export class CoreLocationAddComponent implements OnInit {
       this.dataModelEnumLocationTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   DataGetAccess(): void {

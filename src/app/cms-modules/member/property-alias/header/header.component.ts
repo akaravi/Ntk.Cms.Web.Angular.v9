@@ -38,7 +38,7 @@ export class MemberPropertyAliasHeaderComponent implements OnInit, OnDestroy {
   dataModelResult: ErrorExceptionResult<MemberPropertyAliasModel> = new ErrorExceptionResult<MemberPropertyAliasModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -49,14 +49,12 @@ export class MemberPropertyAliasHeaderComponent implements OnInit, OnDestroy {
       });
     }
 
-    this.getEnumRecordStatus();
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);

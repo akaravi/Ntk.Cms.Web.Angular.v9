@@ -53,7 +53,7 @@ export class DonateTargetCategoryEditComponent implements OnInit {
   dataModel: DonateTargetCategoryModel = new DonateTargetCategoryModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -73,11 +73,9 @@ export class DonateTargetCategoryEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
     if (this.requestId <= 0) {

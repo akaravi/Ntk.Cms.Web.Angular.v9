@@ -52,7 +52,7 @@ export class LinkManagementBillboardAddComponent implements OnInit, AfterViewIni
   dataModel = new LinkManagementBillboardModel();
   dataAccessModel: AccessModel;
   dataModelResult: ErrorExceptionResult<LinkManagementBillboardModel> = new ErrorExceptionResult<LinkManagementBillboardModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   optionActionTitle = '';
 
   optionActionButtomEnable = true;
@@ -91,7 +91,7 @@ export class LinkManagementBillboardAddComponent implements OnInit, AfterViewIni
     this.dataModel.linkBillboardPatternId = this.requestLinkBillboardPatternId;
 
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
 
   }
 
@@ -103,9 +103,7 @@ export class LinkManagementBillboardAddComponent implements OnInit, AfterViewIni
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
   }
 
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   onFormSubmit(): void {

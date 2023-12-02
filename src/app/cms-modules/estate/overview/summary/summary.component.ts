@@ -32,7 +32,7 @@ export class EstateOverviewSummaryComponent implements OnInit, OnDestroy {
   loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {

@@ -53,7 +53,7 @@ export class EstateContractTypeEditComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateContractTypeModel = new EstateContractTypeModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
 
   ngOnInit(): void {
@@ -64,11 +64,9 @@ export class EstateContractTypeEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
 

@@ -53,7 +53,7 @@ export class LinkManagementTargetEditComponent implements OnInit, AfterViewInit 
   dataAccessModel: AccessModel;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumManagementContentSettingTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumSharingPriceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   optionActionTitle = '';
@@ -94,7 +94,7 @@ export class LinkManagementTargetEditComponent implements OnInit, AfterViewInit 
       this.DataGetOne();
     });
 
-    this.getEnumRecordStatus();
+
     this.getEnumSharingPriceType();
     this.getEnumManagementContentSettingType();
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -120,9 +120,7 @@ export class LinkManagementTargetEditComponent implements OnInit, AfterViewInit 
   }
 
 
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   onFormSubmit(): void {

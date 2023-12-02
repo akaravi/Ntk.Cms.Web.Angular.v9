@@ -81,7 +81,7 @@ export class EstateCustomerOrderEditComponent implements OnInit {
   dataModelCorCurrencySelector = new CoreCurrencyModel();
   formInfo: FormInfoModel = new FormInfoModel();
   contractTypeSelected: EstateContractTypeModel;
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   propertyDetails: Map<string, string> = new Map<string, string>();
   PropertyTypeSelected = new EstatePropertyTypeLanduseModel();
@@ -103,11 +103,9 @@ export class EstateCustomerOrderEditComponent implements OnInit {
     }
     this.DataGetOneContent();
     this.DataGetAccessEstate();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   lastRecordStatus: RecordStatusEnum;
   dataFieldInfoModel: DataFieldInfoModel[];

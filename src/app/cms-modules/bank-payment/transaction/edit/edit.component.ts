@@ -48,7 +48,7 @@ export class BankPaymentTransactionEditComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: BankPaymentTransactionModel = new BankPaymentTransactionModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   dataAccessModel: AccessModel;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -60,7 +60,7 @@ export class BankPaymentTransactionEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
     this.DataGetOneContent();
     this.getEnumTransactionRecordStatus();
     this.getEnumTransactionBankStatus();
@@ -75,9 +75,7 @@ export class BankPaymentTransactionEditComponent implements OnInit {
       this.dataModelEnumTransactionBankStatusResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
     this.formInfo.formError = '';

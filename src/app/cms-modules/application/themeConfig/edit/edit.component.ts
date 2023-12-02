@@ -51,7 +51,7 @@ export class ApplicationThemeConfigEditComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -65,12 +65,10 @@ export class ApplicationThemeConfigEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
     this.DataGetOneContent();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');

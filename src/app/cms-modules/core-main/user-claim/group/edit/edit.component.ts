@@ -55,7 +55,7 @@ export class CoreUserClaimGroupEditComponent implements OnInit {
   dataModel: CoreUserClaimGroupModel = new CoreUserClaimGroupModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumUserClaimGroupActionTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   fileManagerOpenForm = false;
@@ -74,7 +74,7 @@ export class CoreUserClaimGroupEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
     this.getEnumUserClaimGroupActionType();
     this.DataGetAllCoreUserClaimType();
 
@@ -84,9 +84,7 @@ export class CoreUserClaimGroupEditComponent implements OnInit {
       this.dataModelEnumUserClaimGroupActionTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

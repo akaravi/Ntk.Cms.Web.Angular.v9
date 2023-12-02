@@ -60,7 +60,7 @@ export class HyperShopContentEditComponent implements OnInit {
   dataFileModel = new Map<number, string>();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -74,11 +74,9 @@ export class HyperShopContentEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
 

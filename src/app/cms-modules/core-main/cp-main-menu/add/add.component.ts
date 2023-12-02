@@ -53,14 +53,14 @@ export class CoreCpMainMenuAddComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<CoreCpMainMenuModel> = new ErrorExceptionResult<CoreCpMainMenuModel>();
   dataModel: CoreCpMainMenuModel = new CoreCpMainMenuModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   fileManagerOpenForm = false;
   tokenInfo = new TokenInfoModel();
   ngOnInit(): void {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.getEnumMenuPlaceType();
     this.DataGetAccess();
 
@@ -70,9 +70,7 @@ export class CoreCpMainMenuAddComponent implements OnInit {
       this.dataModelEnumMenuPlaceTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';

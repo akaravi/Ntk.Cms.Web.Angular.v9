@@ -52,7 +52,7 @@ export class EstateBillboardEditComponent implements OnInit {
   dataModel: EstateBillboardModel = new EstateBillboardModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   optionloadComponent = false;
 
@@ -66,11 +66,9 @@ export class EstateBillboardEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   dataFieldInfoModel: DataFieldInfoModel[];
 

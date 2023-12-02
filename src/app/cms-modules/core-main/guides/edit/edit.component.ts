@@ -53,7 +53,7 @@ export class CoreGuideEditComponent implements OnInit {
   dataModel: CoreGuideModel = new CoreGuideModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataAccessModel: AccessModel;
 
   selectFileTypePodcast = ['mp3'];
@@ -83,12 +83,10 @@ export class CoreGuideEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
   }
 
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

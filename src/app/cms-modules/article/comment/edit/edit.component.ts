@@ -52,7 +52,7 @@ export class ArticleCommentEditComponent implements OnInit {
   dataModel: ArticleCommentModel = new ArticleCommentModel();
   ComponentAction = ComponentActionEnum.none;
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   selected: any;
   openFormFileManager = false;
   ngOnInit(): void {
@@ -69,11 +69,9 @@ export class ArticleCommentEditComponent implements OnInit {
       this.cmsToastrService.typeErrorComponentAction();
       this.dialogRef.close({ dialogChangedDate: false });
     }
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetAccess(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);

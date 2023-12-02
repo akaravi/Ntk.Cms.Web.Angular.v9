@@ -14,23 +14,13 @@
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
              {{ formInfo.formTitle }}
              <!-- RecordStatus Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
-                <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-                #RecordStatus="ngModel" required
-                ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
-                <option *ngFor="
-                    let item of dataModelEnumRecordStatusResult.listItems;
-                    index as i
-                    " [ngValue]="item.value">
-                {{ item.description }}
-                </option>
-                </select>
-                <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}
-                </em>
-                <mat-error *ngIf="RecordStatus.errors?.required">
-                    {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
+             <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+             [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+             [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+
               <!-- LinkCategoryId Field -->
             <app-ticketing-departemen-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
                 [optionSelectForce]="dataModel.linkTicketingDepartemenId"
@@ -40,7 +30,7 @@
             <div  *ngIf="fieldsInfo['title']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                placeholder="{{fieldsInfo['title']?.fieldTitle }}" 
+                placeholder="{{fieldsInfo['title']?.fieldTitle }}"
                 minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.title" />
                 <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
                 <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>

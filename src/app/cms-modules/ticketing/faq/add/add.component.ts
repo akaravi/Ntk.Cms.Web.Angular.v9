@@ -52,7 +52,7 @@ export class TicketingFaqAddComponent implements OnInit {
   dataModel: TicketingFaqModel = new TicketingFaqModel();
   dataFileModel = new Map<number, string>();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
 
 
@@ -61,12 +61,10 @@ export class TicketingFaqAddComponent implements OnInit {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.Submit_New_Content');
 
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';

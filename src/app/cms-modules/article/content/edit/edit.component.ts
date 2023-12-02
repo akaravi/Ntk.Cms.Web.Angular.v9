@@ -53,7 +53,7 @@ export class ArticleContentEditComponent implements OnInit, AfterViewInit {
   dataContentSimilarModelResult: ErrorExceptionResult<ArticleContentSimilarModel> = new ErrorExceptionResult<ArticleContentSimilarModel>();
   dataContentOtherInfoModelResult: ErrorExceptionResult<ArticleContentOtherInfoModel>
     = new ErrorExceptionResult<ArticleContentOtherInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataContentCategoryModel: number[] = [];
   similarDataModel = new Array<ArticleContentModel>();
   otherInfoDataModel = new Array<ArticleContentOtherInfoModel>();
@@ -90,7 +90,7 @@ export class ArticleContentEditComponent implements OnInit, AfterViewInit {
     }
     this.DataGetOne();
     this.DataCategoryGetAll();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
   }
@@ -106,9 +106,7 @@ export class ArticleContentEditComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorAddRowParentIsNull();

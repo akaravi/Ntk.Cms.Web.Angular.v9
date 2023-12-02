@@ -54,7 +54,7 @@ export class TicketingTemplateEditComponent implements OnInit {
   dataFileModel = new Map<number, string>();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
 
 
@@ -69,11 +69,9 @@ export class TicketingTemplateEditComponent implements OnInit {
     }
 
 
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
     if (this.requestId <= 0) {

@@ -37,14 +37,14 @@ export class DataProviderPlanClientHeaderComponent implements OnInit, OnDestroy 
   dataModelResult: ErrorExceptionResult<DataProviderPlanClientModel> = new ErrorExceptionResult<DataProviderPlanClientModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     if (this.optionId > 0) {
       this.DataGetOneContent();
     }
-    this.getEnumRecordStatus();
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
       this.DataGetOneContent();
     });
@@ -52,9 +52,7 @@ export class DataProviderPlanClientHeaderComponent implements OnInit, OnDestroy 
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);

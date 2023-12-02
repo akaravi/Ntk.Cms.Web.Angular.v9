@@ -53,7 +53,7 @@ export class ApplicationSourceEditComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new ApplicationSourceModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumOsTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerOpenForm = false;
@@ -72,12 +72,10 @@ export class ApplicationSourceEditComponent implements OnInit {
     }
     this.DataGetOne(this.requestId);
     this.DataGetAllSourceSiteCategory();
-    this.getEnumRecordStatus();
+
     this.getEnumOsType();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEnumOsType(): void {
     this.coreEnumService.ServiceOperatingSystemTypeEnum().subscribe((res) => {
       this.dataModelEnumOsTypeResult = res;

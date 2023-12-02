@@ -56,7 +56,7 @@ export class CatalogCategoryAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -71,13 +71,11 @@ export class CatalogCategoryAddComponent implements OnInit {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.Register_New_Categories');
 
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
 
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   DataGetAccess(): void {

@@ -53,7 +53,7 @@ export class MemberPropertyDetailEditComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: MemberPropertyDetailModel = new MemberPropertyDetailModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumInputDataTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   keywordDataModel = [];
 
@@ -67,7 +67,7 @@ export class MemberPropertyDetailEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
     // this.getEnumInputDataType();
   }
   // getEnumInputDataType(): void {
@@ -75,9 +75,7 @@ export class MemberPropertyDetailEditComponent implements OnInit {
   //     this.dataModelEnumInputDataTypeResult = next;
   //   });
   // }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
 

@@ -45,19 +45,17 @@ export class MemberGroupAddComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<MemberGroupModel> = new ErrorExceptionResult<MemberGroupModel>();
   dataModel: MemberGroupModel = new MemberGroupModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
 
   ngOnInit(): void {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
 
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   DataGetAccess(): void {

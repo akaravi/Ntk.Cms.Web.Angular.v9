@@ -65,32 +65,11 @@ mobileeeeeeeeeeeeeeeee
           </mat-slide-toggle>
           <br />
           <!-- RecordStatus Field -->
-          <mat-form-field *ngIf="dataProfessional" class="ntk-full-width">
-            <mat-label>{{ fieldsInfo["recordStatus"]?.fieldTitle }}</mat-label>
-            <mat-select placeholder="{{ fieldsInfo['recordStatus']?.fieldTitle }}"
-              [disabled]="!fieldsInfo['recordStatus']?.accessAddField" [(ngModel)]="dataModel.recordStatus"
-              name="dataModel.recordStatus" #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{
-                dataModel.recordStatus
-              }}">
-              <mat-option *ngFor="
-                  let item of dataModelEnumRecordStatusResult.listItems;
-                  index as i
-                " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint align="start">
-              <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-              <strong class="info-field-text">{{
-                fieldsInfo["recordStatus"]?.fieldDescription
-                }}</strong>
-            </mat-hint>
-            <mat-hint align="end">{{
-              "TITLE.SELECT_STATUS" | translate
-              }}</mat-hint>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-              {{ fieldsInfo["recordStatus"]?.fieldTitle }}
-              <strong>{{ "MESSAGE.required" | translate }}</strong>
-            </mat-error>
-          </mat-form-field>
+          <app-cms-record-status-selector *ngIf="dataProfessional&& fieldsInfo['recordStatus']?.accessWatchField"
+            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
 
           <!-- Title Field -->
 
@@ -293,30 +272,12 @@ mobileeeeeeeeeeeeeeeee
           </mat-error>
         </mat-form-field>
         <!-- MainAdminRecordStatus Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField">
-          <mat-select placeholder="{{ fieldsInfo['mainAdminRecordStatus']?.fieldTitle }}"
-            [disabled]="!fieldsInfo['mainAdminRecordStatus']?.accessAddField"
-            [(ngModel)]="dataModel.mainAdminRecordStatus" name="dataModel.mainAdminRecordStatus"
-            #MainAdminRecordStatus="ngModel" ngClass="recordStatus-{{ dataModel.mainAdminRecordStatus }}">
-            <mat-option *ngFor="
-                let item of dataModelEnumRecordStatusResult.listItems;
-                index as i
-              " [value]="item.value">{{ item.description }}</mat-option>
-          </mat-select>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{
-              fieldsInfo["mainAdminRecordStatus"]?.fieldDescription
-              }}</strong>
-          </mat-hint>
-          <mat-hint align="end">{{
-            "TITLE.SELECT_STATUS" | translate
-            }}</mat-hint>
-          <mat-error *ngIf="MainAdminRecordStatus.errors?.required">
-            {{ fieldsInfo["mainAdminRecordStatus"]?.fieldTitle }}
-            <strong>{{ "MESSAGE.required" | translate }}</strong>
-          </mat-error>
-        </mat-form-field>
+
+<app-cms-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField" [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
+[optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
+[optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
 
         <!-- score Field -->
         <div class="content" *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">

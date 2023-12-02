@@ -55,7 +55,7 @@ export class BiographyContentEditComponent implements OnInit, AfterViewInit {
     new ErrorExceptionResult<BiographyContentSimilarModel>();
   dataContentOtherInfoModelResult: ErrorExceptionResult<BiographyContentOtherInfoModel> =
     new ErrorExceptionResult<BiographyContentOtherInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataContentCategoryModel: number[] = [];
   similarDataModel = new Array<BiographyContentModel>();
   otherInfoDataModel = new Array<BiographyContentOtherInfoModel>();
@@ -91,7 +91,7 @@ export class BiographyContentEditComponent implements OnInit, AfterViewInit {
     }
     this.DataGetOne();
     this.DataCategoryGetAll();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
   }
@@ -107,9 +107,7 @@ export class BiographyContentEditComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorAddRowParentIsNull();

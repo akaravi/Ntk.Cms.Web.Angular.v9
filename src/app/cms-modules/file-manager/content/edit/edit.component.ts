@@ -44,7 +44,7 @@ export class FileContentEditComponent implements OnInit, AfterViewInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   dataModel = new FileContentModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   similarDataModel = new Array<FileContentModel>();
   contentSimilarSelected: FileContentModel = new FileContentModel();
   otherInfoTabledisplayedColumns = ['Id', 'Title', 'TypeId', 'Action'];
@@ -80,15 +80,13 @@ export class FileContentEditComponent implements OnInit, AfterViewInit {
       return;
     }
     this.DataGetOne();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
 
   }
 
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   onFormSubmit(): void {
     if (this.requestId <= 0) {

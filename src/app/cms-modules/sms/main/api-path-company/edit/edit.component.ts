@@ -53,7 +53,7 @@ export class SmsMainApiPathCompanyEditComponent implements OnInit {
   dataModel: SmsMainApiPathCompanyModel = new SmsMainApiPathCompanyModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   dataSmsMainApiPathCompanyModel: SmsMainApiPathCompanyModel[];
   ngOnInit(): void {
@@ -66,11 +66,9 @@ export class SmsMainApiPathCompanyEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId.length <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

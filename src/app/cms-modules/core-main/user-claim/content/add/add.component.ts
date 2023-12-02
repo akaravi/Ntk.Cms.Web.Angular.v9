@@ -81,7 +81,7 @@ export class CoreUserClaimContentAddComponent implements OnInit, OnDestroy {
   ProfessionalData = false;
   cmsApiStoreSubscribe: Subscription;
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -91,7 +91,7 @@ export class CoreUserClaimContentAddComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
   }
   ngOnDestroy() {
@@ -120,9 +120,7 @@ export class CoreUserClaimContentAddComponent implements OnInit, OnDestroy {
       }
       );
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   DataAddContent(): void {

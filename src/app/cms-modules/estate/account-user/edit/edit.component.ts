@@ -67,7 +67,7 @@ export class EstateAccountUserEditComponent implements OnInit {
   dataEstateAccountAgencyUserModel: EstateAccountAgencyUserModel = new EstateAccountAgencyUserModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   loadingOption = new ProgressSpinnerModel();
   optionTabledataSource = new MatTableDataSource<EstateAccountAgencyUserModel>();
@@ -88,12 +88,10 @@ export class EstateAccountUserEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
     this.DataGetAllGroup();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';
     this.loading.Start(pName);

@@ -40,7 +40,7 @@ export class WebDesignerMainIntroAddComponent implements OnInit {
   dataAccessModel: AccessModel;
   dataModel = new WebDesignerMainIntroModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainIntroModel> = new ErrorExceptionResult<WebDesignerMainIntroModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypeMainVideo = ['mp4'];
@@ -56,11 +56,9 @@ export class WebDesignerMainIntroAddComponent implements OnInit {
       this.dataModel.linkPageId = this.requestLinkPageId;
     }
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       this.cmsToastrService.typeErrorFormInvalid();

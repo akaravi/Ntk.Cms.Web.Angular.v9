@@ -50,7 +50,7 @@ export class ArticleCategoryAddComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<ArticleCategoryModel> = new ErrorExceptionResult<ArticleCategoryModel>();
   dataModel: ArticleCategoryModel = new ArticleCategoryModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   onActionFileSelected(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
@@ -58,12 +58,10 @@ export class ArticleCategoryAddComponent implements OnInit {
   }
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.Register_New_Categories');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetAccess(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);

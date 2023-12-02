@@ -53,7 +53,7 @@ export class SmsConfigSiteComponent implements OnInit {
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerOpenForm = false;
   appLanguage = 'fa';
@@ -77,11 +77,9 @@ export class SmsConfigSiteComponent implements OnInit {
     });
 
     this.onLoadDate();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

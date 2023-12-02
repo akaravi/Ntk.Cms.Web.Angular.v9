@@ -23,20 +23,13 @@
     </div>
     <div class="ntk-cms-html-card-body">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <mat-form-field class="ntk-full-width">
-            <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-                name="dataModel.recordStatus" #RecordStatus="ngModel"
-                ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-                <mat-option *ngFor="
-              let item of dataModelEnumRecordStatusResult.listItems;
-              index as i
-            " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
-            <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-                RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
+        <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+
 
         <!-- LinkSiteId Field -->
         <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField" [(optionLoading)]="loading"

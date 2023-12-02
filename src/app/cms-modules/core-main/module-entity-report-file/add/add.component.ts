@@ -54,7 +54,7 @@ export class CoreModuleEntityReportFileAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
   fileManagerOpenFormReport = false;
@@ -65,14 +65,12 @@ export class CoreModuleEntityReportFileAddComponent implements OnInit {
   ngOnInit(): void {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
     this.getReportFileTypeEnum();
 
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   getReportFileTypeEnum(): void {
     this.coreEnumService.ServiceReportFileTypeEnum().subscribe((next) => {

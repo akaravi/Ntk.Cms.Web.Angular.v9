@@ -51,7 +51,7 @@ export class CoreDeviceAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -60,7 +60,7 @@ export class CoreDeviceAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
     this.getServiceDeviceTypeEnum();
     this.getServiceOperatingSystemTypeEnum();
@@ -75,9 +75,7 @@ export class CoreDeviceAddComponent implements OnInit {
       this.dataModelEnumOperatingSystemTypeResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';

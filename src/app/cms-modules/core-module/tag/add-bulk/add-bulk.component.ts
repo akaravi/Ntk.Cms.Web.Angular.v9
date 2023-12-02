@@ -56,7 +56,7 @@ export class CoreModuleTagAddBulkComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -67,11 +67,9 @@ export class CoreModuleTagAddBulkComponent implements OnInit {
   ngOnInit(): void {
     this.formInfo.formTitle = 'ثبت  جدید';
 
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   DataAddContent(): void {

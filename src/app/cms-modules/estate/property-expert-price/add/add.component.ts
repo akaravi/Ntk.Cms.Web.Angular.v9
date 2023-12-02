@@ -62,7 +62,7 @@ export class EstatePropertyExpertPriceAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   PropertyTypeSelected = new EstatePropertyTypeLanduseModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();
   contractTypeSelected: EstateContractTypeModel;
@@ -70,14 +70,12 @@ export class EstatePropertyExpertPriceAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.Register_New_Categories');
-    this.getEnumRecordStatus();
+
     this.getEstatePropertyExpertPriceTypeEnum();
     this.DataGetAccess();
 
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEstatePropertyExpertPriceTypeEnum(): void {
     this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe((next) => {
       this.dataModelEstatePropertyExpertPriceTypeEnumResult = next;

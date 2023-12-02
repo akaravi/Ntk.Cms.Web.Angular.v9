@@ -54,7 +54,7 @@ export class LinkManagementBillboardPatternEditComponent implements OnInit {
   dataModel: LinkManagementBillboardPatternModel = new LinkManagementBillboardPatternModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumManagementContentSettingTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumSharingPriceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -80,7 +80,7 @@ export class LinkManagementBillboardPatternEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
     this.getEnumSharingPriceType();
     this.getEnumManagementContentSettingType();
   }
@@ -94,9 +94,7 @@ export class LinkManagementBillboardPatternEditComponent implements OnInit {
       this.dataModelEnumSharingPriceTypeResult = res;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
     if (this.requestId <= 0) {

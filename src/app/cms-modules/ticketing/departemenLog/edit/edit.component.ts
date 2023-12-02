@@ -47,7 +47,7 @@ export class TicketingDepartemenLogEditComponent implements OnInit, OnDestroy {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: TicketingDepartemenLogModel = new TicketingDepartemenLogModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
 
   cmsApiStoreSubscribe: Subscription;
@@ -67,11 +67,9 @@ export class TicketingDepartemenLogEditComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
       this.tokenInfo = next;
     });
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }

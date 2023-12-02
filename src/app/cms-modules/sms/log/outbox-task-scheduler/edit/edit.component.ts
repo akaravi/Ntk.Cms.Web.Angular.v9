@@ -54,7 +54,7 @@ export class SmsLogOutBoxTaskSchedulerEditComponent implements OnInit {
   dataModel: SmsLogOutBoxTaskSchedulerModel = new SmsLogOutBoxTaskSchedulerModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelSmsMessageTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelSmsOutBoxTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -70,13 +70,11 @@ export class SmsLogOutBoxTaskSchedulerEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
     this.getSmsMessageTypeEnum();
     this.getSmsOutBoxTypeEnum();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   getSmsMessageTypeEnum(): void {
     this.smsEnumService.ServiceSmsMessageTypeEnum().subscribe((res) => {

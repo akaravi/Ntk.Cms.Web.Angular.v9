@@ -55,7 +55,7 @@ export class SmsMainApiPathPriceServiceEditComponent implements OnInit {
   dataModel: SmsMainApiPathPriceServiceModel = new SmsMainApiPathPriceServiceModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelSmsMessageTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelSmsOutBoxTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -71,13 +71,11 @@ export class SmsMainApiPathPriceServiceEditComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
     this.getSmsMessageTypeEnum();
     this.getSmsOutBoxTypeEnum();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   getSmsMessageTypeEnum(): void {
     this.smsEnumService.ServiceSmsMessageTypeEnum().subscribe((res) => {

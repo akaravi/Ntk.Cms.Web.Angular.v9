@@ -51,7 +51,7 @@ export class LinkManagementTargetAddComponent implements OnInit, AfterViewInit {
   dataModel = new LinkManagementTargetModel();
   dataAccessModel: AccessModel;
   dataModelResult: ErrorExceptionResult<LinkManagementTargetModel> = new ErrorExceptionResult<LinkManagementTargetModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumManagementContentSettingTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumSharingPriceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   optionActionTitle = '';
@@ -91,7 +91,7 @@ export class LinkManagementTargetAddComponent implements OnInit, AfterViewInit {
     this.dataModel.linkBillboardPatternId = this.requestLinkBillboardPatternId;
 
     this.DataGetAccess();
-    this.getEnumRecordStatus();
+
     this.getEnumSharingPriceType();
     this.getEnumManagementContentSettingType();
   }
@@ -113,9 +113,7 @@ export class LinkManagementTargetAddComponent implements OnInit, AfterViewInit {
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
   }
 
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   onFormSubmit(): void {

@@ -47,7 +47,7 @@ export class EstatePropertySupplierEditComponent implements OnInit, AfterViewIni
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new EstatePropertySupplierModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataContentCategoryModel: number[] = [];
   dataFileModelImgaes = new Map<number, string>();
   dataFileModelFiles = new Map<number, string>();
@@ -83,7 +83,7 @@ export class EstatePropertySupplierEditComponent implements OnInit, AfterViewIni
     }
     this.DataGetOne();
     // this.DataCategoryGetAll();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
   }
@@ -99,9 +99,7 @@ export class EstatePropertySupplierEditComponent implements OnInit, AfterViewIni
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (this.requestId?.length <= 0) {
       this.cmsToastrService.typeErrorAddRowParentIsNull();

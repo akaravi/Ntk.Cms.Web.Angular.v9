@@ -49,7 +49,7 @@ export class ApiTelegramActionSendMessageComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: ApiTelegramSendMessageTodoModel = new ApiTelegramSendMessageTodoModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
 
 
@@ -62,11 +62,9 @@ export class ApiTelegramActionSendMessageComponent implements OnInit {
       this.dataModel.botId = this.requestLinkBotConfigId;
     }
     this.formInfo.formTitle = this.translate.instant('TITLE.Send_Message');
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   ActionSendMessage(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

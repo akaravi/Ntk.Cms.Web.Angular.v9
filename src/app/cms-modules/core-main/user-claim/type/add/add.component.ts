@@ -49,7 +49,7 @@ export class CoreUserClaimTypeAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumUserClaimKindsResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   fileManagerOpenForm = false;
@@ -60,7 +60,7 @@ export class CoreUserClaimTypeAddComponent implements OnInit {
   ngOnInit(): void {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
     this.getEnumUserClaimKinds();
   }
@@ -92,9 +92,7 @@ export class CoreUserClaimTypeAddComponent implements OnInit {
       }
       );
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   DataAddContent(): void {

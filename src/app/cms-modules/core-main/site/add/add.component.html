@@ -30,25 +30,10 @@
     <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
       <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
         <!-- RecordStatus Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['recordStatus']?.accessWatchField">
-          <mat-label>{{fieldsInfo['recordStatus']?.fieldTitle}}</mat-label>
-          <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}" [(ngModel)]="dataModel.recordStatus"
-            [disabled]="!fieldsInfo['recordStatus']?.accessAddField" name="dataModel.recordStatus"
-            #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-            <mat-option *ngFor="
-                let item of dataModelEnumRecordStatusResult.listItems;
-                index as i
-              " [value]="item.value">{{ item.description }}</mat-option>
-          </mat-select>
-          <mat-error *ngIf="RecordStatus.errors?.required">
-            {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' |
-              translate}}</strong>
-          </mat-error>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['recordStatus']?.fieldDescription}}</strong>
-          </mat-hint>
-        </mat-form-field>
+        <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField" [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
         <!-- OwnerSiteSetStatus Field -->
         <mat-form-field class="ntk-full-width">
           <mat-select placeholder="{{'TITLE.Site_Status' | translate}}" [(ngModel)]="dataModel.ownerSiteSetStatus"

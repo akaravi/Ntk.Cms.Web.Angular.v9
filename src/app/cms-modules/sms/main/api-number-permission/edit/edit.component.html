@@ -1,148 +1,134 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-        حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-        فقط یک صفحه ساختگی است.
-      </p>
-      <!--content-->
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-            {{ formInfo.formTitle }}
-            <!-- RecordStatus Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
-                <label for="dataModel.recordStatus" class="color-highlight">{{ fieldsInfo["recordStatus"]?.fieldTitle}}</label>
-                <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-                 #RecordStatus="ngModel" required
-                 ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
-                 <option *ngFor="
-                    let item of dataModelEnumRecordStatusResult.listItems;
-                    index as i
-                    " [ngValue]="item.value">
-                 {{ item.description }}
-                 </option>
-                </select>
-                <em class="mt-n3">{{
-                 "TITLE.SELECT_STATUS" | translate}}
-                </em>
-                <mat-error *ngIf="RecordStatus.errors?.required">
-                  RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- LinkCoreUserId Field -->
-            <app-cms-user-selector (optionChange)="onActionSelectorCmsUser($event)" [(optionLoading)]="loading"
-            [optionDisabled]="!fieldsInfo['linkCoreUserId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkCoreUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
-            </app-cms-user-selector>
-            <!-- LinkCoreSiteId Field -->
-            <app-cms-site-selector (optionChange)="onActionSelectorCmsSite($event)" [(optionLoading)]="loading"
-                [optionDisabled]="!fieldsInfo['linkCoreSiteId']?.accessAddField"
-                [optionSelectForce]="dataModel.linkCoreSiteId" [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
-            </app-cms-site-selector>
-            <!-- LinkCoreUserGroupId Field -->
-            <app-cms-usergroup-selector (optionChange)="onActionSelectorCoreUserGroup($event)" [(optionLoading)]="loading"
-                [optionDisabled]="!fieldsInfo['linkCoreUserGroupId']?.accessAddField"
-                [optionSelectForce]="dataModel.linkCoreUserGroupId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
-            </app-cms-usergroup-selector>
-            <!-- LinkCoreSiteCategoryId Field -->
-            <app-cms-sitecategory-selector (optionChange)="onActionSelectorCoreSiteCategory($event)"
-                [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField"
-                [optionSelectForce]="dataModel.linkCoreSiteCategoryId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Site_Type')">
-            </app-cms-sitecategory-selector>
-            <!-- LinkApiNumberId Field -->
-            <app-sms-api-number-selector (optionChange)="onActionSelectorSelectLinkApiNumberId($event)"
-                [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiNumberId"
-                [optionPlaceholder]="this.translate.instant('TITLE.No')">
-            </app-sms-api-number-selector>
-            <!-- HasInherits Field -->
-            <div  *ngIf="fieldsInfo['hasInherits']?.accessWatchField" class="d-flex mb-3">
-                <div class="pt-1">
-                <h5 data-trigger-switch="dataModel.hasInherits" class="font-600 font-14">
-                    {{fieldsInfo['hasInherits']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.hasInherits"
-                    [(ngModel)]="this.dataModel.hasInherits" name="dataModel.hasInherits">
-                    <label class="custom-control-label" for="dataModel.hasInherits"></label>
-                </div>
-                </div>
-            </div>
-            <!-- AccessStatus Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
-                <select id="dataModel.accessStatus" [(ngModel)]="dataModel.accessStatus" name="dataModel.accessStatus"
-                 #AccessStatus="ngModel" required
-                  class="form-control validate-name">
-                 <option *ngFor="
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- RecordStatus Field -->
+      <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+        [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+
+      <!-- LinkCoreUserId Field -->
+      <app-cms-user-selector (optionChange)="onActionSelectorCmsUser($event)" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkCoreUserId']?.accessAddField" [optionSelectForce]="dataModel.linkCoreUserId"
+        [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+      </app-cms-user-selector>
+      <!-- LinkCoreSiteId Field -->
+      <app-cms-site-selector (optionChange)="onActionSelectorCmsSite($event)" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkCoreSiteId']?.accessAddField" [optionSelectForce]="dataModel.linkCoreSiteId"
+        [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
+      </app-cms-site-selector>
+      <!-- LinkCoreUserGroupId Field -->
+      <app-cms-usergroup-selector (optionChange)="onActionSelectorCoreUserGroup($event)" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkCoreUserGroupId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkCoreUserGroupId"
+        [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+      </app-cms-usergroup-selector>
+      <!-- LinkCoreSiteCategoryId Field -->
+      <app-cms-sitecategory-selector (optionChange)="onActionSelectorCoreSiteCategory($event)"
+        [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkCoreSiteCategoryId"
+        [optionPlaceholder]="this.translate.instant('TITLE.Site_Type')">
+      </app-cms-sitecategory-selector>
+      <!-- LinkApiNumberId Field -->
+      <app-sms-api-number-selector (optionChange)="onActionSelectorSelectLinkApiNumberId($event)"
+        [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiNumberId"
+        [optionPlaceholder]="this.translate.instant('TITLE.No')">
+      </app-sms-api-number-selector>
+      <!-- HasInherits Field -->
+      <div *ngIf="fieldsInfo['hasInherits']?.accessWatchField" class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.hasInherits" class="font-600 font-14">
+            {{fieldsInfo['hasInherits']?.fieldTitle}}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.hasInherits" [(ngModel)]="this.dataModel.hasInherits"
+              name="dataModel.hasInherits">
+            <label class="custom-control-label" for="dataModel.hasInherits"></label>
+          </div>
+        </div>
+      </div>
+      <!-- AccessStatus Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <select id="dataModel.accessStatus" [(ngModel)]="dataModel.accessStatus" name="dataModel.accessStatus"
+          #AccessStatus="ngModel" required class="form-control validate-name">
+          <option *ngFor="
                     let item of dataModelEnumApiNumberPermissionAccessStatusResult.listItems;
                     index as i
                     " [ngValue]="item.value">
-                 {{ item.description }}
-                 </option>
-                </select>
-                <em class="mt-n3">{{
-                "TITLE.Select_type_of_content" | translate}}
-                </em>
-                <mat-error *ngIf="AccessStatus.errors?.required">
-                    AccessStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- Action Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
-                <select id="dataModel.action" [(ngModel)]="dataModel.action" name="dataModel.action"
-                 #Action="ngModel" required
-                 class="form-control validate-name">
-                 <option *ngFor="
+            {{ item.description }}
+          </option>
+        </select>
+        <em class="mt-n3">{{
+          "TITLE.Select_type_of_content" | translate}}
+        </em>
+        <mat-error *ngIf="AccessStatus.errors?.required">
+          AccessStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- Action Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <select id="dataModel.action" [(ngModel)]="dataModel.action" name="dataModel.action" #Action="ngModel" required
+          class="form-control validate-name">
+          <option *ngFor="
                     let item of dataModelEnumApiNumberPermissionActionResult.listItems;
                     index as i
                     " [ngValue]="item.value">
-                 {{ item.description }}
-                 </option>
-                </select>
-                <em class="mt-n3">{{
-                "TITLE.Select_type_of_content" | translate}}
-                </em>
-                <mat-error *ngIf="Action.errors?.required">
-                    Action is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- FromDate Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.fromDate" class="color-highlight">{{fieldsInfo['fromDate']?.fieldTitle}}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.fromDate" [matDatepicker]="FromDate" name="dataModel.fromDate"
-                    class="form-control validate-name" id="dataModel.fromDate" />
-                <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #FromDate></mat-datepicker>
-            </div>
-            <!-- ExpireDate Field -->
-            <div  *ngIf="fieldsInfo['expireDate']?.accessWatchField"
-             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.expireDate" class="color-highlight">{{fieldsInfo['expireDate']?.fieldTitle}}</label>
-              <input matInput type="text" [(ngModel)]="dataModel.expireDate" [matDatepicker]="ExpireDate" name="dataModel.expireDate"
-               class="form-control validate-name" id="dataModel.expireDate" />
-             <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
-             <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-            </div>
-             <hr class="pb-5" />
-             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-                <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-                </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-                </button>
-            </div>
+            {{ item.description }}
+          </option>
+        </select>
+        <em class="mt-n3">{{
+          "TITLE.Select_type_of_content" | translate}}
+        </em>
+        <mat-error *ngIf="Action.errors?.required">
+          Action is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- FromDate Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.fromDate" class="color-highlight">{{fieldsInfo['fromDate']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.fromDate" [matDatepicker]="FromDate"
+          name="dataModel.fromDate" class="form-control validate-name" id="dataModel.fromDate" />
+        <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #FromDate></mat-datepicker>
+      </div>
+      <!-- ExpireDate Field -->
+      <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.expireDate" class="color-highlight">{{fieldsInfo['expireDate']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.expireDate" [matDatepicker]="ExpireDate"
+          name="dataModel.expireDate" class="form-control validate-name" id="dataModel.expireDate" />
+        <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #ExpireDate></mat-datepicker>
+      </div>
+      <hr class="pb-5" />
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
 
 
-        </form>
-      <!--content-->
-    </div>
+    </form>
+    <!--content-->
+  </div>
 </div>

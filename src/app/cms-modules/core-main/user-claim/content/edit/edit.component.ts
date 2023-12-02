@@ -81,7 +81,7 @@ export class CoreUserClaimContentEditComponent implements OnInit, OnDestroy {
   dataModel: CoreUserClaimContentModel = new CoreUserClaimContentModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -96,14 +96,12 @@ export class CoreUserClaimContentEditComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.getEnumRecordStatus();
+
   }
   ngOnDestroy() {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

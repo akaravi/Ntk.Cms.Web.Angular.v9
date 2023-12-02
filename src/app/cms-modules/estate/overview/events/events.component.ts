@@ -88,7 +88,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   dataModelPropertySupplierResult: ErrorExceptionResult<EstatePropertySupplierModel> = new ErrorExceptionResult<EstatePropertySupplierModel>();
   dataModelPropertyProjectResult: ErrorExceptionResult<EstatePropertyProjectModel> = new ErrorExceptionResult<EstatePropertyProjectModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   cmsApiStoreSubscribe: Subscription;
   checkingOnDayRange = new FormGroup({
     start: new FormControl<Date | null>(null),

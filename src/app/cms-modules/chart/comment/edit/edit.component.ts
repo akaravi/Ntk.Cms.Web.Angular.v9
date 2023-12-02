@@ -59,7 +59,7 @@ export class ChartCommentEditComponent implements OnInit {
   ComponentAction = ComponentActionEnum.none;
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   selected: any;
   openFormFileManager = false;
@@ -79,11 +79,9 @@ export class ChartCommentEditComponent implements OnInit {
       this.cmsToastrService.typeErrorComponentAction();
       this.dialogRef.close({ dialogChangedDate: false });
     }
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
     if (this.requestId <= 0) {

@@ -50,7 +50,7 @@ export class CoreSiteDomainAliasEditComponent implements OnInit {
   dataModel: CoreSiteDomainAliasModel = new CoreSiteDomainAliasModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -65,11 +65,9 @@ export class CoreSiteDomainAliasEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

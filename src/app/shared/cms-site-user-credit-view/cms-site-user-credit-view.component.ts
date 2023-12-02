@@ -60,7 +60,7 @@ export class CmsSiteUserCreditViewComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
 
   ngOnInit(): void {
@@ -75,13 +75,11 @@ export class CmsSiteUserCreditViewComponent implements OnInit {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-    this.getEnumRecordStatus();
+
     this.DataGetOneContent();
     this.DataModuleGetOne();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
 

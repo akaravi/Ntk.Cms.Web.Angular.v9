@@ -54,7 +54,7 @@ export class CoreUserGroupEditComponent implements OnInit {
   dataModel: CoreUserGroupModel = new CoreUserGroupModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   fileManagerOpenForm = false;
 
@@ -69,11 +69,9 @@ export class CoreUserGroupEditComponent implements OnInit {
       return;
     }
     this.getEnumManageUserAccessUserTypes();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEnumManageUserAccessUserTypes(): void {
     this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe((next) => {
       this.dataModelEnumManageUserAccessUserTypesResult = next;

@@ -54,7 +54,7 @@ export class EstatePropertyTypeUsageEditComponent implements OnInit {
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstatePropertyTypeUsageModel = new EstatePropertyTypeUsageModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   dataEstatePropertyTypeLandUseIds: string[] = [];
   dataEstatePropertyTypeModel: EstatePropertyTypeModel[];
@@ -69,11 +69,9 @@ export class EstatePropertyTypeUsageEditComponent implements OnInit {
     }
     this.DataGetOneContent();
     this.DataGetAllEstatePropertyUsage();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onActionFileSelected(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;

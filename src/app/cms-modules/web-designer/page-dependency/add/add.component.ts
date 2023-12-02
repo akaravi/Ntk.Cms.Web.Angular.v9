@@ -49,11 +49,11 @@ export class WebDesignerMainPageDependencyAddComponent implements OnInit {
     = new ErrorExceptionResult<WebDesignerMainPageDependencyModel>();
   dataModel: WebDesignerMainPageDependencyModel = new WebDesignerMainPageDependencyModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
   }
   DataGetAccess(): void {
@@ -78,9 +78,7 @@ export class WebDesignerMainPageDependencyAddComponent implements OnInit {
         }
       );
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

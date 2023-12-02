@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, LinkManagementAccountingDetailModel, LinkManagementAccountingDetailService, LinkManagementAccountingModel, ManageUserAccessDataTypesEnum
+  FormInfoModel, InfoEnumModel, LinkManagementAccountingDetailModel, LinkManagementAccountingDetailService, LinkManagementAccountingModel, LinkManagementEnumService, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -29,6 +29,7 @@ export class LinkManagementAccountingDetailEditComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public categoryService: LinkManagementAccountingDetailService,
     private cmsToastrService: CmsToastrService,
+    private linkManagementEnumService: LinkManagementEnumService,
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
@@ -53,7 +54,7 @@ export class LinkManagementAccountingDetailEditComponent implements OnInit {
   dataModel: LinkManagementAccountingDetailModel = new LinkManagementAccountingDetailModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+  dataModelEnumSharingAccountingTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   fileManagerOpenForm = false;
 
@@ -67,10 +68,12 @@ export class LinkManagementAccountingDetailEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+    this.getEnumSharingAccountingType();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
+  getEnumSharingAccountingType(): void {
+    this.linkManagementEnumService.ServiceSharingAccountingTypeEnum().subscribe((res) => {
+      this.dataModelEnumSharingAccountingTypeResult = res;
+    });
   }
 
   DataGetOneContent(): void {

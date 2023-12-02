@@ -56,7 +56,7 @@ export class BlogContentEditComponent implements OnInit, AfterViewInit {
   dataContentTagModelResult: ErrorExceptionResult<BlogContentTagModel> = new ErrorExceptionResult<BlogContentTagModel>();
   dataContentSimilarModelResult: ErrorExceptionResult<BlogContentSimilarModel> = new ErrorExceptionResult<BlogContentSimilarModel>();
   dataContentOtherInfoModelResult: ErrorExceptionResult<BlogContentOtherInfoModel> = new ErrorExceptionResult<BlogContentOtherInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataContentCategoryModel: number[] = [];
   similarDataModel = new Array<BlogContentModel>();
   otherInfoDataModel = new Array<BlogContentOtherInfoModel>();
@@ -98,7 +98,7 @@ export class BlogContentEditComponent implements OnInit, AfterViewInit {
     }
     this.DataGetOne();
     this.DataCategoryGetAll();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
 
@@ -116,9 +116,7 @@ export class BlogContentEditComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   onFormSubmit(): void {

@@ -60,7 +60,7 @@ export class EstatePropertyHistoryEditMobileComponent implements OnInit {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-    
+
   }
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<
@@ -77,8 +77,6 @@ export class EstatePropertyHistoryEditMobileComponent implements OnInit {
   dataModel: EstatePropertyHistoryModel = new EstatePropertyHistoryModel();
   dataFileModelFiles = new Map<number, string>();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> =
-    new ErrorExceptionResult<InfoEnumModel>();
   fileManagerOpenForm = false;
   date = new FormControl(new Date());
   dataModelEstateActivityStatusEnumResult: ErrorExceptionResult<InfoEnumModel> =
@@ -95,14 +93,11 @@ export class EstatePropertyHistoryEditMobileComponent implements OnInit {
       return;
     }
     this.DataGetOneContent();
-    this.getEnumRecordStatus();
+
     this.getEstateActivityStatusEnum();
     this.DataGetAllActivityType();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult =
-      await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEstateActivityStatusEnum(): void {
     this.estateEnumService
       .ServiceEstateActivityStatusEnum()

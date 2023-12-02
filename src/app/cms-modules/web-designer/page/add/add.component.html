@@ -14,24 +14,13 @@
             <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
                 {{ formInfo.formTitle }}
                  <!-- RecordStatus Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
-                    <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-                     #RecordStatus="ngModel" required
-                     ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
-                     <option *ngFor="
-                        let item of dataModelEnumRecordStatusResult.listItems;
-                        index as i
-                        " [ngValue]="item.value">
-                     {{ item.description }}
-                     </option>
-                    </select>
-                    <em class="mt-n3">{{
-                     "TITLE.SELECT_STATUS" | translate}}
-                    </em>
-                    <mat-error *ngIf="RecordStatus.errors?.required">
-                        {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
-                    </mat-error>
-                </div>  
+                 <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+                 [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+                 [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+                 [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+
                 <!-- Title Field -->
                 <div  *ngIf="fieldsInfo['title']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
@@ -44,7 +33,7 @@
                     <mat-error *ngIf="Title.errors?.required">
                         {{ fieldsInfo['title']?.fieldTitle }}  is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
-                </div>  
+                </div>
                 <app-webdesigner-pagedependency-selector (optionChange)="onActionSelectDependency($event)"
                     [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkPageDependencyGuId']?.accessAddField"
                     [optionSelectForce]="dataModel.linkPageDependencyGuId"
@@ -106,7 +95,7 @@
                     placeholder="32323"  [disabled]="!fieldsInfo['specialIdendity']?.accessAddField"
                     minlength="0" maxlength="500"  class="form-control validate-name" id="dataModel.specialIdendity" />
                     <em>{{ SpecialIdendity.value.length }} / 500</em>
-                </div> 
+                </div>
                 <!-- SpecialUrlParameter Field -->
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.specialUrlParameter" class="color-highlight">{{ fieldsInfo["specialUrlParameter"]?.fieldTitle }}</label>
@@ -114,7 +103,7 @@
                     placeholder="esfahan"  [disabled]="!fieldsInfo['specialUrlParameter']?.accessAddField"
                     minlength="0" maxlength="500"  class="form-control validate-name" id="dataModel.specialUrlParameter" />
                     <em>{{ SpecialUrlParameter.value.length }} / 500</em>
-                </div> 
+                </div>
                 <!-- Description Field -->
                 <div *ngIf="fieldsInfo['description']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>

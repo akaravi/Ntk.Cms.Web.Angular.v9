@@ -50,7 +50,7 @@ export class CoreConfigMainAdminComponent implements OnInit, OnDestroy {
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerOpenForm = false;
@@ -76,14 +76,12 @@ export class CoreConfigMainAdminComponent implements OnInit, OnDestroy {
     });
 
     this.onLoadDate();
-    this.getEnumRecordStatus();
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

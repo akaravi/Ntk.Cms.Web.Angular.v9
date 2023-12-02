@@ -52,7 +52,7 @@ export class SmsMainApiPathPriceServiceAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelSmsMessageTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelSmsOutBoxTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -63,15 +63,13 @@ export class SmsMainApiPathPriceServiceAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
 
     this.DataGetAccess();
     this.getSmsMessageTypeEnum();
     this.getSmsOutBoxTypeEnum();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   getSmsMessageTypeEnum(): void {
     this.smsEnumService.ServiceSmsMessageTypeEnum().subscribe((res) => {

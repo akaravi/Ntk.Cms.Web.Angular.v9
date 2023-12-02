@@ -49,7 +49,7 @@ export class SmsMainApiNumberPermissionAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumApiNumberPermissionAccessStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumApiNumberPermissionActionResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -60,14 +60,12 @@ export class SmsMainApiNumberPermissionAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.getEnumApiNumberPermissionAccessStatus();
     this.getEnumApiNumberPermissionAction();
     this.DataGetAccess();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEnumApiNumberPermissionAccessStatus(): void {
     this.smsEnumService.ServiceSmsApiNumberPermissionAccessStatusEnum().subscribe((res) => {
       this.dataModelEnumApiNumberPermissionAccessStatusResult = res;

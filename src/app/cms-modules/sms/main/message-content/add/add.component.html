@@ -1,78 +1,67 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-        حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-        فقط یک صفحه ساختگی است.
-      </p>
-      <!--content-->
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-          {{ formInfo.formTitle }}
-            <!-- RecordStatus Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
-                <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-                #RecordStatus="ngModel" required
-                ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
-                <option *ngFor="
-                    let item of dataModelEnumRecordStatusResult.listItems;
-                    index as i
-                    " [ngValue]="item.value">
-                {{ item.description }}
-                </option>
-                </select>
-                <em class="mt-n3">{{
-                "TITLE.SELECT_STATUS" | translate}}
-                </em>
-                <mat-error *ngIf="RecordStatus.errors?.required">
-                RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- LinkCategoryId Field -->
-            <app-sms-main-message-category-selector (optionChange)="onActionSelectCategory($event)"
-             [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkCategoryId"
-             [optionPlaceholder]="this.translate.instant('TITLE.Category')">
-            </app-sms-main-message-category-selector>
-            <!-- Title Field -->
-            <div  *ngIf="fieldsInfo['title']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                  placeholder="{{fieldsInfo['title']?.fieldTitle }}"
-                  minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.title" />
-                <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
-                <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-                <em>{{ Title.value.length }} / 100</em>
-                <mat-error *ngIf="Title.errors?.required">
-                    Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- messageBody Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.messageBody"
-                    class="color-highlight">{{fieldsInfo['messageBody']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.messageBody" name="dataModel.messageBody" #messageBody
-                    type="text" placeholder="{{ fieldsInfo['messageBody']?.fieldTitle }}" minlength="1" maxlength="5000"
-                    rows="5" id="dataModel.messageBody" class="form-control validate-name"></textarea>
-                <em>{{ messageBody.value.length }} / 5000</em>
-                <mat-error *ngIf="messageBody.errors?.required">
-                    messageBody is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-                <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-                </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-                </button>
-            </div>
-        </form>
-      <!--content-->
-    </div>
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- RecordStatus Field -->
+      <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+        [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+
+      <!-- LinkCategoryId Field -->
+      <app-sms-main-message-category-selector (optionChange)="onActionSelectCategory($event)"
+        [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkCategoryId"
+        [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+      </app-sms-main-message-category-selector>
+      <!-- Title Field -->
+      <div *ngIf="fieldsInfo['title']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+          placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Title.value.length }} / 100</em>
+        <mat-error *ngIf="Title.errors?.required">
+          Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- messageBody Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.messageBody" class="color-highlight">{{fieldsInfo['messageBody']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.messageBody" name="dataModel.messageBody" #messageBody type="text"
+          placeholder="{{ fieldsInfo['messageBody']?.fieldTitle }}" minlength="1" maxlength="5000" rows="5"
+          id="dataModel.messageBody" class="form-control validate-name"></textarea>
+        <em>{{ messageBody.value.length }} / 5000</em>
+        <mat-error *ngIf="messageBody.errors?.required">
+          messageBody is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
+    </form>
+    <!--content-->
+  </div>
 </div>

@@ -16,24 +16,13 @@
       <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
          <mat-step label="{{'TITLE.Menu_Profile' | translate}}" state="main">
           <!-- RecordStatus Field -->
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-             #RecordStatus="ngModel" required
-             ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
-             <option *ngFor="
-                let item of dataModelEnumRecordStatusResult.listItems;
-                index as i
-                " [ngValue]="item.value">
-              {{ item.description }}
-             </option>
-            </select>
-            <em class="mt-n3">{{
-             "TITLE.SELECT_STATUS" | translate}}
-            </em>
-            <mat-error *ngIf="RecordStatus.errors?.required">
-                {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-          </div>
+          <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+          [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+          [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+
           <app-webdesigner-menu-selector (optionChange)="onActionSelectorSelect($event)" [optionDisabled]="false"
             [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkParentId"
             [optionPlaceholder]="this.translate.instant('TITLE.Parent_Menu')">

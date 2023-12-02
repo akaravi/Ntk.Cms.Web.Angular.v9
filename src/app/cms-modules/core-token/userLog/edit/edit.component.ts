@@ -52,7 +52,7 @@ export class CoreTokenUserLogEditComponent implements OnInit, OnDestroy {
   dataModel: CoreTokenUserLogModel = new CoreTokenUserLogModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -77,7 +77,7 @@ export class CoreTokenUserLogEditComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
       this.tokenInfo = next;
     });
-    this.getEnumRecordStatus();
+
     this.getEnumManageUserAccessAreaTypes();
     this.getEnumManageUserAccessUserTypes();
   }
@@ -95,9 +95,7 @@ export class CoreTokenUserLogEditComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetOneContent(): void {
     if (!this.requestId || this.requestId.length === 0) {

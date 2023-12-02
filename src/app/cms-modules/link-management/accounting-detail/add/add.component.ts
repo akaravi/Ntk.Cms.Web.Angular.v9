@@ -51,7 +51,6 @@ export class LinkManagementAccountingDetailAddComponent implements OnInit {
 
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumSharingAccountingTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   fileManagerOpenForm = false;
 
@@ -61,7 +60,6 @@ export class LinkManagementAccountingDetailAddComponent implements OnInit {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.Register_New_Categories');
 
-    this.getEnumRecordStatus();
     this.DataGetAccess();
 
     this.getEnumSharingAccountingType();
@@ -70,9 +68,6 @@ export class LinkManagementAccountingDetailAddComponent implements OnInit {
     this.linkManagementEnumService.ServiceSharingAccountingTypeEnum().subscribe((res) => {
       this.dataModelEnumSharingAccountingTypeResult = res;
     });
-  }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
   }
 
 

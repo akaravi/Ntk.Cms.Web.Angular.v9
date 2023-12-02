@@ -64,7 +64,7 @@ export class EstatePropertyQuickAddComponent implements OnInit {
     = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
   dataModel: EstatePropertyModel = new EstatePropertyModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelCorCurrencySelector = new CoreCurrencyModel();
   contractTypeSelected: EstateContractTypeModel;
   PropertyTypeSelected = new EstatePropertyTypeLanduseModel();
@@ -87,14 +87,14 @@ export class EstatePropertyQuickAddComponent implements OnInit {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.Submit_New_Content');
 
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
     this.getEstateContractType();
     this.getEstatePropertyType();
     this.getEstatePropertyTypeLanduse();
     this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.getEnumRecordStatus();
+
       this.DataGetAccess();
       this.getEstateContractType();
       this.getEstatePropertyType();
@@ -136,9 +136,7 @@ export class EstatePropertyQuickAddComponent implements OnInit {
       this.loading.Stop(pName);
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'ServiceViewModel';

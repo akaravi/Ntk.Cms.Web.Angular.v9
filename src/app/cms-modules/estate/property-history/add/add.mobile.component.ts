@@ -80,22 +80,17 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
   dataModel: EstatePropertyHistoryModel = new EstatePropertyHistoryModel();
   dataFileModelFiles = new Map<number, string>();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> =
-    new ErrorExceptionResult<InfoEnumModel>();
   fileManagerOpenForm = false;
   date = new FormControl(new Date());
   dataModelEstateActivityStatusEnumResult: ErrorExceptionResult<InfoEnumModel> =
     new ErrorExceptionResult<InfoEnumModel>();
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
     this.getEstateActivityStatusEnum();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult =
-      await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEstateActivityStatusEnum(): void {
     this.estateEnumService
       .ServiceEstateActivityStatusEnum()

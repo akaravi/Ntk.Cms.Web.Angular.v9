@@ -52,7 +52,7 @@ export class PollingContentEditComponent implements OnInit, AfterViewInit {
   dataAccessModel: AccessModel;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   optionSelected: PollingOptionModel = new PollingOptionModel();
   optionDataModel = new Array<PollingOptionModel>();
   optionTabledataSource = new MatTableDataSource<PollingOptionModel>();
@@ -91,7 +91,7 @@ export class PollingContentEditComponent implements OnInit, AfterViewInit {
       return;
     }
     this.DataGetOne();
-    this.getEnumRecordStatus();
+
   }
   ngAfterViewInit(): void {
 
@@ -108,9 +108,7 @@ export class PollingContentEditComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
 
   onFormSubmit(): void {

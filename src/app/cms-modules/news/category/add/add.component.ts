@@ -49,7 +49,7 @@ export class NewsCategoryAddComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<NewsCategoryModel> = new ErrorExceptionResult<NewsCategoryModel>();
   dataModel: NewsCategoryModel = new NewsCategoryModel();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   fileManagerOpenForm = false;
   onActionFileSelected(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
@@ -57,12 +57,10 @@ export class NewsCategoryAddComponent implements OnInit {
   }
   ngOnInit(): void {
     this.formInfo.formTitle = this.translate.instant('TITLE.Register_New_Categories');
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';
     this.loading.Start(pName);

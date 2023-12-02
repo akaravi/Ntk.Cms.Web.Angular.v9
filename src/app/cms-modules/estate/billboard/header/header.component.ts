@@ -38,14 +38,14 @@ export class EstateBillboardHeaderComponent implements OnInit, OnDestroy {
   dataModelResult: ErrorExceptionResult<EstateBillboardModel> = new ErrorExceptionResult<EstateBillboardModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     if (this.optionId?.length > 0) {
       this.DataGetOneContent();
     }
-    this.getEnumRecordStatus();
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
       this.DataGetOneContent();
     });
@@ -53,9 +53,7 @@ export class EstateBillboardHeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);

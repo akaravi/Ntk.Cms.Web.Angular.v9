@@ -14,28 +14,13 @@
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
       {{ formInfo.formTitle }}
       <!-- RecordStatus Field -->
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.recordStatus" class="color-highlight">{{
-          fieldsInfo["recordStatus"]?.fieldTitle
-          }}</label>
-        <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-          #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required
-          class="form-control validate-name">
-          <option *ngFor="
-              let item of dataModelEnumRecordStatusResult.listItems;
-              index as i
-            " [ngValue]="item.value">
-            {{ item.description }}
-          </option>
-        </select>
-        <i *ngIf="!RecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
-        <i *ngIf="RecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
-        <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
-        <mat-error *ngIf="RecordStatus.errors?.required">
-          RecordStatus is
-          <strong>{{ "MESSAGE.required" | translate }}</strong>
-        </mat-error>
-      </div>
+
+      <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+        [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
       <!-- ExpertPriceType Field -->
       <div *ngIf="fieldsInfo['expertPriceType']?.accessWatchField"
         class="input-style has-borders no-icon  input-style-always-active validate-field mb-4">

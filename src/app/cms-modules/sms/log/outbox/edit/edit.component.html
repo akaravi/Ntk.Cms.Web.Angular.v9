@@ -1,83 +1,72 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-        حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-        اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-        فقط یک صفحه ساختگی است.
-      </p>
-      <!--content-->
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-            {{ formInfo.formTitle }}
-            <!-- RecordStatus Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"> 
-                <label for="dataModel.recordStatus" class="color-highlight">{{ fieldsInfo["recordStatus"]?.fieldTitle}}</label>
-                <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-                  #RecordStatus="ngModel" 
-                  ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
-                 <option *ngFor="
-                    let item of dataModelEnumRecordStatusResult.listItems;
-                    index as i
-                    " [ngValue]="item.value">
-                   {{ item.description }}
-                 </option>
-                </select>
-                <em class="mt-n3">{{
-                 "TITLE.SELECT_STATUS" | translate}}
-                </em>
-                <mat-error *ngIf="RecordStatus.errors?.required">
-                 RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- LinkApiNumberId Field -->
-            <!-- <app-sms-api-number-selector (optionChange)="onActionSelectorSelectLinkApiNumberId($event)"
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- RecordStatus Field -->
+      <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+        [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+
+      <!-- LinkApiNumberId Field -->
+      <!-- <app-sms-api-number-selector (optionChange)="onActionSelectorSelectLinkApiNumberId($event)"
                 [optionSelectForce]="dataModel.linkApiNumberId" [optionPlaceholder]="'شماره'">
             </app-sms-api-number-selector> -->
-            <!-- SendDate Field -->
-            <div *ngIf="fieldsInfo['sendDate']?.accessWatchField"
-                    class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataModel.sendDate" class="color-highlight">{{ fieldsInfo["sendDate"]?.fieldTitle }}</label>
-                    <input matInput [matDatepicker]="SendDate" type="text" [(ngModel)]="dataModel.sendDate" name="dataModel.sendDate"
-                        placeholder="{{fieldsInfo['sendDate']?.fieldTitle }}" disabled="{{ !fieldsInfo['sendDate']?.accessEditField }}"
-                        class="form-control validate-name" id="dataModel.sendDate" />
-                    <mat-datepicker-toggle matSuffix [for]="SendDate"></mat-datepicker-toggle>
-                    <mat-datepicker touchUi #SendDate></mat-datepicker>
-            </div>
-             <!-- Message Field -->
-             <div *ngIf="fieldsInfo['message']?.accessWatchField"
-               class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-               <label for="dataModel.message" class="color-highlight">{{ fieldsInfo["message"]?.fieldTitle }}</label>
-               <input matInput type="text" [(ngModel)]="dataModel.message" #Message name="dataModel.message"
-                 placeholder="123" disabled="{{ !fieldsInfo['message']?.accessEditField }}"
-                 class="form-control validate-name" id="dataModel.message" />
-                <em style="text-align: right;">{{ Message.value.length }} / 100</em>
-             </div>
-            <!-- Memo Field -->
-            <div *ngIf="fieldsInfo['memo']?.accessWatchField"
-               class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-               <label for="dataModel.memo" class="color-highlight">{{ fieldsInfo["message"]?.fieldTitle }}</label>
-               <input matInput type="text" [(ngModel)]="dataModel.memo" #Memo name="dataModel.memo"
-                 placeholder="123" disabled="{{ !fieldsInfo['memo']?.accessEditField }}"
-                 class="form-control validate-name" id="dataModel.memo" />
-                <em style="text-align: right;">{{ Memo.value.length }} / 100</em>
-            </div>
+      <!-- SendDate Field -->
+      <div *ngIf="fieldsInfo['sendDate']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.sendDate" class="color-highlight">{{ fieldsInfo["sendDate"]?.fieldTitle }}</label>
+        <input matInput [matDatepicker]="SendDate" type="text" [(ngModel)]="dataModel.sendDate"
+          name="dataModel.sendDate" placeholder="{{fieldsInfo['sendDate']?.fieldTitle }}"
+          disabled="{{ !fieldsInfo['sendDate']?.accessEditField }}" class="form-control validate-name"
+          id="dataModel.sendDate" />
+        <mat-datepicker-toggle matSuffix [for]="SendDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #SendDate></mat-datepicker>
+      </div>
+      <!-- Message Field -->
+      <div *ngIf="fieldsInfo['message']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.message" class="color-highlight">{{ fieldsInfo["message"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.message" #Message name="dataModel.message" placeholder="123"
+          disabled="{{ !fieldsInfo['message']?.accessEditField }}" class="form-control validate-name"
+          id="dataModel.message" />
+        <em style="text-align: right;">{{ Message.value.length }} / 100</em>
+      </div>
+      <!-- Memo Field -->
+      <div *ngIf="fieldsInfo['memo']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.memo" class="color-highlight">{{ fieldsInfo["message"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.memo" #Memo name="dataModel.memo" placeholder="123"
+          disabled="{{ !fieldsInfo['memo']?.accessEditField }}" class="form-control validate-name"
+          id="dataModel.memo" />
+        <em style="text-align: right;">{{ Memo.value.length }} / 100</em>
+      </div>
 
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-                <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-                </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-                </button>
-            </div>
-        </form>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
+    </form>
 
-      <!--content-->
-    </div>
+    <!--content-->
+  </div>
 </div>

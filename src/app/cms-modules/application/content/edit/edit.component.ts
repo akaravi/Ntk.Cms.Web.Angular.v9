@@ -47,7 +47,7 @@ export class ApplicationAppEditComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel = new ApplicationAppModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumLangResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerOpenFormAboutUsLinkImageId = false;
@@ -68,7 +68,7 @@ export class ApplicationAppEditComponent implements OnInit {
       return;
     }
     this.DataGetOne(this.requestId);
-    this.getEnumRecordStatus();
+
     this.getEnumLang();
   }
   getEnumLang(): void {
@@ -76,9 +76,7 @@ export class ApplicationAppEditComponent implements OnInit {
       this.dataModelEnumLangResult = res;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       this.cmsToastrService.typeErrorFormInvalid();

@@ -54,7 +54,7 @@ export class SmsMainCustomerCreditEditComponent implements OnInit {
   dataModel: SmsMainCustomerCreditModel = new SmsMainCustomerCreditModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumApiPathPermissionAccessStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumApiPathPermissionActionResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -72,11 +72,9 @@ export class SmsMainCustomerCreditEditComponent implements OnInit {
     this.DataGetOneContent();
     this.getEnumApiPathPermissionAccessStatus();
     this.getEnumApiPathPermissionAction();
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getEnumApiPathPermissionAccessStatus(): void {
     this.smsEnumService.ServiceSmsApiPathPermissionAccessStatusEnum().subscribe((res) => {
       this.dataModelEnumApiPathPermissionAccessStatusResult = res;

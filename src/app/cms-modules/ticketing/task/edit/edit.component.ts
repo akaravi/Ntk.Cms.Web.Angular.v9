@@ -54,7 +54,7 @@ export class TicketingTaskEditComponent implements OnInit {
   dataAccessModel: AccessModel;
   dataModel = new TicketingTaskModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerOpenForm = false;
@@ -72,11 +72,9 @@ export class TicketingTaskEditComponent implements OnInit {
       return;
     }
     this.DataGetOne(this.requestId);
-    this.getEnumRecordStatus();
+
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   onFormSubmit(): void {
     if (!this.formGroup.valid) {

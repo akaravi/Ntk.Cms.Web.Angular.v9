@@ -1,75 +1,66 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-        <p class="mb-0 color-highlight font-600 font-12">
-            حساب کاربری خود را ویرایش کنید
-        </p>
-        <h4>اطلاعات</h4>
-        <h4>اطلاعات اولیه</h4>
-        <p>
-            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-            فقط یک صفحه ساختگی است.
-        </p>
-        <!--Content-->
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-                {{ formInfo.formTitle }}
-                 <!-- RecordStatus Field -->
-                 <div *ngIf="fieldsInfo['recordStatus']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataModel.recordStatus"
-                    class="color-highlight">{{fieldsInfo['recordStatus']?.fieldTitle}}</label>
-                    <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
-                       #RecordStatus="ngModel" ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}"
-                       [disabled]="!fieldsInfo['recordStatus']?.accessEditField" required class="form-control validate-name">
-                     <option *ngFor=" let item of dataModelEnumRecordStatusResult.listItems; index as i"
-                        [ngValue]="item.value">{{ item.description }}</option>
-                    </select>
-                    <!-- <span><i class="fa fa-chevron-down"></i></span> -->
-                    <i *ngIf="!RecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
-                    <i *ngIf="RecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
-                    <!-- <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em> -->
-                    <mat-error *ngIf="RecordStatus.errors?.required">
-                        {{fieldsInfo['recordStatus']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-                    </mat-error>
-                 </div>
-                <!-- Writer Field -->
-                <div *ngIf="fieldsInfo['writer']?.accessWatchField"
-                 class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                  <label for="dataModel.writer" class="color-highlight">{{ fieldsInfo["writer"]?.fieldTitle }}</label>
-                  <input matInput type="text" [(ngModel)]="dataModel.writer" name="dataModel.writer" #Writer type="text"
-                    placeholder="{{fieldsInfo['writer']?.fieldTitle }}" [disabled]="!fieldsInfo['writer']?.accessEditField"
-                    minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.writer" />
-                  <i *ngIf="!Writer.value" class="fa fa-times  invalid color-red-dark"></i>
-                  <i *ngIf="Writer.value" class="fa fa-check  valid color-green-dark"></i>
-                  <em>{{ Writer.value.length }} / 100</em>
-                 <mat-error *ngIf="Writer.errors?.required">
-                        {{fieldsInfo['writer']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-                 </mat-error>
-                </div>
-                 <!-- Comment Field -->
-                 <div *ngIf="fieldsInfo['comment']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataModel.comment" class="color-highlight">{{fieldsInfo['comment']?.fieldTitle}}</label>
-                    <textarea matInput [(ngModel)]="dataModel.comment" name="dataModel.comment" #Comment
-                     type="text" placeholder="{{fieldsInfo['comment']?.fieldTitle}}" [disabled]="!fieldsInfo['comment']?.accessEditField" minlength="1" maxlength="500"
-                     rows="5" required id="dataModel.comment" class="form-control validate-name">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- RecordStatus Field -->
+
+      <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+        [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+
+
+      <!-- Writer Field -->
+      <div *ngIf="fieldsInfo['writer']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.writer" class="color-highlight">{{ fieldsInfo["writer"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.writer" name="dataModel.writer" #Writer type="text"
+          placeholder="{{fieldsInfo['writer']?.fieldTitle }}" [disabled]="!fieldsInfo['writer']?.accessEditField"
+          minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.writer" />
+        <i *ngIf="!Writer.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Writer.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Writer.value.length }} / 100</em>
+        <mat-error *ngIf="Writer.errors?.required">
+          {{fieldsInfo['writer']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- Comment Field -->
+      <div *ngIf="fieldsInfo['comment']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.comment" class="color-highlight">{{fieldsInfo['comment']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.comment" name="dataModel.comment" #Comment type="text"
+          placeholder="{{fieldsInfo['comment']?.fieldTitle}}" [disabled]="!fieldsInfo['comment']?.accessEditField"
+          minlength="1" maxlength="500" rows="5" required id="dataModel.comment" class="form-control validate-name">
                     </textarea>
-                    <em>{{ Comment.value.length }} / 500</em>
-                    <i *ngIf="!Comment.value" class="fa fa-times  invalid color-red-dark"></i>
-                    <i *ngIf="Comment.value" class="fa fa-check  valid color-green-dark"></i>
-                    <mat-error *ngIf="Comment.errors?.required">
-                        {{fieldsInfo['comment']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-                    </mat-error>
-                 </div>
-                 <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-                    <button type="button" (click)="onFormCancel()"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-                    </button>
-                    <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                        (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                        <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-                    </button>
-                 </div>
-        </form>
-        <!--Content-->
-    </div>
+        <em>{{ Comment.value.length }} / 500</em>
+        <i *ngIf="!Comment.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Comment.value" class="fa fa-check  valid color-green-dark"></i>
+        <mat-error *ngIf="Comment.errors?.required">
+          {{fieldsInfo['comment']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
+    </form>
+    <!--Content-->
+  </div>
 </div>

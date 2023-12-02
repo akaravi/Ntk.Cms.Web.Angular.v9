@@ -56,7 +56,7 @@ export class CoreUserClaimTypeEditComponent implements OnInit {
   dataModel: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   dataModelEnumUserClaimKindsResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   fileManagerOpenForm = false;
@@ -75,7 +75,7 @@ export class CoreUserClaimTypeEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
     this.DataGetAllCoreUserClaimType();
     this.getEnumUserClaimKinds();
   }
@@ -84,9 +84,7 @@ export class CoreUserClaimTypeEditComponent implements OnInit {
       this.dataModelEnumUserClaimKindsResult = next;
     });
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

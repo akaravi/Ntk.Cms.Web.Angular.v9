@@ -53,7 +53,7 @@ export class CatalogContentAddComponent implements OnInit, AfterViewInit {
   formInfo: FormInfoModel = new FormInfoModel();
   dataModel = new CatalogContentModel();
   dataModelResult: ErrorExceptionResult<CatalogContentModel> = new ErrorExceptionResult<CatalogContentModel>();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -87,7 +87,7 @@ export class CatalogContentAddComponent implements OnInit, AfterViewInit {
       this.cmsToastrService.typeErrorAddRowParentIsNull();
       return;
     }
-    this.getEnumRecordStatus();
+
     this.DataGetAccess();
   }
   ngAfterViewInit(): void {
@@ -135,9 +135,7 @@ export class CatalogContentAddComponent implements OnInit, AfterViewInit {
     this.dataModel.linkFileMovieId = model.id;
     this.dataModel.linkFileMovieIdSrc = model.downloadLinksrc;
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   receiveMap(model: leafletMap = this.mapModel): void {
     if (!model) {

@@ -56,7 +56,7 @@ export class DataProviderPlanPriceEditComponent implements OnInit {
   dataModel: DataProviderPlanPriceModel = new DataProviderPlanPriceModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
 
@@ -76,12 +76,10 @@ export class DataProviderPlanPriceEditComponent implements OnInit {
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.getEnumRecordStatus();
+
     this.DataGetCurrency();
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
 
   DataGetCurrency(): void {
     this.coreSiteService.ServiceGetCurrencyMaster().subscribe({

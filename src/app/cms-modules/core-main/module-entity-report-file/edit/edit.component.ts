@@ -56,7 +56,7 @@ export class CoreModuleEntityReportFileEditComponent implements OnInit {
   dataModel: CoreModuleEntityReportFileModel = new CoreModuleEntityReportFileModel();
   dataModelReportFileTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   formInfo: FormInfoModel = new FormInfoModel();
-  dataModelEnumRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
+
 
   fileManagerOpenForm = false;
   fileManagerOpenFormReport = false;
@@ -72,13 +72,11 @@ export class CoreModuleEntityReportFileEditComponent implements OnInit {
       return;
     }
 
-    this.getEnumRecordStatus();
+
     this.getReportFileTypeEnum();
 
   }
-  async getEnumRecordStatus(): Promise<void> {
-    this.dataModelEnumRecordStatusResult = await this.publicHelper.getEnumRecordStatus();
-  }
+
   getReportFileTypeEnum(): void {
     this.coreEnumService.ServiceReportFileTypeEnum().subscribe((next) => {
       this.dataModelReportFileTypeEnumResult = next;
