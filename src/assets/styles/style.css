@@ -3269,6 +3269,8 @@ button {
   border-radius: 12px;
   transform: translateY(150%);
   transition: all 300ms ease;
+  margin-right:40px;
+  margin-left:40px;
 }
 .scroll-cms-action-row img {
   width: 60px;
