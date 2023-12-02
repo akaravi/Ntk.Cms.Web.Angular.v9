@@ -11,224 +11,186 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+        <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
+          <!-- RecordStatus Field -->
+          <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+           [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+           [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+           [optionSelectFirstItem]="true">
+          </app-cms-enum-record-status-selector>
+          <!-- Title Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+            <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+              placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+              class="form-control validate-name" id="dataModel.title" />
+            <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+            <em>{{ Title.value.length }} / 100</em>
+            <mat-error *ngIf="Title.errors?.required">
+            {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- LinkCategoryId Field -->
+          <app-linkmanagement-member-selector (optionChange)="onActionSelectorSelectLinkManagementMemberId($event)"
+            [optionSelectForce]="dataModel.linkManagementMemberId" [(optionLoading)]="loading"
+            [optionPlaceholder]="this.translate.instant('TITLE.User_Account')">
+          </app-linkmanagement-member-selector>
+          <!-- LinkBillboardPatternId Field -->
+          <app-linkmanagement-billboard-pattern-selector
+            (optionChange)="onActionSelectorSelectLinkBillboardPatternId($event)"
+            [optionSelectForce]="dataModel.linkBillboardPatternId" [(optionLoading)]="loading"
+            [optionPlaceholder]="this.translate.instant('TITLE.Billboard_Pattern')">
+          </app-linkmanagement-billboard-pattern-selector>
+          <!-- bgColor Field -->
+          <div *ngIf="fieldsInfo['bgColor']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.bgColor" class="color-highlight">{{ fieldsInfo["bgColor"]?.fieldTitle }}</label>
+            <input matInput type="text" [(ngModel)]="dataModel.bgColor" [style.background]="dataModel.bgColor" [ngxMatColorPicker]="bgColorPicker" name="dataModel.bgColor" #bgColor
+              placeholder="{{fieldsInfo['title']?.fieldTitle }}"  [disabled]="!fieldsInfo['bgColor']?.accessEditField" minlength="3" maxlength="100" required
+              class="form-control validate-name" id="dataModel.bgColor" />
+            <ngx-ntk-mat-color-toggle matSuffix [for]="bgColorPicker"></ngx-ntk-mat-color-toggle>
+            <ngx-ntk-mat-color-picker #bgColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
+          </div>
+          <!-- CurrentClickCount Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.currentClickCount" class="color-highlight">{{ fieldsInfo["currentClickCount"]?.fieldTitle }}</label>
+            <input matInput type="number" [(ngModel)]="dataModel.currentClickCount" name="dataModel.currentClickCount" #CurrentClickCount
+            placeholder="{{'TITLE.Number_of_click_so_far' | translate}}" minlength="0" required
+              class="form-control validate-name" id="dataModel.currentClickCount" />
+            <i *ngIf="!CurrentClickCount.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="CurrentClickCount.value" class="fa fa-check  valid color-green-dark"></i>
+            <mat-error *ngIf="CurrentClickCount.errors?.required">
+              CurrentClickCount is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- CurrentViewCount Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.currentViewCount" class="color-highlight">{{ fieldsInfo["currentViewCount"]?.fieldTitle }}</label>
+            <input matInput type="number" [(ngModel)]="dataModel.currentViewCount" name="dataModel.currentViewCount" #CurrentViewCount
+            placeholder="{{'TITLE.Number_of_views_so_far' | translate}}" minlength="0" required
+              class="form-control validate-name" id="dataModel.currentViewCount" />
+            <i *ngIf="!CurrentViewCount.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="CurrentViewCount.value" class="fa fa-check  valid color-green-dark"></i>
+            <mat-error *ngIf="CurrentViewCount.errors?.required">
+              CurrentViewCount is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- FromDate Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.fromDate" class="color-highlight">{{ fieldsInfo["fromDate"]?.fieldTitle }}</label>
+            <input matInput type="text" [(ngModel)]="dataModel.fromDate" [matDatepicker]="FromDate"  name="dataModel.bgColor"
+              class="form-control validate-name" id="dataModel.fromDate" />
+              <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #FromDate></mat-datepicker>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+              <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
+        <mat-step label="{{'TITLE.TARGET_SELECTION' | translate}}" state="seo">
+          <app-linkmanagement-category-treeselector [(optionModel)]="dataContentCategoryModel"
+            (optionSelectChecked)="onActionCategorySelectChecked($event)"
+            (optionSelectDisChecked)="onActionCategorySelectDisChecked($event)"></app-linkmanagement-category-treeselector>
+          <br>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+              <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+        <mat-step label="{{'TITLE.ATTACH_FILES' | translate}}" state="file">
+          <p>{{'TITLE.CONTENT_ATTACH_FILES' | translate}}</p>
+           <!-- LinkMainImageId Field -->
+           <div class="mb-3">
+            <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
+              <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+                aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
+            </a>
+          </div>
+          <div *ngIf="fieldsInfo['linkMainImageId']?.accessWatchField"
+           class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+           <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+            class="color-highlight">{{'TITLE.Original_Photo' | translate}}</label>
+           <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+            #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+            (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
+            <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainImageId($event)" [language]="appLanguage"
+             [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openDirectUploadView]="true"
+             [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
+             [openFilemanagerButtonView]="false">
+            </cms-file-manager>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+              <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+        <!-- Icon overrides. -->
+        <ng-template matStepperIcon="main">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="seo">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="file">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="loaction">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+
+
+      </mat-vertical-stepper>
+
+      <hr>
+      کد html:
+      <br>
+      <div>
+        <pre>
+      {{dataModel.billboardScript}}</pre>
+      </div>
+    </form>
     <!--Content-->
   </div>
 </div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-card-body">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-      <!-- RecordStatus Field -->
-      <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
-        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-          [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
-
-
-
-        <!-- Title Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-            placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" required />
-          <mat-icon matSuffix *ngIf="dataModel.title" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.title = ''">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
-          <mat-error *ngIf="Title.errors?.required">
-            Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- LinkCategoryId Field -->
-        <app-linkmanagement-member-selector (optionChange)="onActionSelectorSelectLinkManagementMemberId($event)"
-          [optionSelectForce]="dataModel.linkManagementMemberId" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.User_Account')">
-        </app-linkmanagement-member-selector>
-
-        <!-- LinkBillboardPatternId Field -->
-        <app-linkmanagement-billboard-pattern-selector
-          (optionChange)="onActionSelectorSelectLinkBillboardPatternId($event)"
-          [optionSelectForce]="dataModel.linkBillboardPatternId" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Billboard_Pattern')">
-        </app-linkmanagement-billboard-pattern-selector>
-
-        <!-- bgColor Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['bgColor']?.accessWatchField">
-          <mat-label> {{fieldsInfo['bgColor']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.bgColor" name="dataModel.bgColor" #bgColor
-            [style.background]="dataModel.bgColor" [ngxMatColorPicker]="bgColorPicker" type="text"
-            [disabled]="!fieldsInfo['bgColor']?.accessEditField" placeholder="{{fieldsInfo['bgColor']?.fieldTitle}}" />
-          <mat-icon matSuffix *ngIf="dataModel.bgColor" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.bgColor = ''">close</mat-icon>
-          <ngx-ntk-mat-color-toggle matSuffix [for]="bgColorPicker"></ngx-ntk-mat-color-toggle>
-          <ngx-ntk-mat-color-picker #bgColorPicker [touchUi]="true" [color]="'primary'"></ngx-ntk-mat-color-picker>
-        </mat-form-field>
-
-
-
-        <!-- CurrentClickCount Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>{{fieldsInfo['currentClickCount']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.currentClickCount" name="dataModel.currentClickCount"
-            #CurrentClickCount type="number" placeholder="{{'TITLE.Number_of_click_so_far' | translate}}" min="0"
-            required />
-          <mat-icon matSuffix *ngIf="dataModel.currentClickCount" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.currentClickCount = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-error *ngIf="CurrentClickCount.errors?.required">
-            CurrentClickCount is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- CurrentViewCount Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>{{fieldsInfo['currentViewCount']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.currentViewCount" name="dataModel.currentViewCount" #CurrentViewCount
-            type="number" placeholder="{{'TITLE.Number_of_views_so_far' | translate}}" min="0" required />
-          <mat-icon matSuffix *ngIf="dataModel.currentViewCount" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.currentViewCount = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-error *ngIf="CurrentViewCount.errors?.required">
-            CurrentViewCount is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- FromDate Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>{{fieldsInfo['fromDate']?.fieldTitle}}</mat-label>
-          <input matInput [matDatepicker]="FromDate" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate" />
-          <mat-icon matSuffix *ngIf="dataModel.fromDate && fieldsInfo['fromDate']?.accessEditField" matSuffix
-            mat-icon-button aria-label="Clear" (click)="dataModel.fromDate = null">close</mat-icon>
-          <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
-          <mat-datepicker touchUi #FromDate></mat-datepicker>
-        </mat-form-field>
-
-
-
-
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
-            (click)="onActionBackToParent()">
-            {{'ACTION.BACK' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-            (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-            <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-          </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-            [disabled]="!vform.form.valid" matStepperNext>
-            {{'ACTION.NEXT' | translate}}
-          </button>
-        </div>
-      </mat-step>
-      <mat-step label="{{'TITLE.TARGET_SELECTION' | translate}}" state="seo">
-        <app-linkmanagement-category-treeselector [(optionModel)]="dataContentCategoryModel"
-          (optionSelectChecked)="onActionCategorySelectChecked($event)"
-          (optionSelectDisChecked)="onActionCategorySelectDisChecked($event)"></app-linkmanagement-category-treeselector>
-        <br>
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
-            (click)="onActionBackToParent()">
-            {{'ACTION.BACK' | translate}}
-          </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-            matStepperPrevious>
-            {{'ACTION.BEFOR' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-            (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-            <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-          </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-            [disabled]="!vform.form.valid" matStepperNext>
-            {{'ACTION.NEXT' | translate}}
-          </button>
-        </div>
-      </mat-step>
-
-      <mat-step label="{{'TITLE.ATTACH_FILES' | translate}}" state="file">
-        <p>{{'TITLE.CONTENT_ATTACH_FILES' | translate}}</p>
-        <div class="mb-3">
-          <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
-            <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-              aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
-          </a>
-        </div>
-        <div class="mb-9">
-          <mat-form-field class="ntk-full-width">
-
-            <mat-label (click)="fileManagerOpenForm = true">{{'TITLE.Original_Photo' |
-              translate}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
-              type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-              (click)="fileManagerOpenForm = true" />
-            <mat-icon matSuffix *ngIf="dataModel.linkMainImageId" matSuffix mat-icon-button aria-label="Clear"
-              (click)="dataModel.linkMainImageId = null">close</mat-icon>
-            <mat-icon matSuffix (click)="fileManagerOpenForm = true">mode_edit</mat-icon>
-          </mat-form-field>
-
-          <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainImageId($event)" [language]="appLanguage"
-            [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openDirectUploadView]="true"
-            [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
-            [openFilemanagerButtonView]="false"></cms-file-manager>
-        </div>
-
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
-            (click)="onActionBackToParent()">
-            {{'ACTION.BACK' | translate}}
-          </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-            matStepperPrevious>
-            {{'ACTION.BEFOR' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-            (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-            <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-          </button>
-        </div>
-      </mat-step>
-
-
-      <!-- Icon overrides. -->
-      <ng-template matStepperIcon="main">
-        <mat-icon>call_end</mat-icon>
-      </ng-template>
-      <ng-template matStepperIcon="seo">
-        <mat-icon>call_end</mat-icon>
-      </ng-template>
-      <ng-template matStepperIcon="file">
-        <mat-icon>forum</mat-icon>
-      </ng-template>
-      <ng-template matStepperIcon="loaction">
-        <mat-icon>forum</mat-icon>
-      </ng-template>
-
-    </mat-vertical-stepper>
-    <hr>
-    کد html:
-    <br>
-    <div>
-      <pre>
-    {{dataModel.billboardScript}}</pre>
-    </div>
-    <div [innerHtml]=dataModel.billboardScript></div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  </div>
-</form>
