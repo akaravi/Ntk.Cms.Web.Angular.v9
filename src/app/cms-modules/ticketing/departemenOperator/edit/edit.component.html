@@ -11,92 +11,61 @@
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
+             <mat-horizontal-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+                <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
+                    <!-- RecordStatus Field -->
+                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                        <select id="dataModel.recordStatus" [(ngModel)]="dataModel.recordStatus" name="dataModel.recordStatus"
+                        #RecordStatus="ngModel" required [disabled]="!fieldsInfo['recordStatus']?.accessEditField"
+                        ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" class="form-control validate-name">
+                        <option *ngFor="
+                            let item of dataModelEnumRecordStatusResult.listItems;
+                            index as i
+                            " [ngValue]="item.value">
+                        {{ item.description }}
+                        </option>
+                        </select>
+                        <em class="mt-n3">{{ 'Application.source.recordStatus_hint' | translate }}
+                        </em>
+                        <mat-error *ngIf="RecordStatus.errors?.required">
+                            {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                        </mat-error>
+                    </div>
+                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+                        <button type="button"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+                            (click)="onActionBackToParent()">
+                            {{'ACTION.BACK' | translate}}
+                        </button>
+                        <button type="button"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                            [disabled]="!vform.form.valid" matStepperNext>
+                            {{'ACTION.NEXT' | translate}}
+                        </button>
+                    </div>
+                </mat-step>
 
+                <mat-step label="{{'ACTION.ABOUT' | translate}}" state="seo">
+                    <p> {{'TITLE.Content_Of_The_About_Us_App' | translate}} </p>
+                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+                        <button type="button"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                            matStepperPrevious>
+                            {{'ACTION.BEFOR' | translate}}
+                        </button>
+                        <button type="submit"
+                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                            [disabled]="!vform.form.valid">
+                            {{'ACTION.SAVE' | translate}}
+                        </button>
+                    </div>
+                </mat-step>
+
+             </mat-horizontal-stepper>
+
+        </form>
         <!--Content-->
     </div>
 </div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-
-            <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
-
-                <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['recordStatus']?.accessWatchField">
-                    <mat-select placeholder="{{fieldsInfo['recordStatus']?.fieldTitle}}"
-                        [(ngModel)]="dataModel.recordStatus" [disabled]="!fieldsInfo['recordStatus']?.accessEditField"
-                        name="dataModel.recordStatus" #RecordStatus="ngModel"
-                        ngClass="cms-RecordStatusEnum-selector-{{ dataModel.recordStatus }}" required>
-                        <mat-option *ngFor="
-                let item of dataModelEnumRecordStatusResult.listItems;
-                index as i
-              " [value]="item.value">{{ item.description }}</mat-option>
-                    </mat-select>
-                    <mat-hint align="end">{{ 'Application.source.recordStatus_hint' | translate }}</mat-hint>
-                    <mat-error *ngIf="RecordStatus.errors?.required">
-                        {{ fieldsInfo['recordStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' |
-                            translate}}</strong>
-                    </mat-error>
-                </mat-form-field>
-
-
-
-
-
-
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
-                        (click)="onActionBackToParent()">
-                        {{'ACTION.BACK' | translate}}
-                    </button>
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        [disabled]="!vform.form.valid" matStepperNext>
-                        {{'ACTION.NEXT' | translate}}
-                    </button>
-                </div>
-            </mat-step>
-
-            <mat-step label="{{'ACTION.ABOUT' | translate}}" state="seo">
-                <p> {{'TITLE.Content_Of_The_About_Us_App' | translate}} </p>
-
-
-
-
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                        matStepperPrevious>
-                        {{'ACTION.BEFOR' | translate}}
-                    </button>
-                    <button type="submit"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                        [disabled]="!vform.form.valid">
-                        {{'ACTION.SAVE' | translate}}
-                    </button>
-                </div>
-            </mat-step>
-
-
-
-        </mat-vertical-stepper>
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
