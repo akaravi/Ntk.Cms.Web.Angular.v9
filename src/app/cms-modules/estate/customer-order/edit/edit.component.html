@@ -42,6 +42,8 @@
           </mat-error>
         </div>
 
+        <app-cms-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+          [optionRequired]="true"></app-cms-record-status-selector>
         <!-- Title Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="dataModel.title" class="color-highlight">{{
@@ -582,15 +584,16 @@
                 </ng-container>
               </ng-container>
               <mat-action-row>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"  *ngIf="i > 0" (click)="prevStep()">
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                  *ngIf="i > 0" (click)="prevStep()">
                   {{ "ACTION.PREVIOUS" | translate }}
                 </button>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="i + 1 < dataModel.propertyDetailGroups.length"
-                  (click)="nextStep()">
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  *ngIf="i + 1 < dataModel.propertyDetailGroups.length" (click)="nextStep()">
                   {{ "ACTION.NEXT" | translate }}
                 </button>
-                <button  type="button"  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"  *ngIf="i + 1 === dataModel.propertyDetailGroups.length"
-                  (click)="nextStep()">
+                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  *ngIf="i + 1 === dataModel.propertyDetailGroups.length" (click)="nextStep()">
                   {{ "ACTION.END" | translate }}
                 </button>
               </mat-action-row>
@@ -722,8 +725,8 @@
                   class="btn font-13 btn-m font-600 m-1 rounded-s border-0 shadow-xl gradient-gray">
                   <i class="ft-x"></i> {{ "ACTION.BACK" | translate }}
                 </button>
-                <button type="submit" (click)="onFormSubmit()"
-                  [disabled]="!vform.form.valid" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+                <button type="submit" (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+                  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
                   <i class="fa fa-angle-left"></i>
                   {{ "ACTION.SAVE" | translate }}
                 </button>

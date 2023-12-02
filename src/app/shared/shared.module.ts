@@ -168,6 +168,7 @@ import { PasswordStrengthComponent } from './password-strength/password-strength
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
 import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
+import { CmsRecordStatusSelectorComponent } from './cms-record-status-selector/cms-record-status-selector.component';
 
 @NgModule({
   imports: [
@@ -258,6 +259,7 @@ import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-verti
     CmsExportListComponent,
     CmsSiteSelectorComponent,
     CmsCurrencySelectorComponent,
+    CmsRecordStatusSelectorComponent,
     CmsLocationSelectorComponent,
     CmsLocationCompleteComponent,
     CmsApplicationSelectorComponent,
@@ -401,6 +403,7 @@ import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-verti
     CmsExportListComponent,
     CmsSiteSelectorComponent,
     CmsCurrencySelectorComponent,
+    CmsRecordStatusSelectorComponent,
     CmsLocationSelectorComponent,
     CmsLocationCompleteComponent,
     CmsApplicationSelectorComponent,
