@@ -1,12 +1,12 @@
 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-  <label *ngIf="optionLabel?.length>0" for="app-cms-record-status-selector-{{id}}"
+  <label *ngIf="optionLabel?.length>0" for="app-cms-enum-record-status-selector-{{id}}"
     class="color-highlight">{{optionLabel}}</label>
-  <select [(ngModel)]="modelDate" name="app-cms-record-status-selector-{{id}}" #RecordStatus="ngModel"
+  <select [(ngModel)]="modelDate" name="app-cms-enum-record-status-selector-{{id}}" #RecordStatus="ngModel"
     ngClass="cms-RecordStatusEnum-selector-{{ modelDate}}" class="form-control validate-name"
     [required]="optionRequired" [attr.disabled]="optionDisabled? true : null"
-    id="app-cms-record-status-selector-{{id}}">
+    id="app-cms-enum-record-status-selector-{{id}}">
     <option *ngFor="
-      let item of dataModelResult.listItems;
+      let item of optionDataListResult.listItems;
       index as i
     " [ngValue]="item.value">
       {{ item.description }}

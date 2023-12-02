@@ -26,10 +26,10 @@
     <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
       <mat-step label="{{'TITLE.Menu_Profile' | translate}}" state="main">
         <!-- RecordStatus Field -->
-        <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
           [(model)]="dataModel.recordStatus" [optionDisabled]="false"
           [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-          [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
         <!-- Title Field -->
         <app-core-cpmainmenu-selector (optionChange)="onActionSelectorSelect($event)" [optionDisabled]="false"
           [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkParentId"

@@ -65,10 +65,10 @@ mobileeeeeeeeeeeeeeeee
           </mat-slide-toggle>
           <br />
           <!-- RecordStatus Field -->
-          <app-cms-record-status-selector *ngIf="dataProfessional&& fieldsInfo['recordStatus']?.accessWatchField"
+          <app-cms-enum-record-status-selector *ngIf="dataProfessional&& fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
             [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
           <!-- Title Field -->
@@ -273,9 +273,10 @@ mobileeeeeeeeeeeeeeeee
         </mat-form-field>
         <!-- MainAdminRecordStatus Field -->
 
-<app-cms-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField" [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
-[optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
-[optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
+          [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
+          [optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
+          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
 

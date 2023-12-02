@@ -15,9 +15,10 @@
     <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
       <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
         <!-- RecordStatus Field -->
-        <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField" [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+          [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
         <!-- Lang Field -->
         <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['lang']?.accessWatchField">
           <mat-label>{{fieldsInfo['lang']?.fieldTitle}}</mat-label>

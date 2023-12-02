@@ -52,16 +52,12 @@
         </mat-error>
       </div>
       <!-- activityStatus Field -->
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-        *ngIf="fieldsInfo['activityStatus']?.accessWatchField">
-        <select [(ngModel)]="dataModel.activityStatus" name="dataModel.activityStatus" #activityStatus="ngModel"
-          class="form-control validate-name">
-          <option *ngFor="let item of dataModelEstateActivityStatusEnumResult.listItems; index as i"
-            [ngValue]="item.value">
-            {{ item.description }}
-          </option>
-        </select>
-      </div>
+
+      <app-cms-enum-x-selector *ngIf="fieldsInfo['activityStatus']?.accessWatchField"
+        [optionDataListResult]="dataModelEstateActivityStatusEnumResult" [(model)]="dataModel.activityStatus"
+        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['activityStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+
       <!-- linkActivityTypeId Field -->
       <app-estate-activity-type-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
         [optionSelectForce]="dataModel.linkActivityTypeId"

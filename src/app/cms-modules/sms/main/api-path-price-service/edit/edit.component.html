@@ -14,10 +14,10 @@
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
       {{ formInfo.formTitle }}
       <!-- RecordStatus Field -->
-      <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+      <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
         [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
 
@@ -83,41 +83,17 @@
           class="form-control validate-name" id="dataModel.messageLength" />
       </div>
       <!-- MessageType Field -->
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <select id="dataModel.messageType" [(ngModel)]="dataModel.messageType" name="dataModel.messageType"
-          #MessageType="ngModel" required class="form-control validate-name">
-          <option *ngFor="
-                    let item of dataModelSmsMessageTypeEnumResult.listItems;
-                    index as i
-                    " [ngValue]="item.value">
-            {{ item.description }}
-          </option>
-        </select>
-        <em align="end">{{
-          "TITLE.Select_type_of_message" | translate}}
-        </em>
-        <mat-error *ngIf="MessageType.errors?.required">
-          MessageType is <strong>{{'MESSAGE.required' | translate}}</strong>
-        </mat-error>
-      </div>
+      <app-cms-enum-x-selector *ngIf="fieldsInfo['messageType']?.accessWatchField"
+      [optionDataListResult]="dataModelSmsMessageTypeEnumResult" [(model)]="dataModel.messageType"
+      [optionDisabled]="false" [optionLabel]="this.fieldsInfo['messageType']?.fieldTitle" [optionRequired]="true"
+      [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+
       <!-- OutBoxType Field -->
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <select id="dataModel.outBoxType" [(ngModel)]="dataModel.outBoxType" name="dataModel.outBoxType"
-          #OutBoxType="ngModel" required class="form-control validate-name">
-          <option *ngFor="
-                    let item of dataModelSmsOutBoxTypeEnumResult.listItems;
-                    index as i
-                    " [ngValue]="item.value">
-            {{ item.description }}
-          </option>
-        </select>
-        <em align="end">{{
-          "TITLE.Select_type_of_sending" | translate}}
-        </em>
-        <mat-error *ngIf="OutBoxType.errors?.required">
-          OutBoxType is <strong>{{'MESSAGE.required' | translate}}</strong>
-        </mat-error>
-      </div>
+      <app-cms-enum-x-selector *ngIf="fieldsInfo['outBoxType']?.accessWatchField"
+      [optionDataListResult]="dataModelSmsOutBoxTypeEnumResult" [(model)]="dataModel.outBoxType"
+      [optionDisabled]="false" [optionLabel]="this.fieldsInfo['outBoxType']?.fieldTitle" [optionRequired]="true"
+      [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">

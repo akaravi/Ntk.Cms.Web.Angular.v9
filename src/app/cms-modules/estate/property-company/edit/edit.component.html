@@ -17,17 +17,17 @@
         <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
           <!-- RecordStatus Field -->
 
-          <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+          <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
             [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
           <!-- MainAdminRecordStatus Field -->
 
-          <app-cms-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
+          <app-cms-enum-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
             [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
             [optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
-            [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
 

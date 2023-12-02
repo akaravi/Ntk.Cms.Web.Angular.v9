@@ -13,17 +13,16 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 
 @Component({
-  selector: 'app-cms-record-status-selector',
-  templateUrl: './cms-record-status-selector.component.html',
+  selector: 'app-cms-enum-record-status-selector',
+  templateUrl: './cms-enum-record-status-selector.component.html',
 
 })
-export class CmsRecordStatusSelectorComponent implements OnInit {
+export class CmsEnumRecordStatusSelectorComponent implements OnInit {
   static nextId = 0;
-  id = ++CmsRecordStatusSelectorComponent.nextId;
+  id = ++CmsEnumRecordStatusSelectorComponent.nextId;
   constructor(
     public translate: TranslateService,
     private publicHelper: PublicHelper,) {
-
   }
   @Input()
   set model(value: RecordStatusEnum) {

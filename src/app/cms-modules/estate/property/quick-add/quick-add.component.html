@@ -228,10 +228,10 @@
         </mat-form-field>
         <!-- MainAdminRecordStatus Field -->
 
-        <app-cms-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
+        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
           [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
           [optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
-          [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">

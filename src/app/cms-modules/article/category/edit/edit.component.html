@@ -8,9 +8,10 @@
         <app-progress-spinner [options]="loading"> </app-progress-spinner>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
         <!-- RecordStatus Field -->
-        <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField" [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
         <!-- Title Field -->

@@ -15,36 +15,19 @@
       {{ formInfo.formTitle }}
       <!-- RecordStatus Field -->
 
-      <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+      <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
         [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
       <!-- ExpertPriceType Field -->
-      <div *ngIf="fieldsInfo['expertPriceType']?.accessWatchField"
-        class="input-style has-borders no-icon  input-style-always-active validate-field mb-4">
-        <label for="dataModel.expertPriceType" class="color-highlight">{{
-          fieldsInfo["expertPriceType"]?.fieldTitle
-          }}</label>
-        <select id="dataModel.expertPriceType" [disabled]="!fieldsInfo['expertPriceType']?.accessEditField"
-          [(ngModel)]="dataModel.expertPriceType" name="dataModel.expertPriceType" #ExpertPriceType="ngModel"
-          ngClass="cms-RecordStatusEnum-selector-{{ dataModel.expertPriceType }}" required
-          class="form-control validate-name">
-          <option *ngFor="
-              let item of dataModelEstatePropertyExpertPriceTypeEnumResult.listItems;
-              index as i
-            " [ngValue]="item.value">
-            {{ item.description }}
-          </option>
-        </select>
-        <i *ngIf="!ExpertPriceType.value" class="fa fa-times  invalid color-red-dark"></i>
-        <i *ngIf="ExpertPriceType.value" class="fa fa-check  valid color-green-dark"></i>
-        <mat-error *ngIf="ExpertPriceType.errors?.required">
-          {{ fieldsInfo['expertPriceType']?.fieldTitle }} is
-          <strong>{{ "MESSAGE.required" | translate }}</strong>
-        </mat-error>
-      </div>
+      <app-cms-enum-x-selector *ngIf="fieldsInfo['expertPriceType']?.accessWatchField"
+        [optionDataListResult]="dataModelEstatePropertyExpertPriceTypeEnumResult" [(model)]="dataModel.expertPriceType"
+        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['expertPriceType']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+
+
       <!-- LinkLocationId Field -->
       <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
         [optionSelectForce]="dataModel.linkLocationId" [(optionLoading)]="loading"

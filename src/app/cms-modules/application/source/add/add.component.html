@@ -18,9 +18,10 @@
           {{'TITLE.Using_this_option,_you_can_copy_other_source_settings_and_then_make_changes' | translate}}
         </div>
         <!-- RecordStatus Field -->
-        <app-cms-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField" [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+          [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
         <!-- Title Field -->

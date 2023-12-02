@@ -18,9 +18,9 @@
       <!-- form  -->
       <div class="mt-5 mb-3">
         <!-- RecordStatus Field -->
-        <app-cms-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-        [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        <app-cms-enum-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
         <!-- LinkCategoryId Field -->
         <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)"
           [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkEstateCustomerCategoryId"

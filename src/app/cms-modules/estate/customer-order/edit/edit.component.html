@@ -18,9 +18,9 @@
       <!-- form  -->
       <div class="mt-5 mb-3">
         <!-- RecordStatus Field -->
-        <app-cms-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        <app-cms-enum-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
           [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-          [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
         <!-- Title Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

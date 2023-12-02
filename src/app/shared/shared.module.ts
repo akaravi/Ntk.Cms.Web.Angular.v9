@@ -168,7 +168,8 @@ import { PasswordStrengthComponent } from './password-strength/password-strength
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
 import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
-import { CmsRecordStatusSelectorComponent } from './cms-record-status-selector/cms-record-status-selector.component';
+import { CmsEnumRecordStatusSelectorComponent } from './cms-enum-record-status-selector/cms-enum-record-status-selector.component';
+import { CmsEnumXSelectorComponent } from './cms-enum-x-selector/cms-enum-x-selector.component';
 
 @NgModule({
   imports: [
@@ -259,7 +260,8 @@ import { CmsRecordStatusSelectorComponent } from './cms-record-status-selector/c
     CmsExportListComponent,
     CmsSiteSelectorComponent,
     CmsCurrencySelectorComponent,
-    CmsRecordStatusSelectorComponent,
+    CmsEnumRecordStatusSelectorComponent,
+    CmsEnumXSelectorComponent,
     CmsLocationSelectorComponent,
     CmsLocationCompleteComponent,
     CmsApplicationSelectorComponent,
@@ -403,7 +405,8 @@ import { CmsRecordStatusSelectorComponent } from './cms-record-status-selector/c
     CmsExportListComponent,
     CmsSiteSelectorComponent,
     CmsCurrencySelectorComponent,
-    CmsRecordStatusSelectorComponent,
+    CmsEnumRecordStatusSelectorComponent,
+    CmsEnumXSelectorComponent,
     CmsLocationSelectorComponent,
     CmsLocationCompleteComponent,
     CmsApplicationSelectorComponent,

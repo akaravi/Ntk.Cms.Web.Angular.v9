@@ -55,9 +55,9 @@
           </mat-slide-toggle>
         </div>
         <!-- UserRegidteryRecordStatus Field -->
-        <app-cms-record-status-selector [(model)]="dataConfigSiteValuesModel.userRegidteryRecordStatus" [optionDisabled]="false"
-        [optionLabel]="this.translate.instant('TITLE.SELECT_STATUS')" [optionRequired]="true"
-          [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        <app-cms-enum-record-status-selector [(model)]="dataConfigSiteValuesModel.userRegidteryRecordStatus"
+          [optionDisabled]="false" [optionLabel]="this.translate.instant('TITLE.SELECT_STATUS')" [optionRequired]="true"
+          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
         <!-- UserRegidteryExpireDateDay Field -->
         <mat-form-field class="ntk-full-width">

@@ -76,15 +76,11 @@
           id="dataModel.showInFormOrder" />
       </div>
       <!-- InputDataType Field -->
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <select id="dataModel.inputDataType" [(ngModel)]="dataModel.inputDataType" name="dataModel.inputDataType"
-          class="form-control validate-name">
-          <option *ngFor=" let item of dataModelInputDataTypeEnumResult.listItems; index as i" [ngValue]="item.value">{{
-            item.description }}</option>
-        </select>
-        <span><i class="fa fa-chevron-down"></i></span>
-        <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
-      </div>
+      <app-cms-enum-x-selector *ngIf="fieldsInfo['inputDataType']?.accessWatchField"
+      [optionDataListResult]="dataModelInputDataTypeEnumResult" [(model)]="dataModel.inputDataType"
+      [optionDisabled]="false" [optionLabel]="this.fieldsInfo['inputDataType']?.fieldTitle" [optionRequired]="true"
+      [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+
       <!-- Unit Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.unit" class="color-highlight">{{fieldsInfo['unit']?.fieldTitle}}</label>
@@ -122,15 +118,10 @@
             {{fieldsInfo['invisibleForEndUser']?.fieldTitle}}</h5>
         </div>
         <!-- InputDataType Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <select id="dataModel.inputDataType" [(ngModel)]="dataModel.inputDataType" name="dataModel.inputDataType"
-            #MainAdminRecordStatus="ngModel" class="form-control validate-name">
-            <option *ngFor=" let item of dataModelInputDataTypeEnumResult.listItems; index as i" [ngValue]="item.value">
-              {{ item.description }}</option>
-          </select>
-          <span><i class="fa fa-chevron-down"></i></span>
-          <em class="mt-n3">{{'TITLE.SELECT_STATUS' | translate}}</em>
-        </div>
+        <app-cms-enum-x-selector *ngIf="fieldsInfo['inputDataType']?.accessWatchField"
+        [optionDataListResult]="dataModelInputDataTypeEnumResult" [(model)]="dataModel.inputDataType"
+        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['inputDataType']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
         <!-- Unit Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="dataModel.unit" class="color-highlight">{{fieldsInfo['unit']?.fieldTitle}}</label>

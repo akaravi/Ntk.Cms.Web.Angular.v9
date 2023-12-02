@@ -24,9 +24,9 @@
     <div class="ntk-cms-html-card-body">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
         <!-- RecordStatus Field -->
-        <app-cms-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-          [optionSelectFirstItem]="true"></app-cms-record-status-selector>
+        <app-cms-enum-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
         <!-- Title Field -->
         <mat-form-field class="ntk-full-width" *ngIf="ProfessionalData">
             <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
