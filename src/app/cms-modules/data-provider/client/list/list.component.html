@@ -53,7 +53,8 @@
     <ng-container cms-action-row>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
         <h1>{{tableRowSelected?.id}}</h1>
-        <button mat-menu-item (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow">
+        <button mat-menu-item (click)="onActionbuttonEditRow(tableRowSelected)"
+            *ngIf="dataModelResult.access.accessEditRow">
             <span>{{'ACTION.EDIT' | translate}}</span>
             <mat-icon>mode_edit</mat-icon>
         </button>
@@ -61,6 +62,29 @@
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
+        </button>
+        <button mat-menu-item (click)="onActionbuttonTransactionList(tableRowSelected)"
+            *ngIf="dataModelResult.access.accessWatchRow">
+            <span>{{'ACTION.TRANSACTIONS' | translate}}</span>
+            <mat-icon>paid</mat-icon>
+        </button>
+        <button mat-menu-item (click)="onActionbuttonClientCreditAccountRow(tableRowSelected)">
+            <span>client charge</span>
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+        <button mat-menu-item (click)="onActionbuttonDataRow(tableRowSelected)"
+            *ngIf="dataModelResult.access.accessDeleteRow">
+            <span>{{'ACTION.DATA' | translate}}</span>
+            <mat-icon>data_usage</mat-icon>
+        </button>
+        <button mat-menu-item (click)="onActionbuttonClientList(tableRowSelected)"
+            *ngIf="dataModelResult.access.accessWatchRow">
+            <span>{{'ACTION.CLIENT' | translate}}</span>
+            <mat-icon>people</mat-icon>
+        </button>
+        <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0"
+            type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
         </button>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>

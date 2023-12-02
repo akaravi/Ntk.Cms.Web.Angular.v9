@@ -70,6 +70,30 @@
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
         </button>
+        <button (click)="onActionbuttonPriceList(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow">
+            <span>{{'ACTION.PRICE' | translate}}</span>
+            <mat-icon>credit_card</mat-icon>
+        </button>
+        <button (click)="onActionbuttonSourceList(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow">
+            <span>{{'ACTION.SOURCE' | translate}}</span>
+            <mat-icon>source</mat-icon>
+        </button>
+        <button (click)="onActionbuttonClientList(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow">
+            <span>{{'ACTION.CLIENT' | translate}}</span>
+            <mat-icon>people</mat-icon>
+        </button>
+        <button (click)="onActionbuttonTransactionList(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow">
+            <span>{{'ACTION.TRANSACTIONS' | translate}}</span>
+            <mat-icon>paid</mat-icon>
+        </button>
+        <button (click)="onActionbuttonDataRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow">
+            <span>{{'ACTION.DATA' | translate}}</span>
+            <mat-icon>data_usage</mat-icon>
+        </button>
+        <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0"
+            type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
+        </button>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>
     <ng-container cms-action-area>

@@ -70,6 +70,16 @@
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
+
+    <button (click)="onActionbuttonViewMemberRow(tableRowSelected)" *ngIf="tableRowSelected?.linkMemberId > 0"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <span>{{'ACTION.MEMBER' | translate}}</span>
+      <mat-icon>assignment_ind</mat-icon>
+    </button>
+    <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
+    </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
   <ng-container cms-action-area>
