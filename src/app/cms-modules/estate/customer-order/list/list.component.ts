@@ -115,7 +115,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     'Title',
     'RecordStatus',
     "CaseCode",
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
