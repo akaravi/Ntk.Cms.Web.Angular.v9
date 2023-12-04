@@ -77,7 +77,7 @@ export class BankPaymentPublicConfigListComponent implements OnInit, OnDestroy {
     'ClassName',
     'LinkCurrencyId',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   expandedElement: BankPaymentPublicConfigModel | null;
   cmsApiStoreSubscribe: Subscription;

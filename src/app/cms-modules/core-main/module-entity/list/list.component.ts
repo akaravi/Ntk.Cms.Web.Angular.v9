@@ -88,7 +88,7 @@ export class CoreModuleEntityListComponent implements OnInit, OnDestroy {
     'LinkModuleId',
     'ModuleName',
     'ModuleEntityName',
-    'Action'
+    // 'Action'
   ];
 
 

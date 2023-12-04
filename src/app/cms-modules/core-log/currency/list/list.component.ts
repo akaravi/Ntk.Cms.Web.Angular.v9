@@ -88,7 +88,7 @@ export class CoreLogCurrencyListComponent implements OnInit, OnDestroy {
     'ExchangeSaleRatio',
     'MasterCurrency',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

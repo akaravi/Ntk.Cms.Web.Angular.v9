@@ -76,7 +76,7 @@ export class EstateBillboardListComponent implements OnInit, OnDestroy {
     'Title',
     'SpeedView',
     'ReloadViewPerMin',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   tabledisplayedColumnsMobileSource: string[] = [
@@ -84,7 +84,7 @@ export class EstateBillboardListComponent implements OnInit, OnDestroy {
     'Title',
     'SpeedView',
     'ReloadViewPerMin',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
 

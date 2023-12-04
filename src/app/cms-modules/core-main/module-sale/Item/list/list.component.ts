@@ -90,7 +90,7 @@ export class CoreModuleSaleItemListComponent implements OnInit, OnDestroy {
     'MonthLength',
     'EnumCmsModuleSaleItemType',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
 
 

@@ -79,7 +79,7 @@ export class CoreUserClaimTypeListComponent implements OnInit, OnDestroy {
     'RecordStatus',
     'Title',
     'Kind',
-    'Action'
+    // 'Action'
   ];
 
 

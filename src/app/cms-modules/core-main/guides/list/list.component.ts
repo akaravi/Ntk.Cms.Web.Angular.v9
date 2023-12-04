@@ -72,7 +72,7 @@ export class CoreGuideListComponent implements OnInit, OnDestroy {
     'Key',
     'TitleFa',
     'ShowInMenuOrder',
-    'Action',
+    // 'Action',
     'position'
   ];
 

@@ -77,7 +77,7 @@ export class ApiTelegramLogInputListComponent implements OnInit, OnDestroy {
     'StatusWebhook',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
   ];
 
 

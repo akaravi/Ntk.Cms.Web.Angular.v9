@@ -89,7 +89,7 @@ export class CoreLogErrorListComponent implements OnInit, OnDestroy {
     'LinkMemberId',
     'ModuleEntityId',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

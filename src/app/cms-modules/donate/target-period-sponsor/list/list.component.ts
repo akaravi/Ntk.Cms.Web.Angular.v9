@@ -81,7 +81,7 @@ export class DonateTargetPeriodSponserListComponent implements OnInit, OnDestroy
     'Title',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

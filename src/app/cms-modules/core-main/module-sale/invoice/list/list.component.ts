@@ -78,7 +78,7 @@ export class CoreModuleSaleInvoiceListComponent implements OnInit, OnDestroy {
     'Price',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
   expandedElement: CoreModuleSaleInvoiceModel | null;

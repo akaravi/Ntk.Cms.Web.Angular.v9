@@ -88,7 +88,7 @@ export class CoreModuleEntityReportFileListComponent implements OnInit, OnDestro
     'Title',
     'Description',
     'ReportFileType',
-    'Action'
+    // 'Action'
   ];
 
 

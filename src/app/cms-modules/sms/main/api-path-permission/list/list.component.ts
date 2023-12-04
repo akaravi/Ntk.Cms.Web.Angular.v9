@@ -73,7 +73,7 @@ export class SmsMainApiPathPermissionListComponent implements OnInit, OnDestroy 
     'Id',
     'RecordStatus',
     'Title',
-    'Action'
+    // 'Action'
   ];
 
 

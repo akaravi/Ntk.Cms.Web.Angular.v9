@@ -74,7 +74,7 @@ export class EstateContractTypeListComponent implements OnInit, OnDestroy {
     'HasDepositPrice',
     'HasRentPrice',
     'HasPeriodPrice',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

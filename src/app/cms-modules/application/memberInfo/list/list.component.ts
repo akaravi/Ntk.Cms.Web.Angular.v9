@@ -85,7 +85,7 @@ export class ApplicationMemberInfoListComponent implements OnInit, OnDestroy {
     'ScorePercent',
     'LinkApplicationId',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   expandedElement: ApplicationMemberInfoModel | null;

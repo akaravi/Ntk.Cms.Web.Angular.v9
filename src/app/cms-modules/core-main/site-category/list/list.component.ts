@@ -74,7 +74,7 @@ export class CoreSiteCategoryListComponent implements OnInit, OnDestroy {
     'RecordStatus',
     'Title',
     'Domains',
-    'Action'
+    // 'Action'
   ];
 
 

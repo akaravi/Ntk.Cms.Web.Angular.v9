@@ -163,7 +163,7 @@ export class EstatePropertyHistoryListComponent implements OnInit, OnDestroy {
     'AppointmentDateTo',
     'LinkActivityTypeId',
     'ActivityStatus',
-    'Action',
+    // 'Action',
     'QuickView',
   ];
 

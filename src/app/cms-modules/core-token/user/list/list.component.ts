@@ -104,7 +104,7 @@ export class CoreTokenUserListComponent implements OnInit, OnDestroy {
     'RememberOnDevice',
     'CreatedDate',
     'tokenExpireDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

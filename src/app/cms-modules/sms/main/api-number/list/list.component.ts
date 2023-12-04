@@ -79,7 +79,7 @@ export class SmsMainApiNumberListComponent implements OnInit, OnDestroy {
     'SaleStatus',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
   expandedElement: SmsMainApiNumberModel | null;

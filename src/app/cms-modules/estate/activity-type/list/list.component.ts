@@ -72,7 +72,7 @@ export class EstateActivityTypeListComponent implements OnInit, OnDestroy {
     'IconFont',
     'Title',
     'Description',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

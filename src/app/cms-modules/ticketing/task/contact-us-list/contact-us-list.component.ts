@@ -76,7 +76,7 @@ export class TicketingTaskContactUsListComponent implements OnInit, OnDestroy {
     'Title',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

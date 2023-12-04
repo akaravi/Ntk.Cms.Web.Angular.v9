@@ -85,7 +85,7 @@ export class CoreModuleSaleHeaderGroupListComponent implements OnInit, OnDestroy
     'LinkCmsSiteCategoryId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

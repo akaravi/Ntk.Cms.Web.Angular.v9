@@ -106,7 +106,7 @@ export class CoreTokenMicroServiceListComponent implements OnInit, OnDestroy {
     'RememberOnDevice',
     'CreatedDate',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

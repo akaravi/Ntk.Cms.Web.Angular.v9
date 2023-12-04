@@ -81,7 +81,7 @@ export class CoreUserClaimGroupListComponent implements OnInit, OnDestroy {
     'Title',
     'LinkModuleId',
     'LinkSiteCategoryId',
-    'Action'
+    // 'Action'
   ];
 
 

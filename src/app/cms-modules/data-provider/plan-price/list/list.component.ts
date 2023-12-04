@@ -75,7 +75,7 @@ export class DataProviderPlanPriceListComponent implements OnInit, OnDestroy {
     'Description',
     'PeriodDay',
     'Price',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

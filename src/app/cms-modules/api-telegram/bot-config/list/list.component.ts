@@ -77,7 +77,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
     'StatusWebhook',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
     'LinkTo'
   ];
   expandedElement: ApiTelegramBotConfigModel | null;

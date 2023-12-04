@@ -98,7 +98,7 @@ export class CoreSiteListComponent implements OnInit, OnDestroy {
     'CreatedDate',
     'UpdatedDate',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
 
 

@@ -75,7 +75,7 @@ export class TicketingDepartemenOperatorListComponent implements OnInit, OnDestr
     'LinkSourceId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

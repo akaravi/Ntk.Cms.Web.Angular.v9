@@ -105,7 +105,7 @@ export class CoreLogMemberListComponent implements OnInit, OnDestroy {
     'ToNumber',
     'ApiNumber',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumSendMemberStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

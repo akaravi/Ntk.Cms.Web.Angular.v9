@@ -74,7 +74,7 @@ export class SmsMainCustomerCreditListComponent implements OnInit, OnDestroy {
     'Id',
     'RecordStatus',
     'Title',
-    'Action'
+    // 'Action'
   ];
 
 

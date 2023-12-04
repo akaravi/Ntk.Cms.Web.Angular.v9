@@ -104,7 +104,7 @@ export class CoreUserSupportAccessListComponent implements OnInit, OnDestroy {
     'AccessEditRow',
     'AccessDeleteRow',
     'AccessCountRow',
-    'Action'
+    // 'Action'
   ];
 
 

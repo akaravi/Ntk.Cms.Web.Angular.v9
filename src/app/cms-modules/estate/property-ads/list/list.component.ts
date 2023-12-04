@@ -79,7 +79,7 @@ export class EstatePropertyAdsListComponent implements OnInit, OnDestroy {
     'LinkPropertyId',
     'FromDate',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   expandedElement: EstatePropertyAdsModel | null;

@@ -88,7 +88,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent implements OnInit, OnDestroy
     'ScheduleSendAllowNextRun',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

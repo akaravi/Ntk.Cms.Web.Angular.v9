@@ -73,7 +73,7 @@ export class PollingContentListComponent implements OnInit, OnDestroy {
     'Title',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

@@ -90,12 +90,12 @@ export class ApplicationAppListComponent implements OnInit, OnDestroy {
     'CreatedDate',
     'UpdatedDate',
     'LastSuccessfullyBuildDate',
-    'Action'
+    // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Title',
     'AppVersion',
-    'Action'
+    // 'Action'
   ];
   expandedElement: ApplicationAppModel | null;
   cmsApiStoreSubscribe: Subscription;

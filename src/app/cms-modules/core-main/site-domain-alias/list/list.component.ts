@@ -88,7 +88,7 @@ export class CoreSiteDomainAliasListComponent implements OnInit, OnDestroy {
     'Redirect',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

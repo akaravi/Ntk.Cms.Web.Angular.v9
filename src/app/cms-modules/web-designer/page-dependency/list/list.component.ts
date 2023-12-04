@@ -82,11 +82,11 @@ export class WebDesignerMainPageDependencyListComponent implements OnInit, OnDes
     'LinkModuleId',
     'CmsModuleClassName',
     'ClassActionName',
-    'Action'
+    // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Title',
-    'Action',
+    // 'Action',
   ];
   expandedElement: WebDesignerMainPageDependencyModel | null;
   cmsApiStoreSubscribe: Subscription;

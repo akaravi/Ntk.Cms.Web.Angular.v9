@@ -90,7 +90,7 @@ export class EstatePropertyDetailListComponent implements OnInit, OnDestroy {
     'ShowInFormOrder',
     'LinkPropertyTypeLanduseId',
     'LinkPropertyDetailGroupId',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

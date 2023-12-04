@@ -89,7 +89,7 @@ export class ChartCommentListComponent implements OnInit, OnDestroy {
     'Writer',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

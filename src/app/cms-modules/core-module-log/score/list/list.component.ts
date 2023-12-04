@@ -106,7 +106,7 @@ export class CoreModuleLogScoreListComponent implements OnInit, OnDestroy {
     'ModuleEntityId',
 
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

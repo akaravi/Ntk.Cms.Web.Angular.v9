@@ -80,7 +80,7 @@ export class WebDesignerLogMemberInfoListComponent implements OnInit, OnDestroy 
     'AppSourceVer',
     'ScorePercent',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   expandedElement: WebDesignerLogMemberInfoModel | null;

@@ -72,7 +72,7 @@ export class SmsMainApiNumberPermissionListComponent implements OnInit, OnDestro
     'Id',
     'RecordStatus',
     'Title',
-    'Action'
+    // 'Action'
   ];
 
 

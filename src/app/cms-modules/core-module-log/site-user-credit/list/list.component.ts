@@ -102,7 +102,7 @@ export class CoreModuleLogSiteUserCreditListComponent implements OnInit, OnDestr
     'LinkSiteId',
 
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

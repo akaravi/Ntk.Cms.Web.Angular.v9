@@ -75,7 +75,7 @@ export class TicketingTemplateListComponent implements OnInit, OnDestroy {
     'Id',
     'RecordStatus',
     'Title',
-    'Action'
+    // 'Action'
   ];
   cmsApiStoreSubscribe: Subscription;
 

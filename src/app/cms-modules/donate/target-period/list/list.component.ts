@@ -84,7 +84,7 @@ export class DonateTargetPeriodListComponent implements OnInit, OnDestroy {
     'CurrentViewCount',
     'CurrentPaymentCount',
     'CurrentPaymentSum',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

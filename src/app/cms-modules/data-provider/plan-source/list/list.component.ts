@@ -73,7 +73,7 @@ export class DataProviderPlanSourceListComponent implements OnInit, OnDestroy {
     'Id',
     'RecordStatus',
     'Title',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

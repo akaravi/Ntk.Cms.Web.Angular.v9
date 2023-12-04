@@ -77,7 +77,7 @@ export class SmsMainApiPathPublicConfigListComponent implements OnInit, OnDestro
     'Title',
     'ClassName',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

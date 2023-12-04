@@ -77,7 +77,7 @@ export class DonateTargetListComponent implements OnInit, OnDestroy {
     'RecordStatus',
     'Title',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

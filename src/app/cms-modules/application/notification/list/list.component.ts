@@ -83,7 +83,7 @@ export class ApplicationLogNotificationListComponent implements OnInit, OnDestro
     'ContentType',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   expandedElement: ApplicationLogNotificationModel | null;

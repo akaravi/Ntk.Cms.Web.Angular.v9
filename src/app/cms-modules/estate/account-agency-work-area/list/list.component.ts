@@ -68,7 +68,7 @@ export class EstateAccountAgencyWorkAreaListComponent implements OnInit, OnDestr
   tabledisplayedColumnsSource: string[] = [
     'linkEstateAccountAgencyId',
     'linkCoreLocationId',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

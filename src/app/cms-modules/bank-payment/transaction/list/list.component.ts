@@ -85,7 +85,7 @@ export class BankPaymentTransactionListComponent implements OnInit, OnDestroy {
     'AmountPure',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumTransactionRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

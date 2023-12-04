@@ -92,7 +92,7 @@ export class EstatePropertyExpertPriceListComponent implements OnInit, OnDestroy
     'LinkContractTypeId',
     'LinkCoreCurrencyId',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   dataModelInquiryResult: ErrorExceptionResultBase;
   dataModelInquiry: EstatePriceInquiryDtoModel = new EstatePriceInquiryDtoModel();

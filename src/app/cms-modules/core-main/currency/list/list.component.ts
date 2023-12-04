@@ -81,7 +81,7 @@ export class CoreCurrencyListComponent implements OnInit, OnDestroy {
     'ExchangeBuyRatio',
     'ExchangeSaleRatio',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

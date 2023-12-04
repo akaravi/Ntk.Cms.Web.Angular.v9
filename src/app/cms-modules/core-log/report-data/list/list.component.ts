@@ -114,7 +114,7 @@ export class CoreLogReportDataListComponent implements OnInit, OnDestroy {
     'LinkModuleEntityReportFileId',
     'CreatedDate',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumSendReportDataStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

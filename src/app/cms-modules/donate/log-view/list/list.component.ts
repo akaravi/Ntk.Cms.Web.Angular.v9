@@ -72,7 +72,7 @@ export class DonateLogViewListComponent implements OnInit, OnDestroy {
     'DonateTargetId',
     'DeviceId',
     'VisitDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
