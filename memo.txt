@@ -130,11 +130,11 @@ https://blog.angular-university.io/angular-push-notifications/
 btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight
 
 ====save
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green 
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green
 ====back cancel
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray 
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray
 ====delete
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red 
+btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red
 ====edit
 btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta
 ====add
@@ -146,13 +146,101 @@ btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue
 
 ====select ed
 btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full
-====select 
+====select
 btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full
 
 
 
-
-
-
-
+##########################################################################################
+extension extension extension extension extension extension extension extension extension
+##########################################################################################
+code --list-extensions | % { "code --install-extension $_" }
+##########################################################################################
+extension extension extension extension extension extension extension extension extension
+##########################################################################################
+code --install-extension 1tontech.angular-material
+code --install-extension aaron-bond.better-comments
+code --install-extension Angular.ng-template
+code --install-extension apk27.ngx-translate-lookup
+code --install-extension Archety.material-icons
+code --install-extension batisteo.vscode-django
+code --install-extension blackmist.LinkCheckMD
+code --install-extension bmewburn.vscode-intelephense-client
+code --install-extension ChakrounAnas.turbo-console-log
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension christian-kohler.path-intellisense
+code --install-extension codeandstuff.package-json-upgrade
+code --install-extension Dart-Code.dart-code
+code --install-extension Dart-Code.flutter
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension docsmsft.docs-article-templates
+code --install-extension docsmsft.docs-authoring-pack
+code --install-extension docsmsft.docs-build
+code --install-extension docsmsft.docs-images
+code --install-extension docsmsft.docs-linting
+code --install-extension docsmsft.docs-markdown
+code --install-extension docsmsft.docs-metadata
+code --install-extension docsmsft.docs-preview
+code --install-extension docsmsft.docs-scaffolding
+code --install-extension docsmsft.docs-yaml
+code --install-extension donjayamanne.python-environment-manager
+code --install-extension donjayamanne.python-extension-pack
+code --install-extension ecmel.vscode-html-css
+code --install-extension EditorConfig.EditorConfig
+code --install-extension eg2.vscode-npm-script
+code --install-extension esbenp.prettier-vscode
+code --install-extension firefox-devtools.vscode-firefox-debug
+code --install-extension forevolve.git-extensions-for-vs-code
+code --install-extension funkyremi.vscode-google-translate
+code --install-extension github.vscode-github-actions
+code --install-extension GitHub.vscode-pull-request-github
+code --install-extension googlecloudtools.cloudcode
+code --install-extension Gruntfuggly.todo-tree
+code --install-extension idleberg.icon-fonts
+code --install-extension johnpapa.Angular2
+code --install-extension johnpapa.vscode-peacock
+code --install-extension jorgeserrano.vscode-csharp-snippets
+code --install-extension k--kato.intellij-idea-keybindings
+code --install-extension KevinRose.vsc-python-indent
+code --install-extension magicstack.MagicPython
+code --install-extension Megan.20-20-20
+code --install-extension mhutchie.git-graph
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-dotnettools.vscode-dotnet-runtime
+code --install-extension ms-python.isort
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-toolsai.jupyter
+code --install-extension ms-toolsai.jupyter-keymap
+code --install-extension ms-toolsai.jupyter-renderers
+code --install-extension ms-toolsai.vscode-jupyter-cell-tags
+code --install-extension ms-toolsai.vscode-jupyter-slideshow
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-ssh-edit
+code --install-extension ms-vscode.cmake-tools
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.cpptools-extension-pack
+code --install-extension ms-vscode.cpptools-themes
+code --install-extension ms-vscode.makefile-tools
+code --install-extension ms-vscode.remote-explorer
+code --install-extension ms-vscode.remote-server
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension njpwerner.autodocstring
+code --install-extension PKief.material-icon-theme
+code --install-extension Postman.postman-for-vscode
+code --install-extension pranaygp.vscode-css-peek
+code --install-extension rangav.vscode-thunder-client
+code --install-extension redhat.vscode-yaml
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension TheHolyCoder.swagger-tools
+code --install-extension twxs.cmake
+code --install-extension VisualStudioExptTeam.intellicode-api-usage-examples
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension wholroyd.jinja
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension zobo.php-intellisense
+##########################################################################################
+extension extension extension extension extension extension extension extension extension
 ##########################################################################################

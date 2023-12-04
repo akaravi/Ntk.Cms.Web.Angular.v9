@@ -20,6 +20,104 @@
   <div class="card-overlay bg-black opacity-80"></div>
 </div>
 
+
+
+
+
+<div class="content mb-0 mt-3">
+  <div class="row mb-0">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
+      <app-estate-customer-order-widget-add [(optionLoading)]="loading" cssClass="gutter-b card-stretch">
+      </app-estate-customer-order-widget-add>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
+      <app-estate-property-widget-add [(optionLoading)]="loading" cssClass="gutter-b card-stretch">
+      </app-estate-property-widget-add>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
+      <app-estate-property-history-widget-add [(optionLoading)]="loading" cssClass="gutter-b card-stretch">
+      </app-estate-property-history-widget-add>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+      <app-coremodule-site-credit-widget-price [(optionLoading)]="loading" class="mb-xl-4 mb-sm-4"
+        style="cursor: pointer;" [routerLink]="'/coremodule/site-credit'" *ngIf="this.tokenHelper.isAdminSite">
+      </app-coremodule-site-credit-widget-price>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+      <app-coremodule-site-user-credit-widget-price [(optionLoading)]="loading" class="mb-xl-4 mb-sm-4"
+        style="cursor: pointer;" [routerLink]="'/coremodule/site-user-credit'">
+      </app-coremodule-site-user-credit-widget-price>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+      <app-core-userclaimcontent-widget-status [(optionLoading)]="loading" class="card mb-xl-4 mb-sm-4"
+        style="overflow: scroll; height: 270px;">
+      </app-core-userclaimcontent-widget-status>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+      <app-ticketing-task-widget2 [(optionLoading)]="loading" cssClass="gutter-b card-stretch"
+        class="card mb-5 mb-xl-4 mb-sm-4">
+      </app-ticketing-task-widget2>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+      <app-core-site-widget-count2 [(optionLoading)]="loading" cssClass="gutter-b card-stretch"
+        class="card mb-xl-4 mb-sm-4"></app-core-site-widget-count2>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['application']">
+      <app-application-memberinfo-widget2 [(optionLoading)]="loading" cssClass="gutter-b card-stretch"
+        class="card mb-xl-4 mb-sm-4">
+      </app-application-memberinfo-widget2>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['core']">
+      <app-ReportAbuse-widget2 [(optionLoading)]="loading" *ngIf="this.tokenHelper.isAdminSite" cssClass="gutter-b"
+        [widgetHeight]="'200px'" [baseColor]="'success'">
+      </app-ReportAbuse-widget2>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['chart']">
+      <app-chart-content-widget2 [(optionLoading)]="loading" cssClass="gutter-b" [widgetHeight]="'200px'"
+        [baseColor]="'primary'"></app-chart-content-widget2>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['article']">
+      <app-article-content-widget2 [(optionLoading)]="loading" cssClass="gutter-b" [widgetHeight]="'200px'"
+        [iconColor]="'success'"></app-article-content-widget2>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['blog']">
+      <app-blog-content-widget2 [(optionLoading)]="loading" cssClass="gutter-b" [widgetHeight]="'200px'"
+        [baseColor]="'primary'"></app-blog-content-widget2>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['biography']">
+      <app-biography-content-widget2 [(optionLoading)]="loading" cssClass="gutter-b" [widgetHeight]="'200px'"
+        [baseColor]="'primary'"></app-biography-content-widget2>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['news']">
+      <app-news-content-widget2 [(optionLoading)]="loading" cssClass="gutter-b" [widgetHeight]="'200px'"
+        [iconColor]="'success'"></app-news-content-widget2>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['application']">
+      <app-application-app-widget2 [(optionLoading)]="loading" cssClass="gutter-b" [widgetHeight]="'200px'"
+        [baseColor]="'success'">
+      </app-application-app-widget2>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['application']">
+      <app-application-app-widget-create [(optionLoading)]="loading" cssClass="gutter-b card-stretch">
+      </app-application-app-widget-create>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+    </div>
+
+  </div>
+</div>
+
+
+
 <div class="content mb-0 mt-3">
   <div class="row mb-0">
     <div class="col-6 pe-1">

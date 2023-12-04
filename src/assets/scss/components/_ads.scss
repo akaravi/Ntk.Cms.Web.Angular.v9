@@ -118,7 +118,8 @@
   border-radius: $rounded-sm;
   transform: translateY(150%);
   transition: $globalTransitions;
-
+  margin-right:40px;
+  margin-left:40px;
   img {
     width: 60px;
     position: absolute;

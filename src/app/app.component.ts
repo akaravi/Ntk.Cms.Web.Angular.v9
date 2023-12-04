@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
     private configService: CoreConfigurationService,
     private themeService: ThemeService,
     private publicHelper: PublicHelper,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private splashScreenService: SplashScreenService,
     private translationService: TranslationService,
     private singlarService: CmsSignalrService,

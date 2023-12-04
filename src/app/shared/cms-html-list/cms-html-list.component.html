@@ -17,7 +17,7 @@
           <!--end::Header-->
           <hr *ngIf="optionHeaderDisplay||optionActionDisplay">
           <!--begin::Body-->
-          <div class="col-12 pe-0" [ngClass]="optionClassBody">
+          <div class="col-12 pe-0" [ngClass]="optionClassBody" #topbody>
             <p class="text-center">
               <app-progress-spinner [options]="loading"> </app-progress-spinner>
               <ng-content select="[cms-body]"></ng-content>

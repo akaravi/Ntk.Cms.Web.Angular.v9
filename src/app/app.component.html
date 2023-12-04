@@ -4,7 +4,7 @@
 
 <div id="page">
   <app-header-bar></app-header-bar>
-  <app-footer-bar></app-footer-bar>
+  <app-footer-bar *ngIf="this.tokenHelper.isMobile"></app-footer-bar>
 
   <div class="page-title-clear"></div>
   <router-outlet></router-outlet>

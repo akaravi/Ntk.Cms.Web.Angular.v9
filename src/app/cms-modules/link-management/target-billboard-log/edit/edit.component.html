@@ -11,131 +11,93 @@
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
-
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
+            <!-- RecordStatus Field -->
+            <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+                [optionSelectFirstItem]="true">
+            </app-cms-enum-record-status-selector>
+            <!-- LinkManagementBillboardId Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.linkManagementBillboardId" class="color-highlight">{{ fieldsInfo["linkManagementBillboardId"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.linkManagementBillboardId" name="dataModel.linkManagementBillboardId" #LinkManagementBillboardId 
+                placeholder="{{fieldsInfo['linkManagementBillboardId']?.fieldTitle }}"
+                class="form-control validate-name" id="dataModel.linkManagementBillboardId" />
+            </div>
+            <!-- LinkManagementTargetId Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.linkManagementTargetId" class="color-highlight">{{ fieldsInfo["linkManagementTargetId"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.linkManagementTargetId" name="dataModel.linkManagementTargetId" #LinkManagementTargetId 
+                placeholder="{{fieldsInfo['linkManagementTargetId']?.fieldTitle }}"
+                class="form-control validate-name" id="dataModel.linkManagementTargetId" />
+            </div>
+            <!-- ClickPrice Field -->
+            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.clickPrice" class="color-highlight">{{ fieldsInfo["clickPrice"]?.fieldTitle }}</label>
+                <input  matInput type="number" [(ngModel)]="dataModel.clickPrice" name="dataModel.clickPrice" #ClickPrice
+                placeholder="{{'TITLE.Amount_Per_Click' | translate}}" minlength="0" 
+                class="form-control validate-name" id="dataModel.clickPrice" />
+                <mat-error *ngIf="ClickPrice.errors?.required">
+                ClickPrice is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- ViewPrice Field -->
+            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.viewPrice" class="color-highlight">{{ fieldsInfo["viewPrice"]?.fieldTitle }}</label>
+                <input  matInput type="number" [(ngModel)]="dataModel.viewPrice" name="dataModel.viewPrice" #ViewPrice
+                placeholder="{{'TITLE.Amount_Per_Show' | translate}}" minlength="0" 
+                class="form-control validate-name" id="dataModel.viewPrice" />
+                <mat-error *ngIf="ViewPrice.errors?.required">
+                ViewPrice is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- DeviceId Field -->
+            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.deviceId" class="color-highlight">{{ fieldsInfo["deviceId"]?.fieldTitle }}</label>
+                <input  matInput type="number" [(ngModel)]="dataModel.deviceId" name="dataModel.deviceId" #DeviceId
+                placeholder="{{fieldsInfo['deviceId']?.fieldTitle}}"minlength="3" maxlength="100"  required
+                class="form-control validate-name" id="dataModel.deviceId" />
+                <em align="end">{{ DeviceId.value.length }} / 100</em>
+                <mat-error *ngIf="DeviceId.errors?.required">
+                    DeviceId is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- IpAddress Field -->
+            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.ipAddress" class="color-highlight">{{ fieldsInfo["ipAddress"]?.fieldTitle }}</label>
+                <input  matInput type="text" [(ngModel)]="dataModel.ipAddress" name="dataModel.ipAddress" #IpAddress
+                placeholder="{{fieldsInfo['ipAddress']?.fieldTitle}}"minlength="3" maxlength="100"  required
+                class="form-control validate-name" id="dataModel.ipAddress" />
+                <em align="end">{{ IpAddress.value.length }} / 100</em>
+                <mat-error *ngIf="IpAddress.errors?.required">
+                    IpAddress is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- BrowserName Field -->
+            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.browserName" class="color-highlight">{{ fieldsInfo["browserName"]?.fieldTitle }}</label>
+                <input  matInput type="text" [(ngModel)]="dataModel.browserName" name="dataModel.browserName" #BrowserName
+                placeholder="{{fieldsInfo['browserName']?.fieldTitle}}"minlength="3" maxlength="100"  required
+                class="form-control validate-name" id="dataModel.browserName" />
+                <em align="end">{{ BrowserName.value.length }} / 100</em>
+                <mat-error *ngIf="BrowserName.errors?.required">
+                    BrowserName is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                </button>
+    
+            </div>
+        </form>
         <!--Content-->
     </div>
 </div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <!-- RecordStatus Field -->
-        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
-
-
-
-
-        <!-- LinkManagementBillboardId Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['linkManagementBillboardId']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.linkManagementBillboardId" name="dataModel.linkManagementBillboardId"
-                #LinkManagementBillboardId type="number"
-                placeholder="{{fieldsInfo['linkManagementBillboardId']?.fieldTitle}}" />
-            <mat-icon matSuffix *ngIf="dataModel.linkManagementBillboardId" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.linkManagementBillboardId = 0">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- LinkManagementTargetId Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['linkManagementTargetId']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.linkManagementTargetId" name="dataModel.linkManagementTargetId"
-                #LinkManagementTargetId type="number"
-                placeholder="{{fieldsInfo['linkManagementTargetId']?.fieldTitle}}" />
-            <mat-icon matSuffix *ngIf="dataModel.linkManagementTargetId" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.linkManagementTargetId = 0">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-        <!-- ClickPrice Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['clickPrice']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.clickPrice" name="dataModel.clickPrice" #ClickPrice type="number"
-                placeholder="{{fieldsInfo['clickPrice']?.fieldTitle}}" />
-            <mat-icon matSuffix *ngIf="dataModel.clickPrice" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.clickPrice = 0">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-        <!-- ViewPrice Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['viewPrice']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.viewPrice" name="dataModel.viewPrice" #ViewPrice type="number"
-                placeholder="{{fieldsInfo['viewPrice']?.fieldTitle}}" />
-            <mat-icon matSuffix *ngIf="dataModel.viewPrice" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.viewPrice = 0">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- DeviceId Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['deviceId']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.deviceId" name="dataModel.deviceId" #DeviceId type="text"
-                placeholder="{{fieldsInfo['deviceId']?.fieldTitle}}" minlength="3" maxlength="100" required />
-            <mat-icon matSuffix *ngIf="dataModel.deviceId" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.deviceId = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ DeviceId.value.length }} / 100</mat-hint>
-            <mat-error *ngIf="DeviceId.errors?.required">
-                DeviceId is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-        <!-- IpAddress Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['ipAddress']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.ipAddress" name="dataModel.ipAddress" #IpAddress type="text"
-                placeholder="{{fieldsInfo['ipAddress']?.fieldTitle}}" minlength="3" maxlength="100" required />
-            <mat-icon matSuffix *ngIf="dataModel.ipAddress" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.ipAddress = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ IpAddress.value.length }} / 100</mat-hint>
-            <mat-error *ngIf="IpAddress.errors?.required">
-                IpAddress is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-        <!-- BrowserName Field -->
-        <mat-form-field class="ntk-full-width">
-            <mat-label>{{fieldsInfo['browserName']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.browserName" name="dataModel.browserName" #BrowserName type="text"
-                placeholder="{{fieldsInfo['browserName']?.fieldTitle}}" minlength="3" maxlength="100" />
-            <mat-icon matSuffix *ngIf="dataModel.browserName" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.browserName = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ BrowserName.value.length }} / 100</mat-hint>
-            <mat-error *ngIf="BrowserName.errors?.required">
-                BrowserName is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>

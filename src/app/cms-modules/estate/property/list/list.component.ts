@@ -1,6 +1,6 @@
 
 import {
-  AfterViewInit, ChangeDetectorRef, Component, Input, OnDestroy, OnInit
+  AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild
 } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { PageEvent } from "@angular/material/paginator";
@@ -565,10 +565,12 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     this.filteModelContent.currentPageNumber = 0;
     this.DataGetAll();
   }
+  @ViewChild('topbody', { read: ElementRef }) tableInput: ElementRef;
   onTablePageingData(event?: PageEvent): void {
     this.filteModelContent.currentPageNumber = event.pageIndex + 1;
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
+    setTimeout(() => this.tableInput.nativeElement.scrollIntoView({ behavior: 'smooth', block: "end" }));
   }
 
   onActionbuttonNewRow(event?: MouseEvent): void {
