@@ -320,36 +320,7 @@
                 <td></td>
                 <td>
 
-                  <a (click)="onActionbuttonViewRow(row)" class="link-primary pointer">
-                    {{'ACTION.VIEW' | translate}}
-                    |</a>
-
-                  <a (click)="onActionbuttonEditRow(row,$event)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-                    class="link-primary pointer"> {{'ACTION.EDIT' | translate}} |</a>
-
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-                    class="link-primary pointer"> {{'ACTION.DELETE' | translate}} |</a>
-
-                  <a (click)="onActionbuttonChangePassword(row)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-                    class="link-primary pointer"> {{'ACTION.CHANGE_PASSWORD' | translate}} |</a>
-
-                  <a (click)="onActionbuttonLoginToRow(row)" *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-                    class="link-primary pointer"> {{'ACTION.LOGIN_TO_THIS_USER' | translate}} |</a>
-
-                  <a (click)="onActionbuttonSiteList(row,$event)" class="link-primary pointer">
-                    {{'ACTION.MEMBER_SITES'
-                    | translate}}|</a>
-
-                  <a (click)="onActionbuttonSiteByGroupList(row,$event)" class="link-primary pointer">
-                    {{'ACTION.ACCESS_MEMBER_SITES'
-                    | translate}}|</a>
-
-                  <a (click)="onActionbuttonResller(row,$event)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-                    class="link-primary pointer"> {{'ACTION.MARKETING_SUBCATEGORY' | translate}}
-                  </a>
+                  
                 </td>
               </tr>
 

@@ -327,43 +327,7 @@
                 <td></td>
                 <td>
 
-                  <a (click)="onActionbuttonEditRow(row)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-                    class="link-primary pointer"> {{'ACTION.EDIT' | translate}} |</a>
-
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-                    class="link-primary pointer"> {{'ACTION.DELETE' | translate}} |</a>
-
-                  <a (click)="onActionbuttonSiteList(row,$event)" class="link-primary pointer">
-                    {{'ACTION.MEMBER_SITES'
-                    |
-                    translate}}|</a>
-
-                  <a (click)="onActionbuttonEditSiteRow(row,$event)" class="link-primary pointer">
-                    {{'ACTION.EDIT_SITES'
-                    |
-                    translate}}|</a>
-
-                  <a (click)="onActionbuttonEditUserRow(row,$event)" class="link-primary pointer">
-                    {{'ACTION.USER_EDITING' |
-                    translate}}|</a>
-
-                  <a (click)="onActionbuttonChangePassword(row)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-                    class="link-primary pointer"> {{'ACTION.CHANGE_PASSWORD' | translate}} |</a>
-
-                  <a (click)="onActionbuttonLoginToRow(row)" *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-                    class="link-primary pointer"> {{'ACTION.LOGIN_TO_THIS_USER' | translate}} |</a>
-
-                  <a (click)="onActionbuttonResllerUser(row,$event)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-                    class="link-primary pointer"> {{'ACTION.USER_MARKETING_SUBCATEGORY' |
-                    translate}}|</a>
-
-                  <a (click)="onActionbuttonResllerSite(row,$event)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-                    class="link-primary pointer"> {{'ACTION.SITE_MARKETING_SUBCATEGORY' |
-                    translate}}</a>
+                  
                 </td>
               </tr>
 

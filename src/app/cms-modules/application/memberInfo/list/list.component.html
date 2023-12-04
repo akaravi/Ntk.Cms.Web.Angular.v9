@@ -237,19 +237,7 @@
                 <td></td>
                 <td>
 
-                  <a (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-                    class="link-primary pointer"> {{'ACTION.EDIT' | translate}} </a>|
-
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                    class="link-primary pointer"> {{'ACTION.DELETE' | translate}} </a>|
-
-                  <a (click)="onActionbuttonNotifictionList(row)"
-                    *ngIf="row.notificationId && row.notificationId.length>0" class="link-primary pointer">
-                    {{'ACTION.NOTIFICATION_REPORT' | translate}} </a>|
-
-                  <a (click)="onActionbuttonNotifictionActionSend(row)"
-                    *ngIf="row.notificationId && row.notificationId.length>0" class="link-primary pointer">
-                    {{'ACTION.SEND_NOTIFICATIONS' | translate}} </a>
+                
                 </td>
               </tr>
 

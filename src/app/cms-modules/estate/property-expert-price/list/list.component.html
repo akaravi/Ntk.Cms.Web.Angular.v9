@@ -282,14 +282,6 @@
                                 <td></td>
                                 <td>
 
-                                    <ng-container *ngIf="dataModelResult.access.accessEditRow">
-                                        <a (click)="onActionbuttonEditRow(row)" class="link-primary pointer">
-                                            {{'ACTION.EDIT' | translate}}
-                                        </a>|
-                                    </ng-container>
-                                    <a (click)="onActionbuttonDeleteRow(row)"
-                                        *ngIf="dataModelResult.access.accessDeleteRow" class="link-primary pointer">
-                                        {{'ACTION.DELETE' | translate}} </a>
                                 </td>
                             </tr>
 
