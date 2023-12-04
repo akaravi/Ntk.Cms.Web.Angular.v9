@@ -16,10 +16,7 @@
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
             translate}}</button>
         
-        <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
-            (click)="onActionbuttonDeleteRow()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-            translate}}</button>
+        
 
         <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}

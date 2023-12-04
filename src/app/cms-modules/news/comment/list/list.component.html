@@ -52,12 +52,13 @@
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
-    <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0" (click)="onActionbuttonEditRow()"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
+    <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0"
+      (click)="onActionbuttonEditRow(tableRowSelected)" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}} </span>
     </button>
-    <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0" (click)="onActionbuttonDeleteRow()"
-      type="button"
+    <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
+      (click)="onActionbuttonDeleteRow(tableRowSelected)" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red"><span>{{'ACTION.DELETE'
         |translate}}</span>
     </button>
