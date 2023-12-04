@@ -26,7 +26,7 @@
       class="color-highlight font-11 font-500">{{'AUTH.SINGINBYSMS.MOBILE' | translate}}</label>
     <i class="fa fa-times disabled invalid color-red-dark"></i>
     <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
+
     <mat-error *ngIf="Mobile.errors?.required">
       {{'AUTH.SINGINBYSMS.MOBILE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
     </mat-error>
@@ -44,7 +44,7 @@
       translate}}</label>
     <i class="fa fa-times disabled invalid color-red-dark"></i>
     <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
+
     <mat-error *ngIf="captchaText.errors?.required">
       {{'AUTH.INPUT.CAPTCHACODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
     </mat-error>
@@ -85,7 +85,7 @@
       {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}}</label>
     <i class="fa fa-times disabled invalid color-red-dark"></i>
     <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
+
     <mat-error *ngIf="code.errors?.required">
       {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
     </mat-error>
@@ -103,7 +103,7 @@
       translate}}</label>
     <i class="fa fa-times disabled invalid color-red-dark"></i>
     <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
+
     <mat-error *ngIf="captchaText.errors?.required">
       {{'AUTH.INPUT.CAPTCHACODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
     </mat-error>
