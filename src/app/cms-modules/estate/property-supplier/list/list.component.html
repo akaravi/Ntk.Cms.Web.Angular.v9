@@ -20,10 +20,7 @@
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow($event)" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonEditRow(tableRowSelected,$event)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-      translate}}</button>
+   
     <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected?.id?.length>0"
       (click)="onActionbuttonDeleteRow()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE'
