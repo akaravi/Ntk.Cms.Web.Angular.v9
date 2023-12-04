@@ -148,26 +148,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
-                            <mat-icon>mode_edit</mat-icon>
-                            <span>{{'ACTION.EDIT' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-                            <mat-icon>delete_forever</mat-icon>
-                            <span>{{'ACTION.DELETE' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonTransactionList(row)"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                            <mat-icon>paid</mat-icon>
-                            <span>{{'ACTION.TRANSACTIONS' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonTestPayment(row)"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                            <mat-icon>payment</mat-icon>
-                            <span>{{'ACTION.PAYMENTTEST' | translate}}</span>
-                        </button>
+                        
                     </mat-menu>
                 </mat-cell>
             </ng-container>

@@ -124,10 +124,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-                            <mat-icon>mode_edit</mat-icon>
-                            <span>{{'ACTION.EDIT' | translate}}</span>
-                        </button>
+                      
                     </mat-menu>
                 </mat-cell>
             </ng-container>

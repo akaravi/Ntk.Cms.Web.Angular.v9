@@ -180,39 +180,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonConfigSiteRow(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.MODULE_SETTINGS' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonConfigMainAdminRow(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.ADMINISTRATIVE_SETTINGS' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonSiteCreditAccountRow(row)"
-              *ngIf="row.virtual_CmsModule.NeedSiteCreditAccount"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.CREDIT_SITE' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonSiteUserCreditAccountRow(row)"
-              *ngIf="row.virtual_CmsModule.NeedSiteUserCreditAccount"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.YOUR_USER_CREDENTIALS' | translate}}</span>
-            </button>
+            
           </mat-menu>
         </mat-cell>
       </ng-container>

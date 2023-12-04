@@ -106,15 +106,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-                            <mat-icon>mode_edit</mat-icon>
-                            <span>{{'ACTION.EDIT' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-                            <mat-icon>delete_forever</mat-icon>
-                            <span>{{'ACTION.DELETE' | translate}}</span>
-                        </button>
+                      
 
                     </mat-menu>
                 </mat-cell>

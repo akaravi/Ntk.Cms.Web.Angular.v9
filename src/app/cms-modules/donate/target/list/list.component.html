@@ -153,28 +153,7 @@
                     </button>
 
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-                            <mat-icon>mode_edit</mat-icon>
-                            <span>{{'ACTION.EDIT' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-                            <mat-icon>delete_forever</mat-icon>
-                            <span>{{'ACTION.DELETE' | translate}}</span>
-                            <button mat-menu-item (click)="onActionbuttonViewRow(row)"
-                                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                                <mat-icon>visibility</mat-icon>
-                                <span>{{'ACTION.VIEW' | translate}}</span>
-                            </button>
-                        </button>
-                        <button (click)="onActionbuttonViewRow(row)">
-                            <mat-icon>visibility</mat-icon>
-                            <span>{{'ACTION.VIEW' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonTargetPeriodList(row)">
-                            <mat-icon>list</mat-icon>
-                            <span>{{'ACTION.TARGET_PERIOD' | translate}}</span>
-                        </button>
+                      
                     </mat-menu>
                 </mat-cell>
             </ng-container>

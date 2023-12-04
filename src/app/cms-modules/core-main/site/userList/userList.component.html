@@ -228,62 +228,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button mat-menu-item (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonSiteList(row,$event)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>web</mat-icon>
-              <span>{{'ACTION.MEMBER_SITES' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonEditSiteRow(row,$event)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>language</mat-icon>
-              <span> {{'ACTION.EDIT_SITES' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonEditUserRow(row,$event)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>person_search</mat-icon>
-              <span>{{'ACTION.USER_EDITING' | translate}}</span>
-            </button>
-            <button mat-menu-item *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-              (click)="onActionbuttonChangePassword(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>lock</mat-icon>
-              <span>{{'ACTION.CHANGE_PASSWORD' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonUserSupportList(row,$event)"
-              *ngIf="this.tokenHelper.isAdminSite"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>supervised_user_circle</mat-icon>
-              <span>{{'ACTION.ACEESS' | translate}}</span>
-            </button>
-            <button mat-menu-item *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-              (click)="onActionbuttonLoginToRow(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>login</mat-icon>
-              <span>{{'ACTION.LOGIN_TO_THIS_USER' | translate}}</span>
-            </button>
-            <button mat-menu-item (click)="onActionbuttonResllerUser(row,$event)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>devices</mat-icon>
-              <span> {{'ACTION.SUBSET_OF_USER_MARKETING' | translate}}</span>
-            </button>
-
-            <button mat-menu-item (click)="onActionbuttonResllerSite(row,$event)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>devices</mat-icon>
-              <span>{{'ACTION.SUBSET_OF_SITE_MARKETING' | translate}}</span>
-            </button>
+          
 
           </mat-menu>
         </mat-cell>

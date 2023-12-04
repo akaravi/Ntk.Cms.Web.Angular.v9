@@ -155,27 +155,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonAgentRow(row,$event)">
-              <mat-icon>person</mat-icon>
-              <span>{{'ACTION.PERSONNEL' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonHistoryRow(row,$event)">
-              <mat-icon>history</mat-icon>
-              <span>{{'ACTION.HISTORY' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonPropertyRow(row,$event)">
-              <mat-icon>home</mat-icon>
-              <span>{{'ACTION.CONNECT_TO_PROPERTY' | translate}}</span>
-            </button>
+            
           </mat-menu>
         </mat-cell>
       </ng-container>

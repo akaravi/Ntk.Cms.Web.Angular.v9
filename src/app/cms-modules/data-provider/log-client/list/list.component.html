@@ -85,10 +85,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonViewRow(row)" *ngIf="dataModelResult.access.accessWatchRow">
-              <mat-icon>visibility</mat-icon>
-              <span>{{'ACTION.VIEW' | translate}}</span>
-            </button>
+           
           </mat-menu>
         </mat-cell>
       </ng-container>

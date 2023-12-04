@@ -172,46 +172,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonGetMeAsync(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.CHECK_SITUATION' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonInboxList(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.LIST_OF_RECEIPTS' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonOutboxList(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.LIST_OF_SUBMISSIONS' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonSendMessage(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.Send_Message' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonReceiveMessageAll(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.RECEIVE_MESSAGES' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonReceiveMessageLast(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>extension</mat-icon>
-              <span>{{'ACTION.GET_LATEST_MESSAGE' | translate}}</span>
-            </button>
+            
           </mat-menu>
         </mat-cell>
       </ng-container>

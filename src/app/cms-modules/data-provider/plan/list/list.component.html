@@ -149,36 +149,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-                            <mat-icon>mode_edit</mat-icon>
-                            <span>{{'ACTION.EDIT' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-                            <mat-icon>delete_forever</mat-icon>
-                            <span>{{'ACTION.DELETE' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonPriceList(row)" *ngIf="dataModelResult.access.accessWatchRow">
-                            <mat-icon>credit_card</mat-icon>
-                            <span>{{'ACTION.PRICE' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonSourceList(row)" *ngIf="dataModelResult.access.accessWatchRow">
-                            <mat-icon>source</mat-icon>
-                            <span>{{'ACTION.SOURCE' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonClientList(row)" *ngIf="dataModelResult.access.accessWatchRow">
-                            <mat-icon>people</mat-icon>
-                            <span>{{'ACTION.CLIENT' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonTransactionList(row)"
-                            *ngIf="dataModelResult.access.accessWatchRow">
-                            <mat-icon>paid</mat-icon>
-                            <span>{{'ACTION.TRANSACTIONS' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonDataRow(row)" *ngIf="dataModelResult.access.accessDeleteRow">
-                            <mat-icon>data_usage</mat-icon>
-                            <span>{{'ACTION.DATA' | translate}}</span>
-                        </button>
+                       
                     </mat-menu>
                 </mat-cell>
             </ng-container>
