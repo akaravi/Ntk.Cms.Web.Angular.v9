@@ -1,6 +1,6 @@
 <app-cms-html-list [optionLoading]="loading"
   [optionTreeDisplay]="!requestLinkApiPathId || requestLinkApiPathId.length===0"
-  [optionActionRowDisplay]="tableRowSelected?.id>0">
+  [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-sms-apipath-tree [(optionLoading)]="loading"

@@ -31,7 +31,7 @@
 
   </app-estate-property-project-header>
   <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="requestLinkPropertyTypeLanduseId?.length===0"
-    [optionActionRowDisplay]="tableRowSelected?.id>0">
+    [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
     <ng-container cms-tree>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
       <app-estate-property-type-landuse-tree (optionChange)="onActionSelectorSelect($event)">
