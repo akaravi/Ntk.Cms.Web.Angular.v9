@@ -48,11 +48,7 @@
       <button *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute " (click)="onActionbuttonNewRow()"
         type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
         translate}}</button>
-      <button
-        *ngIf="dataModelResult.access.accessEditRow && (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
-        (click)="onActionbuttonEditRow()" type="button"
-        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-        translate}}</button>
+      
     
       <button *ngIf="this.tokenHelper.isAdminSite && optionloadByRoute&& tableRowSelected?.id?.length>0 "
         (click)="onActionbuttonActionSendSmsToCustomerOrder()" type="button"
