@@ -58,7 +58,7 @@
           </div>
           <!-- ExpireDate Field -->
           <div *ngIf="fieldsInfo['expireDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["fromDate"]?.fieldTitle }}</label>
+            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
             <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate" 
             class="form-control validate-name" id="dataModel.expireDate" />
             <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
