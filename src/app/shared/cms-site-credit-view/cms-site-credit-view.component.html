@@ -38,7 +38,9 @@
         (click)="onFormSubmit()" [disabled]="!vform.form.valid">
         <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
       </button>
-      <button type="button" (click)="onFormActionCreditCharge()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" [disabled]="!vform.form.valid">
+      <button type="button" (click)="onFormActionCreditCharge()"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        [disabled]="!vform.form.valid">
         <i class="fa fa-check-square-o"></i> {{'ACTION.CREDIT_CHARGE' | translate}}
       </button>
     </div>

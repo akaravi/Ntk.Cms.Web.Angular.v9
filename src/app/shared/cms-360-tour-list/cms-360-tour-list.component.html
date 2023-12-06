@@ -1,5 +1,5 @@
 <button (click)="onActionShowView360Add()" *ngIf="!showAddView360" type="button"
-  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" style="margin: 10px;">
+  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
   {{'ACTION.Add_To_List' | translate}}
 </button>
 <button (click)="onActionImportFile360View()" *ngIf="privateDataImageModel && privateDataImageModel.length > 0"
@@ -73,7 +73,8 @@
     <p>در ورود این تنظیمات با مدیریت سامانه هماهنگ باشید</p>
     <div style="background-color: bisque;padding:5px">
       <div class="form-actions" style="direction:ltr">
-        <button *ngIf="postionView" (click)="onActionShowHotspotAdd()" type="button" class="btn btn-success">
+        <button *ngIf="postionView" (click)="onActionShowHotspotAdd()" type="button"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
           {{'ACTION.ADD' | translate}}
         </button>
       </div>
@@ -208,7 +209,7 @@
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <input type="text"  style="direction: ltr; text-align: left;" placeholder="url" [disabled]="editdisabled"
+                <input type="text" style="direction: ltr; text-align: left;" placeholder="url" [disabled]="editdisabled"
                   name="url" [(ngModel)]="row.url">
               </div>
             </ng-container>
@@ -254,7 +255,7 @@
 
 
     <div class="form-actions" style="direction:ltr">
-      <button type="button" (click)="onActionSubmitView360()" class="btn btn-success">
+      <button type="button" (click)="onActionSubmitView360()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
         <i class="fa fa-check-square-o"></i> {{'ACTION.SUBMIT_BUTTON' | translate}}
       </button>
       <button type="button" (click)="onActionCancellView360()"

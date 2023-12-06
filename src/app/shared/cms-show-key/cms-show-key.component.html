@@ -45,9 +45,10 @@
             <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
             <!-- SubjectTitle Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.subjectTitle" class="color-highlight">{{ "TITILE.subjectTitle" | translate }}</label>
-              <input type="text" [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle"
-                id="dataModel.subjectTitle" placeholder="{{'TITILE.subjectTitle' | translate }}" required/>
+                <label for="dataModel.subjectTitle" class="color-highlight">{{ "TITILE.subjectTitle" | translate
+                    }}</label>
+                <input type="text" [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle"
+                    id="dataModel.subjectTitle" placeholder="{{'TITILE.subjectTitle' | translate }}" required />
             </div>
 
             <!-- Priority Field -->
@@ -81,14 +82,17 @@
 <div class="ntk-cms-html-card-footer">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
     <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-        <button type="submit" *ngIf="showFormAdd" (click)="onFormSubmit()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+        <button type="submit" *ngIf="showFormAdd" (click)="onFormSubmit()"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
             [disabled]="!formGroup?.valid">
             <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>
-        <button type="button" *ngIf="!showFormAdd" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        <button type="button" *ngIf="!showFormAdd"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
             (click)="onActionAdd()">{{'ACTION.SHOW_KEY'
             |translate}}</button>
-        <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+        <button type="button" (click)="onFormCancel()"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
             <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
     </div>

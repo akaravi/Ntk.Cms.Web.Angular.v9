@@ -78,7 +78,8 @@
     <p>در ورود این تنظیمات با مدیریت سامانه هماهنگ باشید</p>
     <div style="background-color: bisque;padding:5px">
       <div class="form-actions" style="direction:ltr">
-        <button *ngIf="postionView" (click)="onActionShowHotspotAdd()" type="button" class="btn btn-success">
+        <button *ngIf="postionView" (click)="onActionShowHotspotAdd()" type="button"
+          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
           {{'ACTION.ADD' | translate}}
         </button>
       </div>
@@ -248,7 +249,7 @@
       <mat-icon class="pointer" matSuffix>mode_edit</mat-icon>
     </div>
     <div class="form-actions" style="direction:ltr">
-      <button type="button" (click)="onActionSubmitView360()" class="btn btn-success">
+      <button type="button" (click)="onActionSubmitView360()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
         <i class="fa fa-check-square-o"></i> {{'ACTION.SUBMIT_BUTTON' | translate}}
       </button>
       <button type="button" (click)="onActionCancellView360()"

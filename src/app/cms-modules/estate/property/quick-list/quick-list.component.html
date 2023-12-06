@@ -48,8 +48,8 @@
       <button *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute " (click)="onActionbuttonNewRow()"
         type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
         translate}}</button>
-      
-    
+
+
       <button *ngIf="this.tokenHelper.isAdminSite && optionloadByRoute&& tableRowSelected?.id?.length>0 "
         (click)="onActionbuttonActionSendSmsToCustomerOrder()" type="button"
         class="btn btn-outline-danger BTN-text">{{'ACTION.ActionSendSmsToCustomerOrder' | translate}}</button>
@@ -101,7 +101,8 @@
         <mat-icon>ads_click</mat-icon>
       </button>
       <button mat-menu-item (click)="onActionbuttonEditRow(tableRowSelected,$event)"
-        *ngIf="dataModelResult.access.accessEditRow">
+        *ngIf="dataModelResult.access.accessEditRow"
+        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
         <span>{{'ACTION.EDIT' | translate}}</span>
         <mat-icon>mode_edit</mat-icon>
       </button>
@@ -232,7 +233,7 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #actionMenu="matMenu">
-             
+
             </mat-menu>
           </mat-cell>
         </ng-container>
@@ -303,7 +304,7 @@
                 <tr>
                   <td></td>
                   <td>
-                    
+
 
 
                   </td>
