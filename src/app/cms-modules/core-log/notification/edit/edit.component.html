@@ -11,123 +11,87 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
-
+    <form #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- SendStatusType Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <select id="dataModel.sendStatusType" [(ngModel)]="dataModel.sendStatusType"
+          name="dataModel.sendStatusType"
+         #SendStatusType="ngModel"
+         class="form-control validate-name">
+         <option  *ngFor="
+          let item of dataModelEnumSendNotificationStatusTypeResult.listItems;
+          index as i" [value]="item.value">
+           {{  item.description }}
+         </option>
+        </select>
+        <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
+        <mat-error *ngIf="SendStatusType.errors?.required">
+          SendStatusType is <strong>{{'content.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- linkSiteId Field -->
+      <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
+        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
+      </app-cms-site-selector>
+      <!-- LinkMemberId Field -->
+      <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
+        [(optionLoading)]="loading"
+        [optionPlaceholder]="this.translate.instant('TITLE.Member')">
+      </app-cms-member-selector>
+       <!-- ModuleName Field -->
+       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.moduleName" class="color-highlight">ModuleName</label>
+        <input matInput type="text" [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName
+        placeholder="ModuleName"
+        class="form-control validate-name" id="dataModel.moduleName" />
+      </div>
+      <!-- ModuleEntityName Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.moduleEntityName" class="color-highlight">ModuleEntityName</label>
+        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName
+        placeholder="ModuleEntityName"
+        class="form-control validate-name" id="dataModel.moduleEntityName" />
+      </div>
+      <!-- ModuleEntityId Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.moduleEntityId" class="color-highlight">EntityId</label>
+        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId" #ModuleEntityId
+        placeholder="ModuleEntityId"
+        class="form-control validate-name" id="dataModel.moduleEntityId" />
+      </div>
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
+        placeholder="title" 
+        class="form-control validate-name" id="dataModel.title" />
+      </div>
+      <!-- content Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.content" class="color-highlight">content</label>
+        <textarea matInput [(ngModel)]="dataModel.content" name="dataModel.content" #content type="text"
+        placeholder="content" 
+        id="dataModel.content" class="form-control validate-name">
+        </textarea>
+      </div>
+       <!-- ReturnApi Field -->
+       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.returnApi" class="color-highlight">ReturnApi</label>
+        <textarea matInput [(ngModel)]="dataModel.returnApi" name="dataModel.returnApi" #ReturnApi type="text"
+          placeholder="ReturnApi" 
+          id="dataModel.returnApi" class="form-control validate-name">
+        </textarea>
+      </div>
+      <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+        <div [innerHTML]="dataModel | prettyjson"></div>
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+      </div>
+    </form>
     <!--Content-->
   </div>
 </div>
-<form #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-card-body">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <!-- SendStatusType Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-select placeholder="{{'TITLE.Status' | translate}}" [(ngModel)]="dataModel.sendStatusType"
-        name="dataModel.sendStatusType" #SendStatusType="ngModel"
-        panelClass="SendStatusType-{{ dataModel.sendStatusType }}" required>
-        <mat-option *ngFor="
-                  let item of dataModelEnumSendNotificationStatusTypeResult.listItems;
-                  index as i
-                " [value]="item.value">{{ item.description }}</mat-option>
-      </mat-select>
-      <mat-hint align="end">{{'TITLE.SELECT_STATUS' | translate}}</mat-hint>
-      <mat-error *ngIf="SendStatusType.errors?.required">
-        SendStatusType is <strong>{{'content.required' | translate}}</strong>
-      </mat-error>
-    </mat-form-field>
-
-  <!-- linkSiteId Field -->
-  <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
-    [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.SITE')"></app-cms-site-selector>
-
-    <!-- LinkMemberId Field -->
-    <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
-      [(optionLoading)]="loading"
-      [optionPlaceholder]="this.translate.instant('TITLE.Member')"></app-cms-member-selector>
-
-    <!-- ModuleName Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>ModuleName</mat-label>
-      <input matInput [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName type="text"
-        placeholder="ModuleName" />
-      <mat-icon matSuffix *ngIf="dataModel.moduleName" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.moduleName = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-
-    <!-- ModuleEntityName Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>ModuleEntityName</mat-label>
-      <input matInput [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName
-        type="text" placeholder="ModuleEntityName" />
-      <mat-icon matSuffix *ngIf="dataModel.moduleEntityName" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.moduleEntityName = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-    <!-- ModuleEntityId Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>ModuleEntityId</mat-label>
-      <input matInput [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId" #ModuleEntityId type="text"
-        placeholder="ModuleEntityId" />
-      <mat-icon matSuffix *ngIf="dataModel.moduleEntityId" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.moduleEntityId = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-
-
-    <!-- title Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>title</mat-label>
-      <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #title type="text" placeholder="title" />
-      <mat-icon matSuffix *ngIf="dataModel.title" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.title = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-    <!-- content Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>content</mat-label>
-      <textarea matInput [(ngModel)]="dataModel.content" name="dataModel.content" #content type="text"
-        placeholder="content"></textarea>
-      <mat-icon matSuffix *ngIf="dataModel.content" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.content = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-
-    <!-- ReturnApi Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>ReturnApi</mat-label>
-      <textarea matInput [(ngModel)]="dataModel.returnApi" name="dataModel.returnApi" #ReturnApi type="text"
-        placeholder="ReturnApi"></textarea>
-      <mat-icon matSuffix *ngIf="dataModel.returnApi" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.returnApi = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-
-    <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-      <div [innerHTML]="dataModel | prettyjson"></div>
-    </div>
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-card-content">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-content-->
-    <div class="form-actions">
-      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-      <small class="form-text text-muted danger">{{ formInfo.formError }}
-      </small>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-content-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-      <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-      </button>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  </div>
-</form>
