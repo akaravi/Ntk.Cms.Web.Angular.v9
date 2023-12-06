@@ -80,7 +80,7 @@ export class TicketingAnswerListComponent implements OnInit, OnDestroy {
     'CreatedDate',
     'UpdatedDate',
     'AnswerStatus',
-    'Action'
+    // 'Action'
   ];
 
 

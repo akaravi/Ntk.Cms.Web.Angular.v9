@@ -17,14 +17,8 @@
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow($event)" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonEditRow(tableRowSelected,$event)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-      translate}}</button>
-    <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonDeleteRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-      translate}}</button>
+   
+   
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
@@ -161,23 +155,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonEditRow(row,$event)" *ngIf="dataModelResult.access.accessEditRow">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonProperty(row,$event)">
-              <mat-icon>apartment</mat-icon>
-              <span>{{'ACTION.PROPERTY' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonPropertyCompany(row,$event)">
-              <mat-icon>business</mat-icon>
-              <span>{{'ACTION.COMPANY' | translate}}</span>
-            </button>
+            
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -223,20 +201,7 @@
                 <td></td>
                 <td>
 
-                  <a (click)="onActionbuttonEditRow(row,$event)" *ngIf="dataModelResult.access.accessEditRow"
-                    class="link-primary pointer">
-                    {{'ACTION.EDIT' | translate}} </a>|
-
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                    class="link-primary pointer">
-                    {{'ACTION.DELETE' | translate}} </a>|
-
-                  <a (click)="onActionbuttonProperty(row,$event)" class="link-primary pointer">
-                    {{'ACTION.PROPERTY' |
-                    translate}} </a>|
-
-                  <a (click)="onActionbuttonPropertyCompany(row,$event)" class="link-primary pointer">
-                    {{'ACTION.COMPANY' | translate}} </a>
+                  
                 </td>
               </tr>
 

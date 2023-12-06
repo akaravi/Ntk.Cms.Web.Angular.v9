@@ -71,7 +71,7 @@ export class WebDesignerMainPageTemplateListComponent implements OnInit, OnDestr
     'Title',
     'Folder',
     'IndexFile',
-    'Action'
+    // 'Action'
   ];
   expandedElement: WebDesignerMainPageTemplateModel | null;
   cmsApiStoreSubscribe: Subscription;

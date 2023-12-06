@@ -110,7 +110,7 @@ export class CoreUserClaimContentListComponent implements OnInit, OnDestroy {
     'CreatedDate',
     'UpdatedDate',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
 
 

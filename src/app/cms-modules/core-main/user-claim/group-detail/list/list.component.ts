@@ -96,7 +96,7 @@ export class CoreUserClaimGroupDetailListComponent implements OnInit, OnDestroy 
     'LinkUserClaimGroupId',
     'LinkUserClaimTypeId',
     'IsRequired',
-    'Action'
+    // 'Action'
   ];
 
 

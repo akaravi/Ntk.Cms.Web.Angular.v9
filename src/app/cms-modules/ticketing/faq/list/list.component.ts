@@ -74,7 +74,7 @@ export class TicketingFaqListComponent implements OnInit, OnDestroy {
     'Id',
     'RecordStatus',
     'Question',
-    'Action'
+    // 'Action'
   ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

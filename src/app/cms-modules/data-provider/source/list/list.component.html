@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'dataprovider.source.list'"
     [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true"
-    [optionActionRowDisplay]="tableRowSelected?.id>0">
+    [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         <app-data-provider-plan-tree (optionChange)="onActionSelectorSelect($event)"></app-data-provider-plan-tree>
@@ -18,14 +18,7 @@
             (click)="onActionbuttonNewRow()" type="button"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
             translate}}</button>
-        <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0" (click)="onActionbuttonEditRow()"
-            type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-            translate}}</button>
-        <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
-            (click)="onActionbuttonDeleteRow()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-            translate}}</button>
+        
         <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
         </a>
@@ -150,23 +143,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-                            <mat-icon>mode_edit</mat-icon>
-                            <span>{{'ACTION.EDIT' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-                            <mat-icon>delete_forever</mat-icon>
-                            <span>{{'ACTION.DELETE' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonDataRow(row)" *ngIf="dataModelResult.access.accessDeleteRow">
-                            <mat-icon>data_usage</mat-icon>
-                            <span>{{'ACTION.DATA' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonSourceList(row)" *ngIf="dataModelResult.access.accessWatchRow">
-                            <mat-icon>source</mat-icon>
-                            <span>{{'ACTION.SOURCE' | translate}}</span>
-                        </button>
+                        
                     </mat-menu>
                 </mat-cell>
             </ng-container>
@@ -198,20 +175,7 @@
                                 <td></td>
                                 <td>
 
-                                    <a (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-                                        class="link-primary pointer"> {{'ACTION.EDIT' | translate}} </a>|
-
-                                    <a (click)="onActionbuttonDeleteRow(row)"
-                                        *ngIf="dataModelResult.access.accessDeleteRow" class="link-primary pointer">
-                                        {{'ACTION.DELETE' | translate}} </a>|
-
-                                    <a (click)="onActionbuttonDataRow(row,$event)" class="link-primary pointer">
-                                        {{'ACTION.DATA' |
-                                        translate}} </a>|
-
-                                    <a (click)="onActionbuttonSourceList(row,$event)" class="link-primary pointer">
-                                        {{'ACTION.SOURCE' |
-                                        translate}} </a>
+                                    
 
                                 </td>
                             </tr>

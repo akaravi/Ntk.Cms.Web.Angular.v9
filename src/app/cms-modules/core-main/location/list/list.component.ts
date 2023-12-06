@@ -76,7 +76,7 @@ export class CoreLocationListComponent implements OnInit, OnDestroy {
     'RecordStatus',
     'Title',
     'LocationType',
-    'Action'
+    // 'Action'
   ];
 
 

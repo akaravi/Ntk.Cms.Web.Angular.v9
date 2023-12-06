@@ -71,7 +71,7 @@ export class WebDesignerMainMenuListComponent implements OnInit, OnDestroy {
     'ShowInAccessAdminAllowToProfessionalData',
     'MenuPlaceType',
     'ShowInMenuOrder',
-    'Action',
+    // 'Action',
     'position'
   ];
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

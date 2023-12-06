@@ -92,7 +92,7 @@ export class CoreSiteCategoryCmsModuleListComponent implements OnInit, OnDestroy
     'RecordStatus',
     'virtual_CmsSiteCategory.title',
     'virtual_CmsModule.title',
-    'Action'
+    // 'Action'
   ];
 
 

@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'core.user.list'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionActionRowDisplay]="tableRowSelected?.id>0">
+  [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     --------------------------------------
@@ -21,14 +21,7 @@
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0" (click)="onActionbuttonEditRow()"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT'
-      |
-      translate}}</button>
-    <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0" (click)="onActionbuttonDeleteRow()"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-      translate}}</button>
-
+ 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
@@ -222,61 +215,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonViewRow(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>visibility</mat-icon>
-              <span>{{'ACTION.VIEW' | translate}}</span>
-            </button>
-            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-              (click)="onActionbuttonEditRow(row,$event)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-              (click)="onActionbuttonChangePassword(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>lock</mat-icon>
-              <span>{{'ACTION.CHANGE_PASSWORD' | translate}}</span>
-            </button>
-            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData" (click)="onActionbuttonDeleteRow(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData" (click)="onActionbuttonLoginToRow(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>login</mat-icon>
-              <span>{{'ACTION.LOGIN_TO_THIS_USER' | translate}}</span>
-            </button>
-
-            <button (click)="onActionbuttonUserSupportList(row)" *ngIf="this.tokenHelper.isAdminSite"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>supervised_user_circle</mat-icon>
-              <span>{{'ACTION.ACEESS' | translate}}</span>
-            </button>
-
-            <button (click)="onActionbuttonSiteList(row,$event)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>supervised_user_circle</mat-icon>
-              <span>{{'ACTION.MEMBER_SITES' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonSiteByGroupList(row,$event)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>supervisor_account</mat-icon>
-              <span>{{'ACTION.ACCESS_MEMBER_SITES' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonResller(row,$event)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>devices</mat-icon>
-              <span>{{'ACTION.MARKETING_SUBCATEGORY' | translate}}</span>
-            </button>
-            <button **ngIf="this.dataModelResult.emailConfirmed" (click)="onActionbuttonEmailConfirm()"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>visibility</mat-icon>
-              <span>{{'ACTION.CONFIRMEMAIL' | translate}}</span>
-            </button>
+          
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -323,36 +262,7 @@
                 <td></td>
                 <td>
 
-                  <a (click)="onActionbuttonViewRow(row)" class="link-primary pointer">
-                    {{'ACTION.VIEW' | translate}}
-                    |</a>
-
-                  <a (click)="onActionbuttonEditRow(row,$event)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-                    class="link-primary pointer"> {{'ACTION.EDIT' | translate}} |</a>
-
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-                    class="link-primary pointer"> {{'ACTION.DELETE' | translate}} |</a>
-
-                  <a (click)="onActionbuttonChangePassword(row)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || row.id===tokenInfo.userId"
-                    class="link-primary pointer"> {{'ACTION.CHANGE_PASSWORD' | translate}} |</a>
-
-                  <a (click)="onActionbuttonLoginToRow(row)" *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
-                    class="link-primary pointer"> {{'ACTION.LOGIN_TO_THIS_USER' | translate}} |</a>
-
-                  <a (click)="onActionbuttonSiteList(row,$event)" class="link-primary pointer">
-                    {{'ACTION.MEMBER_SITES'
-                    | translate}}|</a>
-
-                  <a (click)="onActionbuttonSiteByGroupList(row,$event)" class="link-primary pointer">
-                    {{'ACTION.ACCESS_MEMBER_SITES'
-                    | translate}}|</a>
-
-                  <a (click)="onActionbuttonResller(row,$event)"
-                    *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-                    class="link-primary pointer"> {{'ACTION.MARKETING_SUBCATEGORY' | translate}}
-                  </a>
+                  
                 </td>
               </tr>
 

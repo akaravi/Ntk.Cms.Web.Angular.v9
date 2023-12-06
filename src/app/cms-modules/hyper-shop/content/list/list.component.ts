@@ -82,7 +82,7 @@ export class HyperShopContentListComponent implements OnInit, OnDestroy {
     'Price',
     'SalePrice',
     'Discount',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   cmsApiStoreSubscribe: Subscription;

@@ -87,7 +87,7 @@ export class SmsMainApiPathListComponent implements OnInit, OnDestroy {
     'LinkApiPathCompanyId',
     'LinkPublicConfigId',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

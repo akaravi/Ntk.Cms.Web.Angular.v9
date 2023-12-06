@@ -87,7 +87,7 @@ export class SmsLogOutBoxQueueListComponent implements OnInit, OnDestroy {
     'ScheduleSendStart',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

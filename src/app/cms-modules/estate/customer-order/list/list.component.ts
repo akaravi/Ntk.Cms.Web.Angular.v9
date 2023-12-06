@@ -108,14 +108,14 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     'scoreLiquidityPower',
     'scorePurchasingPower',
     "CaseCode",
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Title',
     'RecordStatus',
     "CaseCode",
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

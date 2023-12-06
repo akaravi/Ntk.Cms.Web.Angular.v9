@@ -82,7 +82,7 @@ export class SmsMainApiPathPriceServiceListComponent implements OnInit, OnDestro
     'ServicePrice',
     'EndUserPrice',
     'MessageLength',
-    'Action'
+    // 'Action'
   ];
 
 

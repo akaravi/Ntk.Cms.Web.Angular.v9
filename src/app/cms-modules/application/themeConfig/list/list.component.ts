@@ -81,7 +81,7 @@ export class ApplicationThemeConfigListComponent implements OnInit, OnDestroy {
     'TypeId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
   ngOnInit(): void {

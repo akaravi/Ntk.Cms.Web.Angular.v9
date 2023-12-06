@@ -81,14 +81,14 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
     'ViewCount',
     'Title',
     'CreatedDate',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'RecordStatus',
     'Title',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

@@ -111,7 +111,7 @@ export class CoreSiteUserListComponent implements OnInit, OnDestroy {
     'virtual_CmsSite.title',
     'virtual_CmsSite.domain',
     'virtual_CmsSite.subDomain',
-    'Action'
+    // 'Action'
   ];
 
 

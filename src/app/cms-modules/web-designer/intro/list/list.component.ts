@@ -73,7 +73,7 @@ export class WebDesignerMainIntroListComponent implements OnInit, OnDestroy {
     'LinkPageId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   expandedElement: WebDesignerMainIntroModel | null;
   cmsApiStoreSubscribe: Subscription;

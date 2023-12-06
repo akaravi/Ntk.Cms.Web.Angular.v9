@@ -88,7 +88,7 @@ export class MemberPropertyDetailListComponent implements OnInit, OnDestroy {
     'ShowInFormOrder',
     'LinkPropertyTypeId',
     'LinkPropertyDetailGroupId',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

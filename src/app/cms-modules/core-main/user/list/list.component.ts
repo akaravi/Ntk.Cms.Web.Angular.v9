@@ -93,7 +93,7 @@ export class CoreUserListComponent implements OnInit, OnDestroy {
     'email',
     'mobile',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

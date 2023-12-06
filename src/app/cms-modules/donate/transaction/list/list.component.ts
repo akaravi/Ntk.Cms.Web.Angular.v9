@@ -75,7 +75,7 @@ export class DonateTransactionListComponent implements OnInit, OnDestroy {
     'TargetPeriod',
     'Amount',
     'AmountPure',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

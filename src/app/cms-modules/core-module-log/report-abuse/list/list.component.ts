@@ -107,7 +107,7 @@ export class CoreModuleLogReportAbuseListComponent implements OnInit, OnDestroy 
     'SubjectBody',
     'AdminResultProcess',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

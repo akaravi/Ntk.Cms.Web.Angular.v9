@@ -77,7 +77,7 @@ export class ApiTelegramReceivedFileListComponent implements OnInit, OnDestroy {
     'StatusWebhook',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
   ];
 
 

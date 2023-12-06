@@ -74,7 +74,7 @@ export class MemberPropertyAliasListComponent implements OnInit, OnDestroy {
     'Address',
     'ViewCount',
     'CreatedDate',
-    'Action',
+    // 'Action',
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   cmsApiStoreSubscribe: Subscription;

@@ -76,7 +76,7 @@ export class ApiTelegramMemberInfoListComponent implements OnInit, OnDestroy {
     'StatusWebhook',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
   ];
 
 

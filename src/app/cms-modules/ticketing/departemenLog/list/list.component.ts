@@ -77,7 +77,7 @@ export class TicketingDepartemenLogListComponent implements OnInit, OnDestroy {
     'LinkSourceId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   expandedElement: TicketingDepartemenLogModel | null;

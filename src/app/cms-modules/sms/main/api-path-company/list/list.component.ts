@@ -71,7 +71,7 @@ export class SmsMainApiPathCompanyListComponent implements OnInit, OnDestroy {
     'Id',
     'RecordStatus',
     'Title',
-    'Action'
+    // 'Action'
   ];
 
 

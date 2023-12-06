@@ -75,7 +75,7 @@ export class LinkManagementAccountingListComponent implements OnInit, OnDestroy 
     'UpdatedDate',
     'Debtor',
     'Creditor',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

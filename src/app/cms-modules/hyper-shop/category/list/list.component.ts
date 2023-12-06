@@ -73,7 +73,7 @@ export class HyperShopCategoryListComponent implements OnInit, OnDestroy {
     'ParentCode',
     'Name',
     'Memo',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

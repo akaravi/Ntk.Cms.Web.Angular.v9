@@ -1,5 +1,5 @@
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true"
-  [optionActionRowDisplay]="tableRowSelected?.id>0">
+  [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-estate-property-detail-group-tree (optionChange)="onActionSelectorSelect($event)"
@@ -17,14 +17,8 @@
       (click)="onActionbuttonNewRow()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonEditRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-      translate}}</button>
-    <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonDeleteRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-      translate}}</button>
+    
+  
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
@@ -137,15 +131,6 @@
           <!-- Action Menu -->
           <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
             <mat-icon>more_vert</mat-icon>
-          </button>
-          <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-            <mat-icon>mode_edit</mat-icon>
-            <span>{{'ACTION.EDIT' | translate}}</span>
-          </button>
-          <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-            <mat-icon>delete_forever</mat-icon>
-            <span>{{'ACTION.DELETE' | translate}}</span>
           </button>
           <mat-menu #actionMenu="matMenu">
           </mat-menu>

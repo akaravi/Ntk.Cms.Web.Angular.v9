@@ -79,7 +79,7 @@ export class PollingVoteListComponent implements OnInit, OnDestroy {
     'LinkMemberId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   expandedElement: PollingVoteModel | null;

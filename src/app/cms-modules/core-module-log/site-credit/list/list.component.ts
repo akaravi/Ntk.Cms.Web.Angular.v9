@@ -101,7 +101,7 @@ export class CoreModuleLogSiteCreditListComponent implements OnInit, OnDestroy {
     'LinkSiteId',
 
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

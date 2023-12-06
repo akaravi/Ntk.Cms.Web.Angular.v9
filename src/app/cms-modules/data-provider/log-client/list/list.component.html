@@ -1,5 +1,5 @@
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionActionRowDisplay]="tableRowSelected?.id>0">
+  [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-tree-->
@@ -85,10 +85,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonViewRow(row)" *ngIf="dataModelResult.access.accessWatchRow">
-              <mat-icon>visibility</mat-icon>
-              <span>{{'ACTION.VIEW' | translate}}</span>
-            </button>
+           
           </mat-menu>
         </mat-cell>
       </ng-container>

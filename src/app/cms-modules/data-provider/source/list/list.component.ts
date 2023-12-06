@@ -76,7 +76,7 @@ export class DataProviderSourceListComponent implements OnInit, OnDestroy {
     'Description',
     'HashMd5',
     'KeyCode',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

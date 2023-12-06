@@ -106,7 +106,7 @@ export class CoreLogSmsListComponent implements OnInit, OnDestroy {
     'ToNumber',
     'ApiNumber',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumSendSmsStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
