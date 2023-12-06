@@ -18,8 +18,8 @@
     <button *ngIf="dataModelResult.access.accessAddRow && this.requestContentId>0" (click)="onActionbuttonNewRow()"
       type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    
-    
+
+
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
@@ -35,7 +35,7 @@
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    
+
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
       </mat-slide-toggle>
@@ -147,7 +147,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-           
+
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -163,12 +163,11 @@
         </mat-cell>
       </ng-container>
 
-      <<<<<<< HEAD <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
-          [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
-        </mat-row>
+      <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
+        [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
+      </mat-row>
     </mat-table>
-    =======
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
   </ng-container>
   <ng-container cms-action-row>
@@ -267,7 +266,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            
+
           </mat-menu>
         </mat-cell>
       </ng-container>
