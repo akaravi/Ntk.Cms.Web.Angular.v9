@@ -14,8 +14,8 @@
         <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
             translate}}</button>
-        
-      
+
+
         <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
         </a>
@@ -29,7 +29,7 @@
             <mat-icon style="font-size: 20px;margin: -11px;"
                 title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
         </button>
-        
+
         <button (click)="onActionbuttonReload()" type="button"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -42,7 +42,8 @@
     <ng-container cms-action-row>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
         <h1>{{tableRowSelected?.title}}</h1>
-        <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
+        <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
             <span>{{'ACTION.EDIT' | translate}}</span>
             <mat-icon>mode_edit</mat-icon>
         </button>
@@ -130,7 +131,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                       
+
                     </mat-menu>
                 </mat-cell>
             </ng-container>

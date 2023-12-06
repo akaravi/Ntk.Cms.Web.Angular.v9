@@ -66,9 +66,9 @@
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
         </button>
-        <button *ngIf="tableRowSelected?.id?.length>0" (click)="onActionPriceInquiryCalculate()"
-            type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
-            id="openModalButton" data-toggle="modal" data-target="#categoryModal">{{'ACTION.PriceInquiryCalculate' |
+        <button *ngIf="tableRowSelected?.id?.length>0" (click)="onActionPriceInquiryCalculate()" type="button"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" id="openModalButton"
+            data-toggle="modal" data-target="#categoryModal">{{'ACTION.PriceInquiryCalculate' |
             translate}}</button>
         <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0"
             type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">

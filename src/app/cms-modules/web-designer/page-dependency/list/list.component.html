@@ -25,8 +25,8 @@
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" id="openModalButton"
             data-toggle="modal" data-target="#categoryModal">{{'ACTION.AUTOADD'|
             translate}} Page</button>
-        
-        
+
+
         <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
         </a>
@@ -40,7 +40,7 @@
             <mat-icon style="font-size: 20px;margin: -11px;"
                 title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
         </button>
-        
+
         <button (click)="onActionbuttonReload()" type="button"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -50,7 +50,8 @@
     <ng-container cms-action-row>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
         <h1>{{tableRowSelected?.title}}</h1>
-        <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
+        <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
             <span>{{'ACTION.EDIT' | translate}}</span>
             <mat-icon>mode_edit</mat-icon>
         </button>
@@ -59,11 +60,13 @@
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
         </button>
-        <button (click)="onActionbuttonPageList(tableRowSelected)">
+        <button (click)="onActionbuttonPageList(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.PAGES' | translate}}</span>
             <mat-icon>view_module</mat-icon>
         </button>
-        <button (click)="onActionbuttonSiteRouteView(tableRowSelected)">
+        <button (click)="onActionbuttonSiteRouteView(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.SHOW_WEB' | translate}}</span>
             <mat-icon>view_module</mat-icon>
         </button>
@@ -147,7 +150,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                       
+
                     </mat-menu>
                 </mat-cell>
             </ng-container>

@@ -56,21 +56,25 @@
             <mat-icon>delete_forever</mat-icon>
         </button>
         <button mat-menu-item (click)="onActionbuttonTransactionList(tableRowSelected)"
-            *ngIf="dataModelResult.access.accessWatchRow">
+            *ngIf="dataModelResult.access.accessWatchRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.TRANSACTIONS' | translate}}</span>
             <mat-icon>paid</mat-icon>
         </button>
-        <button mat-menu-item (click)="onActionbuttonClientCreditAccountRow(tableRowSelected)">
+        <button mat-menu-item (click)="onActionbuttonClientCreditAccountRow(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>client charge</span>
             <mat-icon>shopping_cart</mat-icon>
         </button>
         <button mat-menu-item (click)="onActionbuttonDataRow(tableRowSelected)"
-            *ngIf="dataModelResult.access.accessDeleteRow">
+            *ngIf="dataModelResult.access.accessDeleteRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.DATA' | translate}}</span>
             <mat-icon>data_usage</mat-icon>
         </button>
         <button mat-menu-item (click)="onActionbuttonClientList(tableRowSelected)"
-            *ngIf="dataModelResult.access.accessWatchRow">
+            *ngIf="dataModelResult.access.accessWatchRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.CLIENT' | translate}}</span>
             <mat-icon>people</mat-icon>
         </button>

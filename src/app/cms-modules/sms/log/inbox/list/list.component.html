@@ -19,8 +19,8 @@
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" data-toggle="modal"
       data-target="#categoryModal">{{'ACTION.VIEW' | translate}}</button>
 
-    
- 
+
+
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
@@ -34,7 +34,7 @@
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    
+
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -51,7 +51,8 @@
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
-    <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
+    <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
@@ -60,27 +61,33 @@
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
-    <button (click)="onActionbuttonSendMessage(tableRowSelected)">
+    <button (click)="onActionbuttonSendMessage(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.Send_Message' | translate}}</span>
       <mat-icon>payment</mat-icon>
     </button>
-    <button (click)="onActionbuttonSuperSedersList(tableRowSelected)">
+    <button (click)="onActionbuttonSuperSedersList(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.BACKUP_ROUTES' | translate}}</span>
       <mat-icon>view_module</mat-icon>
     </button>
-    <button (click)="onActionbuttonMustSuperSedersList(tableRowSelected)">
+    <button (click)="onActionbuttonMustSuperSedersList(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.SUPPORTED_ROUTES' | translate}}</span>
       <mat-icon>view_module</mat-icon>
     </button>
-    <button (click)="onActionbuttonNumbersList(tableRowSelected)">
+    <button (click)="onActionbuttonNumbersList(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.SPECIFIC_NUMBERS' | translate}}</span>
       <mat-icon>view_module</mat-icon>
     </button>
-    <button (click)="onActionbuttonPriceServicesList(tableRowSelected)">
+    <button (click)="onActionbuttonPriceServicesList(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.PRICE_LIST' | translate}}</span>
       <mat-icon>view_module</mat-icon>
     </button>
-    <button (click)="onActionbuttonPermitionList(tableRowSelected)">
+    <button (click)="onActionbuttonPermitionList(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.ACEESS' | translate}}</span>
       <mat-icon>view_module</mat-icon>
     </button>
@@ -174,7 +181,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-           
+
           </mat-menu>
         </mat-cell>
       </ng-container>

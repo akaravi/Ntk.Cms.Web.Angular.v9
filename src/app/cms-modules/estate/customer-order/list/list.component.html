@@ -74,19 +74,23 @@
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
-    <button (click)="onActionbuttonQuickHistoryAddRow(tableRowSelected)">
+    <button (click)="onActionbuttonQuickHistoryAddRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.HISTORY_ADD' | translate}}</span>
       <mat-icon>history</mat-icon>
     </button>
-    <button (click)="onActionbuttonHistoryRow(tableRowSelected,$event)">
+    <button (click)="onActionbuttonHistoryRow(tableRowSelected,$event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.HISTORY_LIST' | translate}}</span>
       <mat-icon>history</mat-icon>
     </button>
-    <button (click)="onActionbuttonContentList(tableRowSelected,$event)">
+    <button (click)="onActionbuttonContentList(tableRowSelected,$event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.THEPROPERTY_INCLUDESVIEWS' | translate}}</span>
       <mat-icon>list</mat-icon>
     </button>
-    <button (click)="onActionbuttonOpenCustomerOrder(tableRowSelected)">
+    <button (click)="onActionbuttonOpenCustomerOrder(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.DISPLAYCLIENTPAGE' | translate}}</span>
       <mat-icon>slideshow</mat-icon>
     </button>

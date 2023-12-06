@@ -14,7 +14,7 @@
 
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <button *ngIf="dataModelResult.access.accessAddRow" (click)="onActionbuttonNewRow()" type="button"
-    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal" id="openModalButton"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal" id="openModalButton"
       data-toggle="modal" data-target="#categoryModal">
       {{ "ACTION.ADD" | translate }}
     </button>
@@ -57,11 +57,13 @@
       <span>{{ "ACTION.DELETE" | translate }}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
-    <button (click)="onActionbuttonContentDetailList(tableRowSelected, $event)">
+    <button (click)="onActionbuttonContentDetailList(tableRowSelected, $event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{ "ACTION.DETAIL" | translate }}</span>
       <mat-icon>list</mat-icon>
     </button>
-    <button (click)="onActionbuttonContentList(tableRowSelected, $event)">
+    <button (click)="onActionbuttonContentList(tableRowSelected, $event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{ "ACTION.PROPERTYLIST" | translate }}</span>
       <mat-icon>list</mat-icon>
     </button>

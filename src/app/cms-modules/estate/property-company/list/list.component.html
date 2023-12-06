@@ -57,7 +57,7 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
     <button (click)="onActionbuttonEditRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta" >
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
@@ -66,7 +66,8 @@
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
-    <button (click)="onActionbuttonProperty(tableRowSelected,$event)">
+    <button (click)="onActionbuttonProperty(tableRowSelected,$event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.PROPERTY' | translate}}</span>
       <mat-icon>apartment</mat-icon>
     </button>

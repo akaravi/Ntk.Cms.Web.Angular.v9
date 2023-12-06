@@ -57,19 +57,22 @@
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
-    <button *ngIf="tableRowSelected.linkSiteId>0" (click)="onActionbuttonViewSiteRow(tableRowSelected)">
+    <button *ngIf="tableRowSelected.linkSiteId>0" (click)="onActionbuttonViewSiteRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.SITE' | translate}}</span>
       <mat-icon>web</mat-icon>
     </button>
-    <button *ngIf="tableRowSelected.linkUserId>0" (click)="onActionbuttonViewUserRow(tableRowSelected)">
+    <button *ngIf="tableRowSelected.linkUserId>0" (click)="onActionbuttonViewUserRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.USER' | translate}}</span>
       <mat-icon>supervisor_account</mat-icon>
     </button>
-    <!-- <button *ngIf="tableRowSelected?.linkMemberUserId>0" (click)="onActionbuttonViewMemberRow(tableRowSelected)">
+    <!-- <button *ngIf="tableRowSelected?.linkMemberUserId>0" (click)="onActionbuttonViewMemberRow(tableRowSelected)" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon>assignment_ind</mat-icon>
     </button> -->
     <span>{{'ACTION.MEMBER' | translate}}</span>
-    <button *ngIf="tableRowSelected.deviceClientMAC?.length>0" (click)="onActionbuttonViewDeviceRow(tableRowSelected)">
+    <button *ngIf="tableRowSelected.deviceClientMAC?.length>0" (click)="onActionbuttonViewDeviceRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.DEVICE' | translate}}</span>
       <mat-icon>device_unknown</mat-icon>
     </button>

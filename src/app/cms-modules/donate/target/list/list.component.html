@@ -70,11 +70,13 @@
                 <mat-icon>visibility</mat-icon>
             </button>
         </button>
-        <button (click)="onActionbuttonViewRow(tableRowSelected)">
+        <button (click)="onActionbuttonViewRow(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.VIEW' | translate}}</span>
             <mat-icon>visibility</mat-icon>
         </button>
-        <button (click)="onActionbuttonTargetPeriodList(tableRowSelected)">
+        <button (click)="onActionbuttonTargetPeriodList(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.TARGET_PERIOD' | translate}}</span>
             <mat-icon>list</mat-icon>
         </button>

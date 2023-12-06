@@ -13,8 +13,8 @@
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
 
-    
-   
+
+
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
@@ -27,7 +27,7 @@
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    
+
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -41,7 +41,8 @@
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
-    <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
+    <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
@@ -50,11 +51,15 @@
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
-    <button (click)="onActionbuttonViewRowLinkTargetId(tableRowSelected)" *ngIf="tableRowSelected.linkManagementTargetId>0">
+    <button (click)="onActionbuttonViewRowLinkTargetId(tableRowSelected)"
+      *ngIf="tableRowSelected.linkManagementTargetId>0"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.BANNER' | translate}}</span>
       <mat-icon>dehaze</mat-icon>
     </button>
-    <button (click)="onActionbuttonViewRowLinkbillboardId(tableRowSelected)" *ngIf="tableRowSelected.linkManagementBillboardId>0">
+    <button (click)="onActionbuttonViewRowLinkbillboardId(tableRowSelected)"
+      *ngIf="tableRowSelected.linkManagementBillboardId>0"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.BILLBOARD' | translate}}</span>
       <mat-icon>add_to_queue</mat-icon>
     </button>
@@ -141,7 +146,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-          
+
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -172,7 +177,7 @@
                 <td></td>
                 <td>
 
-                 
+
                 </td>
               </tr>
 

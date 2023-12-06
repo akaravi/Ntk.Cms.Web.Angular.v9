@@ -17,8 +17,8 @@
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow($event)" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-   
-   
+
+
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
@@ -31,7 +31,7 @@
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    
+
     <a *ngIf="this.tableRowSelected?.id>0"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonWithHierarchy()"></mat-slide-toggle>{{'ACTION.BATCHVIEW' |
@@ -155,7 +155,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            
+
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -201,7 +201,7 @@
                 <td></td>
                 <td>
 
-                  
+
                 </td>
               </tr>
 

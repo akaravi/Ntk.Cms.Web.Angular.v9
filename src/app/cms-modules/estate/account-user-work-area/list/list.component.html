@@ -15,7 +15,7 @@
         <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
             translate}}</button>
-     
+
 
         <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
@@ -47,7 +47,8 @@
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
         </button>
-        <button (click)="onActionbuttonContentList(tableRowSelected)">
+        <button (click)="onActionbuttonContentList(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.PRODUCTS' | translate}}</span>
             <mat-icon>list</mat-icon>
         </button>
@@ -100,7 +101,7 @@
                     </button>
                     <mat-menu #actionMenu="matMenu">
 
-                      
+
                     </mat-menu>
                 </mat-cell>
             </ng-container>

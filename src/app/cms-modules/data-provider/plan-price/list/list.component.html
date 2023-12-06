@@ -55,7 +55,8 @@
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
         </button>
-        <button (click)="onActionbuttonTransactionList(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow">
+        <button (click)="onActionbuttonTransactionList(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.TRANSACTIONS' | translate}}</span>
             <mat-icon>paid</mat-icon>
         </button>
