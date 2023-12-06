@@ -21,9 +21,7 @@
             translate}}</button>
 
 
-        <button *ngIf=" tableRowSelected.id>0" (click)="onActionbuttonViewRow()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.VIEW' |
-            translate}}</button>
+
         <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
         </a>
@@ -64,11 +62,6 @@
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
-            <button mat-menu-item (click)="onActionbuttonViewRow(tableRowSelected)"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                <span>{{'ACTION.VIEW' | translate}}</span>
-                <mat-icon>visibility</mat-icon>
-            </button>
         </button>
         <button (click)="onActionbuttonViewRow(tableRowSelected)"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">

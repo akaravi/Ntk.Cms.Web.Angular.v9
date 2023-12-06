@@ -39,14 +39,6 @@
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
     </button>
-    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonSendTest()" type="button" c
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEND_TEST' |
-      translate}}</button>
-    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonReportsRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.REPORTS' |
-      translate}}</button>
     <button (click)="onActionBackToParent()" *ngIf="requestLinkCompanyId?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
       translate}}</button>
@@ -107,6 +99,14 @@
       <span>copy</span>
       <mat-icon>content_copy</mat-icon>
     </button>
+    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
+      (click)="onActionbuttonSendTest(tableRowSelected)" type="button" c
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEND_TEST' |
+      translate}}</button>
+    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
+      (click)="onActionbuttonReportsRow(tableRowSelected)" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.REPORTS' |
+      translate}}</button>
     <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>

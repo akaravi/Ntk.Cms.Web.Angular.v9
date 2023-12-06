@@ -14,12 +14,6 @@
   </ng-container>
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonViewRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" data-toggle="modal"
-      data-target="#categoryModal">{{'ACTION.VIEW' | translate}}</button>
-
-
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
@@ -39,14 +33,7 @@
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
     </button>
-    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonSendMessage()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEND_ANSWER' |
-      translate}}</button>
-    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonDetailRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.DETAIL' |
-      translate}}</button>
+
     <button (click)="onActionBackToParent()" *ngIf="requestLinkPrivateConfigId?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
       translate}}</button>
@@ -95,6 +82,18 @@
       <span>{{'ACTION.ACEESS' | translate}}</span>
       <mat-icon>view_module</mat-icon>
     </button>
+    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
+      (click)="onActionbuttonSendMessage(tableRowSelected)" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEND_ANSWER' |
+      translate}}</button>
+    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
+      (click)="onActionbuttonDetailRow(tableRowSelected)" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.DETAIL' |
+      translate}}</button>
+    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id?.length>0"
+      (click)="onActionbuttonViewRow()" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" data-toggle="modal"
+      data-target="#categoryModal">{{'ACTION.VIEW' | translate}}</button>
     <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>

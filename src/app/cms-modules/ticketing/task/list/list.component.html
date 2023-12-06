@@ -14,10 +14,7 @@
   </ng-container>
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected.id>0" (click)="onActionbuttonViewRow()"
-      type="button" class="btn box-shadow-button btn-outline-secondary" data-toggle="modal"
-      data-target="#categoryModal">{{'ACTION.VIEW' |
-      translate}}</button>
+
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
@@ -70,6 +67,11 @@
       <span>{{'ACTION.ANSWERS' | translate}}</span>
       <mat-icon>question_answer</mat-icon>
     </button>
+    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected.id>0"
+      (click)="onActionbuttonViewRow(tableRowSelected)" type="button"
+      class="btn box-shadow-button btn-outline-secondary" data-toggle="modal"
+      data-target="#categoryModal">{{'ACTION.VIEW' |
+      translate}}</button>
     <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -f11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
