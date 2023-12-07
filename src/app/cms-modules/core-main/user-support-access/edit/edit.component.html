@@ -11,239 +11,256 @@
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
-
-        <!--Content-->
-    </div>
-</div>
-<div class="card card-style">
-    <div class="content mb-0">
-        <p class="mb-0 color-highlight font-600 font-12">
-            حساب کاربری خود را ویرایش کنید
-        </p>
-        <h4>اطلاعات</h4>
-        <h4>اطلاعات اولیه</h4>
-        <p>
-            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-            فقط یک صفحه ساختگی است.
-        </p>
-        <!--Content-->
-
-        <!--Content-->
-    </div>
-</div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
-
-
-
-        <!-- LinkSiteId Field -->
-        <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
-            [optionSelectForce]="this.dataModel.linkSiteId"
-            [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
-        </app-cms-site-selector>
-
-        <!-- LinkUserId Field -->
-        <app-cms-user-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
-            [optionSelectForce]="this.dataModel.linkUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
-        </app-cms-user-selector>
-
-        <!-- module-entity Field -->
-        <app-core-module-entity-selector (optionChange)="onActionSelectorModuleEntitySelect($event)"
-            [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.MODULE')">
-        </app-core-module-entity-selector>
-
-
-        <!-- moduleName Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['moduleName']?.accessWatchField">
-            <mat-label>{{fieldsInfo['moduleName']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName type="text"
-                disabled="{{!fieldsInfo['moduleName']?.accessEditField}}"
-                placeholder="{{fieldsInfo['moduleName']?.fieldTitle}}" minlength="3" maxlength="100" required />
-            <mat-icon matSuffix *ngIf="dataModel.moduleName" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.moduleName = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="start">
-                <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                <strong class="info-field-text">{{fieldsInfo['moduleName']?.fieldDescription}}</strong>
-            </mat-hint>
-            <mat-hint align="end">{{ ModuleName.value.length }} / 100</mat-hint>
-            <mat-error *ngIf="ModuleName.errors?.required">
-                {{fieldsInfo['moduleName']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-
-
-        <!-- moduleEntityName Field -->
-        <mat-form-field class="ntk-full-width mb-1" *ngIf="fieldsInfo['moduleEntityName']?.accessWatchField">
-            <mat-label>{{fieldsInfo['moduleEntityName']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName
-                type="text" disabled="{{!fieldsInfo['moduleEntityName']?.accessEditField}}"
-                placeholder="{{fieldsInfo['moduleEntityName']?.fieldTitle}}" minlength="3" maxlength="100" required />
-            <mat-icon matSuffix *ngIf="dataModel.moduleEntityName" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.moduleEntityName = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="start">
-                <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                <strong class="info-field-text">{{fieldsInfo['moduleEntityName']?.fieldDescription}}</strong>
-            </mat-hint>
-            <mat-hint align="end">{{ ModuleEntityName.value.length }} / 100</mat-hint>
-            <mat-error *ngIf="ModuleEntityName.errors?.required">
-                {{fieldsInfo['moduleEntityName']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <div class="ntk-full-width">
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
+            <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+                [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+                [optionSelectFirstItem]="true">
+            </app-cms-enum-record-status-selector>
+            <!-- LinkSiteId Field -->
+            <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
+                [optionSelectForce]="this.dataModel.linkSiteId"
+                [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
+            </app-cms-site-selector>
+            <!-- LinkUserId Field -->
+            <app-cms-user-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
+                [optionSelectForce]="this.dataModel.linkUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+            </app-cms-user-selector>
+            <!-- module-entity Field -->
+            <app-core-module-entity-selector (optionChange)="onActionSelectorModuleEntitySelect($event)"
+                [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
+                [optionPlaceholder]="this.translate.instant('TITLE.MODULE')">
+            </app-core-module-entity-selector>
+            <!-- moduleName Field -->
+            <div *ngIf="fieldsInfo['moduleName']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.moduleName" class="color-highlight">{{ fieldsInfo["moduleName"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName disabled="{{!fieldsInfo['moduleName']?.accessEditField}}"
+                placeholder="{{fieldsInfo['moduleName']?.fieldTitle }}" minlength="3" maxlength="100"
+                class="form-control validate-name" id="dataModel.moduleName" />
+                <em>{{ ModuleName.value.length }} / 100</em>
+                <mat-error *ngIf="ModuleName.errors?.required">
+                    {{fieldsInfo['moduleName']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- moduleEntityName Field -->
+            <div *ngIf="fieldsInfo['moduleEntityName']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.moduleEntityName" class="color-highlight">{{ fieldsInfo["moduleEntityName"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName disabled="{{!fieldsInfo['moduleEntityName']?.accessEditField}}"
+                placeholder="{{fieldsInfo['moduleEntityName']?.fieldTitle }}" minlength="3" maxlength="100"
+                class="form-control validate-name" id="dataModel.moduleName" />
+                <em>{{ ModuleEntityName.value.length }} / 100</em>
+                <mat-error *ngIf="ModuleEntityName.errors?.required">
+                    {{fieldsInfo['moduleEntityName']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
             <!-- accessDeleteRow Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessDeleteRow"
-                *ngIf="fieldsInfo['accessDeleteRow']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessDeleteRow']?.accessEditField" name="dataModel.accessDeleteRow">
-                {{fieldsInfo['accessDeleteRow']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessDeleteRow']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessDeleteRow" class="font-600 font-14">
+                        {{fieldsInfo['accessDeleteRow']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessDeleteRow"
+                            [(ngModel)]="dataModel.accessDeleteRow"
+                            name="dataModel.accessDeleteRow">
+                        <label class="custom-control-label" for="dataModel.accessDeleteRow"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessWatchRow Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessWatchRow"
-                *ngIf="fieldsInfo['accessWatchRow']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessWatchRow']?.accessEditField" name="dataModel.accessWatchRow">
-                {{fieldsInfo['accessWatchRow']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessWatchRow']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessWatchRow" class="font-600 font-14">
+                        {{fieldsInfo['accessWatchRow']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessWatchRow"
+                            [(ngModel)]="dataModel.accessWatchRow"
+                            name="dataModel.accessWatchRow">
+                        <label class="custom-control-label" for="dataModel.accessWatchRow"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessCountRow Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessCountRow"
-                *ngIf="fieldsInfo['accessCountRow']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessCountRow']?.accessEditField" name="dataModel.accessCountRow">
-                {{fieldsInfo['accessCountRow']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessCountRow']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessCountRow" class="font-600 font-14">
+                        {{fieldsInfo['accessCountRow']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessCountRow"
+                            [(ngModel)]="dataModel.accessCountRow"
+                            name="dataModel.accessCountRow">
+                        <label class="custom-control-label" for="dataModel.accessCountRow"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessEditRow Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessEditRow"
-                *ngIf="fieldsInfo['accessEditRow']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessEditRow']?.accessEditField" name="dataModel.accessEditRow">
-                {{fieldsInfo['accessEditRow']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessEditRow']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessEditRow" class="font-600 font-14">
+                        {{fieldsInfo['accessEditRow']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessEditRow"
+                            [(ngModel)]="dataModel.accessEditRow"
+                            name="dataModel.accessEditRow">
+                        <label class="custom-control-label" for="dataModel.accessEditRow"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessAddRow Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessAddRow" *ngIf="fieldsInfo['accessAddRow']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessAddRow']?.accessEditField" name="dataModel.accessAddRow">
-                {{fieldsInfo['accessAddRow']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessAddRow']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessAddRow" class="font-600 font-14">
+                        {{fieldsInfo['accessAddRow']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessAddRow"
+                            [(ngModel)]="dataModel.accessAddRow"
+                            name="dataModel.accessAddRow">
+                        <label class="custom-control-label" for="dataModel.accessAddRow"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessExportFile Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessExportFile"
-                *ngIf="fieldsInfo['accessExportFile']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessExportFile']?.accessEditField" name="dataModel.accessExportFile">
-                {{fieldsInfo['accessExportFile']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessExportFile']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessExportFile" class="font-600 font-14">
+                        {{fieldsInfo['accessExportFile']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessExportFile"
+                            [(ngModel)]="dataModel.accessExportFile"
+                            name="dataModel.accessExportFile">
+                        <label class="custom-control-label" for="dataModel.accessExportFile"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessWatchRowOtherSiteId Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessWatchRowOtherSiteId"
-                *ngIf="fieldsInfo['accessWatchRowOtherSiteId']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessWatchRowOtherSiteId']?.accessEditField"
-                name="dataModel.accessWatchRowOtherSiteId">
-                {{fieldsInfo['accessWatchRowOtherSiteId']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessWatchRowOtherSiteId']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessWatchRowOtherSiteId" class="font-600 font-14">
+                        {{fieldsInfo['accessWatchRowOtherSiteId']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowOtherSiteId"
+                            [(ngModel)]="dataModel.accessWatchRowOtherSiteId"
+                            name="dataModel.accessWatchRowOtherSiteId">
+                        <label class="custom-control-label" for="dataModel.accessWatchRowOtherSiteId"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessWatchRowOtherCreatedBy Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessWatchRowOtherCreatedBy"
-                *ngIf="fieldsInfo['accessWatchRowOtherCreatedBy']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessWatchRowOtherCreatedBy']?.accessEditField"
-                name="dataModel.accessWatchRowOtherCreatedBy">
-                {{fieldsInfo['accessWatchRowOtherCreatedBy']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessWatchRowOtherCreatedBy']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessWatchRowOtherCreatedBy" class="font-600 font-14">
+                        {{fieldsInfo['accessWatchRowOtherCreatedBy']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowOtherCreatedBy"
+                            [(ngModel)]="dataModel.accessWatchRowOtherCreatedBy"
+                            name="dataModel.accessWatchRowOtherCreatedBy">
+                        <label class="custom-control-label" for="dataModel.accessWatchRowOtherCreatedBy"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessCountRowOtherSiteId Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessCountRowOtherSiteId"
-                *ngIf="fieldsInfo['accessCountRowOtherSiteId']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessCountRowOtherSiteId']?.accessEditField"
-                name="dataModel.accessCountRowOtherSiteId">
-                {{fieldsInfo['accessCountRowOtherSiteId']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessCountRowOtherSiteId']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessCountRowOtherSiteId" class="font-600 font-14">
+                        {{fieldsInfo['accessCountRowOtherSiteId']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessCountRowOtherSiteId"
+                            [(ngModel)]="dataModel.accessCountRowOtherSiteId"
+                            name="dataModel.accessCountRowOtherSiteId">
+                        <label class="custom-control-label" for="dataModel.accessCountRowOtherSiteId"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessCountRowOtherCreatedBy Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessCountRowOtherCreatedBy"
-                *ngIf="fieldsInfo['accessCountRowOtherCreatedBy']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessCountRowOtherCreatedBy']?.accessEditField"
-                name="dataModel.accessCountRowOtherCreatedBy">
-                {{fieldsInfo['accessCountRowOtherCreatedBy']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-
-        <div class="ntk-full-width">
-            <!-- accessEditRowOtherSiteId Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessEditRowOtherSiteId"
-                *ngIf="fieldsInfo['accessEditRowOtherSiteId']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessEditRowOtherSiteId']?.accessEditField"
-                name="dataModel.accessEditRowOtherSiteId">
-                {{fieldsInfo['accessEditRowOtherSiteId']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessCountRowOtherCreatedBy']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessCountRowOtherCreatedBy" class="font-600 font-14">
+                        {{fieldsInfo['accessCountRowOtherCreatedBy']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessCountRowOtherCreatedBy"
+                            [(ngModel)]="dataModel.accessCountRowOtherCreatedBy"
+                            name="dataModel.accessCountRowOtherCreatedBy">
+                        <label class="custom-control-label" for="dataModel.accessCountRowOtherCreatedBy"></label>
+                    </div>
+                </div>
+            </div>
+             <!-- accessEditRowOtherSiteId Field -->
+             <div *ngIf="fieldsInfo['accessEditRowOtherSiteId']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessEditRowOtherSiteId" class="font-600 font-14">
+                        {{fieldsInfo['accessEditRowOtherSiteId']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessEditRowOtherSiteId"
+                            [(ngModel)]="dataModel.accessEditRowOtherSiteId"
+                            name="dataModel.accessEditRowOtherSiteId">
+                        <label class="custom-control-label" for="dataModel.accessEditRowOtherSiteId"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessEditRowOtherCreatedBy Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessEditRowOtherCreatedBy"
-                *ngIf="fieldsInfo['accessEditRowOtherCreatedBy']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessEditRowOtherCreatedBy']?.accessEditField"
-                name="dataModel.accessEditRowOtherCreatedBy">
-                {{fieldsInfo['accessEditRowOtherCreatedBy']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
-
-        <div class="ntk-full-width">
+            <div *ngIf="fieldsInfo['accessEditRowOtherCreatedBy']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessEditRowOtherCreatedBy" class="font-600 font-14">
+                        {{fieldsInfo['accessEditRowOtherCreatedBy']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessEditRowOtherCreatedBy"
+                            [(ngModel)]="dataModel.accessEditRowOtherCreatedBy"
+                            name="dataModel.accessEditRowOtherCreatedBy">
+                        <label class="custom-control-label" for="dataModel.accessEditRowOtherCreatedBy"></label>
+                    </div>
+                </div>
+            </div>
             <!-- accessDeleteRowOtherCreatedBy Field -->
-            <mat-slide-toggle [(ngModel)]="dataModel.accessDeleteRowOtherCreatedBy"
-                *ngIf="fieldsInfo['accessDeleteRowOtherCreatedBy']?.accessWatchField"
-                [disabled]="!fieldsInfo['accessDeleteRowOtherCreatedBy']?.accessEditField"
-                name="dataModel.accessDeleteRowOtherCreatedBy">
-                {{fieldsInfo['accessDeleteRowOtherCreatedBy']?.fieldTitle}}
-            </mat-slide-toggle>
-        </div>
+            <div *ngIf="fieldsInfo['accessDeleteRowOtherCreatedBy']?.accessWatchField" class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.accessDeleteRowOtherCreatedBy" class="font-600 font-14">
+                        {{fieldsInfo['accessDeleteRowOtherCreatedBy']?.fieldTitle}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.accessDeleteRowOtherCreatedBy"
+                            [(ngModel)]="dataModel.accessDeleteRowOtherCreatedBy"
+                            name="dataModel.accessDeleteRowOtherCreatedBy">
+                        <label class="custom-control-label" for="dataModel.accessDeleteRowOtherCreatedBy"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                </button>
+            </div>
 
-
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+        </form>
+        <!--Content-->
     </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
+</div>
