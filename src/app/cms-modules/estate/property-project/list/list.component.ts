@@ -71,7 +71,7 @@ export class EstatePropertyProjectListComponent implements OnInit, OnDestroy {
     'mainAdminRecordStatus',
     'Title',
     'CreatedDate',
-    'Action',
+    // 'Action',
     'LinkTo',
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

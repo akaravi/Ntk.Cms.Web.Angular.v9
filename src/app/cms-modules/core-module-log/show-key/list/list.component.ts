@@ -87,7 +87,7 @@ export class CoreModuleLogShowKeyListComponent implements OnInit, OnDestroy {
     'ModuleEntityId',
     'showKey',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

@@ -85,7 +85,7 @@ export class LinkManagementTargetListComponent implements OnInit, OnDestroy {
     'CurrentClickCount',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

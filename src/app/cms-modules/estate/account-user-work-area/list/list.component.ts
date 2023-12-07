@@ -68,7 +68,7 @@ export class EstateAccountUserWorkAreaListComponent implements OnInit, OnDestroy
   tabledisplayedColumnsSource: string[] = [
     'linkEstateAccountUserId',
     'linkCoreLocationId',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

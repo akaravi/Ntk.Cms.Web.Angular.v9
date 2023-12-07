@@ -81,7 +81,7 @@ export class ApplicationIntroListComponent implements OnInit, OnDestroy {
     'LinkApplicationId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   expandedElement: ApplicationIntroModel | null;

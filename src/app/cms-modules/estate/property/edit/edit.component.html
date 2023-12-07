@@ -263,7 +263,7 @@
           </div>
 
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
             </button>
@@ -357,13 +357,13 @@
           </div>
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
             <button type="button" matStepperPrevious
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
             </button>
             <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0"
               [disabled]="!vform.form.valid" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+             >
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -402,13 +402,13 @@
             </mat-error>
           </div>
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
             </button>
             <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               [disabled]="!vform.form.valid" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+              >
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -525,13 +525,13 @@
 
           </mat-accordion>
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
             </button>
             <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               [disabled]="!vform.form.valid" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+             >
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -710,8 +710,7 @@
             <br>
             <button (click)="onActionOptionAddToList()" type="button"
               class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
-              *ngIf="contractTypeSelected && contractTypeSelected.id.length>0"
-              class="btn btn-primary font-weight-bold font-size-h5 px-9 py-4" style="margin: 10px 0px;">
+              *ngIf="contractTypeSelected && contractTypeSelected.id.length>0">
               {{'ACTION.Add_To_List' | translate}} ...
             </button>
           </div>
@@ -818,14 +817,14 @@
           <!-- TABLE  -->
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
             <button type="button" matStepperPrevious
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
+              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
             </button>
             <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               *ngIf="
                                   this.dataModel.contracts && this.dataModel.contracts.length > 0"
               [disabled]="!vform.form.valid" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+              >
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -874,7 +873,7 @@
           <app-cms-360-tour-list [(dataModel)]="dataModel.file360Tour"
             [dataImageModel]="dataModel.file360Views"></app-cms-360-tour-list>
           <div *ngIf="formInfo.formSubmitAllow && !loading?.display" class="ntk-button-row">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
             </button>
@@ -904,7 +903,7 @@
               (click)="onActionBackToParent()">
               {{'ACTION.BACK' | translate}}
             </button>
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
             </button>
@@ -912,7 +911,7 @@
               [disabled]="!vform.form.valid || !connectionStatus.internetConnection">
               {{'ACTION.SAVE' | translate}}
             </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
               [disabled]="!vform.form.valid" (click)="onFormSubmitAndMessage()" *ngIf="this.tokenHelper.isAdminSite">
               {{'ACTION.Send_Message' | translate}}
             </button>

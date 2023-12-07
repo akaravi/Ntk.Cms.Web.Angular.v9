@@ -19,19 +19,8 @@
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow($event)" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    <button *ngIf="dataModelResult.access.accessAddRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonCopyNewRow(tableRowSelected,$event)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" id="openModalButton"
-      data-toggle="modal" data-target="#categoryModal">{{'ACTION.COPY' |
-      translate}}</button>
-    <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonEditRow(tableRowSelected,$event)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-      translate}}</button>
-    <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonDeleteRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-      translate}}</button>
+
+
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
@@ -46,7 +35,7 @@
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    
+
     <button (click)="onActionbuttonReload()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -86,6 +75,11 @@
       <span>{{'ACTION.BILLBOARDDISPLAY' | translate}}</span>
       <mat-icon>personal_video</mat-icon>
     </button>
+    <button *ngIf="dataModelResult.access.accessAddRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
+      (click)="onActionbuttonCopyNewRow(tableRowSelected,$event)" type="button"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" id="openModalButton"
+      data-toggle="modal" data-target="#categoryModal">{{'ACTION.COPY' |
+      translate}}</button>
     <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
@@ -167,23 +161,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonEditRow(row,$event)" *ngIf="dataModelResult.access.accessEditRow">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonContentList(row,$event)">
-              <mat-icon>list</mat-icon>
-              <span>{{'ACTION.SHOWPROPERTIES' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonOpenBillboard(row)">
-              <mat-icon>personal_video</mat-icon>
-              <span>{{'ACTION.BILLBOARDDISPLAY' | translate}}</span>
-            </button>
+
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -228,20 +206,7 @@
                 <td></td>
                 <td>
 
-                  <a (click)="onActionbuttonEditRow(row,$event)" *ngIf="dataModelResult.access.accessEditRow"
-                    class="link-primary pointer">
-                    {{'ACTION.EDIT' | translate}} </a>|
 
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                    class="link-primary pointer">
-                    {{'ACTION.DELETE' | translate}} </a>|
-
-                  <a (click)="onActionbuttonContentList(row,$event)" class="link-primary pointer">
-                    {{'ACTION.SHOWPROPERTIES' |
-                    translate}} </a>|
-
-                  <a (click)="onActionbuttonOpenBillboard(row)" class="link-primary pointer">
-                    {{'ACTION.BILLBOARDDISPLAY' | translate}} </a>
 
                 </td>
               </tr>

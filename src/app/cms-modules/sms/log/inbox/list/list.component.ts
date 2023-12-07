@@ -87,7 +87,7 @@ export class SmsLogInBoxListComponent implements OnInit, OnDestroy {
     'LinkPrivateConfigId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

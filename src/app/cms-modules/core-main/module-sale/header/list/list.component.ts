@@ -92,7 +92,7 @@ export class CoreModuleSaleHeaderListComponent implements OnInit, OnDestroy {
     'ExpireDate',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

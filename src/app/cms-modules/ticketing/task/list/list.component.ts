@@ -83,7 +83,7 @@ export class TicketingTaskListComponent implements OnInit, OnDestroy {
     'CreatedDate',
     'UpdatedDate',
     'TicketStatus',
-    'Action'
+    // 'Action'
   ];
 
 

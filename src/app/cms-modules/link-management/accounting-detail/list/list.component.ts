@@ -80,7 +80,7 @@ export class LinkManagementAccountingDetailListComponent implements OnInit, OnDe
     'RecordStatus',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

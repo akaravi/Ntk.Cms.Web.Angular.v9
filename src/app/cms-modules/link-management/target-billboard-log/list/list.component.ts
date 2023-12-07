@@ -93,7 +93,7 @@ export class LinkManagementTargetBillboardLogListComponent implements OnInit, On
     'CreatedDate',
     'LinkManagementBillboardId',
     'LinkManagementTargetId',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

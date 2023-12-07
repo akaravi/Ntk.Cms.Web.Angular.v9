@@ -85,13 +85,13 @@ export class EstateAccountAgencyAdsListComponent implements OnInit, OnDestroy {
     'LinkAccountAgencyId',
     'FromDate',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Title',
     'StationLevel',
     'ViewLevel',
-    'Action'
+    // 'Action'
   ];
 
 

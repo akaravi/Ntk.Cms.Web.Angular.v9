@@ -23,9 +23,9 @@
 
       <!-- ExpertPriceType Field -->
       <app-cms-enum-x-selector *ngIf="fieldsInfo['expertPriceType']?.accessWatchField"
-      [optionDataListResult]="dataModelEstatePropertyExpertPriceTypeEnumResult" [(model)]="dataModel.expertPriceType"
-      [optionDisabled]="false" [optionLabel]="this.fieldsInfo['expertPriceType']?.fieldTitle" [optionRequired]="true"
-      [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+        [optionDataListResult]="dataModelEstatePropertyExpertPriceTypeEnumResult" [(model)]="dataModel.expertPriceType"
+        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['expertPriceType']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
       <!-- LinkLocationId Field -->
       <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
         [optionSelectForce]="dataModel.linkLocationId" [(optionLoading)]="loading"
@@ -226,8 +226,7 @@
           class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
         </button>
-        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-          (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+        <button type="submit" (click)="onFormSubmit()" [disabled]="!vform.form.valid"
           class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
           <i class="fa fa-check-square-o"></i>
           {{ "ACTION.SAVE" | translate }}

@@ -72,7 +72,7 @@ export class CoreModuleSiteCreditListComponent implements OnInit, OnDestroy {
     'LinkModuleId',
     'Credit',
     'SumCreditBlocked',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

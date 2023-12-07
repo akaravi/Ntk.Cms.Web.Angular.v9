@@ -89,12 +89,12 @@ export class ArticleCommentListComponent implements OnInit, OnDestroy {
     'Writer',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Writer',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

@@ -92,7 +92,7 @@ export class CoreDeviceListComponent implements OnInit, OnDestroy {
     'CreatedDate',
     'UpdatedDate',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
 
 

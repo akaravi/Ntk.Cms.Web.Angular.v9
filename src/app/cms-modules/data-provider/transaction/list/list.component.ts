@@ -81,7 +81,7 @@ export class DataProviderTransactionListComponent implements OnInit, OnDestroy {
     'FeeTax',
     'Amount',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

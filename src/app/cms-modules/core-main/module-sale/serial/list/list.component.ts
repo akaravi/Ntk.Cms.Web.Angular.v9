@@ -83,7 +83,7 @@ export class CoreModuleSaleSerialListComponent implements OnInit, OnDestroy {
     'DatePeriodStart',
     'UpdatedDate',
     'DatePeriodEnd',
-    'Action'
+    // 'Action'
   ];
 
 

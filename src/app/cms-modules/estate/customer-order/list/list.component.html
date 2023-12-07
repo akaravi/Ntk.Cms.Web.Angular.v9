@@ -64,7 +64,8 @@
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
-    <button (click)="onActionbuttonEditRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow">
+    <button (click)="onActionbuttonEditRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
@@ -73,19 +74,23 @@
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
-    <button (click)="onActionbuttonQuickHistoryAddRow(tableRowSelected)">
+    <button (click)="onActionbuttonQuickHistoryAddRow(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.HISTORY_ADD' | translate}}</span>
       <mat-icon>history</mat-icon>
     </button>
-    <button (click)="onActionbuttonHistoryRow(tableRowSelected,$event)">
+    <button (click)="onActionbuttonHistoryRow(tableRowSelected,$event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.HISTORY_LIST' | translate}}</span>
       <mat-icon>history</mat-icon>
     </button>
-    <button (click)="onActionbuttonContentList(tableRowSelected,$event)">
+    <button (click)="onActionbuttonContentList(tableRowSelected,$event)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.THEPROPERTY_INCLUDESVIEWS' | translate}}</span>
       <mat-icon>list</mat-icon>
     </button>
-    <button (click)="onActionbuttonOpenCustomerOrder(tableRowSelected)">
+    <button (click)="onActionbuttonOpenCustomerOrder(tableRowSelected)"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.DISPLAYCLIENTPAGE' | translate}}</span>
       <mat-icon>slideshow</mat-icon>
     </button>
@@ -484,31 +489,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonEditRow(row,$event)" *ngIf="dataModelResult.access.accessEditRow">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonQuickHistoryAddRow(row)">
-              <span>{{'ACTION.HISTORY_ADD' | translate}}</span>
-              <mat-icon>history</mat-icon>
-            </button>
-            <button (click)="onActionbuttonHistoryRow(row,$event)">
-              <mat-icon>history</mat-icon>
-              <span>{{'ACTION.HISTORY_LIST' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonContentList(row,$event)">
-              <mat-icon>list</mat-icon>
-              <span>{{'ACTION.THEPROPERTY_INCLUDESVIEWS' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonOpenCustomerOrder(row)">
-              <mat-icon>slideshow</mat-icon>
-              <span>{{'ACTION.DISPLAYCLIENTPAGE' | translate}}</span>
-            </button>
+
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -561,20 +542,7 @@
                 <td></td>
                 <td>
 
-                  <a (click)="onActionbuttonEditRow(row,$event)" *ngIf="dataModelResult.access.accessEditRow"
-                    class="link-primary pointer">
-                    {{'ACTION.EDIT' | translate}} </a>|
 
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                    class="link-primary pointer">
-                    {{'ACTION.DELETE' | translate}} </a>|
-
-                  <a (click)="onActionbuttonContentList(row)" class="link-primary pointer">
-                    {{'ACTION.THEPROPERTY_INCLUDESVIEWS' |
-                    translate}} </a>|
-
-                  <a (click)="onActionbuttonOpenCustomerOrder(row)" class="link-primary pointer">
-                    {{'ACTION.DISPLAYCLIENTPAGE' | translate}} </a>
 
                 </td>
               </tr>

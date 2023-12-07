@@ -77,7 +77,7 @@ export class DonateSponserListComponent implements OnInit, OnDestroy {
     'LinkTargetCategoryId',
     'CreatedDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

@@ -79,7 +79,7 @@ export class ApiTelegramLogOutputListComponent implements OnInit, OnDestroy {
     'StatusWebhook',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
   ];
 
 

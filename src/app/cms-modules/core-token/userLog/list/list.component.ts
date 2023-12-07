@@ -105,7 +105,7 @@ export class CoreTokenUserLogListComponent implements OnInit, OnDestroy {
     'UserAccessAdminAllowToProfessionalData',
     'RememberOnDevice',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

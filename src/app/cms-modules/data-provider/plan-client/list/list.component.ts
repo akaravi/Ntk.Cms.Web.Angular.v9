@@ -73,7 +73,7 @@ export class DataProviderPlanClientListComponent implements OnInit, OnDestroy {
     'Id',
     'RecordStatus',
     'ExpireDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

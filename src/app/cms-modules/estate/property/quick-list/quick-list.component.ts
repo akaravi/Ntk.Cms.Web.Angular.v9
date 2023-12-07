@@ -223,7 +223,7 @@ export class EstatePropertyQuickListComponent
     "CaseCode",
     "CreatedDate",
     "UpdatedDate",
-    "Action",
+    // "Action",
     "LinkTo",
     "QuickView",
   ];
@@ -231,7 +231,7 @@ export class EstatePropertyQuickListComponent
     "LinkMainImageIdSrc",
     "CaseCode",
     "IsSoldIt",
-    'Action',
+    // 'Action',
     "LinkTo",
     "QuickView",
   ];

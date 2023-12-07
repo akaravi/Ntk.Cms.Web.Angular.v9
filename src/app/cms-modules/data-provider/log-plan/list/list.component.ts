@@ -70,7 +70,7 @@ export class DataProviderLogPlanListComponent implements OnInit, OnDestroy {
     'LinkSourceId',
     'LinkPlanId',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

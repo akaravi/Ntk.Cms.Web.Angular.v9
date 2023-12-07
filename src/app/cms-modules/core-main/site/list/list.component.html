@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'configuresite.site.list'"
   [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionActionRowDisplay]="tableRowSelected?.id>0">
+  [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     --------------------------------------
@@ -17,13 +17,8 @@
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0" (click)="onActionbuttonEditRow()"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT'
-      |
-      translate}}</button>
-    <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0" (click)="onActionbuttonDeleteRow()"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-      translate}}</button>
+    
+
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
@@ -207,63 +202,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonLoginToRow(row)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>login</mat-icon>
-              <span>{{'ACTION.LOGIN_TO_THIS_SITE' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonModuleListRow(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>view_module</mat-icon>
-              <span>{{'ACTION.MODULES' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDomainAliasListRow(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>domain</mat-icon>
-              <span>{{'ACTION.DOMAINS' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonUserListRow(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>switch_account</mat-icon>
-              <span>{{'ACTION.USERS' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDeviceListRow(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>devices</mat-icon>
-              <span>{{'ACTION.DEVICES' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonResller(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>devices</mat-icon>
-              <span> {{'ACTION.MARKETING_SUBSET' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonModuleSiteInfo(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData ||tokenInfo.userAccessAdminAllowToProfessionalData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>bar_chart</mat-icon>
-              <span>{{'ACTION.SITE_STATISTICS' | translate}} </span>
-            </button>
-            <button (click)="onActionbuttonModuleSiteOptimaze(row)"
-              *ngIf="tokenInfo.userAccessAdminAllowToAllData ||tokenInfo.userAccessAdminAllowToProfessionalData || tokenInfo.siteId===row.id"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              <mat-icon>bar_chart</mat-icon>
-              <span>{{'ACTION.OPTIMIZATION' | translate}} </span>
-            </button>
+        
           </mat-menu>
 
 

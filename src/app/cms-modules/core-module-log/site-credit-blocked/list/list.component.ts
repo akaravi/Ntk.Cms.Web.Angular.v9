@@ -101,7 +101,7 @@ export class CoreModuleLogSiteCreditBlockedListComponent implements OnInit, OnDe
     'LinkSiteId',
 
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

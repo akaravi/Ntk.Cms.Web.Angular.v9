@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'donate.sponser.list'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true"
-    [optionActionRowDisplay]="tableRowSelected?.id>0">
+    [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         <app-donate-target-category-tree
@@ -22,14 +22,8 @@
             (click)="onActionbuttonNewRow()" type="button"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
             translate}}</button>
-        <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0" (click)="onActionbuttonEditRow()"
-            type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-            translate}}</button>
-        <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
-            (click)="onActionbuttonDeleteRow()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-            translate}}</button>
+
+
         <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
         </a>
@@ -43,7 +37,7 @@
             <mat-icon style="font-size: 20px;margin: -11px;"
                 title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
         </button>
-        
+
         <button (click)="onActionbuttonReload()" type="button"
             class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
@@ -54,7 +48,8 @@
     <ng-container cms-action-row>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
         <h1>{{tableRowSelected?.id}}</h1>
-        <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow">
+        <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
             <span>{{'ACTION.EDIT' | translate}}</span>
             <mat-icon>mode_edit</mat-icon>
         </button>
@@ -63,11 +58,13 @@
             <span>{{'ACTION.DELETE' | translate}}</span>
             <mat-icon>delete_forever</mat-icon>
         </button>
-        <button (click)="onActionbuttonTargetPeriodSponserRow(tableRowSelected)">
+        <button (click)="onActionbuttonTargetPeriodSponserRow(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.LIST_COURSES' | translate}}</span>
             <mat-icon>list</mat-icon>
         </button>
-        <button (click)="onActionbuttonTransactionsRow(tableRowSelected)">
+        <button (click)="onActionbuttonTransactionsRow(tableRowSelected)"
+            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <span>{{'ACTION.TRANSACTIONS' | translate}}</span>
             <mat-icon>list</mat-icon>
         </button>
@@ -151,23 +148,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-                            <mat-icon>mode_edit</mat-icon>
-                            <span>{{'ACTION.EDIT' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-                            <mat-icon>delete_forever</mat-icon>
-                            <span>{{'ACTION.DELETE' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonTargetPeriodSponserRow(row)">
-                            <mat-icon>list</mat-icon>
-                            <span>{{'ACTION.LIST_COURSES' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonTransactionsRow(row)">
-                            <mat-icon>list</mat-icon>
-                            <span>{{'ACTION.TRANSACTIONS' | translate}}</span>
-                        </button>
+
                     </mat-menu>
                 </mat-cell>
             </ng-container>

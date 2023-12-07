@@ -88,7 +88,7 @@ export class SmsLogOutBoxListComponent implements OnInit, OnDestroy {
     'CreatedDate',
     'SendDate',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
 
 

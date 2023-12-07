@@ -104,7 +104,7 @@ export class CoreModuleLogContentCountListComponent implements OnInit, OnDestroy
     'ModuleEntityName',
     'ModuleEntityId',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

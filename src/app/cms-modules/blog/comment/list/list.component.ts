@@ -92,7 +92,7 @@ export class BlogCommentListComponent implements OnInit, OnDestroy {
     'Writer',
     'CreatedDate',
     'UpdatedDate',
-    'Action',
+    // 'Action',
     "LinkTo",
   ];
 

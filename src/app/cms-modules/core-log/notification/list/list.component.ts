@@ -106,7 +106,7 @@ export class CoreLogNotificationListComponent implements OnInit, OnDestroy {
     'receiverlinkUserId',
     'contentType',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumSendNotificationStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

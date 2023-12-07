@@ -94,7 +94,7 @@ export class EstateAccountUserListComponent implements OnInit, OnDestroy {
     'Title',
     'LinkCmsUserId',
     'Description',
-    'Action'
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

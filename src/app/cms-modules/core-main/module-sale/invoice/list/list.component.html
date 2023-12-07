@@ -14,16 +14,9 @@
     </ng-container>
     <ng-container cms-action>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-        <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected?.id>0"
-            (click)="onActionbuttonViewRow()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" data-toggle="modal"
-            data-target="#categoryModal">{{'ACTION.VIEW' |
-            translate}}</button>
+        
 
-        <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
-            (click)="onActionbuttonDeleteRow()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-            translate}}</button>
+     
 
         <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
@@ -149,21 +142,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #actionMenu="matMenu">
-                        <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-                            <mat-icon>delete_forever</mat-icon>
-                            <span>{{'ACTION.DELETE' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonViewRow(row)" *ngIf="dataModelResult.access.accessWatchRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                            <mat-icon>visibility</mat-icon>
-                            <span>{{'ACTION.VIEW' | translate}}</span>
-                        </button>
-                        <button (click)="onActionbuttonViewDetail(row)" *ngIf="dataModelResult.access.accessWatchRow"
-                            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                            <mat-icon>view_module</mat-icon>
-                            <span>{{'ACTION.DETAIL' | translate}}</span>
-                        </button>
+                      
                     </mat-menu>
                 </mat-cell>
             </ng-container>

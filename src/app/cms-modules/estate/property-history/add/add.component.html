@@ -120,8 +120,7 @@
           class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
         </button>
-        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-          (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+        <button type="submit" (click)="onFormSubmit()" [disabled]="!vform.form.valid"
           class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
           <i class="fa fa-check-square-o"></i>
           {{ "ACTION.SAVE" | translate }}

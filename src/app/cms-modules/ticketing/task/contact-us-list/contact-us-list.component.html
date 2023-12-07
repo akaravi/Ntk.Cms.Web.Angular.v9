@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'ticketing.task.contactus-list'"
   [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionActionRowDisplay]="tableRowSelected?.id>0">
+  [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
 
@@ -14,9 +14,7 @@
   </ng-container>
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected.id>0" (click)="onActionbuttonViewRow()"
-      type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#categoryModal">{{'ACTION.VIEW' |
-      translate}}</button>
+
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
@@ -53,10 +51,16 @@
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
-    <button mat-menu-item (click)="onActionbuttonAnswerList(tableRowSelected)" *ngIf="dataModelResult.access.accessWatchRow">
+    <button mat-menu-item (click)="onActionbuttonAnswerList(tableRowSelected)"
+      *ngIf="dataModelResult.access.accessWatchRow"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.ANSWERS' | translate}}</span>
       <mat-icon>question_answer</mat-icon>
     </button>
+    <button *ngIf="dataModelResult.access.accessWatchRow && tableRowSelected.id>0"
+      (click)="onActionbuttonViewRow(tableRowSelected)" type="button" class="btn btn-outline-secondary"
+      data-toggle="modal" data-target="#categoryModal">{{'ACTION.VIEW' |
+      translate}}</button>
     <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
       class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
@@ -126,10 +130,7 @@
           </button>
           <mat-menu #actionMenu="matMenu">
 
-            <button mat-menu-item (click)="onActionbuttonAnswerList(row)" *ngIf="dataModelResult.access.accessWatchRow">
-              <mat-icon>question_answer</mat-icon>
-              <span>{{'ACTION.ANSWERS' | translate}}</span>
-            </button>
+
           </mat-menu>
         </mat-cell>
       </ng-container>

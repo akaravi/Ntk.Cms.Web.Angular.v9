@@ -102,7 +102,7 @@ export class CoreTokenUserBadLoginListComponent implements OnInit, OnDestroy {
     'UserAccessAreaType',
     'UsedUsername',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

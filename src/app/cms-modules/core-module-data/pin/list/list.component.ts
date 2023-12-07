@@ -87,7 +87,7 @@ export class CoreModuleDataPinListComponent implements OnInit, OnDestroy {
     'ModuleEntityId',
     'SubjectBody',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

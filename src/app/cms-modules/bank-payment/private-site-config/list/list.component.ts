@@ -86,7 +86,7 @@ export class BankPaymentPrivateSiteConfigListComponent implements OnInit, OnDest
     'Title',
     'LinkPublicConfigId',
     'UpdatedDate',
-    'Action'
+    // 'Action'
   ];
   ngOnInit(): void {
     this.requestLinkPublicConfigId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkPublicConfigId'));

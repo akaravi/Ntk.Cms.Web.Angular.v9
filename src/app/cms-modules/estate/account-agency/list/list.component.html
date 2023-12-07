@@ -20,16 +20,8 @@
     <button *ngIf="optionloadByRoute && dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()"
       type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    <button
-      *ngIf="optionloadByRoute && dataModelResult.access.accessEditRow && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonEditRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT' |
-      translate}}</button>
-    <button
-      *ngIf="optionloadByRoute && dataModelResult.access.accessDeleteRow  && tableRowSelected.id &&  tableRowSelected?.id?.length>0"
-      (click)="onActionbuttonDeleteRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">{{'ACTION.DELETE' |
-      translate}}</button>
+   
+  
 
     <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
@@ -159,27 +151,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-            <button (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow">
-              <mat-icon>mode_edit</mat-icon>
-              <span>{{'ACTION.EDIT' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
-              <mat-icon>delete_forever</mat-icon>
-              <span>{{'ACTION.DELETE' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonAgentRow(row,$event)">
-              <mat-icon>person</mat-icon>
-              <span>{{'ACTION.PERSONNEL' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonHistoryRow(row,$event)">
-              <mat-icon>history</mat-icon>
-              <span>{{'ACTION.HISTORY' | translate}}</span>
-            </button>
-            <button (click)="onActionbuttonPropertyRow(row,$event)">
-              <mat-icon>home</mat-icon>
-              <span>{{'ACTION.CONNECT_TO_PROPERTY' | translate}}</span>
-            </button>
+            
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -223,20 +195,7 @@
                 <td></td>
                 <td>
 
-                  <a (click)="onActionbuttonEditRow(row)" *ngIf="dataModelResult.access.accessEditRow"
-                    class="link-primary pointer"> {{'ACTION.EDIT' | translate}} </a>|
-
-                  <a (click)="onActionbuttonDeleteRow(row)" *ngIf="dataModelResult.access.accessDeleteRow"
-                    class="link-primary pointer"> {{'ACTION.DELETE' | translate}} </a>|
-
-                  <a (click)="onActionbuttonAgentRow(row,$event)" class="link-primary pointer"> {{'ACTION.PERSONNEL' |
-                    translate}} </a>|
-
-                  <a (click)="onActionbuttonHistoryRow(row,$event)" class="link-primary pointer">
-                    {{'ACTION.HISTORY' | translate}} </a>|
-
-                  <a (click)="onActionbuttonPropertyRow(row,$event)" class="link-primary pointer">
-                    {{'ACTION.CONNECT_TO_PROPERTY' | translate}} </a>
+                
 
                 </td>
               </tr>

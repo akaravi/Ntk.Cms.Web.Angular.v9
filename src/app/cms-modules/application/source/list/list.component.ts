@@ -82,7 +82,7 @@ export class ApplicationSourceListComponent implements OnInit, OnDestroy {
     'OsType',
     'ForceUpdate',
     'IsPublish',
-    'Action'
+    // 'Action'
   ];
 
 

@@ -68,7 +68,7 @@ export class DataProviderLogClientListComponent implements OnInit, OnDestroy {
     'Id',
     'LinkClientId',
     'CreatedDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

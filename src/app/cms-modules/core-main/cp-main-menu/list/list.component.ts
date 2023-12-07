@@ -76,7 +76,7 @@ export class CoreCpMainMenuListComponent implements OnInit, OnDestroy {
     'ShowInAccessAdminAllowToProfessionalData',
     'MenuPlaceType',
     'ShowInMenuOrder',
-    'Action',
+    // 'Action',
     'position'
   ];
 

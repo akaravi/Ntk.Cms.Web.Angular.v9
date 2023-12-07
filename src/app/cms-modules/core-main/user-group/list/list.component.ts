@@ -77,7 +77,7 @@ export class CoreUserGroupListComponent implements OnInit, OnDestroy {
     'TitleResourceLanguage',
     'UserType',
     'UserTypeTitle',
-    'Action'
+    // 'Action'
   ];
 
 
