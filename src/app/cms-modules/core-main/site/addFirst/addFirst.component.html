@@ -45,7 +45,7 @@
         </app-core-sitecategory-selector>
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -60,11 +60,11 @@
         </app-core-sitecategorycmsmodule-listview>
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -79,11 +79,11 @@
         <div [innerHTML]="this.modelDateSiteCategory.ruleHtmlBody"></div>
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -107,7 +107,7 @@
         <!-- Domain Field -->
         <div class="row input-group mb-3 set-select" style="margin: 2px 17px 0 0; padding-left: 34px;">
           <div class="input-group-prepend col-4 ">
-            <button class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" type="button"
+            <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" type="button"
               data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">{{ dataModel.domain === undefined ?
               this.translate.instant('TITLE.Domain') : dataModel.domain }}</button>
             <div class="dropdown-menu">
@@ -134,11 +134,11 @@
           </small>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
             [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>

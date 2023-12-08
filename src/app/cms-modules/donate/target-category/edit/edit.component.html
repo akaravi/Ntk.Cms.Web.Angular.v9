@@ -31,8 +31,8 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" 
-                class="form-control validate-name" id="dataModel.title" />
+                    placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.title" />
                 <em>{{ Title.value.length }} / 100</em>
                 <mat-error *ngIf="Title.errors?.required">
                     Title is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -40,22 +40,23 @@
             </div>
             <!-- Description Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                 placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-                 id="dataModel.description" class="form-control validate-name">
+                <label for="dataModel.description"
+                    class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                    type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500"
+                    rows="5" id="dataModel.description" class="form-control validate-name">
                 </textarea>
                 <em>{{ Description.value.length }} / 500</em>
                 <mat-error *ngIf="Description.errors?.required">
-                   Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-               </mat-error>
+                    Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
             </div>
             <!-- FontIcon Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.fontIcon" class="color-highlight">{{fieldsInfo['fontIcon']?.fieldTitle}}</label>
                 <textarea matInput [(ngModel)]="dataModel.fontIcon" name="dataModel.fontIcon" #FontIcon type="text"
-                placeholder="{{fieldsInfo['fontIcon']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-                id="dataModel.fontIcon" class="form-control validate-name">
+                    placeholder="{{fieldsInfo['fontIcon']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+                    id="dataModel.fontIcon" class="form-control validate-name">
                 </textarea>
                 <em>{{ FontIcon.value.length }} / 500</em>
                 <mat-error *ngIf="FontIcon.errors?.required">
@@ -68,32 +69,34 @@
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.linkParentId}} </mat-cell>
             </ng-container>
-             <!-- LinkMainImageId Field -->
-             <div class="mb-3">
+            <!-- LinkMainImageId Field -->
+            <div class="mb-3">
                 <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
-                <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-                    aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
+                    <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
+                        class="ntk-hover-zoom" aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}"
+                        height="50" width="50" />
                 </a>
             </div>
             <div *ngIf="fieldsInfo['linkMainImageId']?.accessWatchField"
-             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-             <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
-                class="color-highlight">{{'TITLE.Icon_File' | translate}}</label>
-             <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
-                #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-                (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
-                <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
-                 [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
-                 [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage"
-                 [openFilemanagerButtonView]="false">
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+                    class="color-highlight">{{'TITLE.Icon_File' | translate}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+                    #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+                    (click)="fileManagerOpenForm = true" class="form-control validate-name"
+                    id="dataModel.linkMainImageId" />
+                <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
+                    [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree"
+                    [openFilemanagerButtonLabelKey]="'select'" [openDirectUploadView]="true"
+                    [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
                 </cms-file-manager>
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>

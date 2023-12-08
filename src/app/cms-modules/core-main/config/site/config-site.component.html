@@ -88,15 +88,15 @@
         </div>
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
             (click)="onActionBackToParent()">
             {{'ACTION.BACK' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
             [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
@@ -167,15 +167,15 @@
           <div [innerHTML]="dataSiteStorageModel | prettyjson"></div>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
             [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>
@@ -211,15 +211,15 @@
           <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
             [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>

@@ -23,19 +23,19 @@
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
         <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
-        placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"  [disabled]="!fieldsInfo['title']?.accessEditField"
-        class="form-control validate-name" id="dataModel.title" />
+          placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
+          [disabled]="!fieldsInfo['title']?.accessEditField" class="form-control validate-name" id="dataModel.title" />
         <em>{{ Title.value.length }} / 100</em>
         <mat-error *ngIf="Title.errors?.required">
-            {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+          {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
       </div>
       <!-- ClassName Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.className" class="color-highlight">{{ fieldsInfo["className"]?.fieldTitle }}</label>
         <input matInput type="text" [(ngModel)]="dataModel.className" name="dataModel.className" #ClassName
-        placeholder="ClassName" minlength="3" maxlength="100"
-        class="form-control validate-name" id="dataModel.className" />
+          placeholder="ClassName" minlength="3" maxlength="100" class="form-control validate-name"
+          id="dataModel.className" />
         <em>{{ ClassName.value.length }} / 100</em>
         <mat-error *ngIf="ClassName.errors?.required">
           ClassName is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -50,25 +50,25 @@
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.memo" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
         <textarea matInput [(ngModel)]="dataModel.memo" name="dataModel.memo" #Memo type="text"
-         placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-         id="dataModel.memo" class="form-control validate-name">
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+          id="dataModel.memo" class="form-control validate-name">
         </textarea>
         <em>{{ Memo.value.length }} / 500</em>
         <mat-error *ngIf="Memo.errors?.required">
-            Memo is <strong>{{'MESSAGE.required' | translate}}</strong>
+          Memo is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
       </div>
       <!-- LinkModuleFileLogoId Field -->
       <div class="mb-3">
-          <img *ngIf="dataModel?.linkModuleFileLogoIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+        <img *ngIf="dataModel?.linkModuleFileLogoIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
           aria-hidden src="{{dataModel.linkModuleFileLogoIdSrc }}" height="50" width="50" />
       </div>
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">  
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label (click)="fileManagerOpenForm = true" for="dataModel.linkModuleFileLogoId"
           class="color-highlight">{{'TITLE.Icon_File' | translate}}</label>
         <input matInput type="text" [(ngModel)]="dataModel.linkModuleFileLogoId" name="dataModel.linkModuleFileLogoId"
-         #LinkModuleFileLogoId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-         (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkModuleFileLogoId" />
+          #LinkModuleFileLogoId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+          (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkModuleFileLogoId" />
         <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
           [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
           [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
@@ -76,10 +76,10 @@
       </div>
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
         <button type="button" (click)="onFormCancel()"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
-        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
           (click)="onFormSubmit()" [disabled]="!vform.form.valid">
           <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>
@@ -88,4 +88,3 @@
     <!--Content-->
   </div>
 </div>
-

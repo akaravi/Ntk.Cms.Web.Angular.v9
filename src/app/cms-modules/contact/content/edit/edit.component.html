@@ -28,8 +28,8 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
-                placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
-                class="form-control validate-name" id="dataModel.title" />
+                    placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.title" />
                 <em>{{ Title.value.length }} / 100</em>
                 <mat-error *ngIf="Title.errors?.required">
                     {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -39,8 +39,8 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.numbers" class="color-highlight">{{fieldsInfo['numbers']?.fieldTitle}}</label>
                 <textarea matInput [(ngModel)]="dataModel.numbers" name="dataModel.numbers" #Numbers type="text"
-                placeholder="{{fieldsInfo['numbers']?.fieldTitle}}" minlength="1" maxlength="5000" rows="5"
-                id="dataModel.numbers" class="form-control validate-name">
+                    placeholder="{{fieldsInfo['numbers']?.fieldTitle}}" minlength="1" maxlength="5000" rows="5"
+                    id="dataModel.numbers" class="form-control validate-name">
                 </textarea>
                 <em>{{ Numbers.value.length }} / 5000</em>
                 <mat-error *ngIf="Numbers.errors?.required">
@@ -49,10 +49,10 @@
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>

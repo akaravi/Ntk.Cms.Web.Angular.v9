@@ -19,13 +19,14 @@
                 [optionSelectFirstItem]="true">
             </app-cms-enum-record-status-selector>
             <!-- LinkSiteId Field -->
-            <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
-                [optionSelectForce]="this.dataModel.linkSiteId"
+            <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField"
+                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkSiteId"
                 [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
             </app-cms-site-selector>
             <!-- LinkUserId Field -->
-            <app-cms-user-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
-                [optionSelectForce]="this.dataModel.linkUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+            <app-cms-user-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField"
+                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkUserId"
+                [optionPlaceholder]="this.translate.instant('TITLE.USER')">
             </app-cms-user-selector>
             <!-- module-entity Field -->
             <app-core-module-entity-selector (optionChange)="onActionSelectorModuleEntitySelect($event)"
@@ -33,22 +34,28 @@
                 [optionPlaceholder]="this.translate.instant('TITLE.MODULE')">
             </app-core-module-entity-selector>
             <!-- moduleName Field -->
-            <div *ngIf="fieldsInfo['moduleName']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.moduleName" class="color-highlight">{{ fieldsInfo["moduleName"]?.fieldTitle }}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName disabled="{{!fieldsInfo['moduleName']?.accessEditField}}"
-                placeholder="{{fieldsInfo['moduleName']?.fieldTitle }}" minlength="3" maxlength="100"
-                class="form-control validate-name" id="dataModel.moduleName" />
+            <div *ngIf="fieldsInfo['moduleName']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.moduleName" class="color-highlight">{{ fieldsInfo["moduleName"]?.fieldTitle
+                    }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName
+                    disabled="{{!fieldsInfo['moduleName']?.accessEditField}}"
+                    placeholder="{{fieldsInfo['moduleName']?.fieldTitle }}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.moduleName" />
                 <em>{{ ModuleName.value.length }} / 100</em>
                 <mat-error *ngIf="ModuleName.errors?.required">
                     {{fieldsInfo['moduleName']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <!-- moduleEntityName Field -->
-            <div *ngIf="fieldsInfo['moduleEntityName']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.moduleEntityName" class="color-highlight">{{ fieldsInfo["moduleEntityName"]?.fieldTitle }}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName disabled="{{!fieldsInfo['moduleEntityName']?.accessEditField}}"
-                placeholder="{{fieldsInfo['moduleEntityName']?.fieldTitle }}" minlength="3" maxlength="100"
-                class="form-control validate-name" id="dataModel.moduleName" />
+            <div *ngIf="fieldsInfo['moduleEntityName']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.moduleEntityName" class="color-highlight">{{
+                    fieldsInfo["moduleEntityName"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName"
+                    #ModuleEntityName disabled="{{!fieldsInfo['moduleEntityName']?.accessEditField}}"
+                    placeholder="{{fieldsInfo['moduleEntityName']?.fieldTitle }}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.moduleName" />
                 <em>{{ ModuleEntityName.value.length }} / 100</em>
                 <mat-error *ngIf="ModuleEntityName.errors?.required">
                     {{fieldsInfo['moduleEntityName']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -63,8 +70,7 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.accessDeleteRow"
-                            [(ngModel)]="dataModel.accessDeleteRow"
-                            name="dataModel.accessDeleteRow">
+                            [(ngModel)]="dataModel.accessDeleteRow" name="dataModel.accessDeleteRow">
                         <label class="custom-control-label" for="dataModel.accessDeleteRow"></label>
                     </div>
                 </div>
@@ -78,8 +84,7 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.accessWatchRow"
-                            [(ngModel)]="dataModel.accessWatchRow"
-                            name="dataModel.accessWatchRow">
+                            [(ngModel)]="dataModel.accessWatchRow" name="dataModel.accessWatchRow">
                         <label class="custom-control-label" for="dataModel.accessWatchRow"></label>
                     </div>
                 </div>
@@ -93,8 +98,7 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.accessCountRow"
-                            [(ngModel)]="dataModel.accessCountRow"
-                            name="dataModel.accessCountRow">
+                            [(ngModel)]="dataModel.accessCountRow" name="dataModel.accessCountRow">
                         <label class="custom-control-label" for="dataModel.accessCountRow"></label>
                     </div>
                 </div>
@@ -108,8 +112,7 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.accessEditRow"
-                            [(ngModel)]="dataModel.accessEditRow"
-                            name="dataModel.accessEditRow">
+                            [(ngModel)]="dataModel.accessEditRow" name="dataModel.accessEditRow">
                         <label class="custom-control-label" for="dataModel.accessEditRow"></label>
                     </div>
                 </div>
@@ -123,8 +126,7 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.accessAddRow"
-                            [(ngModel)]="dataModel.accessAddRow"
-                            name="dataModel.accessAddRow">
+                            [(ngModel)]="dataModel.accessAddRow" name="dataModel.accessAddRow">
                         <label class="custom-control-label" for="dataModel.accessAddRow"></label>
                     </div>
                 </div>
@@ -138,8 +140,7 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.accessExportFile"
-                            [(ngModel)]="dataModel.accessExportFile"
-                            name="dataModel.accessExportFile">
+                            [(ngModel)]="dataModel.accessExportFile" name="dataModel.accessExportFile">
                         <label class="custom-control-label" for="dataModel.accessExportFile"></label>
                     </div>
                 </div>
@@ -204,8 +205,8 @@
                     </div>
                 </div>
             </div>
-             <!-- accessEditRowOtherSiteId Field -->
-             <div *ngIf="fieldsInfo['accessEditRowOtherSiteId']?.accessWatchField" class="d-flex mb-3">
+            <!-- accessEditRowOtherSiteId Field -->
+            <div *ngIf="fieldsInfo['accessEditRowOtherSiteId']?.accessWatchField" class="d-flex mb-3">
                 <div class="pt-1">
                     <h5 data-trigger-switch="dataModel.accessEditRowOtherSiteId" class="font-600 font-14">
                         {{fieldsInfo['accessEditRowOtherSiteId']?.fieldTitle}}</h5>
@@ -213,8 +214,7 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.accessEditRowOtherSiteId"
-                            [(ngModel)]="dataModel.accessEditRowOtherSiteId"
-                            name="dataModel.accessEditRowOtherSiteId">
+                            [(ngModel)]="dataModel.accessEditRowOtherSiteId" name="dataModel.accessEditRowOtherSiteId">
                         <label class="custom-control-label" for="dataModel.accessEditRowOtherSiteId"></label>
                     </div>
                 </div>
@@ -251,10 +251,10 @@
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>

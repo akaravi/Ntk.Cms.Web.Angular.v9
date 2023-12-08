@@ -23,7 +23,7 @@
         <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
         <em>{{ Title.value.length }} / 100</em>
         <mat-error *ngIf="Title.errors?.required">
-        {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+          {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
       </div>
       <!-- LinkPropertyTypeId Field -->
@@ -41,110 +41,109 @@
         <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
         <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
           [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
-          (iconPickerSelect)="onIconPickerSelect($event)" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}" [disabled]="!fieldsInfo['iconFont']?.accessAddField"
-          [disabled]="!fieldsInfo['iconFont']?.accessAddField" class="form-control validate-name"
-          id="dataModel.iconFont" />
+          (iconPickerSelect)="onIconPickerSelect($event)" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['iconFont']?.accessAddField" [disabled]="!fieldsInfo['iconFont']?.accessAddField"
+          class="form-control validate-name" id="dataModel.iconFont" />
         <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
       </div>
       <!-- ShowInFormOrder Field -->
-      <div *ngIf="fieldsInfo['showInFormOrder']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.showInFormOrder" class="color-highlight">{{ fieldsInfo["showInFormOrder"]?.fieldTitle }}</label>
-        <input matInput type="number" [(ngModel)]="dataModel.showInFormOrder" name="dataModel.showInFormOrder" #ShowInFormOrder [disabled]="!fieldsInfo['showInFormOrder']?.accessAddField"
-          placeholder="{{fieldsInfo['showInFormOrder']?.fieldTitle }}"
-          class="form-control validate-name" id="dataModel.showInFormOrder" />
+      <div *ngIf="fieldsInfo['showInFormOrder']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.showInFormOrder" class="color-highlight">{{ fieldsInfo["showInFormOrder"]?.fieldTitle
+          }}</label>
+        <input matInput type="number" [(ngModel)]="dataModel.showInFormOrder" name="dataModel.showInFormOrder"
+          #ShowInFormOrder [disabled]="!fieldsInfo['showInFormOrder']?.accessAddField"
+          placeholder="{{fieldsInfo['showInFormOrder']?.fieldTitle }}" class="form-control validate-name"
+          id="dataModel.showInFormOrder" />
       </div>
       <!-- InputDataType Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <select id="dataModel.inputDataType" [(ngModel)]="dataModel.inputDataType" name="dataModel.inputDataType"
-                #InputDataType="ngModel"
-                class="form-control validate-name">
-                <option *ngFor="let item of dataModelEnumInputDataTypeResult.listItems; index as i" [value]="item.value">{{ item.description }}</option>
-              </select>
+        <select id="dataModel.inputDataType" [(ngModel)]="dataModel.inputDataType" name="dataModel.inputDataType"
+          #InputDataType="ngModel" class="form-control validate-name">
+          <option *ngFor="let item of dataModelEnumInputDataTypeResult.listItems; index as i" [value]="item.value">{{
+            item.description }}</option>
+        </select>
       </div>
       <!-- Unit Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.unit" class="color-highlight">{{ fieldsInfo["unit"]?.fieldTitle }}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.unit" name="dataModel.unit" #Unit minlength="1" maxlength="64" 
-          placeholder="{{fieldsInfo['unit']?.fieldTitle }}"
-          class="form-control validate-name" id="dataModel.unit" />
-          <em align="end">{{ Unit.value.length }} / 64</em>
+        <input matInput type="text" [(ngModel)]="dataModel.unit" name="dataModel.unit" #Unit minlength="1"
+          maxlength="64" placeholder="{{fieldsInfo['unit']?.fieldTitle }}" class="form-control validate-name"
+          id="dataModel.unit" />
+        <em align="end">{{ Unit.value.length }} / 64</em>
       </div>
       <!-- InvisibleForEndUser Field -->
       <div *ngIf="fieldsInfo['invisibleForEndUser']?.accessWatchField" class="d-flex mb-3">
         <div class="pt-1">
-            <h5 data-trigger-switch="dataModel.invisibleForEndUser" class="font-600 font-14">
-                {{fieldsInfo['invisibleForEndUser']?.fieldTitle}}</h5>
+          <h5 data-trigger-switch="dataModel.invisibleForEndUser" class="font-600 font-14">
+            {{fieldsInfo['invisibleForEndUser']?.fieldTitle}}</h5>
         </div>
         <div class="ms-auto me-3 pe-2">
-            <div class="custom-control ios-switch small-switch">
-                <input type="checkbox" class="ios-input" id="dataModel.invisibleForEndUser"
-                    [(ngModel)]="this.dataModel.invisibleForEndUser"
-                    name="dataModel.invisibleForEndUser">
-                <label class="custom-control-label" for="dataModel.invisibleForEndUser"></label>
-            </div>
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.invisibleForEndUser"
+              [(ngModel)]="this.dataModel.invisibleForEndUser" name="dataModel.invisibleForEndUser">
+            <label class="custom-control-label" for="dataModel.invisibleForEndUser"></label>
+          </div>
         </div>
       </div>
       <!-- InvisibleForSubmiter Field -->
       <div *ngIf="fieldsInfo['invisibleForSubmiter']?.accessWatchField" class="d-flex mb-3">
         <div class="pt-1">
-            <h5 data-trigger-switch="dataModel.invisibleForSubmiter" class="font-600 font-14">
-                {{fieldsInfo['invisibleForSubmiter']?.fieldTitle}}</h5>
+          <h5 data-trigger-switch="dataModel.invisibleForSubmiter" class="font-600 font-14">
+            {{fieldsInfo['invisibleForSubmiter']?.fieldTitle}}</h5>
         </div>
         <div class="ms-auto me-3 pe-2">
-            <div class="custom-control ios-switch small-switch">
-                <input type="checkbox" class="ios-input" id="dataModel.invisibleForSubmiter"
-                    [(ngModel)]="this.dataModel.invisibleForSubmiter"
-                    name="dataModel.invisibleForSubmiter">
-                <label class="custom-control-label" for="dataModel.invisibleForSubmiter"></label>
-            </div>
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.invisibleForSubmiter"
+              [(ngModel)]="this.dataModel.invisibleForSubmiter" name="dataModel.invisibleForSubmiter">
+            <label class="custom-control-label" for="dataModel.invisibleForSubmiter"></label>
+          </div>
         </div>
       </div>
       <!-- Required Field -->
       <div *ngIf="fieldsInfo['required']?.accessWatchField" class="d-flex mb-3">
         <div class="pt-1">
-            <h5 data-trigger-switch="dataModel.required" class="font-600 font-14">
-                {{fieldsInfo['required']?.fieldTitle}}</h5>
+          <h5 data-trigger-switch="dataModel.required" class="font-600 font-14">
+            {{fieldsInfo['required']?.fieldTitle}}</h5>
         </div>
         <div class="ms-auto me-3 pe-2">
-            <div class="custom-control ios-switch small-switch">
-                <input type="checkbox" class="ios-input" id="dataModel.required"
-                    [(ngModel)]="this.dataModel.required"
-                    name="dataModel.required">
-                <label class="custom-control-label" for="dataModel.required"></label>
-            </div>
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.required" [(ngModel)]="this.dataModel.required"
+              name="dataModel.required">
+            <label class="custom-control-label" for="dataModel.required"></label>
+          </div>
         </div>
       </div>
       <!-- IsHistoryable Field -->
       <div *ngIf="fieldsInfo['isHistoryable']?.accessWatchField" class="d-flex mb-3">
         <div class="pt-1">
-            <h5 data-trigger-switch="dataModel.isHistoryable" class="font-600 font-14">
-                {{fieldsInfo['isHistoryable']?.fieldTitle}}</h5>
+          <h5 data-trigger-switch="dataModel.isHistoryable" class="font-600 font-14">
+            {{fieldsInfo['isHistoryable']?.fieldTitle}}</h5>
         </div>
         <div class="ms-auto me-3 pe-2">
-            <div class="custom-control ios-switch small-switch">
-                <input type="checkbox" class="ios-input" id="dataModel.isHistoryable"
-                    [(ngModel)]="this.dataModel.isHistoryable"
-                    name="dataModel.isHistoryable">
-                <label class="custom-control-label" for="dataModel.isHistoryable"></label>
-            </div>
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.isHistoryable"
+              [(ngModel)]="this.dataModel.isHistoryable" name="dataModel.isHistoryable">
+            <label class="custom-control-label" for="dataModel.isHistoryable"></label>
+          </div>
         </div>
       </div>
       <!-- IsSearchable Field -->
       <div *ngIf="fieldsInfo['isSearchable']?.accessWatchField" class="d-flex mb-3">
         <div class="pt-1">
-            <h5 data-trigger-switch="dataModel.isSearchable" class="font-600 font-14">
-                {{fieldsInfo['isSearchable']?.fieldTitle}}</h5>
+          <h5 data-trigger-switch="dataModel.isSearchable" class="font-600 font-14">
+            {{fieldsInfo['isSearchable']?.fieldTitle}}</h5>
         </div>
         <div class="ms-auto me-3 pe-2">
-            <div class="custom-control ios-switch small-switch">
-                <input type="checkbox" class="ios-input" id="dataModel.isSearchable"
-                    [(ngModel)]="this.dataModel.isSearchable"
-                    name="dataModel.isSearchable">
-                <label class="custom-control-label" for="dataModel.isSearchable"></label>
-            </div>
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.isSearchable"
+              [(ngModel)]="this.dataModel.isSearchable" name="dataModel.isSearchable">
+            <label class="custom-control-label" for="dataModel.isSearchable"></label>
+          </div>
         </div>
       </div>
-      <div style="width: 100%;" appearance="fill" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <div style="width: 100%;" appearance="fill"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label class="color-highlight">{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</label>
         <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
           <mat-chip *ngFor="let item of keywordDataModel" (removed)="removeTag(item)">
@@ -160,10 +159,10 @@
       </div>
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
         <button type="button" (click)="onFormCancel()"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
-        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
           (click)="onFormSubmit()" [disabled]="!vform.form.valid">
           <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>

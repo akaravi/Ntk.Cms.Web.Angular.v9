@@ -19,28 +19,30 @@
                 [optionSelectFirstItem]="true">
             </app-cms-enum-record-status-selector>
             <!-- SerialNumber Field -->
-            <div   class="input-style has-borders no-icon   input-style-always-active validate-field mb-4">
-                <label for="dataModel.serialNumber" class="color-highlight">{{ fieldsInfo["serialNumber"]?.fieldTitle }}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.serialNumber" name="dataModel.serialNumber" #SerialNumber
-                placeholder="Serial Number" minlength="3" maxlength="100"
-                class="form-control validate-name" id="dataModel.serialNumber" />
+            <div class="input-style has-borders no-icon   input-style-always-active validate-field mb-4">
+                <label for="dataModel.serialNumber" class="color-highlight">{{ fieldsInfo["serialNumber"]?.fieldTitle
+                    }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.serialNumber" name="dataModel.serialNumber"
+                    #SerialNumber placeholder="Serial Number" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.serialNumber" />
                 <mat-error *ngIf="SerialNumber.errors?.required">
                     {{fieldsInfo['serialNumber']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <!-- PwdForUse Field -->
-            <div   class="input-style has-borders no-icon   input-style-always-active validate-field mb-4">
-                <label for="dataModel.pwdForUse" class="color-highlight">{{ fieldsInfo["pwdForUse"]?.fieldTitle }}</label>
+            <div class="input-style has-borders no-icon   input-style-always-active validate-field mb-4">
+                <label for="dataModel.pwdForUse" class="color-highlight">{{ fieldsInfo["pwdForUse"]?.fieldTitle
+                    }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.pwdForUse" name="dataModel.pwdForUse" #PwdForUse
-                placeholder="Serial Number" minlength="3" maxlength="100"
-                class="form-control validate-name" id="dataModel.pwdForUse" />
+                    placeholder="Serial Number" minlength="3" maxlength="100" class="form-control validate-name"
+                    id="dataModel.pwdForUse" />
                 <mat-error *ngIf="PwdForUse.errors?.required">
                     {{fieldsInfo['pwdForUse']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <!-- LinkModuleSaleHeaderId Field -->
-            <app-core-modulesaleheader-selector (optionChange)="onActionSelectHeader($event)" [(optionLoading)]="loading"
-                [optionSelectForce]="this.dataModel.linkModuleSaleHeaderId"
+            <app-core-modulesaleheader-selector (optionChange)="onActionSelectHeader($event)"
+                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkModuleSaleHeaderId"
                 [optionPlaceholder]="this.translate.instant('TITLE.Category')"
                 [optionDisabled]="!fieldsInfo['linkModuleSaleHeaderId']?.accessEditField">
             </app-core-modulesaleheader-selector>
@@ -52,8 +54,7 @@
                 </div>
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.hasDemo"
-                            [(ngModel)]="dataModel.hasDemo"
+                        <input type="checkbox" class="ios-input" id="dataModel.hasDemo" [(ngModel)]="dataModel.hasDemo"
                             name="dataModel.hasDemo">
                         <label class="custom-control-label" for="dataModel.hasDemo"></label>
                     </div>
@@ -67,56 +68,66 @@
                 </div>
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.hasUsed"
-                            [(ngModel)]="dataModel.hasUsed"
+                        <input type="checkbox" class="ios-input" id="dataModel.hasUsed" [(ngModel)]="dataModel.hasUsed"
                             name="dataModel.hasUsed">
                         <label class="custom-control-label" for="dataModel.hasUsed"></label>
                     </div>
                 </div>
             </div>
             <!-- NumberOfMaxUse Field -->
-            <div *ngIf="fieldsInfo['numberOfMaxUse']?.accessWatchField"  class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
-                <label for="dataModel.numberOfMaxUse" class="color-highlight">{{ fieldsInfo["numberOfMaxUse"]?.fieldTitle }}</label>
-                <input matInput type="number" [(ngModel)]="dataModel.numberOfMaxUse" name="dataModel.numberOfMaxUse" #NumberOfMaxUse
-                placeholder="0" [disabled]="!fieldsInfo['numberOfMaxUse']?.accessEditField"
-                class="form-control validate-name" id="dataModel.numberOfMaxUse" />
+            <div *ngIf="fieldsInfo['numberOfMaxUse']?.accessWatchField"
+                class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
+                <label for="dataModel.numberOfMaxUse" class="color-highlight">{{
+                    fieldsInfo["numberOfMaxUse"]?.fieldTitle }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.numberOfMaxUse" name="dataModel.numberOfMaxUse"
+                    #NumberOfMaxUse placeholder="0" [disabled]="!fieldsInfo['numberOfMaxUse']?.accessEditField"
+                    class="form-control validate-name" id="dataModel.numberOfMaxUse" />
                 <mat-error *ngIf="NumberOfMaxUse.errors?.required">
-                    {{ fieldsInfo['numberOfMaxUse']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                    {{ fieldsInfo['numberOfMaxUse']?.fieldTitle }} is <strong>{{'MESSAGE.required' |
+                        translate}}</strong>
                 </mat-error>
             </div>
             <!-- MaxExpireToUse Field -->
-            <div *ngIf="fieldsInfo['maxExpireToUse']?.accessWatchField"  class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
-                <label for="dataModel.maxExpireToUse" class="color-highlight">{{ fieldsInfo["maxExpireToUse"]?.fieldTitle }}</label>
-                <input matInput [matDatepicker]="MaxExpireToUse"  [(ngModel)]="dataModel.maxExpireToUse" name="dataModel.maxExpireToUse" 
-                class="form-control validate-name" id="dataModel.maxExpireToUse" />
+            <div *ngIf="fieldsInfo['maxExpireToUse']?.accessWatchField"
+                class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
+                <label for="dataModel.maxExpireToUse" class="color-highlight">{{
+                    fieldsInfo["maxExpireToUse"]?.fieldTitle }}</label>
+                <input matInput [matDatepicker]="MaxExpireToUse" [(ngModel)]="dataModel.maxExpireToUse"
+                    name="dataModel.maxExpireToUse" class="form-control validate-name" id="dataModel.maxExpireToUse" />
                 <mat-datepicker-toggle matSuffix [for]="MaxExpireToUse"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #MaxExpireToUse></mat-datepicker>
             </div>
             <!-- NumberOfRegistered Field -->
-            <div *ngIf="fieldsInfo['numberOfRegistered']?.accessWatchField"  class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
-                <label for="dataModel.numberOfRegistered" class="color-highlight">{{ fieldsInfo["numberOfRegistered"]?.fieldTitle }}</label>
-                <input matInput   [(ngModel)]="dataModel.numberOfRegistered" name="dataModel.numberOfRegistered"   [disabled]="!fieldsInfo['numberOfRegistered']?.accessEditField" #NumberOfRegistered type="number" placeholder="0"
-                class="form-control validate-name" id="dataModel.numberOfRegistered" />
+            <div *ngIf="fieldsInfo['numberOfRegistered']?.accessWatchField"
+                class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
+                <label for="dataModel.numberOfRegistered" class="color-highlight">{{
+                    fieldsInfo["numberOfRegistered"]?.fieldTitle }}</label>
+                <input matInput [(ngModel)]="dataModel.numberOfRegistered" name="dataModel.numberOfRegistered"
+                    [disabled]="!fieldsInfo['numberOfRegistered']?.accessEditField" #NumberOfRegistered type="number"
+                    placeholder="0" class="form-control validate-name" id="dataModel.numberOfRegistered" />
                 <mat-error *ngIf="NumberOfRegistered.errors?.required">
                     {{ fieldsInfo['numberOfRegistered']?.fieldTitle }} is <strong>{{'MESSAGE.required' |
                         translate}}</strong>
                 </mat-error>
             </div>
             <!-- AllowReuseDay Field -->
-            <div *ngIf="fieldsInfo['allowReuseDay']?.accessWatchField"  class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
-                <label for="dataModel.allowReuseDay" class="color-highlight">{{ fieldsInfo["allowReuseDay"]?.fieldTitle }}</label>
-                <input matInput   [(ngModel)]="dataModel.allowReuseDay" name="dataModel.allowReuseDay"   [disabled]="!fieldsInfo['allowReuseDay']?.accessEditField" #AllowReuseDay type="number" placeholder="0"
-                class="form-control validate-name" id="dataModel.allowReuseDay" />
+            <div *ngIf="fieldsInfo['allowReuseDay']?.accessWatchField"
+                class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
+                <label for="dataModel.allowReuseDay" class="color-highlight">{{ fieldsInfo["allowReuseDay"]?.fieldTitle
+                    }}</label>
+                <input matInput [(ngModel)]="dataModel.allowReuseDay" name="dataModel.allowReuseDay"
+                    [disabled]="!fieldsInfo['allowReuseDay']?.accessEditField" #AllowReuseDay type="number"
+                    placeholder="0" class="form-control validate-name" id="dataModel.allowReuseDay" />
                 <mat-error *ngIf="AllowReuseDay.errors?.required">
                     {{ fieldsInfo['allowReuseDay']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
@@ -125,4 +136,3 @@
         <!--Content-->
     </div>
 </div>
-

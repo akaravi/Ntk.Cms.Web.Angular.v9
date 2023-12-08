@@ -7,8 +7,10 @@
         <mat-card-title>{{dataModel.title}}</mat-card-title>
         <mat-card-subtitle>ver : {{dataModel.appVersion}}</mat-card-subtitle>
     </mat-card-header>
-    <img [src]="dataModel.downloadLinkSrcQRCodeBase64" alt="'TITLE.Scan_the_barcode' | translate" height="300px" width="300px">
-    <img [src]="dataModel.linkMainImageIdSrc" *ngIf="dataModel.linkMainImageId>0 &&dataModel.linkMainImageIdSrc.length>0" height="300px" width="300px">
+    <img [src]="dataModel.downloadLinkSrcQRCodeBase64" alt="'TITLE.Scan_the_barcode' | translate" height="300px"
+        width="300px">
+    <img [src]="dataModel.linkMainImageIdSrc"
+        *ngIf="dataModel.linkMainImageId>0 &&dataModel.linkMainImageIdSrc.length>0" height="300px" width="300px">
     <mat-card-content>
         <p>
             {{dataModel.downloadLinkSrc}}
@@ -21,9 +23,14 @@
         </p>
     </mat-card-content>
     <mat-card-actions>
-        <button (click)="onActionDownloadApp()"   class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.DOWNLOADTHEAPP' | translate}}</button>
-        <button (click)="onActionDownloadUpdate()"   class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.DOWNLOADTHEUPDATE' | translate}}</button>
-        <button (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+        <button (click)="onActionDownloadApp()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.DOWNLOADTHEAPP'
+            | translate}}</button>
+        <button (click)="onActionDownloadUpdate()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.DOWNLOADTHEUPDATE'
+            | translate}}</button>
+        <button (click)="onFormCancel()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
             <i class="ft-x"></i> {{'ACTION.BACK' | translate}}
         </button>
     </mat-card-actions>

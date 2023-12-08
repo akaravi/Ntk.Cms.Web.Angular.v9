@@ -1,8 +1,10 @@
-<app-cms-guide-notice [Key]="'module.modulesale.header'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
+<app-cms-guide-notice [Key]="'module.modulesale.header'"
+    [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
 <div class="row">
     <app-progress-spinner [options]="loading">
     </app-progress-spinner>
-    <div *ngFor="let item of dataModelResult.listItems" class="col-sm-2 col-md-2 col-lg-2 col-xl-2" style="padding: 10px;">
+    <div *ngFor="let item of dataModelResult.listItems" class="col-sm-2 col-md-2 col-lg-2 col-xl-2"
+        style="padding: 10px;">
         <mat-card class="example-card">
             <mat-card-header>
                 <mat-card-title>{{item.title}}</mat-card-title>
@@ -21,8 +23,11 @@
                 </p>
             </mat-card-content>
             <mat-card-actions>
-                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" (click)="onActionbuttonDetail(item)">{{'ACTION.DETAIL' | translate}}</button>
-                <button   type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"  (click)="onActionbuttonBuy(item)">{{'ACTION.BUY' | translate}}</button>
+                <button type="button"
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                    (click)="onActionbuttonDetail(item)">{{'ACTION.DETAIL' | translate}}</button>
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+                    (click)="onActionbuttonBuy(item)">{{'ACTION.BUY' | translate}}</button>
             </mat-card-actions>
         </mat-card>
     </div>

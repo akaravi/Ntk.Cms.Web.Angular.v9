@@ -2772,7 +2772,7 @@ img.mx-auto {
   display: block;
 }
 
-.btn-xxs, .btn-xs, .btn-s, .btn-sm, .btn-m, .btn-l {
+.btn-xxs, .btn-xs, .btn-s, .btn-sm, .btn-s, .btn-l {
   font-size: 12px !important;
 }
 
@@ -2792,7 +2792,7 @@ img.mx-auto {
   padding: 10px 18px !important;
 }
 
-.btn-m {
+.btn-s {
   padding: 13px 20px !important;
 }
 

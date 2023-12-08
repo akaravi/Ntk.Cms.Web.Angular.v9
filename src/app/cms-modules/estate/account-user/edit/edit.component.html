@@ -310,7 +310,7 @@
               </div>
             </div>
           </div>
-          <button class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
             (click)="onActionDataGetAddGroup()"
             *ngIf="this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId && this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId.length>0"
             type="button">&#x2b;
@@ -373,7 +373,7 @@
                 <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
                 <mat-cell *matCellDef="let row" class='Action'>
                   <button mat-icon-button
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
                     <small (click)="onActionDataGetDeleteGroup(row)">
                       <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before"
                         aria-hidden="false" style="color: red;">delete</mat-icon>
@@ -402,12 +402,11 @@
 
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
         <button type="button" (click)="onFormCancel()"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
         </button>
-        <button type="submit" 
-          (click)="onFormSubmit()" [disabled]="!vform.form.valid"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+        <button type="submit" (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
           <i class="fa fa-check-square-o"></i>
           {{ "ACTION.SAVE" | translate }}
         </button>

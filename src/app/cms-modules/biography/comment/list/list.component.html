@@ -14,36 +14,36 @@
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <button *ngIf="dataModelResult.access.accessAddRow && this.requestContentId>0" (click)="onActionbuttonNewRow()"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
+      type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    
-   
 
-    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+
+
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
-    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonStatist()">
       </mat-slide-toggle>
       {{'ACTION.STATIST' | translate}}
     </a>
     <button (click)="onActionbuttonExport()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    
-    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
       </mat-slide-toggle>
       {{'ACTION.INCHECKING' | translate}}
     </a>
     <button (click)="onActionbuttonReload()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
     </button>
     <button (click)="onActionBackToParent()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
       translate}}</button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
   </ng-container>
@@ -51,26 +51,26 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
     <button (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
     <button (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
     <button (click)="onActionbuttonViewContent(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.VIEW_BIOGRAPHY' | translate}}</span>
       <mat-icon>visibility</mat-icon>
     </button>
     <button (click)="onActionbuttonEditContent(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.EDIT_BIOGRAPHY' | translate}}</span>
       <mat-icon>visibility</mat-icon>
     </button><button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
@@ -137,11 +137,11 @@
         <mat-cell *matCellDef="let row" class='Action'>
           <!-- Action Menu -->
           <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-          
+
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -151,7 +151,7 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
           <button mat-icon-button (click)="onActionbuttonLinkTo(row)"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon>&#8599;</mat-icon>
           </button>
         </mat-cell>

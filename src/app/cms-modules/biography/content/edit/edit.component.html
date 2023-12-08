@@ -89,11 +89,11 @@
         <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
           id="main" [(ngModel)]="dataModel.body" name="dataModel.body"></angular-editor>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
             (click)="onActionBackToParent()">
             {{'ACTION.BACK' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -105,11 +105,11 @@
           (optionSelectDisChecked)="onActionCategorySelectDisChecked($event)"></app-biography-category-treeselector>
         <br>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -134,7 +134,7 @@
           <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
             <mat-chip *ngFor="let item of keywordDataModel" (removed)="removeTag(item)">
               {{item}}
-              <button matChipRemove class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+              <button matChipRemove class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                 <mat-icon>cancel</mat-icon>
               </button>
             </mat-chip>
@@ -145,11 +145,11 @@
         </mat-form-field>
 
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -220,11 +220,11 @@
             [selectFileType]="selectFileTypeMovie" [openFilemanagerButtonView]="false"></cms-file-manager>
         </div>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -265,7 +265,7 @@
           id="OtherInfo" [(ngModel)]="contentOtherInfoSelected.htmlBody"
           name="contentOtherInfoSelected.htmlBody"></angular-editor>
         <button (click)="onActionContentOtherInfoAddToLIst()" type="button"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
           {{'ACTION.Add_To_List' | translate}}
         </button>
         <p>{{'TITLE.List_of_other_information' | translate}}</p>
@@ -309,11 +309,11 @@
         </div>
         <!-- TABLE  -->
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -325,7 +325,7 @@
           [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Similar_Content')">
           <button *ngIf="contentSimilarSelected && contentSimilarSelected.id"
             (click)="onActionContentSimilarAddToLIst()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
             {{'ACTION.Add_To_List' | translate}}
           </button>
         </app-biography-content-selector>
@@ -380,11 +380,11 @@
         </div>
         <!-- TABLE  -->
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             [disabled]="!vform.form.valid" matStepperNext>
             {{'ACTION.NEXT' | translate}}
           </button>
@@ -400,11 +400,11 @@
         <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
           id='main-map'></app-cms-map>
         <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
             matStepperPrevious>
             {{'ACTION.BEFOR' | translate}}
           </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
             [disabled]="!vform.form.valid">
             {{'ACTION.SAVE' | translate}}
           </button>

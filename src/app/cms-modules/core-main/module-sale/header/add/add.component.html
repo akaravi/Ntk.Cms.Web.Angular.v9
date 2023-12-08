@@ -29,29 +29,33 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
-                placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
-                class="form-control validate-name" id="dataModel.title" />
+                    placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.title" />
                 <em>{{ Title.value.length }} / 100</em>
                 <mat-error *ngIf="Title.errors?.required">
                     {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <!-- SalePrice Field -->
-            <div *ngIf="fieldsInfo['salePrice']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.salePrice" class="color-highlight">{{ fieldsInfo["salePrice"]?.fieldTitle }}</label>
+            <div *ngIf="fieldsInfo['salePrice']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.salePrice" class="color-highlight">{{ fieldsInfo["salePrice"]?.fieldTitle
+                    }}</label>
                 <input matInput type="number" [(ngModel)]="dataModel.salePrice" name="dataModel.salePrice" #SalePrice
-                placeholder="0" [disabled]="!fieldsInfo['salePrice']?.accessAddField"
-                class="form-control validate-name" id="dataModel.salePrice" />
+                    placeholder="0" [disabled]="!fieldsInfo['salePrice']?.accessAddField"
+                    class="form-control validate-name" id="dataModel.salePrice" />
                 <mat-error *ngIf="SalePrice.errors?.required">
                     {{ fieldsInfo['salePrice']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <!-- AllowReuseDay Field -->
-            <div *ngIf="fieldsInfo['allowReuseDay']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.allowReuseDay" class="color-highlight">{{ fieldsInfo["allowReuseDay"]?.fieldTitle }}</label>
-                <input matInput type="number" [(ngModel)]="dataModel.allowReuseDay" name="dataModel.allowReuseDay" #AllowReuseDay
-                placeholder="0"  [disabled]="!fieldsInfo['allowReuseDay']?.accessAddField"
-                class="form-control validate-name" id="dataModel.allowReuseDay" />
+            <div *ngIf="fieldsInfo['allowReuseDay']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.allowReuseDay" class="color-highlight">{{ fieldsInfo["allowReuseDay"]?.fieldTitle
+                    }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.allowReuseDay" name="dataModel.allowReuseDay"
+                    #AllowReuseDay placeholder="0" [disabled]="!fieldsInfo['allowReuseDay']?.accessAddField"
+                    class="form-control validate-name" id="dataModel.allowReuseDay" />
                 <mat-error *ngIf="AllowReuseDay.errors?.required">
                     {{ fieldsInfo['allowReuseDay']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -64,18 +68,18 @@
                 </div>
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.hasDemo"
-                            [(ngModel)]="dataModel.hasDemo"
+                        <input type="checkbox" class="ios-input" id="dataModel.hasDemo" [(ngModel)]="dataModel.hasDemo"
                             name="dataModel.hasDemo">
                         <label class="custom-control-label" for="dataModel.hasDemo"></label>
                     </div>
                 </div>
             </div>
             <!-- FromDate Field -->
-            <div *ngIf="fieldsInfo['fromDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div *ngIf="fieldsInfo['fromDate']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.fromDate" class="color-highlight">{{ fieldsInfo["fromDate"]?.fieldTitle }}</label>
-                <input matInput [matDatepicker]="FromDate" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate" 
-                class="form-control validate-name" id="dataModel.fromDate" />
+                <input matInput [matDatepicker]="FromDate" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate"
+                    class="form-control validate-name" id="dataModel.fromDate" />
                 <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #FromDate></mat-datepicker>
                 <mat-error *ngIf="Title.errors?.required">
@@ -83,10 +87,12 @@
                 </mat-error>
             </div>
             <!-- ExpireDate Field -->
-            <div *ngIf="fieldsInfo['expireDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
-                <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate" 
-                class="form-control validate-name" id="dataModel.expireDate" />
+            <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle
+                    }}</label>
+                <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate"
+                    name="dataModel.expireDate" class="form-control validate-name" id="dataModel.expireDate" />
                 <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #ExpireDate></mat-datepicker>
                 <mat-error *ngIf="Title.errors?.required">
@@ -94,43 +100,45 @@
                 </mat-error>
             </div>
             <!-- Description Field -->
-            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                 placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-                 id="dataModel.description" class="form-control validate-name">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.description"
+                    class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                    type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500"
+                    rows="5" id="dataModel.description" class="form-control validate-name">
                 </textarea>
                 <em>{{ Description.value.length }} / 500</em>
                 <mat-error *ngIf="Description.errors?.required">
                     Description is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
-             <!-- LinkMainImageId Field -->
+            <!-- LinkMainImageId Field -->
             <div class="mb-3">
                 <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
                     <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
-                        class="ntk-hover-zoom" aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50"
-                        width="50" />
+                        class="ntk-hover-zoom" aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}"
+                        height="50" width="50" />
                 </a>
             </div>
             <div *ngIf="fieldsInfo['linkImageId']?.accessWatchField"
                 class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
-                            class="color-highlight">{{'TITLE.Icon_File' | translate}}</label>
-                        <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
-                            #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-                            (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
-                            <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
-                            [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
-                            [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage"
-                            [openFilemanagerButtonView]="false"></cms-file-manager>
+                <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+                    class="color-highlight">{{'TITLE.Icon_File' | translate}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+                    #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+                    (click)="fileManagerOpenForm = true" class="form-control validate-name"
+                    id="dataModel.linkMainImageId" />
+                <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
+                    [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree"
+                    [openFilemanagerButtonLabelKey]="'select'" [openDirectUploadView]="true"
+                    [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false"></cms-file-manager>
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
@@ -139,4 +147,3 @@
         <!--Content-->
     </div>
 </div>
-

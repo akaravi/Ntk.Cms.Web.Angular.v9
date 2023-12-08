@@ -15,15 +15,13 @@
       {{ formInfo.formTitle }}
       <!-- SendStatusType Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <select id="dataModel.sendStatusType" [(ngModel)]="dataModel.sendStatusType"
-          name="dataModel.sendStatusType"
-         #SendStatusType="ngModel"
-         class="form-control validate-name">
-         <option  *ngFor="
+        <select id="dataModel.sendStatusType" [(ngModel)]="dataModel.sendStatusType" name="dataModel.sendStatusType"
+          #SendStatusType="ngModel" class="form-control validate-name">
+          <option *ngFor="
           let item of dataModelEnumSendSmsStatusTypeResult.listItems;
           index as i" [value]="item.value">
-           {{  item.description }}
-         </option>
+            {{ item.description }}
+          </option>
         </select>
         <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
         <mat-error *ngIf="SendStatusType.errors?.required">
@@ -40,65 +38,58 @@
       </app-cms-user-selector>
       <!-- LinkMemberId Field -->
       <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
-        [(optionLoading)]="loading"
-        [optionPlaceholder]="this.translate.instant('TITLE.Member')">
+        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Member')">
       </app-cms-member-selector>
       <!-- ModuleName Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.moduleName" class="color-highlight">ModuleName</label>
         <input matInput type="text" [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName
-        placeholder="ModuleName"
-        class="form-control validate-name" id="dataModel.moduleName" />
+          placeholder="ModuleName" class="form-control validate-name" id="dataModel.moduleName" />
       </div>
       <!-- ModuleEntityName Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.moduleEntityName" class="color-highlight">ModuleEntityName</label>
-        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName
-        placeholder="ModuleEntityName"
-        class="form-control validate-name" id="dataModel.moduleEntityName" />
+        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName"
+          #ModuleEntityName placeholder="ModuleEntityName" class="form-control validate-name"
+          id="dataModel.moduleEntityName" />
       </div>
       <!-- ModuleEntityId Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.moduleEntityId" class="color-highlight">ModuleEntityId</label>
-        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId" #ModuleEntityId
-        placeholder="ModuleEntityId"
-        class="form-control validate-name" id="dataModel.moduleEntityId" />
+        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId"
+          #ModuleEntityId placeholder="ModuleEntityId" class="form-control validate-name"
+          id="dataModel.moduleEntityId" />
       </div>
       <!-- FromNumber Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.fromNumber" class="color-highlight">FromNumber</label>
         <input matInput type="text" [(ngModel)]="dataModel.fromNumber" name="dataModel.fromNumber" #FromNumber
-        placeholder="FromNumber" 
-        class="form-control validate-name" id="dataModel.fromNumber" />
+          placeholder="FromNumber" class="form-control validate-name" id="dataModel.fromNumber" />
       </div>
       <!-- toNumber Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.toNumber" class="color-highlight">toNumber</label>
         <input matInput type="text" [(ngModel)]="dataModel.toNumber" name="dataModel.toNumber" #toNumber
-        placeholder="toNumber" 
-        class="form-control validate-name" id="dataModel.toNumber" />
+          placeholder="toNumber" class="form-control validate-name" id="dataModel.toNumber" />
       </div>
       <!-- ApiNumber Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.apiNumber" class="color-highlight">ApiNumber</label>
         <input matInput type="text" [(ngModel)]="dataModel.apiNumber" name="dataModel.apiNumber" #ApiNumber
-        placeholder="ApiNumber" 
-        class="form-control validate-name" id="dataModel.apiNumber" />
+          placeholder="ApiNumber" class="form-control validate-name" id="dataModel.apiNumber" />
       </div>
       <!-- Message Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.message" class="color-highlight">Message</label>
         <textarea matInput [(ngModel)]="dataModel.message" name="dataModel.message" #Message type="text"
-        placeholder="Message" 
-        id="dataModel.message" class="form-control validate-name">
+          placeholder="Message" id="dataModel.message" class="form-control validate-name">
         </textarea>
       </div>
-       <!-- ReturnApi Field -->
-       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <!-- ReturnApi Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.returnApi" class="color-highlight">ReturnApi</label>
         <textarea matInput [(ngModel)]="dataModel.returnApi" name="dataModel.returnApi" #ReturnApi type="text"
-          placeholder="ReturnApi" 
-          id="dataModel.returnApi" class="form-control validate-name">
+          placeholder="ReturnApi" id="dataModel.returnApi" class="form-control validate-name">
         </textarea>
       </div>
       <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
@@ -106,7 +97,7 @@
       </div>
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
         <button type="button" (click)="onFormCancel()"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
       </div>
@@ -114,4 +105,3 @@
     <!--Content-->
   </div>
 </div>
-

@@ -85,23 +85,23 @@
       <!-- MessageType Field -->
 
       <app-cms-enum-x-selector *ngIf="fieldsInfo['messageType']?.accessWatchField"
-      [optionDataListResult]="dataModelSmsMessageTypeEnumResult" [(model)]="dataModel.messageType"
-      [optionDisabled]="false" [optionLabel]="this.fieldsInfo['messageType']?.fieldTitle" [optionRequired]="true"
-      [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+        [optionDataListResult]="dataModelSmsMessageTypeEnumResult" [(model)]="dataModel.messageType"
+        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['messageType']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
 
 
       <!-- OutBoxType Field -->
       <app-cms-enum-x-selector *ngIf="fieldsInfo['outBoxType']?.accessWatchField"
-      [optionDataListResult]="dataModelSmsOutBoxTypeEnumResult" [(model)]="dataModel.outBoxType"
-      [optionDisabled]="false" [optionLabel]="this.fieldsInfo['outBoxType']?.fieldTitle" [optionRequired]="true"
-      [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+        [optionDataListResult]="dataModelSmsOutBoxTypeEnumResult" [(model)]="dataModel.outBoxType"
+        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['outBoxType']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
 
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
         <button type="button" (click)="onFormCancel()"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
-        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
           (click)="onFormSubmit()" [disabled]="!vform.form.valid">
           <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>

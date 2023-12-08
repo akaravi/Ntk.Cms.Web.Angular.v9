@@ -14,39 +14,39 @@
   </ng-container>
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-   
+
     <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
- 
-    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
 
-    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonStatist()">
       </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
     </a>
     <button (click)="onActionbuttonExport()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-    
+
     <button (click)="onActionbuttonReload()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
     </button>
     <button (click)="onActionBackToParentSiteList()" *ngIf="this.requestLinkSiteId>0" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
       translate}}</button>
     <button (click)="onActionGridExpandRows(true)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.EXPAND_ALL' | translate}}">unfold_more_double
       </mat-icon>
     </button>
     <button (click)="onActionGridExpandRows(false)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.COLLPASE_ALL' |translate}}">
         unfold_less_double</mat-icon>
     </button>
@@ -56,61 +56,61 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <h1>{{tableRowSelected?.id}}</h1>
     <button (click)="onActionbuttonViewRow(tableRowSelected)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.VIEW' | translate}}</span>
       <mat-icon>visibility</mat-icon>
     </button>
     <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || tableRowSelected.id===tokenInfo.userId"
       (click)="onActionbuttonEditRow(tableRowSelected,$event)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
       <mat-icon>mode_edit</mat-icon>
     </button>
     <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData || tableRowSelected.id===tokenInfo.userId"
       (click)="onActionbuttonChangePassword(tableRowSelected)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.CHANGE_PASSWORD' | translate}}</span>
       <mat-icon>lock</mat-icon>
     </button>
     <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData" (click)="onActionbuttonDeleteRow(tableRowSelected)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
       <span>{{'ACTION.DELETE' | translate}}</span>
       <mat-icon>delete_forever</mat-icon>
     </button>
     <button *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData"
       (click)="onActionbuttonLoginToRow(tableRowSelected)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.LOGIN_TO_THIS_USER' | translate}}</span>
       <mat-icon>login</mat-icon>
     </button>
     <button (click)="onActionbuttonUserSupportList(tableRowSelected)" *ngIf="this.tokenHelper.isAdminSite"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.ACEESS' | translate}}</span>
       <mat-icon>supervised_user_circle</mat-icon>
     </button>
     <button (click)="onActionbuttonSiteList(tableRowSelected,$event)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.MEMBER_SITES' | translate}}</span>
       <mat-icon>supervised_user_circle</mat-icon>
     </button>
     <button (click)="onActionbuttonSiteByGroupList(tableRowSelected,$event)"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.ACCESS_MEMBER_SITES' | translate}}</span>
       <mat-icon>supervisor_account</mat-icon>
     </button>
     <button (click)="onActionbuttonResller(tableRowSelected,$event)"
       *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===tableRowSelected.id"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.MARKETING_SUBCATEGORY' | translate}}</span>
       <mat-icon>devices</mat-icon>
     </button>
     <button **ngIf="this.dataModelResult.emailConfirmed" (click)="onActionbuttonEmailConfirm()"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.CONFIRMEMAIL' | translate}}</span>
       <mat-icon>visibility</mat-icon>
     </button>
     <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
@@ -208,11 +208,11 @@
         <mat-cell *matCellDef="let row" class=' Action'>
           <!-- Action Menu -->
           <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-          
+
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -259,7 +259,7 @@
                 <td></td>
                 <td>
 
-                  
+
                 </td>
               </tr>
 

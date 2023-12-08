@@ -11,162 +11,157 @@
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
-            {{ formInfo.formTitle }}
-            <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-                [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-                [optionSelectFirstItem]="true">
-            </app-cms-enum-record-status-selector>
-            <!-- LinkMemberId Field -->
-            <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
-                <select id="dataModel.linkMemberId" [(ngModel)]="dataModel.linkMemberId" name="dataModel.linkMemberId"
-                 #LinkMemberId="ngModel" 
-                 class="form-control validate-name">
-                    <option *ngFor="
+        {{ formInfo.formTitle }}
+        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true">
+        </app-cms-enum-record-status-selector>
+        <!-- LinkMemberId Field -->
+        <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
+            <select id="dataModel.linkMemberId" [(ngModel)]="dataModel.linkMemberId" name="dataModel.linkMemberId"
+                #LinkMemberId="ngModel" class="form-control validate-name">
+                <option *ngFor="
                      let item of dataModelEnumManageUserAccessUserTypesResult.listItems;
                      index as i" [value]="item.value">
-                     {{ item.description }}
-                    </option>
-                </select>
-                <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
-                <mat-error *ngIf="LinkMemberId.errors?.required">
-                  LinkMemberId is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-             <!-- UserAccessAreaType Field -->
-             <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
-                <select id="dataModel.userAccessAreaType" [(ngModel)]="dataModel.userAccessAreaType" name="dataModel.userAccessAreaType"
-                #UserAccessAreaType="ngModel" 
-                class="form-control validate-name">
-                    <option *ngFor="
+                    {{ item.description }}
+                </option>
+            </select>
+            <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
+            <mat-error *ngIf="LinkMemberId.errors?.required">
+                LinkMemberId is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+        </div>
+        <!-- UserAccessAreaType Field -->
+        <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
+            <select id="dataModel.userAccessAreaType" [(ngModel)]="dataModel.userAccessAreaType"
+                name="dataModel.userAccessAreaType" #UserAccessAreaType="ngModel" class="form-control validate-name">
+                <option *ngFor="
                     let item of dataModelEnumManageUserAccessAreaTypesResult.listItems;
                     index as i" [value]="item.value">
                     {{ item.description }}
-                    </option>
-                </select>
-                <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
-                <mat-error *ngIf="UserAccessAreaType.errors?.required">
-                    UserAccessAreaType is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-            </div>
-            <!-- LinkSiteId Field -->
-            <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
-                [(optionLoading)]="loading"
-                [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
-            </app-cms-site-selector>
+                </option>
+            </select>
+            <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
+            <mat-error *ngIf="UserAccessAreaType.errors?.required">
+                UserAccessAreaType is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+        </div>
+        <!-- LinkSiteId Field -->
+        <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
+            [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
+        </app-cms-site-selector>
 
-            <!-- LinkUserId Field -->
-            <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
-                [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')"></app-cms-user-selector>
-            <!-- linkMemberId Field -->
-            <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
-                [(optionLoading)]="loading"
-                [optionPlaceholder]="this.translate.instant('TITLE.Member')">
-            </app-cms-member-selector>
-            <!-- UserAccessAdminAllowToAllData Field -->
-            <div *ngIf="fieldsInfo['userAccessAdminAllowToAllData']?.accessWatchField" class="d-flex mb-3">
-                            <div class="pt-1">
-                                <h5 data-trigger-switch="dataModel.userAccessAdminAllowToAllData" class="font-600 font-14">
-                                    {{fieldsInfo['userAccessAdminAllowToAllData']?.fieldTitle}}</h5>
-                            </div>
-                            <div class="ms-auto me-3 pe-2">
-                                <div class="custom-control ios-switch small-switch">
-                                    <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToAllData"
-                                        [(ngModel)]="dataModel.userAccessAdminAllowToAllData"
-                                        name="dataModel.userAccessAdminAllowToAllData">
-                                    <label class="custom-control-label" for="dataModel.userAccessAdminAllowToAllData"></label>
-                                </div>
-                            </div>
+        <!-- LinkUserId Field -->
+        <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
+            [(optionLoading)]="loading"
+            [optionPlaceholder]="this.translate.instant('TITLE.USER')"></app-cms-user-selector>
+        <!-- linkMemberId Field -->
+        <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
+            [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Member')">
+        </app-cms-member-selector>
+        <!-- UserAccessAdminAllowToAllData Field -->
+        <div *ngIf="fieldsInfo['userAccessAdminAllowToAllData']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.userAccessAdminAllowToAllData" class="font-600 font-14">
+                    {{fieldsInfo['userAccessAdminAllowToAllData']?.fieldTitle}}</h5>
             </div>
-            <!-- LinkUserId Field -->
-            <div *ngIf="fieldsInfo['userAccessAdminAllowToProfessionalData']?.accessWatchField" class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataModel.userAccessAdminAllowToProfessionalData" class="font-600 font-14">
-                        {{fieldsInfo['userAccessAdminAllowToProfessionalData']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToProfessionalData"
-                            [(ngModel)]="dataModel.userAccessAdminAllowToProfessionalData"
-                            name="dataModel.userAccessAdminAllowToProfessionalData">
-                        <label class="custom-control-label" for="dataModel.userAccessAdminAllowToProfessionalData"></label>
-                    </div>
+            <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToAllData"
+                        [(ngModel)]="dataModel.userAccessAdminAllowToAllData"
+                        name="dataModel.userAccessAdminAllowToAllData">
+                    <label class="custom-control-label" for="dataModel.userAccessAdminAllowToAllData"></label>
                 </div>
             </div>
-            <!-- RememberOnDevice Field -->
-            <div *ngIf="fieldsInfo['rememberOnDevice']?.accessWatchField" class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataModel.rememberOnDevice" class="font-600 font-14">
-                        {{fieldsInfo['rememberOnDevice']?.fieldTitle}}</h5>
+        </div>
+        <!-- LinkUserId Field -->
+        <div *ngIf="fieldsInfo['userAccessAdminAllowToProfessionalData']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.userAccessAdminAllowToProfessionalData" class="font-600 font-14">
+                    {{fieldsInfo['userAccessAdminAllowToProfessionalData']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToProfessionalData"
+                        [(ngModel)]="dataModel.userAccessAdminAllowToProfessionalData"
+                        name="dataModel.userAccessAdminAllowToProfessionalData">
+                    <label class="custom-control-label" for="dataModel.userAccessAdminAllowToProfessionalData"></label>
                 </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.rememberOnDevice"
-                            [(ngModel)]="dataModel.rememberOnDevice"
-                            name="dataModel.rememberOnDevice">
-                        <label class="custom-control-label" for="dataModel.rememberOnDevice"></label>
-                    </div>
+            </div>
+        </div>
+        <!-- RememberOnDevice Field -->
+        <div *ngIf="fieldsInfo['rememberOnDevice']?.accessWatchField" class="d-flex mb-3">
+            <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.rememberOnDevice" class="font-600 font-14">
+                    {{fieldsInfo['rememberOnDevice']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                    <input type="checkbox" class="ios-input" id="dataModel.rememberOnDevice"
+                        [(ngModel)]="dataModel.rememberOnDevice" name="dataModel.rememberOnDevice">
+                    <label class="custom-control-label" for="dataModel.rememberOnDevice"></label>
                 </div>
             </div>
-            <!-- BrowserLanguage Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.browserLanguage" class="color-highlight">BrowserLanguage</label>
-                <input matInput type="text" [(ngModel)]="dataModel.browserLanguage" name="dataModel.browserLanguage" #BrowserLanguage
-                placeholder="BrowserLanguage"
-                class="form-control validate-name" id="dataModel.browserLanguage" />
-            </div>
-            <!-- UserLanguage Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.userLanguage" class="color-highlight">UserLanguage</label>
-                <input matInput type="text" [(ngModel)]="dataModel.userLanguage" name="dataModel.userLanguage" #UserLanguage
-                placeholder="UserLanguage"
-                class="form-control validate-name" id="dataModel.userLanguage" />
-            </div>
-            <!-- LinkDeviceId Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.linkDeviceId" class="color-highlight">LinkDeviceId</label>
-                <input matInput type="text" [(ngModel)]="dataModel.linkDeviceId" name="dataModel.linkDeviceId" #LinkDeviceId
-                placeholder="LinkDeviceId"
-                class="form-control validate-name" id="dataModel.linkDeviceId" />
-            </div>
-            <!-- LinkApplicationId Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.linkApplicationId" class="color-highlight">LinkApplicationId</label>
-                <input matInput type="text" [(ngModel)]="dataModel.linkApplicationId" name="dataModel.linkApplicationId" #LinkApplicationId
-                placeholder="LinkApplicationId"
-                class="form-control validate-name" id="dataModel.linkApplicationId" />
-            </div>
-            <!-- DeviceClientMAC Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.deviceClientMAC" class="color-highlight">DeviceClientMAC</label>
-                <input matInput type="text" [(ngModel)]="dataModel.deviceClientMAC" name="dataModel.deviceClientMAC" #DeviceClientMAC
-                placeholder="DeviceClientMAC"
-                class="form-control validate-name" id="dataModel.deviceClientMAC" />
-            </div>
-            <!-- Token Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.token" class="color-highlight">Token</label>
-                <input matInput type="text" [(ngModel)]="dataModel.token" name="dataModel.token" #Token
-                placeholder="Token"
+        </div>
+        <!-- BrowserLanguage Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.browserLanguage" class="color-highlight">BrowserLanguage</label>
+            <input matInput type="text" [(ngModel)]="dataModel.browserLanguage" name="dataModel.browserLanguage"
+                #BrowserLanguage placeholder="BrowserLanguage" class="form-control validate-name"
+                id="dataModel.browserLanguage" />
+        </div>
+        <!-- UserLanguage Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.userLanguage" class="color-highlight">UserLanguage</label>
+            <input matInput type="text" [(ngModel)]="dataModel.userLanguage" name="dataModel.userLanguage" #UserLanguage
+                placeholder="UserLanguage" class="form-control validate-name" id="dataModel.userLanguage" />
+        </div>
+        <!-- LinkDeviceId Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.linkDeviceId" class="color-highlight">LinkDeviceId</label>
+            <input matInput type="text" [(ngModel)]="dataModel.linkDeviceId" name="dataModel.linkDeviceId" #LinkDeviceId
+                placeholder="LinkDeviceId" class="form-control validate-name" id="dataModel.linkDeviceId" />
+        </div>
+        <!-- LinkApplicationId Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.linkApplicationId" class="color-highlight">LinkApplicationId</label>
+            <input matInput type="text" [(ngModel)]="dataModel.linkApplicationId" name="dataModel.linkApplicationId"
+                #LinkApplicationId placeholder="LinkApplicationId" class="form-control validate-name"
+                id="dataModel.linkApplicationId" />
+        </div>
+        <!-- DeviceClientMAC Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.deviceClientMAC" class="color-highlight">DeviceClientMAC</label>
+            <input matInput type="text" [(ngModel)]="dataModel.deviceClientMAC" name="dataModel.deviceClientMAC"
+                #DeviceClientMAC placeholder="DeviceClientMAC" class="form-control validate-name"
+                id="dataModel.deviceClientMAC" />
+        </div>
+        <!-- Token Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.token" class="color-highlight">Token</label>
+            <input matInput type="text" [(ngModel)]="dataModel.token" name="dataModel.token" #Token placeholder="Token"
                 class="form-control validate-name" id="dataModel.token" />
-            </div>
-            <!-- tokenExpireDate Field -->
-            <div   *ngIf="fieldsInfo['tokenExpireDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.tokenExpireDate" class="color-highlight">{{fieldsInfo['tokenExpireDate']?.fieldTitle}}</label>
-                <input matInput [matDatepicker]="tokenExpireDate" type="text" [(ngModel)]="dataModel.tokenExpireDate" name="dataModel.tokenExpireDate"
-                class="form-control validate-name" id="dataModel.tokenExpireDate" />
-                <mat-datepicker-toggle matSuffix [for]="tokenExpireDate"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #tokenExpireDate></mat-datepicker>
-            </div>
-            <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                <div [innerHTML]="dataModel | prettyjson"></div>
-            </div>
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-                <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-                </button>
-            </div>
+        </div>
+        <!-- tokenExpireDate Field -->
+        <div *ngIf="fieldsInfo['tokenExpireDate']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.tokenExpireDate"
+                class="color-highlight">{{fieldsInfo['tokenExpireDate']?.fieldTitle}}</label>
+            <input matInput [matDatepicker]="tokenExpireDate" type="text" [(ngModel)]="dataModel.tokenExpireDate"
+                name="dataModel.tokenExpireDate" class="form-control validate-name" id="dataModel.tokenExpireDate" />
+            <mat-datepicker-toggle matSuffix [for]="tokenExpireDate"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #tokenExpireDate></mat-datepicker>
+        </div>
+        <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+            <div [innerHTML]="dataModel | prettyjson"></div>
+        </div>
+        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+            <button type="button" (click)="onFormCancel()"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+            </button>
+        </div>
         <!--Content-->
     </div>
 </div>

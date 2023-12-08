@@ -22,28 +22,27 @@
             <!-- LinkMemberId Field -->
             <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
                 <select id="dataModel.linkMemberId" [(ngModel)]="dataModel.linkMemberId" name="dataModel.linkMemberId"
-                 #LinkMemberId="ngModel" 
-                 class="form-control validate-name">
+                    #LinkMemberId="ngModel" class="form-control validate-name">
                     <option *ngFor="
                      let item of dataModelEnumManageUserAccessUserTypesResult.listItems;
                      index as i" [value]="item.value">
-                     {{ item.description }}
+                        {{ item.description }}
                     </option>
                 </select>
                 <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
                 <mat-error *ngIf="LinkMemberId.errors?.required">
-                  LinkMemberId is <strong>{{'MESSAGE.required' | translate}}</strong>
+                    LinkMemberId is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <!-- UserAccessAreaType Field -->
             <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
-                <select id="dataModel.userAccessAreaType" [(ngModel)]="dataModel.userAccessAreaType" name="dataModel.userAccessAreaType"
-                #UserAccessAreaType="ngModel" 
-                class="form-control validate-name">
+                <select id="dataModel.userAccessAreaType" [(ngModel)]="dataModel.userAccessAreaType"
+                    name="dataModel.userAccessAreaType" #UserAccessAreaType="ngModel"
+                    class="form-control validate-name">
                     <option *ngFor="
                     let item of dataModelEnumManageUserAccessAreaTypesResult.listItems;
                     index as i" [value]="item.value">
-                    {{ item.description }}
+                        {{ item.description }}
                     </option>
                 </select>
                 <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
@@ -51,7 +50,7 @@
                     UserAccessAreaType is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
-                <app-cms-site-selector (optionChange)="onActionSiteSelect($event)" [optionDisabled]="false"
+            <app-cms-site-selector (optionChange)="onActionSiteSelect($event)" [optionDisabled]="false"
                 [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkSiteId"
                 [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
             </app-cms-site-selector>
@@ -92,7 +91,8 @@
                         <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToProfessionalData"
                             [(ngModel)]="dataModel.userAccessAdminAllowToProfessionalData"
                             name="dataModel.userAccessAdminAllowToProfessionalData">
-                        <label class="custom-control-label" for="dataModel.userAccessAdminAllowToProfessionalData"></label>
+                        <label class="custom-control-label"
+                            for="dataModel.userAccessAdminAllowToProfessionalData"></label>
                     </div>
                 </div>
             </div>
@@ -105,59 +105,60 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.rememberOnDevice"
-                            [(ngModel)]="dataModel.rememberOnDevice"
-                            name="dataModel.rememberOnDevice">
+                            [(ngModel)]="dataModel.rememberOnDevice" name="dataModel.rememberOnDevice">
                         <label class="custom-control-label" for="dataModel.rememberOnDevice"></label>
                     </div>
                 </div>
             </div>
             <!-- BrowserLanguage Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.browserLanguage" class="color-highlight">BrowserLanguage</label>
-                <input matInput type="text" [(ngModel)]="dataModel.browserLanguage" name="dataModel.browserLanguage" #BrowserLanguage
-                placeholder="BrowserLanguage"
-                class="form-control validate-name" id="dataModel.browserLanguage" />
+                <input matInput type="text" [(ngModel)]="dataModel.browserLanguage" name="dataModel.browserLanguage"
+                    #BrowserLanguage placeholder="BrowserLanguage" class="form-control validate-name"
+                    id="dataModel.browserLanguage" />
             </div>
             <!-- UserLanguage Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.userLanguage" class="color-highlight">UserLanguage</label>
-                <input matInput type="text" [(ngModel)]="dataModel.userLanguage" name="dataModel.userLanguage" #UserLanguage
-                placeholder="UserLanguage"
-                class="form-control validate-name" id="dataModel.userLanguage" />
+                <input matInput type="text" [(ngModel)]="dataModel.userLanguage" name="dataModel.userLanguage"
+                    #UserLanguage placeholder="UserLanguage" class="form-control validate-name"
+                    id="dataModel.userLanguage" />
             </div>
             <!-- DeviceClientMAC Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.deviceClientMAC" class="color-highlight">DeviceClientMAC</label>
-                <input matInput type="text" [(ngModel)]="dataModel.deviceClientMAC" name="dataModel.deviceClientMAC" #DeviceClientMAC
-                placeholder="DeviceClientMAC"
-                class="form-control validate-name" id="dataModel.deviceClientMAC" />
+                <input matInput type="text" [(ngModel)]="dataModel.deviceClientMAC" name="dataModel.deviceClientMAC"
+                    #DeviceClientMAC placeholder="DeviceClientMAC" class="form-control validate-name"
+                    id="dataModel.deviceClientMAC" />
             </div>
             <!-- Token Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.token" class="color-highlight">Token</label>
                 <input matInput type="text" [(ngModel)]="dataModel.token" name="dataModel.token" #Token
-                placeholder="Token"
-                class="form-control validate-name" id="dataModel.token" />
+                    placeholder="Token" class="form-control validate-name" id="dataModel.token" />
             </div>
             <!-- LinkDeviceId Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.linkDeviceId" class="color-highlight">LinkDeviceId</label>
-                <input matInput type="text" [(ngModel)]="dataModel.linkDeviceId" name="dataModel.linkDeviceId" #LinkDeviceId
-                placeholder="LinkDeviceId"
-                class="form-control validate-name" id="dataModel.linkDeviceId" />
+                <input matInput type="text" [(ngModel)]="dataModel.linkDeviceId" name="dataModel.linkDeviceId"
+                    #LinkDeviceId placeholder="LinkDeviceId" class="form-control validate-name"
+                    id="dataModel.linkDeviceId" />
             </div>
             <!-- LinkApplicationId Field -->
-            <div   class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.linkApplicationId" class="color-highlight">LinkApplicationId</label>
-                <input matInput type="text" [(ngModel)]="dataModel.linkApplicationId" name="dataModel.linkApplicationId" #LinkApplicationId
-                placeholder="LinkApplicationId"
-                class="form-control validate-name" id="dataModel.linkApplicationId" />
+                <input matInput type="text" [(ngModel)]="dataModel.linkApplicationId" name="dataModel.linkApplicationId"
+                    #LinkApplicationId placeholder="LinkApplicationId" class="form-control validate-name"
+                    id="dataModel.linkApplicationId" />
             </div>
             <!-- tokenExpireDate Field -->
-            <div   *ngIf="fieldsInfo['tokenExpireDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.tokenExpireDate" class="color-highlight">{{fieldsInfo['tokenExpireDate']?.fieldTitle}}</label>
-                <input matInput [matDatepicker]="tokenExpireDate" type="text" [(ngModel)]="dataModel.tokenExpireDate" name="dataModel.tokenExpireDate"
-                class="form-control validate-name" id="dataModel.tokenExpireDate" />
+            <div *ngIf="fieldsInfo['tokenExpireDate']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.tokenExpireDate"
+                    class="color-highlight">{{fieldsInfo['tokenExpireDate']?.fieldTitle}}</label>
+                <input matInput [matDatepicker]="tokenExpireDate" type="text" [(ngModel)]="dataModel.tokenExpireDate"
+                    name="dataModel.tokenExpireDate" class="form-control validate-name"
+                    id="dataModel.tokenExpireDate" />
                 <mat-datepicker-toggle matSuffix [for]="tokenExpireDate"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #tokenExpireDate></mat-datepicker>
             </div>
@@ -166,10 +167,10 @@
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>

@@ -21,8 +21,8 @@
             </app-cms-enum-record-status-selector>
             <!-- EnumCmsModuleSaleItemType Field -->
             <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
-                <select id="dataModel.enumCmsModuleSaleItemType" [(ngModel)]="dataModel.enumCmsModuleSaleItemType" name="dataModel.enumCmsModuleSaleItemType"
-                    #EnumCmsModuleSaleItemType="ngModel" 
+                <select id="dataModel.enumCmsModuleSaleItemType" [(ngModel)]="dataModel.enumCmsModuleSaleItemType"
+                    name="dataModel.enumCmsModuleSaleItemType" #EnumCmsModuleSaleItemType="ngModel"
                     class="form-control validate-name">
                     <option *ngFor="
                         let item of dataModelEnumCmsModuleSaleItemTypeResult.listItems;
@@ -41,56 +41,64 @@
                 [optionDisabled]="!fieldsInfo['linkModuleId']?.accessEditField">
             </app-cms-module-selector>
             <!-- LinkModuleSaleHeader Field -->
-            <app-core-modulesaleheader-selector (optionChange)="onActionSelectHeader($event)" [(optionLoading)]="loading"
-                [optionSelectForce]="this.dataModel.linkModuleSaleHeader"
+            <app-core-modulesaleheader-selector (optionChange)="onActionSelectHeader($event)"
+                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkModuleSaleHeader"
                 [optionPlaceholder]="this.translate.instant('TITLE.Category')"
                 [optionDisabled]="!fieldsInfo['linkModuleSaleHeader']?.accessEditField">
             </app-core-modulesaleheader-selector>
             <!-- MonthLength Field -->
-            <div  *ngIf="fieldsInfo['monthLength']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.monthLength" class="color-highlight">{{ fieldsInfo["monthLength"]?.fieldTitle }}</label>
-                <input matInput type="number" [(ngModel)]="dataModel.monthLength" name="dataModel.monthLength" #MonthLength [disabled]="!fieldsInfo['monthLength']?.accessEditField"
-                placeholder="0" [disabled]="!fieldsInfo['monthLength']?.accessAddField"
-                class="form-control validate-name" id="dataModel.monthLength" />
+            <div *ngIf="fieldsInfo['monthLength']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.monthLength" class="color-highlight">{{ fieldsInfo["monthLength"]?.fieldTitle
+                    }}</label>
+                <input matInput type="number" [(ngModel)]="dataModel.monthLength" name="dataModel.monthLength"
+                    #MonthLength [disabled]="!fieldsInfo['monthLength']?.accessEditField" placeholder="0"
+                    [disabled]="!fieldsInfo['monthLength']?.accessAddField" class="form-control validate-name"
+                    id="dataModel.monthLength" />
                 <mat-error *ngIf="MonthLength.errors?.required">
                     {{ fieldsInfo['monthLength']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
-             <!-- ExpireDate Field -->
-             <div *ngIf="fieldsInfo['expireDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
-                <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate" 
-                class="form-control validate-name" id="dataModel.expireDate" />
+            <!-- ExpireDate Field -->
+            <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle
+                    }}</label>
+                <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate"
+                    name="dataModel.expireDate" class="form-control validate-name" id="dataModel.expireDate" />
                 <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #ExpireDate></mat-datepicker>
             </div>
             <!-- Description Field -->
-            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                 placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-                 id="dataModel.description" class="form-control validate-name">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.description"
+                    class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                    type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500"
+                    rows="5" id="dataModel.description" class="form-control validate-name">
                 </textarea>
                 <em>{{ Description.value.length }} / 500</em>
                 <mat-error *ngIf="Description.errors?.required">
                     Description is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
-             <!-- ModuleSiteAccessJsonValue Field -->
-             <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.moduleSiteAccessJsonValue" class="color-highlight">{{fieldsInfo['moduleSiteAccessJsonValue']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.moduleSiteAccessJsonValue" name="dataModel.moduleSiteAccessJsonValue" #ModuleSiteAccessJsonValue type="text"
-                placeholder="Json" minlength="0" maxlength="1000" rows="5"
-                id="dataModel.moduleSiteAccessJsonValue" class="form-control validate-name">
+            <!-- ModuleSiteAccessJsonValue Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.moduleSiteAccessJsonValue"
+                    class="color-highlight">{{fieldsInfo['moduleSiteAccessJsonValue']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="dataModel.moduleSiteAccessJsonValue"
+                    name="dataModel.moduleSiteAccessJsonValue" #ModuleSiteAccessJsonValue type="text" placeholder="Json"
+                    minlength="0" maxlength="1000" rows="5" id="dataModel.moduleSiteAccessJsonValue"
+                    class="form-control validate-name">
                 </textarea>
                 <em>{{ ModuleSiteAccessJsonValue.value.length }} / 1000</em>
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
@@ -99,4 +107,3 @@
         <!--Content-->
     </div>
 </div>
-

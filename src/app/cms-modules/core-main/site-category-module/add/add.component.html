@@ -25,24 +25,28 @@
             </app-core-sitecategory-selector>
             <!-- LinkModuleId Field -->
             <app-core-module-selector (optionChange)="onActionSelectorModuleSelect($event)" [optionDisabled]="false"
-                [(optionLoading)]="loading" [optionSelectFirstItem]="true" [optionSelectForce]="dataModel.linkCmsModuleId"
+                [(optionLoading)]="loading" [optionSelectFirstItem]="true"
+                [optionSelectForce]="dataModel.linkCmsModuleId"
                 [optionPlaceholder]="this.translate.instant('TITLE.MODULE')">
             </app-core-module-selector>
             <!-- ConfigValuesJson Field -->
-            <div *ngIf="fieldsInfo['configValuesJson']?.accessWatchField"  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.configValuesJson" class="color-highlight">{{fieldsInfo['configValuesJson']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.configValuesJson" name="dataModel.configValuesJson" #ConfigValuesJson type="text"
-                placeholder="ConfigValuesJson" minlength="0" maxlength="10000" rows="6" [disabled]="!fieldsInfo['configValuesJson']?.accessAddField"
-                id="dataModel.configValuesJson" class="form-control validate-name">
+            <div *ngIf="fieldsInfo['configValuesJson']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.configValuesJson"
+                    class="color-highlight">{{fieldsInfo['configValuesJson']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="dataModel.configValuesJson" name="dataModel.configValuesJson"
+                    #ConfigValuesJson type="text" placeholder="ConfigValuesJson" minlength="0" maxlength="10000"
+                    rows="6" [disabled]="!fieldsInfo['configValuesJson']?.accessAddField"
+                    id="dataModel.configValuesJson" class="form-control validate-name">
                 </textarea>
                 <em>{{ ConfigValuesJson.value.length }} / 10000</em>
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>

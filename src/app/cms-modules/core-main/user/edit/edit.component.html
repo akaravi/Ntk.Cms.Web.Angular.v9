@@ -26,22 +26,25 @@
             [optionSelectFirstItem]="true">
           </app-cms-enum-record-status-selector>
           <!-- Username Field -->
-          <div *ngIf="fieldsInfo['username']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['username']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.username" class="color-highlight">{{ fieldsInfo["username"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.username" name="dataModel.username" #Username [disabled]="!fieldsInfo['username']?.accessEditField"
-            placeholder="{{fieldsInfo['username']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.username" />
+            <input matInput type="text" [(ngModel)]="dataModel.username" name="dataModel.username" #Username
+              [disabled]="!fieldsInfo['username']?.accessEditField"
+              placeholder="{{fieldsInfo['username']?.fieldTitle }}" minlength="3" maxlength="100"
+              class="form-control validate-name" id="dataModel.username" />
             <em>{{ Username.value.length }} / 100</em>
             <mat-error *ngIf="Username.errors?.required">
               {{fieldsInfo['username']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
           </div>
           <!-- Email Field -->
-          <div *ngIf="fieldsInfo['email']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['email']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.email" class="color-highlight">{{ fieldsInfo["email"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.email" name="dataModel.email" #Email [disabled]="!fieldsInfo['email']?.accessEditField"
-            placeholder="{{fieldsInfo['email']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.email" />
+            <input matInput type="text" [(ngModel)]="dataModel.email" name="dataModel.email" #Email
+              [disabled]="!fieldsInfo['email']?.accessEditField" placeholder="{{fieldsInfo['email']?.fieldTitle }}"
+              minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.email" />
             <em>{{ Email.value.length }} / 100</em>
             <mat-error *ngIf="Email.errors?.required">
               {{fieldsInfo['email']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -50,24 +53,24 @@
           <!-- EmailConfirmed Field -->
           <div *ngIf="fieldsInfo['emailConfirmed']?.accessWatchField" class="d-flex mb-3">
             <div class="pt-1">
-                <h5 data-trigger-switch="dataModel.emailConfirmed" class="font-600 font-14">
-                    {{fieldsInfo['emailConfirmed']?.fieldTitle}}</h5>
+              <h5 data-trigger-switch="dataModel.emailConfirmed" class="font-600 font-14">
+                {{fieldsInfo['emailConfirmed']?.fieldTitle}}</h5>
             </div>
             <div class="ms-auto me-3 pe-2">
-                <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.emailConfirmed"
-                        [(ngModel)]="dataModel.emailConfirmed"
-                        name="dataModel.emailConfirmed">
-                    <label class="custom-control-label" for="dataModel.emailConfirmed"></label>
-                </div>
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.emailConfirmed"
+                  [(ngModel)]="dataModel.emailConfirmed" name="dataModel.emailConfirmed">
+                <label class="custom-control-label" for="dataModel.emailConfirmed"></label>
+              </div>
             </div>
           </div>
           <!-- Mobile Field -->
-          <div *ngIf="fieldsInfo['mobile']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['mobile']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.mobile" class="color-highlight">{{ fieldsInfo["mobile"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.mobile" name="dataModel.mobile" #Mobile [disabled]="!fieldsInfo['mobile']?.accessEditField"
-            placeholder="{{fieldsInfo['mobile']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.mobile" />
+            <input matInput type="text" [(ngModel)]="dataModel.mobile" name="dataModel.mobile" #Mobile
+              [disabled]="!fieldsInfo['mobile']?.accessEditField" placeholder="{{fieldsInfo['mobile']?.fieldTitle }}"
+              minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.mobile" />
             <em>{{ Mobile.value.length }} / 100</em>
             <mat-error *ngIf="Mobile.errors?.required">
               {{fieldsInfo['mobile']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -76,37 +79,38 @@
           <!-- MobileConfirmed Field -->
           <div *ngIf="fieldsInfo['mobileConfirmed']?.accessWatchField" class="d-flex mb-3">
             <div class="pt-1">
-                <h5 data-trigger-switch="dataModel.mobileConfirmed" class="font-600 font-14">
-                    {{fieldsInfo['mobileConfirmed']?.fieldTitle}}</h5>
+              <h5 data-trigger-switch="dataModel.mobileConfirmed" class="font-600 font-14">
+                {{fieldsInfo['mobileConfirmed']?.fieldTitle}}</h5>
             </div>
             <div class="ms-auto me-3 pe-2">
-                <div class="custom-control ios-switch small-switch">
-                    <input type="checkbox" class="ios-input" id="dataModel.mobileConfirmed"
-                        [(ngModel)]="dataModel.mobileConfirmed"
-                        name="dataModel.mobileConfirmed">
-                    <label class="custom-control-label" for="dataModel.mobileConfirmed"></label>
-                </div>
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.mobileConfirmed"
+                  [(ngModel)]="dataModel.mobileConfirmed" name="dataModel.mobileConfirmed">
+                <label class="custom-control-label" for="dataModel.mobileConfirmed"></label>
+              </div>
             </div>
           </div>
           <!-- ExpireDate Field -->
-          <div *ngIf="fieldsInfo['expireDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
-            <input matInput type="text" [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate"  [disabled]="!fieldsInfo['expireDate']?.accessEditField"
-            placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.expireDate" />
+            <input matInput type="text" [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate"
+              name="dataModel.expireDate" [disabled]="!fieldsInfo['expireDate']?.accessEditField"
+              placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3" maxlength="100"
+              class="form-control validate-name" id="dataModel.expireDate" />
             <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
             <mat-datepicker touchUi #ExpireDate></mat-datepicker>
           </div>
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()">
               {{'ACTION.BACK' | translate}}
             </button>
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               (click)="onActionbuttonChangePassword()"
               *ngIf="this.tokenInfo.userId === this.dataModel.id || dataAccessModel.accessEditRow">
               {{'AUTH.FORGOT.PASSWORD' | translate}}
@@ -117,84 +121,96 @@
         <mat-step label="{{'TITLE.personal_information' | translate}}" state="seo">
           <p>{{'TITLE.Enter_the_account_owner_information' | translate}}</p>
           <!-- Name Field -->
-          <div *ngIf="fieldsInfo['name']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['name']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.name" class="color-highlight">{{ fieldsInfo["name"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.name" name="dataModel.name" #Name [disabled]="!fieldsInfo['name']?.accessEditField"
-            placeholder="{{fieldsInfo['name']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.name" />
+            <input matInput type="text" [(ngModel)]="dataModel.name" name="dataModel.name" #Name
+              [disabled]="!fieldsInfo['name']?.accessEditField" placeholder="{{fieldsInfo['name']?.fieldTitle }}"
+              minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.name" />
             <em>{{ Name.value.length }} / 100</em>
             <mat-error *ngIf="Name.errors?.required">
               {{fieldsInfo['name']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
           </div>
           <!-- LastName Field -->
-          <div *ngIf="fieldsInfo['lastName']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['lastName']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.lastName" class="color-highlight">{{ fieldsInfo["name"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.lastName" name="dataModel.lastName" #LastName [disabled]="!fieldsInfo['lastName']?.accessEditField"
-            placeholder="{{fieldsInfo['lastName']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.lastName" />
+            <input matInput type="text" [(ngModel)]="dataModel.lastName" name="dataModel.lastName" #LastName
+              [disabled]="!fieldsInfo['lastName']?.accessEditField"
+              placeholder="{{fieldsInfo['lastName']?.fieldTitle }}" minlength="3" maxlength="100"
+              class="form-control validate-name" id="dataModel.lastName" />
             <em>{{ LastName.value.length }} / 100</em>
             <mat-error *ngIf="LastName.errors?.required">
               {{fieldsInfo['lastName']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
           </div>
           <!-- BirthDay Field -->
-          <div *ngIf="fieldsInfo['birthDay']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['birthDay']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.birthDay" class="color-highlight">{{ fieldsInfo["birthDay"]?.fieldTitle }}</label>
-            <input matInput [matDatepicker]="BirthDay" type="text" [(ngModel)]="dataModel.birthDay" name="dataModel.birthDay" [disabled]="!fieldsInfo['birthDay']?.accessEditField"
-            placeholder="{{fieldsInfo['birthDay']?.fieldTitle }}"
-            class="form-control validate-name" id="dataModel.birthDay" />
+            <input matInput [matDatepicker]="BirthDay" type="text" [(ngModel)]="dataModel.birthDay"
+              name="dataModel.birthDay" [disabled]="!fieldsInfo['birthDay']?.accessEditField"
+              placeholder="{{fieldsInfo['birthDay']?.fieldTitle }}" class="form-control validate-name"
+              id="dataModel.birthDay" />
             <mat-datepicker-toggle matSuffix [for]="BirthDay"></mat-datepicker-toggle>
             <mat-datepicker touchUi #BirthDay></mat-datepicker>
           </div>
           <!-- CompanyName Field -->
-          <div *ngIf="fieldsInfo['companyName']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.companyName" class="color-highlight">{{ fieldsInfo["companyName"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.companyName" name="dataModel.companyName" #CompanyName [disabled]="!fieldsInfo['companyName']?.accessEditField"
-            placeholder="{{fieldsInfo['companyName']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.companyName" />
+          <div *ngIf="fieldsInfo['companyName']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.companyName" class="color-highlight">{{ fieldsInfo["companyName"]?.fieldTitle
+              }}</label>
+            <input matInput type="text" [(ngModel)]="dataModel.companyName" name="dataModel.companyName" #CompanyName
+              [disabled]="!fieldsInfo['companyName']?.accessEditField"
+              placeholder="{{fieldsInfo['companyName']?.fieldTitle }}" minlength="3" maxlength="100"
+              class="form-control validate-name" id="dataModel.companyName" />
             <em>{{ CompanyName.value.length }} / 100</em>
             <mat-error *ngIf="CompanyName.errors?.required">
               {{fieldsInfo['companyName']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
           </div>
           <!-- Tell Field -->
-          <div *ngIf="fieldsInfo['tell']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['tell']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.tell" class="color-highlight">{{ fieldsInfo["companyName"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.tell" name="dataModel.tell" #Tell [disabled]="!fieldsInfo['tell']?.accessEditField"
-            placeholder="{{fieldsInfo['tell']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.tell" />
+            <input matInput type="text" [(ngModel)]="dataModel.tell" name="dataModel.tell" #Tell
+              [disabled]="!fieldsInfo['tell']?.accessEditField" placeholder="{{fieldsInfo['tell']?.fieldTitle }}"
+              minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.tell" />
             <em>{{ Tell.value.length }} / 100</em>
             <mat-error *ngIf="Tell.errors?.required">
               {{fieldsInfo['tell']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
           </div>
           <!-- PostalCode Field -->
-          <div *ngIf="fieldsInfo['postalCode']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['postalCode']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.postalCode" class="color-highlight">{{ fieldsInfo["postalCode"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.postalCode" name="dataModel.postalCode" #PostalCode [disabled]="!fieldsInfo['postalCode']?.accessEditField"
-            placeholder="{{fieldsInfo['postalCode']?.fieldTitle }}" minlength="3" maxlength="100"
-            class="form-control validate-name" id="dataModel.postalCode" />
+            <input matInput type="text" [(ngModel)]="dataModel.postalCode" name="dataModel.postalCode" #PostalCode
+              [disabled]="!fieldsInfo['postalCode']?.accessEditField"
+              placeholder="{{fieldsInfo['postalCode']?.fieldTitle }}" minlength="3" maxlength="100"
+              class="form-control validate-name" id="dataModel.postalCode" />
             <em>{{ PostalCode.value.length }} / 100</em>
             <mat-error *ngIf="PostalCode.errors?.required">
               {{fieldsInfo['postalCode']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
           </div>
           <!-- Address Field -->
-          <div *ngIf="fieldsInfo['address']?.accessWatchField"  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div *ngIf="fieldsInfo['address']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.address" class="color-highlight">{{fieldsInfo['address']?.fieldTitle}}</label>
-            <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text" [disabled]="!fieldsInfo['address']?.accessEditField"
-             placeholder="{{fieldsInfo['address']?.fieldTitle}}" minlength="1" maxlength="1000" rows="5"
-             id="dataModel.address" class="form-control validate-name">
+            <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
+              [disabled]="!fieldsInfo['address']?.accessEditField" placeholder="{{fieldsInfo['address']?.fieldTitle}}"
+              minlength="1" maxlength="1000" rows="5" id="dataModel.address" class="form-control validate-name">
             </textarea>
             <em>{{ Address.value.length }} / 1000</em>
           </div>
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
             </button>
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
@@ -216,28 +232,33 @@
             [optionPlaceholder]="this.translate.instant('TITLE.Representative_Site')">
           </app-cms-site-selector>
           <!-- ExpireLockAccount Field -->
-          <div *ngIf="fieldsInfo['expireLockAccount']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.expireLockAccount" class="color-highlight">{{ fieldsInfo["expireLockAccount"]?.fieldTitle }}</label>
-            <input matInput [matDatepicker]="ExpireLockAccount" type="text" [(ngModel)]="dataModel.expireLockAccount" name="dataModel.expireLockAccount"
-            class="form-control validate-name" id="dataModel.expireLockAccount" />
+          <div *ngIf="fieldsInfo['expireLockAccount']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.expireLockAccount" class="color-highlight">{{
+              fieldsInfo["expireLockAccount"]?.fieldTitle }}</label>
+            <input matInput [matDatepicker]="ExpireLockAccount" type="text" [(ngModel)]="dataModel.expireLockAccount"
+              name="dataModel.expireLockAccount" class="form-control validate-name" id="dataModel.expireLockAccount" />
             <mat-datepicker-toggle matSuffix [for]="ExpireLockAccount"></mat-datepicker-toggle>
             <mat-datepicker touchUi #ExpireLockAccount></mat-datepicker>
           </div>
           <!-- FirewallAllowIP Field -->
-          <div *ngIf="fieldsInfo['firewallAllowIP']?.accessWatchField"  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.firewallAllowIP" class="color-highlight">{{fieldsInfo['firewallAllowIP']?.fieldTitle}}</label>
-            <textarea matInput [(ngModel)]="dataModel.firewallAllowIP" name="dataModel.firewallAllowIP" #FirewallAllowIP type="text" [disabled]="!fieldsInfo['firewallAllowIP']?.accessEditField"
-            placeholder="{{fieldsInfo['firewallAllowIP']?.fieldTitle}}" minlength="1" maxlength="1000" rows="5"
-            id="dataModel.firewallAllowIP" class="form-control validate-name">
+          <div *ngIf="fieldsInfo['firewallAllowIP']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.firewallAllowIP"
+              class="color-highlight">{{fieldsInfo['firewallAllowIP']?.fieldTitle}}</label>
+            <textarea matInput [(ngModel)]="dataModel.firewallAllowIP" name="dataModel.firewallAllowIP" #FirewallAllowIP
+              type="text" [disabled]="!fieldsInfo['firewallAllowIP']?.accessEditField"
+              placeholder="{{fieldsInfo['firewallAllowIP']?.fieldTitle}}" minlength="1" maxlength="1000" rows="5"
+              id="dataModel.firewallAllowIP" class="form-control validate-name">
             </textarea>
             <em>{{ FirewallAllowIP.value.length }} / 1000</em>
           </div>
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
             </button>
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
@@ -254,27 +275,27 @@
             </a>
           </div>
           <div *ngIf="fieldsInfo['linkImageId']?.accessWatchField"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                      <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
-                          #LinkMainImageId placeholder="{{'TITLE.Icon_File_ID' | translate}}" autocomplete="off"
-                          (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
-                          <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
-                            [selectFileType]="selectFileTypeMainImage" [isPopup]="true" [(openForm)]="fileManagerOpenForm"
-                            [openDirectUploadView]="true" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
-                            [openFilemanagerButtonView]="false">
-                          </cms-file-manager>
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+              #LinkMainImageId placeholder="{{'TITLE.Icon_File_ID' | translate}}" autocomplete="off"
+              (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
+            <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
+              [selectFileType]="selectFileTypeMainImage" [isPopup]="true" [(openForm)]="fileManagerOpenForm"
+              [openDirectUploadView]="true" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
+              [openFilemanagerButtonView]="false">
+            </cms-file-manager>
 
           </div>
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()">
               {{'ACTION.BACK' | translate}}
             </button>
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
             </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
               [disabled]="!vform.form.valid">
               {{'ACTION.SAVE' | translate}}
             </button>

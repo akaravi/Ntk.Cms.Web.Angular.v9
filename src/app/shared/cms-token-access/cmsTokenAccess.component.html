@@ -2,14 +2,14 @@
 <div>
   <a (click)="onActionbuttonUserAccessAdminAllowToAllData()"
     *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)"
-    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
     style="width:95% ;margin: 4px;" [class.disabled]="disabledAllow">
     <i [className]="tokenInfo.userAccessAdminAllowToAllData ? 'fa fa-toggle-on' : 'fa fa-toggle-off'"></i>
     &nbsp;{{'TITLE.Show_all_information'| translate}}
   </a>
   <a (click)="onActionbuttonUserAccessAdminAllowToProfessionalData()"
     *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)"
-    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
     style="width:95%;margin: 4px;" [class.disabled]="disabledAllow">
     <i [className]="tokenInfo.userAccessAdminAllowToProfessionalData ? 'fa fa-toggle-on' : 'fa fa-toggle-off'">
     </i>&nbsp;{{'TITLE.Display_specialized_information'| translate}}
@@ -19,7 +19,7 @@
     style="direction: rtl;width:95%;margin: 4px;">
     <div class="input-group-prepend">
       <button (click)="onActionbuttonSelectUser()"
-        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         type="button">{{'ACTION.GO'| translate}}</button>
     </div>
     <input [(ngModel)]="inputUserId" type="text" class="form-control" placeholder="{{'TITLE.User_Id'| translate}}">
@@ -29,7 +29,7 @@
     style="direction: rtl;width:95%;margin: 4px;">
     <div class="input-group-prepend">
       <button (click)="onActionbuttonSelectSite()"
-        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         type="button">{{'ACTION.GO'| translate}}</button>
     </div>
     <input [(ngModel)]="inputSiteId" type="text" class="form-control" placeholder="{{'TITLE.Site_Id'| translate}}">

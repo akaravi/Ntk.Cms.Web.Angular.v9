@@ -23,21 +23,21 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
-                class="form-control validate-name" id="dataModel.title" />
+                    placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+                    class="form-control validate-name" id="dataModel.title" />
                 <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
                 <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
                 <em>{{ Title.value.length }} / 100</em>
                 <mat-error *ngIf="Title.errors?.required">
-                {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                    {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <!-- SettingType Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <select id="dataModel.settingType" [(ngModel)]="dataModel.settingType" name="dataModel.settingType"
-                  #SettingType="ngModel"
-                  class="form-control validate-name">
-                  <option *ngFor="let item of dataModelEnumManagementContentSettingTypeResult.listItems; index as i" [value]="item.value">{{ item.description }}</option>
+                    #SettingType="ngModel" class="form-control validate-name">
+                    <option *ngFor="let item of dataModelEnumManagementContentSettingTypeResult.listItems; index as i"
+                        [value]="item.value">{{ item.description }}</option>
                 </select>
                 <em align="end">{{'TITLE.Select_type_of_content' | translate}}</em>
                 <mat-error *ngIf="SettingType.errors?.required">
@@ -46,10 +46,10 @@
             </div>
             <!-- SharingLinkType Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <select id="dataModel.sharingLinkType" [(ngModel)]="dataModel.sharingLinkType" name="dataModel.sharingLinkType"
-                #SharingLinkType="ngModel"
-                class="form-control validate-name">
-                <option *ngFor="let item of dataModelEnumSharingPriceTypeResult.listItems; index as i" [value]="item.value">{{ item.description }}</option>
+                <select id="dataModel.sharingLinkType" [(ngModel)]="dataModel.sharingLinkType"
+                    name="dataModel.sharingLinkType" #SharingLinkType="ngModel" class="form-control validate-name">
+                    <option *ngFor="let item of dataModelEnumSharingPriceTypeResult.listItems; index as i"
+                        [value]="item.value">{{ item.description }}</option>
                 </select>
                 <em align="end">{{'TITLE.Select_type_of_content' | translate}}</em>
                 <mat-error *ngIf="SharingLinkType.errors?.required">
@@ -58,10 +58,11 @@
             </div>
             <!-- ClickPrice Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.clickPrice" class="color-highlight">{{ fieldsInfo["clickPrice"]?.fieldTitle }}</label>
+                <label for="dataModel.clickPrice" class="color-highlight">{{ fieldsInfo["clickPrice"]?.fieldTitle
+                    }}</label>
                 <input matInput type="number" [(ngModel)]="dataModel.clickPrice" name="dataModel.clickPrice" #ClickPrice
-                placeholder="{{'TITLE.Amount_Per_Click' | translate}}" minlength="0" required
-                class="form-control validate-name" id="dataModel.clickPrice" />
+                    placeholder="{{'TITLE.Amount_Per_Click' | translate}}" minlength="0" required
+                    class="form-control validate-name" id="dataModel.clickPrice" />
                 <i *ngIf="!ClickPrice.value" class="fa fa-times  invalid color-red-dark"></i>
                 <i *ngIf="ClickPrice.value" class="fa fa-check  valid color-green-dark"></i>
                 <mat-error *ngIf="ClickPrice.errors?.required">
@@ -70,10 +71,11 @@
             </div>
             <!-- ViewPrice Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.viewPrice" class="color-highlight">{{ fieldsInfo["viewPrice"]?.fieldTitle }}</label>
+                <label for="dataModel.viewPrice" class="color-highlight">{{ fieldsInfo["viewPrice"]?.fieldTitle
+                    }}</label>
                 <input matInput type="number" [(ngModel)]="dataModel.viewPrice" name="dataModel.viewPrice" #ViewPrice
-                placeholder="{{'TITLE.Amount_Per_Show' | translate}}" minlength="0" required
-                class="form-control validate-name" id="dataModel.viewPrice" />
+                    placeholder="{{'TITLE.Amount_Per_Show' | translate}}" minlength="0" required
+                    class="form-control validate-name" id="dataModel.viewPrice" />
                 <i *ngIf="!ViewPrice.value" class="fa fa-times  invalid color-red-dark"></i>
                 <i *ngIf="ViewPrice.value" class="fa fa-check  valid color-green-dark"></i>
                 <mat-error *ngIf="ViewPrice.errors?.required">
@@ -84,8 +86,8 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.width" class="color-highlight">{{ fieldsInfo["width"]?.fieldTitle }}</label>
                 <input matInput type="number" [(ngModel)]="dataModel.width" name="dataModel.width" #Width
-                placeholder="{{'TITLE.Width' | translate}}" minlength="0" required
-                class="form-control validate-name" id="dataModel.width" />
+                    placeholder="{{'TITLE.Width' | translate}}" minlength="0" required
+                    class="form-control validate-name" id="dataModel.width" />
                 <i *ngIf="!Width.value" class="fa fa-times  invalid color-red-dark"></i>
                 <i *ngIf="Width.value" class="fa fa-check  valid color-green-dark"></i>
                 <mat-error *ngIf="Width.errors?.required">
@@ -96,8 +98,8 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.height" class="color-highlight">{{ fieldsInfo["height"]?.fieldTitle }}</label>
                 <input matInput type="number" [(ngModel)]="dataModel.height" name="dataModel.height" #Height
-                placeholder="{{'TITLE.length' | translate}}" minlength="0" required
-                class="form-control validate-name" id="dataModel.height" />
+                    placeholder="{{'TITLE.length' | translate}}" minlength="0" required
+                    class="form-control validate-name" id="dataModel.height" />
                 <i *ngIf="!Height.value" class="fa fa-times  invalid color-red-dark"></i>
                 <i *ngIf="Height.value" class="fa fa-check  valid color-green-dark"></i>
                 <mat-error *ngIf="Height.errors?.required">
@@ -105,49 +107,54 @@
                 </mat-error>
             </div>
             <!-- PatternScript Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">    
-                <label for="dataModel.patternScript" class="color-highlight">{{fieldsInfo['patternScript']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.patternScript" name="dataModel.patternScript" #PatternScript type="text"
-                  placeholder="{{fieldsInfo['patternScript']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-                  id="dataModel.patternScript" class="form-control validate-name">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.patternScript"
+                    class="color-highlight">{{fieldsInfo['patternScript']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="dataModel.patternScript" name="dataModel.patternScript" #PatternScript
+                    type="text" placeholder="{{fieldsInfo['patternScript']?.fieldTitle}}" minlength="1" maxlength="500"
+                    rows="5" id="dataModel.patternScript" class="form-control validate-name">
                  </textarea>
-                  <em>{{ PatternScript.value.length }} / 500</em>
-                 <mat-error *ngIf="PatternScript.errors?.required">
-                  PatternScript is <strong>{{'MESSAGE.required' | translate}}</strong>
-                 </mat-error>
+                <em>{{ PatternScript.value.length }} / 500</em>
+                <mat-error *ngIf="PatternScript.errors?.required">
+                    PatternScript is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
             </div>
             <!-- LinkMainImageId Field -->
             <div class="mb-3">
                 <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
-                  <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-                    aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
+                    <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
+                        class="ntk-hover-zoom" aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}"
+                        height="50" width="50" />
                 </a>
             </div>
             <div *ngIf="fieldsInfo['linkMainImageId']?.accessWatchField"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
-                class="color-highlight">{{'TITLE.EXAMPLE_OF_BANNER_PHOTO' | translate}}</label>
-              <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
-                #LinkMainImageId placeholder="{{'TITLE.ID_OF_BANNER_PHOTO_FILE' | translate}}" autocomplete="off"
-                (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
-                <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
-                 [openDirectUploadView]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree"
-                 [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
-                 [openFilemanagerButtonView]="false">
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label (click)="fileManagerOpenForm = true" for="dataModel.linkMainImageId"
+                    class="color-highlight">{{'TITLE.EXAMPLE_OF_BANNER_PHOTO' | translate}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
+                    #LinkMainImageId placeholder="{{'TITLE.ID_OF_BANNER_PHOTO_FILE' | translate}}" autocomplete="off"
+                    (click)="fileManagerOpenForm = true" class="form-control validate-name"
+                    id="dataModel.linkMainImageId" />
+                <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
+                    [isPopup]="true" [openDirectUploadView]="true" [(openForm)]="fileManagerOpenForm"
+                    [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
+                    [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
                 </cms-file-manager>
             </div>
             <!-- LinkBackgroundId Field -->
             <div class="mb-3">
-                <img *ngIf="dataModel?.linkBackgroundIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-                aria-hidden src="{{dataModel.linkBackgroundIdSrc | cmsthumbnail}}" height="50" width="50" />
+                <img *ngIf="dataModel?.linkBackgroundIdSrc?.length>0" style="vertical-align:middle;"
+                    class="ntk-hover-zoom" aria-hidden src="{{dataModel.linkBackgroundIdSrc | cmsthumbnail}}"
+                    height="50" width="50" />
             </div>
             <div *ngIf="fieldsInfo['linkMainImageId']?.accessWatchField"
-            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label (click)="fileManagerOpenForm = true" for="dataModel.linkBackgroundId"
-                class="color-highlight">{{'TITLE.BANNER_BACKGROUND' | translate}}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.linkBackgroundId" name="dataModel.linkBackgroundId"
-                #LinkBackgroundId placeholder="{{'TITLE.ID_OF_BANNER_BACKGROUND_FILE' | translate}}" autocomplete="off"
-                (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkBackgroundId" />
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label (click)="fileManagerOpenForm = true" for="dataModel.linkBackgroundId"
+                    class="color-highlight">{{'TITLE.BANNER_BACKGROUND' | translate}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.linkBackgroundId" name="dataModel.linkBackgroundId"
+                    #LinkBackgroundId placeholder="{{'TITLE.ID_OF_BANNER_BACKGROUND_FILE' | translate}}"
+                    autocomplete="off" (click)="fileManagerOpenForm = true" class="form-control validate-name"
+                    id="dataModel.linkBackgroundId" />
                 <cms-file-manager (itemSelected)="onActionFileSelectedLinkBackgroundId($event)" [language]="appLanguage"
                     [isPopup]="true" [openDirectUploadView]="true" [(openForm)]="fileManagerOpenForm"
                     [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
@@ -156,10 +163,10 @@
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
@@ -168,4 +175,3 @@
         <!--Content-->
     </div>
 </div>
-

@@ -23,27 +23,27 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
-                placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
-                class="form-control validate-name" id="dataModel.title" />
+                    placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.title" />
                 <em>{{ Title.value.length }} / 100</em>
                 <mat-error *ngIf="Title.errors?.required">
                     {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
             <!-- Domains Field -->
-            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.domains" class="color-highlight">Domains</label>
                 <textarea matInput [(ngModel)]="dataModel.domains" name="dataModel.domains" #Domains type="text"
-                placeholder="domain.com"  rows="10"
-                id="dataModel.domains" class="form-control validate-name">
+                    placeholder="domain.com" rows="10" id="dataModel.domains" class="form-control validate-name">
                 </textarea>
             </div>
             <!-- Description Field -->
-            <div  class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                 placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-                 id="dataModel.description" class="form-control validate-name">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.description"
+                    class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                    type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500"
+                    rows="5" id="dataModel.description" class="form-control validate-name">
                 </textarea>
                 <em>{{ Description.value.length }} / 500</em>
                 <mat-error *ngIf="Description.errors?.required">
@@ -58,10 +58,10 @@
             </angular-editor>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
@@ -70,4 +70,3 @@
         <!--Content-->
     </div>
 </div>
-

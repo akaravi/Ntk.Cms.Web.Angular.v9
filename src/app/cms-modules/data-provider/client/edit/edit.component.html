@@ -23,15 +23,15 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.id" class="color-highlight">{{ fieldsInfo["id"]?.fieldTitle }}</label>
                 <input matInput type="Id" [(ngModel)]="dataModel.id" name="dataModel.Id" #Id type="text"
-                placeholder="{{fieldsInfo['id']?.fieldTitle }}"
-                class="form-control validate-name" id="dataModel.id" />
+                    placeholder="{{fieldsInfo['id']?.fieldTitle }}" class="form-control validate-name"
+                    id="dataModel.id" />
             </div>
             <!-- Title Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" 
-                class="form-control validate-name" id="dataModel.title" />
+                    placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.title" />
                 <em>{{ Title.value.length }} / 100</em>
                 <mat-error *ngIf="Title.errors?.required">
                     Title is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -44,10 +44,10 @@
             </app-data-provider-plan-selectionlist>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
                 <button type="button" (click)="onFormCancel()"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
-                <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                     (click)="onFormSubmit()" [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
