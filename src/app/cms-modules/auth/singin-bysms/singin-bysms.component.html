@@ -74,22 +74,7 @@
   <div style="text-align: center;">
     <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="otpConfig"></ng-otp-input>
   </div>
-  <!--code Field-->
-  <!-- <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-at"></i>
-    <input type="text" [(ngModel)]="dataModelAuthUserSignInBySms.code" name="dataModelAuthUserSignInBySms.code"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" #code class="form-control validate-name"
-      id="dataModelAuthUserSignInBySms.code" placeholder=" {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}}"
-      autocomplete="off" minlength="4" maxlength="4" required>
-    <label for="dataModelAuthUserSignInBySms.code" class="color-highlight font-11 font-500">
-      {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
 
-    <mat-error *ngIf="code.errors?.required">
-      {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div> -->
   <!--captchaText Field-->
   <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="" *ngIf="this.diffSeconds<0">
   <mat-icon *ngIf="this.diffSeconds<0" matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>

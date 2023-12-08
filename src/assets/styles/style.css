@@ -130,7 +130,7 @@ body {
 
 /*Content Boxes*/
 .content {
-  margin: 20px 15px 20px 15px;
+  margin: 20px 2px 20px 2px;
 }
 .content p:last-child {
   margin-bottom: 0px;

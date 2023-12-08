@@ -11,47 +11,47 @@
       [optionSelectForce]="dataModel.botId" [(optionLoading)]="loading"
       [optionPlaceholder]="this.translate.instant('TITLE.Telegram_Bot')">
     </app-api-telegram-bot-config-selector>
-    <!-- Title Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{'TITLE.title' | translate}}</mat-label>
-      <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #title type="text"
-        placeholder="{{'TITLE.Message_Title' | translate}}" minlength="3" maxlength="100" required />
-      <mat-icon matSuffix *ngIf="dataModel.title" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.title = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-      <mat-hint align="end">{{ title.value.length }} / 100</mat-hint>
+    <!-- title Field -->
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.title" class="color-highlight">{{'TITLE.title' | translate}}</label>
+      <input type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #title type="text"
+        placeholder="{{'TITLE.Message_Title' | translate}}" minlength="3" maxlength="100" required
+        class="form-control validate-name" id="dataModel.title" />
+      <i *ngIf="!title.value" class="fa fa-times  invalid color-red-dark"></i>
+      <i *ngIf="title.value" class="fa fa-check  valid color-green-dark"></i>
+      <em>{{ title.value.length }} / 100</em>
       <mat-error *ngIf="title.errors?.required">
-        Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+        {{'TITLE.Message_Title' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
-    </mat-form-field>
+    </div>
+
 
     <!-- text Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{'MESSAGE.Message_Text' | translate}}</mat-label>
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.text" class="color-highlight">{{'MESSAGE.Message_Text' | translate}}</label>
       <textarea matInput [(ngModel)]="dataModel.text" name="dataModel.text" #text type="text"
-        placeholder="{{'MESSAGE.Message_Text' | translate}}" row="10" required></textarea>
-      <mat-icon matSuffix *ngIf="dataModel.text" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.text = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-      <mat-hint align="end">{{ text.value.length }} / 1000</mat-hint>
+        placeholder="{{'MESSAGE.Message_Text' | translate}}" minlength="1" maxlength="1000" rows="5" id="dataModel.text"
+        class="form-control validate-name">
+          </textarea>
+      <em>{{ text.value.length }} / 1000</em>
       <mat-error *ngIf="text.errors?.required">
-        text is <strong>{{'MESSAGE.required' | translate}}</strong>
+        {{'MESSAGE.Message_Text' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
-    </mat-form-field>
+    </div>
+
 
     <!-- chatId Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{'TITLE.Receivers' | translate}}</mat-label>
-      <textarea matInput [(ngModel)]="compModel.ChatIds" name="compModel.ChatIds" #ChatIds type="text"
-        placeholder="{{'TITLE.Chat_ID' | translate}}" row="10" required></textarea>
-      <mat-icon matSuffix *ngIf="compModel.ChatIds" matSuffix mat-icon-button aria-label="Clear"
-        (click)="compModel.ChatIds = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-      <mat-hint align="end">{{ ChatIds.value.length }} / 1000</mat-hint>
-      <mat-error *ngIf="ChatIds.errors?.required">
-        ChatIds is <strong>{{'MESSAGE.required' | translate}}</strong>
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.chatId" class="color-highlight">{{'MESSAGE.Chat_ID' | translate}}</label>
+      <textarea matInput [(ngModel)]="dataModel.chatId" name="dataModel.chatId" #chatId type="text"
+        placeholder="{{'MESSAGE.Chat_ID' | translate}}" minlength="1" maxlength="1000" rows="5" id="dataModel.chatId"
+        class="form-control validate-name">
+      </textarea>
+      <em>{{ chatId.value.length }} / 1000</em>
+      <mat-error *ngIf="chatId.errors?.required">
+        {{'MESSAGE.Chat_ID' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
-    </mat-form-field>
+    </div>
 
 
 
