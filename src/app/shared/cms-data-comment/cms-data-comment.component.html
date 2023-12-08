@@ -45,25 +45,27 @@
     <div class="ntk-cms-html-card-body">
       <app-progress-spinner [options]="loading"> </app-progress-spinner>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-      <!-- SubjectTitle Field -->
-      <mat-form-field class="ntk-full-width">
-        <mat-label>SubjectTitle</mat-label>
-        <input matInput [(ngModel)]="dataModel.writer" name="dataModel.writer" #SubjectTitle type="text"
-          placeholder="SubjectTitle" required>
-        <mat-icon matSuffix *ngIf="dataModel.writer" matSuffix mat-icon-button aria-label="Clear"
-          (click)="dataModel.writer = null">close</mat-icon>
-        <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
+      <!-- writer Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.writer" class="color-highlight">{{'TITLE.writer'|translate}}</label>
+        <input type="text" [(ngModel)]="dataModel.writer" name="dataModel.writer" #writer
+          placeholder="{{'TITLE.writer'|translate}}" minlength="3" maxlength="100" class="form-control validate-name"
+          id="dataModel.writer" />
+        <em>{{ writer.value.length }} / 100</em>
+      </div>
 
-      <!-- SubjectBody Field -->
-      <mat-form-field class="ntk-full-width">
-        <mat-label>SubjectBody</mat-label>
-        <textarea matInput [(ngModel)]="dataModel.comment" name="dataModel.comment" #SubjectBody type="text"
-          placeholder="SubjectBody" rows="9" required></textarea>
-        <mat-icon matSuffix *ngIf="dataModel.comment" matSuffix mat-icon-button aria-label="Clear"
-          (click)="dataModel.comment = null">close</mat-icon>
-        <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
+      <!-- comment Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.comment" class="color-highlight">{{'TITLE.comment'|translate}}</label>
+        <textarea matInput [(ngModel)]="dataModel.comment" name="dataModel.comment" #comment type="text"
+          placeholder="{{'TITLE.comment'|translate}}" minlength="1" maxlength="500" rows="5" id="dataModel.comment"
+          class="form-control validate-name">
+              </textarea>
+        <em>{{ comment.value.length }} / 500</em>
+        <mat-error *ngIf="comment.errors?.required">
+          comment is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </div>
     <div class="ntk-cms-html-card-message">
@@ -83,8 +85,8 @@
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
   <br>
   <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-    <button type="submit" *ngIf="showFormAdd" (click)="onFormSubmit()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-      [disabled]="!formGroup?.valid">
+    <button type="submit" *ngIf="showFormAdd" (click)="onFormSubmit()"
+      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green" [disabled]="!formGroup?.valid">
       <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
     </button>
     <button type="button" *ngIf="!showFormAdd" (click)="onActionAdd()"
