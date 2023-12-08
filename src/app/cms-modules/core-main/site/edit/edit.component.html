@@ -58,23 +58,20 @@
             [optionPlaceholder]="this.translate.instant('TITLE.Parent_Site')"
             [optionDisabled]="!fieldsInfo['linkCreatedBySiteId']?.accessEditField"></app-core-site-selector>
           <!-- Title Field -->
-          <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['title']?.accessWatchField">
-            <mat-label>{{ fieldsInfo['title']?.fieldTitle }}</mat-label>
-            <input matInput [(ngModel)]="dataModel.title" [disabled]="!fieldsInfo['title']?.accessEditField"
-              name="dataModel.title" #Title type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
-              maxlength="100" required />
-            <mat-icon matSuffix *ngIf="dataModel.title && fieldsInfo['title']?.accessEditField" matSuffix
-              mat-icon-button aria-label="Clear" (click)="dataModel.title = ''">close</mat-icon>
-            <mat-icon *ngIf="fieldsInfo['title']?.accessEditField" matSuffix>mode_edit</mat-icon>
-            <mat-hint align="start">
-              <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-              <strong class="info-field-text">{{fieldsInfo['title']?.fieldDescription}}</strong>
-            </mat-hint>
-            <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
+          <div *ngIf="fieldsInfo['title']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+            <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+              placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+              [disabled]="!fieldsInfo['description']?.accessEditField" class="form-control validate-name"
+              id="dataModel.title" />
+            <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+            <em>{{ Title.value.length }} / 100</em>
             <mat-error *ngIf="Title.errors?.required">
-              {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+              Title is <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
-          </mat-form-field>
+          </div>
           <!-- SubDomain Field -->
           <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['subDomain']?.accessWatchField">
             <mat-label>{{ fieldsInfo['subDomain']?.fieldTitle }}</mat-label>
@@ -119,19 +116,16 @@
             </mat-slide-toggle>
           </div>
           <!-- ExpireDate Field -->
-          <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['expireDate']?.accessWatchField">
-            <mat-label>{{fieldsInfo['expireDate']?.fieldTitle}}</mat-label>
-            <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate"
-              name="dataModel.expireDate" />
-            <mat-icon matSuffix *ngIf="dataModel.expireDate && fieldsInfo['expireDate']?.accessEditField" matSuffix
-              mat-icon-button aria-label="Clear" (click)="dataModel.expireDate = null">close</mat-icon>
+          <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
+            <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate"
+              name="dataModel.expireDate" placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3"
+              maxlength="100" disabled="{{!fieldsInfo['expireDate']?.accessEditField}}"
+              class="form-control validate-name" id="dataModel.expireDate" />
             <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
             <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-            <mat-hint align="start">
-              <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-              <strong class="info-field-text">{{fieldsInfo['expireDate']?.fieldDescription}}</strong>
-            </mat-hint>
-          </mat-form-field>
+          </div>
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
             <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()">

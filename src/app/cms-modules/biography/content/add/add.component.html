@@ -62,23 +62,29 @@
             Description is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
         </mat-form-field>
-        <mat-form-field class="ntk-full-width">
-          <mat-label>{{fieldsInfo['fromDate']?.fieldTitle}}</mat-label>
-          <input matInput [matDatepicker]="FromDate" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate" />
-          <mat-icon matSuffix *ngIf="dataModel.fromDate && fieldsInfo['fromDate']?.accessEditField" matSuffix
-            mat-icon-button aria-label="Clear" (click)="dataModel.fromDate = null">close</mat-icon>
+
+        <!-- FromDate Field -->
+        <div *ngIf="fieldsInfo['fromDate']?.accessWatchField"
+          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.fromDate" class="color-highlight">{{ fieldsInfo["fromDate"]?.fieldTitle }}</label>
+          <input matInput [matDatepicker]="FromDate" type="text" [(ngModel)]="dataModel.fromDate"
+            name="dataModel.fromDate" placeholder="{{fieldsInfo['fromDate']?.fieldTitle }}" minlength="3"
+            maxlength="100" disabled="{{!fieldsInfo['fromDate']?.accessEditField}}" class="form-control validate-name"
+            id="dataModel.fromDate" />
           <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
           <mat-datepicker touchUi #FromDate></mat-datepicker>
-        </mat-form-field>
+        </div>
         <!-- ExpireDate Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['expireDate']?.accessWatchField">
-          <mat-label>{{fieldsInfo['expireDate']?.fieldTitle}}</mat-label>
-          <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate" />
-          <mat-icon matSuffix *ngIf="dataModel.expireDate && fieldsInfo['expireDate']?.accessAddField" matSuffix
-            mat-icon-button aria-label="Clear" (click)="dataModel.expireDate = null">close</mat-icon>
+        <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
+          <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate"
+            name="dataModel.expireDate" placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3"
+            maxlength="100" disabled="{{!fieldsInfo['expireDate']?.accessEditField}}" class="form-control validate-name"
+            id="dataModel.expireDate" />
           <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
           <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-        </mat-form-field>
+        </div>
         <hr class="pb-5" />
         <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
           id="main" [(ngModel)]="dataModel.body" name="dataModel.body"></angular-editor>

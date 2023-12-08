@@ -26,61 +26,52 @@
           [optionSelectForce]="dataModel.linkCategoryId" [optionPlaceholder]="this.translate.instant('TITLE.Category')">
         </app-blog-category-selector>
         <!-- Title Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['title']?.accessWatchField">
-          <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
-          <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-            placeholder="{{fieldsInfo['title']?.fieldTitle}}" [disabled]="!fieldsInfo['title']?.accessEditField"
-            minlength="3" maxlength="100" required />
-          <mat-icon matSuffix *ngIf="dataModel.title" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.title = ''">close</mat-icon>
-          <mat-icon matTooltip="{{fieldsInfo['title']?.fieldDescription}}" matSuffix>info</mat-icon>
-          <mat-hint align="end">{{ Title.value.length }} / 100</mat-hint>
+        <div *ngIf="fieldsInfo['title']?.accessWatchField"
+          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+          <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+            placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+            [disabled]="!fieldsInfo['description']?.accessEditField" class="form-control validate-name"
+            id="dataModel.title" />
+          <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+          <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+          <em>{{ Title.value.length }} / 100</em>
           <mat-error *ngIf="Title.errors?.required">
-            {{fieldsInfo['title']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+            Title is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
-        <!-- Description Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['description']?.accessWatchField">
-          <mat-label>{{fieldsInfo['description']?.fieldTitle}}</mat-label>
+        </div>
+         <!-- Description Field -->
+         <div *ngIf="fieldsInfo['description']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
           <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-            placeholder="{{fieldsInfo['description']?.fieldTitle}}"
-            [disabled]="!fieldsInfo['description']?.accessEditField" minlength="1" maxlength="500" rows="5"></textarea>
-          <mat-icon matSuffix *ngIf="dataModel.description" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataModel.description = ''">close</mat-icon>
-          <mat-icon matTooltip="{{fieldsInfo['description']?.fieldDescription}}" matSuffix>info</mat-icon>
-          <mat-hint align="end">{{ Description.value.length }} / 500</mat-hint>
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+          [disabled]="!fieldsInfo['description']?.accessEditField"
+          id="dataModel.description" class="form-control validate-name">
+          </textarea>
+          <em>{{ Description.value.length }} / 500</em>
           <mat-error *ngIf="Description.errors?.required">
-            {{fieldsInfo['description']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+              Description is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
-        </mat-form-field>
-        <!-- FromDate Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['fromDate']?.accessWatchField">
-          <mat-label>{{fieldsInfo['fromDate']?.fieldTitle}}</mat-label>
-          <input matInput [matDatepicker]="FromDate" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate"
-            placeholder="{{fieldsInfo['fromDate']?.fieldTitle}}"
-            [disabled]="!fieldsInfo['fromDate']?.accessEditField" />
-          <mat-icon matSuffix *ngIf="dataModel.fromDate && fieldsInfo['fromDate']?.accessEditField" matSuffix
-            mat-icon-button aria-label="Clear" (click)="dataModel.fromDate = null">close</mat-icon>
+        </div>
+
+         <!-- FromDate Field -->
+         <div *ngIf="fieldsInfo['fromDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.fromDate" class="color-highlight">{{ fieldsInfo["fromDate"]?.fieldTitle }}</label>
+          <input matInput [matDatepicker]="FromDate" type="text" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate"
+          placeholder="{{fieldsInfo['fromDate']?.fieldTitle }}" minlength="3" maxlength="100"  disabled="{{!fieldsInfo['fromDate']?.accessEditField}}"
+          class="form-control validate-name" id="dataModel.fromDate" />
           <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
           <mat-datepicker touchUi #FromDate></mat-datepicker>
-          <mat-icon matTooltip="{{fieldsInfo['fromDate']?.fieldDescription}}" matSuffix>info</mat-icon>
-        </mat-form-field>
-
+        </div>
         <!-- ExpireDate Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['expireDate']?.accessWatchField">
-          <mat-label>{{fieldsInfo['expireDate']?.fieldTitle}}</mat-label>
-          <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate"
-            placeholder="{{fieldsInfo['expireDate']?.fieldTitle}}"
-            [disabled]="!fieldsInfo['expireDate']?.accessEditField" />
-          <mat-icon matSuffix *ngIf="dataModel.expireDate && fieldsInfo['expireDate']?.accessEditField" matSuffix
-            mat-icon-button aria-label="Clear" (click)="dataModel.expireDate = null">close</mat-icon>
+        <div *ngIf="fieldsInfo['expireDate']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
+          <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate"
+          placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3" maxlength="100"  disabled="{{!fieldsInfo['expireDate']?.accessEditField}}"
+          class="form-control validate-name" id="dataModel.expireDate" />
           <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
           <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['expireDate']?.fieldDescription}}</strong>
-          </mat-hint>
-        </mat-form-field>
+        </div>
         <hr class="pb-5" />
         <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
           id="main" [(ngModel)]="dataModel.body" name="dataModel.body"></angular-editor>

@@ -56,7 +56,6 @@
                 <input matInput [matDatepicker]="FromDate" type="text" [(ngModel)]="dataModel.fromDate" name="dataModel.fromDate"
                 placeholder="{{fieldsInfo['fromDate']?.fieldTitle }}" minlength="3" maxlength="100"  disabled="{{!fieldsInfo['fromDate']?.accessAddField}}"
                 class="form-control validate-name" id="dataModel.fromDate" />
-                <em>{{ Title.value.length }} / 100</em>
                 <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #FromDate></mat-datepicker>
               </div>
@@ -66,7 +65,6 @@
                 <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate"
                 placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3" maxlength="100"  disabled="{{!fieldsInfo['expireDate']?.accessAddField}}"
                 class="form-control validate-name" id="dataModel.expireDate" />
-                <em>{{ Title.value.length }} / 100</em>
                 <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #ExpireDate></mat-datepicker>
               </div>
@@ -203,7 +201,7 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="contentOtherInfoSelected.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
               <input matInput type="text" [(ngModel)]="contentOtherInfoSelected.title" name="contentOtherInfoSelected.title" #contentOtherInfoSelected_Title
-              placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" 
+              placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100"
               class="form-control validate-name" id="dataModel.title" />
               <em>{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
             </div>
@@ -211,7 +209,7 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="contentOtherInfoSelected.typeId" class="color-highlight">{{'TITLE.Key' | translate}}</label>
               <input matInput type="number" [(ngModel)]="contentOtherInfoSelected.typeId" name="contentOtherInfoSelected.typeId" #contentOtherInfoSelected_TypeId
-              placeholder="{{'TITLE.Agreement_number_to_display' | translate}}" minlength="3" maxlength="100" 
+              placeholder="{{'TITLE.Agreement_number_to_display' | translate}}" minlength="3" maxlength="100"
               class="form-control validate-name" id="dataModel.typeId" />
               <em>{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
             </div>
@@ -384,5 +382,5 @@
       </form>
       <!--content-->
     </div>
-  </div>      
+  </div>
 
