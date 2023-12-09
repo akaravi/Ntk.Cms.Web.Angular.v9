@@ -1,131 +1,134 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-<form (ngSubmit)="onActionSubmit()" #vform="ngForm" class="form form-horizontal">
-  <!--content-->
-  <p class="font-600 color-highlight mb-0">ایجاد حساب</p>
-  <h1 class="font-30">{{'AUTH.REGISTER.SIGNUP' | translate}}</h1>
-  <p>
-    {{'AUTH.REGISTER.DESC' | translate}}
-  </p>
-  <!--name Field-->
-  <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-user"></i>
-    <input type="name" class="form-control validate-name" id="dataModel.name"
-      placeholder="{{'AUTH.INPUT.FIRSTNAME' | translate}}" [(ngModel)]="dataModel.name" name="dataModel.name"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" #Name autocomplete="off" minlength="3" maxlength="50" required>
-    <label for="dataModel.name" class="color-highlight">{{'AUTH.INPUT.FIRSTNAME' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
-    <mat-error *ngIf="Name.errors?.required">
-      {{'AUTH.INPUT.FIRSTNAME' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div>
-  <!--name Field-->
-  <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-user"></i>
-    <input type="name" class="form-control validate-name" id="dataModel.family"
-      placeholder="{{'AUTH.INPUT.LASTNAME' | translate}}" [(ngModel)]="dataModel.family" name="dataModel.family"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" #family autocomplete="off" minlength="3" maxlength="50" required>
-    <label for="dataModel.family" class="color-highlight">{{'AUTH.INPUT.LASTNAME' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
-    <mat-error *ngIf="family.errors?.required">
-      {{'AUTH.INPUT.LASTNAME' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div>
-
-  <!--email Field-->
-  <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-at"></i>
-    <input type="email" class="form-control validate-name" id="dataModel.email"
-      placeholder="{{'AUTH.INPUT.EMAIL' | translate}}" [(ngModel)]="dataModel.email" name="dataModel.email"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" #email autocomplete="off" minlength="3" maxlength="50" required>
-    <label for="dataModel.email" class="color-highlight">{{'AUTH.INPUT.EMAIL' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
-    <mat-error *ngIf="email.errors?.required">
-      {{'AUTH.INPUT.EMAIL' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div>
-
-
-
-  <!--password Field-->
-  <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-lock"></i>
-    <input type="password" class="form-control validate-name" id="dataModel.password"
-      placeholder="{{'AUTH.INPUT.PASSWORD' | translate}}" [(ngModel)]="dataModel.password" name="dataModel.password"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" #password autocomplete="off" minlength="3" maxlength="50" required>
-    <label for="dataModel.password" class="color-highlight">{{'AUTH.INPUT.PASSWORD' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
-    <mat-error *ngIf="password.errors?.required">
-      {{'AUTH.INPUT.PASSWORD' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div>
-
-
-  <!--RePasswordModel Field-->
-  <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-lock"></i>
-    <input type="password" class="form-control validate-name" id="RePassword"
-      placeholder="{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}" [(ngModel)]="RePasswordModel" name="RePasswordModel"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" #RePassword autocomplete="off" minlength="3" maxlength="50"
-      required>
-    <label for="RePassword" class="color-highlight">{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
-    <mat-error *ngIf="RePassword.errors?.required">
-      {{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-    <mat-error *ngIf="RePasswordModel?.length>0 &&RePassword.value!==password.value">
-      {{'MESSAGE.Password_and_password_confirmation_are_different' | translate}}
-    </mat-error>
-  </div>
-  <!--captchaText Field-->
-  <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
-  <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
-  <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-quote-left"></i>
-    <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" id="dataModel.captchaText"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name"
-      placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off" required minlength="5" maxlength="5">
-    <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
-    <em>(ضروری)</em>
-  </div>
-
-  <button type="submit" [disabled]="!Roulaccespt ||vform.invalid || !formInfo.buttonSubmittedEnabled"
-    style="width: 100%;" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-    {{'AUTH.REGISTER.CREATE_AN_ACCOUNT' | translate}}
-  </button>
-
-  <div class="row pt-3 mb-3">
-    <div class="col-6 text-start">
-      <a [routerLink]="['/page/auth/singin']" class="color-highlight">{{'AUTH.REGISTER.RETURN_TO_LOGIN' |
-        translate}}</a>
+<div class="card card-style">
+  <form (ngSubmit)="onActionSubmit()" #vform="ngForm" class="form form-horizontal">
+    <!--content-->
+    <p class="font-600 color-highlight mb-0">ایجاد حساب</p>
+    <h1 class="font-30">{{'AUTH.REGISTER.SIGNUP' | translate}}</h1>
+    <p>
+      {{'AUTH.REGISTER.DESC' | translate}}
+    </p>
+    <!--name Field-->
+    <div class="input-style no-borders has-icon validate-field mb-4">
+      <i class="fa fa-user"></i>
+      <input type="name" class="form-control validate-name" id="dataModel.name"
+        placeholder="{{'AUTH.INPUT.FIRSTNAME' | translate}}" [(ngModel)]="dataModel.name" name="dataModel.name"
+        [disabled]=" !formInfo.buttonSubmittedEnabled" #Name autocomplete="off" minlength="3" maxlength="50" required>
+      <label for="dataModel.name" class="color-highlight">{{'AUTH.INPUT.FIRSTNAME' | translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
+      <em>(ضروری)</em>
+      <mat-error *ngIf="Name.errors?.required">
+        {{'AUTH.INPUT.FIRSTNAME' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+      </mat-error>
     </div>
-    <div class="col-6 text-end">
-      <a [routerLink]="['/page/auth/forgot-password']" class="color-highlight">{{'AUTH.FORGOT.TITLE' |
-        translate}}</a>
+    <!--name Field-->
+    <div class="input-style no-borders has-icon validate-field mb-4">
+      <i class="fa fa-user"></i>
+      <input type="name" class="form-control validate-name" id="dataModel.family"
+        placeholder="{{'AUTH.INPUT.LASTNAME' | translate}}" [(ngModel)]="dataModel.family" name="dataModel.family"
+        [disabled]=" !formInfo.buttonSubmittedEnabled" #family autocomplete="off" minlength="3" maxlength="50" required>
+      <label for="dataModel.family" class="color-highlight">{{'AUTH.INPUT.LASTNAME' | translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
+      <em>(ضروری)</em>
+      <mat-error *ngIf="family.errors?.required">
+        {{'AUTH.INPUT.LASTNAME' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+      </mat-error>
     </div>
 
-  </div>
+    <!--email Field-->
+    <div class="input-style no-borders has-icon validate-field mb-4">
+      <i class="fa fa-at"></i>
+      <input type="email" class="form-control validate-name" id="dataModel.email"
+        placeholder="{{'AUTH.INPUT.EMAIL' | translate}}" [(ngModel)]="dataModel.email" name="dataModel.email"
+        [disabled]=" !formInfo.buttonSubmittedEnabled" #email autocomplete="off" minlength="3" maxlength="50" required>
+      <label for="dataModel.email" class="color-highlight">{{'AUTH.INPUT.EMAIL' | translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
+      <em>(ضروری)</em>
+      <mat-error *ngIf="email.errors?.required">
+        {{'AUTH.INPUT.EMAIL' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+      </mat-error>
+    </div>
 
-  <div class="divider"></div>
-  <ng-container *ngIf="loadDemoTheme">
+
+
+    <!--password Field-->
+    <div class="input-style no-borders has-icon validate-field mb-4">
+      <i class="fa fa-lock"></i>
+      <input type="password" class="form-control validate-name" id="dataModel.password"
+        placeholder="{{'AUTH.INPUT.PASSWORD' | translate}}" [(ngModel)]="dataModel.password" name="dataModel.password"
+        [disabled]=" !formInfo.buttonSubmittedEnabled" #password autocomplete="off" minlength="3" maxlength="50"
+        required>
+      <label for="dataModel.password" class="color-highlight">{{'AUTH.INPUT.PASSWORD' | translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
+      <em>(ضروری)</em>
+      <mat-error *ngIf="password.errors?.required">
+        {{'AUTH.INPUT.PASSWORD' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+      </mat-error>
+    </div>
+
+
+    <!--RePasswordModel Field-->
+    <div class="input-style no-borders has-icon validate-field mb-4">
+      <i class="fa fa-lock"></i>
+      <input type="password" class="form-control validate-name" id="RePassword"
+        placeholder="{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}" [(ngModel)]="RePasswordModel" name="RePasswordModel"
+        [disabled]=" !formInfo.buttonSubmittedEnabled" #RePassword autocomplete="off" minlength="3" maxlength="50"
+        required>
+      <label for="RePassword" class="color-highlight">{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
+      <em>(ضروری)</em>
+      <mat-error *ngIf="RePassword.errors?.required">
+        {{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+      </mat-error>
+      <mat-error *ngIf="RePasswordModel?.length>0 &&RePassword.value!==password.value">
+        {{'MESSAGE.Password_and_password_confirmation_are_different' | translate}}
+      </mat-error>
+    </div>
+    <!--captchaText Field-->
+    <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
+    <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
+    <div class="input-style no-borders has-icon validate-field mb-4">
+      <i class="fa fa-quote-left"></i>
+      <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" id="dataModel.captchaText"
+        [disabled]=" !formInfo.buttonSubmittedEnabled" type="text" class="form-control validate-name"
+        placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}" autocomplete="off" required minlength="5" maxlength="5">
+      <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' | translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
+      <em>(ضروری)</em>
+    </div>
+
+    <button type="submit" [disabled]="!Roulaccespt ||vform.invalid || !formInfo.buttonSubmittedEnabled"
+      style="width: 100%;" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'AUTH.REGISTER.CREATE_AN_ACCOUNT' | translate}}
+    </button>
+
+    <div class="row pt-3 mb-3">
+      <div class="col-6 text-start">
+        <a [routerLink]="['/auth/singin']" class="color-highlight">{{'AUTH.REGISTER.RETURN_TO_LOGIN' |
+          translate}}</a>
+      </div>
+      <div class="col-6 text-end">
+        <a [routerLink]="['/auth/forgot-password']" class="color-highlight">{{'AUTH.FORGOT.TITLE' |
+          translate}}</a>
+      </div>
+
+    </div>
+
     <div class="divider"></div>
-    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
-        class="fab fa-facebook-f text-center"></i>با فیس بوک وارد شوید</a>
-    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
-        class="fab fa-twitter text-center"></i>با توییتر وارد شوید</a>
-    <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
-        class="fab fa-apple text-center"></i>با اپل وارد شوید</a>
-  </ng-container>
-  <!--content-->
-</form>
+    <ng-container *ngIf="loadDemoTheme">
+      <div class="divider"></div>
+      <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-facebook mt-4 rounded-s"><i
+          class="fab fa-facebook-f text-center"></i>با فیس بوک وارد شوید</a>
+      <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-twitter mt-2 rounded-s"><i
+          class="fab fa-twitter text-center"></i>با توییتر وارد شوید</a>
+      <a class="btn btn-icon text-start btn-full btn-l font-600 font-13 bg-dark-dark mt-2 rounded-s"><i
+          class="fab fa-apple text-center"></i>با اپل وارد شوید</a>
+    </ng-container>
+    <!--content-->
+  </form>
+</div>

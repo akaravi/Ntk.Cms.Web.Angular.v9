@@ -22,10 +22,7 @@ const routes: Routes = [
         path: 'contactus',
         component: PageContactusComponent,
       },
-      {
-        path: 'auth',
-        loadChildren: () => import('../../cms-modules/auth/auth.module').then((m) => m.AuthModule),
-      },
+
       { path: '', redirectTo: '', pathMatch: 'full' },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ],
