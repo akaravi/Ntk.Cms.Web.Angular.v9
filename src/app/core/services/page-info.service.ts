@@ -11,7 +11,7 @@ import { PageLinkModel } from '../models/pageLinkModel';
 })
 export class PageInfoService {
   public title: BehaviorSubject<string> = new BehaviorSubject<string>(
-    'Dashboard'
+    '.'
   );
   public description: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public breadcrumbs: BehaviorSubject<Array<PageLinkModel>> = new BehaviorSubject<
