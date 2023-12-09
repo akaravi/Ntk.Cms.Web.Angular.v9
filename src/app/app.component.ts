@@ -28,6 +28,7 @@ import { CmsToastrService } from './core/services/cmsToastr.service';
 import { SplashScreenService } from './shared/splash-screen/splash-screen.service';
 import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
 import { ThemeService } from './core/services/theme.service';
+import { PageInfoService } from './core/services/page-info.service';
 
 
 
@@ -56,7 +57,8 @@ export class AppComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private cmsStoreService: CmsStoreService,
     private ngZone: NgZone,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public pageInfo: PageInfoService,
   ) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
@@ -102,6 +104,7 @@ export class AppComponent implements OnInit {
       .subscribe((title: string) => {
         if (title) {
           this.titleService.setTitle(`${this.translate.instant(title)}`);
+          this.pageInfo.updateTitle(this.translate.instant(title));
         } //set title that defines in routing's files
       });
     //end change title when route happened
