@@ -10,6 +10,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { SingupRuleComponent } from '../singupRule/singupRule.Component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-auth-singup',
   templateUrl: './singup.component.html',
@@ -23,6 +24,8 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+
   ) {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -45,6 +48,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
   loadDemoTheme = environment.loadDemoTheme;
   ngOnInit(): void {
     this.onCaptchaOrder();
+    this.pageInfo.updateTitle(this.translate.instant('AUTH.REGISTER.SIGNUP'));
   }
   ngOnDestroy(): void {
   }
