@@ -9,6 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 enum ErrorStates {
   NotSubmitted,
   HasError,
@@ -26,6 +27,8 @@ export class AuthForgotPasswordComponent implements OnInit {
     public translate: TranslateService,
     private router: Router,
     private cdr: ChangeDetectorRef,
+    public pageInfo: PageInfoService,
+
   ) {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -47,6 +50,7 @@ export class AuthForgotPasswordComponent implements OnInit {
   onCaptchaOrderInProcess = false;
   ngOnInit(): void {
     this.onCaptchaOrder();
+    this.pageInfo.updateTitle(this.translate.instant('AUTH.FORGOT.TITLE'));
   }
   onActionSubmitOrderCodeBySms(): void {
     this.formInfo.buttonSubmittedEnabled = false;
