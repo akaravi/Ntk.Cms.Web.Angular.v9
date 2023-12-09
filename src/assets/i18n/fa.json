@@ -310,7 +310,7 @@
   "AUTH.SINGINBYSMS.PIN_CODE": "پین کد دریافتی",
   "AUTH.SINGINBYSMS.SEND_PIN_CODE": "ارسال کد",
   "AUTH.SINGINBYSMS.SUCCESS": "حساب شما با موفقیت بازنشانی شد.",
-  "AUTH.SINGINBYSMS.TITLE": "وروبه به حساب با پیامک",
+  "AUTH.SINGINBYSMS.TITLE": "ورود به حساب با پیامک",
   "AUTH.VALIDATION.AGREEMENT_REQUIRED": "پذیرش شرایط و ضوابط الزامی است",
   "AUTH.VALIDATION.INVALID": "{{name}} معتبر نیست",
   "AUTH.VALIDATION.INVALID_FIELD": "فیلد معتبر نیست",
