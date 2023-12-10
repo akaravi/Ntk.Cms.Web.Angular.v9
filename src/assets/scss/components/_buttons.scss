@@ -1,19 +1,5 @@
 /*Buttons*/
 .btn{font-family:$font-heading-family; transition:$globalTransitions; color:#FFF;}
-.btn i{
-  margin: -7px;
-  padding-right: 3px;
-  padding-left: 0px;
-}
-.btn mat-icon{
-  margin: -7px;
-  padding-right: 3px;
-  padding-left: 0px;
-}
-.btn span{
-  padding-right: 0px;
-  padding-left: 8px;
-}
 .btn:hover{opacity:0.9; color:#FFF;}
 .btn-full{display:block;}
 
@@ -23,7 +9,7 @@
 .btn-xs{padding:$btn-xs!important;}
 .btn-s{padding:$btn-s!important;}
 .btn-sm{padding:$btn-sm!important;}
-.btn-s{padding:$btn-s!important;}
+.btn-m{padding:$btn-m!important;}
 .btn-l{padding:$btn-l!important;}
 .btn-xl{padding:$btn-xl!important; font-size:15px!important;}
 .btn-xxl{padding:$btn-xxl!important; font-size:17px!important;}
@@ -43,12 +29,12 @@
 .btn-icon:hover{color:#FFF;}
 .btn-icon{padding-right:50px!important; overflow:hidden; position:relative;}
 .btn-icon i{
-    position:absolute;
-    right:0px;
+    position:absolute; 
+    right:0px; 
     top:0px;
     line-height:43px;
-    width:40px;
-    height:100%;
+    width:40px; 
+    height:100%; 
     background-color:rgba(0,0,0,0.1);
 }
 
