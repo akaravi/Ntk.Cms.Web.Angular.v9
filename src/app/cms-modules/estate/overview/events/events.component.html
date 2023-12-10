@@ -3,11 +3,11 @@
     <p class="mb-0 color-highlight font-600 font-12">
       {{'TITLE.Event_Review'| translate}}
     </p>
-    <div class="row mb-0">
+    <div class="row ">
       <div class="col-12 col-sm-12 col-md-6 col-lg-6">
         <!-- picker Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.fromDate" class="color-highlight">{{'TITLE.Enter_a_date_range'| translate}}</label>
+        <mat-form-field appearance="fill">
+          <mat-label>{{'TITLE.Enter_a_date_range'| translate}}</mat-label>
           <mat-date-range-input [formGroup]="checkingOnDayRange" [rangePicker]="picker">
             <input matStartDate formControlName="start" placeholder="{{'TITLE.Start_Date'| translate}}">
             <input matEndDate formControlName="end" placeholder="{{'TITLE.Start_Date'| translate}}">
@@ -19,7 +19,7 @@
             | translate}}</mat-error>
           <mat-error *ngIf="checkingOnDayRange.controls.end.hasError('matEndDateInvalid')">{{'MESSAGE.InvalidEndDate' |
             translate}}</mat-error>
-        </div>
+        </mat-form-field>
       </div>
       <div class="col-12 col-sm-12 col-md-6 col-lg-6">
         <button type="button" (click)="onActionNext()"

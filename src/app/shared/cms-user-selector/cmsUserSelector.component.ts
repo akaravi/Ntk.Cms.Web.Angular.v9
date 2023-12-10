@@ -41,7 +41,7 @@ export class CmsUserSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
-  @Input() optionRequired = true;
+  @Input() optionRequired = false;
   @Output() optionChange = new EventEmitter<CoreUserModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreUserModel) {
