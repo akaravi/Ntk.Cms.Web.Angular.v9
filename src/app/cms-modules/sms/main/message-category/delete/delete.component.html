@@ -1,54 +1,46 @@
-<div class="ntk-cms-html-card-header">
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  {{ formInfo.formTitle }}
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-</div>
-<div class="ntk-cms-html-card-body">
-  <app-progress-spinner [options]="loading"> </app-progress-spinner>
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  <ng-container *ngIf="dataModelResultCategory?.item">
-    <!-- Title Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{fieldsInfo['title']?.fieldTitle}}</mat-label>
-      <input matInput [(ngModel)]="dataModelResultCategory.item.title" name="dataModelResultCategory.item.title" #Title
-        type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="50" required readonly />
-    </mat-form-field>
-    <!-- Description Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>{{fieldsInfo['description']?.fieldTitle}}</mat-label>
-      <textarea matInput [(ngModel)]="dataModelResultCategory.item.description"
-        name="dataModelResultCategory.item.description" #Description type="text"
-        placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="100" readonly required
-        rows=5></textarea>
-
-    </mat-form-field>
-  </ng-container>
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-</div>
-<div class="ntk-cms-html-card-message">
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  <div class="form-actions">
-    <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-    <small class="form-text text-muted danger">{{ formInfo.formError }}
-    </small>
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+  <div class="content mb-0">
+      <p class="mb-0 color-highlight font-600 font-12">
+          حساب کاربری خود را ویرایش کنید
+      </p>
+      <h4>اطلاعات</h4>
+      <h4>اطلاعات اولیه</h4>
+      <p>
+          اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+          فقط یک صفحه ساختگی است.
+      </p>
+      <!--Content-->
+      {{ formInfo.formTitle }}
+      <ng-container *ngIf="dataModelResultCategory?.item">
+          <!-- Title Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModelResultCategory.item.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
+            <input matInput type="text" [(ngModel)]="dataModelResultCategory.item.title"  name="dataModelResultCategory.item.title"  #Title  minlength="3" maxlength="50"
+                id="dataModelResultCategory.item.title" placeholder="0"  />
+          </div>
+          <!-- Description Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModelResultCategory.item.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+            <textarea matInput type="text" [(ngModel)]="dataModelResultCategory.item.description"  name="dataModelResultCategory.item.description"  #Title  minlength="1" maxlength="100" rows="5"
+                id="dataModelResultCategory.item.description" placeholder="0">
+              </textarea>
+          </div>
+      </ng-container>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormMove()" [disabled]=" !formInfo.buttonSubmittedEnabled"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <i class="ft-x"></i> {{'TITLE.MOVE_DATA' | translate}}
+        </button>
+        <button type="button" (click)="onFormDelete()" [disabled]=" !formInfo.buttonSubmittedEnabled"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.DELETE' | translate}}
+        </button>
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+      </div>
+      <!--Content-->
   </div>
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-</div>
-<div class="ntk-cms-html-card-footer">
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-    <button type="button" (click)="onFormMove()" [disabled]=" !formInfo.buttonSubmittedEnabled"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <i class="ft-x"></i> {{'TITLE.MOVE_DATA' | translate}}
-    </button>
-    <button type="button" (click)="onFormDelete()" [disabled]=" !formInfo.buttonSubmittedEnabled"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
-      <i class="fa fa-check-square-o"></i> {{'ACTION.DELETE' | translate}}
-    </button>
-    <button type="button" (click)="onFormCancel()"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-      <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-    </button>
-  </div>
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
 </div>

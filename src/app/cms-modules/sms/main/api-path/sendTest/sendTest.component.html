@@ -1,105 +1,93 @@
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </div>
-    <div class="ntk-cms-html-card-body">
-        <app-progress-spinner [options]="loading"> </app-progress-spinner>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <div>
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+    <div class="content mb-0">
+        <p class="mb-0 color-highlight font-600 font-12">
+            حساب کاربری خود را ویرایش کنید
+        </p>
+        <h4>اطلاعات</h4>
+        <h4>اطلاعات اولیه</h4>
+        <p>
+            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+            فقط یک صفحه ساختگی است.
+        </p>
+        <!--Content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
             <!-- LinkPrivateSiteConfigId Field -->
             <app-sms-apipath-selector (optionChange)="onActionSelectPrivateSiteConfig($event)"
                 [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Direction')">
             </app-sms-apipath-selector>
             <!-- FromNumber Field -->
-            <mat-form-field class="ntk-full-width">
-                <mat-label>{{'TITLE.sender_number' | translate}}</mat-label>
-                <input matInput [(ngModel)]="dataModel.fromNumber" name="dataModel.fromNumber" #FromNumber type="text"
-                    placeholder="10000118" minlength="0" maxlength="50" />
-                <mat-icon matSuffix *ngIf="dataModel.fromNumber" matSuffix mat-icon-button aria-label="Clear"
-                    (click)="dataModel.fromNumber = ''">close</mat-icon>
-                <mat-icon matSuffix>mode_edit</mat-icon>
-                <mat-hint align="start">
-                    <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                    <strong class="info-field-text">{{'TITLE.The_number-of_the_sender_that_is_active_in_this_route' |
-                        translate}}</strong>
-                </mat-hint>
-                <mat-hint align="end">{{ FromNumber.value.length }} / 50</mat-hint>
-            </mat-form-field>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.fromNumber" class="color-highlight">{{'TITLE.sender_number' | translate}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.fromNumber"  name="dataModel.fromNumber"  #FromNumber  minlength="0" maxlength="50"
+                    id="dataModel.fromNumber" placeholder="10000118"  />
+                <em>{{ FromNumber.value.length }} / 50</em>
+            </div>
             <!-- ToNumber Field -->
-            <mat-form-field class="ntk-full-width">
-                <mat-label>{{'TITLE.Receiver_number' | translate}}</mat-label>
-                <input matInput [(ngModel)]="dataModel.toNumber" name="dataModel.toNumber" #ToNumber type="text"
-                    placeholder="0912" minlength="0" maxlength="100" />
-                <mat-icon matSuffix *ngIf="dataModel.toNumber" matSuffix mat-icon-button aria-label="Clear"
-                    (click)="dataModel.toNumber = ''">close</mat-icon>
-                <mat-icon matSuffix>mode_edit</mat-icon>
-                <mat-hint align="start">
-                    <mat-icon matSuffix class="info-field-icon">info</mat-icon>
-                    <strong
-                        class="info-field-text">{{'TITLE.You_can_separate_the_recipient_number_of_the_message_with_a_comma'
-                        |
-                        translate}}</strong>
-                </mat-hint>
-                <mat-hint align="end">{{ ToNumber.value.length }} / 100</mat-hint>
-            </mat-form-field>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.toNumber" class="color-highlight">{{'TITLE.Receiver_number' | translate}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.toNumber"  name="dataModel.toNumber"  #ToNumber  minlength="0" maxlength="100"
+                    id="dataModel.toNumber" placeholder="0912"  />
+                <em>{{ ToNumber.value.length }} / 100</em>
+            </div>
             <!-- Message Field -->
-            <mat-form-field class="ntk-full-width">
-                <mat-label>{{'MESSAGE.Message_Text' | translate}}</mat-label>
-                <textarea matInput [(ngModel)]="dataModel.message" name="dataModel.message" #Message type="text"
-                    placeholder="..." minlength="1" maxlength="500" rows="5"></textarea>
-                <mat-icon matSuffix *ngIf="dataModel.message" matSuffix mat-icon-button aria-label="Clear"
-                    (click)="dataModel.message = ''">close</mat-icon>
-                <mat-icon matSuffix>mode_edit</mat-icon>
-                <mat-hint align="end">{{ Message.value.length }} / 500</mat-hint>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.message" class="color-highlight">{{'MESSAGE.Message_Text' | translate}}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.message"  name="dataModel.message"  #Message  minlength="1" maxlength="500"
+                    id="dataModel.message" placeholder="..."  />
+                <em>{{ Message.value.length }} / 500</em>
                 <mat-error *ngIf="Message.errors?.required">
                     {{'MESSAGE.Message_Text' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
-            </mat-form-field>
+            </div>
             <!-- IsFlash Field -->
-            <div class="ntk-full-width">
-                <mat-slide-toggle [(ngModel)]="dataModel.isFlash" name="dataModel.isFlash">
-                    {{'TITLE.Send_as_flash' | translate}}
-                </mat-slide-toggle>
+            <div class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.isFlash" class="font-600 font-14">
+                        {{'TITLE.Send_as_flash' | translate}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.isFlash"
+                            [(ngModel)]="dataModel.isFlash"
+                            name="dataModel.isFlash">
+                        <label class="custom-control-label" for="dataModel.isFlash"></label>
+                    </div>
+                </div>
             </div>
             <!-- SendByQeue Field -->
-            <div class="ntk-full-width" *ngIf="sendByShow">
-                <mat-slide-toggle [(ngModel)]="dataModel.sendByQueue" name="dataModel.sendByQeue">
-                    {{'TITLE.Send_in_queue' | translate}}
-                </mat-slide-toggle>
+            <div class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataModel.sendByQueue" class="font-600 font-14">
+                        {{'TITLE.Send_in_queue' | translate}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataModel.sendByQueue"
+                            [(ngModel)]="dataModel.sendByQueue"
+                            name="dataModel.sendByQueue">
+                        <label class="custom-control-label" for="dataModel.sendByQueue"></label>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <app-cms-json-list [dataModel]="dataModelResult.item" [optionMethod]="1" *ngIf="dataModelResult?.item">
-        </app-cms-json-list>
+            <app-cms-json-list [dataModel]="dataModelResult.item" [optionMethod]="1" *ngIf="dataModelResult?.item">
+            </app-cms-json-list>
 
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.valid" *ngIf="!this.loading.display">
+                    <i class="fa fa-check-square-o"></i>
+                    {{'ACTION.Send_Message' | translate}}
+                </button>
+    
+            </div>
+        </form>
+        <!--Content-->
     </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.valid" *ngIf="!this.loading.display">
-                <i class="fa fa-check-square-o"></i>
-                {{'ACTION.Send_Message' | translate}}
-            </button>
-
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
+</div>
