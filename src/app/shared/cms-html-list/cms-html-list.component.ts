@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ItemMenuModel, RowMenuModel } from 'src/app/core/models/itemMenuModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 @Component({
@@ -22,9 +23,32 @@ export class CmsHtmlListComponent implements OnInit {
     this.loading = v;
   }
   loading = new ProgressSpinnerModel();
+  itemMenu = new ItemMenuModel();
   constructor() { }
   ngOnInit(): void {
-
+    this.itemMenu.title = "اشتراک گذاری 1111";
+    this.itemMenu.titleClick = "کلیک کنید";
+    this.itemMenu.rowItems = [];
+    var row = new RowMenuModel();
+    row.title = "فیس بوک";
+    row.hrefStr = "https://fb.com";
+    this.itemMenu.rowItems.push(row);
+    row = new RowMenuModel();
+    row.title = "اینستا ";
+    row.hrefStr = "https://fb.com";
+    this.itemMenu.rowItems.push(row);
+    row = new RowMenuModel();
+    row.title = "اینستا ";
+    row.hrefStr = "https://fb.com";
+    this.itemMenu.rowItems.push(row);
+    row = new RowMenuModel();
+    row.title = "اینستا ";
+    row.hrefStr = "https://fb.com";
+    this.itemMenu.rowItems.push(row);
+    row = new RowMenuModel();
+    row.title = "اینستا ";
+    row.hrefStr = "https://fb.com";
+    this.itemMenu.rowItems.push(row);
   }
   /*
   <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true">
