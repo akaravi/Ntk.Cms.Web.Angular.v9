@@ -8,6 +8,7 @@ import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-auth-singin',
@@ -24,6 +25,8 @@ export class AuthSingInComponent implements OnInit {
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
+    public pageInfo: PageInfoService,
+
   ) {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -55,6 +58,7 @@ export class AuthSingInComponent implements OnInit {
     if (this.firstRun) {
       this.dataModel.captchaText = '0000';
     }
+    this.pageInfo.updateTitle(this.translate.instant('AUTH.SINGINBYSMS.TITLE'));
   }
   onActionSubmit(): void {
     this.formInfo.buttonSubmittedEnabled = false;

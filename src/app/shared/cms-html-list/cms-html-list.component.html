@@ -42,3 +42,66 @@
   <ng-content select="[cms-action-row]"></ng-content>
 </div>
 <!--end::cms-action-row-->
+
+<!-- Share Menu-->
+<div *ngIf="optionActionRowDisplay && '1'==='2'" id="menu-share-thumbs" class="menu menu-box-modal rounded-m menu-active"
+  data-menu-height="320" data-menu-width="350" style="display: block; width: 350px; height: 320px;">
+  <div class="menu-title">
+    <p class="color-highlight">{{itemMenu.titleClick}}</p>
+    <h1>{{itemMenu.title}}</h1>
+    <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+  </div>
+  <div class="divider divider-margins"></div>
+
+  <div class="d-flex">
+    <ng-container *ngFor="let item of itemMenu.rowItems; index as i">
+      <div class="ms-auto me-auto">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/component-action-modals.html"
+          class="shareToFacebook external-link icon icon-l bg-facebook rounded-s shadow-xl" target="_blank"><i
+            class="fab fa-facebook-f font-22"></i><br></a>
+        <p class="font-11 text-center opacity-70">{{item}}</p>
+      </div>
+      <ng-container *ngIf="i%4>0">
+
+      </ng-container>
+    </ng-container>
+
+    <div class="ms-auto me-auto">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/component-action-modals.html"
+        class="shareToFacebook external-link icon icon-l bg-facebook rounded-s shadow-xl" target="_blank"><i
+          class="fab fa-facebook-f font-22"></i><br></a>
+      <p class="font-11 text-center opacity-70">فیسبوک</p>
+    </div>
+    <div class="me-auto">
+      <a href="http://twitter.com/share?text=اپکیت%20http://localhost/component-action-modals.html"
+        class="shareToTwitter external-link icon icon-l bg-twitter rounded-s shadow-xl" target="_blank"><i
+          class="fab fa-twitter font-22"></i><br></a>
+      <p class="font-11 text-center opacity-70">تویتر</p>
+    </div>
+    <div class="me-auto">
+      <a href="tel:+1 234 567 891" class="external-link icon icon-l bg-phone rounded-s shadow-xl"><i
+          class="fa fa-phone font-22"></i><br></a>
+      <p class="font-11 text-center opacity-70">تماس</p>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="ms-auto me-auto">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost/component-action-modals.html&amp;title=اپکیت&amp;summary=&amp;source="
+        class="shareToLinkedIn external-link icon icon-l bg-linkedin rounded-s shadow-xl" target="_blank"><i
+          class="fab fa-linkedin-in font-22"></i><br></a>
+      <p class="font-11 text-center opacity-70">LinkedIn</p>
+    </div>
+    <div class="me-auto">
+      <a href="mailto:?body=http://localhost/component-action-modals.html"
+        class="shareToMail external-link icon icon-l bg-mail rounded-s shadow-xl" target="_blank"><i
+          class="fa fa-envelope font-22"></i><br></a>
+      <p class="font-11 text-center opacity-70">ایمیل</p>
+    </div>
+    <div class="me-auto">
+      <a href="whatsapp://send?text=http://localhost/component-action-modals.html"
+        class="shareToWhatsApp external-link icon icon-l bg-whatsapp rounded-s shadow-xl" target="_blank"><i
+          class="fab fa-whatsapp font-22"></i><br></a>
+      <p class="font-11 text-center opacity-70">واتساپ</p>
+    </div>
+  </div>
+</div>

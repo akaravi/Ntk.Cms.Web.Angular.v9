@@ -4,7 +4,7 @@
       style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden
       src="{{dataModelSelect?.linkMainImageIdSrc | cmsthumbnail}}" height="25" width="25" /> &nbsp;</span>
 
-  
+
   <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null"
     aria-label="Assignee" matInput [formControl]="formControl" [matAutocomplete]="matauto" id="forminput"
     [required]="optionRequired">
@@ -17,8 +17,10 @@
       <span>{{ displayOption(state) }}</span>
     </mat-option>
   </mat-autocomplete>
-  <i *ngIf="!formControl.valid" class="fa fa-times  invalid color-red-dark" (click)="onActionSelectClear()"></i>
-  <i *ngIf="formControl.valid" class="fa fa-check  valid color-green-dark" (click)="onActionSelectClear()"></i>
-  <em *ngIf="optionRequired">(ضروری)</em>
+  <i *ngIf="!formControl.valid" class="fa fa-info  invalid color-red-dark"></i>
+  <i *ngIf="optionRequired && formControl.valid" class="fa fa-check  valid color-green-dark"></i>
+  <i *ngIf="dataModelSelect?.id>0" class="fa fa-times  action color-red-dark"
+    (click)="onActionSelectClear()"></i>
+  <em  *ngIf="optionRequired  && (!dataModelSelect || !dataModelSelect.id || dataModelSelect.id<=0)">({{'TITLE.Necessary'| translate}})</em>
   <ng-content></ng-content>
 </div>

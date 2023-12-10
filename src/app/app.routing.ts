@@ -16,6 +16,10 @@ export const routes: Routes = [
       import('./modules/pages/pages.module').then((m) => m.PagesModule),
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./cms-modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
     path: '',
     canActivate: [CmsAuthGuard],
     loadChildren: () =>

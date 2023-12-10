@@ -4,7 +4,7 @@
     <input [(ngModel)]="modelDate" name="string" #string type="text" placeholder="{{optionPlaceholder}}"
       id="string-{{id}}" [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}" [required]="optionRequired"
       class="form-control validate-name" />
-    <em *ngIf="optionRequired">(ضروری)</em>
+    <em *ngIf="optionRequired">({{'TITLE.Necessary'| translate}})</em>
     <mat-error *ngIf="string.errors?.required">
       {{ optionLabel }} <strong>{{ "MESSAGE.required" | translate }}</strong>
     </mat-error>

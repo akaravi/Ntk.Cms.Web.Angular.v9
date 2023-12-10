@@ -3,7 +3,7 @@
   <input matInput [(ngModel)]="modelDate" name="number" #number type="number" id="int-{{id}}"
     placeholder="{{optionPlaceholder}}" [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}"
     [required]="optionRequired" />
-  <em *ngIf="optionRequired">(ضروری)</em>
+  <em *ngIf="optionRequired">({{'TITLE.Necessary'| translate}})</em>
   <mat-error *ngIf="number.errors?.required">
     {{ optionLabel }} <strong>{{ "MESSAGE.required" | translate }}</strong>
   </mat-error>
