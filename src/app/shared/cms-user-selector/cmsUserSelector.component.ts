@@ -174,7 +174,6 @@ export class CmsUserSelectorComponent implements OnInit {
     this.optionChange.emit(this.dataModelSelect);
   }
   onActionSelectClear(): void {
-    debugger
     if (this.optionDisabled) {
       return;
     }

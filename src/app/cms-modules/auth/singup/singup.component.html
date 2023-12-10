@@ -15,7 +15,7 @@
       <label for="dataModel.name" class="color-highlight">{{'AUTH.INPUT.FIRSTNAME' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
       <i class="fa fa-check disabled valid color-green-dark"></i>
-      <em>(ضروری)</em>
+      <em>({{'TITLE.Necessary'| translate}})</em>
       <mat-error *ngIf="Name.errors?.required">
         {{'AUTH.INPUT.FIRSTNAME' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
@@ -29,7 +29,7 @@
       <label for="dataModel.family" class="color-highlight">{{'AUTH.INPUT.LASTNAME' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
       <i class="fa fa-check disabled valid color-green-dark"></i>
-      <em>(ضروری)</em>
+      <em>({{'TITLE.Necessary'| translate}})</em>
       <mat-error *ngIf="family.errors?.required">
         {{'AUTH.INPUT.LASTNAME' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
@@ -44,7 +44,7 @@
       <label for="dataModel.email" class="color-highlight">{{'AUTH.INPUT.EMAIL' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
       <i class="fa fa-check disabled valid color-green-dark"></i>
-      <em>(ضروری)</em>
+      <em>({{'TITLE.Necessary'| translate}})</em>
       <mat-error *ngIf="email.errors?.required">
         {{'AUTH.INPUT.EMAIL' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
@@ -62,7 +62,7 @@
       <label for="dataModel.password" class="color-highlight">{{'AUTH.INPUT.PASSWORD' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
       <i class="fa fa-check disabled valid color-green-dark"></i>
-      <em>(ضروری)</em>
+      <em>({{'TITLE.Necessary'| translate}})</em>
       <mat-error *ngIf="password.errors?.required">
         {{'AUTH.INPUT.PASSWORD' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
@@ -79,7 +79,7 @@
       <label for="RePassword" class="color-highlight">{{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
       <i class="fa fa-check disabled valid color-green-dark"></i>
-      <em>(ضروری)</em>
+      <em>({{'TITLE.Necessary'| translate}})</em>
       <mat-error *ngIf="RePassword.errors?.required">
         {{'AUTH.INPUT.CONFIRM_PASSWORD' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
       </mat-error>
@@ -98,7 +98,7 @@
       <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' | translate}}</label>
       <i class="fa fa-times disabled invalid color-red-dark"></i>
       <i class="fa fa-check disabled valid color-green-dark"></i>
-      <em>(ضروری)</em>
+      <em>({{'TITLE.Necessary'| translate}})</em>
     </div>
 
     <button type="submit" [disabled]="!Roulaccespt ||vform.invalid || !formInfo.buttonSubmittedEnabled"

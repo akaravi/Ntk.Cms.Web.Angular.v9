@@ -79,7 +79,7 @@
   <ng-container cms-action-area>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
     <div *ngIf="searchInCheckingOnDay" class="alert alert-info">
-      <div mat-subheader style="font-size: 30px;">{{'TITLE.SearchInCheckingOnDay' | translate}}</div>
+      <div style="font-size: 30px;">{{'TITLE.SearchInCheckingOnDay' | translate}}</div>
       <mat-form-field appearance="fill">
         <mat-label>{{'TITLE.Enter_a_date_range'| translate}}</mat-label>
         <mat-date-range-input [formGroup]="checkingOnDayRange" [rangePicker]="picker">
