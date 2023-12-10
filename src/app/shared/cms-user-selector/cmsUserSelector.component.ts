@@ -41,7 +41,7 @@ export class CmsUserSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
-  @Input() optionRequired = false;
+  @Input() optionRequired = true;
   @Output() optionChange = new EventEmitter<CoreUserModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | CoreUserModel) {
@@ -174,6 +174,7 @@ export class CmsUserSelectorComponent implements OnInit {
     this.optionChange.emit(this.dataModelSelect);
   }
   onActionSelectClear(): void {
+    debugger
     if (this.optionDisabled) {
       return;
     }

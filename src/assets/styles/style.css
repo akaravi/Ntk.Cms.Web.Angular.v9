@@ -4714,7 +4714,6 @@ button:active {
   color: inherit;
 }
 
-.input-style em,
 .input-style span,
 .input-style .valid,
 .input-style .invalid {
@@ -4723,6 +4722,22 @@ button:active {
   margin-top: -5px;
   left: 5px;
   pointer-events: none;
+}
+.input-style em {
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
+  left: 20px;
+  pointer-events: none;
+}
+
+.input-style .action {
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
+  left: 30px;
+  pointer-events: visible;
+  cursor: pointer;
 }
 
 .input-style em,
