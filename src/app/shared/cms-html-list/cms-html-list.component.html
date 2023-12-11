@@ -1,17 +1,16 @@
 <div class="row">
-  <div *ngIf="optionTreeDisplay" [ngClass]="optionClassTree">
+  <div *ngIf="optionTreeDisplay && !this.tokenHelper.isMobile" [ngClass]="'col-xl-3'">
     <!--begin::tree-->
-    <ng-content select="[cms-tree]"></ng-content>
+    <ng-container *ngTemplateOutlet="contentCmsTree"></ng-container>
     <!--end::tree-->
   </div>
-  <div [ngClass]="optionTreeDisplay?optionClassList:'col-xl-12'">
+  <div [ngClass]="optionTreeDisplay && !this.tokenHelper.isMobile ?'col-xl-9':'col-xl-12'">
     <div class="card card-style">
       <div class="content mb-0">
         <div class="row justify-content-center">
           <!--begin::Header-->
-          <div class="col-12 pe-0" *ngIf="optionHeaderDisplay||optionActionDisplay">
+          <div class="col-12 pe-0" *ngIf="optionHeaderDisplay">
             <ng-content *ngIf="optionHeaderDisplay" select="[cms-header]"></ng-content>
-            <ng-content *ngIf="optionActionDisplay" select="[cms-action]"></ng-content>
           </div>
           <ng-content select="[cms-action-area]"></ng-content>
           <!--end::Header-->
@@ -37,35 +36,77 @@
     </div>
   </div>
 </div>
+
+
+<ng-template #contentCmsTree>
+  <ng-content select="cms-tree"></ng-content>
+</ng-template>
+
+
+<!--begin::cms-tree-->
+<div *ngIf="optionTreeDisplay" class="content"
+  style="position: fixed;top: 150px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
+  <div class="row">
+    <div class="col-12">
+      <a (click)="actionViewTree()" class="chip chip-s bg-gray-light" style="cursor: pointer;">
+        <i class="fa fa-bars bg-green-dark color-white" [style.transform]="viewTree?'rotate(90deg)':'rotate(0deg)'"></i>
+        <strong class="color-black font-400">{{optionCategoryTitle}}</strong>
+      </a>
+    </div>
+  </div>
+</div>
+<!--end::cms-tree-->
+<!--begin::cms-action-main-->
+<div *ngIf="optionActionDisplay" class="content"
+  style="position: fixed;top: 100px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
+  <div class="row">
+    <div class="col-12">
+      <a (click)="actionViewMenuMain()" class="chip chip-s bg-gray-light" style="cursor: pointer;">
+        <i class="fa fa-bars bg-green-dark color-white"
+          [style.transform]="viewMenuMain?'rotate(90deg)':'rotate(0deg)'"></i>
+        <strong class="color-black font-400">{{optionTitle}}</strong>
+      </a>
+    </div>
+  </div>
+</div>
+<!--end::cms-action-main-->
 <!--begin::cms-action-row-->
-<div *ngIf="optionActionRowDisplay" class="scroll-cms-action-row shadow-xl scroll-cms-action-row-visible">
-  <ng-content select="[cms-action-row]"></ng-content>
+<div *ngIf="optionActionRowDisplay" class="content"
+  style="position: fixed;bottom: 80px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
+  <div class="row">
+    <div class="col-12">
+      <a (click)="actionViewMenuItemRow()" class="chip chip-s bg-gray-light" style="cursor: pointer;">
+        <i class="fa fa-bars bg-green-dark color-white"
+          [style.transform]="viewMenuMain?'rotate(90deg)':'rotate(0deg)'"></i>
+        <strong class="color-black font-400">{{optionSelectRowItemTitle}}</strong>
+      </a>
+    </div>
+  </div>
 </div>
 <!--end::cms-action-row-->
 
-<!-- Share Menu-->
-<div *ngIf="optionActionRowDisplay && '1'==='2'" id="menu-share-thumbs" class="menu menu-box-modal rounded-m menu-active"
-  data-menu-height="320" data-menu-width="350" style="display: block; width: 350px; height: 320px;">
+
+<!--begin::Show Tree Main-->
+<div *ngIf="optionTreeDisplay " class="menu menu-box-right rounded-0" [ngClass]="viewTree?'menu-active':''">
+  <!--begin::tree-->
+  <ng-container *ngTemplateOutlet="contentCmsTree"></ng-container>
+  <!--end::tree-->
+</div>
+<!--begin::Show Tree Main-->
+
+<!--begin::Show Menu Main-->
+<div class="menu menu-box-modal rounded-m" [ngClass]="viewMenuMain?'menu-active':''"
+  style="display: block; width: 350px; height: 320px;">
   <div class="menu-title">
-    <p class="color-highlight">{{itemMenu.titleClick}}</p>
-    <h1>{{itemMenu.title}}</h1>
-    <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+    <p class="color-highlight">منو</p>
+    <h1 *ngIf="optionTitle?.length>0">{{optionTitle}}</h1>
+    <a (click)="actionViewMenuMain(false)" class="close-menu"><i class="fa fa-times-circle"></i></a>
   </div>
   <div class="divider divider-margins"></div>
-
+  <!--begin::cms-action-->
+  <ng-content select="[cms-action]"></ng-content>
+  <!--end::cms-action-->
   <div class="d-flex">
-    <ng-container *ngFor="let item of itemMenu.rowItems; index as i">
-      <div class="ms-auto me-auto">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/component-action-modals.html"
-          class="shareToFacebook external-link icon icon-l bg-facebook rounded-s shadow-xl" target="_blank"><i
-            class="fab fa-facebook-f font-22"></i><br></a>
-        <p class="font-11 text-center opacity-70">{{item}}</p>
-      </div>
-      <ng-container *ngIf="i%4>0">
-
-      </ng-container>
-    </ng-container>
-
     <div class="ms-auto me-auto">
       <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/component-action-modals.html"
         class="shareToFacebook external-link icon icon-l bg-facebook rounded-s shadow-xl" target="_blank"><i
@@ -105,3 +146,18 @@
     </div>
   </div>
 </div>
+<!--end:: Show Menu Main-->
+<!--begin::Show Menu Row-->
+<div class="menu menu-box-modal rounded-m" [ngClass]="viewMenuItemRow?'menu-active':''"
+  style="display: block; width: 350px; height: 320px;">
+  <div class="menu-title">
+    <p class="color-highlight">منو ردیف انتخابی</p>
+    <h1 *ngIf="optionSelectRowItemTitle?.length>0">{{optionSelectRowItemTitle}}</h1>
+    <a (click)="actionViewMenuItemRow(false)" class="close-menu"><i class="fa fa-times-circle"></i></a>
+  </div>
+  <div class="divider divider-margins"></div>
+  <!--begin::cms-action-row-->
+  <ng-content select="[cms-action-row]"></ng-content>
+  <!--end::cms-action-row-->
+</div>
+<!--end:: Show Menu Row-->
