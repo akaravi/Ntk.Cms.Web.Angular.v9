@@ -23,7 +23,7 @@
           <td>{{ item.subjectTitle }}</td>
           <td>
             <button type="button" mat-icon-button (click)="DataDeleteContent(item.id)"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
               <small>
                 <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before" aria-hidden="false"
                   style="color: red;">delete</mat-icon>
@@ -45,25 +45,27 @@
     <div class="ntk-cms-html-card-body">
       <app-progress-spinner [options]="loading"> </app-progress-spinner>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-      <!-- SubjectTitle Field -->
-      <mat-form-field class="ntk-full-width">
-        <mat-label>SubjectTitle</mat-label>
-        <input matInput [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle" #SubjectTitle type="text"
-          placeholder="SubjectTitle" required>
-        <mat-icon matSuffix *ngIf="dataModel.subjectTitle" matSuffix mat-icon-button aria-label="Clear"
-          (click)="dataModel.subjectTitle = null">close</mat-icon>
-        <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
+      <!-- subjectTitle Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.subjectTitle" class="color-highlight">{{'TITLE.subjectTitle'|translate}}</label>
+        <input type="text" [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle" #subjectTitle
+          placeholder="{{'TITLE.subjectTitle'|translate}}" minlength="3" maxlength="100"
+          class="form-control validate-name" id="dataModel.subjectTitle" />
+        <em>{{ subjectTitle.value.length }} / 100</em>
+      </div>
 
-      <!-- SubjectBody Field -->
-      <mat-form-field class="ntk-full-width">
-        <mat-label>SubjectBody</mat-label>
-        <textarea matInput [(ngModel)]="dataModel.subjectBody" name="dataModel.subjectBody" #SubjectBody type="text"
-          placeholder="SubjectBody" rows="9" required></textarea>
-        <mat-icon matSuffix *ngIf="dataModel.subjectBody" matSuffix mat-icon-button aria-label="Clear"
-          (click)="dataModel.subjectBody = null">close</mat-icon>
-        <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
+      <!-- subjectBody Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.subjectBody" class="color-highlight">{{'TITLE.subjectBody'|translate}}</label>
+        <textarea matInput [(ngModel)]="dataModel.subjectBody" name="dataModel.subjectBody" #subjectBody type="text"
+          placeholder="{{'TITLE.subjectBody'|translate}}" minlength="1" maxlength="500" rows="5"
+          id="dataModel.subjectBody" class="form-control validate-name">
+              </textarea>
+        <em>{{ subjectBody.value.length }} / 500</em>
+        <mat-error *ngIf="subjectBody.errors?.required">
+          subjectBody is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </div>
     <div class="ntk-cms-html-card-message">
@@ -83,15 +85,15 @@
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
   <br>
   <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-    <button type="submit" *ngIf="showFormAdd" (click)="onFormSubmit()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-      [disabled]="!formGroup?.valid">
+    <button type="submit" *ngIf="showFormAdd" (click)="onFormSubmit()"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green" [disabled]="!formGroup?.valid">
       <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
     </button>
     <button type="button" *ngIf="!showFormAdd" (click)="onActionAdd()"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.ADD'
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD'
       |translate}}</button>
     <button type="button" (click)="onFormCancel()"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
     </button>
   </div>

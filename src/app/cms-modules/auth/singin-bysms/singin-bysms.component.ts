@@ -11,8 +11,10 @@ import { interval, Observable, Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
+import { ContentInfoModel } from 'src/app/core/models/contentInfoModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 enum ErrorStates {
   NotSubmitted,
   HasError,
@@ -37,6 +39,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     private translationService: TranslationService,
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
+    public pageInfo: PageInfoService,
   ) {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -44,6 +47,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatus;
     });
+
   }
   connectionStatus = new ConnectionStatusModel();
   errorState: ErrorStates = ErrorStates.NotSubmitted;
@@ -63,7 +67,7 @@ export class AuthSingInBySmsComponent implements OnInit {
 
   ngOnInit(): void {
     this.onCaptchaOrder();
-
+    this.pageInfo.updateTitle(this.translate.instant('AUTH.SINGINBYSMS.TITLE'));
   }
   ngAfterViewInit() {
     // var otp = document.querySelectorAll('.otp');

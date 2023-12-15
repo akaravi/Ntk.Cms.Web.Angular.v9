@@ -104,7 +104,7 @@ export class CoreSiteModuleListComponent implements OnInit, OnDestroy {
     'RenewDate',
     'HasBuyed',
     'expireDate',
-    'Action'
+    // 'Action'
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

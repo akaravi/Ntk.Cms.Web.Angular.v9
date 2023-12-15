@@ -3,7 +3,7 @@
   <textarea [(ngModel)]="modelDate" name="string" #string type="text" placeholder="{{optionPlaceholder}}"
     id="textarea-{{id}}" [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}" [required]="optionRequired"
     rows=5 class="form-control validate-name"></textarea>
-  <em *ngIf="optionRequired">(ضروری)</em>
+  <em *ngIf="optionRequired">({{'TITLE.Necessary'| translate}})</em>
   <mat-error *ngIf="string.errors?.required">
     {{ optionLabel }} <strong>{{ "MESSAGE.required" | translate }}</strong>
   </mat-error>

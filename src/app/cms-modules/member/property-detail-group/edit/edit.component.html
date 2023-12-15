@@ -23,7 +23,7 @@
         <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
         <em>{{ Title.value.length }} / 100</em>
         <mat-error *ngIf="Title.errors?.required">
-        {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+          {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
       </div>
       <!-- LinkPropertyTypeId Field -->
@@ -33,28 +33,31 @@
       </app-estate-property-type-landuse-selector> -->
       <!-- IconFont Field -->
       <div *ngIf="fieldsInfo['iconFont']?.accessWatchField"
-       class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-       <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
-       <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
-         [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
-         (iconPickerSelect)="onIconPickerSelect($event)" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}" [disabled]="!fieldsInfo['iconFont']?.accessEditField"
-         [disabled]="!fieldsInfo['iconFont']?.accessAddField" class="form-control validate-name"
-         id="dataModel.iconFont" />
-       <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.iconFont" class="color-highlight">{{fieldsInfo['iconFont']?.fieldTitle}}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.iconFont" name="dataModel.iconFont" #IconFont type="text"
+          [iconPicker]="dataModel.iconFont" [ipIconPack]="['fa']" [ipPosition]="'top'"
+          (iconPickerSelect)="onIconPickerSelect($event)" placeholder="{{fieldsInfo['iconFont']?.fieldTitle}}"
+          [disabled]="!fieldsInfo['iconFont']?.accessEditField" [disabled]="!fieldsInfo['iconFont']?.accessAddField"
+          class="form-control validate-name" id="dataModel.iconFont" />
+        <span class="input-group-addon"><i [ngClass]="dataModel.iconFont"></i></span>
       </div>
       <!-- ShowInFormOrder Field -->
-      <div *ngIf="fieldsInfo['showInFormOrder']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.showInFormOrder" class="color-highlight">{{ fieldsInfo["showInFormOrder"]?.fieldTitle }}</label>
-        <input matInput type="number" [(ngModel)]="dataModel.showInFormOrder" name="dataModel.showInFormOrder" #ShowInFormOrder [disabled]="!fieldsInfo['showInFormOrder']?.accessEditField"
-          placeholder="{{fieldsInfo['showInFormOrder']?.fieldTitle }}"
-          class="form-control validate-name" id="dataModel.showInFormOrder" />
+      <div *ngIf="fieldsInfo['showInFormOrder']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.showInFormOrder" class="color-highlight">{{ fieldsInfo["showInFormOrder"]?.fieldTitle
+          }}</label>
+        <input matInput type="number" [(ngModel)]="dataModel.showInFormOrder" name="dataModel.showInFormOrder"
+          #ShowInFormOrder [disabled]="!fieldsInfo['showInFormOrder']?.accessEditField"
+          placeholder="{{fieldsInfo['showInFormOrder']?.fieldTitle }}" class="form-control validate-name"
+          id="dataModel.showInFormOrder" />
       </div>
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
         <button type="button" (click)="onFormCancel()"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
-        <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
           (click)="onFormSubmit()" [disabled]="!vform.form.valid">
           <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>

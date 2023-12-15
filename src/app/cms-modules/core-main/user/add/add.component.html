@@ -11,113 +11,76 @@
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
-
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            {{ formInfo.formTitle }}
+            <!-- RecordStatus Field -->
+            <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+                [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+                [optionSelectFirstItem]="true">
+            </app-cms-enum-record-status-selector>
+            <!-- Username Field -->
+            <div *ngIf="fieldsInfo['username']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.username" class="color-highlight">{{ fieldsInfo["username"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.username" name="dataModel.username" #Username
+                    [disabled]="!fieldsInfo['username']?.accessAddField"
+                    placeholder="{{fieldsInfo['username']?.fieldTitle }}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.username" />
+                <em>{{ Username.value.length }} / 100</em>
+                <mat-error *ngIf="Username.errors?.required">
+                    Username is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- Email Field -->
+            <div *ngIf="fieldsInfo['email']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.email" class="color-highlight">{{ fieldsInfo["email"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.email" name="dataModel.email" #Email
+                    [disabled]="!fieldsInfo['email']?.accessAddField" placeholder="{{fieldsInfo['email']?.fieldTitle }}"
+                    minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.email" />
+                <em>{{ Email.value.length }} / 100</em>
+                <mat-error *ngIf="Email.errors?.required">
+                    Email is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- Mobile Field -->
+            <div *ngIf="fieldsInfo['mobile']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.mobile" class="color-highlight">{{ fieldsInfo["mobile"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.mobile" name="dataModel.mobile" #Mobile
+                    [disabled]="!fieldsInfo['mobile']?.accessAddField" placeholder="00989120000000" minlength="9"
+                    maxlength="20" class="form-control validate-name" id="dataModel.mobile" />
+                <em>{{ Mobile.value.length }} / 100</em>
+                <mat-error *ngIf="Mobile.errors?.required">
+                    Mobile is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- password Field -->
+            <div *ngIf="fieldsInfo['pwd']?.accessWatchField"
+                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.pwd" class="color-highlight">{{ fieldsInfo["pwd"]?.fieldTitle }}</label>
+                <input matInput type="text" [(ngModel)]="dataModel.pwd" name="dataModel.pwd" #Pwd
+                    [disabled]="!fieldsInfo['pwd']?.accessAddField" placeholder="{{fieldsInfo['pwd']?.fieldTitle}}"
+                    minlength="3" maxlength="50" class="form-control validate-name" id="dataModel.pwd" />
+                <em>{{ Pwd.value.length }} / 100</em>
+                <mat-error *ngIf="Pwd.errors?.required">
+                    password is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <app-password-strength [passwordToCheck]="dataModel.pwd" (passwordStrength)="passwordValid($event)">
+            </app-password-strength>
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                </button>
+            </div>
+        </form>
         <!--Content-->
     </div>
 </div>
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </div>
-    <div class="ntk-cms-html-card-body">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <!-- RecordStatus Field -->
-        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-            [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
-
-
-        <!-- Username Field -->
-
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['username']?.accessWatchField">
-            <mat-label> {{fieldsInfo['username']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.username" name="dataModel.username" #Username type="text"
-                [disabled]="!fieldsInfo['username']?.accessAddField"
-                placeholder="{{fieldsInfo['username']?.fieldTitle}}" minlength="3" maxlength="100" required />
-            <mat-icon matSuffix *ngIf="dataModel.username" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.username = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ Username.value.length }} / 100</mat-hint>
-            <mat-error *ngIf="Username.errors?.required">
-                Username is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-        <!-- Email Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['email']?.accessWatchField">
-            <mat-label> {{fieldsInfo['email']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.email" name="dataModel.email" #Email type="text"
-                [disabled]="!fieldsInfo['email']?.accessAddField" placeholder="{{fieldsInfo['email']?.fieldTitle}}"
-                minlength="3" maxlength="100" required />
-            <mat-icon matSuffix *ngIf="dataModel.email" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.email = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ Email.value.length }} / 100</mat-hint>
-            <mat-error *ngIf="Email.errors?.required">
-                Email is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <!-- Mobile Field -->
-
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['mobile']?.accessWatchField">
-            <mat-label> {{fieldsInfo['mobile']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.mobile" name="dataModel.mobile" #Mobile type="text"
-                class="input-Mobile" [disabled]="!fieldsInfo['mobile']?.accessAddField" placeholder="00989120000000"
-                minlength="9" maxlength="20" required />
-            <mat-icon matSuffix *ngIf="dataModel.mobile" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.mobile = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ Mobile.value.length }} / 20</mat-hint>
-            <mat-error *ngIf="Mobile.errors?.required">
-                Mobile is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <!-- password Field -->
-
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['pwd']?.accessWatchField">
-            <mat-label> {{fieldsInfo['pwd']?.fieldTitle}}</mat-label>
-            <input matInput [(ngModel)]="dataModel.pwd" name="dataModel.pwd" #Pwd type="password"
-                [disabled]="!fieldsInfo['pwd']?.accessAddField" placeholder="{{fieldsInfo['pwd']?.fieldTitle}}"
-                minlength="3" maxlength="50" required />
-            <mat-icon matSuffix *ngIf="dataModel.pwd" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.pwd = ''">close</mat-icon>
-            <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-hint align="end">{{ Pwd.value.length }} / 50</mat-hint>
-            <mat-error *ngIf="Pwd.errors?.required">
-                password is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </mat-form-field>
-        <app-password-strength [passwordToCheck]="dataModel.pwd" (passwordStrength)="passwordValid($event)">
-        </app-password-strength>
-
-
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <div class="form-actions">
-            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-            <small class="form-text text-muted danger">{{ formInfo.formError }}
-            </small>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-            <button type="button" (click)="onFormCancel()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-                <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-            </button>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>

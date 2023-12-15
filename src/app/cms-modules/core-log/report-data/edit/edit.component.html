@@ -11,82 +11,53 @@
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
-    
+    <form #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <!-- LinkUserId Field -->
+      <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
+        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
+      </app-cms-site-selector>
+      <!-- LinkUserId Field -->
+      <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
+        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+      </app-cms-user-selector>
+      <!-- LinkMemberId Field -->
+      <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
+        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Member')">
+      </app-cms-member-selector>
+      <!-- ModuleEntityId Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.moduleEntityId" class="color-highlight">ModuleEntityId</label>
+        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId"
+          #ModuleEntityId placeholder="ModuleEntityId" class="form-control validate-name"
+          id="dataModel.moduleEntityId" />
+      </div>
+      <!-- ReportData Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.reportData" class="color-highlight">Report Data</label>
+        <textarea matInput [(ngModel)]="dataModel.reportData" name="dataModel.reportData" #ReportData type="text"
+          placeholder="ReportData" id="dataModel.reportData" class="form-control validate-name">
+        </textarea>
+      </div>
+      <!-- ExpireDate Field -->
+      <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.expireDate" class="color-highlight">{{fieldsInfo['expireDate']?.fieldTitle}}</label>
+        <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate"
+          name="dataModel.expireDate" class="form-control validate-name" id="dataModel.expireDate" />
+        <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #ExpireDate></mat-datepicker>
+      </div>
+      <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+        <div [innerHTML]="dataModel | prettyjson"></div>
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+      </div>
+    </form>
     <!--Content-->
   </div>
 </div>
-<form #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-card-body">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <!-- LinkUserId Field -->
-    <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
-      [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.SITE')"></app-cms-site-selector>
-    <!-- LinkUserId Field -->
-    <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
-      [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')"></app-cms-user-selector>
-    <!-- LinkMemberId Field -->
-    <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
-      [(optionLoading)]="loading"
-      [optionPlaceholder]="this.translate.instant('TITLE.Member')"></app-cms-member-selector>
-
-
-    <!-- ModuleEntityId Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>ModuleEntityId</mat-label>
-      <input matInput [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId" #ModuleEntityId type="text"
-        placeholder="ModuleEntityId" />
-      <mat-icon matSuffix *ngIf="dataModel.moduleEntityId" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.moduleEntityId = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-
-    <!-- ReportData Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>Report Data</mat-label>
-      <textarea matInput [(ngModel)]="dataModel.reportData" name="dataModel.reportData" #ReportData type="text"
-        placeholder="ReportData"></textarea>
-      <mat-icon matSuffix *ngIf="dataModel.reportData" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.reportData = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-
-    <!-- ExpireDate Field -->
-    <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['expireDate']?.accessWatchField">
-      <mat-label>{{fieldsInfo['expireDate']?.fieldTitle}}</mat-label>
-      <input matInput [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate" name="dataModel.expireDate" />
-      <mat-icon matSuffix *ngIf="dataModel.expireDate && fieldsInfo['expireDate']?.accessEditField" matSuffix
-        mat-icon-button aria-label="Clear" (click)="dataModel.expireDate = null">close</mat-icon>
-      <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
-      <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-    </mat-form-field>
-
-    <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-      <div [innerHTML]="dataModel | prettyjson"></div>
-    </div>
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    <div class="form-actions">
-      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-      <small class="form-text text-muted danger">{{ formInfo.formError }}
-      </small>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-      <button type="button" (click)="onFormCancel()" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-      </button>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  </div>
-</form>

@@ -11,18 +11,21 @@
       <span>{{ displayOption(state) }}</span>
     </mat-option>
   </mat-autocomplete>
-  <i *ngIf="!formControl.valid" class="fa fa-times  invalid color-red-dark" (click)="onActionSelectClear()"></i>
-  <i *ngIf="formControl.valid" class="fa fa-check  valid color-green-dark" (click)="onActionSelectClear()"></i>
-  <em *ngIf="optionRequired">(ضروری)</em>
+  <i *ngIf="!formControl.valid" class="fa fa-info  invalid color-red-dark"></i>
+  <i *ngIf="optionRequired && formControl.valid" class="fa fa-check  valid color-green-dark"></i>
+  <i *ngIf="dataModelSelect?.id?.length>0" class="fa fa-times  action color-red-dark" (click)="onActionSelectClear()"></i>
+  <em
+    *ngIf="optionRequired  && (!dataModelSelect || !dataModelSelect.id || dataModelSelect.id. length<=0)">({{'TITLE.Necessary'|
+    translate}})</em>
   <ng-content></ng-content>
 </div>
+
 <div *ngIf="optionTypeView===2" class="row mb-0">
   <div *ngFor="let state of filteredOptions | async" class="col-xl-2 col-lg-3 col-md-4 col-sm-12 pe-1">
     <a [attr.disabled]="optionDisabled? true : null"
-    [ngClass]="state.id===dataModelSelect.id ? 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full' : 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full'"
+      [ngClass]="state.id===dataModelSelect.id ? 'btn font-13 font-600 btn-s m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full' : 'btn font-13 font-600 btn-s m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full'"
       (click)="onActionSelect(state)">{{
       displayOption(state) }}</a>
   </div>
   <ng-content></ng-content>
 </div>
-

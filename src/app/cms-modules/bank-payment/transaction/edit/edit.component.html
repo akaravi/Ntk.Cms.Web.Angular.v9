@@ -13,62 +13,64 @@
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
       {{ formInfo.formTitle }}
-        <!-- RecordStatus Field -->
-        <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-          [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-          [optionSelectFirstItem]="true">
-        </app-cms-enum-record-status-selector>
-        <!-- BankStatus Field -->
-        <div *ngIf="fieldsInfo['bankStatus']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <select id="dataModel.bankStatus" [(ngModel)]="dataModel.bankStatus"
-              [disabled]="!fieldsInfo['bankStatus']?.accessEditField" name="dataModel.bankStatus"
-              #BankStatus="ngModel" 
-              class="form-control validate-name">
-              <option *ngFor="  let item of dataModelEnumTransactionBankStatusResult.listItems; index as i" [ngValue]="item.value">
-                {{ item.description }}
-              </option>
-            </select>
-            <em>{{ 'Application.source.BankStatus_hint' | translate }}</em>
-            <mat-error *ngIf="BankStatus.errors?.required">
-              {{ fieldsInfo['bankStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-        </div>
-        <!-- TransactionStatus Field -->
-        <div *ngIf="fieldsInfo['transactionStatus']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <select id="dataModel.transactionStatus" [(ngModel)]="dataModel.transactionStatus"
-            [disabled]="!fieldsInfo['transactionStatus']?.accessEditField" name="dataModel.transactionStatus"
-            #TransactionStatus="ngModel" 
-            class="form-control validate-name">
-            <option *ngFor="  let item of dataModelEnumTransactionRecordStatusResult.listItems; index as i" [ngValue]="item.value">
-              {{ item.description }}
-            </option>
-          </select>
-          <em>{{ 'Application.source.TransactionStatus_hint' | translate }}</em>
-          <mat-error *ngIf="TransactionStatus.errors?.required">
-            {{ fieldsInfo['transactionStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- LinkPrivateSiteConfigId Field -->
-        <app-bankpayment-privatesiteconfig-selector [optionDisabled]="true" [(optionLoading)]="loading"
-          [optionSelectForce]=" this.dataModel.linkPrivateSiteConfigId"
-          [optionPlaceholder]="this.translate.instant('TITLE.Account')">
-        </app-bankpayment-privatesiteconfig-selector>
-        <!-- LinkUserId Field -->
-        <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]=" this.dataModel.linkUserId"
-          [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')"></app-cms-user-selector>
-        <!-- LinkUserId Field -->
-        <app-cms-json-list [dataModel]="dataModel" [optionMethod]="1"></app-cms-json-list>
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-          <button type="button" (click)="onFormCancel()"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-            <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-            (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-            <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-          </button>
-        </div>
+      <!-- RecordStatus Field -->
+      <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+        [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true">
+      </app-cms-enum-record-status-selector>
+      <!-- BankStatus Field -->
+      <div *ngIf="fieldsInfo['bankStatus']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <select id="dataModel.bankStatus" [(ngModel)]="dataModel.bankStatus"
+          [disabled]="!fieldsInfo['bankStatus']?.accessEditField" name="dataModel.bankStatus" #BankStatus="ngModel"
+          class="form-control validate-name">
+          <option *ngFor="  let item of dataModelEnumTransactionBankStatusResult.listItems; index as i"
+            [ngValue]="item.value">
+            {{ item.description }}
+          </option>
+        </select>
+        <em>{{ 'Application.source.BankStatus_hint' | translate }}</em>
+        <mat-error *ngIf="BankStatus.errors?.required">
+          {{ fieldsInfo['bankStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- TransactionStatus Field -->
+      <div *ngIf="fieldsInfo['transactionStatus']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <select id="dataModel.transactionStatus" [(ngModel)]="dataModel.transactionStatus"
+          [disabled]="!fieldsInfo['transactionStatus']?.accessEditField" name="dataModel.transactionStatus"
+          #TransactionStatus="ngModel" class="form-control validate-name">
+          <option *ngFor="  let item of dataModelEnumTransactionRecordStatusResult.listItems; index as i"
+            [ngValue]="item.value">
+            {{ item.description }}
+          </option>
+        </select>
+        <em>{{ 'Application.source.TransactionStatus_hint' | translate }}</em>
+        <mat-error *ngIf="TransactionStatus.errors?.required">
+          {{ fieldsInfo['transactionStatus']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- LinkPrivateSiteConfigId Field -->
+      <app-bankpayment-privatesiteconfig-selector [optionDisabled]="true" [(optionLoading)]="loading"
+        [optionSelectForce]=" this.dataModel.linkPrivateSiteConfigId"
+        [optionPlaceholder]="this.translate.instant('TITLE.Account')">
+      </app-bankpayment-privatesiteconfig-selector>
+      <!-- LinkUserId Field -->
+      <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]=" this.dataModel.linkUserId"
+        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')"></app-cms-user-selector>
+      <!-- LinkUserId Field -->
+      <app-cms-json-list [dataModel]="dataModel" [optionMethod]="1"></app-cms-json-list>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
     </form>
     <!--Content-->
   </div>

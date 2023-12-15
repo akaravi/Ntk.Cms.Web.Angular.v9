@@ -1,5 +1,6 @@
 <p>cms-form-builder-properties works!</p>
-<mat-form-field class="ntk-full-width">
-  <mat-label>{{ field.fieldTitle }}</mat-label>
-  <input matInput [(ngModel)]="fieldValue" type="number" placeholder="{{field.fieldName}}" />
-</mat-form-field>
+<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+  <label for="fieldValue" class="color-highlight">{{ field.fieldTitle }}</label>
+  <input type="number" [(ngModel)]="fieldValue" name="fieldValue" #subjectTitle placeholder="{{field.fieldName}}"
+    class="form-control validate-name" id="fieldValue" />
+</div>

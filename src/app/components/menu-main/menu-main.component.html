@@ -14,7 +14,7 @@
       </a>
     </div>
     <div *ngIf="!this.tokenInfo|| !this.tokenInfo.userId||this.tokenInfo.userId<=0" class="card-bottom">
-      <a (click)="onActionCleanDataMenu('/page/auth/singinbysms')">
+      <a (click)="onActionCleanDataMenu('/auth/singinbysms')">
         <h1 class="color-white ps-3 mb-0 font-28">وارد شوید</h1>
         <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
       </a>
@@ -42,7 +42,7 @@
       <i class="fa fa-angle-left"></i>
     </a>
     <a *ngIf="!this.tokenInfo|| !this.tokenInfo.userId|| this.tokenInfo.userId<=0" id="nav-components"
-      (click)="onActionCleanDataMenu('/page/auth/singinbysms')">
+      (click)="onActionCleanDataMenu('/auth/singinbysms')">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>ورود</span>
       <i class="fa fa-angle-left"></i>

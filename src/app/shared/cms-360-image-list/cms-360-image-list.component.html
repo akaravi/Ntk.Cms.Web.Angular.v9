@@ -1,7 +1,7 @@
 <!-- <p>نمایش تور یافت نشد...</p> -->
 
 <button (click)="onActionShowView360Add()" *ngIf="!showAddView360" type="button"
-  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+  class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
   {{'ACTION.Add_To_List' | translate}}
 </button>
 <div [id]="id" class="container" #container (click)="onActionPannellumClick($event)"
@@ -78,7 +78,8 @@
     <p>در ورود این تنظیمات با مدیریت سامانه هماهنگ باشید</p>
     <div style="background-color: bisque;padding:5px">
       <div class="form-actions" style="direction:ltr">
-        <button *ngIf="postionView" (click)="onActionShowHotspotAdd()" type="button" class="btn btn-success">
+        <button *ngIf="postionView" (click)="onActionShowHotspotAdd()" type="button"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">
           {{'ACTION.ADD' | translate}}
         </button>
       </div>
@@ -207,14 +208,14 @@
                 <mat-icon (click)="removeROw(row)">delete</mat-icon>
               </ng-container>
               <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
-                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
                   class="mb-2" [disabled]="editdisabled || !editHotspot.text||editHotspot.text.length===0"
                   *ngIf="postionView" (click)="updateEdit()">{{'ACTION.Update' | translate}}</button>
-                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                   [disabled]="editdisabled" (click)="cancelEdit()"
-                  class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.CANCEL' |
+                  class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.CANCEL' |
                   translate}}</button>
-                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                   matTooltip="ثبت آخرین نقطه کلیک شده" [disabled]="editdisabled"
                   *ngIf="this.editHotspot.pitch !==postionView?.clickGetPitch && this.editHotspot.yaw!==postionView?.clickGetYaw"
                   (click)="onActionPannellumClickLastPoint()">نقطه</button>
@@ -248,11 +249,12 @@
       <mat-icon class="pointer" matSuffix>mode_edit</mat-icon>
     </div>
     <div class="form-actions" style="direction:ltr">
-      <button type="button" (click)="onActionSubmitView360()" class="btn btn-success">
+      <button type="button" (click)="onActionSubmitView360()"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
         <i class="fa fa-check-square-o"></i> {{'ACTION.SUBMIT_BUTTON' | translate}}
       </button>
       <button type="button" (click)="onActionCancellView360()"
-        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
         <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
       </button>
     </div>

@@ -24,7 +24,7 @@
 
 
             <mat-action-row>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                 (click)="nextStep()">{{'ACTION.NEXT' |
                 translate}}</button>
             </mat-action-row>
@@ -46,19 +46,19 @@
               name="dataMessageContentModel.messageBody" type="text"
               *ngIf="dataMessageContentModel?.messageBody?.length>0" rows="10"></textarea>
             <button type="button" (click)="onActionMessageContentAdd()"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               *ngIf="dataMessageContentModel?.messageBody?.length>0 && dataModel.content?.length>0">
               <i class="ft-x"></i> {{'TITLE.Added_to_the_text' | translate}}
             </button>
             <button type="button" (click)="onActionMessageContentNew()"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               *ngIf="dataMessageContentModel?.messageBody?.length>0">
               <i class="ft-x"></i> {{'TITLE.Message_Text' | translate}}
             </button>
             <mat-action-row>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
                 (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                 (click)="nextStep()">{{'ACTION.NEXT' |
                 translate}}</button>
             </mat-action-row>
@@ -76,9 +76,9 @@
             </mat-expansion-panel-header>
 
             <mat-action-row>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
                 (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                 (click)="nextStep()">{{'ACTION.NEXT' |
                 translate}}</button>
             </mat-action-row>
@@ -100,9 +100,9 @@
             <hr>
 
             <mat-action-row>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
                 (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                 (click)="nextStep()">{{'ACTION.NEXT' |
                 translate}}</button>
             </mat-action-row>
@@ -124,9 +124,9 @@
 
 
             <mat-action-row>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
                 (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                 (click)="nextStep()">{{'ACTION.NEXT' |
                 translate}}</button>
             </mat-action-row>
@@ -154,9 +154,9 @@
             </div>
 
             <mat-action-row>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
                 (click)="prevStep()">{{'ACTION.BACK' | translate}}</button>
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                 (click)="nextStep()">{{'ACTION.END' |
                 translate}}</button>
             </mat-action-row>
@@ -193,7 +193,7 @@
             <app-progress-spinner [options]="loadingAction"> </app-progress-spinner>
             <button type="submit" (click)="onFormSubmit()" class="message-box-button" [disabled]="!vform.valid"
               *ngIf="!this.loading.display"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
               <i class="fa fa-check-square-o"></i>
               {{'ACTION.Send_Message' | translate}}
             </button>

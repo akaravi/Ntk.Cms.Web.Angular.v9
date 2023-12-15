@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -19,9 +20,10 @@ export class PageDashboardComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public tokenHelper: TokenHelper,
+    public pageInfo: PageInfoService,
   ) {
     this.loading.cdr = this.cdr;
-     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }
   tokenInfo = new TokenInfoModel();
   cmsApiStoreSubscribe: Subscription;
@@ -44,6 +46,7 @@ export class PageDashboardComponent implements OnInit {
         this.cdr.detectChanges();
       });
     localStorage.removeItem('siteId');
+    this.pageInfo.updateTitle(this.translate.instant('ROUTE.DASHBOARD'));
   }
   async getCurrentSiteModule(): Promise<void> {
     this.dataCoreModuleModelResult = await this.publicHelper.getCurrentSiteModule();

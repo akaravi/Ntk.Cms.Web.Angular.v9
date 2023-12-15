@@ -1,149 +1,134 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-
-<!--content-->
-<p class="font-600 color-highlight mb-0">ورود به حساب</p>
-<!--begin::Title-->
-<h1 class="font-30"> {{'AUTH.SINGINBYSMS.TITLE' | translate}}</h1>
-<p>
-  {{'AUTH.SINGINBYSMS.DESCSMS' | translate}}
-</p>
-<!--end::Title-->
-<!--begin::Form-->
-<form *ngIf="forgetState==='sms'" class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate"
-  #vformBySms="ngForm" (ngSubmit)="onActionSubmitOrderCodeBySms()" id="kt_login_forgot_form" [ngStyle]="{
-      display: errorState === errorStates.NoError ? 'none' : 'block'
-    }">
-
-
-  <!--Mobile Field-->
-  <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-at"></i>
-    <input type="text" [(ngModel)]="dataModelAuthUserSignInBySms.mobile" name="dataModelAuthUserSignInBySms.mobile"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" #Mobile class="form-control validate-name"
-      id="dataModelAuthUserSignInBySms.mobile" placeholder="{{'AUTH.SINGINBYSMS.MOBILE' | translate}}"
-      autocomplete="off" minlength="5" maxlength="50" required>
-    <label for="dataModelAuthUserSignInBySms.mobile"
-      class="color-highlight font-11 font-500">{{'AUTH.SINGINBYSMS.MOBILE' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
-
-    <mat-error *ngIf="Mobile.errors?.required">
-      {{'AUTH.SINGINBYSMS.MOBILE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div>
-  <!--captchaText Field-->
-  <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
-  <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
-  <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-quote-left"></i>
-    <input [(ngModel)]="dataModelAuthUserSignInBySms.captchaText" name="dataModelAuthUserSignInBySms.captchaText"
-      #captchaText id="dataModelAuthUserSignInBySms.captchaText" [disabled]=" !formInfo.buttonSubmittedEnabled"
-      type="text" class="form-control validate-name" placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}"
-      minlength="5" maxlength="5" autocomplete="off" required>
-    <label for="dataModelAuthUserSignInBySms.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' |
-      translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
-
-    <mat-error *ngIf="captchaText.errors?.required">
-      {{'AUTH.INPUT.CAPTCHACODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div>
-
-  <button type="submit"
-    [disabled]="vformBySms.invalid || !formInfo.buttonSubmittedEnabled|| !connectionStatus.internetConnection"
-    style="width: 100%;" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-    {{'AUTH.SINGINBYSMS.SEND_PIN_CODE' | translate}}
-  </button>
-
-  <!--end::Form group-->
-  <br>
-</form>
-<!--end::Form-->
-<!--begin::Form-->
-<form *ngIf="forgetState==='entrycode'" class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate"
-  #vformEntryCode="ngForm" (ngSubmit)="onActionSubmitEntryPinCode()" id="kt_login_forgot_form" [ngStyle]="{
-      display: errorState === errorStates.NoError ? 'none' : 'block'
-    }">
-
-
+<div class="card card-style">
+  <!--content-->
+  <p class="font-600 color-highlight mb-0">ورود به حساب</p>
+  <!--begin::Title-->
   <p>
-    عدد دریافتی را وارد فرمایید
+    {{'AUTH.SINGINBYSMS.DESCSMS' | translate}}
   </p>
-  <!--code Field-->
-  <div style="text-align: center;">
-    <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="otpConfig"></ng-otp-input>
-  </div>
-  <!--code Field-->
-  <!-- <div class="input-style no-borders has-icon validate-field mb-4">
-    <i class="fa fa-at"></i>
-    <input type="text" [(ngModel)]="dataModelAuthUserSignInBySms.code" name="dataModelAuthUserSignInBySms.code"
-      [disabled]=" !formInfo.buttonSubmittedEnabled" #code class="form-control validate-name"
-      id="dataModelAuthUserSignInBySms.code" placeholder=" {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}}"
-      autocomplete="off" minlength="4" maxlength="4" required>
-    <label for="dataModelAuthUserSignInBySms.code" class="color-highlight font-11 font-500">
-      {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
+  <!--end::Title-->
+  <!--begin::Form-->
+  <form *ngIf="forgetState==='sms'" class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate"
+    #vformBySms="ngForm" (ngSubmit)="onActionSubmitOrderCodeBySms()" id="kt_login_forgot_form" [ngStyle]="{
+      display: errorState === errorStates.NoError ? 'none' : 'block'
+    }">
 
-    <mat-error *ngIf="code.errors?.required">
-      {{'AUTH.SINGINBYSMS.PIN_CODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div> -->
-  <!--captchaText Field-->
-  <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="" *ngIf="this.diffSeconds<0">
-  <mat-icon *ngIf="this.diffSeconds<0" matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
-  <div class="input-style no-borders has-icon validate-field mb-4" *ngIf="this.diffSeconds<0">
-    <i class="fa fa-quote-left"></i>
-    <input [(ngModel)]="dataModelAuthUserSignInBySms.captchaText" name="dataModelAuthUserSignInBySms.captchaText"
-      #captchaText id="dataModelAuthUserSignInBySms.captchaText" [disabled]=" !formInfo.buttonSubmittedEnabled"
-      type="text" class="form-control validate-name" placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}"
-      minlength="5" maxlength="5" autocomplete="off" required>
-    <label for="dataModelAuthUserSignInBySms.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' |
-      translate}}</label>
-    <i class="fa fa-times disabled invalid color-red-dark"></i>
-    <i class="fa fa-check disabled valid color-green-dark"></i>
 
-    <mat-error *ngIf="captchaText.errors?.required">
-      {{'AUTH.INPUT.CAPTCHACODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-    </mat-error>
-  </div>
+    <!--Mobile Field-->
+    <div class="input-style no-borders has-icon validate-field mb-4">
+      <i class="fa fa-at"></i>
+      <input type="text" [(ngModel)]="dataModelAuthUserSignInBySms.mobile" name="dataModelAuthUserSignInBySms.mobile"
+        [disabled]=" !formInfo.buttonSubmittedEnabled" #Mobile class="form-control validate-name"
+        id="dataModelAuthUserSignInBySms.mobile" placeholder="{{'AUTH.SINGINBYSMS.MOBILE' | translate}}"
+        autocomplete="off" minlength="5" maxlength="50" required>
+      <label for="dataModelAuthUserSignInBySms.mobile"
+        class="color-highlight font-11 font-500">{{'AUTH.SINGINBYSMS.MOBILE' | translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
 
-  <button type="submit"
-    [disabled]="vformEntryCode.invalid || !formInfo.buttonSubmittedEnabled|| !connectionStatus.internetConnection || !dataModelAuthUserSignInBySms.code|| dataModelAuthUserSignInBySms.code.length<4"
-    style="width: 100%;" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-    {{'AUTH.SINGINBYSMS.LOGIN' | translate}}
-  </button>
-
-  <button type="button" (click)="onActionSubmitOrderCodeBySms()"
-    [disabled]="buttonnResendSmsDisable|| !connectionStatus.internetConnection" style="width: 100%;"
-    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
-    {{'AUTH.LOGIN.RESEND_SMS' | translate}} {{prorocess?.message}}
-  </button>
-  <progress *ngIf="prorocess?.progressBarValue>0 && buttonnResendSmsDisable" [value]="prorocess.progressBarValue"
-    max="{{prorocess.progressBarMaxValue}}" style="width: inherit;"></progress>
-
-</form>
-<!--end::Form-->
-<ng-template #formError let-control="control" let-message="message" let-validation="validation">
-  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-    <div class="fv-plugins-message-container">
-      <div class="fv-help-block">
-        {{ message }}
-      </div>
+      <mat-error *ngIf="Mobile.errors?.required">
+        {{'AUTH.SINGINBYSMS.MOBILE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+      </mat-error>
     </div>
-  </ng-container>
-</ng-template>
+    <!--captchaText Field-->
+    <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
+    <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
+    <div class="input-style no-borders has-icon validate-field mb-4">
+      <i class="fa fa-quote-left"></i>
+      <input [(ngModel)]="dataModelAuthUserSignInBySms.captchaText" name="dataModelAuthUserSignInBySms.captchaText"
+        #captchaText id="dataModelAuthUserSignInBySms.captchaText" [disabled]=" !formInfo.buttonSubmittedEnabled"
+        type="text" class="form-control validate-name" placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}"
+        minlength="5" maxlength="5" autocomplete="off" required>
+      <label for="dataModelAuthUserSignInBySms.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' |
+        translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
+
+      <mat-error *ngIf="captchaText.errors?.required">
+        {{'AUTH.INPUT.CAPTCHACODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+      </mat-error>
+    </div>
+
+    <button type="submit"
+      [disabled]="vformBySms.invalid || !formInfo.buttonSubmittedEnabled|| !connectionStatus.internetConnection"
+      style="width: 100%;" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'AUTH.SINGINBYSMS.SEND_PIN_CODE' | translate}}
+    </button>
+
+    <!--end::Form group-->
+    <br>
+  </form>
+  <!--end::Form-->
+  <!--begin::Form-->
+  <form *ngIf="forgetState==='entrycode'" class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate"
+    #vformEntryCode="ngForm" (ngSubmit)="onActionSubmitEntryPinCode()" id="kt_login_forgot_form" [ngStyle]="{
+      display: errorState === errorStates.NoError ? 'none' : 'block'
+    }">
 
 
-<div class="row pt-3 mb-0">
-  <div class="col-6 text-start">
-    <a [routerLink]="['/page/auth/singin']" class="color-highlight">{{'AUTH.REGISTER.RETURN_TO_LOGIN' |
-      translate}}</a>
+    <p>
+      عدد دریافتی را وارد فرمایید
+    </p>
+    <!--code Field-->
+    <div style="text-align: center;">
+      <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="otpConfig"></ng-otp-input>
+    </div>
+
+    <!--captchaText Field-->
+    <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="" *ngIf="this.diffSeconds<0">
+    <mat-icon *ngIf="this.diffSeconds<0" matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
+    <div class="input-style no-borders has-icon validate-field mb-4" *ngIf="this.diffSeconds<0">
+      <i class="fa fa-quote-left"></i>
+      <input [(ngModel)]="dataModelAuthUserSignInBySms.captchaText" name="dataModelAuthUserSignInBySms.captchaText"
+        #captchaText id="dataModelAuthUserSignInBySms.captchaText" [disabled]=" !formInfo.buttonSubmittedEnabled"
+        type="text" class="form-control validate-name" placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}"
+        minlength="5" maxlength="5" autocomplete="off" required>
+      <label for="dataModelAuthUserSignInBySms.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' |
+        translate}}</label>
+      <i class="fa fa-times disabled invalid color-red-dark"></i>
+      <i class="fa fa-check disabled valid color-green-dark"></i>
+
+      <mat-error *ngIf="captchaText.errors?.required">
+        {{'AUTH.INPUT.CAPTCHACODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+      </mat-error>
+    </div>
+
+    <button type="submit"
+      [disabled]="vformEntryCode.invalid || !formInfo.buttonSubmittedEnabled|| !connectionStatus.internetConnection || !dataModelAuthUserSignInBySms.code|| dataModelAuthUserSignInBySms.code.length<4"
+      style="width: 100%;" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'AUTH.SINGINBYSMS.LOGIN' | translate}}
+    </button>
+
+    <button type="button" (click)="onActionSubmitOrderCodeBySms()"
+      [disabled]="buttonnResendSmsDisable|| !connectionStatus.internetConnection" style="width: 100%;"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      {{'AUTH.LOGIN.RESEND_SMS' | translate}} {{prorocess?.message}}
+    </button>
+    <progress *ngIf="prorocess?.progressBarValue>0 && buttonnResendSmsDisable" [value]="prorocess.progressBarValue"
+      max="{{prorocess.progressBarMaxValue}}" style="width: inherit;"></progress>
+
+  </form>
+  <!--end::Form-->
+  <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+      <div class="fv-plugins-message-container">
+        <div class="fv-help-block">
+          {{ message }}
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+
+
+  <div class="row pt-3 mb-0">
+    <div class="col-6 text-start">
+      <a [routerLink]="['/auth/singin']" class="color-highlight">{{'AUTH.REGISTER.RETURN_TO_LOGIN' |
+        translate}}</a>
+    </div>
+    <div class="col-6 text-end">
+      <a [routerLink]="['/auth/singup']" class="color-highlight">{{ 'AUTH.GENERAL.SIGNUP_BUTTON' | translate
+        }}</a>
+    </div>
   </div>
-  <div class="col-6 text-end">
-    <a [routerLink]="['/page/auth/singup']" class="color-highlight">{{ 'AUTH.GENERAL.SIGNUP_BUTTON' | translate
-      }}</a>
-  </div>
+  <!--content-->
 </div>
-<!--content-->

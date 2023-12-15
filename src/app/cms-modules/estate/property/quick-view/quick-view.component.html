@@ -2,11 +2,11 @@
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
   {{ formInfo.formTitle }}
   <button type="button" (click)="onActionNext()" *ngIf="requestNextItem&& requestNextItem?.id?.length>0"
-    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
     <i class="ft-x"></i>
     < </button> <button type="button" (click)="onActionPervious()"
         *ngIf="requestPerviousItem&& requestPerviousItem?.id?.length>0"
-        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
         <i class="ft-x"></i>
         >
       </button>
@@ -309,13 +309,13 @@
         </ng-container>
       </ng-container>
       <mat-action-row>
-        <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+        <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
           *ngIf="i>0" (click)="prevStep()">{{'ACTION.PREVIOUS' |
           translate}}</button>
-        <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+        <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
           *ngIf="(i+1)<dataModel.propertyDetailGroups.length" (click)="nextStep()">{{'ACTION.NEXT' |
           translate}}</button>
-        <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+        <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
           *ngIf="(i+1)===dataModel.propertyDetailGroups.length" (click)="nextStep()">{{'ACTION.END' |
           translate}}</button>
 
@@ -339,16 +339,16 @@
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
   <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading.display">
     <button type="button" (click)="onFormCancel()"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
     </button>
     <button type="button" (click)="onActionNext()" *ngIf="requestNextItem&& requestNextItem?.id?.length>0"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i>
       < </button>
         <button type="button" (click)="onActionPervious()"
           *ngIf="requestPerviousItem&& requestPerviousItem?.id?.length>0"
-          class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i>
           > </button>
   </div>

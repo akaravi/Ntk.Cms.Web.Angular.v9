@@ -12,69 +12,69 @@
     </p>
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-        {{ formInfo.formTitle }}
-        <!-- LinkCategoryId Field -->
-        <app-hypershop-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
-          [optionSelectForce]="dataModel.categoryCode" [optionPlaceholder]="this.translate.instant('TITLE.Category')">
-        </app-hypershop-category-selector>
-        <!-- Name Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.name" class="color-highlight">{{ fieldsInfo["name"]?.fieldTitle }}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.name" name="dataModel.name" #Name type="text"
+      {{ formInfo.formTitle }}
+      <!-- LinkCategoryId Field -->
+      <app-hypershop-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+        [optionSelectForce]="dataModel.categoryCode" [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+      </app-hypershop-category-selector>
+      <!-- Name Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.name" class="color-highlight">{{ fieldsInfo["name"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.name" name="dataModel.name" #Name type="text"
           placeholder="{{fieldsInfo['name']?.fieldTitle }}" minlength="3" maxlength="100" required
           class="form-control validate-name" id="dataModel.name" />
-          <i *ngIf="!Name.value" class="fa fa-times  invalid color-red-dark"></i>
-          <i *ngIf="Name.value" class="fa fa-check  valid color-green-dark"></i>
-          <em>{{ Name.value.length }} / 100</em>
-          <mat-error *ngIf="Name.errors?.required">
-            Name is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- Price Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.price" class="color-highlight">{{ fieldsInfo["price"]?.fieldTitle }}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.price" name="dataModel.price" #Price type="text"
+        <i *ngIf="!Name.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Name.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Name.value.length }} / 100</em>
+        <mat-error *ngIf="Name.errors?.required">
+          Name is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- Price Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.price" class="color-highlight">{{ fieldsInfo["price"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.price" name="dataModel.price" #Price type="text"
           placeholder="{{fieldsInfo['price']?.fieldTitle }}" minlength="3" maxlength="1000" required
           class="form-control validate-name" id="dataModel.price" />
-          <i *ngIf="!Price.value" class="fa fa-times  invalid color-red-dark"></i>
-          <i *ngIf="Price.value" class="fa fa-check  valid color-green-dark"></i>
-          <em>{{ Price.value.length }} / 1000</em>
-          <mat-error *ngIf="Price.errors?.required">
-            Price is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- Discount Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.discount" class="color-highlight">{{ fieldsInfo["discount"]?.fieldTitle }}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.discount" name="dataModel.discount" #Discount type="text"
-          placeholder="{{fieldsInfo['discount']?.fieldTitle }}" minlength="3" maxlength="500" 
+        <i *ngIf="!Price.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Price.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Price.value.length }} / 1000</em>
+        <mat-error *ngIf="Price.errors?.required">
+          Price is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- Discount Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.discount" class="color-highlight">{{ fieldsInfo["discount"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.discount" name="dataModel.discount" #Discount type="text"
+          placeholder="{{fieldsInfo['discount']?.fieldTitle }}" minlength="3" maxlength="500"
           class="form-control validate-name" id="dataModel.discount" />
-          <em>{{ Discount.value.length }} / 1000</em>
-          <mat-error *ngIf="Discount.errors?.required">
-            Discount is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-         <!-- Memo Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.memo" class="color-highlight">{{ fieldsInfo["memo"]?.fieldTitle }}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.memo" name="dataModel.memo" #Memo type="text"
-          placeholder="{{fieldsInfo['memo']?.fieldTitle }}" minlength="3" maxlength="100" 
+        <em>{{ Discount.value.length }} / 1000</em>
+        <mat-error *ngIf="Discount.errors?.required">
+          Discount is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- Memo Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.memo" class="color-highlight">{{ fieldsInfo["memo"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.memo" name="dataModel.memo" #Memo type="text"
+          placeholder="{{fieldsInfo['memo']?.fieldTitle }}" minlength="3" maxlength="100"
           class="form-control validate-name" id="dataModel.memo" />
-          <em>{{ Memo.value.length }} / 100</em>
-          <mat-error *ngIf="Memo.errors?.required">
-            Memo is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-          <button type="button" (click)="onFormCancel()"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
-            <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-            (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-            <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-          </button>
-        </div>
+        <em>{{ Memo.value.length }} / 100</em>
+        <mat-error *ngIf="Memo.errors?.required">
+          Memo is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
     </form>
     <!--Content-->
   </div>

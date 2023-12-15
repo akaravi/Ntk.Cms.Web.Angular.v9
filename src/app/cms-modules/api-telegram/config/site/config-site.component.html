@@ -1,171 +1,169 @@
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    <div class="ntk-cms-html-card-header">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-        {{ formInfo.formTitle }}
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+    <div class="content mb-0">
+        <p class="mb-0 color-highlight font-600 font-12">
+            حساب کاربری خود را ویرایش کنید
+        </p>
+        <h4>اطلاعات</h4>
+        <h4>اطلاعات اولیه</h4>
+        <p>
+            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+            فقط یک صفحه ساختگی است.
+        </p>
+        <!--Content-->
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+            {{ formInfo.formTitle }}
+            <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+            <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+                <mat-step label="{{'TITLE.Config_Module' | translate}}" state="main">
+                    <p>{{'TITLE.Settings_that_the_module_applies_to_the_site' | translate}} </p>
+                    <!-- StatusRenderUser Field -->
+                    <div class="d-flex mb-3">
+                        <div class="pt-1">
+                            <h5 data-trigger-switch="dataConfigSiteValuesModel.statusRenderUser"
+                                class="font-600 font-14">
+                                StatusRenderUser</h5>
+                        </div>
+                        <div class="ms-auto me-3 pe-2">
+                            <label class="custom-control-label"
+                                for="dataConfigSiteValuesModel.statusRenderUser"></label>
+                            <div class="custom-control ios-switch small-switch">
+                                <input type="checkbox" class="ios-input" id="dataConfigSiteValuesModel.statusRenderUser"
+                                    [(ngModel)]="dataConfigSiteValuesModel.statusRenderUser"
+                                    name="dataConfigSiteValuesModel.statusRenderUser">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- UseDataDefaulteSite -->
+                    <div class="d-flex mb-3">
+                        <div class="pt-1">
+                            <h5 data-trigger-switch="dataConfigSiteValuesModel.useDataDefaulteSite"
+                                class="font-600 font-14">
+                                StatusRenderUser</h5>
+                        </div>
+                        <div class="ms-auto me-3 pe-2">
+                            <label class="custom-control-label"
+                                for="dataConfigSiteValuesModel.useDataDefaulteSite"></label>
+                            <div class="custom-control ios-switch small-switch">
+                                <input type="checkbox" class="ios-input"
+                                    id="dataConfigSiteValuesModel.useDataDefaulteSite"
+                                    [(ngModel)]="dataConfigSiteValuesModel.useDataDefaulteSite"
+                                    name="dataConfigSiteValuesModel.useDataDefaulteSite">
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+                        <div [innerHTML]="dataConfigSiteValuesModel | prettyjson"></div>
+                    </div>
+                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+                        <button type="button"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+                            (click)="onActionBackToParent()">
+                            {{'ACTION.BACK' | translate}}
+                        </button>
+                        <button type="button"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                            [disabled]="!vform.form.valid" matStepperNext>
+                            {{'ACTION.NEXT' | translate}}
+                        </button>
+                        <button type="submit"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                            [disabled]="!vform.form.valid">
+                            {{'ACTION.SAVE' | translate}}
+                        </button>
+                    </div>
+                </mat-step>
+                <mat-step label="{{'TITLE.Saved_Value' | translate}}" state="main">
+                    <p>{{'TITLE.Values_saved_by_the_system' | translate}} </p>
+                    <!-- RowCount Field -->
+                    <div class="ntk-full-width">
+                        <mat-slide-toggle [(ngModel)]="dataSiteStorageModel.rowCount"
+                            name="dataSiteStorageModel.rowCount">
+                            RowCount
+                        </mat-slide-toggle>
+                    </div>
+                    <!-- MainDataContentRowCount Field -->
+                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                        <label for="dataSiteStorageModel.mainDataContentRowCount"
+                            class="color-highlight">MainDataContentRowCount</label>
+                        <input matInput [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"
+                            name="dataSiteStorageModel.mainDataContentRowCount"
+                            #dataSiteStorageModel_MainDataContentRowCount type="number" placeholder="0"
+                            class="form-control validate-name" id="dataSiteStorageModel.mainDataContentRowCount" />
+
+                    </div>
+                    <!-- UpdatedContent Field -->
+                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                        <label for="dataSiteStorageModel.updatedContent" class="color-highlight">UpdatedContent</label>
+                        <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedContent"
+                            [(ngModel)]="dataSiteStorageModel.updatedContent" name="dataSiteStorageModel.updatedContent"
+                            class="form-control validate-name" id="dataSiteStorageModel.updatedContent" />
+                        <mat-datepicker-toggle matSuffix
+                            [for]="dataSiteStorageModel_UpdatedContent"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #dataSiteStorageModel_UpdatedContent></mat-datepicker>
+                    </div>
+                    <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+                        <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
+                    </div>
+                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+                        <button type="button"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                            matStepperPrevious>
+                            {{'ACTION.BEFOR' | translate}}
+                        </button>
+                        <button type="button"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                            [disabled]="!vform.form.valid" matStepperNext>
+                            {{'ACTION.NEXT' | translate}}
+                        </button>
+                        <button type="submit"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                            [disabled]="!vform.form.valid">
+                            {{'ACTION.SAVE' | translate}}
+                        </button>
+                    </div>
+                </mat-step>
+                <mat-step label="{{'TITLE.Access'|translate}}" state="main">
+                    <p>{{'TITLE.This_website_accesses_this_module' | translate}}</p>
+                    <!-- MainDataContentRowCount Field -->
+                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                        <label for="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
+                            class="color-highlight">MainDataContentRowCount</label>
+                        <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
+                            name="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
+                            #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0"
+                            required class="form-control validate-name"
+                            id="dataConfigSiteAccessValuesModel.mainDataContentRowCount" />
+                        <mat-error *ngIf="dataConfigSiteAccessValuesModel_MainDataContentRowCount.errors?.required">
+                            MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>
+                        </mat-error>
+                    </div>
+                    <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+                        <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
+                    </div>
+                    <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+                        <button type="button"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                            matStepperPrevious>
+                            {{'ACTION.BEFOR' | translate}}
+                        </button>
+                        <button type="button"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                            [disabled]="!vform.form.valid" matStepperNext>
+                            {{'ACTION.NEXT' | translate}}
+                        </button>
+                        <button type="submit"
+                            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                            [disabled]="!vform.form.valid">
+                            {{'ACTION.SAVE' | translate}}
+                        </button>
+                    </div>
+                </mat-step>
+            </mat-vertical-stepper>
+            <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+        </form>
+        <!--Content-->
     </div>
-    <div class="ntk-cms-html-card-body">
-        <app-progress-spinner [options]="loading"> </app-progress-spinner>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-            <mat-step label="{{'TITLE.Config_Module' | translate}}" state="main">
-                <p>{{'TITLE.Settings_that_the_module_applies_to_the_site' | translate}} </p>
-                <!-- StatusRenderUser Field -->
-                <div class="ntk-full-width">
-                    <mat-slide-toggle [(ngModel)]="dataConfigSiteValuesModel.statusRenderUser"
-                        name="dataConfigSiteValuesModel.statusRenderUser">
-                        StatusRenderUser
-                    </mat-slide-toggle>
-                </div>
-                <!-- UseDataDefaulteSite -->
-                <div class="ntk-full-width">
-                    <mat-slide-toggle [(ngModel)]="dataConfigSiteValuesModel.useDataDefaulteSite"
-                        name="dataConfigSiteValuesModel.useDataDefaulteSite">
-                        {{'TITLE.Display_the_default_site_information_on_the_site' | translate}}
-                    </mat-slide-toggle>
-                </div>
-                <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                    <div [innerHTML]="dataConfigSiteValuesModel | prettyjson"></div>
-                </div>
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
-                        (click)="onActionBackToParent()">
-                        {{'ACTION.BACK' | translate}}
-                    </button>
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        [disabled]="!vform.form.valid" matStepperNext>
-                        {{'ACTION.NEXT' | translate}}
-                    </button>
-                    <button type="submit"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                        [disabled]="!vform.form.valid">
-                        {{'ACTION.SAVE' | translate}}
-                    </button>
-                </div>
-            </mat-step>
-            <mat-step label="{{'TITLE.Saved_Value' | translate}}" state="main">
-                <p>{{'TITLE.Values_saved_by_the_system' | translate}} </p>
-                <!-- RowCount Field -->
-                <div class="ntk-full-width">
-                    <mat-slide-toggle [(ngModel)]="dataSiteStorageModel.rowCount" name="dataSiteStorageModel.rowCount">
-                        RowCount
-                    </mat-slide-toggle>
-                </div>
-                <!-- MainDataContentRowCount Field -->
-                <mat-form-field class="ntk-full-width">
-                    <mat-label>MainDataContentRowCount</mat-label>
-                    <input matInput [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"
-                        name="dataSiteStorageModel.mainDataContentRowCount"
-                        #dataSiteStorageModel_MainDataContentRowCount type="number" placeholder="0" />
-                    <mat-icon matSuffix *ngIf="dataSiteStorageModel.mainDataContentRowCount" matSuffix mat-icon-button
-                        aria-label="Clear"
-                        (click)="dataSiteStorageModel.mainDataContentRowCount = null">close</mat-icon>
-                    <mat-icon matSuffix>mode_edit</mat-icon>
-                </mat-form-field>
-                <!-- UpdatedContent Field -->
-                <mat-form-field class="ntk-full-width">
-                    <mat-label>UpdatedContent</mat-label>
-                    <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedContent"
-                        [(ngModel)]="dataSiteStorageModel.updatedContent" name="dataSiteStorageModel.updatedContent" />
-                    <mat-icon matSuffix *ngIf="dataSiteStorageModel.updatedContent " matSuffix mat-icon-button
-                        aria-label="Clear" (click)="dataSiteStorageModel.updatedContent = null">close</mat-icon>
-                    <mat-datepicker-toggle matSuffix
-                        [for]="dataSiteStorageModel_UpdatedContent"></mat-datepicker-toggle>
-                    <mat-datepicker touchUi #dataSiteStorageModel_UpdatedContent></mat-datepicker>
-                </mat-form-field>
-                <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                    <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
-                </div>
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                        matStepperPrevious>
-                        {{'ACTION.BEFOR' | translate}}
-                    </button>
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        [disabled]="!vform.form.valid" matStepperNext>
-                        {{'ACTION.NEXT' | translate}}
-                    </button>
-                    <button type="submit"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                        [disabled]="!vform.form.valid">
-                        {{'ACTION.SAVE' | translate}}
-                    </button>
-                </div>
-            </mat-step>
-            <mat-step label="{{'TITLE.Access'|translate}}" state="main">
-                <p>{{'TITLE.This_website_accesses_this_module' | translate}}</p>
-                <!-- MainDataContentRowCount Field -->
-                <mat-form-field class="ntk-full-width">
-                    <mat-label>MainDataContentRowCount</mat-label>
-                    <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
-                        name="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
-                        #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0"
-                        required />
-                    <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesModel.mainDataContentRowCount" matSuffix
-                        mat-icon-button aria-label="Clear"
-                        (click)="dataConfigSiteAccessValuesModel.mainDataContentRowCount = null">close</mat-icon>
-                    <mat-icon matSuffix>mode_edit</mat-icon>
-                    <mat-error *ngIf="dataConfigSiteAccessValuesModel_MainDataContentRowCount.errors?.required">
-                        MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>
-                    </mat-error>
-                </mat-form-field>
-                <!-- UseDataDefaulteSiteId Field -->
-                <!-- <mat-form-field class="ntk-full-width">
-          <mat-label>{{'TITLE.Default_information_site_ID' | translate}}</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
-            name="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
-            #dataConfigSiteAccessValuesModel_UseDataDefaulteSiteId type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field> -->
-                <!-- MaxAppCreation Field -->
-                <!-- <mat-form-field class="ntk-full-width">
-          <mat-label>MaxAppCreation</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.maxAppCreation"
-            name="dataConfigSiteAccessValuesModel.maxAppCreation" #dataConfigSiteAccessValuesModel_MaxAppCreation
-            type="number" placeholder="0" required />
-          <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesModel.maxAppCreation" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigSiteAccessValuesModel.maxAppCreation = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-error *ngIf="dataConfigSiteAccessValuesModel_MaxAppCreation.errors?.required">
-            MaxAppCreation is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field> -->
-                <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                    <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
-                </div>
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
-                        matStepperPrevious>
-                        {{'ACTION.BEFOR' | translate}}
-                    </button>
-                    <button type="button"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        [disabled]="!vform.form.valid" matStepperNext>
-                        {{'ACTION.NEXT' | translate}}
-                    </button>
-                    <button type="submit"
-                        class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green"
-                        [disabled]="!vform.form.valid">
-                        {{'ACTION.SAVE' | translate}}
-                    </button>
-                </div>
-            </mat-step>
-        </mat-vertical-stepper>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-    <div class="ntk-cms-html-card-footer">
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
-</form>
+</div>

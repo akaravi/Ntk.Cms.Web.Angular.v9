@@ -33,7 +33,7 @@
             class="row mb-0">
             <div *ngFor="let state of listTypeLanduse" class="col-xl-2 col-lg-3 col-md-4 col-sm-12 pe-1">
               <a [attr.disabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessAddField ? true : null"
-                [ngClass]="state.id===dataModel.linkPropertyTypeLanduseId ? 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full' : 'btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full'"
+                [ngClass]="state.id===dataModel.linkPropertyTypeLanduseId ? 'btn font-13 font-600 btn-s m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full' : 'btn font-13 font-600 btn-s m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full'"
                 (click)="onActionSelectorSelectLanduse(state)">{{ state.titleML }}</a>
             </div>
           </div>
@@ -183,15 +183,14 @@
               </mat-error>
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-              <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray"
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
                 (click)="onActionBackToParent()"
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                 {{ "ACTION.CANCEL" | translate }}
               </button>
-              <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+              <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                 *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0"
-                [disabled]="!vform.form.valid" matStepperNext
-                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+                [disabled]="!vform.form.valid" matStepperNext>
                 {{ "ACTION.NEXT" | translate }}
               </button>
             </div>
@@ -298,13 +297,12 @@
 
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
             <button type="button" matStepperPrevious
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0"
-              [disabled]="!vform.form.valid" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+              [disabled]="!vform.form.valid" matStepperNext>
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -394,13 +392,12 @@
           </div>
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
             <button type="button" matStepperPrevious
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0"
-              [disabled]="!vform.form.valid" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+              [disabled]="!vform.form.valid" matStepperNext>
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -494,15 +491,15 @@
                 </ng-container>
               </ng-container>
               <mat-action-row>
-                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                   *ngIf="i > 0" (click)="prevStep()">
                   {{ "ACTION.BEFOR" | translate }}
                 </button>
-                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                   *ngIf="i + 1 < dataModel.propertyDetailGroups.length" (click)="nextStep()">
                   {{ "ACTION.NEXT" | translate }}
                 </button>
-                <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                   *ngIf="i + 1 === dataModel.propertyDetailGroups.length" (click)="nextStep()">
                   {{ "ACTION.END" | translate }}
                 </button>
@@ -511,13 +508,12 @@
             <br />
           </mat-accordion>
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-              [disabled]="!vform.form.valid" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -558,13 +554,12 @@
             </mat-error>
           </div>
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
-              [disabled]="!vform.form.valid" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -715,9 +710,8 @@
             <br>
           </div>
           <button (click)="onActionOptionAddToList()" type="button"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight"
-            *ngIf="contractTypeSelected && contractTypeSelected.id.length > 0"
-            class="btn btn-primary font-weight-bold font-size-h5 px-9 py-4" style="margin: 10px 0px">
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+            *ngIf="contractTypeSelected && contractTypeSelected.id.length > 0">
             {{ "ACTION.Add_To_List" | translate }} ...
           </button>
           <hr />
@@ -812,7 +806,7 @@
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row; let i = index" class="Action">
                   <button type="button" mat-icon-button (click)="onActionOptionRemoveFromList(i)"
-                    class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red">
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
                     <small>
                       <mat-icon matTooltip="{{ 'ACTION.DELETE' | translate }}" matTooltipPosition="before"
                         aria-hidden="false" style="color: red">delete</mat-icon>
@@ -841,13 +835,13 @@
           <!-- TABLE  -->
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
             <button type="button" matStepperPrevious
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               *ngIf="
                   this.dataModel.contracts && this.dataModel.contracts.length > 0" [disabled]="!vform.form.valid"
-              matStepperNext class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+              matStepperNext>
               {{ "ACTION.NEXT" | translate }}
             </button>
           </div>
@@ -895,16 +889,16 @@
           <app-cms-360-tour-list [(dataModel)]="dataModel.file360Tour" [dataImageModel]="dataModel.file360Views">
           </app-cms-360-tour-list>
           <div *ngIf="formInfo.formSubmitAllow && !loading?.display" class="ntk-button-row">
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               [disabled]="!vform.form.valid" matStepperNext>
               {{ "ACTION.NEXT" | translate }}
             </button>
             <button type="submit" [disabled]="!vform.form.valid  || !connectionStatus.internetConnection"
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
               {{ "ACTION.SAVE" | translate }}
             </button>
           </div>
@@ -918,18 +912,18 @@
             id="main-map">
           </app-cms-map>
           <button type="button" (click)="ActionCurrentPoint()"
-            class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
             {{ "ACTION.MY_LOCATION" | translate }}
           </button>
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
             <button type="button" matStepperPrevious
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
             </button>
             <button type="submit"
               *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0"
               [disabled]="!vform.form.valid  || !connectionStatus.internetConnection" matStepperNext
-              class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
               {{ "ACTION.SAVE" | translate }}
             </button>
           </div>

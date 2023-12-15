@@ -5,7 +5,7 @@
 </app-news-content-header>
 
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionActionRowDisplay]="tableRowSelected?.id?.length>0">
+  [optionActionRowDisplay]="tableRowSelected?.id?.length>0" [optionSelectRowItemTitle]="tableRowSelected?.id">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     --------------------------------------
@@ -18,62 +18,62 @@
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <button *ngIf="dataModelResult.access.accessAddRow && this.requestContentId>0" (click)="onActionbuttonNewRow()"
-      type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
+      type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
 
-    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
-    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonStatist()">
       </mat-slide-toggle>
       {{'ACTION.STATIST' | translate}}
     </a>
     <button (click)="onActionbuttonExport()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
 
-    <a class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
       </mat-slide-toggle>
       {{'ACTION.INCHECKING' | translate}}
     </a>
     <button (click)="onActionbuttonReload()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
     </button>
     <button (click)="onActionBackToParent()" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
       translate}}</button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
   </ng-container>
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-    <h1>{{tableRowSelected?.id}}</h1>
+     
     <button *ngIf="dataModelResult.access.accessEditRow && tableRowSelected.id>0"
       (click)="onActionbuttonEditRow(tableRowSelected)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}} </span>
     </button>
     <button *ngIf="dataModelResult.access.accessDeleteRow && tableRowSelected.id>0"
       (click)="onActionbuttonDeleteRow(tableRowSelected)" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red"><span>{{'ACTION.DELETE'
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red"><span>{{'ACTION.DELETE'
         |translate}}</span>
     </button>
     <button (click)="onActionbuttonViewContent(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.VIEW_NEWS' | translate}}</span>
       <mat-icon>visibility</mat-icon>
     </button>
     <button (click)="onActionbuttonEditContent(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessDeleteRow"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <span>{{'ACTION.NEWS_EDITING' | translate}} </span>
       <mat-icon>mode_edit</mat-icon>
     </button>
     <button (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
-      class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-icon style="font-size: 20px;margin: -11px;" title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->

@@ -527,20 +527,26 @@
                 <!--end::ورودی-->
 
 
+
+
                 <!--captchaText Field-->
                 <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
                 <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
-
-                <mat-form-field class="ntk-full-width">
-                  <mat-label> {{'AUTH.INPUT.CAPTCHACODE' | translate}}</mat-label>
-                  <input matInput [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText"
-                    [disabled]=" !formInfo.buttonSubmittedEnabled" #captchaText type="number"
-                    class="form-control form-control-solid h-auto py-7 rounded-lg font-size-h6" autocomplete="off"
-                    placeholder=" {{'AUTH.INPUT.CAPTCHACODE' | translate}}" required />
+                <div class="input-style no-borders has-icon validate-field mb-4">
+                  <i class="fa fa-quote-left"></i>
+                  <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" #captchaText
+                    id="dataModel.captchaText" [disabled]=" !formInfo.buttonSubmittedEnabled" type="text"
+                    class="form-control validate-name" placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}"
+                    minlength="5" maxlength="5" autocomplete="off" required>
+                  <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' |
+                    translate}}</label>
+                  <i class="fa fa-times disabled invalid color-red-dark"></i>
+                  <i class="fa fa-check disabled valid color-green-dark"></i>
+                  <em>({{'TITLE.Necessary'| translate}})</em>
                   <mat-error *ngIf="captchaText.errors?.required">
-                    captchaText is <strong>{{'MESSAGE.required' | translate}}</strong>
+                    {{'AUTH.INPUT.CAPTCHACODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
                   </mat-error>
-                </mat-form-field>
+                </div>
 
               </div>
               <div class="col-xl-3"></div>
@@ -551,8 +557,12 @@
           <div class="ntk-cms-html-card-footer">
             <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
             <div class="col-xl-6 ntk-button-row">
-              <button type="reset" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.CANCEL' | translate}}</button>
-              <button type="submit" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">{{'ACTION.SEND' | translate}}</button>
+              <button type="reset"
+                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray">{{'ACTION.CANCEL' |
+                translate}}</button>
+              <button type="submit"
+                class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green">{{'ACTION.SEND' |
+                translate}}</button>
 
             </div>
             <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->

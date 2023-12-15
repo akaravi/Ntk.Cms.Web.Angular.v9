@@ -1,60 +1,72 @@
-<!-- files Field -->
-<div class="mb-12">
-  <mat-form-field class="ntk-full-width">
-    <mat-label (click)="fileManagerOpenForm = true">{{'TITLE.File' | translate}}
-    </mat-label>
-    <input matInput name="dataModel.linkMainImageId" #LinkMainImageId type="text"
-      placeholder="{{'TITLE.Original_File_ID' | translate}}" (click)="fileManagerOpenForm = true" />
-    <mat-icon matSuffix (click)="fileManagerOpenForm = true">mode_edit</mat-icon>
-  </mat-form-field>
-  <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
-    [selectFileType]="selectFileTypeMainImage" [isPopup]="true" [(openForm)]="fileManagerOpenForm"
-    [openDirectUploadView]="openDirectUploadView" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
-    [openFilemanagerButtonView]="false">
-  </cms-file-manager>
+<div class="card card-style">
+  <div class="content mb-0">
+      <p class="mb-0 color-highlight font-600 font-12">
+          حساب کاربری خود را ویرایش کنید
+      </p>
+      <h4>اطلاعات</h4>
+      <h4>اطلاعات اولیه</h4>
+      <p>
+          اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+          فقط یک صفحه ساختگی است.
+      </p>
+      <!--Content-->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.linkMainImageId" (click)="fileManagerOpenForm = true" class="color-highlight">{{'TITLE.File' | translate}}</label>
+        <input matInput type="text"  name="dataModel.linkMainImageId"  (click)="fileManagerOpenForm = true" #LinkMainImageId
+            id="dataModel.linkMainImageId" placeholder="{{'TITLE.Original_File_ID' | translate}}"  />
+      </div>
+      <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
+        [selectFileType]="selectFileTypeMainImage" [isPopup]="true" [(openForm)]="fileManagerOpenForm"
+        [openDirectUploadView]="openDirectUploadView" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
+        [openFilemanagerButtonView]="false">
+      </cms-file-manager>
+      <!-- TABLE  -->
+      <div *ngIf="this.dataFileModel.size && this.dataFileModel.size > 0">
+        <table>
+          <tr>
+            <td>{{'TITLE.File_ID' | translate}}</td>
+            <td></td>
+            <td>{{'TITLE.link' | translate}} </td>
+            <td></td>
+          </tr>
+          <tr *ngFor="let item of dataFileModel | keyvalue ">
+            <td>{{item.key}}</td>
+            <td>
+              <img
+                *ngIf="item['value']?.toLowerCase().indexOf('.png')>0 || item['value']?.toLowerCase().indexOf('.jpg')>0 || item['value']?.toLowerCase().indexOf('.jpeg')>0|| item['value']?.toLowerCase().indexOf('.gif')>0"
+                style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden src="{{item.value | cmsthumbnail}}"
+                height="50" width="50" />
+
+              <audio
+                *ngIf="item['value']?.toLowerCase().indexOf('.mp3')>0 || item['value']?.toLowerCase().indexOf('.wave')>0 || item['value']?.toLowerCase().indexOf('.acc')>0"
+                controls>
+                <source src="{{item.value}}" type="audio/mp3">
+                Your browser does not support the audio tag.
+              </audio>
+
+              <video *ngIf="item['value']?.toLowerCase().indexOf('mp4')>0" controls>
+                <source src="{{item.value}}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </td>
+            <td>
+              <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" type="button"
+                [cdkCopyToClipboard]="item.value" (click)="onActionCopied()">
+                <mat-icon style="font-size: 20px;margin: -11px;">content_copy</mat-icon>
+                Copy
+              </button>
+
+              <button (click)="onActionFileSelectedRemove(item.key)" type="button"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red"><mat-icon
+                  style="font-size: 20px;margin: -11px;" aria-hidden="false">delete</mat-icon>{{'ACTION.DELETE' |
+                translate}}</button>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+      <!-- TABLE  -->
+      <!--Content-->
+  </div>
 </div>
-<!-- TABLE  -->
-<div *ngIf="this.dataFileModel.size && this.dataFileModel.size > 0">
-  <table>
-    <tr>
-      <td>{{'TITLE.File_ID' | translate}}</td>
-      <td></td>
-      <td>{{'TITLE.link' | translate}} </td>
-      <td></td>
-    </tr>
-    <tr *ngFor="let item of dataFileModel | keyvalue ">
-      <td>{{item.key}}</td>
-      <td>
-        <img
-          *ngIf="item['value']?.toLowerCase().indexOf('.png')>0 || item['value']?.toLowerCase().indexOf('.jpg')>0 || item['value']?.toLowerCase().indexOf('.jpeg')>0|| item['value']?.toLowerCase().indexOf('.gif')>0"
-          style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden src="{{item.value | cmsthumbnail}}"
-          height="50" width="50" />
 
-        <audio
-          *ngIf="item['value']?.toLowerCase().indexOf('.mp3')>0 || item['value']?.toLowerCase().indexOf('.wave')>0 || item['value']?.toLowerCase().indexOf('.acc')>0"
-          controls>
-          <source src="{{item.value}}" type="audio/mp3">
-          Your browser does not support the audio tag.
-        </audio>
-
-        <video *ngIf="item['value']?.toLowerCase().indexOf('mp4')>0" controls>
-          <source src="{{item.value}}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </td>
-      <td>
-        <button class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight" type="button" [cdkCopyToClipboard]="item.value"
-          (click)="onActionCopied()">
-          <mat-icon style="font-size: 20px;margin: -11px;">content_copy</mat-icon>
-          Copy
-        </button>
-
-        <button (click)="onActionFileSelectedRemove(item.key)" type="button" class="btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red"><mat-icon
-            style="font-size: 20px;margin: -11px;" aria-hidden="false">delete</mat-icon>{{'ACTION.DELETE' |
-          translate}}</button>
-      </td>
-    </tr>
-
-  </table>
-</div>
-<!-- TABLE  -->

@@ -1,5 +1,5 @@
 <div class="page-title page-title-fixed">
-  <h1 *ngIf="title$ | async as title">{{title}}</h1>
+  <h3 *ngIf="title$ | async as title">{{title}}</h3>
   <a *ngIf="this.tokenInfo?.siteId>0" [routerLink]="['/core/site/selection']"
     class="page-title-icon shadow-xl bg-theme color-theme"
     style="width: auto;padding-left: 10px;padding-right: 10px;">{{tokenInfo?.title}}</a>

@@ -5,31 +5,17 @@
 <div id="page">
   <app-header-bar></app-header-bar>
   <app-footer-bar *ngIf="this.tokenHelper.isMobile"></app-footer-bar>
-
   <div class="page-title-clear"></div>
   <router-outlet></router-outlet>
   <!-- All Menus, Action Sheets, Modals, Notifications, Toasts, Snackbars get Placed outside the <div class="page-content"> -->
-
   <!-- Be sure this is on your main visiting page, for example, the index.html page-->
-
   <!-- Install Prompt for Android -->
   <app-menu-install-pwa-android></app-menu-install-pwa-android>
   <!-- Install instructions for iOS -->
   <app-menu-install-pwa-ios></app-menu-install-pwa-ios>
-
-
 </div>
-
-<!-- Main Menu-->
-
 <app-menu-main></app-menu-main>
-
-
-<!-- Share Menu-->
 <app-menu-share></app-menu-share>
-
-
-<!-- Colors Menu-->
 <app-menu-colors></app-menu-colors>
 <app-menu-language></app-menu-language>
 <app-scroll-top></app-scroll-top>

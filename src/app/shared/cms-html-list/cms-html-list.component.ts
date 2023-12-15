@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 @Component({
@@ -12,8 +13,9 @@ export class CmsHtmlListComponent implements OnInit {
   @Input() optionActionDisplay = true;
   @Input() optionFooterDisplay = true;
   @Input() optionActionRowDisplay = false;
-  @Input() optionClassTree = 'col-xl-3';
-  @Input() optionClassList = 'col-xl-9';
+  @Input() optionTitle = 'منوی عملیات';
+  @Input() optionCategoryTitle = 'دسته بندی';
+  @Input() optionSelectRowItemTitle = '';
   @Input() optionClassBody = 'ntk-cms-html-tree-body';
 
   @Input() optionTreeDisplay = true;
@@ -22,9 +24,51 @@ export class CmsHtmlListComponent implements OnInit {
     this.loading = v;
   }
   loading = new ProgressSpinnerModel();
-  constructor() { }
+
+  constructor(
+    public tokenHelper: TokenHelper,
+  ) { }
   ngOnInit(): void {
 
+  }
+  viewMenuItemRow = false;
+  viewMenuMain = false;
+  viewTree = false;
+  actionViewTree(state?: boolean) {
+    if (state == true) {
+      this.viewTree = false;
+    } else if (state == false) {
+      this.viewTree = true;
+    } else {
+      this.viewTree = !this.viewTree;
+    }
+    this.viewMenuMain = false;
+    this.viewMenuItemRow = false;
+  }
+  actionViewMenuItemRow(state?: boolean) {
+    if (state == true) {
+      this.viewMenuItemRow = false;
+    } else if (state == false) {
+      this.viewMenuItemRow = true;
+    } else {
+      this.viewMenuItemRow = !this.viewMenuItemRow;
+    }
+
+    this.viewMenuMain = false;
+    this.viewTree = false;
+  }
+
+  actionViewMenuMain(state?: boolean) {
+    if (state == true) {
+      this.viewMenuMain = false;
+    } else if (state == false) {
+      this.viewMenuMain = true;
+    } else {
+      this.viewMenuMain = !this.viewMenuMain;
+    }
+
+    this.viewMenuItemRow = false;
+    this.viewTree = false;
   }
   /*
   <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true">

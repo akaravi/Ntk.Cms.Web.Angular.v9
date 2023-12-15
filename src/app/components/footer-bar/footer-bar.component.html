@@ -4,9 +4,8 @@
   <a [routerLink]="['/']" class="circle-nav active-nav"><i class="fa fa-home"></i><span>خانه</span></a>
   <a *ngIf="this.tokenInfo?.userId>0" [routerLink]="['/menu']" (click)="onActionCleanDataMenu()"><i
       class="fa fa-layer-group"></i><span>امکانات</span></a>
-  <a *ngIf="!this.tokenInfo||!this.tokenInfo.userId||this.tokenInfo.userId<=0"
-    [routerLink]="['//page/auth/singinbysms']" (click)="onActionCleanDataMenu()"><i
-      class="fa fa-layer-group"></i><span>ورود</span></a>
+  <a *ngIf="!this.tokenInfo||!this.tokenInfo.userId||this.tokenInfo.userId<=0" [routerLink]="['/auth/singinbysms']"
+    (click)="onActionCleanDataMenu()"><i class="fa fa-layer-group"></i><span>ورود</span></a>
   <a (click)="themeStore?.dataMenu!=='menu-main' ? themeStore.dataMenu='menu-main':themeStore.dataMenu=''"><i
       class="fa fa-bars"></i><span>منو</span></a>
 </div>
