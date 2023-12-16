@@ -10,73 +10,41 @@
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
     </p>
-    <!--Content-->
-
-    <!--Content-->
-  </div>
-</div>
-<form #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+        <!--Content-->
+        <form #vform="ngForm">
     {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-card-body">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-
-    <mat-form-field class="ntk-full-width">
-      <mat-label>ModuleName</mat-label>
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.moduleName" class="color-highlight">ModuleName</label>
       <input matInput [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName type="text"
-        placeholder="ModuleName" />
-      <mat-icon matSuffix *ngIf="dataModel.moduleName" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.moduleName = ''">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
+        placeholder="ModuleName" id="dataModel.moduleName" />
+    </div>
 
     <!-- ModuleEntityName Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>ModuleEntityName</mat-label>
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.moduleEntityName" class="color-highlight">ModuleEntityName</label>
       <input matInput [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName
-        type="text" placeholder="ModuleEntityName" />
-      <mat-icon matSuffix *ngIf="dataModel.moduleEntityName" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.moduleEntityName = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
+        type="text" placeholder="ModuleEntityName" id="dataModel.moduleEntityName" />
+    </div>
     <!-- ModuleEntityId Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>ModuleEntityId</mat-label>
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.moduleEntityId" class="color-highlight">ModuleEntityId</label>
       <input matInput [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId" #ModuleEntityId type="text"
-        placeholder="ModuleEntityId" />
-      <mat-icon matSuffix *ngIf="dataModel.moduleEntityId" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.moduleEntityId = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
+        placeholder="ModuleEntityId" id="dataModel.moduleEntityId" />
+    </div>
 
     <!-- showKey Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>showKey</mat-label>
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.showKey" class="color-highlight">showKey</label>
       <textarea matInput [(ngModel)]="dataModel.showKey" name="dataModel.showKey" #showKey type="text"
-        placeholder="showKey"></textarea>
-      <mat-icon matSuffix *ngIf="dataModel.showKey" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.showKey = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
+        placeholder="showKey" id="dataModel.showKey"></textarea>
+    </div>
 
     <!-- SubjectTitle Field -->
-    <mat-form-field class="ntk-full-width">
-      <mat-label>SubjectTitle</mat-label>
+    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+      <label for="dataModel.subjectTitle" class="color-highlight">SubjectTitle</label>
       <textarea matInput [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle" #SubjectTitle type="text"
-        placeholder="SubjectTitle"></textarea>
-      <mat-icon matSuffix *ngIf="dataModel.subjectTitle" matSuffix mat-icon-button aria-label="Clear"
-        (click)="dataModel.subjectTitle = null">close</mat-icon>
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-
-
-
-
-
+        placeholder="SubjectTitle" id="dataModel.subjectTitle"></textarea>
+    </div>
     <!-- expireDateTime Field -->
     <div *ngIf="fieldsInfo['expireDateTime']?.accessWatchField"
       class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -91,21 +59,9 @@
     </div>
     <!-- <div *ngIf="tokenInfo.UserAccessAdminAllowToProfessionalData">
           <div [innerHTML]="dataModel | prettyjson"></div>
-        </div> -->
+    </div> -->
 
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    <div class="form-actions">
-      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-      <small class="form-text text-muted danger">{{ formInfo.formError }}
-      </small>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    
     <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
       <button type="button" (click)="onFormCancel()"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
@@ -115,8 +71,9 @@
         (click)="onFormSubmit()">
         <i class="ft-x"></i> {{'ACTION.SAVE' | translate}}
       </button>
-
     </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+
+        </form>
+        <!--Content-->
   </div>
-</form>
+</div>
