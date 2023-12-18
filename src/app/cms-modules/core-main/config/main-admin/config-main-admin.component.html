@@ -1,353 +1,325 @@
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+  <div class="content mb-0">
+      <p class="mb-0 color-highlight font-600 font-12">
+          حساب کاربری خود را ویرایش کنید
+      </p>
+      <h4>اطلاعات</h4>
+      <h4>اطلاعات اولیه</h4>
+      <p>
+          اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+          فقط یک صفحه ساختگی است.
+      </p>
+      <!--Content-->
+      <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+          {{ formInfo.formTitle }}
+          <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+
+            <mat-step label="{{'TITLE.Default_module_settings'|translate}}" state="main"
+              *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+              <p>{{'TITLE.Settings_that_are_used_in_the_first_assignment_of_the_module_to_the_site' |translate}}</p>
+              <!-- StatusRenderUser Field -->
+              <div class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.statusRenderUser" class="font-600 font-14">
+                      StatusRenderUser</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.statusRenderUser"
+                            [(ngModel)]="dataConfigSiteValuesDefaultModel.statusRenderUser"
+                            name="dataConfigSiteValuesDefaultModel.statusRenderUser">
+                        <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.statusRenderUser"></label>
+                    </div>
+                </div>
+              </div>
+              <!-- UseDataDefaulteSite -->
+              <div class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.useDataDefaulteSite" class="font-600 font-14">
+                      {{'TITLE.Display_the_default_site_information_on_the_site' | translate}}</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"
+                            [(ngModel)]="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"
+                            name="dataConfigSiteValuesDefaultModel.useDataDefaulteSite">
+                        <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"></label>
+                    </div>
+                </div>
+              </div>
+              <!-- DomainsGoogleSitekey Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" class="color-highlight">DomainsGoogleSitekey</label>
+                <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
+                  name="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
+                  #dataConfigSiteValuesDefaultModel_DomainsGoogleSitekey type="text" placeholder="ad....." id="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" />
+              </div>
+
+              <!-- DomainsGoogleSecretkey Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" class="color-highlight">DomainsGoogleSecretkey</label>
+                <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
+                  name="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
+                  #dataConfigSiteValuesDefaultModel_DomainsGoogleSecretkey type="text" placeholder="ad....." id="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" />
+              </div>
+              <div class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.userRegidteryBool" class="font-600 font-14">
+                      UserRegidteryBool</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.userRegidteryBool"
+                            [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryBool"
+                            name="dataConfigSiteValuesDefaultModel.userRegidteryBool">
+                        <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.userRegidteryBool"></label>
+                    </div>
+                </div>
+              </div>
+              <!-- UserRegidteryRecordStatus Field -->
+              <app-cms-enum-record-status-selector [(model)]="dataConfigSiteValuesDefaultModel.userRegidteryRecordStatus"
+                [optionDisabled]="false" [optionLabel]="this.translate.instant('TITLE.Status')" [optionRequired]="true"
+                [optionSelectFirstItem]="true">
+              </app-cms-enum-record-status-selector>
+              <!-- UserRegidteryExpireDateDay Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" class="color-highlight">UserRegidteryExpireDateDay</label>
+                <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
+                  name="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
+                  #dataConfigSiteValuesDefaultModel_UserRegidteryExpireDateDay type="number" placeholder="0" id="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDaydataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" />
+              </div>
+              <!-- RSSCount Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigSiteValuesDefaultModel.rssCount" class="color-highlight">RSSCount</label>
+                <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.rssCount"
+                  name="dataConfigSiteValuesDefaultModel.rssCount" #dataConfigSiteValuesDefaultModel_RSSCount type="number"
+                  placeholder="0" id="dataConfigSiteValuesDefaultModel.rssCount" />
+              </div>
+              <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+                <div [innerHTML]="dataConfigSiteValuesDefaultModel | prettyjson"></div>
+              </div>
+              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+                  (click)="onActionBackToParent()">
+                  {{'ACTION.BACK' | translate}}
+                </button>
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  [disabled]="!vform.form.valid" matStepperNext>
+                  {{'ACTION.NEXT' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                  [disabled]="!vform.form.valid">
+                  {{'ACTION.SAVE' | translate}}
+                </button>
+              </div>
+            </mat-step>
+
+            <mat-step label="{{'TITLE.Default_access'|translate}}" state="main"
+              *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+              <p>{{'TITLE.Default_website_access_to_this_module'|translate}}</p>
+
+              <!-- MainDataContentRowCount Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
+                <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
+                  name="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
+                  #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount type="number" placeholder="0" id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" />
+              </div>
+              <!-- UseDataDefaulteSiteId Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigAdminMainModel.useDataDefaulteSiteId" class="color-highlight">{{'TITLE.Default_information_site_ID' | translate}}</label>
+                <input matInput [(ngModel)]="dataConfigAdminMainModel.useDataDefaulteSiteId"
+                  name="dataConfigAdminMainModel.useDataDefaulteSiteId" #dataConfigAdminMainModel_UseDataDefaulteSiteId
+                  type="number" placeholder="0" id="dataConfigAdminMainModel.useDataDefaulteSiteId" />
+              </div>
+
+              <!-- DomainsList Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigSiteAccessValuesDefaultModel.domainsList" class="color-highlight">DomainsList</label>
+                <textarea matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.domainsList"
+                  name="dataConfigSiteAccessValuesDefaultModel.domainsList"
+                  #dataConfigSiteAccessValuesDefaultModel_DomainsList type="text" placeholder="domain.com"
+                  rows="10" id="dataConfigSiteAccessValuesDefaultModel.domainsList"></textarea>
+              </div>
+              <!-- MaxAdminCpUserCreation Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" class="color-highlight">MaxAdminCpUserCreation</label>
+                <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
+                  name="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
+                  #dataConfigSiteAccessValuesDefaultModel_MaxAdminCpUserCreation type="number" placeholder="0" id="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" />
+              </div>
+
+              <!-- MaxUserCreation Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" class="color-highlight">MaxUserCreation</label>
+                <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
+                  name="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
+                  #dataConfigSiteAccessValuesDefaultModel_MaxUserCreation type="number" placeholder="0" id="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" />
+              </div>
+
+              <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+                <div [innerHTML]="dataConfigSiteAccessValuesDefaultModel | prettyjson"></div>
+              </div>
+              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  matStepperPrevious>
+                  {{'ACTION.BEFOR' | translate}}
+                </button>
+
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  [disabled]="!vform.form.valid" matStepperNext>
+                  {{'ACTION.NEXT' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                  [disabled]="!vform.form.valid">
+                  {{'ACTION.SAVE' | translate}}
+                </button>
+              </div>
+            </mat-step>
+
+            <mat-step label="{{'TITLE.System_management_settings'|translate}}" state="main">
+              <p>{{'TITLE.The_whole_system_management_settings_for_this_module'|translate}}</p>
+
+              <!-- AccessBuy Field -->
+              <div class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataConfigAdminMainModel.accessBuy" class="font-600 font-14">
+                      AccessBuy</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.accessBuy"
+                            [(ngModel)]="dataConfigAdminMainModel.accessBuy"
+                            name="dataConfigAdminMainModel.accessBuy">
+                        <label class="custom-control-label" for="dataConfigAdminMainModel.accessBuy"></label>
+                    </div>
+                </div>
+              </div>
+              <!-- ImageMainSizeWidth Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigAdminMainModel.imageMainSizeWidth" class="color-highlight">ImageMainSizeWidth</label>
+                <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeWidth"
+                  name="dataConfigAdminMainModel.imageMainSizeWidth" #dataConfigAdminMainModel_ImageMainSizeWidth
+                  type="number" placeholder="0" id="dataConfigAdminMainModel.imageMainSizeWidth" required />
+                <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeWidth.errors?.required">
+                  ImageMainSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+              </div>
+              <!-- ImageMainSizeHeight Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigAdminMainModel.imageMainSizeHeight" class="color-highlight">ImageMainSizeHeight</label>
+                <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeHeight"
+                  name="dataConfigAdminMainModel.imageMainSizeHeight" #dataConfigAdminMainModel_ImageMainSizeHeight
+                  type="number" placeholder="0" id="dataConfigAdminMainModel.imageMainSizeHeight" required />
+                <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeHeight.errors?.required">
+                  ImageMainSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+              </div>
+
+              <!-- ImageThumbnailSizeWidth Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigAdminMainModel.imageThumbnailSizeWidth" class="color-highlight">ImageThumbnailSizeWidth</label>
+                <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeWidth"
+                  name="dataConfigAdminMainModel.imageThumbnailSizeWidth" #dataConfigAdminMainModel_ImageThumbnailSizeWidth
+                  type="number" placeholder="0" id="dataConfigAdminMainModel.imageThumbnailSizeWidth" required />
+                <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeWidth.errors?.required">
+                  ImageThumbnailSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+              </div>
+              <!-- ImageThumbnailSizeHeight Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigAdminMainModel.imageThumbnailSizeHeight" class="color-highlight">ImageThumbnailSizeHeight</label>
+                <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeHeight"
+                  name="dataConfigAdminMainModel.imageThumbnailSizeHeight" #dataConfigAdminMainModel_ImageThumbnailSizeHeight
+                  type="number" placeholder="0" id="dataConfigAdminMainModel.imageThumbnailSizeHeight" required />
+                <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeHeight.errors?.required">
+                  ImageThumbnailSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+              </div>
+              <!-- AccessFree Field -->
+              <div class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataConfigAdminMainModel.accessFree" class="font-600 font-14">
+                      AccessFree</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.accessFree"
+                            [(ngModel)]="dataConfigAdminMainModel.accessFree"
+                            name="dataConfigAdminMainModel.accessFree">
+                        <label class="custom-control-label" for="dataConfigAdminMainModel.accessFree"></label>
+                    </div>
+                </div>
+              </div>
+              <!-- AccessFreeDay Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigAdminMainModel.accessFreeDay" class="color-highlight">AccessFreeDay</label>
+                <input matInput [(ngModel)]="dataConfigAdminMainModel.accessFreeDay"
+                  name="dataConfigAdminMainModel.accessFreeDay" #dataConfigAdminMainModel_AccessFreeDay type="number"
+                  placeholder="0" id="dataConfigAdminMainModel.accessFreeDay" />
+              </div>
+
+              <!-- DomainsList Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigAdminMainModel.domainsList" class="color-highlight">DomainsList</label>
+                <textarea matInput [(ngModel)]="dataConfigAdminMainModel.domainsList"
+                  name="dataConfigAdminMainModel.domainsList" #dataConfigAdminMainModel_DomainsList type="number"
+                  rows="5" id="dataConfigAdminMainModel.domainsList">
+                </textarea>
+              </div>
+
+              <!-- AdminCpUserRegidteryBool Field -->
+              <div class="d-flex mb-3">
+                <div class="pt-1">
+                    <h5 data-trigger-switch="dataConfigAdminMainModel.adminCpUserRegidteryBool" class="font-600 font-14">
+                      AdminCpUserRegidteryBool</h5>
+                </div>
+                <div class="ms-auto me-3 pe-2">
+                    <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.adminCpUserRegidteryBool"
+                            [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryBool"
+                            name="dataConfigAdminMainModel.adminCpUserRegidteryBool">
+                        <label class="custom-control-label" for="dataConfigAdminMainModel.adminCpUserRegidteryBool"></label>
+                    </div>
+                </div>
+              </div>
+              <!-- AdminCpUserRegidteryExpireDateDay Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" class="color-highlight">AdminCpUserRegidteryExpireDateDay</label>
+                <input matInput [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
+                  name="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
+                  #dataConfigAdminMainModel_AdminCpUserRegidteryExpireDateDay type="number" placeholder="0" id="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" />
+              </div>
+              <!-- UserMembershipRuleHtmlBody Field -->
+              {{'TITLE.User_Membership_Rules' | translate}} :
+              <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_the_text_of_the_user_membership_ruless')"
+                [config]="publicHelper.editorConfig" id="maineditor"
+                [(ngModel)]="dataConfigAdminMainModel.userMembershipRuleHtmlBody"
+                name="dataConfigAdminMainModel.userMembershipRuleHtmlBody">
+              </angular-editor>
+
+
+              <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+                <div [innerHTML]="dataConfigAdminMainModel | prettyjson"></div>
+              </div>
+              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+                  (click)="onActionBackToParent()">
+                  {{'ACTION.BACK' | translate}}
+                </button>
+                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                  matStepperPrevious>
+                  {{'ACTION.BEFOR' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                  [disabled]="!vform.form.valid">
+                  {{'ACTION.SAVE' | translate}}
+                </button>
+              </div>
+            </mat-step>
+          </mat-vertical-stepper>
+      </form>
+      <!--Content-->
   </div>
-  <div class="ntk-cms-html-card-body">
-    <app-progress-spinner [options]="loading"> </app-progress-spinner>
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-
-      <mat-step label="{{'TITLE.Default_module_settings'|translate}}" state="main"
-        *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-        <p>{{'TITLE.Settings_that_are_used_in_the_first_assignment_of_the_module_to_the_site' |translate}}</p>
-        <!-- StatusRenderUser Field -->
-        <div class="ntk-full-width">
-          <mat-slide-toggle [(ngModel)]="dataConfigSiteValuesDefaultModel.statusRenderUser"
-            name="dataConfigSiteValuesDefaultModel.statusRenderUser">
-            StatusRenderUser
-          </mat-slide-toggle>
-        </div>
-        <!-- UseDataDefaulteSite -->
-        <div class="ntk-full-width">
-          <mat-slide-toggle [(ngModel)]="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"
-            name="dataConfigSiteValuesDefaultModel.useDataDefaulteSite">
-            {{'TITLE.Display_the_default_site_information_on_the_site' | translate}}
-          </mat-slide-toggle>
-        </div>
-        <!-- DomainsGoogleSitekey Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>DomainsGoogleSitekey</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
-            name="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
-            #dataConfigSiteValuesDefaultModel_DomainsGoogleSitekey type="text" placeholder="ad....." />
-          <mat-icon matSuffix *ngIf="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-
-        <!-- DomainsGoogleSecretkey Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>DomainsGoogleSecretkey</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
-            name="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
-            #dataConfigSiteValuesDefaultModel_DomainsGoogleSecretkey type="text" placeholder="ad....." />
-          <mat-icon matSuffix *ngIf="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-        <div class="ntk-full-width">
-          <mat-slide-toggle [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryBool"
-            name="dataConfigSiteValuesDefaultModel.userRegidteryBool">
-            UserRegidteryBool
-          </mat-slide-toggle>
-        </div>
-        <!-- UserRegidteryRecordStatus Field -->
-        <app-cms-enum-record-status-selector [(model)]="dataConfigSiteValuesDefaultModel.userRegidteryRecordStatus"
-          [optionDisabled]="false" [optionLabel]="this.translate.instant('TITLE.Status')" [optionRequired]="true"
-          [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
-
-
-        <!-- UserRegidteryExpireDateDay Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>UserRegidteryExpireDateDay</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
-            name="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
-            #dataConfigSiteValuesDefaultModel_UserRegidteryExpireDateDay type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" matSuffix
-            mat-icon-button aria-label="Clear"
-            (click)="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-        <!-- RSSCount Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>RSSCount</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.rssCount"
-            name="dataConfigSiteValuesDefaultModel.rssCount" #dataConfigSiteValuesDefaultModel_RSSCount type="number"
-            placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigSiteValuesDefaultModel.rssCount" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigSiteValuesDefaultModel.rssCount = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-
-
-
-        <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-          <div [innerHTML]="dataConfigSiteValuesDefaultModel | prettyjson"></div>
-        </div>
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-            (click)="onActionBackToParent()">
-            {{'ACTION.BACK' | translate}}
-          </button>
-          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-            [disabled]="!vform.form.valid" matStepperNext>
-            {{'ACTION.NEXT' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-            [disabled]="!vform.form.valid">
-            {{'ACTION.SAVE' | translate}}
-          </button>
-        </div>
-      </mat-step>
-      <mat-step label="{{'TITLE.Default_access'|translate}}" state="main"
-        *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-        <p>{{'TITLE.Default_website_access_to_this_module'|translate}}</p>
-
-        <!-- MainDataContentRowCount Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>MainDataContentRowCount</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
-            name="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
-            #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" matSuffix
-            mat-icon-button aria-label="Clear"
-            (click)="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-        <!-- UseDataDefaulteSiteId Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>{{'TITLE.Default_information_site_ID' | translate}}</mat-label>
-          <input matInput [(ngModel)]="dataConfigAdminMainModel.useDataDefaulteSiteId"
-            name="dataConfigAdminMainModel.useDataDefaulteSiteId" #dataConfigAdminMainModel_UseDataDefaulteSiteId
-            type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.useDataDefaulteSiteId" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigAdminMainModel.useDataDefaulteSiteId = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- DomainsList Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>DomainsList</mat-label>
-          <textarea matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.domainsList"
-            name="dataConfigSiteAccessValuesDefaultModel.domainsList"
-            #dataConfigSiteAccessValuesDefaultModel_DomainsList type="text" placeholder="domain.com"
-            rows="10"></textarea>
-          <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesDefaultModel.domainsList" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigSiteAccessValuesDefaultModel.domainsList = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-
-
-        <!-- MaxAdminCpUserCreation Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>MaxAdminCpUserCreation</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
-            name="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
-            #dataConfigSiteAccessValuesDefaultModel_MaxAdminCpUserCreation type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" matSuffix
-            mat-icon-button aria-label="Clear"
-            (click)="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-
-        <!-- MaxUserCreation Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>MaxUserCreation</mat-label>
-          <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
-            name="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
-            #dataConfigSiteAccessValuesDefaultModel_MaxUserCreation type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigSiteAccessValuesDefaultModel.maxUserCreation = 0">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-
-
-
-
-        <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-          <div [innerHTML]="dataConfigSiteAccessValuesDefaultModel | prettyjson"></div>
-        </div>
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-            matStepperPrevious>
-            {{'ACTION.BEFOR' | translate}}
-          </button>
-
-          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-            [disabled]="!vform.form.valid" matStepperNext>
-            {{'ACTION.NEXT' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-            [disabled]="!vform.form.valid">
-            {{'ACTION.SAVE' | translate}}
-          </button>
-        </div>
-      </mat-step>
-      <mat-step label="{{'TITLE.System_management_settings'|translate}}" state="main">
-        <p>{{'TITLE.The_whole_system_management_settings_for_this_module'|translate}}</p>
-
-        <!-- AccessBuy Field -->
-        <div class="ntk-full-width">
-          <mat-slide-toggle [(ngModel)]="dataConfigAdminMainModel.accessBuy" name="dataConfigAdminMainModel.accessBuy">
-            AccessBuy
-          </mat-slide-toggle>
-        </div>
-        <!-- ImageMainSizeWidth Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>ImageMainSizeWidth</mat-label>
-          <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeWidth"
-            name="dataConfigAdminMainModel.imageMainSizeWidth" #dataConfigAdminMainModel_ImageMainSizeWidth
-            type="number" placeholder="0" required />
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.imageMainSizeWidth" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigAdminMainModel.imageMainSizeWidth = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeWidth.errors?.required">
-            ImageMainSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- ImageMainSizeHeight Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>ImageMainSizeHeight</mat-label>
-          <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeHeight"
-            name="dataConfigAdminMainModel.imageMainSizeHeight" #dataConfigAdminMainModel_ImageMainSizeHeight
-            type="number" placeholder="0" required />
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.imageMainSizeHeight" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigAdminMainModel.imageMainSizeHeight = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeHeight.errors?.required">
-            ImageMainSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-
-
-
-        <!-- ImageThumbnailSizeWidth Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>ImageThumbnailSizeWidth</mat-label>
-          <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeWidth"
-            name="dataConfigAdminMainModel.imageThumbnailSizeWidth" #dataConfigAdminMainModel_ImageThumbnailSizeWidth
-            type="number" placeholder="0" required />
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.imageThumbnailSizeWidth" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigAdminMainModel.imageThumbnailSizeWidth = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeWidth.errors?.required">
-            ImageThumbnailSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- ImageThumbnailSizeHeight Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>ImageThumbnailSizeHeight</mat-label>
-          <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeHeight"
-            name="dataConfigAdminMainModel.imageThumbnailSizeHeight" #dataConfigAdminMainModel_ImageThumbnailSizeHeight
-            type="number" placeholder="0" required />
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.imageThumbnailSizeHeight" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigAdminMainModel.imageThumbnailSizeHeight = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-          <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeHeight.errors?.required">
-            ImageThumbnailSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </mat-form-field>
-        <!-- AccessFree Field -->
-        <div class="ntk-full-width">
-          <mat-slide-toggle [(ngModel)]="dataConfigAdminMainModel.accessFree"
-            name="dataConfigAdminMainModel.accessFree">
-            AccessFree
-          </mat-slide-toggle>
-        </div>
-        <!-- AccessFreeDay Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>AccessFreeDay</mat-label>
-          <input matInput [(ngModel)]="dataConfigAdminMainModel.accessFreeDay"
-            name="dataConfigAdminMainModel.accessFreeDay" #dataConfigAdminMainModel_AccessFreeDay type="number"
-            placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.accessFreeDay" matSuffix mat-icon-button
-            aria-label="Clear" (click)="dataConfigAdminMainModel.accessFreeDay = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-
-
-
-        <!-- DomainsList Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>DomainsList</mat-label>
-          <textarea matInput [(ngModel)]="dataConfigAdminMainModel.domainsList"
-            name="dataConfigAdminMainModel.domainsList" #dataConfigAdminMainModel_DomainsList type="number"
-            rows="5"></textarea>
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.domainsList" matSuffix mat-icon-button aria-label="Clear"
-            (click)="dataConfigAdminMainModel.domainsList = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-
-        </mat-form-field>
-
-        <!-- AdminCpUserRegidteryBool Field -->
-        <div class="ntk-full-width">
-          <mat-slide-toggle [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryBool"
-            name="dataConfigAdminMainModel.adminCpUserRegidteryBool">
-            AdminCpUserRegidteryBool
-          </mat-slide-toggle>
-        </div>
-
-        <!-- AdminCpUserRegidteryExpireDateDay Field -->
-        <mat-form-field class="ntk-full-width">
-          <mat-label>AdminCpUserRegidteryExpireDateDay</mat-label>
-          <input matInput [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
-            name="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
-            #dataConfigAdminMainModel_AdminCpUserRegidteryExpireDateDay type="number" placeholder="0" />
-          <mat-icon matSuffix *ngIf="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" matSuffix
-            mat-icon-button aria-label="Clear"
-            (click)="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay = null">close</mat-icon>
-          <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <!-- UserMembershipRuleHtmlBody Field -->
-        {{'TITLE.User_Membership_Rules' | translate}} :
-        <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_the_text_of_the_user_membership_ruless')"
-          [config]="publicHelper.editorConfig" id="maineditor"
-          [(ngModel)]="dataConfigAdminMainModel.userMembershipRuleHtmlBody"
-          name="dataConfigAdminMainModel.userMembershipRuleHtmlBody"></angular-editor>
-
-
-        <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-          <div [innerHTML]="dataConfigAdminMainModel | prettyjson"></div>
-        </div>
-        <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-            (click)="onActionBackToParent()">
-            {{'ACTION.BACK' | translate}}
-          </button>
-          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-            matStepperPrevious>
-            {{'ACTION.BEFOR' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-            [disabled]="!vform.form.valid">
-            {{'ACTION.SAVE' | translate}}
-          </button>
-        </div>
-      </mat-step>
-    </mat-vertical-stepper>
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  </div>
-</form>
+</div>
