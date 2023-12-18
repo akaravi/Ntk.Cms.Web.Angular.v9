@@ -68,59 +68,63 @@
       <p class="font-11 text-start opacity-70">{{'ACTION.QUICK_ADD' |
         translate}}</p>
     </div>
+    <div class="col-6 ms-auto me-auto">
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        <mat-slide-toggle class="custom-slide-toggle"
+          [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
+        translate}}
+      </a>
+    </div>
+    <div class="col-6 ms-auto me-auto">
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        <mat-slide-toggle (click)="onActionbuttonStatist()">
+        </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
+      </a>
+    </div>
+    <div class="col-6 ms-auto me-auto">
+      <a *ngIf="this.actionbuttonExportOn" type="button" 
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" (click)="onActionbuttonExport()" target="_blank"><i class="fa-duotone fa-cloud-arrow-down fa-lg" style="--fa-primary-color: #000000; --fa-secondary-color: #ffffff;"></i><br></a>
+      <p class="font-11 text-start opacity-70">{{'ACTION.EXPORTFILE' |
+        translate}}</p>
+    </div>
+    <div class="col-6 ms-auto me-auto">
+      <a type="button" 
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" (click)="onActionbuttonMemo()" target="_blank"><i class="fa-sharp fa-thin fa-memo fa-lg" style="color: #ffffff;"></i><br></a>
+      <p class="font-11 text-start opacity-70">{{'ACTION.MEMO' |
+        translate}}</p>
+    </div>
+    <div class="col-6 ms-auto me-auto">
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
+        </mat-slide-toggle>
+        {{'ACTION.INCHECKING' | translate}}
+      </a>
+    </div>
+    <div class="col-6 ms-auto me-auto">
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
+          [checked]="searchInResponsibleChecked">
+        </mat-slide-toggle>
+        {{'ACTION.InResponsible' | translate}}
+      </a>
+    </div>
+    <div class="col-6 ms-auto me-auto">
+      <a type="button" 
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" (click)="onActionbuttonReload()" target="_blank"><i class="fa-solid fa-rotate-right fa-lg" style="color: #ffffff;"></i><br></a>
+      <p class="font-11 text-start opacity-70">{{'ACTION.RELOAD' |
+        translate}}</p>
+    </div>
+    <div class="col-6 ms-auto me-auto">
+      <a *ngIf="requestLinkPropertyTypeLanduseId?.length>0" type="button" 
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray" (click)="onActionBackToParent()" target="_blank"><i class="fa-sharp fa-solid fa-arrow-left fa-lg" style="color: #ffffff;"></i><br></a>
+      <p class="font-11 text-start opacity-70">{{'ACTION.BACK' |
+        translate}}</p>
+    </div>
+    
   </div>
-    aaaaa
-    <button *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute " (click)="onActionbuttonNewRow($event)"
-      type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
-      translate}}
-    </button>
-    <button *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute "
-      (click)="onActionbuttonQuickAddRow($event)" type="button"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" id="openModalButton"
-      data-toggle="modal" data-target="#categoryModal">{{'ACTION.QUICK_ADD' |
-      translate}}
-    </button>
-
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle class="custom-slide-toggle"
-        [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
-      translate}}
-    </a>
-
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonStatist()">
-      </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
-    </a>
-
-    <button (click)="onActionbuttonExport()" type="button"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-      *ngIf="this.actionbuttonExportOn">
-      <mat-icon title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
-    </button>
-
-    <button (click)="onActionbuttonMemo()" type="button"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon title="{{'ACTION.MEMO' | translate}}">description</mat-icon>
-    </button>
-
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
-      </mat-slide-toggle>
-      {{'ACTION.INCHECKING' | translate}}
-    </a>
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
-        [checked]="searchInResponsibleChecked">
-      </mat-slide-toggle>
-      {{'ACTION.InResponsible' | translate}}
-    </a>
-    <button (click)="onActionbuttonReload()" type="button"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
-    </button>
-    <button (click)="onActionBackToParent()" *ngIf="requestLinkPropertyTypeLanduseId?.length>0" type="button"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray ">{{'ACTION.BACK' |
-      translate}}</button>
+    
+    
+   
     
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
