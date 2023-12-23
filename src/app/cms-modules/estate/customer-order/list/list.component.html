@@ -1,6 +1,5 @@
 <app-cms-guide-notice [Key]="'customerorder.content.list'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
-
 <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true && optionloadByRoute"
   [optionActionRowDisplay]="tableRowSelected?.id?.length>0" [optionSelectRowItemTitle]="tableRowSelected?.title">
   <ng-container cms-tree>
@@ -14,19 +13,14 @@
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
   </ng-container>
-
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <button *ngIf="optionloadByRoute && dataModelResult.access.accessAddRow   " (click)="onActionbuttonNewRow($event)"
       type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-
-
-
     <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
     </a>
-
     <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       <mat-slide-toggle (click)="onActionbuttonStatist()">
       </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
@@ -36,12 +30,10 @@
       <mat-icon style="font-size: 20px;margin: -11px;"
         title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
     </button>
-
     <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
       *ngIf="!this.requestLinkPropertyId|| this.requestLinkPropertyId.length===0">
       <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
         [checked]="searchInResponsibleChecked">
-
       </mat-slide-toggle>
       {{'ACTION.InResponsible' | translate}}
     </a>
@@ -63,7 +55,6 @@
   </ng-container>
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-     
     <button (click)="onActionbuttonEditRow(tableRowSelected,$event)" *ngIf="dataModelResult.access.accessEditRow"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta">
       <span>{{'ACTION.EDIT' | translate}}</span>
@@ -140,14 +131,12 @@
         <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)"
           [optionTypeView]="2" [(optionLoading)]="loading"
           [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')">
-
           <mat-icon matSuffix
             *ngIf="filteModelContent.linkPropertyTypeLanduseId && filteModelContent.linkPropertyTypeLanduseId?.length>0"
             matSuffix mat-icon-button aria-label="Clear" (click)="onActionSelectorSelectLanduse(null)">
             close
           </mat-icon>
         </app-estate-property-type-landuse-selector>
-
         <br>
         <br>
         <br>
@@ -159,45 +148,36 @@
             mat-icon-button aria-label="Clear" (click)="filteModelContent.linkContractTypeId = null;"> close
           </mat-icon>
         </app-estate-contract-type-selector>
-
         <br>
         <br>
         <br>
         <!-- CreatedYaer Field -->
-        <mat-form-field class="ntk-full-width"
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
           *ngIf="this.filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titleCreatedYaer?.length>1">
-          <mat-label>{{PropertyTypeSelected.titleCreatedYaer}}</mat-label>
+          <label for="filteModelContent.createdYaer"
+            class="color-highlight">{{PropertyTypeSelected.titleCreatedYaer}}</label>
           <input matInput [(ngModel)]="filteModelContent.createdYaer" name="filteModelContent.createdYaer" #CreatedYaer
-            type="number" placeholder="{{fieldsInfo['createdYaer']?.fieldTitle}}" />
-          <mat-icon matPrefix *ngIf="filteModelContent.createdYaer" matPrefix mat-icon-button aria-label="Clear"
-            (click)="filteModelContent.createdYaer = null"> close</mat-icon>
-          <mat-icon matPrefix> mode_edit</mat-icon>
-        </mat-form-field>
+            type="number" placeholder="{{fieldsInfo['createdYaer']?.fieldTitle}}" class="form-control validate-name"
+            id="filteModelContent.createdYaer" />
+        </div>
         <!-- Partition Field -->
-        <mat-form-field class="ntk-full-width"
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
           *ngIf="this.filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titlePartition?.length>1">
-          <mat-label>{{PropertyTypeSelected.titlePartition}}</mat-label>
+          <label for="filteModelContent.partition"
+            class="color-highlight">{{PropertyTypeSelected.titlePartition}}</label>
           <input matInput [(ngModel)]="filteModelContent.partition" name="filteModelContent.partition" #Partition
-            type="number" placeholder="{{PropertyTypeSelected.titlePartition}}" />
-          <mat-icon matPrefix *ngIf="filteModelContent.partition" matPrefix mat-icon-button aria-label="Clear"
-            (click)="filteModelContent.partition = 0"> close</mat-icon>
-          <mat-icon matPrefix> mode_edit</mat-icon>
-        </mat-form-field>
+            type="number" placeholder="{{PropertyTypeSelected.titlePartition}}" class="form-control validate-name"
+            id="filteModelContent.partition" />
+        </div>
         <!-- Area Field -->
-        <mat-form-field class="ntk-full-width" *ngIf="fieldsInfo['area']?.accessWatchField">
-          <mat-label>{{fieldsInfo['area']?.fieldTitle}}</mat-label>
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+          *ngIf="fieldsInfo['area']?.accessWatchField">
+          <label for="filteModelContent.area" class="color-highlight">{{fieldsInfo['area']?.fieldTitle}}</label>
           <input matInput [(ngModel)]="filteModelContent.area" name="filteModelContent.area" #Area type="text"
-            currencyMask class="input-ltr" pattern="(d{3})" placeholder="{{fieldsInfo['area']?.fieldTitle}}"
-            step="10" />
-          <mat-icon matPrefix *ngIf="filteModelContent.area" matPrefix mat-icon-button aria-label="Clear"
-            (click)="filteModelContent.area = 0"> close</mat-icon>
-          <mat-icon matPrefix> mode_edit</mat-icon>
-          <mat-hint align="start">
-            <mat-icon matSuffix class="info-field-icon">{{'TITLE.info' | translate}}</mat-icon>
-            <strong class="info-field-text">{{fieldsInfo['area']?.fieldDescription}}</strong>
-          </mat-hint>
-        </mat-form-field>
-
+            currencyMask class="input-ltr" pattern="(d{3})" placeholder="{{fieldsInfo['area']?.fieldTitle}}" step="10"
+            class="form-control validate-name" id="filteModelContent.area" />
+          <em>{{fieldsInfo['area']?.fieldDescription}}</em>
+        </div>
         <hr>
         <!-- linkCoreCurrencyId Field -->
         <app-cms-currency-selector [optionSelectFirstItem]="true"
@@ -208,79 +188,78 @@
         <div class="row" style="direction: rtl;">
           <div class="col-md-6 col-sm-6 col-xs-9">
             <!-- SalePriceMin Field -->
-            <mat-form-field class="ntk-full-width" *ngIf=" contractTypeSelected?.hasSalePrice">
-              <mat-label>{{'TITLE.SalePriceMin' | translate}} </mat-label>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf=" contractTypeSelected?.hasSalePrice">
+              <label for="filteModelContent.salePriceMin" class="color-highlight">{{'TITLE.SalePriceMin' | translate}}
+              </label>
               <input matInput [(ngModel)]="filteModelContent.salePriceMin" name="filteModelContent.salePriceMin"
-                #SalePriceMin type="text" currencyMask class="input-ltr-center" step="1000000" />
-              <mat-icon matPrefix *ngIf="filteModelContent.salePriceMin" matPrefix mat-icon-button aria-label="Clear"
-                (click)="filteModelContent.salePriceMin = 0"> close</mat-icon>
-              <mat-icon matPrefix> mode_edit</mat-icon>
-            </mat-form-field>
+                #SalePriceMin type="text" currencyMask class="input-ltr-center" step="1000000"
+                class="form-control validate-name" id="filteModelContent.salePriceMin" />
+            </div>
             <!-- RentPriceMin Field -->
-            <mat-form-field class="ntk-full-width" *ngIf="contractTypeSelected?.hasRentPrice">
-              <mat-label>{{'TITLE.RentPriceMin' | translate}}</mat-label>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="contractTypeSelected?.hasRentPrice">
+              <label for="filteModelContent.rentPriceMin" class="color-highlight">{{'TITLE.RentPriceMin' |
+                translate}}</label>
               <input matInput [(ngModel)]="filteModelContent.rentPriceMin" name="filteModelContent.rentPriceMin"
-                #RentPriceMin type="text" currencyMask class="input-ltr-center" step="1000000" />
-              <mat-icon matPrefix *ngIf="filteModelContent.rentPriceMin" matPrefix mat-icon-button aria-label="Clear"
-                (click)="filteModelContent.rentPriceMin = 0"> close</mat-icon>
-              <mat-icon matPrefix> mode_edit</mat-icon>
-            </mat-form-field>
+                #RentPriceMin type="text" currencyMask class="input-ltr-center" step="1000000"
+                class="form-control validate-name" id="filteModelContent.rentPriceMin" />
+            </div>
             <!-- DepositPriceMin Field -->
-            <mat-form-field class="ntk-full-width" *ngIf=" contractTypeSelected?.hasDepositPrice">
-              <mat-label>{{'TITLE.DepositPriceMin' | translate}} </mat-label>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf=" contractTypeSelected?.hasDepositPrice">
+              <label for="filteModelContent.depositPriceMin" class="color-highlight">ImageThumbnailSizeHeight</label>
               <input matInput [(ngModel)]="filteModelContent.depositPriceMin" name="filteModelContent.depositPriceMin"
-                #DepositPriceMin type="text" currencyMask class="input-ltr-center" step="1000000" />
-              <mat-icon matPrefix *ngIf="filteModelContent.depositPriceMin" matPrefix mat-icon-button aria-label="Clear"
-                (click)="filteModelContent.depositPriceMin = 0"> close</mat-icon>
-              <mat-icon matPrefix> mode_edit</mat-icon>
-            </mat-form-field>
+                #DepositPriceMin type="text" currencyMask class="input-ltr-center" step="1000000"
+                class="form-control validate-name" id="filteModelContent.depositPriceMin" />
+            </div>
             <!-- PeriodPriceMin Field -->
-            <mat-form-field class="ntk-full-width" *ngIf=" contractTypeSelected?.hasDepositPrice">
-              <mat-label>{{'TITLE.PeriodPriceMin' | translate}} </mat-label>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf=" contractTypeSelected?.hasDepositPrice">
+              <label for="filteModelContent.periodPriceMin" class="color-highlight">{{'TITLE.PeriodPriceMin' |
+                translate}} </label>
               <input matInput [(ngModel)]="filteModelContent.periodPriceMin" name="filteModelContent.periodPriceMin"
-                #PeriodPriceMin type="text" currencyMask class="input-ltr-center" step="1000000" />
-              <mat-icon matPrefix *ngIf="filteModelContent.periodPriceMin" matPrefix mat-icon-button aria-label="Clear"
-                (click)="filteModelContent.periodPriceMin = 0"> close</mat-icon>
-              <mat-icon matPrefix> mode_edit</mat-icon>
-            </mat-form-field>
+                #PeriodPriceMin type="text" currencyMask class="input-ltr-center" step="1000000"
+                class="form-control validate-name" id="filteModelContent.periodPriceMin" />
+            </div>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-9">
             <!-- SalePriceMax Field -->
-            <mat-form-field class="ntk-full-width" *ngIf=" contractTypeSelected?.hasSalePrice">
-              <mat-label> {{'TITLE.SalePriceMax' | translate}}</mat-label>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf=" contractTypeSelected?.hasSalePrice">
+              <label for="filteModelContent.salePriceMax" class="color-highlight">
+                {{'TITLE.SalePriceMax' | translate}}</label>
               <input matInput [(ngModel)]="filteModelContent.salePriceMax" name="filteModelContent.salePriceMax"
-                #SalePriceMax type="text" currencyMask class="input-ltr-center" step="1000000" />
-              <mat-icon matPrefix *ngIf="filteModelContent.salePriceMax" matPrefix mat-icon-button aria-label="Clear"
-                (click)="filteModelContent.salePriceMax = 0"> close</mat-icon>
-              <mat-icon matPrefix> mode_edit</mat-icon>
-            </mat-form-field>
+                #SalePriceMax type="text" currencyMask class="input-ltr-center" step="1000000"
+                class="form-control validate-name" id="filteModelContent.salePriceMax" />
+            </div>
             <!-- RentPriceMax Field -->
-            <mat-form-field class="ntk-full-width" *ngIf="contractTypeSelected?.hasRentPrice">
-              <mat-label>{{'TITLE.RentPriceMax' | translate}} </mat-label>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="contractTypeSelected?.hasRentPrice">
+              <label for="filteModelContent.rentPriceMax" class="color-highlight">{{'TITLE.RentPriceMax' | translate}}
+              </label>
               <input matInput [(ngModel)]="filteModelContent.rentPriceMax" name="filteModelContent.rentPriceMax"
-                #RentPriceMax type="text" currencyMask class="input-ltr-center" step="1000000" />
-              <mat-icon matPrefix *ngIf="filteModelContent.rentPriceMax" matPrefix mat-icon-button aria-label="Clear"
-                (click)="filteModelContent.rentPriceMax = 0"> close</mat-icon>
-              <mat-icon matPrefix> mode_edit</mat-icon>
-            </mat-form-field>
+                #RentPriceMax type="text" currencyMask class="input-ltr-center" step="1000000"
+                class="form-control validate-name" id="filteModelContent.rentPriceMax" />
+            </div>
             <!-- DepositPriceMax Field -->
-            <mat-form-field class="ntk-full-width" *ngIf="contractTypeSelected?.hasDepositPrice">
-              <mat-label>{{'TITLE.DepositPriceMax' | translate}}</mat-label>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="contractTypeSelected?.hasDepositPrice">
+              <label for="filteModelContent.depositPriceMax" class="color-highlight">{{'TITLE.DepositPriceMax' |
+                translate}}</label>
               <input matInput [(ngModel)]="filteModelContent.depositPriceMax" name="filteModelContent.depositPriceMax"
-                #DepositPriceMax type="text" currencyMask class="input-ltr-center" step="1000000" />
-              <mat-icon matPrefix *ngIf="filteModelContent.depositPriceMax" matPrefix mat-icon-button aria-label="Clear"
-                (click)="filteModelContent.depositPriceMax = 0"> close</mat-icon>
-              <mat-icon matPrefix> mode_edit</mat-icon>
-            </mat-form-field>
+                #DepositPriceMax type="text" currencyMask class="input-ltr-center" step="1000000"
+                class="form-control validate-name" id="filteModelContent.depositPriceMax" />
+            </div>
             <!-- PeriodPriceMax Field -->
-            <mat-form-field class="ntk-full-width" *ngIf="contractTypeSelected?.hasDepositPrice">
-              <mat-label>{{'TITLE.PeriodPriceMax' | translate}} </mat-label>
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="contractTypeSelected?.hasDepositPrice">
+              <label for="filteModelContent.periodPriceMax" class="color-highlight">{{'TITLE.PeriodPriceMax' |
+                translate}} </label>
               <input matInput [(ngModel)]="filteModelContent.periodPriceMax" name="filteModelContent.periodPriceMax"
-                #PeriodPriceMax type="text" currencyMask class="input-ltr-center" step="1000000" />
-              <mat-icon matPrefix *ngIf="filteModelContent.periodPriceMax" matPrefix mat-icon-button aria-label="Clear"
-                (click)="filteModelContent.periodPriceMax = 0"> close</mat-icon>
-              <mat-icon matPrefix> mode_edit</mat-icon>
-            </mat-form-field>
+                #PeriodPriceMax type="text" currencyMask class="input-ltr-center" step="1000000"
+                class="form-control validate-name" id="filteModelContent.periodPriceMax" />
+            </div>
           </div>
           <mat-accordion class="example-headers-align">
             <mat-expansion-panel *ngFor="let itemGroup of dataModelPropertyDetailGroups ; index as i"
@@ -375,21 +354,17 @@
               </mat-action-row>
             </mat-expansion-panel>
             <br>
-
           </mat-accordion>
         </div>
       </div>
     </app-cms-search-list>
-
     <app-cms-statist-list [(options)]="optionsStatist"></app-cms-statist-list>
-
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
   </ng-container>
   <ng-container cms-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-table class="ntk-cms-html-table" [dataSource]="tableSource" matSort #tableSort="matSort"
       (matSortChange)="onTableSortData(tableSort)" multiTemplateDataRows>
-
       <!-- ID Column -->
       <ng-container matColumnDef="Id">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{fieldsInfo['id']?.fieldTitle}}
@@ -421,8 +396,6 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
       </ng-container>
-
-
       <!-- CreatedDate Column -->
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{fieldsInfo['createdDate']?.fieldTitle}}
@@ -483,13 +456,11 @@
       <ng-container matColumnDef="Action">
         <mat-header-cell *matHeaderCellDef class="form-label"> {{'TITLE.OPTION' | translate}} </mat-header-cell>
         <mat-cell *matCellDef="let row" class=' Action'>
-
           <!-- Action Menu -->
           <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
-
           </mat-menu>
         </mat-cell>
       </ng-container>
@@ -515,7 +486,6 @@
                 <th>
                   <span class="navi-icon pointer" [cdkCopyToClipboard]="row.id" (click)="onActionCopied()">
                     <i class="flaticon2-copy"></i></span> {{row.id}}
-
                 </th>
               </tr>
               <tr>
@@ -541,17 +511,12 @@
               <tr>
                 <td></td>
                 <td>
-
-
-
                 </td>
               </tr>
-
             </table>
           </div>
         </mat-cell>
       </ng-container>
-
       <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowMouseClick(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
@@ -562,16 +527,13 @@
         [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
       </mat-row>
     </mat-table>
-
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
   </ng-container>
   <ng-container cms-footer>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
     <mat-paginator #paginator [length]="(dataModelResult.totalRowCount)"
       [pageIndex]="(dataModelResult.currentPageNumber-1)" [pageSize]="dataModelResult.rowPerPage"
       [pageSizeOptions]="[5, 10, 20, 100]" (page)="onTablePageingData($event)"></mat-paginator>
-
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
   </ng-container>
 </app-cms-html-list>
