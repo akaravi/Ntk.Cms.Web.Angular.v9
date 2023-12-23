@@ -22,7 +22,7 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataModel.title" class="color-highlight">{{'TITLE.System_Title' | translate}}</label>
               <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                placeholder="{{'TITLE.System_Title' | translate}}" minlength="3" maxlength="100" id="dataModel.title" required />
+                placeholder="{{'TITLE.System_Title' | translate}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
               <em align="end">{{ Title.value.length }} / 100</em>
               <mat-error *ngIf="Title.errors?.required">
                 {{'MESSAGE.System.title_required' | translate}}
@@ -32,7 +32,7 @@
               <label for="dataModel.subDomain" class="color-highlight">{{'TITLE.Latin_title' | translate}}</label>
               <input matInput [(ngModel)]="dataModel.subDomain" name="dataModel.subDomain" #SubDomain2 type="text"
                 (ngModelChange)="checkValidateDomain()" placeholder="{{'TITLE.Latin_title' | translate}}" minlength="3"
-                maxlength="20" id="dataModel.subDomain" required />
+                maxlength="20" class="form-control validate-name" id="dataModel.subDomain" required />
               <em align="end">{{ SubDomain2.value.length }} / 20</em>
               <mat-error *ngIf="SubDomain2.errors?.required">
                 {{'TITLE.Latin_title_is_required' | translate}}
@@ -95,7 +95,7 @@
             <!-- Domain Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <select  [(ngModel)]="dataModel.domain" id="dataModel.domain"
-                name="dataModel.domain" #Domain="ngModel" ngClass="recordStatus-{{ dataModel.domain }}">
+                name="dataModel.domain" #Domain="ngModel" ngClass="recordStatus-{{ dataModel.domain }}" class="form-control validate-name">
                 <option *ngFor="
               let item of dataModelResultDomains.listItems;
               index as i

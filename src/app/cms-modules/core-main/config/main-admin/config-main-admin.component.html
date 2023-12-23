@@ -53,7 +53,7 @@
                 <label for="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" class="color-highlight">DomainsGoogleSitekey</label>
                 <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
                   name="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
-                  #dataConfigSiteValuesDefaultModel_DomainsGoogleSitekey type="text" placeholder="ad....." id="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" />
+                  #dataConfigSiteValuesDefaultModel_DomainsGoogleSitekey type="text" placeholder="ad....." class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" />
               </div>
 
               <!-- DomainsGoogleSecretkey Field -->
@@ -61,7 +61,7 @@
                 <label for="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" class="color-highlight">DomainsGoogleSecretkey</label>
                 <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
                   name="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
-                  #dataConfigSiteValuesDefaultModel_DomainsGoogleSecretkey type="text" placeholder="ad....." id="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" />
+                  #dataConfigSiteValuesDefaultModel_DomainsGoogleSecretkey type="text" placeholder="ad....." class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" />
               </div>
               <div class="d-flex mb-3">
                 <div class="pt-1">
@@ -87,14 +87,14 @@
                 <label for="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" class="color-highlight">UserRegidteryExpireDateDay</label>
                 <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
                   name="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
-                  #dataConfigSiteValuesDefaultModel_UserRegidteryExpireDateDay type="number" placeholder="0" id="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDaydataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" />
+                  #dataConfigSiteValuesDefaultModel_UserRegidteryExpireDateDay type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDaydataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" />
               </div>
               <!-- RSSCount Field -->
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataConfigSiteValuesDefaultModel.rssCount" class="color-highlight">RSSCount</label>
                 <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.rssCount"
                   name="dataConfigSiteValuesDefaultModel.rssCount" #dataConfigSiteValuesDefaultModel_RSSCount type="number"
-                  placeholder="0" id="dataConfigSiteValuesDefaultModel.rssCount" />
+                  placeholder="0" class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.rssCount" />
               </div>
               <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
                 <div [innerHTML]="dataConfigSiteValuesDefaultModel | prettyjson"></div>
@@ -124,14 +124,14 @@
                 <label for="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
                 <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
                   name="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
-                  #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount type="number" placeholder="0" id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" />
+                  #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" />
               </div>
               <!-- UseDataDefaulteSiteId Field -->
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataConfigAdminMainModel.useDataDefaulteSiteId" class="color-highlight">{{'TITLE.Default_information_site_ID' | translate}}</label>
                 <input matInput [(ngModel)]="dataConfigAdminMainModel.useDataDefaulteSiteId"
                   name="dataConfigAdminMainModel.useDataDefaulteSiteId" #dataConfigAdminMainModel_UseDataDefaulteSiteId
-                  type="number" placeholder="0" id="dataConfigAdminMainModel.useDataDefaulteSiteId" />
+                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.useDataDefaulteSiteId" />
               </div>
 
               <!-- DomainsList Field -->
@@ -140,14 +140,14 @@
                 <textarea matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.domainsList"
                   name="dataConfigSiteAccessValuesDefaultModel.domainsList"
                   #dataConfigSiteAccessValuesDefaultModel_DomainsList type="text" placeholder="domain.com"
-                  rows="10" id="dataConfigSiteAccessValuesDefaultModel.domainsList"></textarea>
+                  rows="10" class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.domainsList"></textarea>
               </div>
               <!-- MaxAdminCpUserCreation Field -->
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" class="color-highlight">MaxAdminCpUserCreation</label>
                 <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
                   name="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
-                  #dataConfigSiteAccessValuesDefaultModel_MaxAdminCpUserCreation type="number" placeholder="0" id="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" />
+                  #dataConfigSiteAccessValuesDefaultModel_MaxAdminCpUserCreation type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" />
               </div>
 
               <!-- MaxUserCreation Field -->
@@ -155,7 +155,7 @@
                 <label for="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" class="color-highlight">MaxUserCreation</label>
                 <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
                   name="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
-                  #dataConfigSiteAccessValuesDefaultModel_MaxUserCreation type="number" placeholder="0" id="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" />
+                  #dataConfigSiteAccessValuesDefaultModel_MaxUserCreation type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" />
               </div>
 
               <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
@@ -201,7 +201,7 @@
                 <label for="dataConfigAdminMainModel.imageMainSizeWidth" class="color-highlight">ImageMainSizeWidth</label>
                 <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeWidth"
                   name="dataConfigAdminMainModel.imageMainSizeWidth" #dataConfigAdminMainModel_ImageMainSizeWidth
-                  type="number" placeholder="0" id="dataConfigAdminMainModel.imageMainSizeWidth" required />
+                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeWidth" required />
                 <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeWidth.errors?.required">
                   ImageMainSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -211,7 +211,7 @@
                 <label for="dataConfigAdminMainModel.imageMainSizeHeight" class="color-highlight">ImageMainSizeHeight</label>
                 <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeHeight"
                   name="dataConfigAdminMainModel.imageMainSizeHeight" #dataConfigAdminMainModel_ImageMainSizeHeight
-                  type="number" placeholder="0" id="dataConfigAdminMainModel.imageMainSizeHeight" required />
+                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeHeight" required />
                 <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeHeight.errors?.required">
                   ImageMainSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -222,7 +222,7 @@
                 <label for="dataConfigAdminMainModel.imageThumbnailSizeWidth" class="color-highlight">ImageThumbnailSizeWidth</label>
                 <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeWidth"
                   name="dataConfigAdminMainModel.imageThumbnailSizeWidth" #dataConfigAdminMainModel_ImageThumbnailSizeWidth
-                  type="number" placeholder="0" id="dataConfigAdminMainModel.imageThumbnailSizeWidth" required />
+                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageThumbnailSizeWidth" required />
                 <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeWidth.errors?.required">
                   ImageThumbnailSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -232,7 +232,7 @@
                 <label for="dataConfigAdminMainModel.imageThumbnailSizeHeight" class="color-highlight">ImageThumbnailSizeHeight</label>
                 <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeHeight"
                   name="dataConfigAdminMainModel.imageThumbnailSizeHeight" #dataConfigAdminMainModel_ImageThumbnailSizeHeight
-                  type="number" placeholder="0" id="dataConfigAdminMainModel.imageThumbnailSizeHeight" required />
+                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageThumbnailSizeHeight" required />
                 <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeHeight.errors?.required">
                   ImageThumbnailSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -257,7 +257,7 @@
                 <label for="dataConfigAdminMainModel.accessFreeDay" class="color-highlight">AccessFreeDay</label>
                 <input matInput [(ngModel)]="dataConfigAdminMainModel.accessFreeDay"
                   name="dataConfigAdminMainModel.accessFreeDay" #dataConfigAdminMainModel_AccessFreeDay type="number"
-                  placeholder="0" id="dataConfigAdminMainModel.accessFreeDay" />
+                  placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.accessFreeDay" />
               </div>
 
               <!-- DomainsList Field -->
@@ -265,7 +265,7 @@
                 <label for="dataConfigAdminMainModel.domainsList" class="color-highlight">DomainsList</label>
                 <textarea matInput [(ngModel)]="dataConfigAdminMainModel.domainsList"
                   name="dataConfigAdminMainModel.domainsList" #dataConfigAdminMainModel_DomainsList type="number"
-                  rows="5" id="dataConfigAdminMainModel.domainsList">
+                  rows="5" class="form-control validate-name" id="dataConfigAdminMainModel.domainsList">
                 </textarea>
               </div>
 
@@ -289,7 +289,7 @@
                 <label for="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" class="color-highlight">AdminCpUserRegidteryExpireDateDay</label>
                 <input matInput [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
                   name="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
-                  #dataConfigAdminMainModel_AdminCpUserRegidteryExpireDateDay type="number" placeholder="0" id="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" />
+                  #dataConfigAdminMainModel_AdminCpUserRegidteryExpireDateDay type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" />
               </div>
               <!-- UserMembershipRuleHtmlBody Field -->
               {{'TITLE.User_Membership_Rules' | translate}} :

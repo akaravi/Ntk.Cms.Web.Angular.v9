@@ -107,7 +107,7 @@
             <label for="dataModel.caseCode" class="color-highlight"> {{ fieldsInfo["caseCode"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode type="text"
               disabled="{{ !fieldsInfo['caseCode']?.accessAddField }}"
-              placeholder="{{ fieldsInfo['caseCode']?.fieldTitle }}" minlength="3" maxlength="100" id="dataModel.caseCode"/>
+              placeholder="{{ fieldsInfo['caseCode']?.fieldTitle }}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.caseCode"/>
             <em align="end">{{ CaseCode.value.length }} / 100</em>
             <mat-error *ngIf="CaseCode.errors?.required">
               {{ fieldsInfo["caseCode"]?.fieldTitle }}
@@ -147,14 +147,14 @@
             ">
             <label for="dataModel.partition" class="color-highlight">{{ PropertyTypeSelected.titlePartition }}</label>
             <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"
-              placeholder="{{ PropertyTypeSelected.titlePartition }}" id="dataModel.partition" />
+              placeholder="{{ PropertyTypeSelected.titlePartition }}" class="form-control validate-name" id="dataModel.partition" />
           </div>
           <!-- Area Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['area']?.accessWatchField">
             <label for="dataModel.area" class="color-highlight">{{ fieldsInfo["area"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.area" name="dataModel.area" #Area type="text" currencyMask
               class="input-ltr" disabled="{{ !fieldsInfo['area']?.accessAddField }}"
-              placeholder="{{ fieldsInfo['area']?.fieldTitle }}" id="dataModel.area" />
+              placeholder="{{ fieldsInfo['area']?.fieldTitle }}" class="form-control validate-name" id="dataModel.area" />
           </div>
 
           <!-- LinkLocationId Field -->
@@ -168,7 +168,7 @@
             <label for="dataModel.address" class="color-highlight">{{ fieldsInfo["address"]?.fieldTitle }}</label>
             <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
               placeholder="{{ fieldsInfo['address']?.fieldTitle }}" minlength="1" maxlength="500" rows="5"
-              [disabled]="!fieldsInfo['address']?.accessAddField" id="dataModel.address"></textarea>
+              [disabled]="!fieldsInfo['address']?.accessAddField" class="form-control validate-name" id="dataModel.address"></textarea>
             <em align="end">{{ Address.value.length }} / 500</em>
           </div>
 
@@ -177,7 +177,7 @@
             <label for="dataModel.description" class="color-highlight">{{ "TITLE.General_Description" | translate }}</label>
             <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
               disabled="{{ !fieldsInfo['description']?.accessAddField }}"
-              placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="1" maxlength="2000" rows="5" id="dataModel.description"
+              placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="1" maxlength="2000" rows="5" class="form-control validate-name" id="dataModel.description"
               required></textarea>
             <em align="end">{{ Description.value.length }} / 2000</em>
             <mat-error *ngIf="Description.errors?.required">
@@ -210,7 +210,7 @@
           ">
           <label for="dataModel.linkSiteId" class="color-highlight">{{ fieldsInfo["linkSiteId"]?.fieldTitle }}</label>
           <input matInput [(ngModel)]="dataModel.linkSiteId" name="dataModel.linkSiteId" #LinkSiteId type="text"
-            disabled="{{ !fieldsInfo['linkSiteId']?.accessAddField }}" id="dataModel.linkSiteId"
+            disabled="{{ !fieldsInfo['linkSiteId']?.accessAddField }}" class="form-control validate-name" id="dataModel.linkSiteId"
             placeholder="{{ fieldsInfo['linkSiteId']?.fieldTitle }}" minlength="3" maxlength="100" />
             <em align="end">{{ LinkSiteId.value.length }} / 100</em>
             <mat-error *ngIf="LinkSiteId.errors?.required">
@@ -355,7 +355,7 @@
           <input matInput [(ngModel)]="dataModel.aboutAgentMobile" name="dataModel.aboutAgentMobile"
             class="input-Mobile" #AboutAgentMobile type="text"
             disabled="{{ !fieldsInfo['aboutAgentMobile']?.accessAddField }}"
-            placeholder="{{ fieldsInfo['aboutAgentMobile']?.fieldTitle }}" minlength="0" maxlength="100"  id="dataModel.aboutAgentMobile"/>
+            placeholder="{{ fieldsInfo['aboutAgentMobile']?.fieldTitle }}" minlength="0" maxlength="100" class="form-control validate-name"  id="dataModel.aboutAgentMobile"/>
           <em align="end">{{ AboutAgentMobile.value.length }} / 100</em>
         </div>
 
@@ -364,7 +364,7 @@
           <label for="dataModel.aboutAgentTel" class="color-highlight">{{ fieldsInfo["aboutAgentTel"]?.fieldTitle }}</label>
           <input matInput [(ngModel)]="dataModel.aboutAgentTel" name="dataModel.aboutAgentTel" class="input-Mobile"
             #AboutAgentTel type="text" disabled="{{ !fieldsInfo['aboutAgentTel']?.accessAddField }}"
-            placeholder="{{ fieldsInfo['aboutAgentTel']?.fieldTitle }}" minlength="0" maxlength="100" id="dataModel.aboutAgentTel" />
+            placeholder="{{ fieldsInfo['aboutAgentTel']?.fieldTitle }}" minlength="0" maxlength="100" class="form-control validate-name" id="dataModel.aboutAgentTel" />
           <em align="end">{{ AboutAgentTel.value.length }} / 100</em>
         </div>
 
@@ -376,7 +376,7 @@
           <input matInput [(ngModel)]="dataModel.aboutCustomerMobile" name="dataModel.aboutCustomerMobile"
             class="input-Mobile" #AboutCustomerMobile type="text"
             disabled="{{ !fieldsInfo['aboutCustomerMobile']?.accessAddField }}"
-            placeholder="{{ fieldsInfo['aboutCustomerMobile']?.fieldTitle }}" minlength="0" maxlength="100" id="dataModel.aboutCustomerMobile" />
+            placeholder="{{ fieldsInfo['aboutCustomerMobile']?.fieldTitle }}" minlength="0" maxlength="100" class="form-control validate-name" id="dataModel.aboutCustomerMobile" />
           <em align="end">{{ AboutCustomerMobile.value.length }} / 100</em>
         </div>
 
@@ -388,7 +388,7 @@
           <input matInput [(ngModel)]="dataModel.aboutCustomerTel" name="dataModel.aboutCustomerTel"
             class="input-Mobile" #AboutCustomerTel type="text"
             disabled="{{ !fieldsInfo['aboutCustomerTel']?.accessAddField }}"
-            placeholder="{{ fieldsInfo['aboutCustomerTel']?.fieldTitle }}" minlength="0" maxlength="100" id="dataModel.aboutCustomerTel" />
+            placeholder="{{ fieldsInfo['aboutCustomerTel']?.fieldTitle }}" minlength="0" maxlength="100" class="form-control validate-name" id="dataModel.aboutCustomerTel" />
           <em align="end">{{ AboutCustomerTel.value.length }} / 100</em>
         </div>
         <!-- actionCreateCmsUserId Field -->
@@ -553,7 +553,7 @@
           <label for="dataModel.descriptionHidden" class="color-highlight">{{ "TITLE.Description_Hidden" | translate }}</label>
           <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
             #DescriptionHidden type="text" placeholder="{{ fieldsInfo['descriptionHidden']?.fieldTitle }}" minlength="1"
-            maxlength="2000" rows="5" id="dataModel.descriptionHidden"></textarea>
+            maxlength="2000" rows="5" class="form-control validate-name" id="dataModel.descriptionHidden"></textarea>
           <em align="end">{{ DescriptionHidden.value.length }} / 2000</em>
           <mat-error *ngIf="DescriptionHidden.errors?.required">
             {{ fieldsInfo["descriptionHidden"]?.fieldTitle }}
@@ -565,7 +565,7 @@
           <label for="dataModel.addressHidden" class="color-highlight">{{ "TITLE.Address_Hidden" | translate }}</label>
           <textarea matInput [(ngModel)]="dataModel.addressHidden" name="dataModel.addressHidden" #AddressHidden
             type="text" placeholder="{{ fieldsInfo['addressHidden']?.fieldTitle }}" minlength="1" maxlength="2000"
-            rows="5" id="dataModel.addressHidden"></textarea>
+            rows="5" class="form-control validate-name" id="dataModel.addressHidden"></textarea>
           <em align="end">{{ AddressHidden.value.length }} / 2000</em>
           <mat-error *ngIf="AddressHidden.errors?.required">
             {{ fieldsInfo["addressHidden"]?.fieldTitle }}
@@ -623,7 +623,7 @@
                     }}</label>
                   <input matInput [(ngModel)]="contractDataModel.salePrice" name="contractDataModel.salePrice"
                     [disabled]="contractDataModel.salePriceByAgreement" type="text" currencyMask
-                    class="input-ltr-center" placeholder="0" id="contractDataModel.salePrice" />
+                    class="input-ltr-center" placeholder="0" class="form-control validate-name" id="contractDataModel.salePrice" />
                   <label>
                     ({{ dataModelCorCurrencySelector.titleML }}
                     {{ dataModelCorCurrencySelector.symbol }} )
@@ -657,7 +657,7 @@
                     }}</label>
                   <input matInput [(ngModel)]="contractDataModel.depositPrice" name="contractDataModel.depositPrice"
                     [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask
-                    class="input-ltr-center" urrencyMask class="input-ltr-center" placeholder="0" id="contractDataModel.depositPrice" />
+                    class="input-ltr-center" urrencyMask class="input-ltr-center form-control validate-name" placeholder="0" id="contractDataModel.depositPrice" />
                   <label>
                     ({{ dataModelCorCurrencySelector.titleML }}
                     {{ dataModelCorCurrencySelector.symbol }} )
@@ -691,7 +691,7 @@
                     }}</label>
                   <input matInput [(ngModel)]="contractDataModel.rentPrice" name="contractDataModel.rentPrice"
                     [disabled]="contractDataModel.rentPriceByAgreement" type="text" currencyMask
-                    class="input-ltr-center" placeholder="0" id="contractDataModel.rentPrice" />
+                    class="input-ltr-center form-control validate-name" placeholder="0" id="contractDataModel.rentPrice" />
                   <label>
                     ({{ dataModelCorCurrencySelector.titleML }}
                     {{ dataModelCorCurrencySelector.symbol }} )
@@ -725,7 +725,7 @@
                     }}</label>
                   <input matInput [(ngModel)]="contractDataModel.periodPrice" name="contractDataModel.periodPrice"
                     [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask
-                    class="input-ltr-center" urrencyMask class="input-ltr-center" placeholder="0" id="contractDataModel.periodPrice" />
+                    class="input-ltr-center" urrencyMask class="input-ltr-center form-control validate-name" placeholder="0" id="contractDataModel.periodPrice" />
                   <label>
                     ({{ dataModelCorCurrencySelector.titleML }}
                     {{ dataModelCorCurrencySelector.symbol }} )
@@ -755,7 +755,7 @@
               <label for="contractDataModel.description" class="color-highlight">{{ fieldsInfo["description"]?.fieldTitle }}</label>
               <textarea matInput [(ngModel)]="contractDataModel.description" name="contractDataModel.description"
                 #contractDataModel_Description type="text" placeholder="{{ fieldsInfo['description']?.fieldTitle }}"
-                minlength="0" maxlength="500" rows="5" id="contractDataModel.description"></textarea>
+                minlength="0" maxlength="500" rows="5" class="form-control validate-name" id="contractDataModel.description"></textarea>
               <em align="end">{{ contractDataModel_Description.value.length }} / 500</em>
             </div>
           </div>
@@ -916,7 +916,7 @@
               }}</label>
             <input matInput [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
               type="text" placeholder="{{ 'TITLE.Original_File_ID' | translate }}" autocomplete="off"
-              (click)="fileManagerOpenForm = true" id="dataModel.linkMainImageId" />
+              (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
           </div>
           <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainImageId($event)" [language]="appLanguage"
             [openDirectUploadView]="true" [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree"

@@ -23,7 +23,7 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataModel.amount" class="color-highlight"> {{'TITLE.Amount' | translate}} </label>
               <input matInput [(ngModel)]="dataModel.amount" name="dataModel.amount" #Amount type="number"
-                placeholder="{{'TITLE.preacher' | translate}}" id="dataModel.amount" required />
+                placeholder="{{'TITLE.preacher' | translate}}" class="form-control validate-name" id="dataModel.amount" required />
               <mat-error *ngIf="Amount.errors?.required">
                 Amount is <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>
@@ -41,25 +41,25 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataModel.moduleName" class="color-highlight">ModuleName</label>
               <input matInput [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName type="text"
-                placeholder="ModuleName" id="dataModel.moduleName" />
+                placeholder="ModuleName" class="form-control validate-name" id="dataModel.moduleName" />
             </div>
             <!-- ModuleEntityName Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataModel.moduleEntityName" class="color-highlight">ModuleEntityName</label>
               <input matInput [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName
-                type="text" placeholder="ModuleEntityName" id="dataModel.moduleEntityName" />
+                type="text" placeholder="ModuleEntityName" class="form-control validate-name" id="dataModel.moduleEntityName" />
             </div>
             <!-- ModuleEntityId Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataModel.moduleEntityId" class="color-highlight">ModuleEntityId</label>
               <input matInput [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId" #ModuleEntityId
-                type="text" placeholder="ModuleEntityId" id="dataModel.moduleEntityId" />
+                type="text" placeholder="ModuleEntityId" class="form-control validate-name" id="dataModel.moduleEntityId" />
             </div>
             <!-- LastUrlAddressInUse Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataModel.lastUrlAddressInUse" class="color-highlight">{{'TITLE.Return_Address_from_Payment' | translate}}</label>
               <input matInput [(ngModel)]="dataModel.lastUrlAddressInUse" name="dataModel.lastUrlAddressInUse"
-                #LastUrlAddressInUse type="text" class="input-ltr" placeholder="LastUrlAddressInUse" minlength="3"
+                #LastUrlAddressInUse type="text" class="form-control validate-name input-ltr" placeholder="LastUrlAddressInUse" minlength="3"
                 maxlength="500" id="dataModel.lastUrlAddressInUse" required />
               <em align="end">{{ LastUrlAddressInUse.value.length }} / 100</em>
               <mat-error *ngIf="LastUrlAddressInUse.errors?.required">

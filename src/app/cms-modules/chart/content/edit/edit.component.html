@@ -29,7 +29,7 @@
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
                 <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                  placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" id="dataModel.title" required />
+                  placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
                 <em align="end">{{ Title.value.length }} / 100</em>
                 <mat-error *ngIf="Title.errors?.required">
                   Title is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -39,7 +39,7 @@
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
                 <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                  placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" id="dataModel.description" rows="5"></textarea>
+                  placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" class="form-control validate-name" id="dataModel.description" rows="5"></textarea>
                 <em align="end">{{ Description.value.length }} / 500</em>
                 <mat-error *ngIf="Description.errors?.required">
                   Description is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -109,7 +109,7 @@
                 <label for="dataModel.source" class="color-highlight">{{'TITLE.Source_page_address' | translate}}</label>
                 <input matInput [(ngModel)]="dataModel.source" name="dataModel.source" #Source type="text" dir="ltr"
                   style="text-align: left;" placeholder="{{'TITLE.Content_reference_website_link' | translate}}" minlength="3"
-                  maxlength="500" id="dataModel.source"/>
+                  maxlength="500" class="form-control validate-name" id="dataModel.source"/>
                 <em align="end">{{ Source.value.length }} / 500</em>
               </div>
 
@@ -160,7 +160,7 @@
                     translate}}</label>
                   <input matInput [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
                     type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-                    (click)="fileManagerOpenForm = true" id="dataModel.linkMainImageId" />
+                    (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
                 </div>
                 <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainImageId($event)" [language]="appLanguage"
                   [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openDirectUploadView]="true"
@@ -178,7 +178,7 @@
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                   <input matInput [(ngModel)]="dataModel.linkFilePodcastId" name="dataModel.linkFilePodcastId"
                     #LinkFilePodcastId type="text" placeholder="{{'TITLE.Audio_File_ID' | translate}}"
-                    (click)="fileManagerOpenFormPodcast = true" id="dataModel.linkFilePodcastId" />
+                    (click)="fileManagerOpenFormPodcast = true" class="form-control validate-name" id="dataModel.linkFilePodcastId" />
                 </div>
                 <cms-file-manager (itemSelected)="onActionFileSelectedLinkFilePodcastId($event)" [language]="appLanguage"
                   [isPopup]="true" [(openForm)]="fileManagerOpenFormPodcast" [tree]="fileManagerTree"
@@ -196,7 +196,7 @@
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                   <input matInput [(ngModel)]="dataModel.linkFileMovieId" name="dataModel.linkFileMovieId" #LinkFileMovieId
                     type="text" placeholder="{{'TITLE.Video_File_ID' | translate}}"
-                    (click)="fileManagerOpenFormMovie = true" id="dataModel.linkFileMovieId" />
+                    (click)="fileManagerOpenFormMovie = true" class="form-control validate-name" id="dataModel.linkFileMovieId" />
                 </div>
                 <cms-file-manager (itemSelected)="onActionFileSelectedLinkFileMovieId($event)" [language]="appLanguage"
                   [isPopup]="true" [(openForm)]="fileManagerOpenFormMovie" [tree]="fileManagerTree"
@@ -222,21 +222,21 @@
                 <label for="contentOtherInfoSelected.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
                 <input matInput [(ngModel)]="contentOtherInfoSelected.title" name="contentOtherInfoSelected.title"
                   #contentOtherInfoSelected_Title type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
-                  maxlength="100" id="contentOtherInfoSelected.title" />
+                  maxlength="100" class="form-control validate-name" id="contentOtherInfoSelected.title" />
                 <em align="end">{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
               </div>
 
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="contentOtherInfoSelected.typeId" class="color-highlight">{{'TITLE.Key' | translate}}</label>
                 <input matInput [(ngModel)]="contentOtherInfoSelected.typeId" name="contentOtherInfoSelected.typeId"
-                  #contentOtherInfoSelected_TypeId type="number" id="contentOtherInfoSelected.typeId"
+                  #contentOtherInfoSelected_TypeId type="number" class="form-control validate-name" id="contentOtherInfoSelected.typeId"
                   placeholder="{{'TITLE.Agreement_number_to_display' | translate}}" />
               </div>
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="contentOtherInfoSelected.source" class="color-highlight">{{'TITLE.Source' | translate}}</label>
                 <input matInput [(ngModel)]="contentOtherInfoSelected.source" name="contentOtherInfoSelected.source"
                   #contentOtherInfoSelected_Source type="text" dir="ltr" style="text-align: left;" placeholder="http://"
-                  maxlength="100" id="contentOtherInfoSelected.source" />
+                  maxlength="100" class="form-control validate-name" id="contentOtherInfoSelected.source" />
                 <em align="end">{{ contentOtherInfoSelected_Source.value.length }} / 500</em>
               </div>
 
