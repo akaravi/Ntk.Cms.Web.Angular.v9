@@ -13,7 +13,7 @@
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.linkMainImageId" (click)="fileManagerOpenForm = true" class="color-highlight">{{'TITLE.File' | translate}}</label>
         <input matInput type="text"  name="dataModel.linkMainImageId"  (click)="fileManagerOpenForm = true" #LinkMainImageId
-            id="dataModel.linkMainImageId" placeholder="{{'TITLE.Original_File_ID' | translate}}"  />
+        class="form-control validate-name"   id="dataModel.linkMainImageId" placeholder="{{'TITLE.Original_File_ID' | translate}}"  />
       </div>
       <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
         [selectFileType]="selectFileTypeMainImage" [isPopup]="true" [(openForm)]="fileManagerOpenForm"

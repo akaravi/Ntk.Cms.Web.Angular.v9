@@ -55,7 +55,7 @@
         <input matInput type="text" [(ngModel)]="dataModel.regulatorNumber" name="dataModel.regulatorNumber"
           #RegulatorNumber placeholder="123" [disabled]="!fieldsInfo['regulatorNumber']?.accessEditField"
           class="form-control validate-name" id="dataModel.regulatorNumber" />
-        <em align="start">{{ RegulatorNumber.value.length }} / 100</em>
+        <em>{{ RegulatorNumber.value.length }} / 100</em>
       </div>
       <!-- ServicePrice Field -->
       <div *ngIf="fieldsInfo['servicePrice']?.accessWatchField"

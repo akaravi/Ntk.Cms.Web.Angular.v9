@@ -28,7 +28,7 @@
         <input matInput type="text" [(ngModel)]="dataModel.numberChar" name="dataModel.numberChar" #NumberChar
           placeholder="123" disabled="{{ !fieldsInfo['numberChar']?.accessAddField }}"
           class="form-control validate-name" id="dataModel.numberChar" />
-        <em align="start">{{ NumberChar.value.length }} / 100</em>
+        <em>{{ NumberChar.value.length }} / 100</em>
       </div>
       <!-- IsPublic Field -->
       <div *ngIf="fieldsInfo['isPublic']?.accessWatchField" class="d-flex mb-3">
@@ -65,7 +65,7 @@
         <input matInput type="number" [(ngModel)]="dataModel.priority" name="dataModel.priority" #Priority
           placeholder="1" disabled="{{ !fieldsInfo['priority']?.accessEditField }}" class="form-control validate-name"
           id="dataModel.priority" />
-        <em align="start">{{ Priority.value.length }} / 100</em>
+        <em>{{ Priority.value.length }} / 100</em>
       </div>
       <!-- DeliveryRelayStatus Field -->
       <div *ngIf="fieldsInfo['deliveryRelayStatus']?.accessWatchField" class="d-flex mb-3">
@@ -88,7 +88,7 @@
           }}</label>
         <input matInput type="text" [(ngModel)]="dataModel.deliveryRelayUrl" name="dataModel.deliveryRelayUrl"
           #DeliveryRelayUrl placeholder="1" [disabled]="!fieldsInfo['deliveryRelayUrl']?.accessAddField"
-          class="form-control validate-name input-ltr" id="dataModel.deliveryRelayUrl" />
+          class="form-control validate-name" id="dataModel.deliveryRelayUrl" />
         <em  >{{ DeliveryRelayUrl.value.length }} / 100</em>
       </div>
       <!-- SmsRelayStatus Field -->
@@ -111,14 +111,14 @@
         <label for="dataModel.smsRelayUrl" class="color-highlight">{{ fieldsInfo["smsRelayUrl"]?.fieldTitle }}</label>
         <input matInput type="text" [(ngModel)]="dataModel.smsRelayUrl" name="dataModel.smsRelayUrl" #SmsRelayUrl
           placeholder="1" [disabled]="!fieldsInfo['smsRelayUrl']?.accessAddField"
-          class="form-control validate-name input-ltr" id="dataModel.smsRelayUrl" />
+          class="form-control validate-name" id="dataModel.smsRelayUrl" />
         <em  >{{ SmsRelayUrl.value.length }} / 100</em>
       </div>
       <!-- FirstSubmit Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.firstSubmit" class="color-highlight">{{ fieldsInfo["firstSubmit"]?.fieldTitle }}</label>
         <input matInput [matDatepicker]="FirstSubmit" type="text" [(ngModel)]="dataModel.firstSubmit"
-          name="dataModel.firstSubmit" class="form-control validate-name input-ltr" id="dataModel.firstSubmit" />
+          name="dataModel.firstSubmit" class="form-control validate-name" id="dataModel.firstSubmit" />
         <mat-datepicker-toggle matSuffix [for]="FirstSubmit"></mat-datepicker-toggle>
         <mat-datepicker touchUi #FirstSubmit></mat-datepicker>
       </div>
@@ -127,7 +127,7 @@
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.usanceDate" class="color-highlight">{{ fieldsInfo["usanceDate"]?.fieldTitle }}</label>
         <input matInput [matDatepicker]="UsanceDate" type="text" [(ngModel)]="dataModel.usanceDate"
-          name="dataModel.usanceDate" class="form-control validate-name input-ltr" id="dataModel.usanceDate" />
+          name="dataModel.usanceDate" class="form-control validate-name" id="dataModel.usanceDate" />
         <mat-datepicker-toggle matSuffix [for]="UsanceDate"></mat-datepicker-toggle>
         <mat-datepicker touchUi #UsanceDate></mat-datepicker>
       </div>

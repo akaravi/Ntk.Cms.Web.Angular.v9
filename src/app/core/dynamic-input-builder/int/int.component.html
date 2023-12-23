@@ -1,8 +1,8 @@
 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
   <label for="int-{{id}}" class="color-highlight">{{ optionLabel }}</label>
-  <input matInput [(ngModel)]="modelDate" name="number" #number type="number" id="int-{{id}}"
-    placeholder="{{optionPlaceholder}}" [disabled]="optionDisabled" [ngModelOptions]="{standalone: true}"
-    [required]="optionRequired" />
+  <input matInput [(ngModel)]="modelDate" name="number" #number type="number" class="form-control validate-name"
+    id="int-{{id}}" placeholder="{{optionPlaceholder}}" [disabled]="optionDisabled"
+    [ngModelOptions]="{standalone: true}" [required]="optionRequired" />
   <em *ngIf="optionRequired">({{'TITLE.Necessary'| translate}})</em>
   <mat-error *ngIf="number.errors?.required">
     {{ optionLabel }} <strong>{{ "MESSAGE.required" | translate }}</strong>

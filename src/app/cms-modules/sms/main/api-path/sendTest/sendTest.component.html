@@ -20,22 +20,25 @@
             <!-- FromNumber Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.fromNumber" class="color-highlight">{{'TITLE.sender_number' | translate}}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.fromNumber"  name="dataModel.fromNumber"  #FromNumber  minlength="0" maxlength="50"
-                    id="dataModel.fromNumber" placeholder="10000118"  />
+                <input matInput type="text" [(ngModel)]="dataModel.fromNumber" name="dataModel.fromNumber" #FromNumber
+                    minlength="0" maxlength="50" class="form-control validate-name" id="dataModel.fromNumber"
+                    placeholder="10000118" />
                 <em>{{ FromNumber.value.length }} / 50</em>
             </div>
             <!-- ToNumber Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.toNumber" class="color-highlight">{{'TITLE.Receiver_number' | translate}}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.toNumber"  name="dataModel.toNumber"  #ToNumber  minlength="0" maxlength="100"
-                    id="dataModel.toNumber" placeholder="0912"  />
+                <input matInput type="text" [(ngModel)]="dataModel.toNumber" name="dataModel.toNumber" #ToNumber
+                    minlength="0" maxlength="100" class="form-control validate-name" id="dataModel.toNumber"
+                    placeholder="0912" />
                 <em>{{ ToNumber.value.length }} / 100</em>
             </div>
             <!-- Message Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.message" class="color-highlight">{{'MESSAGE.Message_Text' | translate}}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.message"  name="dataModel.message"  #Message  minlength="1" maxlength="500"
-                    id="dataModel.message" placeholder="..."  />
+                <input matInput type="text" [(ngModel)]="dataModel.message" name="dataModel.message" #Message
+                    minlength="1" maxlength="500" class="form-control validate-name" id="dataModel.message"
+                    placeholder="..." />
                 <em>{{ Message.value.length }} / 500</em>
                 <mat-error *ngIf="Message.errors?.required">
                     {{'MESSAGE.Message_Text' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -49,8 +52,7 @@
                 </div>
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.isFlash"
-                            [(ngModel)]="dataModel.isFlash"
+                        <input type="checkbox" class="ios-input" id="dataModel.isFlash" [(ngModel)]="dataModel.isFlash"
                             name="dataModel.isFlash">
                         <label class="custom-control-label" for="dataModel.isFlash"></label>
                     </div>
@@ -65,8 +67,7 @@
                 <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
                         <input type="checkbox" class="ios-input" id="dataModel.sendByQueue"
-                            [(ngModel)]="dataModel.sendByQueue"
-                            name="dataModel.sendByQueue">
+                            [(ngModel)]="dataModel.sendByQueue" name="dataModel.sendByQueue">
                         <label class="custom-control-label" for="dataModel.sendByQueue"></label>
                     </div>
                 </div>
@@ -85,7 +86,7 @@
                     <i class="fa fa-check-square-o"></i>
                     {{'ACTION.Send_Message' | translate}}
                 </button>
-    
+
             </div>
         </form>
         <!--Content-->

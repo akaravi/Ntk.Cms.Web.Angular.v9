@@ -75,7 +75,7 @@
               fieldsInfo["apiReceiveKey"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.apiReceiveKey" name="dataModel.apiReceiveKey" #ApiReceiveKey
               type="text" placeholder="1" [disabled]="!fieldsInfo['apiReceiveKey']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.apiReceiveKey" />
+              class="form-control validate-name" id="dataModel.apiReceiveKey" />
           </div>
           <!-- HookAddressAPIById Field -->
           <div *ngIf="fieldsInfo['hookAddressAPIById']?.accessWatchField"
@@ -83,7 +83,7 @@
             <label for="dataModel.hookAddressAPIById" class="color-highlight">{{
               fieldsInfo["hookAddressAPIById"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.hookAddressAPIById" name="dataModel.hookAddressAPIById"
-              #HookAddressAPIById type="text" readonly placeholder="1" class="form-control validate-name input-ltr"
+              #HookAddressAPIById type="text" readonly placeholder="1" class="form-control validate-name"
               id="dataModel.hookAddressAPIById" />
           </div>
           <!-- apiAbilityLengthMinToSend Field -->
@@ -93,8 +93,8 @@
               fieldsInfo["apiAbilityLengthMinToSend"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.apiAbilityLengthMinToSend" name="dataModel.apiAbilityLengthMinToSend"
               #ApiAbilityLengthMinToSend type="number" placeholder="1"
-              [disabled]="!fieldsInfo['apiAbilityLengthMinToSend']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.apiAbilityLengthMinToSend" />
+              [disabled]="!fieldsInfo['apiAbilityLengthMinToSend']?.accessEditField" class="form-control validate-name"
+              id="dataModel.apiAbilityLengthMinToSend" />
           </div>
           <!-- apiAbilityLengthMaxToSend Field -->
           <div *ngIf="fieldsInfo['apiAbilityLengthMaxToSend']?.accessWatchField"
@@ -103,8 +103,8 @@
               fieldsInfo["apiAbilityLengthMaxToSend"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.apiAbilityLengthMaxToSend" name="dataModel.apiAbilityLengthMaxToSend"
               #ApiAbilityLengthMaxToSend type="number" placeholder="1"
-              [disabled]="!fieldsInfo['apiAbilityLengthMaxToSend']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.apiAbilityLengthMaxToSend" />
+              [disabled]="!fieldsInfo['apiAbilityLengthMaxToSend']?.accessEditField" class="form-control validate-name"
+              id="dataModel.apiAbilityLengthMaxToSend" />
           </div>
           <!-- Priority Field -->
           <div *ngIf="fieldsInfo['priority']?.accessWatchField"
@@ -112,8 +112,8 @@
             <label for="dataModel.priority" class="color-highlight">{{ fieldsInfo["priority"]?.fieldTitle
               }}</label>
             <input matInput [(ngModel)]="dataModel.priority" name="dataModel.priority" #Priority type="number"
-              placeholder="1" [disabled]="!fieldsInfo['priority']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.priority" />
+              placeholder="1" [disabled]="!fieldsInfo['priority']?.accessEditField" class="form-control validate-name"
+              id="dataModel.priority" />
           </div>
           <!-- MaxProcessFlowAmount Field -->
           <div *ngIf="fieldsInfo['maxProcessFlowAmount']?.accessWatchField"
@@ -122,8 +122,8 @@
               fieldsInfo["maxProcessFlowAmount"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.maxProcessFlowAmount" name="dataModel.maxProcessFlowAmount"
               #MaxProcessFlowAmount type="number" placeholder="1"
-              [disabled]="!fieldsInfo['maxProcessFlowAmount']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.maxProcessFlowAmount" />
+              [disabled]="!fieldsInfo['maxProcessFlowAmount']?.accessEditField" class="form-control validate-name"
+              id="dataModel.maxProcessFlowAmount" />
           </div>
           <!-- MinProcessFlowAmount Field -->
           <div *ngIf="fieldsInfo['minProcessFlowAmount']?.accessWatchField"
@@ -132,8 +132,8 @@
               fieldsInfo["minProcessFlowAmount"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.minProcessFlowAmount" name="dataModel.minProcessFlowAmount"
               #MinProcessFlowAmount type="number" placeholder="Min Transaction Amount"
-              [disabled]="!fieldsInfo['minProcessFlowAmount']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.minProcessFlowAmount" />
+              [disabled]="!fieldsInfo['minProcessFlowAmount']?.accessEditField" class="form-control validate-name"
+              id="dataModel.minProcessFlowAmount" />
           </div>
           <!-- FixFeeProcessFlowAmount Field -->
           <div *ngIf="fieldsInfo['fixFeeProcessFlowAmount']?.accessWatchField"
@@ -142,8 +142,8 @@
               fieldsInfo["fixFeeProcessFlowAmount"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.fixFeeProcessFlowAmount" name="dataModel.fixFeeProcessFlowAmount"
               #FixFeeProcessFlowAmount type="number" placeholder="Max Transaction Amount"
-              [disabled]="!fieldsInfo['fixFeeProcessFlowAmount']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.fixFeeProcessFlowAmount" />
+              [disabled]="!fieldsInfo['fixFeeProcessFlowAmount']?.accessEditField" class="form-control validate-name"
+              id="dataModel.fixFeeProcessFlowAmount" />
           </div>
           <!-- PercentFeeProcessFlowAmount Field -->
           <div *ngIf="fieldsInfo['percentFeeProcessFlowAmount']?.accessWatchField"
@@ -154,7 +154,7 @@
               name="dataModel.percentFeeProcessFlowAmount" #PercentFeeProcessFlowAmount type="number"
               placeholder="Percent Fee Transaction Amount"
               [disabled]="!fieldsInfo['percentFeeProcessFlowAmount']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.percentFeeProcessFlowAmount" />
+              class="form-control validate-name" id="dataModel.percentFeeProcessFlowAmount" />
           </div>
           <!-- PerriodStartWorkTime Field -->
           <div *ngIf="fieldsInfo['perriodStartWorkTime']?.accessWatchField"
@@ -162,8 +162,8 @@
             <label for="dataModel.perriodStartWorkTime" class="color-highlight">{{
               fieldsInfo["perriodStartWorkTime"]?.fieldTitle }}</label>
             <input matInput [ngxTimepicker]="PerriodStartWorkTime" [(ngModel)]="dataModel.perriodStartWorkTime"
-              name="dataModel.perriodStartWorkTime" type="number" [format]="24"
-              class="form-control validate-name input-ltr" id="dataModel.perriodStartWorkTime" />
+              name="dataModel.perriodStartWorkTime" type="number" [format]="24" class="form-control validate-name"
+              id="dataModel.perriodStartWorkTime" />
             <ngx-material-timepicker-toggle matSuffix [for]="PerriodStartWorkTime"></ngx-material-timepicker-toggle>
             <ngx-material-timepicker touchUi #PerriodStartWorkTime></ngx-material-timepicker>
           </div>
@@ -173,8 +173,8 @@
             <label for="dataModel.perriodEndWorkTime" class="color-highlight">{{
               fieldsInfo["perriodEndWorkTime"]?.fieldTitle }}</label>
             <input matInput [ngxTimepicker]="PerriodEndWorkTime" [(ngModel)]="dataModel.perriodEndWorkTime"
-              name="dataModel.perriodEndWorkTime" type="number" [format]="24"
-              class="form-control validate-name input-ltr" id="dataModel.perriodEndWorkTime" />
+              name="dataModel.perriodEndWorkTime" type="number" [format]="24" class="form-control validate-name"
+              id="dataModel.perriodEndWorkTime" />
             <ngx-material-timepicker-toggle matSuffix [for]="PerriodEndWorkTime"></ngx-material-timepicker-toggle>
             <ngx-material-timepicker touchUi #PerriodEndWorkTime></ngx-material-timepicker>
           </div>
@@ -443,7 +443,7 @@
             <input matInput [(ngModel)]="dataModel.statusOutOfServiceMonitorApiChar"
               name="dataModel.statusOutOfServiceMonitorApiChar" #StatusOutOfServiceMonitorApiChar type="number"
               placeholder="1" [disabled]="!fieldsInfo['statusOutOfServiceMonitorApiChar']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.statusOutOfServiceMonitorApiChar" />
+              class="form-control validate-name" id="dataModel.statusOutOfServiceMonitorApiChar" />
           </div>
           <!-- StatusOutOfServiceActive Field -->
           <div *ngIf="fieldsInfo['statusOutOfServiceActive']?.accessWatchField" class="d-flex mb-3">
@@ -464,7 +464,7 @@
             <label for="dataModel.statusOutOfServiceExpire" class="color-highlight">{{
               fieldsInfo["statusOutOfServiceExpire"]?.fieldTitle }}</label>
             <input matInput [matDatepicker]="StatusOutOfServiceExpire" [(ngModel)]="dataModel.statusOutOfServiceExpire"
-              name="dataModel.statusOutOfServiceExpire" type="text" class="form-control validate-name input-ltr"
+              name="dataModel.statusOutOfServiceExpire" type="text" class="form-control validate-name"
               id="dataModel.statusOutOfServiceExpire" />
             <mat-datepicker-toggle matSuffix [for]="StatusOutOfServiceExpire"></mat-datepicker-toggle>
             <mat-datepicker touchUi #StatusOutOfServiceExpire></mat-datepicker>
@@ -477,7 +477,7 @@
             <input matInput [(ngModel)]="dataModel.statusNotStableMonitorApiChar"
               name="dataModel.statusNotStableMonitorApiChar" #StatusNotStableMonitorApiChar type="number"
               placeholder="1" [disabled]="!fieldsInfo['statusNotStableMonitorApiChar']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.statusNotStableMonitorApiChar" />
+              class="form-control validate-name" id="dataModel.statusNotStableMonitorApiChar" />
           </div>
           <!-- StatusNotStableActive Field -->
           <div *ngIf="fieldsInfo['apiAbilityUseInside']?.accessWatchField" class="d-flex mb-3">
@@ -498,7 +498,7 @@
             <label for="dataModel.statusNotStableExpire" class="color-highlight">{{
               fieldsInfo["statusNotStableExpire"]?.fieldTitle }}</label>
             <input matInput [matDatepicker]="StatusNotStableExpire" [(ngModel)]="dataModel.statusNotStableExpire"
-              name="dataModel.statusNotStableExpire" type="text" class="form-control validate-name input-ltr"
+              name="dataModel.statusNotStableExpire" type="text" class="form-control validate-name"
               id="dataModel.statusNotStableExpire" />
             <mat-datepicker-toggle matSuffix [for]="StatusNotStableExpire"></mat-datepicker-toggle>
             <mat-datepicker touchUi #StatusNotStableExpire></mat-datepicker>
@@ -510,8 +510,8 @@
               fieldsInfo["statusNotStableCount"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.statusNotStableCount" name="dataModel.statusNotStableCount"
               #StatusNotStableCount type="number" placeholder="1"
-              [disabled]="!fieldsInfo['statusNotStableCount']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.statusNotStableCount" />
+              [disabled]="!fieldsInfo['statusNotStableCount']?.accessEditField" class="form-control validate-name"
+              id="dataModel.statusNotStableCount" />
           </div>
           <!-- StatusNotStableCountLimit Field -->
           <div *ngIf="fieldsInfo['statusNotStableCountLimit']?.accessWatchField"
@@ -520,8 +520,8 @@
               fieldsInfo["statusNotStableCountLimit"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.statusNotStableCountLimit" name="dataModel.statusNotStableCountLimit"
               #StatusNotStableCountLimit type="number" placeholder="1"
-              [disabled]="!fieldsInfo['statusNotStableCountLimit']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.statusNotStableCountLimit" />
+              [disabled]="!fieldsInfo['statusNotStableCountLimit']?.accessEditField" class="form-control validate-name"
+              id="dataModel.statusNotStableCountLimit" />
           </div>
           <!-- StatusNotStableRunForMin Field -->
           <div *ngIf="fieldsInfo['statusNotStableRunForMin']?.accessWatchField"
@@ -530,8 +530,8 @@
               fieldsInfo["statusNotStableRunForMin"]?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.statusNotStableRunForMin" name="dataModel.statusNotStableRunForMin"
               #StatusNotStableRunForMin type="number" placeholder="1"
-              [disabled]="!fieldsInfo['statusNotStableRunForMin']?.accessEditField"
-              class="form-control validate-name input-ltr" id="dataModel.statusNotStableRunForMin" />
+              [disabled]="!fieldsInfo['statusNotStableRunForMin']?.accessEditField" class="form-control validate-name"
+              id="dataModel.statusNotStableRunForMin" />
           </div>
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
