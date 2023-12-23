@@ -89,52 +89,52 @@
   </ng-container>
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-    <div class="row ">
-      <div class="col-auto ms-auto me-auto" *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute">
+    <div class="row">
+      <div class="col-4 ms-auto me-auto" *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
           (click)="onActionbuttonNewRow($event)" target="_blank">
-          <i class="fa-solid fa-plus-large" style="color: #FFFFFF;"></i>
+          <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+          <br>
         </a>
-        <br>
-        <span class="font-11 text-start opacity-70">{{'ACTION.ADD' |
-          translate}}</span>
+        <p class="font-11 text-start opacity-70">{{'ACTION.ADD' |
+          translate}}</p>
       </div>
-      <div class="col-auto ms-auto me-auto" *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute ">
+      <div class="col-4 ms-auto me-auto" *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute ">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonQuickAddRow($event)" target="_blank" id="openModalButton" data-toggle="modal"
           data-target="#categoryModal">
-          <i class="fa-solid fa-plus" style="color: #FFFFFF;"></i>
+          <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+          <br>
         </a>
-        <br>
-        <span class="font-11 text-start opacity-70">{{'ACTION.QUICK_ADD' |translate}}</span>
+        <p class="font-11 text-start opacity-70">{{'ACTION.QUICK_ADD' |translate}}</p>
       </div>
-      <div class="col-auto ms-auto me-auto" *ngIf="this.actionbuttonExportOn">
+      <div class="col-4 ms-auto me-auto" *ngIf="this.actionbuttonExportOn">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonExport()" target="_blank">
-          <i class="fa-duotone fa-cloud-arrow-down fa-lg"
-            style="--fa-primary-color: #000000; --fa-secondary-color: #ffffff;"></i>
+          <i class="fa-solid fa-cloud-arrow-down font-22" style="color: #ffffff;"></i>
+            <br>
         </a>
-        <br>
-        <span class="font-11 text-start opacity-70">{{'ACTION.EXPORTFILE' |
-          translate}}</span>
+        <p class="font-11 text-start opacity-70">{{'ACTION.EXPORTFILE' |
+          translate}}</p>
       </div>
-      <div class="col-auto ms-auto me-auto">
+      <div class="col-6 ms-auto me-auto">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonMemo()" target="_blank">
-          <i class="fa-sharp fa-thin fa-memo fa-lg" style="color: #ffffff;"></i>
+          <i class="fa-regular fa-file-lines font-22" style="color: #ffffff;"></i>
+          <br>
         </a>
-        <br>
-        <span class="font-11 text-start opacity-70">{{'ACTION.MEMO' |
-          translate}}</span>
+        <p class="font-11 text-start opacity-70">{{'ACTION.MEMO' |
+          translate}}</p>
       </div>
-      <div class="col-auto ms-auto me-auto" *ngIf="requestLinkPropertyTypeLanduseId?.length>0">
+      <!-- *ngIf="requestLinkPropertyTypeLanduseId?.length>0" -->
+      <div class="col-6 ms-auto me-auto" >
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
           (click)="onActionBackToParent()" target="_blank">
-          <i class="fa-sharp fa-solid fa-arrow-left fa-lg" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-arrow-left font-22" style="color: #ffffff;"></i>
+          <br>
         </a>
-        <br>
-        <span class="font-11 text-start opacity-70">{{'ACTION.BACK' |
-          translate}}</span>
+        <p class="font-11 text-start opacity-70">{{'ACTION.BACK' |
+          translate}}</p>
       </div>
     </div>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
