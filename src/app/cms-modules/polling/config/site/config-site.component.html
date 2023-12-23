@@ -87,7 +87,7 @@
               <label for="dataSiteStorageModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
               <input matInput [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"
                 name="dataSiteStorageModel.mainDataContentRowCount" #dataSiteStorageModel_MainDataContentRowCount
-                type="number" placeholder="0" id="dataSiteStorageModel.mainDataContentRowCount" />
+                type="number" placeholder="0" class="form-control validate-name" id="dataSiteStorageModel.mainDataContentRowCount" />
             </div>
             <!-- UpdatedContent Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -122,7 +122,7 @@
               <label for="dataConfigSiteAccessValuesModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
               <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
                 name="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
-                #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0" id="dataConfigSiteAccessValuesModel.mainDataContentRowCount" required />
+                #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesModel.mainDataContentRowCount" required />
               <mat-error *ngIf="dataConfigSiteAccessValuesModel_MainDataContentRowCount.errors?.required">
                 MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>

@@ -75,8 +75,9 @@
               class="color-highlight">MainDataContentRowCount</label>
             <input matInput type="number" [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
               name="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
-              #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount class="form-control validate-name"
-              id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" placeholder="0" />
+              #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount
+              id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" class="form-control validate-name"
+              placeholder="0" />
             <mat-error *ngIf="dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount.errors?.required">
               MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
@@ -123,91 +124,92 @@
                 <label class="custom-control-label" for="dataConfigAdminMainModel.accessBuy"></label>
               </div>
             </div>
-          </div>
-          <!-- ImageMainSizeWidth Field -->
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataConfigAdminMainModel.imageMainSizeWidth" class="color-highlight">ImageMainSizeWidth</label>
-            <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.imageMainSizeWidth"
-              name="dataConfigAdminMainModel.imageMainSizeWidth" #dataConfigAdminMainModel_ImageMainSizeWidth
-              class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeWidth" placeholder="0" />
-            <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeWidth.errors?.required">
-              ImageMainSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-          </div>
-          <!-- ImageMainSizeHeight Field -->
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataConfigAdminMainModel.imageMainSizeHeight"
-              class="color-highlight">ImageMainSizeHeight</label>
-            <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.imageMainSizeHeight"
-              name="dataConfigAdminMainModel.imageMainSizeHeight" #dataConfigAdminMainModel_ImageMainSizeHeight
-              class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeHeight" placeholder="0" />
-            <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeHeight.errors?.required">
-              ImageMainSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-          </div>
-          <!-- ImageThumbnailSizeWidth Field -->
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataConfigAdminMainModel.imageThumbnailSizeWidth"
-              class="color-highlight">ImageThumbnailSizeWidth</label>
-            <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeWidth"
-              name="dataConfigAdminMainModel.imageThumbnailSizeWidth" #dataConfigAdminMainModel_ImageThumbnailSizeWidth
-              class="form-control validate-name" id="dataConfigAdminMainModel.imageThumbnailSizeWidth"
-              placeholder="0" />
-            <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeWidth.errors?.required">
-              ImageThumbnailSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-          </div>
-          <!-- ImageThumbnailSizeHeight Field -->
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataConfigAdminMainModel.imageThumbnailSizeHeight"
-              class="color-highlight">ImageThumbnailSizeHeight</label>
-            <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeHeight"
-              name="dataConfigAdminMainModel.imageThumbnailSizeHeight"
-              #dataConfigAdminMainModel_ImageThumbnailSizeHeight class="form-control validate-name"
-              id="dataConfigAdminMainModel.imageThumbnailSizeHeight" placeholder="0" />
-            <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeHeight.errors?.required">
-              ImageThumbnailSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-          </div>
-          <div class="d-flex mb-3">
-            <div class="pt-1">
-              <h5 data-trigger-switch="dataConfigAdminMainModel.accessFree" class="font-600 font-14">
-                AccessFree</h5>
+            <!-- ImageMainSizeWidth Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataConfigAdminMainModel.imageMainSizeWidth"
+                class="color-highlight">ImageMainSizeWidth</label>
+              <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.imageMainSizeWidth"
+                name="dataConfigAdminMainModel.imageMainSizeWidth" #dataConfigAdminMainModel_ImageMainSizeWidth
+                class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeWidth" placeholder="0" />
+              <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeWidth.errors?.required">
+                ImageMainSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
             </div>
-            <div class="ms-auto me-3 pe-2">
-              <div class="custom-control ios-switch small-switch">
-                <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.accessFree"
-                  [(ngModel)]="dataConfigAdminMainModel.accessFree" name="dataConfigAdminMainModel.accessFree">
-                <label class="custom-control-label" for="dataConfigAdminMainModel.accessFree"></label>
+            <!-- ImageMainSizeHeight Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataConfigAdminMainModel.imageMainSizeHeight"
+                class="color-highlight">ImageMainSizeHeight</label>
+              <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.imageMainSizeHeight"
+                name="dataConfigAdminMainModel.imageMainSizeHeight" #dataConfigAdminMainModel_ImageMainSizeHeight
+                class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeHeight" placeholder="0" />
+              <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeHeight.errors?.required">
+                ImageMainSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+            <!-- ImageThumbnailSizeWidth Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataConfigAdminMainModel.imageThumbnailSizeWidth"
+                class="color-highlight">ImageThumbnailSizeWidth</label>
+              <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeWidth"
+                name="dataConfigAdminMainModel.imageThumbnailSizeWidth"
+                #dataConfigAdminMainModel_ImageThumbnailSizeWidth class="form-control validate-name"
+                id="dataConfigAdminMainModel.imageThumbnailSizeWidth" placeholder="0" />
+              <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeWidth.errors?.required">
+                ImageThumbnailSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+            <!-- ImageThumbnailSizeHeight Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataConfigAdminMainModel.imageThumbnailSizeHeight"
+                class="color-highlight">ImageThumbnailSizeHeight</label>
+              <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeHeight"
+                name="dataConfigAdminMainModel.imageThumbnailSizeHeight"
+                #dataConfigAdminMainModel_ImageThumbnailSizeHeight class="form-control validate-name"
+                id="dataConfigAdminMainModel.imageThumbnailSizeHeight" placeholder="0" />
+              <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeHeight.errors?.required">
+                ImageThumbnailSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+            <div class="d-flex mb-3">
+              <div class="pt-1">
+                <h5 data-trigger-switch="dataConfigAdminMainModel.accessFree" class="font-600 font-14">
+                  AccessFree</h5>
+              </div>
+              <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                  <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.accessFree"
+                    [(ngModel)]="dataConfigAdminMainModel.accessFree" name="dataConfigAdminMainModel.accessFree">
+                  <label class="custom-control-label" for="dataConfigAdminMainModel.accessFree"></label>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- AccessFreeDay Field -->
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataConfigAdminMainModel.accessFreeDay" class="color-highlight">AccessFreeDay</label>
-            <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.accessFreeDay"
-              name="dataConfigAdminMainModel.accessFreeDay" #dataConfigAdminMainModel_AccessFreeDay
-              class="form-control validate-name" id="dataConfigAdminMainModel.accessFreeDay" placeholder="0" />
-            <mat-error *ngIf="dataConfigAdminMainModel_AccessFreeDay.errors?.required">
-              AccessFreeDay is <strong>{{'MESSAGE.required' | translate}}</strong>
-            </mat-error>
-          </div>
-          <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-            <div [innerHTML]="dataConfigAdminMainModel | prettyjson"></div>
-          </div>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-              matStepperPrevious>
-              {{'ACTION.BEFOR' | translate}}
-            </button>
-            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-              [disabled]="!vform.form.valid" matStepperNext>
-              {{'ACTION.NEXT' | translate}}
-            </button>
-            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-              [disabled]="!vform.form.valid">
-              {{'ACTION.SAVE' | translate}}
-            </button>
+            <!-- AccessFreeDay Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataConfigAdminMainModel.accessFreeDay" class="color-highlight">AccessFreeDay</label>
+              <input matInput type="number" [(ngModel)]="dataConfigAdminMainModel.accessFreeDay"
+                name="dataConfigAdminMainModel.accessFreeDay" #dataConfigAdminMainModel_AccessFreeDay
+                class="form-control validate-name" id="dataConfigAdminMainModel.accessFreeDay" placeholder="0" />
+              <mat-error *ngIf="dataConfigAdminMainModel_AccessFreeDay.errors?.required">
+                AccessFreeDay is <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+            <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+              <div [innerHTML]="dataConfigAdminMainModel | prettyjson"></div>
+            </div>
+            <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                matStepperPrevious>
+                {{'ACTION.BEFOR' | translate}}
+              </button>
+              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+                [disabled]="!vform.form.valid" matStepperNext>
+                {{'ACTION.NEXT' | translate}}
+              </button>
+              <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                [disabled]="!vform.form.valid">
+                {{'ACTION.SAVE' | translate}}
+              </button>
+            </div>
           </div>
         </mat-step>
       </mat-vertical-stepper>

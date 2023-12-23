@@ -17,14 +17,14 @@
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="dataModelResultCategory.item.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
           <input matInput [(ngModel)]="dataModelResultCategory.item.title" name="dataModelResultCategory.item.title" #Title
-            type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" id="dataModelResultCategory.item.title" minlength="3" maxlength="50" required readonly />
+            type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" class="form-control validate-name" id="dataModelResultCategory.item.title" minlength="3" maxlength="50" required readonly />
         </div>
         <!-- Description Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="dataModelResultCategory.item.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
           <textarea matInput [(ngModel)]="dataModelResultCategory.item.description"
             name="dataModelResultCategory.item.description" #Description type="text"
-            placeholder="{{fieldsInfo['description']?.fieldTitle}}" id="dataModelResultCategory.item.description" minlength="1" maxlength="100" readonly required
+            placeholder="{{fieldsInfo['description']?.fieldTitle}}" class="form-control validate-name" id="dataModelResultCategory.item.description" minlength="1" maxlength="100" readonly required
             rows=5></textarea>
         </div>
         <app-polling-category-selector [(optionLoading)]="loading"

@@ -1,7 +1,7 @@
 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
 
   <label  for="app-sms-action-send-message-api-{{id}}"    class="color-highlight">{{'TITLE.sending_route' | translate}}</label>
-  <input type="text" placeholder="{{'TITLE.sending_route' | translate}}" id="app-sms-action-send-message-api-{{id}}" [attr.disabled]="optionDisabled? true : null"
+  <input type="text" placeholder="{{'TITLE.sending_route' | translate}}" class="form-control validate-name" id="app-sms-action-send-message-api-{{id}}" [attr.disabled]="optionDisabled? true : null"
     aria-label="Assignee" matInput [formControl]="formPathControl" [matAutocomplete]="matauto">
   <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayPathFn"
     (optionSelected)="onActionSelectPath($event.option.value)">
@@ -15,7 +15,7 @@
 
 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
   <label  for="app-sms-action-send-message-api-n-{{id}}"    class="color-highlight">{{'TITLE.sending_route' | translate}}</label>
-  <input type="text" placeholder="{{'TITLE.No' | translate}}" id="app-sms-action-send-message-api-n-{{id}}" [attr.disabled]="optionDisabled? true : null"
+  <input type="text" placeholder="{{'TITLE.No' | translate}}" class="form-control validate-name" id="app-sms-action-send-message-api-n-{{id}}" [attr.disabled]="optionDisabled? true : null"
     aria-label="Assignee" matInput [formControl]="formNumberControl" [matAutocomplete]="matauto">
   <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayNumberFn"
     (optionSelected)="onActionSelectNumber($event.option.value)">
