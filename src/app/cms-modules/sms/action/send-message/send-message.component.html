@@ -135,7 +135,7 @@
                                         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                                             <label for="dataModelDateByClockStart.date" class="color-highlight"> {{'TITLE.postage_date' | translate}}</label>
                                             <input matInput [matDatepicker]="scheduleSendStartDate"
-                                                [(ngModel)]="dataModelDateByClockStart.date" name="scheduleSendStartDate" id="dataModelDateByClockStart.date" />
+                                                [(ngModel)]="dataModelDateByClockStart.date" name="scheduleSendStartDate" class="form-control validate-name" id="dataModelDateByClockStart.date" />
                                             <mat-datepicker-toggle matSuffix
                                                 [for]="scheduleSendStartDate"></mat-datepicker-toggle>
                                             <mat-datepicker touchUi #scheduleSendStartDate
@@ -149,7 +149,7 @@
                                             <label for="dataModelDateByClockStart.clock" class="color-highlight"> {{'TITLE.Shipping_time' | translate}}</label>
                                             <input matInput [ngxTimepicker]="scheduleSendStartClock"
                                                 [(ngModel)]="dataModelDateByClockStart.clock" [format]="24"
-                                                name="scheduleSendStartClock" id="dataModelDateByClockStart.clock" />
+                                                name="scheduleSendStartClock" class="form-control validate-name" id="dataModelDateByClockStart.clock" />
                                             <ngx-material-timepicker-toggle matSuffix [for]="scheduleSendStartClock">
                                             </ngx-material-timepicker-toggle>
                                             <ngx-material-timepicker touchUi #scheduleSendStartClock
@@ -162,7 +162,7 @@
                                         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                                             <label  for="dataModelDateByClockExpire.date" class="color-highlight">{{'TITLE.Delivery_end_date' | translate}}</label>
                                             <input matInput [matDatepicker]="scheduleSendExpireDate"
-                                                [(ngModel)]="dataModelDateByClockExpire.date" name="scheduleSendExpireDate" id="dataModelDateByClockExpire.date" />
+                                                [(ngModel)]="dataModelDateByClockExpire.date" name="scheduleSendExpireDate" class="form-control validate-name" id="dataModelDateByClockExpire.date" />
                                             <mat-datepicker-toggle matSuffix
                                                 [for]="scheduleSendExpireDate"></mat-datepicker-toggle>
                                             <mat-datepicker touchUi #scheduleSendExpireDate
@@ -176,7 +176,7 @@
                                             <label for="dataModelDateByClockExpire.clock" class="color-highlight">{{'TITLE.Send_end_time' | translate}}</label>
                                             <input matInput [ngxTimepicker]="scheduleSendExpireClock"
                                                 [(ngModel)]="dataModelDateByClockExpire.clock" [format]="24"
-                                                name="scheduleSendExpireClock" id="dataModelDateByClockExpire.clock" />
+                                                name="scheduleSendExpireClock" class="form-control validate-name" id="dataModelDateByClockExpire.clock" />
                                             <ngx-material-timepicker-toggle matSuffix [for]="scheduleSendExpireClock">
                                             </ngx-material-timepicker-toggle>
                                             <ngx-material-timepicker touchUi #scheduleSendExpireClock
@@ -294,7 +294,7 @@
                                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                                     <label for="dataModel.message" class="color-highlight">{{'TITLE.Message_Text' | translate}}</label>
                                     <textarea matInput [(ngModel)]="dataModel.message" name="dataModel.message" #Message
-                                        type="text" placeholder="..." id="dataModel.message" minlength="1" maxlength="500" rows="9"></textarea>
+                                        type="text" placeholder="..." class="form-control validate-name" id="dataModel.message" minlength="1" maxlength="500" rows="9"></textarea>
                                     <em align="end">{{ Message.value.length }} / 500</em>
                                     <mat-error *ngIf="Message.errors?.required">
                                         {{'TITLE.Message_Text' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>

@@ -16,13 +16,13 @@
           <!-- Title Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModelResultCategory.item.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
-            <input matInput type="text" [(ngModel)]="dataModelResultCategory.item.title"  name="dataModelResultCategory.item.title"  #Title  minlength="3" maxlength="50"
+            <input matInput type="text" [(ngModel)]="dataModelResultCategory.item.title"  name="dataModelResultCategory.item.title"  #Title  minlength="3" maxlength="50" class="form-control validate-name"
                 id="dataModelResultCategory.item.title" placeholder="0"  />
           </div>
           <!-- Description Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModelResultCategory.item.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-            <textarea matInput type="text" [(ngModel)]="dataModelResultCategory.item.description"  name="dataModelResultCategory.item.description"  #Title  minlength="1" maxlength="100" rows="5"
+            <textarea matInput type="text" [(ngModel)]="dataModelResultCategory.item.description"  name="dataModelResultCategory.item.description"  #Title  minlength="1" maxlength="100" rows="5" class="form-control validate-name"
                 id="dataModelResultCategory.item.description" placeholder="0">
               </textarea>
           </div>

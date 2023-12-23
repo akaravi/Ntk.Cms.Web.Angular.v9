@@ -16,7 +16,7 @@
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="dataModelResultContent.item.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
           <input matInput [(ngModel)]="dataModelResultContent.item.title" name="dataModelResultContent.item.title" #Writer
-            type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" required id="dataModelResultContent.item.title" readonly />
+            type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" required class="form-control validate-name" id="dataModelResultContent.item.title" readonly />
         </div>
       </ng-container>
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
