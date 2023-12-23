@@ -30,7 +30,7 @@
           <option *ngFor="let item of dataModelEnumSharingAccountingTypeResult.listItems; index as i"
             [value]="item.value">{{ item.description }}</option>
         </select>
-        <em align="end">{{'TITLE.Select_type_of_content' | translate}}</em>
+        <em  >{{'TITLE.Select_type_of_content' | translate}}</em>
         <mat-error *ngIf="AccountingType.errors?.required">
           AccountingType is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
@@ -94,7 +94,7 @@
         <input matInput type="text" [(ngModel)]="dataModel.fishNumber" name="dataModel.fishNumber" #FishNumber
           placeholder="{{fieldsInfo['fishNumber']?.fieldTitle}}" minlength="3" maxlength="100" required
           class="form-control validate-name" id="dataModel.fishNumber" />
-        <em align="end">{{ FishNumber.value.length }} / 100</em>
+        <em  >{{ FishNumber.value.length }} / 100</em>
         <mat-error *ngIf="FishNumber.errors?.required">
           FishNumber is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
@@ -105,7 +105,7 @@
         <input matInput type="text" [(ngModel)]="dataModel.tokenNumber" name="dataModel.tokenNumber" #TokenNumber
           placeholder="{{fieldsInfo['tokenNumber']?.fieldTitle}}" minlength="3" maxlength="100" required
           class="form-control validate-name" id="dataModel.tokenNumber" />
-        <em align="end">{{ TokenNumber.value.length }} / 100</em>
+        <em  >{{ TokenNumber.value.length }} / 100</em>
         <mat-error *ngIf="TokenNumber.errors?.required">
           TokenNumber is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
@@ -116,7 +116,7 @@
         <input matInput type="text" [(ngModel)]="dataModel.receiptCode" name="dataModel.receiptCode" #ReceiptCode
           placeholder="{{fieldsInfo['receiptCode']?.fieldTitle}}" minlength="3" maxlength="100" required
           class="form-control validate-name" id="dataModel.receiptCode" />
-        <em align="end">{{ ReceiptCode.value.length }} / 100</em>
+        <em  >{{ ReceiptCode.value.length }} / 100</em>
         <mat-error *ngIf="ReceiptCode.errors?.required">
           ReceiptCode is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>

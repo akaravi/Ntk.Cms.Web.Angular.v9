@@ -65,7 +65,7 @@
                 <input matInput type="number" [(ngModel)]="dataModel.deviceId" name="dataModel.deviceId" #DeviceId
                     placeholder="{{fieldsInfo['deviceId']?.fieldTitle}}" minlength="3" maxlength="100" required
                     class="form-control validate-name" id="dataModel.deviceId" />
-                <em align="end">{{ DeviceId.value.length }} / 100</em>
+                <em  >{{ DeviceId.value.length }} / 100</em>
                 <mat-error *ngIf="DeviceId.errors?.required">
                     DeviceId is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -77,7 +77,7 @@
                 <input matInput type="text" [(ngModel)]="dataModel.ipAddress" name="dataModel.ipAddress" #IpAddress
                     placeholder="{{fieldsInfo['ipAddress']?.fieldTitle}}" minlength="3" maxlength="100" required
                     class="form-control validate-name" id="dataModel.ipAddress" />
-                <em align="end">{{ IpAddress.value.length }} / 100</em>
+                <em  >{{ IpAddress.value.length }} / 100</em>
                 <mat-error *ngIf="IpAddress.errors?.required">
                     IpAddress is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -89,7 +89,7 @@
                 <input matInput type="text" [(ngModel)]="dataModel.browserName" name="dataModel.browserName"
                     #BrowserName placeholder="{{fieldsInfo['browserName']?.fieldTitle}}" minlength="3" maxlength="100"
                     required class="form-control validate-name" id="dataModel.browserName" />
-                <em align="end">{{ BrowserName.value.length }} / 100</em>
+                <em  >{{ BrowserName.value.length }} / 100</em>
                 <mat-error *ngIf="BrowserName.errors?.required">
                     BrowserName is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>

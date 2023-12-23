@@ -185,7 +185,7 @@
                     <label for="dataModel.content" class="color-highlight">{{'TITLE.Message_Text' | translate}}</label>
                     <textarea matInput [(ngModel)]="dataModel.content" name="dataModel.content" #content type="text"
                       placeholder="..." minlength="1" maxlength="500" rows="9" id="dataModel.content"></textarea>
-                    <em align="end">{{ content.value.length }} / 500</em>
+                    <em  >{{ content.value.length }} / 500</em>
                     <mat-error *ngIf="content.errors?.required">
                       {{'TITLE.Message_Text' | translate}} <strong>{{'content.required' | translate}}</strong>
                     </mat-error>

@@ -120,7 +120,7 @@
                 <input matInput [(ngModel)]="dataModel.source" name="dataModel.source" #Source type="text" dir="ltr"
                   style="text-align: left;" placeholder="{{'TITLE.Content_reference_website_link' | translate}}"
                   [disabled]="!fieldsInfo['source']?.accessEditField" minlength="3" maxlength="500" id="dataModel.source" />
-                <em align="end">{{ Source.value.length }} / 500</em>
+                <em  >{{ Source.value.length }} / 500</em>
               </div>
 
 
@@ -228,7 +228,7 @@
                 <input matInput [(ngModel)]="contentOtherInfoSelected.title" name="contentOtherInfoSelected.title"
                   #contentOtherInfoSelected_Title type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
                   maxlength="100" id="contentOtherInfoSelected.title" />
-                <em align="end">{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
+                <em  >{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
               </div>
 
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -242,7 +242,7 @@
                 <input matInput [(ngModel)]="contentOtherInfoSelected.source" name="contentOtherInfoSelected.source"
                   #contentOtherInfoSelected_Source type="text" dir="ltr" style="text-align: left;" placeholder="http://"
                   maxlength="100" id="contentOtherInfoSelected.source" />
-                <em align="end">{{ contentOtherInfoSelected_Source.value.length }} / 500</em>
+                <em  >{{ contentOtherInfoSelected_Source.value.length }} / 500</em>
               </div>
 
               <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"

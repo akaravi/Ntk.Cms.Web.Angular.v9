@@ -23,7 +23,7 @@
               <label for="dataModel.title" class="color-highlight">{{'TITLE.System_Title' | translate}}</label>
               <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
                 placeholder="{{'TITLE.System_Title' | translate}}" minlength="3" maxlength="100" id="dataModel.title" required />
-              <em align="end">{{ Title.value.length }} / 100</em>
+              <em  >{{ Title.value.length }} / 100</em>
               <mat-error *ngIf="Title.errors?.required">
                 {{'MESSAGE.System.title_required' | translate}}
               </mat-error>
@@ -33,7 +33,7 @@
               <input matInput [(ngModel)]="dataModel.subDomain" name="dataModel.subDomain" #SubDomain2 type="text"
                 (ngModelChange)="checkValidateDomain()" placeholder="{{'TITLE.Latin_title' | translate}}" minlength="3"
                 maxlength="20" id="dataModel.subDomain" required />
-              <em align="end">{{ SubDomain2.value.length }} / 20</em>
+              <em  >{{ SubDomain2.value.length }} / 20</em>
               <mat-error *ngIf="SubDomain2.errors?.required">
                 {{'TITLE.Latin_title_is_required' | translate}}
               </mat-error>
@@ -101,7 +101,7 @@
               index as i
             " [value]="item">{{ item }}</option>
               </select>
-              <em align="end">{{'TITLE.Choose_a_domain_for_this_system' | translate}}</em>
+              <em  >{{'TITLE.Choose_a_domain_for_this_system' | translate}}</em>
             </div>
             <!-- Domain Field -->
             <div class="row input-group mb-3 set-select" style="margin: 2px 17px 0 0; padding-left: 34px;">

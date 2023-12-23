@@ -61,7 +61,7 @@
               <input matInput [(ngModel)]="dataModel.lastUrlAddressInUse" name="dataModel.lastUrlAddressInUse"
                 #LastUrlAddressInUse type="text" class="input-ltr" placeholder="LastUrlAddressInUse" minlength="3"
                 maxlength="500" id="dataModel.lastUrlAddressInUse" required />
-              <em align="end">{{ LastUrlAddressInUse.value.length }} / 100</em>
+              <em  >{{ LastUrlAddressInUse.value.length }} / 100</em>
               <mat-error *ngIf="LastUrlAddressInUse.errors?.required">
                 LastUrlAddressInUse is <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>

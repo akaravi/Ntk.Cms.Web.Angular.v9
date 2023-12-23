@@ -26,7 +26,7 @@
             <label for="dataModel.title" class="color-highlight">Title</label>
             <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
               placeholder="{{'TITLE.TITLE' | translate}}" minlength="3" maxlength="100" id="dataModel.title" required />
-            <em align="end">{{ Title.value.length }} / 100</em>
+            <em  >{{ Title.value.length }} / 100</em>
             <mat-error *ngIf="Title.errors?.required">
               Title is <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
@@ -41,7 +41,7 @@
                               index as i
                             " [value]="item.value">{{ item.description }}</option>
             </select>
-            <em align="end">{{'TITLE.Select_type_of_content' | translate}}</em>
+            <em  >{{'TITLE.Select_type_of_content' | translate}}</em>
             <mat-error *ngIf="ContentType.errors?.required">
               ContentType is <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
@@ -51,7 +51,7 @@
             <label for="dataModel.content" class="color-highlight">{{'TITLE.Text' | translate}}</label>
             <textarea matInput [(ngModel)]="dataModel.content" name="dataModel.content" #Content type="text"
               placeholder="{{'TITLE.Text' | translate}}" minlength="3" maxlength="500" id="dataModel.content" required></textarea>
-            <em align="end">{{ Content.value.length }} / 500</em>
+            <em  >{{ Content.value.length }} / 500</em>
             <mat-error *ngIf="Content.errors?.required">
               Content is <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
@@ -61,7 +61,7 @@
             <label for="dataModel.contentJson" class="color-highlight">Json</label>
             <textarea matInput [(ngModel)]="dataModel.contentJson" name="dataModel.contentJson" #ContentJson type="text"
               placeholder="Json" minlength="0" id="dataModel.contentJson" maxlength="500"></textarea>
-            <em align="end">{{ ContentJson.value.length }} / 500</em>
+            <em  >{{ ContentJson.value.length }} / 500</em>
             <mat-error *ngIf="ContentJson.errors?.required">
               ContentJson is <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>

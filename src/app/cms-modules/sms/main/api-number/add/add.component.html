@@ -89,7 +89,7 @@
         <input matInput type="text" [(ngModel)]="dataModel.deliveryRelayUrl" name="dataModel.deliveryRelayUrl"
           #DeliveryRelayUrl placeholder="1" [disabled]="!fieldsInfo['deliveryRelayUrl']?.accessAddField"
           class="form-control validate-name input-ltr" id="dataModel.deliveryRelayUrl" />
-        <em align="end">{{ DeliveryRelayUrl.value.length }} / 100</em>
+        <em  >{{ DeliveryRelayUrl.value.length }} / 100</em>
       </div>
       <!-- SmsRelayStatus Field -->
       <div *ngIf="fieldsInfo['smsRelayStatus']?.accessWatchField" class="d-flex mb-3">
@@ -112,7 +112,7 @@
         <input matInput type="text" [(ngModel)]="dataModel.smsRelayUrl" name="dataModel.smsRelayUrl" #SmsRelayUrl
           placeholder="1" [disabled]="!fieldsInfo['smsRelayUrl']?.accessAddField"
           class="form-control validate-name input-ltr" id="dataModel.smsRelayUrl" />
-        <em align="end">{{ SmsRelayUrl.value.length }} / 100</em>
+        <em  >{{ SmsRelayUrl.value.length }} / 100</em>
       </div>
       <!-- FirstSubmit Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

@@ -47,7 +47,7 @@
               <option *ngFor="let item of dataModelEnumSharingPriceTypeResult.listItems; index as i"
                 [value]="item.value">{{ item.description }}</option>
             </select>
-            <em align="end">{{'TITLE.Select_type_of_content' | translate}}</em>
+            <em  >{{'TITLE.Select_type_of_content' | translate}}</em>
             <mat-error *ngIf="SharingLinkType.errors?.required">
               SharingLinkType is <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>
@@ -111,7 +111,7 @@
             <input matInput type="text" [(ngModel)]="dataModel.smallPreview" name="dataModel.smallPreview" #SmallPreview
               placeholder="{{fieldsInfo['smallPreview']?.fieldTitle }}" minlength="3" maxlength="100"
               class="form-control validate-name" id="dataModel.smallPreview" />
-            <em align="end">{{ SmallPreview.value.length }} / 100</em>
+            <em  >{{ SmallPreview.value.length }} / 100</em>
             <mat-error *ngIf="SmallPreview.errors?.required">
               SmallPreview is <strong>{{'MESSAGE.required' | translate}}</strong>
             </mat-error>

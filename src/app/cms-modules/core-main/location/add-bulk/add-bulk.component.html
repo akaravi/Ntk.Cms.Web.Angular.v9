@@ -29,7 +29,7 @@
                         index as i
                         " [value]="item.value">{{ item.description }}</option>
                     </select>
-                    <em align="end">{{'TITLE.Select_type_of_content' | translate}}</em>
+                    <em  >{{'TITLE.Select_type_of_content' | translate}}</em>
                     <mat-error *ngIf="LocationType.errors?.required">
                         LocationType is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
@@ -46,7 +46,7 @@
                     <textarea matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
                         placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="5000" id="dataModel.title" required cols="50">
                 </textarea>
-                    <em align="end">{{ Title.value.length }} / 5000</em>
+                    <em  >{{ Title.value.length }} / 5000</em>
                     <mat-error *ngIf="Title.errors?.required">
                         Title is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>

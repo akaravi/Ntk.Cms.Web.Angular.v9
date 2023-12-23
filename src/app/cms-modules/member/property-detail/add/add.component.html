@@ -70,7 +70,7 @@
         <input matInput type="text" [(ngModel)]="dataModel.unit" name="dataModel.unit" #Unit minlength="1"
           maxlength="64" placeholder="{{fieldsInfo['unit']?.fieldTitle }}" class="form-control validate-name"
           id="dataModel.unit" />
-        <em align="end">{{ Unit.value.length }} / 64</em>
+        <em  >{{ Unit.value.length }} / 64</em>
       </div>
       <!-- InvisibleForEndUser Field -->
       <div *ngIf="fieldsInfo['invisibleForEndUser']?.accessWatchField" class="d-flex mb-3">
