@@ -44,82 +44,97 @@
   </ng-container>
   <ng-container cms-action-header>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle class="custom-slide-toggle"
-        [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
-      translate}}
-    </a>
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonStatist()">
-      </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
-    </a>
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
-      </mat-slide-toggle>
-      {{'ACTION.INCHECKING' | translate}}
-    </a>
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
-        [checked]="searchInResponsibleChecked">
-      </mat-slide-toggle>
-      {{'ACTION.InResponsible' | translate}}
-    </a>
-    <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-      (click)="onActionbuttonReload()" target="_blank"><i class="fa-solid fa-rotate-right fa-lg"
-        style="color: #ffffff;"></i>{{'ACTION.RELOAD' |
-      translate}}</a>
-    <button (click)=" onActionGridExpandRows(true)"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon title="{{'ACTION.EXPAND_ALL' | translate}}">unfold_more_double
-      </mat-icon>
-    </button>
-    <button (click)="onActionGridExpandRows(false)"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-      <mat-icon title="{{'ACTION.COLLPASE_ALL' |translate}}">
-        unfold_less_double</mat-icon>
-    </button>
+    <div class="d-flex justify-content-between">
+      <div class=" justify-content-end">
+        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <mat-slide-toggle class="custom-slide-toggle"
+            [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
+          translate}}
+        </a>
+        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <mat-slide-toggle (click)="onActionbuttonStatist()">
+          </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
+        </a>
+        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
+          </mat-slide-toggle>
+          {{'ACTION.INCHECKING' | translate}}
+        </a>
+        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
+            [checked]="searchInResponsibleChecked">
+          </mat-slide-toggle>
+          {{'ACTION.InResponsible' | translate}}
+        </a>
+      </div>
+      <div class=" justify-content-start">
+        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          (click)="onActionbuttonReload()" target="_blank">
+          <i class="fa-solid fa-rotate-right fa-lg" style="color: #ffffff;"></i>
+          <!-- <span class="m-1">{{'ACTION.RELOAD' |translate}}</span> -->
+        </a>
+        <a (click)=" onActionGridExpandRows(true)" target="_blank"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <mat-icon title="{{'ACTION.EXPAND_ALL' | translate}}">unfold_more_double
+          </mat-icon>
+        </a>
+        <a (click)="onActionGridExpandRows(false)" target="_blank"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <mat-icon title="{{'ACTION.COLLPASE_ALL' |translate}}">
+            unfold_less_double</mat-icon>
+        </a>
+      </div>
+    </div>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
   </ng-container>
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-    <div class="row">
-      <div class="col-auto ms-auto me-auto">
-        <a *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute" type="button"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
-          (click)="onActionbuttonNewRow($event)" target="_blank"><i class="fa-solid fa-plus-large"
-            style="color: #FFFFFF;"></i><br></a>
-        <p class="font-11 text-start opacity-70">{{'ACTION.ADD' |
-          translate}}</p>
+    <div class="row ">
+      <div class="col-auto ms-auto me-auto" *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute">
+        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
+          (click)="onActionbuttonNewRow($event)" target="_blank">
+          <i class="fa-solid fa-plus-large" style="color: #FFFFFF;"></i>
+        </a>
+        <br>
+        <span class="font-11 text-start opacity-70">{{'ACTION.ADD' |
+          translate}}</span>
       </div>
-      <div class="col-auto ms-auto me-auto">
-        <a *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute " type="button"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+      <div class="col-auto ms-auto me-auto" *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute ">
+        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonQuickAddRow($event)" target="_blank" id="openModalButton" data-toggle="modal"
-          data-target="#categoryModal"><i class="fa-solid fa-plus" style="color: #FFFFFF;"></i><br></a>
-        <p class="font-11 text-start opacity-70">{{'ACTION.QUICK_ADD' |
-          translate}}</p>
+          data-target="#categoryModal">
+          <i class="fa-solid fa-plus" style="color: #FFFFFF;"></i>
+        </a>
+        <br>
+        <span class="font-11 text-start opacity-70">{{'ACTION.QUICK_ADD' |translate}}</span>
       </div>
-      <div class="col-auto ms-auto me-auto">
-        <a *ngIf="this.actionbuttonExportOn" type="button"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="onActionbuttonExport()" target="_blank"><i class="fa-duotone fa-cloud-arrow-down fa-lg"
-            style="--fa-primary-color: #000000; --fa-secondary-color: #ffffff;"></i><br></a>
-        <p class="font-11 text-start opacity-70">{{'ACTION.EXPORTFILE' |
-          translate}}</p>
+      <div class="col-auto ms-auto me-auto" *ngIf="this.actionbuttonExportOn">
+        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          (click)="onActionbuttonExport()" target="_blank">
+          <i class="fa-duotone fa-cloud-arrow-down fa-lg"
+            style="--fa-primary-color: #000000; --fa-secondary-color: #ffffff;"></i>
+        </a>
+        <br>
+        <span class="font-11 text-start opacity-70">{{'ACTION.EXPORTFILE' |
+          translate}}</span>
       </div>
       <div class="col-auto ms-auto me-auto">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="onActionbuttonMemo()" target="_blank"><i class="fa-sharp fa-thin fa-memo fa-lg"
-            style="color: #ffffff;"></i><br></a>
-        <p class="font-11 text-start opacity-70">{{'ACTION.MEMO' |
-          translate}}</p>
+          (click)="onActionbuttonMemo()" target="_blank">
+          <i class="fa-sharp fa-thin fa-memo fa-lg" style="color: #ffffff;"></i>
+        </a>
+        <br>
+        <span class="font-11 text-start opacity-70">{{'ACTION.MEMO' |
+          translate}}</span>
       </div>
       <div class="col-auto ms-auto me-auto" *ngIf="requestLinkPropertyTypeLanduseId?.length>0">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-          (click)="onActionBackToParent()" target="_blank"><i class="fa-sharp fa-solid fa-arrow-left fa-lg"
-            style="color: #ffffff;"></i><br></a>
-        <p class="font-11 text-start opacity-70">{{'ACTION.BACK' |
-          translate}}</p>
+          (click)="onActionBackToParent()" target="_blank">
+          <i class="fa-sharp fa-solid fa-arrow-left fa-lg" style="color: #ffffff;"></i>
+        </a>
+        <br>
+        <span class="font-11 text-start opacity-70">{{'ACTION.BACK' |
+          translate}}</span>
       </div>
     </div>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
