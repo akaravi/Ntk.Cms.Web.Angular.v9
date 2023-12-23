@@ -16,34 +16,34 @@
     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
       <label for="dataModel.moduleName" class="color-highlight">ModuleName</label>
       <input matInput [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName type="text"
-        placeholder="ModuleName" id="dataModel.moduleName" />
+        placeholder="ModuleName" class="form-control validate-name" id="dataModel.moduleName" />
     </div>
 
     <!-- ModuleEntityName Field -->
     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
       <label for="dataModel.moduleEntityName" class="color-highlight">ModuleEntityName</label>
       <input matInput [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName" #ModuleEntityName
-        type="text" placeholder="ModuleEntityName" id="dataModel.moduleEntityName" />
+        type="text" placeholder="ModuleEntityName" class="form-control validate-name" id="dataModel.moduleEntityName" />
     </div>
     <!-- ModuleEntityId Field -->
     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
       <label for="dataModel.moduleEntityId" class="color-highlight">ModuleEntityId</label>
       <input matInput [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId" #ModuleEntityId type="text"
-        placeholder="ModuleEntityId" id="dataModel.moduleEntityId" />
+        placeholder="ModuleEntityId" class="form-control validate-name" id="dataModel.moduleEntityId" />
     </div>
 
     <!-- showKey Field -->
     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
       <label for="dataModel.showKey" class="color-highlight">showKey</label>
       <textarea matInput [(ngModel)]="dataModel.showKey" name="dataModel.showKey" #showKey type="text"
-        placeholder="showKey" id="dataModel.showKey"></textarea>
+        placeholder="showKey" class="form-control validate-name" id="dataModel.showKey"></textarea>
     </div>
 
     <!-- SubjectTitle Field -->
     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
       <label for="dataModel.subjectTitle" class="color-highlight">SubjectTitle</label>
       <textarea matInput [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle" #SubjectTitle type="text"
-        placeholder="SubjectTitle" id="dataModel.subjectTitle"></textarea>
+        placeholder="SubjectTitle" class="form-control validate-name" id="dataModel.subjectTitle"></textarea>
     </div>
     <!-- expireDateTime Field -->
     <div *ngIf="fieldsInfo['expireDateTime']?.accessWatchField"

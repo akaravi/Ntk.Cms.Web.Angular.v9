@@ -90,13 +90,13 @@
                 <label for="dataSiteStorageModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
                 <input matInput [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"
                   name="dataSiteStorageModel.mainDataContentRowCount" #dataSiteStorageModel_MainDataContentRowCount
-                  type="number" placeholder="0" id="dataSiteStorageModel.mainDataContentRowCount" />
+                  type="number" placeholder="0" class="form-control validate-name" id="dataSiteStorageModel.mainDataContentRowCount" />
               </div>
               <!-- UpdatedContent Field -->
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataSiteStorageModel.updatedContent" class="color-highlight">UpdatedContent</label>
                 <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedContent"
-                  [(ngModel)]="dataSiteStorageModel.updatedContent" name="dataSiteStorageModel.updatedContent" id="dataSiteStorageModel.updatedContent" />
+                  [(ngModel)]="dataSiteStorageModel.updatedContent" name="dataSiteStorageModel.updatedContent" class="form-control validate-name" id="dataSiteStorageModel.updatedContent" />
                 <mat-datepicker-toggle matSuffix [for]="dataSiteStorageModel_UpdatedContent"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #dataSiteStorageModel_UpdatedContent></mat-datepicker>
               </div>
@@ -105,7 +105,7 @@
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataSiteStorageModel.updatedNewsCategory" class="color-highlight">UpdatedNewsCategory</label>
                 <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedNewsCategory"
-                  [(ngModel)]="dataSiteStorageModel.updatedNewsCategory" name="dataSiteStorageModel.updatedNewsCategory"  id="dataSiteStorageModel.updatedNewsCategory"/>
+                  [(ngModel)]="dataSiteStorageModel.updatedNewsCategory" name="dataSiteStorageModel.updatedNewsCategory" class="form-control validate-name"  id="dataSiteStorageModel.updatedNewsCategory"/>
                 <mat-datepicker-toggle matSuffix [for]="dataSiteStorageModel_UpdatedNewsCategory"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #dataSiteStorageModel_UpdatedNewsCategory></mat-datepicker>
               </div>
@@ -114,7 +114,7 @@
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataSiteStorageModel.updatedNewsContent" class="color-highlight">UpdatedNewsContent</label>
                 <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedNewsContent"
-                  [(ngModel)]="dataSiteStorageModel.updatedNewsContent" name="dataSiteStorageModel.updatedNewsContent" id="dataSiteStorageModel.updatedNewsContent" />
+                  [(ngModel)]="dataSiteStorageModel.updatedNewsContent" name="dataSiteStorageModel.updatedNewsContent" class="form-control validate-name" id="dataSiteStorageModel.updatedNewsContent" />
                 <mat-datepicker-toggle matSuffix [for]="dataSiteStorageModel_UpdatedNewsContent"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #dataSiteStorageModel_UpdatedNewsContent></mat-datepicker>
               </div>
@@ -144,7 +144,7 @@
                 <label for="dataConfigSiteAccessValuesModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
                 <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
                   name="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
-                  #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0" id="dataConfigSiteAccessValuesModel.mainDataContentRowCount" required />
+                  #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesModel.mainDataContentRowCount" required />
                 <mat-error *ngIf="dataConfigSiteAccessValuesModel_MainDataContentRowCount.errors?.required">
                   MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -155,10 +155,7 @@
                 <label>{{'TITLE.Default_information_site_ID' | translate}}</label>
                 <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
                   name="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
-                  #dataConfigSiteAccessValuesModel_UseDataDefaulteSiteId type="number" placeholder="0" />
-                <mat-icon matSuffix *ngIf="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId" matSuffix mat-icon-button
-                  aria-label="Clear" (click)="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId = 0">close</mat-icon>
-                <mat-icon matSuffix>mode_edit</mat-icon>
+                  #dataConfigSiteAccessValuesModel_UseDataDefaulteSiteId type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId" />
               </div> -->
               <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
                 <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>

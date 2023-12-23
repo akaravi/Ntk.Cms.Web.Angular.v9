@@ -1,362 +1,369 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-<app-cms-guide-notice [Key]="'catalog.content.list.add'"
-  [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
+<app-cms-guide-notice [Key]="'catalog.content.list.add'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <div class="card card-style">
   <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-          حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-          اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-          فقط یک صفحه ساختگی است.
-      </p>
-      <!--Content-->
-      <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-          {{ formInfo.formTitle }}
-          <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
 
-            <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
-              <!-- RecordStatus Field -->
-              <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-                [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-                [optionSelectFirstItem]="true">
-              </app-cms-enum-record-status-selector>
+        <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
+          <!-- RecordStatus Field -->
+          <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+            [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true">
+          </app-cms-enum-record-status-selector>
 
-              <!-- Title Field -->
-              <div *ngIf="fieldsInfo['title']?.accessWatchField"
-                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
-                <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                  placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
-                  [disabled]="!fieldsInfo['description']?.accessEditField" class="form-control validate-name"
-                  id="dataModel.title" />
-                <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
-                <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-                <em>{{ Title.value.length }} / 100</em>
-                <mat-error *ngIf="Title.errors?.required">
-                  Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-              </div>
-              <!-- Description Field -->
-              <div *ngIf="fieldsInfo['description']?.accessWatchField"
-                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                  placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
-                  [disabled]="!fieldsInfo['description']?.accessEditField" id="dataModel.description"
-                  class="form-control validate-name">
+          <!-- Title Field -->
+          <div *ngIf="fieldsInfo['title']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+            <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+              placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+              [disabled]="!fieldsInfo['description']?.accessEditField" class="form-control validate-name"
+              id="dataModel.title" />
+            <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+            <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+            <em>{{ Title.value.length }} / 100</em>
+            <mat-error *ngIf="Title.errors?.required">
+              Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- Description Field -->
+          <div *ngIf="fieldsInfo['description']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+            <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+              placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5"
+              [disabled]="!fieldsInfo['description']?.accessEditField" id="dataModel.description"
+              class="form-control validate-name">
                 </textarea>
-                <em>{{ Description.value.length }} / 500</em>
-                <mat-error *ngIf="Description.errors?.required">
-                  Description is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-              </div>
+            <em>{{ Description.value.length }} / 500</em>
+            <mat-error *ngIf="Description.errors?.required">
+              Description is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
 
-              <!-- FromDate Field -->
-              <div *ngIf="fieldsInfo['fromDate']?.accessWatchField"
-                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.fromDate" class="color-highlight">{{ fieldsInfo["fromDate"]?.fieldTitle }}</label>
-                <input matInput [matDatepicker]="FromDate" type="text" [(ngModel)]="dataModel.fromDate"
-                  name="dataModel.fromDate" placeholder="{{fieldsInfo['fromDate']?.fieldTitle }}" minlength="3"
-                  maxlength="100" disabled="{{!fieldsInfo['fromDate']?.accessEditField}}" class="form-control validate-name"
-                  id="dataModel.fromDate" />
-                <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #FromDate></mat-datepicker>
-              </div>
-              <!-- ExpireDate Field -->
-              <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
-                class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
-                <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate"
-                  name="dataModel.expireDate" placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3"
-                  maxlength="100" disabled="{{!fieldsInfo['expireDate']?.accessEditField}}" class="form-control validate-name"
-                  id="dataModel.expireDate" />
-                <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-              </div>
-              <hr class="pb-5" />
-              <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
-                id="main" [(ngModel)]="dataModel.body" name="dataModel.body"></angular-editor>
+          <!-- FromDate Field -->
+          <div *ngIf="fieldsInfo['fromDate']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.fromDate" class="color-highlight">{{ fieldsInfo["fromDate"]?.fieldTitle }}</label>
+            <input matInput [matDatepicker]="FromDate" type="text" [(ngModel)]="dataModel.fromDate"
+              name="dataModel.fromDate" placeholder="{{fieldsInfo['fromDate']?.fieldTitle }}" minlength="3"
+              maxlength="100" disabled="{{!fieldsInfo['fromDate']?.accessEditField}}" class="form-control validate-name"
+              id="dataModel.fromDate" />
+            <mat-datepicker-toggle matSuffix [for]="FromDate"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #FromDate></mat-datepicker>
+          </div>
+          <!-- ExpireDate Field -->
+          <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
+            <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate"
+              name="dataModel.expireDate" placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3"
+              maxlength="100" disabled="{{!fieldsInfo['expireDate']?.accessEditField}}"
+              class="form-control validate-name" id="dataModel.expireDate" />
+            <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #ExpireDate></mat-datepicker>
+          </div>
+          <hr class="pb-5" />
+          <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')"
+            [config]="publicHelper.editorConfig" id="main" [(ngModel)]="dataModel.body"
+            name="dataModel.body"></angular-editor>
 
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-                  (click)="onActionBackToParent()">
-                  {{'ACTION.BACK' | translate}}
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+        <mat-step label="{{'TITLE.Categories' | translate}}" state="seo">
+          <app-catalog-category-treeselector [(optionModel)]="dataModel.linkContentCategoryIds">
+          </app-catalog-category-treeselector>
+
+          <br>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+        <mat-step label="{{'TITLE.Search_Engines' | translate}}" state="seo">
+          <p>{{'TITLE.This_section_helps_search_engines_better_index_content' | translate}}</p>
+          <!-- Source Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+            *ngIf="fieldsInfo['source']?.accessWatchField">
+            <label for="dataModel.source" class="color-highlight">{{'TITLE.Source_page_address' | translate}}</label>
+            <input matInput [(ngModel)]="dataModel.source" name="dataModel.source" #Source type="text" dir="ltr"
+              style="text-align: left;" placeholder="{{'TITLE.Content_reference_website_link' | translate}}"
+              [disabled]="!fieldsInfo['source']?.accessEditField" class="form-control validate-name"
+              id="dataModel.source" minlength="3" maxlength="500" />
+            <em align="end">{{ Source.value.length }} / 500</em>
+          </div>
+
+
+
+          <div style="width: 100%;" appearance="fill">
+            <label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</label>
+            <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+              <mat-chip *ngFor="let item of keywordDataModel" (removed)="removeTag(item)">
+                {{item}}
+                <button matChipRemove class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+                  <mat-icon>cancel</mat-icon>
                 </button>
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  [disabled]="!vform.form.valid" matStepperNext>
-                  {{'ACTION.NEXT' | translate}}
-                </button>
-              </div>
-            </mat-step>
-
-            <mat-step label="{{'TITLE.Categories' | translate}}" state="seo">
-              <app-catalog-category-treeselector [(optionModel)]="dataModel.linkContentCategoryIds">
-              </app-catalog-category-treeselector>
-
-              <br>
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-                  (click)="onActionBackToParent()">
-                  {{'ACTION.BACK' | translate}}
-                </button>
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  [disabled]="!vform.form.valid" matStepperNext>
-                  {{'ACTION.NEXT' | translate}}
-                </button>
-              </div>
-            </mat-step>
-            <mat-step label="{{'TITLE.Search_Engines' | translate}}" state="seo">
-              <p>{{'TITLE.This_section_helps_search_engines_better_index_content' | translate}}</p>
-              <!-- Source Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['source']?.accessWatchField">
-                <label for="dataModel.source" class="color-highlight">{{'TITLE.Source_page_address' | translate}}</label>
-                <input matInput [(ngModel)]="dataModel.source" name="dataModel.source" #Source type="text" dir="ltr"
-                  style="text-align: left;" placeholder="{{'TITLE.Content_reference_website_link' | translate}}"
-                  [disabled]="!fieldsInfo['source']?.accessEditField" id="dataModel.source" minlength="3" maxlength="500" />
-                <em  >{{ Source.value.length }} / 500</em>
-              </div>
+              </mat-chip>
+              <input placeholder="{{'TITLE.key_word' | translate}}+" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlurTag"
+                (matChipInputTokenEnd)="addTag($event)">
+            </mat-chip-grid>
+          </div>
 
 
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+        <mat-step label="{{'TITLE.ATTACH_FILES' | translate}}" state="file">
+          <p>{{'TITLE.CONTENT_ATTACH_FILES' | translate}}</p>
+          <div class="mb-3">
+            <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
+              <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+                aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
+            </a>
+          </div>
+          <div class="mb-9">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
 
-              <div style="width: 100%;" appearance="fill">
-                <label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</label>
-                <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
-                  <mat-chip *ngFor="let item of keywordDataModel" (removed)="removeTag(item)">
-                    {{item}}
-                    <button matChipRemove class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-                      <mat-icon>cancel</mat-icon>
-                    </button>
-                  </mat-chip>
-                  <input placeholder="{{'TITLE.key_word' | translate}}+" [matChipInputFor]="chipList"
-                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlurTag"
-                    (matChipInputTokenEnd)="addTag($event)">
-                </mat-chip-grid>
-              </div>
+              <label for="dataModel.linkMainImageId" (click)="fileManagerOpenForm = true"
+                class="color-highlight">{{'TITLE.Original_Photo' |
+                translate}}</label>
+              <input matInput [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
+                type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+                (click)="fileManagerOpenForm = true" class="form-control validate-name"
+                id="dataModel.linkMainImageId" />
+            </div>
 
+            <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainImageId($event)" [language]="appLanguage"
+              [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openDirectUploadView]="true"
+              [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
+              [openFilemanagerButtonView]="false">
+            </cms-file-manager>
+          </div>
+          <h3>{{'TITLE.image_360' | translate}}</h3>
+          <app-cms-360-image-list [(dataModel)]="dataModel.file360Views"></app-cms-360-image-list>
+          <br>
+          <h3>{{'TITLE.virtual_tour' | translate}}</h3>
+          <app-cms-360-tour-list [(dataModel)]="dataModel.file360Tour"
+            [dataImageModel]="dataModel.file360Views"></app-cms-360-tour-list>
 
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  matStepperPrevious>
-                  {{'ACTION.BEFOR' | translate}}
-                </button>
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  [disabled]="!vform.form.valid" matStepperNext>
-                  {{'ACTION.NEXT' | translate}}
-                </button>
-              </div>
-            </mat-step>
-            <mat-step label="{{'TITLE.ATTACH_FILES' | translate}}" state="file">
-              <p>{{'TITLE.CONTENT_ATTACH_FILES' | translate}}</p>
-              <div class="mb-3">
-                <a href="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" target="_blank">
-                  <img *ngIf="dataModel?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-                    aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
-                </a>
-              </div>
-              <div class="mb-9">
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <div class="mb-3">
+            <audio *ngIf="dataModel?.linkFilePodcastIdSrc?.length>0" controls>
+              <source src="{{dataModel.linkFilePodcastIdSrc | cmsthumbnail}}" type="audio/mp3">
+              Your browser does not support the audio tag.
+            </audio>
+          </div>
+          <div class="mb-9">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <input matInput [(ngModel)]="dataModel.linkFilePodcastId" name="dataModel.linkFilePodcastId"
+                #LinkFilePodcastId type="text" placeholder="{{'TITLE.Audio_File_ID' | translate}}"
+                (click)="fileManagerOpenFormPodcast = true" class="form-control validate-name"
+                id="dataModel.linkFilePodcastId" />
+            </div>
 
-                  <label for="dataModel.linkMainImageId" (click)="fileManagerOpenForm = true" class="color-highlight">{{'TITLE.Original_Photo' |
-                    translate}}</label>
-                  <input matInput [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId" #LinkMainImageId
-                    type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-                    (click)="fileManagerOpenForm = true" id="dataModel.linkMainImageId" />
-                </div>
+            <cms-file-manager (itemSelected)="onActionFileSelectedLinkFilePodcastId($event)" [language]="appLanguage"
+              [isPopup]="true" [(openForm)]="fileManagerOpenFormPodcast" [tree]="fileManagerTree"
+              [openDirectUploadView]="true" [openFilemanagerButtonLabelKey]="'select'"
+              [selectFileType]="selectFileTypePodcast" [openFilemanagerButtonView]="false"></cms-file-manager>
+          </div>
+          <div class="mb-3">
+            <video *ngIf="dataModel?.linkFileMovieIdSrc?.length>0" controls>
+              <source src="{{dataModel.linkFileMovieIdSrc }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="mb-9">
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <input matInput [(ngModel)]="dataModel.linkFileMovieId" name="dataModel.linkFileMovieId" #LinkFileMovieId
+                type="text" placeholder="{{'TITLE.Video_File_ID' | translate}}"
+                (click)="fileManagerOpenFormMovie = true" class="form-control validate-name"
+                id="dataModel.linkFileMovieId" />
+              <mat-icon matSuffix *ngIf="dataModel.linkFileMovieId" matSuffix mat-icon-button aria-label="Clear"
+                (click)="dataModel.linkFileMovieId = null">close</mat-icon>
+              <mat-icon matSuffix (click)="fileManagerOpenFormMovie = true">mode_edit</mat-icon>
+            </div>
 
-                <cms-file-manager (itemSelected)="onActionFileSelectedLinkMainImageId($event)" [language]="appLanguage"
-                  [isPopup]="true" [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openDirectUploadView]="true"
-                  [openFilemanagerButtonLabelKey]="'select'" [selectFileType]="selectFileTypeMainImage"
-                  [openFilemanagerButtonView]="false">
-                </cms-file-manager>
-              </div>
-              <h3>{{'TITLE.image_360' | translate}}</h3>
-              <app-cms-360-image-list [(dataModel)]="dataModel.file360Views"></app-cms-360-image-list>
-              <br>
-              <h3>{{'TITLE.virtual_tour' | translate}}</h3>
-              <app-cms-360-tour-list [(dataModel)]="dataModel.file360Tour"
-                [dataImageModel]="dataModel.file360Views"></app-cms-360-tour-list>
+            <cms-file-manager (itemSelected)="onActionFileSelectedLinkFileMovieId($event)" [language]="appLanguage"
+              [isPopup]="true" [(openForm)]="fileManagerOpenFormMovie" [tree]="fileManagerTree"
+              [openDirectUploadView]="true" [openFilemanagerButtonLabelKey]="'select'"
+              [selectFileType]="selectFileTypeMovie" [openFilemanagerButtonView]="false"></cms-file-manager>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+        <mat-step label="{{'TITLE.OTHER_INFO' | translate}}" state="otherinfo">
+          <P>{{'TITLE.Add_other_information_related_to_this_content_in_this_section' | translate}}</P>
 
-              <div class="mb-3">
-                <audio *ngIf="dataModel?.linkFilePodcastIdSrc?.length>0" controls>
-                  <source src="{{dataModel.linkFilePodcastIdSrc | cmsthumbnail}}" type="audio/mp3">
-                  Your browser does not support the audio tag.
-                </audio>
-              </div>
-              <div class="mb-9">
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                  <input matInput [(ngModel)]="dataModel.linkFilePodcastId" name="dataModel.linkFilePodcastId"
-                    #LinkFilePodcastId type="text" placeholder="{{'TITLE.Audio_File_ID' | translate}}"
-                    (click)="fileManagerOpenFormPodcast = true" id="dataModel.linkFilePodcastId" />
-                </div>
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="contentOtherInfoSelected.title"
+              class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
+            <input matInput [(ngModel)]="contentOtherInfoSelected.title" name="contentOtherInfoSelected.title"
+              #contentOtherInfoSelected_Title type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}"
+              minlength="3" maxlength="100" class="form-control validate-name" id="contentOtherInfoSelected.title" />
+            <em align="end">{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
+          </div>
 
-                <cms-file-manager (itemSelected)="onActionFileSelectedLinkFilePodcastId($event)" [language]="appLanguage"
-                  [isPopup]="true" [(openForm)]="fileManagerOpenFormPodcast" [tree]="fileManagerTree"
-                  [openDirectUploadView]="true" [openFilemanagerButtonLabelKey]="'select'"
-                  [selectFileType]="selectFileTypePodcast" [openFilemanagerButtonView]="false"></cms-file-manager>
-              </div>
-              <div class="mb-3">
-                <video *ngIf="dataModel?.linkFileMovieIdSrc?.length>0" controls>
-                  <source src="{{dataModel.linkFileMovieIdSrc }}" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="mb-9">
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                  <input matInput [(ngModel)]="dataModel.linkFileMovieId" name="dataModel.linkFileMovieId" #LinkFileMovieId
-                    type="text" placeholder="{{'TITLE.Video_File_ID' | translate}}"
-                    (click)="fileManagerOpenFormMovie = true" id="dataModel.linkFileMovieId" />
-                  <mat-icon matSuffix *ngIf="dataModel.linkFileMovieId" matSuffix mat-icon-button aria-label="Clear"
-                    (click)="dataModel.linkFileMovieId = null">close</mat-icon>
-                  <mat-icon matSuffix (click)="fileManagerOpenFormMovie = true">mode_edit</mat-icon>
-                </div>
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="contentOtherInfoSelected.typeId" class="color-highlight">{{'TITLE.Key' | translate}}</label>
+            <input matInput [(ngModel)]="contentOtherInfoSelected.typeId" name="contentOtherInfoSelected.typeId"
+              #contentOtherInfoSelected_TypeId type="number" class="form-control validate-name"
+              id="contentOtherInfoSelected.typeId" placeholder="{{'TITLE.Agreement_number_to_display' | translate}}" />
+          </div>
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="contentOtherInfoSelected.source" class="color-highlight">{{'TITLE.Source' | translate}}</label>
+            <input matInput [(ngModel)]="contentOtherInfoSelected.source" name="contentOtherInfoSelected.source"
+              #contentOtherInfoSelected_Source type="text" dir="ltr" style="text-align: left;" placeholder="http://"
+              maxlength="100" class="form-control validate-name" id="contentOtherInfoSelected.source" />
+            <em align="end">{{ contentOtherInfoSelected_Source.value.length }} / 500</em>
+          </div>
 
-                <cms-file-manager (itemSelected)="onActionFileSelectedLinkFileMovieId($event)" [language]="appLanguage"
-                  [isPopup]="true" [(openForm)]="fileManagerOpenFormMovie" [tree]="fileManagerTree"
-                  [openDirectUploadView]="true" [openFilemanagerButtonLabelKey]="'select'"
-                  [selectFileType]="selectFileTypeMovie" [openFilemanagerButtonView]="false"></cms-file-manager>
-              </div>
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  matStepperPrevious>
-                  {{'ACTION.BEFOR' | translate}}
-                </button>
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  [disabled]="!vform.form.valid" matStepperNext>
-                  {{'ACTION.NEXT' | translate}}
-                </button>
-              </div>
-            </mat-step>
-            <mat-step label="{{'TITLE.OTHER_INFO' | translate}}" state="otherinfo">
-              <P>{{'TITLE.Add_other_information_related_to_this_content_in_this_section' | translate}}</P>
+          <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')"
+            [config]="publicHelper.editorConfig" id="OtherInfo" [(ngModel)]="contentOtherInfoSelected.htmlBody"
+            name="contentOtherInfoSelected.htmlBody"></angular-editor>
 
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="contentOtherInfoSelected.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="contentOtherInfoSelected.title" name="contentOtherInfoSelected.title"
-                  #contentOtherInfoSelected_Title type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
-                  maxlength="100" id="contentOtherInfoSelected.title" />
-                <em  >{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
-              </div>
-
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="contentOtherInfoSelected.typeId" class="color-highlight">{{'TITLE.Key' | translate}}</label>
-                <input matInput [(ngModel)]="contentOtherInfoSelected.typeId" name="contentOtherInfoSelected.typeId"
-                  #contentOtherInfoSelected_TypeId type="number" id="contentOtherInfoSelected.typeId"
-                  placeholder="{{'TITLE.Agreement_number_to_display' | translate}}" />
-              </div>
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="contentOtherInfoSelected.source" class="color-highlight">{{'TITLE.Source' | translate}}</label>
-                <input matInput [(ngModel)]="contentOtherInfoSelected.source" name="contentOtherInfoSelected.source"
-                  #contentOtherInfoSelected_Source type="text" dir="ltr" style="text-align: left;" placeholder="http://"
-                  maxlength="100" id="contentOtherInfoSelected.source" />
-                <em  >{{ contentOtherInfoSelected_Source.value.length }} / 500</em>
-              </div>
-
-              <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
-                id="OtherInfo" [(ngModel)]="contentOtherInfoSelected.htmlBody"
-                name="contentOtherInfoSelected.htmlBody"></angular-editor>
-
-              <button (click)="onActionContentOtherInfoAddToLIst()" type="button"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                {{'ACTION.Add_To_List' | translate}}
-              </button>
-              <p>{{'TITLE.List_of_other_information' | translate}}</p>
-              <!-- TABLE  -->
-              <div class="example-container mat-elevation-z8">
-                <mat-table [dataSource]="otherInfoTabledataSource">
-                  <!-- Id Column -->
-                  <ng-container matColumnDef="Id">
-                    <mat-header-cell *matHeaderCellDef> {{'TITLE.Id' | translate}} </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-                  </ng-container>
-                  <!-- Title Column -->
-                  <ng-container matColumnDef="Title">
-                    <mat-header-cell *matHeaderCellDef> {{'TITLE.title' | translate}} </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
-                  </ng-container>
-                  <!-- TypeId Column -->
-                  <ng-container matColumnDef="TypeId">
-                    <mat-header-cell *matHeaderCellDef> {{'TITLE.TypeId' | translate}} </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.typeId}} </mat-cell>
-                  </ng-container>
-                  <!-- Action Column -->
-                  <ng-container matColumnDef="Action">
-                    <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
-                    <mat-cell *matCellDef="let row; let i = index" class='Action'>
-                      <small (click)="onActionContentOtherInfoEditFromLIst(i)">
-                        <mat-icon matTooltip="{{'ACTION.EDIT' | translate}}" matTooltipPosition="before" aria-hidden="false"
-                          style="color: blue;">edit</mat-icon>
-                      </small>|
-                      <small (click)="onActionContentOtherInfoRemoveFromLIst(i)">
-                        <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before" aria-hidden="false"
-                          style="color: red;">delete</mat-icon>
-                      </small>
-                    </mat-cell>
-                  </ng-container>
-                  <mat-header-row *matHeaderRowDef="otherInfoTabledisplayedColumns"></mat-header-row>
-                  <mat-row *matRowDef="let row; columns: otherInfoTabledisplayedColumns;"
-                    [ngStyle]="{'background': row.title === contentOtherInfoSelected.title ? '#d3d3da' : '' }">
-                  </mat-row>
-                </mat-table>
-              </div>
-              <!-- TABLE  -->
+          <button (click)="onActionContentOtherInfoAddToLIst()" type="button"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            {{'ACTION.Add_To_List' | translate}}
+          </button>
+          <p>{{'TITLE.List_of_other_information' | translate}}</p>
+          <!-- TABLE  -->
+          <div class="example-container mat-elevation-z8">
+            <mat-table [dataSource]="otherInfoTabledataSource">
+              <!-- Id Column -->
+              <ng-container matColumnDef="Id">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.Id' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+              </ng-container>
+              <!-- Title Column -->
+              <ng-container matColumnDef="Title">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.title' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+              </ng-container>
+              <!-- TypeId Column -->
+              <ng-container matColumnDef="TypeId">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.TypeId' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.typeId}} </mat-cell>
+              </ng-container>
+              <!-- Action Column -->
+              <ng-container matColumnDef="Action">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row; let i = index" class='Action'>
+                  <small (click)="onActionContentOtherInfoEditFromLIst(i)">
+                    <mat-icon matTooltip="{{'ACTION.EDIT' | translate}}" matTooltipPosition="before" aria-hidden="false"
+                      style="color: blue;">edit</mat-icon>
+                  </small>|
+                  <small (click)="onActionContentOtherInfoRemoveFromLIst(i)">
+                    <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before"
+                      aria-hidden="false" style="color: red;">delete</mat-icon>
+                  </small>
+                </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="otherInfoTabledisplayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: otherInfoTabledisplayedColumns;"
+                [ngStyle]="{'background': row.title === contentOtherInfoSelected.title ? '#d3d3da' : '' }">
+              </mat-row>
+            </mat-table>
+          </div>
+          <!-- TABLE  -->
 
 
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  matStepperPrevious>
-                  {{'ACTION.BEFOR' | translate}}
-                </button>
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  [disabled]="!vform.form.valid" matStepperNext>
-                  {{'ACTION.NEXT' | translate}}
-                </button>
-              </div>
-            </mat-step>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-            <mat-step label="{{'TITLE.Location' | translate}} " state="loaction">
-              <!-- LinkLocationId Field -->
-              <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
-                [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField"
-                [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="this.translate.instant('TITLE.Region')">
-              </app-cms-location-selector>
-              <p>{{'TITLE.Click_on_the_map_to_specify_the_location' | translate}}</p>
-              <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
-                id='main-map'></app-cms-map>
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  matStepperPrevious>
-                  {{'ACTION.BEFOR' | translate}}
-                </button>
-                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                  [disabled]="!vform.form.valid">
-                  {{'ACTION.SAVE' | translate}}
-                </button>
-              </div>
-            </mat-step>
+        <mat-step label="{{'TITLE.Location' | translate}} " state="loaction">
+          <!-- LinkLocationId Field -->
+          <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
+            [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField"
+            [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+          </app-cms-location-selector>
+          <p>{{'TITLE.Click_on_the_map_to_specify_the_location' | translate}}</p>
+          <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
+            id='main-map'></app-cms-map>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-            <!-- Icon overrides. -->
-            <ng-template matStepperIcon="main">
-              <mat-icon>call_end</mat-icon>
-            </ng-template>
-            <ng-template matStepperIcon="seo">
-              <mat-icon>call_end</mat-icon>
-            </ng-template>
-            <ng-template matStepperIcon="file">
-              <mat-icon>forum</mat-icon>
-            </ng-template>
-            <ng-template matStepperIcon="loaction">
-              <mat-icon>forum</mat-icon>
-            </ng-template>
+        <!-- Icon overrides. -->
+        <ng-template matStepperIcon="main">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="seo">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="file">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="loaction">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
 
-          </mat-vertical-stepper>
+      </mat-vertical-stepper>
 
-        
-      </form>
-      <!--Content-->
+
+    </form>
+    <!--Content-->
   </div>
 </div>

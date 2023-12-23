@@ -91,13 +91,13 @@
                        <label for="dataSiteStorageModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
                         <input matInput [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"
                             name="dataSiteStorageModel.mainDataContentRowCount"
-                            #dataSiteStorageModel_MainDataContentRowCount type="number" placeholder="0" id="dataSiteStorageModel.mainDataContentRowCount" />
+                            #dataSiteStorageModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name" id="dataSiteStorageModel.mainDataContentRowCount" />
                     </div>
                     <!-- UpdatedContent Field -->
                     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                         <label for="dataSiteStorageModel.updatedContent" class="color-highlight">UpdatedContent</label>
                         <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedContent" 
-                            [(ngModel)]="dataSiteStorageModel.updatedContent" name="dataSiteStorageModel.updatedContent" id="dataSiteStorageModel.updatedContent" />
+                            [(ngModel)]="dataSiteStorageModel.updatedContent" name="dataSiteStorageModel.updatedContent" class="form-control validate-name" id="dataSiteStorageModel.updatedContent" />
                         <mat-datepicker-toggle matSuffix
                             [for]="dataSiteStorageModel_UpdatedContent"></mat-datepicker-toggle>
                         <mat-datepicker touchUi #dataSiteStorageModel_UpdatedContent></mat-datepicker>
@@ -132,7 +132,7 @@
                         <label for="dataConfigSiteAccessValuesModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
                         <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
                             name="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
-                            #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0" id="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
+                            #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
                             required />
                         <mat-error *ngIf="dataConfigSiteAccessValuesModel_MainDataContentRowCount.errors?.required">
                             MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>

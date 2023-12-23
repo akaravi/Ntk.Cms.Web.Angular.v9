@@ -78,7 +78,7 @@
                             <label for="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
                             <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
                                 name="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
-                                #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount type="number" placeholder="0" id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
+                                #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name"id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
                                 required />
                             <mat-error *ngIf="dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount.errors?.required">
                                 MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -89,7 +89,7 @@
                             <label for="dataConfigAdminMainModel.useDataDefaulteSiteId" class="color-highlight">{{'TITLE.Default_information_site_ID' | translate}}</label>
                             <input matInput [(ngModel)]="dataConfigAdminMainModel.useDataDefaulteSiteId"
                                 name="dataConfigAdminMainModel.useDataDefaulteSiteId"
-                                #dataConfigAdminMainModel_UseDataDefaulteSiteId type="number" placeholder="0" id="dataConfigAdminMainModel.useDataDefaulteSiteId" />
+                                #dataConfigAdminMainModel_UseDataDefaulteSiteId type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.useDataDefaulteSiteId" />
                         </div>
                         <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
                             <div [innerHTML]="dataConfigSiteAccessValuesDefaultModel | prettyjson"></div>
@@ -135,8 +135,7 @@
                             <label for="dataConfigAdminMainModel.imageMainSizeWidth" class="color-highlight">ImageMainSizeWidth</label>
                             <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeWidth"
                                 name="dataConfigAdminMainModel.imageMainSizeWidth" #dataConfigAdminMainModel_ImageMainSizeWidth
-                                type="number" placeholder="0" id="dataConfigAdminMainModel.imageMainSizeWidth" required />
-                        
+                                type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeWidth" required />
                             <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeWidth.errors?.required">
                                 ImageMainSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
                             </mat-error>
@@ -146,7 +145,7 @@
                             <label for="dataConfigAdminMainModel.imageMainSizeHeight" class="color-highlight">ImageMainSizeHeight</label>
                             <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeHeight"
                                 name="dataConfigAdminMainModel.imageMainSizeHeight"
-                                #dataConfigAdminMainModel_ImageMainSizeHeight type="number" placeholder="0" id="dataConfigAdminMainModel.imageMainSizeHeight" required />
+                                #dataConfigAdminMainModel_ImageMainSizeHeight type="number" placeholder="0" class="form-control validate-name"  id="dataConfigAdminMainModel.imageMainSizeHeight" required />
                             <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeHeight.errors?.required">
                                 ImageMainSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
                             </mat-error>
@@ -159,7 +158,7 @@
                             <label for="dataConfigAdminMainModel.imageThumbnailSizeWidth" class="color-highlight">ImageThumbnailSizeWidth</label>
                             <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeWidth"
                                 name="dataConfigAdminMainModel.imageThumbnailSizeWidth"
-                                #dataConfigAdminMainModel_ImageThumbnailSizeWidth type="number" placeholder="0" id="dataConfigAdminMainModel.imageThumbnailSizeWidth" required />
+                                #dataConfigAdminMainModel_ImageThumbnailSizeWidth type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageThumbnailSizeWidth" required />
                             <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeWidth.errors?.required">
                                 ImageThumbnailSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
                             </mat-error>
@@ -169,7 +168,7 @@
                             <label for="dataConfigAdminMainModel.imageThumbnailSizeHeight" class="color-highlight">ImageThumbnailSizeHeight</label>
                             <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeHeight"
                                 name="dataConfigAdminMainModel.imageThumbnailSizeHeight"
-                                #dataConfigAdminMainModel_ImageThumbnailSizeHeight type="number" placeholder="0" id="dataConfigAdminMainModel.imageThumbnailSizeHeight" required />
+                                #dataConfigAdminMainModel_ImageThumbnailSizeHeight type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageThumbnailSizeHeight" required />
                             <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeHeight.errors?.required">
                                 ImageThumbnailSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
                             </mat-error>
@@ -193,7 +192,7 @@
                             <label for="dataConfigAdminMainModel.accessFreeDay" class="color-highlight">AccessFreeDay</label>
                             <input matInput [(ngModel)]="dataConfigAdminMainModel.accessFreeDay"
                                 name="dataConfigAdminMainModel.accessFreeDay" #dataConfigAdminMainModel_AccessFreeDay
-                                type="number" placeholder="0" id="dataConfigAdminMainModel.accessFreeDay" required />
+                                type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.accessFreeDay" required />
                             <mat-error *ngIf="dataConfigAdminMainModel_AccessFreeDay.errors?.required">
                                 AccessFreeDay is <strong>{{'MESSAGE.required' | translate}}</strong>
                             </mat-error>

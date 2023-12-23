@@ -23,8 +23,8 @@
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
                     <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                        placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" id="dataModel.title" required />
-                    <em  >{{ Title.value.length }} / 100</em>
+                        placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
+                    <em align="end">{{ Title.value.length }} / 100</em>
                     <mat-error *ngIf="Title.errors?.required">
                         {{fieldsInfo['title']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
@@ -35,8 +35,8 @@
                     <label for="dataModel.titleResourceLanguage" class="color-highlight">{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}</label>
                     <input matInput [(ngModel)]="dataModel.titleResourceLanguage" name="dataModel.titleResourceLanguage"
                         #TitleResourceLanguage type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
-                        maxlength="100" required [disabled]="!fieldsInfo['titleResourceLanguage']?.accessAddField" id="dataModel.titleResourceLanguage" />
-                    <em  >{{ TitleResourceLanguage.value.length }} / 100</em>
+                        maxlength="100" required [disabled]="!fieldsInfo['titleResourceLanguage']?.accessAddField" class="form-control validate-name" id="dataModel.titleResourceLanguage" />
+                    <em align="end">{{ TitleResourceLanguage.value.length }} / 100</em>
                     <mat-error *ngIf="TitleResourceLanguage.errors?.required">
                         {{fieldsInfo['titleResourceLanguage']?.fieldTitle}} is <strong>{{'MESSAGE.required' |
                             translate}}</strong>
@@ -45,7 +45,7 @@
                 <!-- ActionType Field -->
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <select [(ngModel)]="dataModel.actionType" id="dataModel.actionType"
-                        name="dataModel.actionType" #ActionType="ngModel"
+                        name="dataModel.actionType" #ActionType="ngModel" class="form-control validate-name"
                         required>
                         <option *ngFor="
                         let item of dataModelEnumUserClaimGroupActionTypeResult.listItems;
@@ -98,8 +98,8 @@
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
                     <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                        placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows=5 id="dataModel.description"></textarea>
-                    <em  >{{ Description.value.length }} / 500</em>
+                        placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows=5 class="form-control validate-name" id="dataModel.description"></textarea>
+                    <em align="end">{{ Description.value.length }} / 500</em>
                     <mat-error *ngIf="Description.errors?.required">
                         {{fieldsInfo['description']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>

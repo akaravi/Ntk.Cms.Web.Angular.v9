@@ -23,7 +23,7 @@
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <select [(ngModel)]="dataModel.locationType"
                         name="dataModel.locationType" #LocationType="ngModel"
-                        ngClass="LocationType-{{ dataModel.locationType }}">
+                        ngClass="LocationType-{{ dataModel.locationType }}" class="form-control validate-name">
                         <option *ngFor="
                         let item of dataModelEnumLocationTypeResult.listItems;
                         index as i
@@ -44,7 +44,7 @@
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
                     <textarea matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                        placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="5000" id="dataModel.title" required cols="50">
+                        placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="5000" class="form-control validate-name" id="dataModel.title" required cols="50">
                 </textarea>
                     <em  >{{ Title.value.length }} / 5000</em>
                     <mat-error *ngIf="Title.errors?.required">
@@ -55,13 +55,13 @@
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.geoLocationLatitude" class="color-highlight">Geo Location Latitude</label>
                     <input matInput [(ngModel)]="dataModel.geoLocationLatitude" name="dataModel.geoLocationLatitude"
-                        #GeoLocationLatitude type="number" placeholder="Geo Location Latitude" id="dataModel.geoLocationLatitude" />
+                        #GeoLocationLatitude type="number" placeholder="Geo Location Latitude" class="form-control validate-name" id="dataModel.geoLocationLatitude" />
                 </div>
                 <!-- GeoLocationLongitude Field -->
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.geoLocationLongitude" class="color-highlight">Geo Location Longitude</label>
                     <input matInput [(ngModel)]="dataModel.geoLocationLongitude" name="dataModel.geoLocationLongitude"
-                        #GeoLocationLongitude type="number" id="dataModel.geoLocationLongitude" placeholder="Geo Location Latitude" />
+                        #GeoLocationLongitude type="number" class="form-control validate-name" id="dataModel.geoLocationLongitude" placeholder="Geo Location Latitude" />
                 </div>
                 <!-- LinkImageId Field -->
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -69,7 +69,7 @@
                         aria-hidden src="{{dataModel.linkImageIdSrc | cmsthumbnail}}" height="50" width="50" />
                     <label for="dataModel.linkImageId" (click)="fileManagerOpenForm = true" class="color-highlight">{{'TITLE.PHOTO_FILE' | translate}}</label>
                     <input matInput [(ngModel)]="dataModel.linkImageId" name="dataModel.linkImageId" #LinkImageId type="text"
-                        placeholder="{{'TITLE.Icon_File_ID' | translate}}" (click)="fileManagerOpenForm = true" id="dataModel.linkImageId" />
+                        placeholder="{{'TITLE.Icon_File_ID' | translate}}" (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkImageId" />
                 </div>
                 <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage"
                     [selectFileType]="selectFileTypeMainImage" [isPopup]="true" [(openForm)]="fileManagerOpenForm"
