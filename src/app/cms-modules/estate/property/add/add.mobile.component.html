@@ -109,7 +109,7 @@
                 disabled="{{ !fieldsInfo['caseCode']?.accessAddField }}"
                 placeholder="{{ fieldsInfo['caseCode']?.fieldTitle }}" minlength="3" maxlength="100"
                 class="form-control validate-name" id="dataModel.caseCode" />
-              <em align="end">{{ CaseCode.value.length }} / 100</em>
+              <em  >{{ CaseCode.value.length }} / 100</em>
               <mat-error *ngIf="CaseCode.errors?.required">
                 {{ fieldsInfo["caseCode"]?.fieldTitle }}
                 <strong>{{ "MESSAGE.required" | translate }}</strong>
@@ -177,7 +177,7 @@
                 placeholder="{{ fieldsInfo['address']?.fieldTitle }}" minlength="1" maxlength="500" rows="5"
                 [disabled]="!fieldsInfo['address']?.accessAddField" class="form-control validate-name"
                 id="dataModel.address"></textarea>
-              <em align="end">{{ Address.value.length }} / 500</em>
+              <em  >{{ Address.value.length }} / 500</em>
             </div>
 
             <!-- Description Field -->
@@ -188,7 +188,7 @@
                 type="text" disabled="{{ !fieldsInfo['description']?.accessAddField }}"
                 placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="1" maxlength="2000" rows="5"
                 class="form-control validate-name" id="dataModel.description" required></textarea>
-              <em align="end">{{ Description.value.length }} / 2000</em>
+              <em  >{{ Description.value.length }} / 2000</em>
               <mat-error *ngIf="Description.errors?.required">
                 {{ fieldsInfo["description"]?.fieldTitle }}
                 <strong>{{ "MESSAGE.required" | translate }}</strong>
@@ -222,7 +222,7 @@
               disabled="{{ !fieldsInfo['linkSiteId']?.accessAddField }}" class="form-control validate-name"
               id="dataModel.linkSiteId" placeholder="{{ fieldsInfo['linkSiteId']?.fieldTitle }}" minlength="3"
               maxlength="100" />
-            <em align="end">{{ LinkSiteId.value.length }} / 100</em>
+            <em  >{{ LinkSiteId.value.length }} / 100</em>
             <mat-error *ngIf="LinkSiteId.errors?.required">
               {{ fieldsInfo["linkSiteId"]?.fieldTitle }}
               <strong>{{ "MESSAGE.required" | translate }}</strong>
@@ -366,7 +366,7 @@
               disabled="{{ !fieldsInfo['aboutAgentMobile']?.accessAddField }}"
               placeholder="{{ fieldsInfo['aboutAgentMobile']?.fieldTitle }}" minlength="0" maxlength="100"
               class="form-control validate-name" id="dataModel.aboutAgentMobile" />
-            <em align="end">{{ AboutAgentMobile.value.length }} / 100</em>
+            <em  >{{ AboutAgentMobile.value.length }} / 100</em>
           </div>
 
           <!-- AboutAgentTel Field -->
@@ -378,7 +378,7 @@
               #AboutAgentTel type="text" disabled="{{ !fieldsInfo['aboutAgentTel']?.accessAddField }}"
               placeholder="{{ fieldsInfo['aboutAgentTel']?.fieldTitle }}" minlength="0" maxlength="100"
               class="form-control validate-name" id="dataModel.aboutAgentTel" />
-            <em align="end">{{ AboutAgentTel.value.length }} / 100</em>
+            <em  >{{ AboutAgentTel.value.length }} / 100</em>
           </div>
 
           <!-- AboutCustomerMobile Field -->
@@ -392,7 +392,7 @@
               disabled="{{ !fieldsInfo['aboutCustomerMobile']?.accessAddField }}"
               placeholder="{{ fieldsInfo['aboutCustomerMobile']?.fieldTitle }}" minlength="0" maxlength="100"
               class="form-control validate-name" id="dataModel.aboutCustomerMobile" />
-            <em align="end">{{ AboutCustomerMobile.value.length }} / 100</em>
+            <em  >{{ AboutCustomerMobile.value.length }} / 100</em>
           </div>
 
           <!-- AboutCustomerTel Field -->
@@ -406,7 +406,7 @@
               disabled="{{ !fieldsInfo['aboutCustomerTel']?.accessAddField }}"
               placeholder="{{ fieldsInfo['aboutCustomerTel']?.fieldTitle }}" minlength="0" maxlength="100"
               class="form-control validate-name" id="dataModel.aboutCustomerTel" />
-            <em align="end">{{ AboutCustomerTel.value.length }} / 100</em>
+            <em  >{{ AboutCustomerTel.value.length }} / 100</em>
           </div>
           <!-- actionCreateCmsUserId Field -->
           <div
@@ -581,7 +581,7 @@
               #DescriptionHidden type="text" placeholder="{{ fieldsInfo['descriptionHidden']?.fieldTitle }}"
               minlength="1" maxlength="2000" rows="5" class="form-control validate-name"
               id="dataModel.descriptionHidden"></textarea>
-            <em align="end">{{ DescriptionHidden.value.length }} / 2000</em>
+            <em  >{{ DescriptionHidden.value.length }} / 2000</em>
             <mat-error *ngIf="DescriptionHidden.errors?.required">
               {{ fieldsInfo["descriptionHidden"]?.fieldTitle }}
               <strong>{{ "MESSAGE.required" | translate }}</strong>
@@ -595,7 +595,7 @@
             <textarea matInput [(ngModel)]="dataModel.addressHidden" name="dataModel.addressHidden" #AddressHidden
               type="text" placeholder="{{ fieldsInfo['addressHidden']?.fieldTitle }}" minlength="1" maxlength="2000"
               rows="5" class="form-control validate-name" id="dataModel.addressHidden"></textarea>
-            <em align="end">{{ AddressHidden.value.length }} / 2000</em>
+            <em  >{{ AddressHidden.value.length }} / 2000</em>
             <mat-error *ngIf="AddressHidden.errors?.required">
               {{ fieldsInfo["addressHidden"]?.fieldTitle }}
               <strong>{{ "MESSAGE.required" | translate }}</strong>
@@ -859,7 +859,7 @@
                   #contractDataModel_Description type="text" placeholder="{{ fieldsInfo['description']?.fieldTitle }}"
                   minlength="0" maxlength="500" rows="5" class="form-control validate-name"
                   id="contractDataModel.description"></textarea>
-                <em align="end">{{ contractDataModel_Description.value.length }} / 500</em>
+                <em  >{{ contractDataModel_Description.value.length }} / 500</em>
               </div>
             </div>
 

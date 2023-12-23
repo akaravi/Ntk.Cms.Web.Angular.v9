@@ -59,7 +59,7 @@
                 <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
                   disabled="{{!fieldsInfo['title']?.accessAddField}}" placeholder="{{fieldsInfo['title']?.fieldTitle}}"
                   minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
-                <em align="end">{{ Title.value.length }} / 100</em>
+                <em  >{{ Title.value.length }} / 100</em>
                 <mat-error *ngIf="Title.errors?.required">
                   {{fieldsInfo['title']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -71,7 +71,7 @@
                 <input matInput [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode type="text"
                   disabled="{{!fieldsInfo['caseCode']?.accessAddField}}"
                   placeholder="{{fieldsInfo['caseCode']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.caseCode" />
-                <em align="end">{{ CaseCode.value.length }} / 100</em>
+                <em  >{{ CaseCode.value.length }} / 100</em>
                 <mat-error *ngIf="CaseCode.errors?.required">
                   {{fieldsInfo['caseCode']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -126,7 +126,7 @@
                 <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
                   placeholder="{{fieldsInfo['address']?.fieldTitle}}" minlength="1" maxlength="500" rows=5
                   [disabled]="!fieldsInfo['address']?.accessAddField" class="form-control validate-name" id="dataModel.address"></textarea>
-                <em align="end">{{ Address.value.length }} / 500</em>
+                <em  >{{ Address.value.length }} / 500</em>
               </div>
     
               <!-- Description Field -->
@@ -165,7 +165,7 @@
               <input matInput [(ngModel)]="dataModel.linkSiteId" name="dataModel.linkSiteId" #LinkSiteId type="text"
                 disabled="{{!fieldsInfo['linkSiteId']?.accessAddField}}"
                 placeholder="{{fieldsInfo['linkSiteId']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.linkSiteId" />
-              <em align="end">{{ LinkSiteId.value.length }} / 100</em>
+              <em  >{{ LinkSiteId.value.length }} / 100</em>
               <mat-error *ngIf="LinkSiteId.errors?.required">
                 {{fieldsInfo['linkSiteId']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>
@@ -232,7 +232,7 @@
                 class="input-Mobile" #AboutCustomerMobile type="text"
                 disabled="{{!fieldsInfo['aboutCustomerMobile']?.accessAddField}}"
                 placeholder="{{fieldsInfo['aboutCustomerMobile']?.fieldTitle}}" minlength="0" maxlength="100" class="form-control validate-name" id="dataModel.aboutCustomerMobile" />
-              <em align="end">{{ AboutCustomerMobile.value.length }} / 100</em>
+              <em  >{{ AboutCustomerMobile.value.length }} / 100</em>
             </div>
     
             <!-- AboutCustomerTel Field -->
@@ -251,7 +251,7 @@
               <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
                 #DescriptionHidden type="text" placeholder="{{fieldsInfo['descriptionHidden']?.fieldTitle}}" minlength="1"
                 maxlength="2000" rows=5 class="form-control validate-name" id="dataModel.descriptionHidden"></textarea>
-              <em align="end">{{ DescriptionHidden.value.length }} / 2000</em>
+              <em  >{{ DescriptionHidden.value.length }} / 2000</em>
               <mat-error *ngIf="DescriptionHidden.errors?.required">
                 {{fieldsInfo['descriptionHidden']?.fieldTitle}} <strong>{{'MESSAGE.required' |
                   translate}}</strong>
@@ -263,7 +263,7 @@
               <textarea matInput [(ngModel)]="dataModel.addressHidden" name="dataModel.addressHidden" #AddressHidden
                 type="text" placeholder="{{fieldsInfo['addressHidden']?.fieldTitle}}" minlength="1" maxlength="2000"
                 rows=5 class="form-control validate-name" id="dataModel.addressHidden"></textarea>
-              <em align="end">{{ AddressHidden.value.length }} / 2000</em>
+              <em  >{{ AddressHidden.value.length }} / 2000</em>
               <mat-error *ngIf="AddressHidden.errors?.required">
                 {{fieldsInfo['addressHidden']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>
@@ -433,7 +433,7 @@
                   <textarea matInput [(ngModel)]="contractDataModel.description" name="contractDataModel.description"
                     #contractDataModel_Description type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}"
                     minlength="0" maxlength="500" rows=5 class="form-control validate-name" id="contractDataModel.description"></textarea>
-                  <em align="end">{{ contractDataModel_Description.value.length }} / 500</em>
+                  <em  >{{ contractDataModel_Description.value.length }} / 500</em>
                 </div>
               </div>
               <br>

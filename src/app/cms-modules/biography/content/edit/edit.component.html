@@ -29,7 +29,7 @@
               <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
               <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
                 placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
-              <em align="end">{{ Title.value.length }} / 100</em>
+              <em  >{{ Title.value.length }} / 100</em>
               <mat-error *ngIf="Title.errors?.required">
                 Title is <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>
@@ -38,7 +38,7 @@
               <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
               <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
                 placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows="5" class="form-control validate-name" id="dataModel.description"></textarea>
-              <em align="end">{{ Description.value.length }} / 500</em>
+              <em  >{{ Description.value.length }} / 500</em>
               <mat-error *ngIf="Description.errors?.required">
                 Description is <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>
@@ -103,7 +103,7 @@
               <input matInput [(ngModel)]="dataModel.source" name="dataModel.source" #Source type="text" dir="ltr"
                 style="text-align: left;" placeholder="{{'TITLE.Content_reference_website_link' | translate}}" minlength="3"
                 maxlength="500" class="form-control validate-name" id="dataModel.source" />
-              <em align="end">{{ Source.value.length }} / 500</em>
+              <em  >{{ Source.value.length }} / 500</em>
             </div>
             <app-cms-tag-autocomplete (optionChange)="onActionTagChange($event)" [optionSelectForce]="tagIdsData"
               [optionPlaceholder]="' + Tag '"></app-cms-tag-autocomplete>
@@ -209,7 +209,7 @@
               <input matInput [(ngModel)]="contentOtherInfoSelected.title" name="contentOtherInfoSelected.title"
                 #contentOtherInfoSelected_Title type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
                 maxlength="100" class="form-control validate-name" id="contentOtherInfoSelected.title" />
-              <em align="end">{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
+              <em  >{{ contentOtherInfoSelected_Title.value.length }} / 100</em>
             </div>
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="contentOtherInfoSelected.typeId" class="color-highlight">{{'TITLE.Key' | translate}}</label>
@@ -222,7 +222,7 @@
               <input matInput [(ngModel)]="contentOtherInfoSelected.source" name="contentOtherInfoSelected.source"
                 #contentOtherInfoSelected_Source type="text" dir="ltr" style="text-align: left;" placeholder="http://"
                 maxlength="100" class="form-control validate-name" id="contentOtherInfoSelected.source" />
-              <em align="end">{{ contentOtherInfoSelected_Source.value.length }} / 500</em>
+              <em  >{{ contentOtherInfoSelected_Source.value.length }} / 500</em>
             </div>
             <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
               id="OtherInfo" [(ngModel)]="contentOtherInfoSelected.htmlBody"

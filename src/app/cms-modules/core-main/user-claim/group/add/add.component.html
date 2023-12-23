@@ -24,7 +24,7 @@
                     <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
                     <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
                         placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
-                    <em align="end">{{ Title.value.length }} / 100</em>
+                    <em  >{{ Title.value.length }} / 100</em>
                     <mat-error *ngIf="Title.errors?.required">
                         {{fieldsInfo['title']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
@@ -36,7 +36,7 @@
                     <input matInput [(ngModel)]="dataModel.titleResourceLanguage" name="dataModel.titleResourceLanguage"
                         #TitleResourceLanguage type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
                         maxlength="100" required [disabled]="!fieldsInfo['titleResourceLanguage']?.accessAddField" class="form-control validate-name" id="dataModel.titleResourceLanguage" />
-                    <em align="end">{{ TitleResourceLanguage.value.length }} / 100</em>
+                    <em  >{{ TitleResourceLanguage.value.length }} / 100</em>
                     <mat-error *ngIf="TitleResourceLanguage.errors?.required">
                         {{fieldsInfo['titleResourceLanguage']?.fieldTitle}} is <strong>{{'MESSAGE.required' |
                             translate}}</strong>
@@ -99,7 +99,7 @@
                     <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
                     <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
                         placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows=5 class="form-control validate-name" id="dataModel.description"></textarea>
-                    <em align="end">{{ Description.value.length }} / 500</em>
+                    <em  >{{ Description.value.length }} / 500</em>
                     <mat-error *ngIf="Description.errors?.required">
                         {{fieldsInfo['description']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
                     </mat-error>
