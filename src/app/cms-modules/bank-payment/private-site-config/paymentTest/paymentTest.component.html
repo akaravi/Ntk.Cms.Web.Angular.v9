@@ -59,7 +59,7 @@
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataModel.lastUrlAddressInUse" class="color-highlight">{{'TITLE.Return_Address_from_Payment' | translate}}</label>
               <input matInput [(ngModel)]="dataModel.lastUrlAddressInUse" name="dataModel.lastUrlAddressInUse"
-                #LastUrlAddressInUse type="text" class="form-control validate-name input-ltr" placeholder="LastUrlAddressInUse" minlength="3"
+                #LastUrlAddressInUse type="text" class="form-control validate-name" placeholder="LastUrlAddressInUse" minlength="3"
                 maxlength="500" id="dataModel.lastUrlAddressInUse" required />
               <em  >{{ LastUrlAddressInUse.value.length }} / 100</em>
               <mat-error *ngIf="LastUrlAddressInUse.errors?.required">

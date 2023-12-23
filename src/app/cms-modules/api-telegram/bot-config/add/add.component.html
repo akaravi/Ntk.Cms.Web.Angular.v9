@@ -33,7 +33,7 @@
         <label for="dataModel.username" class="color-highlight">{{ fieldsInfo["username"]?.fieldTitle }}</label>
         <input matInput type="text" [(ngModel)]="dataModel.username" name="dataModel.username" #Username
           placeholder="{{fieldsInfo['username']?.fieldTitle }}" minlength="3" maxlength="100"
-          class="form-control validate-name " id="dataModel.username" />
+          class="form-control validate-name" id="dataModel.username" />
         <em>{{ Username.value.length }} / 100</em>
         <mat-error *ngIf="Username.errors?.required">
           {{ fieldsInfo['username']?.fieldTitle }} <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -55,7 +55,7 @@
         <label for="dataModel.securityKey" class="color-highlight">{{ fieldsInfo["securityKey"]?.fieldTitle }}</label>
         <input matInput type="text" [(ngModel)]="dataModel.securityKey" name="dataModel.securityKey" #SecurityKey
           placeholder="{{fieldsInfo['securityKey']?.fieldTitle }}" minlength="3" maxlength="100"
-          class="form-control validate-name " id="dataModel.securityKey" />
+          class="form-control validate-name" id="dataModel.securityKey" />
         <em>{{ SecurityKey.value.length }} / 100</em>
         <mat-error *ngIf="SecurityKey.errors?.required">
           {{ fieldsInfo['securityKey']?.fieldTitle }} <strong>{{'MESSAGE.required' | translate}}</strong>
