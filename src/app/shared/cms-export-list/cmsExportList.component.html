@@ -62,7 +62,7 @@
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
           <label for="filterModel.currentPageNumber" class="color-highlight">{{ "TITILE.from_page" | translate
               }}</label>
-          <input type="number" [(ngModel)]="filterModel.currentPageNumber" name="filterModel.currentPageNumber" #CurrentPageNumber
+          <input type="number" [(ngModel)]="filterModel.currentPageNumber" name="filterModel.currentPageNumber" #CurrentPageNumber class="form-control validate-name"
               id="filterModel.currentPageNumber" placeholder="{{'TITILE.page_number' | translate }}" required />
           <mat-error *ngIf="CurrentPageNumber.errors?.required">
                 Current Page Number is <strong>{{'MESSAGE.required' | translate}}</strong>
@@ -73,7 +73,7 @@
           <label for="filterModel.rowPerPage" class="color-highlight">{{ "TITILE.page_number" | translate
               }}</label>
           <input type="number" [(ngModel)]="filterModel.rowPerPage" name="filterModel.rowPerPage" #RowPerPage
-              id="filterModel.rowPerPage" placeholder="{{'TITILE.number_of_output_file_rows' | translate }}" required />
+              id="filterModel.rowPerPage" class="form-control validate-name" placeholder="{{'TITILE.number_of_output_file_rows' | translate }}" required />
               <mat-error *ngIf="RowPerPage.errors?.required">
                 Row Per Page is <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>
@@ -83,7 +83,7 @@
           <label for="filterModel.skipRowData" class="color-highlight">{{ "TITILE.Over_the_number_of_rows" | translate
               }}</label>
           <input matInput type="number" [(ngModel)]="filterModel.skipRowData" name="filterModel.skipRowData" #SkipRowData
-              id="filterModel.skipRowData" placeholder="{{'TITILE.Number_of_rows_row_rowss' | translate }}" required />
+              id="filterModel.skipRowData" class="form-control validate-name" placeholder="{{'TITILE.Number_of_rows_row_rowss' | translate }}" required />
               <mat-error *ngIf="SkipRowData.errors?.required">
                 Skip Row Data is <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>

@@ -86,13 +86,13 @@
             <!-- MainDataContentRowCount Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataSiteStorageModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
-              <input matInput type="text" [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"  name="dataSiteStorageModel.mainDataContentRowCount"  #dataSiteStorageModel_MainDataContentRowCount
+              <input matInput type="text" [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"  name="dataSiteStorageModel.mainDataContentRowCount"  #dataSiteStorageModel_MainDataContentRowCount class="form-control validate-name"
                   id="dataSiteStorageModel.mainDataContentRowCount" placeholder="0"  />
             </div>
             <!-- UpdatedContent Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
               <label for="dataSiteStorageModel.updatedContent" class="color-highlight">UpdatedContent</label>
-              <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedContent" [(ngModel)]="dataSiteStorageModel.updatedContent"  name="dataSiteStorageModel.updatedContent"
+              <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedContent" [(ngModel)]="dataSiteStorageModel.updatedContent"  name="dataSiteStorageModel.updatedContent" class="form-control validate-name"
                   id="dataSiteStorageModel.updatedContent" placeholder="0"  />
               <mat-datepicker-toggle matSuffix [for]="dataSiteStorageModel_UpdatedContent"></mat-datepicker-toggle>
               <mat-datepicker touchUi #dataSiteStorageModel_UpdatedContent></mat-datepicker>
