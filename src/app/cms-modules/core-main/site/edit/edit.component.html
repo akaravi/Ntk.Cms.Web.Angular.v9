@@ -39,15 +39,15 @@
           <!-- UserLanguage Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.userLanguage" class="color-highlight"></label>
-            <mat-select placeholder="{{'TITLE.Site_Language' | translate}}" [(ngModel)]="dataModel.userLanguage"
+            <select  [(ngModel)]="dataModel.userLanguage"
               name="dataModel.userLanguage" #UserLanguage="ngModel"
-              panelClass="UserLanguage-{{ dataModel.userLanguage }}" class="form-control validate-name"
+              ngClass="UserLanguage-{{ dataModel.userLanguage }}" class="form-control validate-name"
               id="dataModel.userLanguage">
-              <mat-option *ngFor="
+              <option *ngFor="
                                   let item of dataModelEnumLanguageResult.listItems;
                                   index as i
-                                " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
+                                " [value]="item.value">{{ item.description }}</option>
+            </select>
           </div>
           <!-- LinkSiteCategoryId Field -->
           <app-core-sitecategory-selector (optionChange)="onActionSelectCategory($event)" [(optionLoading)]="loading"

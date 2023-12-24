@@ -32,14 +32,14 @@
           <div *ngIf="fieldsInfo['lang']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.lang" class="color-highlight">{{fieldsInfo['lang']?.fieldTitle}}</label>
-            <mat-select placeholder="{{fieldsInfo['lang']?.fieldTitle}}" [(ngModel)]="dataModel.lang"
+            <select [(ngModel)]="dataModel.lang"
               [disabled]="!fieldsInfo['lang']?.accessEditField" name="dataModel.lang" #Lang="ngModel"
-              panelClass="Lang-{{ dataModel.lang }}" required class="form-control validate-name" id="dataModel.lang">
-              <mat-option *ngFor="
+              ngClass="Lang-{{ dataModel.lang }}" required class="form-control validate-name" id="dataModel.lang">
+              <option *ngFor="
                       let item of dataModelEnumLangResult.listItems;
                       index as i
-                    " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
+                    " [value]="item.value">{{ item.description }}</option>
+            </select>
             <em>{{fieldsInfo['lang']?.fieldDescription}}</em>
             <mat-error *ngIf="Lang.errors?.required">
               {{ fieldsInfo['lang']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>

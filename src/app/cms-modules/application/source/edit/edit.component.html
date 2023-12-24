@@ -55,15 +55,15 @@
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
             *ngIf="fieldsInfo['osType']?.accessWatchField">
             <label for="dataModel.osType" class="color-highlight">{{fieldsInfo['osType']?.fieldTitle}}</label>
-            <mat-select placeholder="{{fieldsInfo['osType']?.fieldTitle}}" [(ngModel)]="dataModel.osType"
+            <select [(ngModel)]="dataModel.osType"
               [disabled]="!fieldsInfo['osType']?.accessEditField" name="dataModel.osType" #osType="ngModel"
-              panelClass="osType-{{ dataModel.osType }}" required class="form-control validate-name"
+              ngClass="osType-{{ dataModel.osType }}" required class="form-control validate-name"
               id="dataModel.osType">
-              <mat-option *ngFor="
+              <option *ngFor="
                           let item of dataModelEnumOsTypeResult.listItems;
                           index as i
-                        " [value]="item.value">{{ item.description }}</mat-option>
-            </mat-select>
+                        " [value]="item.value">{{ item.description }}</option>
+            </select>
             <em>{{fieldsInfo['osType']?.fieldDescription}}</em>
             <mat-error *ngIf="osType.errors?.required">
               {{ fieldsInfo['osType']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
