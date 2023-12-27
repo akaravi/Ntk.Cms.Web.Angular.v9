@@ -89,7 +89,8 @@
         </a>
         <a (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
             class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-            <mat-icon title="{{'ACTION.PRINT' | translate}}">print</mat-icon>
+                   <mat-icon>print</mat-icon>
+          <p class="font-11 text-center opacity-70">{{'ACTION.PRINT' | translate}}</p>
         </a>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>
