@@ -11,37 +11,57 @@
 
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </ng-container>
+    <ng-container cms-action-header>
+        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
+        <div class="d-flex justify-content-between flex-wrap">
+          <div class=" justify-content-end">
+            <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+              <mat-slide-toggle class="custom-slide-toggle"
+                [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
+              translate}}
+            </a>
+            <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+              <mat-slide-toggle (click)="onActionbuttonStatist()">
+              </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
+            </a>
+          </div>
+          <div class=" justify-content-start">
+            <a *ngIf="this.requestHeaderGroupId>0" type="button"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+                (click)="onActionBackToParent()" target="_blank">
+                <i class="fa-solid fa-arrow-left font-22" style="color: #ffffff;"></i>
+            </a>
+            <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+              (click)="onActionbuttonReload()" target="_blank">
+              <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
+              <!-- <span class="m-1">{{'ACTION.RELOAD' |translate}}</span> -->
+            </a>
+          </div>
+        </div>
+        <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
+    </ng-container>
     <ng-container cms-action>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-        <button *ngIf="dataModelResult.access.accessAddRow " (click)="onActionbuttonNewRow()" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
-            translate}}</button>
-
-
-
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
-        </a>
-
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <mat-slide-toggle (click)="onActionbuttonStatist()">
-            </mat-slide-toggle>
-            {{'ACTION.STATIST' | translate}}
-        </a>
-        <button (click)="onActionbuttonExport()" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <mat-icon style="font-size: 20px;margin: -11px;"
-                title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
-        </button>
-
-        <button (click)="onActionbuttonReload()" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <mat-icon title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
-        </button>
-        <button (click)="onActionBackToParent()" *ngIf="this.requestHeaderGroupId>0" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
-            translate}}</button>
-
+        <div class="row text-center">
+            <div *ngIf="dataModelResult.access.accessAddRow" class="col-4">
+                <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal" 
+                  (click)="onActionbuttonNewRow()" target="_blank">
+                  <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+                  <br>
+                </a>
+                <p class="font-11 text-center opacity-70">{{'ACTION.ADD' |
+                  translate}} Dependency</p>
+            </div>
+            <div class="col-4">
+              <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                (click)="onActionbuttonExport()" target="_blank">
+                <i class="fa-solid fa-cloud-arrow-down font-22" style="color: #ffffff;"></i>
+                <br>
+              </a>
+              <p class="font-11 text-center opacity-70">{{'ACTION.EXPORTFILE' |
+                translate}}</p>
+            </div>
+        </div>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
     </ng-container>
     <ng-container cms-action-row>
