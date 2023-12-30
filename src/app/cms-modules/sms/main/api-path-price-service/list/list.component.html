@@ -47,22 +47,31 @@
     </ng-container>
     <ng-container cms-action-row>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-
-        <a (click)="onActionbuttonEditRow(tableRowSelected)" *ngIf="dataModelResult.access.accessEditRow"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank">
-            <span>{{'ACTION.EDIT' | translate}}</span>
-            <mat-icon>mode_edit</mat-icon>
-        </a>
-        <a (click)="onActionbuttonDeleteRow(tableRowSelected)" *ngIf="dataModelResult.access.accessDeleteRow"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank">
-            <span>{{'ACTION.DELETE' | translate}}</span>
-            <mat-icon>delete_forever</mat-icon>
-        </a>
-        <a (click)="onActionButtonPrintEntity(tableRowSelected)" *ngIf="tableRowSelected?.id?.length>0" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-                   <mat-icon>print</mat-icon>
-          <p class="font-11 text-center opacity-70">{{'ACTION.PRINT' | translate}}</p>
-        </a>
+        <div class="row text-center">
+            <div *ngIf="dataModelResult.access.accessEditRow" class="col-4">
+                <a (click)="onActionbuttonEditRow(tableRowSelected)"
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta"
+                    target="_blank">
+                    <mat-icon>mode_edit</mat-icon>
+                </a>
+                <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
+            </div>
+            <div *ngIf="dataModelResult.access.accessDeleteRow" class="col-4">
+                <a (click)="onActionbuttonDeleteRow(tableRowSelected)"
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank">
+                    <mat-icon>delete_forever</mat-icon>
+                </a>
+                <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
+            </div>
+            <div *ngIf="tableRowSelected?.id?.length>0" class="col-4">
+                <a (click)="onActionButtonPrintEntity(tableRowSelected)" type="button"
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                    target="_blank">
+                    <mat-icon>print</mat-icon>
+                </a>
+                <p class="font-11 text-center opacity-70">{{'ACTION.PRINT' | translate}}</p>
+            </div>
+        </div>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>
     <ng-container cms-action-area>
