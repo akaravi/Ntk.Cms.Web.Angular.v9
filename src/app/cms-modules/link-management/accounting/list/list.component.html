@@ -25,10 +25,12 @@
                     </mat-slide-toggle>
                     {{'ACTION.STATIST' | translate}}
                 </a>
-
             </div>
             <div class=" justify-content-start">
-
+                <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                    (click)="onActionbuttonReload()" target="_blank">
+                    <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
+                </a>
             </div>
         </div>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
@@ -39,8 +41,6 @@
             class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
             target="_blank">{{'ACTION.ADD' |
             translate}}</a>
-
-
         <a *ngIf=" tableRowSelected?.id>0" (click)="onActionbuttonAccountingDetail()" type="button"
             class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
             target="_blank">{{'ACTION.DETAILS' |
@@ -50,12 +50,6 @@
             <mat-icon style="font-size: 20px;margin: -11px;"
                 title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
         </a>
-
-        <a (click)="onActionbuttonReload()" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-            <mat-icon title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
-        </a>
-
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
     </ng-container>
     <ng-container cms-action-row>
