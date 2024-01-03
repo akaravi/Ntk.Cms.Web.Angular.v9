@@ -1,110 +1,113 @@
 <div class="card card-style">
   <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-          حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      <h4>اطلاعات اولیه</h4>
-      <p>
-          اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-          فقط یک صفحه ساختگی است.
-      </p>
-      <!--Content-->
-      <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
-        {{ formInfo.formTitle }}
-        <!-- FileType Field -->
-        <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
-          <select id="filterModel.exportFile.fileType" [(ngModel)]="filterModel.exportFile.fileType" name="filterModel.exportFile.fileType"
-              #RecordStatus="ngModel" class="form-control validate-name">
-              <option *ngFor="
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
+      {{ formInfo.formTitle }}
+      <!-- FileType Field -->
+      <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
+        <select id="filterModel.exportFile.fileType" [(ngModel)]="filterModel.exportFile.fileType"
+          name="filterModel.exportFile.fileType" #RecordStatus="ngModel" class="form-control validate-name">
+          <option *ngFor="
               let item of fileTypeListItems;
               index as i" [value]="item.value">
-                  {{ item.description }}
-              </option>
-          </select>
-          <em>{{'TITLE.Select_the_file_format' | translate}}</em>
-          <mat-error *ngIf="RecordStatus.errors?.required">
-            RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- RecieveMethod Field -->
-        <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
-          <select id="filterModel.exportFile.recieveMethod" [(ngModel)]="filterModel.exportFile.recieveMethod" name="filterModel.exportFile.recieveMethod"
-              #RecordStatus="ngModel" class="form-control validate-name">
-              <option *ngFor="
+            {{ item.description }}
+          </option>
+        </select>
+        <em>{{'TITLE.Select_the_file_format' | translate}}</em>
+        <mat-error *ngIf="RecordStatus.errors?.required">
+          RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- RecieveMethod Field -->
+      <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
+        <select id="filterModel.exportFile.recieveMethod" [(ngModel)]="filterModel.exportFile.recieveMethod"
+          name="filterModel.exportFile.recieveMethod" #RecordStatus="ngModel" class="form-control validate-name">
+          <option *ngFor="
               let item of recieveMethodListItems;
               index as i" [value]="item.value">
-                  {{ item.description }}
-              </option>
-          </select>
-          <em>{{'TITLE.Select_the_method_of_receiving_the_file' | translate}}</em>
-          <mat-error *ngIf="RecordStatus.errors?.required">
-            RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- ReportFormatFileId Field -->
-        <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
-          <label for="filterModel.exportFile.reportFormatFileId" class="color-highlight">{{'TITLE.Report_Format' | translate}}</label>
-          <select id="filterModel.exportFile.reportFormatFileId" [(ngModel)]="filterModel.exportFile.reportFormatFileId" name="filterModel.exportFile.reportFormatFileId"
-              #RecordStatus="ngModel" class="form-control validate-name">
-              <option *ngFor="
+            {{ item.description }}
+          </option>
+        </select>
+        <em>{{'TITLE.Select_the_method_of_receiving_the_file' | translate}}</em>
+        <mat-error *ngIf="RecordStatus.errors?.required">
+          RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- ReportFormatFileId Field -->
+      <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
+        <label for="filterModel.exportFile.reportFormatFileId" class="color-highlight">{{'TITLE.Report_Format' |
+          translate}}</label>
+        <select id="filterModel.exportFile.reportFormatFileId" [(ngModel)]="filterModel.exportFile.reportFormatFileId"
+          name="filterModel.exportFile.reportFormatFileId" #RecordStatus="ngModel" class="form-control validate-name">
+          <option *ngFor="
               let item of dataModelReportFileResult.listItems;
               index as i" [value]="item.id" (onSelectionChange)="onActionFileSelect(item)">
-                  {{ item.title }}
-              </option>
-          </select>
-          <em>{{'TITLE.Report_Format_Select' | translate}}</em>
-          <mat-error *ngIf="RecordStatus.errors?.required">
-            RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- CurrentPageNumber Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="filterModel.currentPageNumber" class="color-highlight">{{ "TITILE.from_page" | translate
-              }}</label>
-          <input type="number" [(ngModel)]="filterModel.currentPageNumber" name="filterModel.currentPageNumber" #CurrentPageNumber class="form-control validate-name"
-              id="filterModel.currentPageNumber" placeholder="{{'TITILE.page_number' | translate }}" required />
-          <mat-error *ngIf="CurrentPageNumber.errors?.required">
-                Current Page Number is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <!-- RowPerPage Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="filterModel.rowPerPage" class="color-highlight">{{ "TITILE.page_number" | translate
-              }}</label>
-          <input type="number" [(ngModel)]="filterModel.rowPerPage" name="filterModel.rowPerPage" #RowPerPage
-              id="filterModel.rowPerPage" class="form-control validate-name" placeholder="{{'TITILE.number_of_output_file_rows' | translate }}" required />
-              <mat-error *ngIf="RowPerPage.errors?.required">
-                Row Per Page is <strong>{{'MESSAGE.required' | translate}}</strong>
-              </mat-error>
-        </div>
-        <!-- SkipRowData Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="filterModel.skipRowData" class="color-highlight">{{ "TITILE.Over_the_number_of_rows" | translate
-              }}</label>
-          <input matInput type="number" [(ngModel)]="filterModel.skipRowData" name="filterModel.skipRowData" #SkipRowData
-              id="filterModel.skipRowData" class="form-control validate-name" placeholder="{{'TITILE.Number_of_rows_row_rowss' | translate }}" required />
-              <mat-error *ngIf="SkipRowData.errors?.required">
-                Skip Row Data is <strong>{{'MESSAGE.required' | translate}}</strong>
-              </mat-error>
-        </div>
-        <div class="form-actions">
-          <button type="button" (click)="onFormCancel()"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-            <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-            (click)="onFormSubmit()" style="margin: 1px;" [disabled]="!vform.form.valid || !formInfo.formSubmitAllow">
-            <i class="fa-solid fa-print"></i> {{'btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight' | translate}}
-          </button>
-          <button type="button" (click)="onOpenPage()"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" style="margin: 1px;"
-            *ngIf="dataModelSubmitResult && dataModelSubmitResult.isSuccess && dataModelSubmitResult.linkFile?.length >0">
-            <i class="fa-solid fa-download"></i> {{'TITLE.download_link' | translate}}
-          </button>
-        </div>
-      </form>
-      <!--Content-->
+            {{ item.title }}
+          </option>
+        </select>
+        <em>{{'TITLE.Report_Format_Select' | translate}}</em>
+        <mat-error *ngIf="RecordStatus.errors?.required">
+          RecordStatus is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- CurrentPageNumber Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="filterModel.currentPageNumber" class="color-highlight">{{ "TITLE.from_page" | translate
+          }}</label>
+        <input type="number" [(ngModel)]="filterModel.currentPageNumber" name="filterModel.currentPageNumber"
+          #CurrentPageNumber class="form-control validate-name" id="filterModel.currentPageNumber"
+          placeholder="{{'TITLE.page_number' | translate }}" required />
+        <mat-error *ngIf="CurrentPageNumber.errors?.required">
+          Current Page Number is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- RowPerPage Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="filterModel.rowPerPage" class="color-highlight">{{ "TITLE.page_number" | translate
+          }}</label>
+        <input type="number" [(ngModel)]="filterModel.rowPerPage" name="filterModel.rowPerPage" #RowPerPage
+          id="filterModel.rowPerPage" class="form-control validate-name"
+          placeholder="{{'TITLE.number_of_output_file_rows' | translate }}" required />
+        <mat-error *ngIf="RowPerPage.errors?.required">
+          Row Per Page is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- SkipRowData Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="filterModel.skipRowData" class="color-highlight">{{ "TITLE.Over_the_number_of_rows" | translate
+          }}</label>
+        <input matInput type="number" [(ngModel)]="filterModel.skipRowData" name="filterModel.skipRowData" #SkipRowData
+          id="filterModel.skipRowData" class="form-control validate-name"
+          placeholder="{{'TITLE.Number_of_rows_row_rowss' | translate }}" required />
+        <mat-error *ngIf="SkipRowData.errors?.required">
+          Skip Row Data is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <div class="form-actions">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" style="margin: 1px;" [disabled]="!vform.form.valid || !formInfo.formSubmitAllow">
+          <i class="fa-solid fa-print"></i> {{'ACTION.FILE_CREATION' | translate}}
+        </button>
+        <button type="button" (click)="onOpenPage()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" style="margin: 1px;"
+          *ngIf="dataModelSubmitResult && dataModelSubmitResult.isSuccess && dataModelSubmitResult.linkFile?.length >0">
+          <i class="fa-solid fa-download"></i> {{'TITLE.download_link' | translate}}
+        </button>
+      </div>
+    </form>
+    <!--Content-->
   </div>
 </div>
-

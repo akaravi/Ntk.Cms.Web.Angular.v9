@@ -47,7 +47,7 @@
 
 <!--begin::cms-tree-->
 <div *ngIf="optionTreeDisplay" class="content"
-  style="position: fixed;top: 150px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
+  style="position: fixed;top: 100px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
   <div class="row">
     <div class="col-12">
       <a (click)="actionViewTree()" class="chip chip-s bg-gray-light" style="cursor: pointer;">
@@ -60,7 +60,7 @@
 <!--end::cms-tree-->
 <!--begin::cms-action-main-->
 <div *ngIf="optionActionDisplay" class="content"
-  style="position: fixed;top: 100px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
+  style="position: fixed;top: 140px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
   <div class="row">
     <div class="col-12">
       <a (click)="actionViewMenuMain()" class="chip chip-s bg-gray-light" style="cursor: pointer;">
@@ -74,12 +74,12 @@
 <!--end::cms-action-main-->
 <!--begin::cms-action-row-->
 <div *ngIf="optionActionRowDisplay" class="content"
-  style="position: fixed;bottom: 80px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
+  style="position: fixed;top: 180px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
   <div class="row">
     <div class="col-12">
       <a (click)="actionViewMenuItemRow()" class="chip chip-s bg-gray-light" style="cursor: pointer;">
         <i class="fa fa-bars bg-green-dark color-white"
-          [style.transform]="viewMenuMain?'rotate(90deg)':'rotate(0deg)'"></i>
+          [style.transform]="viewMenuItemRow?'rotate(90deg)':'rotate(0deg)'"></i>
         <strong class="color-black font-400">{{optionSelectRowItemTitle}}</strong>
       </a>
     </div>

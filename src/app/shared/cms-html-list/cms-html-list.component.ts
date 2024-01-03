@@ -47,9 +47,9 @@ export class CmsHtmlListComponent implements OnInit {
   }
   actionViewMenuItemRow(state?: boolean) {
     if (state == true) {
-      this.viewMenuItemRow = false;
+      this.viewMenuItemRow =true ;
     } else if (state == false) {
-      this.viewMenuItemRow = true;
+      this.viewMenuItemRow = false;
     } else {
       this.viewMenuItemRow = !this.viewMenuItemRow;
     }
@@ -60,9 +60,9 @@ export class CmsHtmlListComponent implements OnInit {
 
   actionViewMenuMain(state?: boolean) {
     if (state == true) {
-      this.viewMenuMain = false;
-    } else if (state == false) {
       this.viewMenuMain = true;
+    } else if (state == false) {
+      this.viewMenuMain = false;
     } else {
       this.viewMenuMain = !this.viewMenuMain;
     }
