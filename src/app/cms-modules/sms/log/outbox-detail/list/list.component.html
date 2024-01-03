@@ -17,42 +17,45 @@
     <ng-container cms-action-header>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
         <div class="d-flex justify-content-between flex-wrap">
-          <div class=" justify-content-end">
-            
-          </div>
-          <div class=" justify-content-start">
-           
-          </div>
+            <div class=" justify-content-end">
+                <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                    target="_blank">
+                    <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
+                    translate}}
+                </a>
+                <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                    target="_blank">
+                    <mat-slide-toggle (click)="onActionbuttonStatist()">
+                    </mat-slide-toggle>
+                    {{'ACTION.STATIST' | translate}}
+                </a>
+
+            </div>
+            <div class=" justify-content-start">
+
+            </div>
         </div>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
-      </ng-container>
+    </ng-container>
     <ng-container cms-action>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
 
 
 
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
-        </a>
-
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <mat-slide-toggle (click)="onActionbuttonStatist()">
-            </mat-slide-toggle>
-            {{'ACTION.STATIST' | translate}}
-        </a>
-        <button (click)="onActionbuttonExport()" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        <a (click)="onActionbuttonExport()" type="button"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
             <mat-icon style="font-size: 20px;margin: -11px;"
                 title="{{'ACTION.EXPORTFILE' | translate}}">cloud_download</mat-icon>
-        </button>
+        </a>
 
-        <button (click)="onActionbuttonReload()" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+        <a (click)="onActionbuttonReload()" type="button"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
             <mat-icon title="{{'ACTION.RELOAD' | translate}}">refresh</mat-icon>
-        </button>
-        <button (click)="onActionBackToParent()" type="button"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.BACK' |
-            translate}}</button>
+        </a>
+        <a (click)="onActionBackToParent()" type="button"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+            target="_blank">{{'ACTION.BACK' |
+            translate}}</a>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
     </ng-container>
     <ng-container cms-action-row>
