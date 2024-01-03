@@ -70,7 +70,7 @@
       <div *ngIf="tableRowSelected.id>0 && this.tokenInfo.userAccessAdminAllowToProfessionalData" class="col-4">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonUploadApp()" target="_blank">
-          <i class="fa-solid fa-cloud-arrow-down font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-upload font-22" style="color: #ffffff;"></i>
           <br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.UPLOAD_THE_INSTALLATION_FILE' |
@@ -79,7 +79,7 @@
       <div *ngIf="tableRowSelected.id>0 && this.tokenInfo.userAccessAdminAllowToProfessionalData" class="col-4">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonUploadUpdate()" target="_blank">
-          <i class="fa-solid fa-cloud-arrow-down font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-upload font-22" style="color: #ffffff;"></i>
           <br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.UPLOAD_THE_UPDATE_FILE' |
@@ -93,15 +93,15 @@
     <div class="row text-center">
       <div *ngIf="dataModelResult.access.accessEditRow" class="col-4">
         <a (click)="onActionbuttonEditRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank">
-          <mat-icon>mode_edit</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i class=" fa-solid fa-pen font-22"
+          style="color: #FFFFFF;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
       </div>
       <div *ngIf="dataModelResult.access.accessDeleteRow" class="col-4">
         <a (click)="onActionbuttonDeleteRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank">
-          <mat-icon>delete_forever</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i class="fa-solid fa-trash font-22"
+          style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
       </div>
@@ -114,50 +114,46 @@
       </div>
       <div *ngIf="tableRowSelected.lastSuccessfullyBuildDate" class="col-4">
         <a (click)="onActionbuttonDownloadApp(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>download</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-circle-down font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.DOWNLOAD_THE_APP' | translate}}</p>
       </div>
       <div *ngIf="tableRowSelected.lastSuccessfullyBuildDate" class="col-4">
         <a (click)="onActionbuttonMemberList(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>person</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
+          class="fa-solid fa-users font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.USERS' | translate}}</p>
       </div>
       <div *ngIf="tableRowSelected.lastSuccessfullyBuildDate" class="col-4">
         <a (click)="onActionbuttonIntroList(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <span></span>
-          <mat-icon>help</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-circle-info font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.GUIDE' | translate}}</p>
       </div>
       <div class="col-4">
         <a (click)="onActionbuttonNotifictionActionSend(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>sms</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-message-sms font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.SEND_NOTIFICATIONS' | translate}}</p>
       </div>
       <div *ngIf="tableRowSelected?.id?.length>0" class="col-4">
         <a (click)="onActionButtonPrintEntity(tableRowSelected)" type="button"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>print</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-print font-22"
+          style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.PRINT' | translate}}</p>
       </div>
       <div *ngIf="tableRowSelected.id>0" type="button" class="col-4">
         <a (click)="onActionbuttonBuildApp(tableRowSelected)"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          target="_blank">{{'ACTION.BUILDANAPP'|translate}}</a>
+          target="_blank"><mat-icon>devices_other</mat-icon></a>
         <p class="font-11 text-center opacity-70">{{'ACTION.BUILDANAPP'|translate}}</p>
       </div>
       <div *ngIf="tableRowSelected?.id>0 && tableRowSelected.lastSuccessfullyBuildDate" class="col-4">
         <a (click)="onActionbuttonDownloadApp(tableRowSelected)" type="button"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          target="_blank">{{'ACTION.DOWNLOADTHEAPP'|translate}}</a>
+          target="_blank"><i class="fa-solid fa-circle-down font-22" style="color: #ffffff;"></i><br></a>
         <p class="font-11 text-center opacity-70">{{'ACTION.DOWNLOADTHEAPP'|translate}}</p>
       </div>
     </div>
