@@ -13,7 +13,7 @@
             <ng-content *ngIf="optionHeaderDisplay" select="[cms-header]"></ng-content>
             <ng-content select="[cms-action-header]"></ng-content>
           </div>
-          
+
           <ng-content select="[cms-action-area]"></ng-content>
           <!--end::Header-->
           <hr *ngIf="optionHeaderDisplay||optionActionDisplay">
@@ -41,7 +41,7 @@
 
 
 <ng-template #contentCmsTree>
-  <ng-content select="cms-tree"></ng-content>
+  <ng-content select="[cms-tree]"></ng-content>
 </ng-template>
 
 
@@ -108,7 +108,7 @@
   <!--begin::cms-action-->
   <ng-content select="[cms-action]"></ng-content>
   <!--end::cms-action-->
- 
+
 </div>
 <!--end:: Show Menu Main-->
 <!--begin::Show Menu Row-->

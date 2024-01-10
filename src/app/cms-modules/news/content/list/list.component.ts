@@ -34,7 +34,7 @@ import { I } from '@angular/cdk/keycodes';
   styleUrls: ["./list.component.scss"],
 })
 export class NewsContentListComponent implements OnInit, OnDestroy {
-  requestLinkCaregoryId = 0;
+  requestLinkCategoryId = 0;
   constructor(
     public publicHelper: PublicHelper,
     public contentService: NewsContentService,
@@ -49,7 +49,7 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.activatedRoute.params.subscribe((data) => {
-      this.requestLinkCaregoryId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCategoryId'));
+      this.requestLinkCategoryId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCategoryId'));
       this.DataGetAll();
     });
     this.optionsSearch.parentMethods = {
@@ -121,8 +121,8 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
       let selectId = 0;
       if (this.categoryModelSelected?.id > 0) {
         selectId = this.categoryModelSelected.id;
-      } else if (this.requestLinkCaregoryId > 0) {
-        selectId = this.requestLinkCaregoryId;
+      } else if (this.requestLinkCategoryId > 0) {
+        selectId = this.requestLinkCategoryId;
       }
       const pName = this.constructor.name + '.ServiceGetAllWithHierarchyCategoryId';
       this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
@@ -170,18 +170,18 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
         fastfilter.clauseType = ClauseTypeEnum.Or;
         filterChild.filters.push(fastfilter);
         filterModel.filters.push(filterChild);
-      } else if (this.requestLinkCaregoryId > 0) {
+      } else if (this.requestLinkCategoryId > 0) {
         const filterChild = new FilterDataModel();
         let fastfilter = new FilterDataModel();
         fastfilter.propertyName = 'LinkCategoryId';
-        fastfilter.value = this.requestLinkCaregoryId;
+        fastfilter.value = this.requestLinkCategoryId;
         fastfilter.clauseType = ClauseTypeEnum.Or;
         filterChild.filters.push(fastfilter);
         /** N to N */
         fastfilter = new FilterDataModel();
         fastfilter.propertyName = 'ContentCategores';
         fastfilter.propertyAnyName = 'LinkCategoryId';
-        fastfilter.value = this.requestLinkCaregoryId;
+        fastfilter.value = this.requestLinkCategoryId;
         fastfilter.clauseType = ClauseTypeEnum.Or;
         filterChild.filters.push(fastfilter);
         filterModel.filters.push(filterChild);
