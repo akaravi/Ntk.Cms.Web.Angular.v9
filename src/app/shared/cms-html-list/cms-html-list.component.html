@@ -1,7 +1,10 @@
 <div class="row">
-  <div *ngIf="optionTreeDisplay && !this.tokenHelper.isMobile" [ngClass]="'col-xl-3'">
+
+  <!-- <div *ngIf="optionTreeDisplay " class="menu menu-box-right rounded-0" [ngClass]="viewTree?'menu-active':''"> -->
+  <div *ngIf="optionTreeDisplay"
+    [ngClass]=" this.tokenHelper.isMobile?viewTree?'menu-active  menu menu-box-right rounded-0':'menu menu-box-right rounded-0':'col-xl-3'">
     <!--begin::tree-->
-    <ng-container *ngTemplateOutlet="contentCmsTree"></ng-container>
+    <ng-content select="[cms-tree]"></ng-content>
     <!--end::tree-->
   </div>
   <div [ngClass]="optionTreeDisplay && !this.tokenHelper.isMobile ?'col-xl-9':'col-xl-12'">
@@ -40,13 +43,10 @@
 </div>
 
 
-<ng-template #contentCmsTree>
-  <ng-content select="[cms-tree]"></ng-content>
-</ng-template>
 
 
 <!--begin::cms-tree-->
-<div *ngIf="optionTreeDisplay" class="content"
+<div *ngIf="optionTreeDisplay &&  this.tokenHelper.isMobile" class="content"
   style="position: fixed;top: 100px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
   <div class="row">
     <div class="col-12">
@@ -87,14 +87,6 @@
 </div>
 <!--end::cms-action-row-->
 
-
-<!--begin::Show Tree Main-->
-<div *ngIf="optionTreeDisplay " class="menu menu-box-right rounded-0" [ngClass]="viewTree?'menu-active':''">
-  <!--begin::tree-->
-  <ng-container *ngTemplateOutlet="contentCmsTree"></ng-container>
-  <!--end::tree-->
-</div>
-<!--begin::Show Tree Main-->
 
 <!--begin::Show Menu Main-->
 <div class="menu menu-box-modal rounded-m" [ngClass]="viewMenuMain?'menu-active':''"
