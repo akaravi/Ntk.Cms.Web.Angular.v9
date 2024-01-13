@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EstatePropertyService, FilterDataModel, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -7,7 +7,19 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { ChartComponent } from "ng-apexcharts";
+import {
+  ApexNonAxisChartSeries,
+  ApexResponsive,
+  ApexChart
+} from "ng-apexcharts";
 
+export type ChartOptions = {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+};
 @Component({
   selector: 'app-estate-property-widget-add',
   templateUrl: './widget-add.component.html'
@@ -15,7 +27,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 export class EstatePropertyWidgetAddComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
-
+  //@ViewChild("chart") chart: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
   constructor(
     private service: EstatePropertyService,
     private cdr: ChangeDetectorRef,
@@ -24,6 +37,30 @@ export class EstatePropertyWidgetAddComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+
+
+    this.chartOptions = {
+      series: [44, 55, 13, 43, 22],
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
   }
   modelData = new Map<string, number>();
 

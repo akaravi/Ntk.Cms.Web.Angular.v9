@@ -170,6 +170,7 @@ import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input
 import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
 import { CmsEnumRecordStatusSelectorComponent } from './cms-enum-record-status-selector/cms-enum-record-status-selector.component';
 import { CmsEnumXSelectorComponent } from './cms-enum-x-selector/cms-enum-x-selector.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   imports: [
@@ -179,6 +180,7 @@ import { CmsEnumXSelectorComponent } from './cms-enum-x-selector/cms-enum-x-sele
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     HttpClientModule,
     CurrencyMaskModule,
+    NgApexchartsModule,
     //Material
     MatAutocompleteModule,
     MatButtonModule,
@@ -336,6 +338,7 @@ import { CmsEnumXSelectorComponent } from './cms-enum-x-selector/cms-enum-x-sele
     TranslateModule,
     FormsModule,
     HttpClientModule,
+    NgApexchartsModule,
     //Material
     MatAutocompleteModule,
     MatButtonModule,
