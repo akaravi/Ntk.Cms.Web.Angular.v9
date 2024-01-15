@@ -1,11 +1,11 @@
 <!--begin::Mixed Widget 14-->
 <div class="card card-custom bgi-no-repeat bgi-size-cover" [ngClass]="cssClass">
   <!--begin::Body-->
+  <app-progress-spinner [options]="loading"> </app-progress-spinner>
   <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
     [responsive]="chartOptions.responsive"></apx-chart>
 
   <div class="card-body d-flex flex-column align-items-start justify-content-start">
-
     <div class="ntk-cms-html-widget-header">
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
       <div class="p-1 flex-grow-1">
@@ -32,8 +32,10 @@
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </div>
     <div class="ntk-cms-html-widget-body">
-      <app-progress-spinner [options]="loading"> </app-progress-spinner>
+
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+
+
       <a routerLink="/estate/property/add" routerLinkActive="active"
         class="text-dark text-hover-primary fw-bolder fs-3">
         {{widgetInfoModel.title}}

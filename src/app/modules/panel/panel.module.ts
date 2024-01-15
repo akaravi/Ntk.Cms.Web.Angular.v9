@@ -27,13 +27,13 @@ import { CoreUserWidgetComponent } from 'src/app/cms-modules/core-main/user/widg
 import { CoreModuleLogReportAbuseWidget2Component } from 'src/app/cms-modules/core-module-log/report-abuse/widget/widget2.component';
 import { CoreModuleSiteCreditWidgetPriceComponent } from 'src/app/cms-modules/core-module/site-credit/widget/widget-price.component';
 import { CoreModuleSiteUserCreditWidgetPriceComponent } from 'src/app/cms-modules/core-module/site-user-credit/widget/widget-price.component';
-import { EstateCustomerOrderWidgetAddComponent } from 'src/app/cms-modules/estate/customer-order/widget/widget-add.component';
+import { EstateCustomerOrderWidgetChartComponent } from 'src/app/cms-modules/estate/customer-order/widget/widget-chart.component';
 import { EstateCustomerOrderWidgetComponent } from 'src/app/cms-modules/estate/customer-order/widget/widget.component';
 import { EstateCustomerOrderWidget2Component } from 'src/app/cms-modules/estate/customer-order/widget/widget2.component';
 import { EstatePropertyHistoryWidgetAddComponent } from 'src/app/cms-modules/estate/property-history/widget/widget-add.component';
 import { EstatePropertyHistoryWidgetComponent } from 'src/app/cms-modules/estate/property-history/widget/widget.component';
 import { EstatePropertyHistoryWidget2Component } from 'src/app/cms-modules/estate/property-history/widget/widget2.component';
-import { EstatePropertyWidgetAddComponent } from 'src/app/cms-modules/estate/property/widget/widget-add.component';
+import { EstatePropertyWidgetChartComponent } from 'src/app/cms-modules/estate/property/widget/widget-chart.component';
 import { EstatePropertyWidgetComponent } from 'src/app/cms-modules/estate/property/widget/widget.component';
 import { EstatePropertyWidget2Component } from 'src/app/cms-modules/estate/property/widget/widget2.component';
 import { NewsContentWidgetComponent } from 'src/app/cms-modules/news/content/widget/widget.component';
@@ -85,10 +85,10 @@ import { PagesPanelRoutingModule } from './panel.routing';
     CmsHtmlWidgetComponent,
     EstatePropertyWidgetComponent,
     EstatePropertyWidget2Component,
-    EstatePropertyWidgetAddComponent,
+    EstatePropertyWidgetChartComponent,
     EstateCustomerOrderWidgetComponent,
     EstateCustomerOrderWidget2Component,
-    EstateCustomerOrderWidgetAddComponent,
+    EstateCustomerOrderWidgetChartComponent,
     EstatePropertyHistoryWidgetComponent,
     EstatePropertyHistoryWidget2Component,
     EstatePropertyHistoryWidgetAddComponent,
