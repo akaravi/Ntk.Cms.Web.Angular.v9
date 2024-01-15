@@ -651,6 +651,7 @@
   "MESSAGE.customer_order_list_active": "لیست املاک در خواستی فعال ",
   "MESSAGE.customer_order_list_close": "لیست املاک در خواستی انجام شده ",
   "MESSAGE.customer_order_list_disable": "لیست املاک در خواستی غیرفعال شده ",
+  "MESSAGE.customer_order_needs_approval": "لیست املاک در خواستی صف تایید ",
   "MESSAGE.specific_property_list": "لیست املاک خاص",
   "MESSAGE.sending_information_to_the_server": "در حال ارسال اطلاعات به سرور",
   "MESSAGE.get_module_setting": "دریافت تنظیمات ماژول",

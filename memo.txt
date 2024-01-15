@@ -153,8 +153,12 @@ btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight 
 ====select
 btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full
 
+##########################################################################################
+##########################################################################################
+chart
+https://apexcharts.com/angular-chart-demos/
 
-
+##########################################################################################
 ##########################################################################################
 extension extension extension extension extension extension extension extension extension
 ##########################################################################################
