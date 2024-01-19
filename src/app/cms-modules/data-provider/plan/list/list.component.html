@@ -79,39 +79,36 @@
             <div *ngIf="dataModelResult.access.accessEditRow" class="col-4">
                 <a (click)="onActionbuttonEditRow(tableRowSelected)"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta"
-                    target="_blank">
-                    <mat-icon>mode_edit</mat-icon>
+                    target="_blank"><i class=" fa-solid fa-pen font-22"
+                    style="color: #FFFFFF;"></i><br>
                 </a>
                 <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
             </div>
             <div *ngIf="dataModelResult.access.accessDeleteRow" class="col-4">
                 <a (click)="onActionbuttonDeleteRow(tableRowSelected)"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank">
-                    <mat-icon>delete_forever</mat-icon>
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i class="fa-solid fa-trash font-22"
+                    style="color: #ffffff;"></i><br>
                 </a>
                 <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
             </div>
             <div *ngIf="dataModelResult.access.accessWatchRow" class="col-4">
                 <a (click)="onActionbuttonPriceList(tableRowSelected)"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank">
-                    <mat-icon>credit_card</mat-icon>
+                    target="_blank"><i class="fa-solid fa-credit-card font-22" style="color: #ffffff;"></i><br>
                 </a>
                 <p class="font-11 text-center opacity-70">{{'ACTION.PRICE' | translate}}</p>
             </div>
             <div *ngIf="dataModelResult.access.accessWatchRow" class="col-4">
                 <a (click)="onActionbuttonSourceList(tableRowSelected)"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank">
-                    <mat-icon>source</mat-icon>
+                    target="_blank"><i class="fa-solid fa-file font-22" style="color: #ffffff;"></i><br>
                 </a>
                 <p class="font-11 text-center opacity-70">{{'ACTION.SOURCE' | translate}}</p>
             </div>
             <div *ngIf="dataModelResult.access.accessWatchRow" class="col-4">
                 <a (click)="onActionbuttonClientList(tableRowSelected)"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank">
-                    <mat-icon>people</mat-icon>
+                    target="_blank"><i class="fa-solid fa-people font-22" style="color: #ffffff;"></i><br>
                 </a>
                 <p class="font-11 text-center opacity-70">{{'ACTION.CLIENT' | translate}}</p>
             </div>
@@ -119,24 +116,22 @@
                 <a (click)="onActionbuttonTransactionList(tableRowSelected)"
                     *ngIf="dataModelResult.access.accessWatchRow"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank">
-                    <mat-icon>paid</mat-icon>
+                    target="_blank"><i class="fa-solid fa-circle-dollar font-22"></i><br>
                 </a>
                 <p class="font-11 text-center opacity-70">{{'ACTION.TRANSACTIONS' | translate}}</p>
             </div>
             <div *ngIf="dataModelResult.access.accessDeleteRow" class="col-4">
                 <a (click)="onActionbuttonDataRow(tableRowSelected)"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank">
-                    <mat-icon>data_usage</mat-icon>
+                    target="_blank"><i class="fa-solid fa-database font-22" style="color: #ffffff;"></i><br>
                 </a>
                 <p class="font-11 text-center opacity-70">{{'ACTION.DATA' | translate}}</p>
             </div>
             <div *ngIf="tableRowSelected?.id?.length>0" class="col-4">
                 <a (click)="onActionButtonPrintEntity(tableRowSelected)" type="button"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank">
-                    <mat-icon>print</mat-icon>
+                    target="_blank"><i class="fa-solid fa-print font-22"
+                    style="color: #ffffff;"></i><br>
                 </a>
                 <p class="font-11 text-center opacity-70">{{'ACTION.PRINT' | translate}}</p>
             </div>
