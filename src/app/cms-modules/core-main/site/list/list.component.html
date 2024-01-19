@@ -89,8 +89,7 @@
       </div>
       <div class="col-4">
         <a (click)="onActionbuttonLoginToRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>login</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-right-to-bracket font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.LOGIN_TO_THIS_SITE' | translate}}</p>
       </div>
@@ -103,29 +102,26 @@
       </div>
       <div *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===tableRowSelected.id" class="col-4">
         <a (click)="onActionbuttonDomainAliasListRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>domain</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-building-memo font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.DOMAINS' | translate}}</p>
       </div>
       <div *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===tableRowSelected.id" class="col-4">
         <a (click)="onActionbuttonUserListRow(tableRowSelected)"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-user font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-users font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.USERS' | translate}}</p>
       </div>
       <div *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===tableRowSelected.id" class="col-4">
         <a (click)="onActionbuttonDeviceListRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>devices</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-laptop-mobile font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.DEVICES' | translate}}</p>
       </div>
       <div *ngIf="tokenInfo.userAccessAdminAllowToAllData || tokenInfo.siteId===tableRowSelected.id" class="col-4">
         <a (click)="onActionbuttonResller(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>devices</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-list font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.MARKETING_SUBSET' | translate}}</p>
       </div>
@@ -133,8 +129,7 @@
         *ngIf="tokenInfo.userAccessAdminAllowToAllData ||tokenInfo.userAccessAdminAllowToProfessionalData || tokenInfo.siteId===tableRowSelected.id"
         class="col-4">
         <a (click)="onActionbuttonModuleSiteInfo(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>bar_chart</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-chart-simple font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.SITE_STATISTICS' | translate}}</p>
       </div>
@@ -142,8 +137,7 @@
         *ngIf="tokenInfo.userAccessAdminAllowToAllData ||tokenInfo.userAccessAdminAllowToProfessionalData || tokenInfo.siteId===tableRowSelected.id"
         class="col-4">
         <a (click)="onActionbuttonModuleSiteOptimaze(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>bar_chart</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-chart-line-up font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.OPTIMIZATION' | translate}}</p>
       </div>
