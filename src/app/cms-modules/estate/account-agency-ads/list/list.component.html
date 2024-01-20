@@ -63,7 +63,7 @@
       <div *ngIf="requestLinkPropertyId && requestLinkPropertyId.length>0" class="col-4">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonBuy()" target="_blank">
-          <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+          <i class="fa-solid fa-cart-shopping font-22" style="color: #FFFFFF;"></i>
           <br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.BUY' |translate}}</p>
@@ -76,29 +76,28 @@
     <div class="row text-center">
       <div *ngIf="dataModelResult.access.accessEditRow" class="col-4">
         <a (click)="onActionbuttonEditRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank">
-          <mat-icon>mode_edit</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i class=" fa-solid fa-pen font-22"
+          style="color: #FFFFFF;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
       </div>
       <div *ngIf="dataModelResult.access.accessDeleteRow" class="col-4">
         <a (click)="onActionbuttonDeleteRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank">
-          <mat-icon>delete_forever</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i class="fa-solid fa-trash font-22"
+          style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
       </div>
       <div class="col-4">
         <a (click)="onActionbuttonContentList(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>list</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-list font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.Property_to_be_traded' | translate}}</p>
       </div>
       <div *ngIf="tableRowSelected?.id?.length>0" class="col-4">
         <a (click)="onActionButtonPrintEntity(tableRowSelected)" type="button"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-icon>print</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-print font-22"
+          style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.PRINT' | translate}}</p>
       </div>
