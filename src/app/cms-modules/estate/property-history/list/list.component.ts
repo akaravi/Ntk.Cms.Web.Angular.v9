@@ -47,12 +47,13 @@ import { EstatePropertyHistoryAddMobileComponent } from '../add/add.mobile.compo
 import { EstatePropertyHistoryEditComponent } from '../edit/edit.component';
 import { EstatePropertyHistoryEditMobileComponent } from '../edit/edit.mobile.component';
 import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-view.component';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-estate-property-history-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class EstatePropertyHistoryListComponent implements OnInit, OnDestroy {
+export class EstatePropertyHistoryListComponent extends ListBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId = '';
   requestLinkEstateUserId = '';
   requestLinkCustomerOrderId = '';
@@ -61,7 +62,6 @@ export class EstatePropertyHistoryListComponent implements OnInit, OnDestroy {
   constructor(
     public contentService: EstatePropertyHistoryService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private estateActivityTypeService: EstateActivityTypeService,
     public estateEnumService: EstateEnumService,
@@ -69,9 +69,12 @@ export class EstatePropertyHistoryListComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog,
-    private pageInfo: PageInfoService
   ) {
+    super(contentService, new EstatePropertyHistoryModel(), pageInfo, publicHelper, dialog);
+
     pageInfo.updateContentService(contentService);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant(
@@ -775,21 +778,21 @@ export class EstatePropertyHistoryListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstatePropertyHistoryModel): void {
-    this.pageInfo.updateContentInfo(
-      new ContentInfoModel(row.id, row.title, false, '', '')
-    );
-    this.tableRowSelected = row;
-    if (!row['expanded']) row['expanded'] = false;
-    row['expanded'] = !row['expanded'];
-  }
-  onActionTableRowMouseEnter(row: EstatePropertyHistoryModel): void {
-    this.onActionTableRowSelect(row);
-    row['expanded'] = true;
-  }
-  onActionTableRowMouseLeave(row: EstatePropertyHistoryModel): void {
-    row['expanded'] = false;
-  }
+  // onActionTableRowSelect(row: EstatePropertyHistoryModel): void {
+  //   this.pageInfo.updateContentInfo(
+  //     new ContentInfoModel(row.id, row.title, false, '', '')
+  //   );
+  //   this.tableRowSelected = row;
+  //   if (!row['expanded']) row['expanded'] = false;
+  //   row['expanded'] = !row['expanded'];
+  // }
+  // onActionTableRowMouseEnter(row: EstatePropertyHistoryModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row['expanded'] = true;
+  // }
+  // onActionTableRowMouseLeave(row: EstatePropertyHistoryModel): void {
+  //   row['expanded'] = false;
+  // }
   onActionbuttonInCheckingOnDate(model: boolean): void {
     this.searchInCheckingOnDay = model;
     if (this.searchInCheckingOnDay) {
