@@ -30,19 +30,14 @@
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonReload()" target="_blank">
           <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
-          <!-- <span class="m-1">{{'ACTION.RELOAD' |translate}}</span> -->
         </a>
         <a (click)=" onActionGridExpandRows(true)" target="_blank"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
           <i class="fa-solid fa-maximize font-22" style="color: #ffffff;"></i>
-          <!-- <mat-icon title="{{'ACTION.EXPAND_ALL' | translate}}">unfold_more_double
-          </mat-icon> -->
         </a>
         <a (click)="onActionGridExpandRows(false)" target="_blank"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
           <i class="fa-solid fa-minimize font-22" style="color: #ffffff;"></i>
-          <!-- <mat-icon title="{{'ACTION.COLLPASE_ALL' |translate}}">
-            unfold_less_double</mat-icon> -->
         </a>
       </div>
     </div>
@@ -72,7 +67,7 @@
       <div *ngIf="this.tableRowSelected?.id>0" class="col-4">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionbuttonWithHierarchy()">
-          <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+          <i class="fa-solid fa-layer-group font-22" style="color: #FFFFFF;"></i>
           <br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.BATCHVIEW' |translate}}</p>
@@ -85,29 +80,28 @@
     <div class="row text-center">
       <div *ngIf="dataModelResult.access.accessEditRow" class="col-4">
         <a (click)="onActionbuttonEditRow(tableRowSelected,$event)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta">
-          <mat-icon>mode_edit</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta"><i class=" fa-solid fa-pen font-22"
+          style="color: #FFFFFF;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
       </div>
       <div *ngIf="dataModelResult.access.accessDeleteRow" class="col-4">
         <a (click)="onActionbuttonDeleteRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
-          <mat-icon>delete_forever</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red"><i class="fa-solid fa-trash font-22"
+          style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
       </div>
       <div class="col-4">
         <a (click)="onActionbuttonProperty(tableRowSelected,$event)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-          <mat-icon>apartment</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"><i class="fa-solid fa-apartment font-22" style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.PROPERTY' | translate}}</p>
       </div>
       <div *ngIf="tableRowSelected?.id?.length>0" class="col-4">
         <a (click)="onActionButtonPrintEntity(tableRowSelected)" type="button"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-          <mat-icon>print</mat-icon>
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"><i class="fa-solid fa-print font-22"
+          style="color: #ffffff;"></i><br>
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.PRINT' | translate}}</p>
       </div>
