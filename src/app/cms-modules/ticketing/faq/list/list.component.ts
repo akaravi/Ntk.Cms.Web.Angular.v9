@@ -24,23 +24,27 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { TicketingFaqAddComponent } from '../add/add.component';
 import { TicketingFaqEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-application-app-list',
   templateUrl: './list.component.html'
 })
-export class TicketingFaqListComponent implements OnInit, OnDestroy {
+export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqService, TicketingFaqModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;
   constructor(
     public contentService: TicketingFaqService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new TicketingFaqModel, pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -429,12 +433,12 @@ export class TicketingFaqListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: TicketingFaqModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: TicketingFaqModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/ticketing/departemen/']);
   }
