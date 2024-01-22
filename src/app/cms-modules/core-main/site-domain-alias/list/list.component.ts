@@ -23,25 +23,29 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CoreSiteDomainAliasAddComponent } from '../add/add.component';
 import { CoreSiteDomainAliasEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-core-site-domainalias-list',
   templateUrl: './list.component.html',
 })
-export class CoreSiteDomainAliasListComponent implements OnInit, OnDestroy {
+export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSiteDomainAliasService, CoreSiteDomainAliasModel, number>
+implements OnInit, OnDestroy {
   requestId = 0;
   constructor(
     public contentService: CoreSiteDomainAliasService,
     private coreSiteService: CoreSiteService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
-    public dialog: MatDialog,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router,
-  ) {
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
+  ) {super(contentService, new CoreSiteDomainAliasModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));
@@ -415,12 +419,12 @@ export class CoreSiteDomainAliasListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreSiteDomainAliasModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreSiteDomainAliasModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

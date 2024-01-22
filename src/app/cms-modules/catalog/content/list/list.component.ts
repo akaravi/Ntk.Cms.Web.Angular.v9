@@ -27,24 +27,29 @@ import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerMod
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { CatalogContentDeleteComponent } from '../delete/delete.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-catalog-content-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class CatalogContentListComponent implements OnInit, OnDestroy {
+export class CatalogContentListComponent extends ListBaseComponent<CatalogContentService, CatalogContentModel, string>
+  implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: CatalogContentService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new CatalogContentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
@@ -260,11 +265,12 @@ export class CatalogContentListComponent implements OnInit, OnDestroy {
     else
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(CatalogContentDeleteComponent, {
-       height: '90%',
-       panelClass: panelClass,
+      height: '90%',
+      panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-        data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         this.DataGetAll();
@@ -396,27 +402,27 @@ export class CatalogContentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CatalogContentModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: CatalogContentModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: CatalogContentModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: CatalogContentModel): void {
-    row["expanded"] = false;
-  }
-  onActionbuttonComment(model: CatalogContentModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id.length === 0) {
-      this.cmsToastrService.typeErrorSelectedRow();
-      return;
-    }
-    this.router.navigate(['/catalog/comment/', model.id]);
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: CatalogContentModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: CatalogContentModel): void {
+  //   row["expanded"] = false;
+  // }
+  // onActionbuttonComment(model: CatalogContentModel = this.tableRowSelected): void {
+  //   if (!model || !model.id || model.id.length === 0) {
+  //     this.cmsToastrService.typeErrorSelectedRow();
+  //     return;
+  //   }
+  //   this.router.navigate(['/catalog/comment/', model.id]);
+  // }
   onActionbuttonLinkTo(
     model: CatalogContentModel = this.tableRowSelected
   ): void {
@@ -448,8 +454,8 @@ export class CatalogContentListComponent implements OnInit, OnDestroy {
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

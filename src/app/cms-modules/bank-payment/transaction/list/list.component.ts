@@ -28,18 +28,20 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { BankPaymentTransactionEditComponent } from '../edit/edit.component';
 import { BankPaymentTransactionViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-bankpayment-transaction-list',
   templateUrl: './list.component.html',
 })
-export class BankPaymentTransactionListComponent implements OnInit, OnDestroy {
+export class BankPaymentTransactionListComponent extends ListBaseComponent<BankPaymentTransactionService, BankPaymentTransactionModel, number>
+  implements OnInit, OnDestroy {
   requestLinkPrivateSiteConfigId = 0;
   requestLinkUserId = 0;
   constructor(
     @Inject(DOCUMENT) private document: any,
     public contentService: BankPaymentTransactionService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
     private bankPaymentEnumService: BankPaymentEnumService,
@@ -47,7 +49,10 @@ export class BankPaymentTransactionListComponent implements OnInit, OnDestroy {
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+    super(contentService, new BankPaymentTransactionModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -467,12 +472,12 @@ export class BankPaymentTransactionListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: BankPaymentTransactionModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: BankPaymentTransactionModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/bankpayment/privatesiteconfig/']);
   }

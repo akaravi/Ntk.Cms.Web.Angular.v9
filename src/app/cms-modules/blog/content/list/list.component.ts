@@ -27,24 +27,28 @@ import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerMod
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { BlogContentDeleteComponent } from '../delete/delete.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-blog-content-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class BlogContentListComponent implements OnInit, OnDestroy {
+export class BlogContentListComponent extends ListBaseComponent<BlogContentService, BlogContentModel, number> implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: BlogContentService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new BlogContentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
@@ -424,27 +428,27 @@ export class BlogContentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: BlogContentModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: BlogContentModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: BlogContentModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: BlogContentModel): void {
-    row["expanded"] = false;
-  }
-  onActionbuttonComment(model: BlogContentModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id === 0) {
-      this.cmsToastrService.typeErrorSelectedRow();
-      return;
-    }
-    this.router.navigate(['/blog/comment/', model.id]);
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: BlogContentModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: BlogContentModel): void {
+  //   row["expanded"] = false;
+  // }
+  // onActionbuttonComment(model: BlogContentModel = this.tableRowSelected): void {
+  //   if (!model || !model.id || model.id === 0) {
+  //     this.cmsToastrService.typeErrorSelectedRow();
+  //     return;
+  //   }
+  //   this.router.navigate(['/blog/comment/', model.id]);
+  // }
   onActionbuttonLinkTo(
     model: BlogContentModel = this.tableRowSelected
   ): void {

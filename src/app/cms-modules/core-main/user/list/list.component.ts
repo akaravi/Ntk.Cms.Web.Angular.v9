@@ -25,17 +25,19 @@ import { CoreUserChangePasswordComponent } from '../changePassword/changePasswor
 import { CoreUserEmailConfirmComponent } from '../emailConfirm/emailConfirm.component';
 import { CoreUserViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-user-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class CoreUserListComponent implements OnInit, OnDestroy {
+export class CoreUserListComponent extends ListBaseComponent<CoreUserService, CoreUserModel, number>
+  implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   constructor(
     private coreUserService: CoreUserService,
     public contentService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private router: Router,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
@@ -43,7 +45,10 @@ export class CoreUserListComponent implements OnInit, OnDestroy {
     public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(coreUserService, new CoreUserModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -523,20 +528,20 @@ export class CoreUserListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreUserModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: CoreUserModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: CoreUserModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: CoreUserModel): void {
-    row["expanded"] = false;
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: CoreUserModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: CoreUserModel): void {
+  //   row["expanded"] = false;
+  // }
 
   onActionbuttonSiteList(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {

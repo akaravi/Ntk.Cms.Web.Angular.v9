@@ -21,6 +21,8 @@ import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-e
 import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { ApiTelegramActionSendMessageComponent } from '../../action/send-message/send-message.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 
 @Component({
@@ -28,18 +30,20 @@ import { environment } from 'src/environments/environment';
   templateUrl: './list.component.html',
 
 })
-export class ApiTelegramLogOutputListComponent implements OnInit, OnDestroy {
+export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTelegramLogOutputService, ApiTelegramLogOutputModel, string> implements OnInit, OnDestroy {
   requestLinkBotConfigId = 0;
   constructor(
     private contentService: ApiTelegramLogOutputService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new ApiTelegramLogOutputModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -331,12 +335,12 @@ export class ApiTelegramLogOutputListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: ApiTelegramLogOutputModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: ApiTelegramLogOutputModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionbuttonLinkTo(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }

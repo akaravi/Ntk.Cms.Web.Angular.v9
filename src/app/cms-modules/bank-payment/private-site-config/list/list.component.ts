@@ -30,24 +30,29 @@ import { BankPaymentPrivateSiteConfigAddComponent } from '../add/add.component';
 import { BankPaymentPrivateSiteConfigEditComponent } from '../edit/edit.component';
 import { BankPaymentPrivateSiteConfigPaymentTestComponent } from '../paymentTest/paymentTest.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-bankpayment-privateconfig-list',
   templateUrl: './list.component.html',
 })
-export class BankPaymentPrivateSiteConfigListComponent implements OnInit, OnDestroy {
+export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent<BankPaymentPrivateSiteConfigService, BankPaymentPrivateSiteConfigModel, number>
+  implements OnInit, OnDestroy {
   requestLinkPublicConfigId = 0;
   constructor(
     public contentService: BankPaymentPrivateSiteConfigService,
     private bankPaymentPublicConfigService: BankPaymentPublicConfigService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
+    private tokenHelper: TokenHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
-    private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+    super(contentService, new BankPaymentPrivateSiteConfigModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -429,7 +434,7 @@ export class BankPaymentPrivateSiteConfigListComponent implements OnInit, OnDest
       }
     });
   }
-  
+
   onActionbuttonExport(): void {
     var panelClass = '';
     if (this.tokenHelper.isMobile)
@@ -500,12 +505,12 @@ export class BankPaymentPrivateSiteConfigListComponent implements OnInit, OnDest
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: BankPaymentPrivateSiteConfigModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: BankPaymentPrivateSiteConfigModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/bankpayment/publicconfig/']);
   }

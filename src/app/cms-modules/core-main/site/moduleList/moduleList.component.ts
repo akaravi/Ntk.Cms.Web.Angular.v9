@@ -24,26 +24,31 @@ import { CmsSiteUserCreditViewComponent } from 'src/app/shared/cms-site-user-cre
 import { CoreSiteModuleAddComponent } from '../moduleAdd/moduleAdd.component';
 import { CoreSiteModuleEditComponent } from '../moduleEdit/moduleEdit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-site-module-list',
   templateUrl: './moduleList.component.html',
 })
-export class CoreSiteModuleListComponent implements OnInit, OnDestroy {
+export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSiteService, CoreModuleSiteModel, number>
+  implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkModuleId = 0;
   constructor(
     public contentService: CoreModuleSiteService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
     private coreModuleService: CoreModuleService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public dialog: MatDialog,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new CoreModuleSiteModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -523,12 +528,12 @@ export class CoreSiteModuleListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreModuleSiteModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreModuleSiteModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

@@ -24,15 +24,17 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CoreUserClaimGroupAddComponent } from '../add/add.component';
 import { CoreUserClaimGroupEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-userclaimgroup-list',
   templateUrl: './list.component.html',
 
 })
-export class CoreUserClaimGroupListComponent implements OnInit, OnDestroy {
+export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserClaimGroupService, CoreUserClaimGroupModel, number>
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: CoreUserClaimGroupService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private coreModuleService: CoreModuleService,
@@ -41,8 +43,10 @@ export class CoreUserClaimGroupListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-
+    super(contentService, new CoreUserClaimGroupModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -452,11 +456,11 @@ export class CoreUserClaimGroupListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreUserClaimGroupModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreUserClaimGroupModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

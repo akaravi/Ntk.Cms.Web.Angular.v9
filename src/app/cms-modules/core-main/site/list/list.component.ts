@@ -23,25 +23,30 @@ import { CoreSiteDeleteComponent } from '../delete/delete.component';
 import { CoreSiteModuleSiteInfoComponent } from '../module-site-info/module-site-info.component';
 import { CoreSiteModuleSiteOptimazeComponent } from '../module-site-optimaze/module-site-optimaze.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-core-site-list',
   templateUrl: './list.component.html',
 })
-export class CoreSiteListComponent implements OnInit, OnDestroy {
+export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, CoreSiteModel, number>
+  implements OnInit, OnDestroy {
   requestLinkUserId = 0;
   requestLinkSiteCategoryId = 0;
   constructor(
     public contentService: CoreSiteService,
     private coreAuthService: CoreAuthService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new CoreSiteModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -523,12 +528,12 @@ export class CoreSiteListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreSiteModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreSiteModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParentUserList(): void {
     this.router.navigate(['/core/user/']);
   }

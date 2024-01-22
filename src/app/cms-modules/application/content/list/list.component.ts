@@ -33,12 +33,14 @@ import { ApplicationAppDownloadComponent } from '../download/download.component'
 import { ApplicationAppUploadAppComponent } from '../uploadApp/uploadApp.component';
 import { ApplicationAppUploadUpdateComponent } from '../uploadUpdate/uploadUpdate.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-application-app-list',
   templateUrl: './list.component.html',
 })
-export class ApplicationAppListComponent implements OnInit, OnDestroy {
+export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAppService, ApplicationAppModel, number> implements OnInit, OnDestroy {
   requestLinkSourceId = 0;
   requestLinkThemeConfigId = 0;
   constructor(
@@ -50,9 +52,11 @@ export class ApplicationAppListComponent implements OnInit, OnDestroy {
     private router: Router,
     private cdr: ChangeDetectorRef,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public dialog: MatDialog,
+    public pageInfo: PageInfoService,
     private tokenHelper: TokenHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new ApplicationAppModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -422,12 +426,12 @@ export class ApplicationAppListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: ApplicationAppModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: ApplicationAppModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/application/source/']);
   }

@@ -27,22 +27,26 @@ import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerMod
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { BiographyContentDeleteComponent } from '../delete/delete.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-biography-content-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class BiographyContentListComponent implements OnInit, OnDestroy {
+export class BiographyContentListComponent extends ListBaseComponent<BiographyContentService, BiographyContentModel, number> implements OnInit, OnDestroy {
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: BiographyContentService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
-    private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    private cdr: ChangeDetectorRef,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new BiographyContentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -394,27 +398,27 @@ export class BiographyContentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: BiographyContentModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: BiographyContentModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: BiographyContentModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: BiographyContentModel): void {
-    row["expanded"] = false;
-  }
-  onActionbuttonComment(model: BiographyContentModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id === 0) {
-      this.cmsToastrService.typeErrorSelectedRow();
-      return;
-    }
-    this.router.navigate(['/biography/comment/', model.id]);
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: BiographyContentModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: BiographyContentModel): void {
+  //   row["expanded"] = false;
+  // }
+  // onActionbuttonComment(model: BiographyContentModel = this.tableRowSelected): void {
+  //   if (!model || !model.id || model.id === 0) {
+  //     this.cmsToastrService.typeErrorSelectedRow();
+  //     return;
+  //   }
+  //   this.router.navigate(['/biography/comment/', model.id]);
+  // }
   onActionbuttonLinkTo(
     model: BiographyContentModel = this.tableRowSelected
   ): void {

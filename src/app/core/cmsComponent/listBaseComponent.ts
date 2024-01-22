@@ -1,5 +1,5 @@
 import { MatDialog } from "@angular/material/dialog";
-import { BaseModuleEntity, IApiCmsServerBase } from "ntk-cms-api";
+import { BaseEntity, BaseModuleEntity, IApiCmsServerBase } from "ntk-cms-api";
 
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
@@ -11,7 +11,7 @@ import { ContentInfoModel } from "../models/contentInfoModel";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { PageInfoService } from "../services/page-info.service";
 //IApiCmsServerBase
-export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseModuleEntity<TKey>, TKey> {
+export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
     pageInfo.updateContentService(baseService);
   }

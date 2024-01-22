@@ -27,24 +27,29 @@ import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerMod
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { ChartContentDeleteComponent } from '../delete/delete.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-chart-content-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class ChartContentListComponent implements OnInit, OnDestroy {
+export class ChartContentListComponent extends ListBaseComponent<ChartContentService, ChartContentModel, number>
+  implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: ChartContentService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new ChartContentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -280,11 +285,12 @@ export class ChartContentListComponent implements OnInit, OnDestroy {
     else
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(ChartContentDeleteComponent, {
-       height: '90%',
-       panelClass: panelClass,
+      height: '90%',
+      panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-        data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
       if (result && result.dialogChangedDate) {
@@ -419,27 +425,27 @@ export class ChartContentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: ChartContentModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: ChartContentModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: ChartContentModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: ChartContentModel): void {
-    row["expanded"] = false;
-  }
-  onActionbuttonComment(model: ChartContentModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id === 0) {
-      this.cmsToastrService.typeErrorSelectedRow();
-      return;
-    }
-    this.router.navigate(['/chart/comment/', model.id]);
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: ChartContentModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: ChartContentModel): void {
+  //   row["expanded"] = false;
+  // }
+  // onActionbuttonComment(model: ChartContentModel = this.tableRowSelected): void {
+  //   if (!model || !model.id || model.id === 0) {
+  //     this.cmsToastrService.typeErrorSelectedRow();
+  //     return;
+  //   }
+  //   this.router.navigate(['/chart/comment/', model.id]);
+  // }
   onActionbuttonLinkTo(
     model: ChartContentModel = this.tableRowSelected
   ): void {
@@ -471,8 +477,8 @@ export class ChartContentListComponent implements OnInit, OnDestroy {
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

@@ -7,9 +7,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-    ApiTelegramBotConfigModel,
-    ApiTelegramBotConfigService, DataFieldInfoModel, SortTypeEnum,
-    ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, TokenInfoModel
+  ApiTelegramBotConfigModel,
+  ApiTelegramBotConfigService, DataFieldInfoModel, SortTypeEnum,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
@@ -27,21 +27,26 @@ import { ApiTelegramActionSendMessageComponent } from '../../action/send-message
 import { ApiTelegramBotConfigAddComponent } from '../add/add.component';
 import { ApiTelegramBotConfigEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-apitelegram-bot-config-list',
   templateUrl: './list.component.html',
 })
-export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
+export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTelegramBotConfigService, ApiTelegramBotConfigModel, number> implements OnInit, OnDestroy {
   constructor(
     public contentService: ApiTelegramBotConfigService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-    public dialog: MatDialog) {
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
+  ) {
+    super(contentService, new ApiTelegramBotConfigModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -187,7 +192,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -220,7 +225,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelected(emessage);
       return;
     }
-    this.onActionTableRowSelect(  model);
+    this.onActionTableRowSelect(model);
 
     if (
       this.dataModelResult == null ||
@@ -267,7 +272,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelected(message);
       return;
     }
-    this.onActionTableRowSelect(this.tableRowSelected );
+    this.onActionTableRowSelect(this.tableRowSelected);
 
     this.router.navigate(['/core/siteModule/', this.tableRowSelected.id]);
   }
@@ -328,7 +333,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelected(emessage);
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
     this.router.navigate(['api-telegram/log-input/LinkBotConfigId/', model.id]);
   }
   onActionbuttonOutboxList(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
@@ -337,7 +342,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelected(emessage);
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
     this.router.navigate(['api-telegram/log-output/LinkBotConfigId/', model.id]);
   }
   onActionbuttonSendMessage(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
@@ -346,7 +351,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelected(emessage);
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
     //open popup
     const dialogRef = this.dialog.open(ApiTelegramActionSendMessageComponent, {
       // height: "90%",
@@ -367,7 +372,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelected(emessage);
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
     const pName = this.constructor.name + 'ServiceGetUpdatesAsync';
 
     this.contentService.ServiceGetUpdatesAsync(model.id).subscribe({
@@ -392,7 +397,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelected(emessage);
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
     const pName = this.constructor.name + 'ServiceGetMeAsync';
 
     this.contentService.ServiceGetMeAsync(model.id).subscribe({
@@ -429,7 +434,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelected(emessage);
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
     const pName = this.constructor.name + 'ServiceGetUpdatesAsyncLast';
     this.contentService.ServiceGetUpdatesAsyncLast(model.id).subscribe({
       next: (ret) => {
@@ -495,7 +500,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -535,12 +540,12 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: ApiTelegramBotConfigModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-    row["expanded"] = false;
-  row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: ApiTelegramBotConfigModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionbuttonLinkTo(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -550,7 +555,7 @@ export class ApiTelegramBotConfigListComponent implements OnInit, OnDestroy {
       this.cmsToastrService.typeWarningRecordStatusNoAvailable();
       return;
     }
-    this.onActionTableRowSelect( model);
+    this.onActionTableRowSelect(model);
 
     const pName = this.constructor.name + "ServiceGetOneById";
     this.loading.Start(pName, this.translate.instant('MESSAGE.get_state_information'));

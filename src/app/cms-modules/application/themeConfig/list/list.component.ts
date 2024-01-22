@@ -25,12 +25,15 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { ApplicationThemeConfigAddComponent } from '../add/add.component';
 import { ApplicationThemeConfigEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-application-app-list',
   templateUrl: './list.component.html',
 })
-export class ApplicationThemeConfigListComponent implements OnInit, OnDestroy {
+export class ApplicationThemeConfigListComponent extends ListBaseComponent<ApplicationThemeConfigService, ApplicationThemeConfigModel, number>
+  implements OnInit, OnDestroy {
   requestLinkSourceId = 0;
   constructor(
     public contentService: ApplicationThemeConfigService,
@@ -38,10 +41,12 @@ export class ApplicationThemeConfigListComponent implements OnInit, OnDestroy {
     public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private router: Router,
-    private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    private tokenHelper: TokenHelper,
     public dialog: MatDialog) {
+    super(contentService, new ApplicationThemeConfigModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -416,12 +421,12 @@ export class ApplicationThemeConfigListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: ApplicationThemeConfigModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: ApplicationThemeConfigModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/application/app/']);
   }

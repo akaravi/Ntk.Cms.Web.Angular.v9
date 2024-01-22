@@ -23,17 +23,19 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CoreSiteCategoryCmsModuleAddComponent } from '../add/add.component';
 import { CoreSiteCategoryCmsModuleEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-core-sitecategorycmsmodule-list',
   templateUrl: './list.component.html',
 })
-export class CoreSiteCategoryCmsModuleListComponent implements OnInit, OnDestroy {
+export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<CoreSiteCategoryCmsModuleService, CoreSiteCategoryCmsModuleModel, number>
+  implements OnInit, OnDestroy {
   requestLinkCmsModuleId = 0;
   requestLinkCmsSiteCategoryId = 0;
   constructor(
     public contentService: CoreSiteCategoryCmsModuleService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -41,7 +43,10 @@ export class CoreSiteCategoryCmsModuleListComponent implements OnInit, OnDestroy
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new CoreSiteCategoryCmsModuleModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -440,12 +445,12 @@ export class CoreSiteCategoryCmsModuleListComponent implements OnInit, OnDestroy
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreSiteCategoryCmsModuleModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreSiteCategoryCmsModuleModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/core/sitecategory/']);
   }

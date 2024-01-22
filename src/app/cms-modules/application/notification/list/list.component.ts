@@ -30,23 +30,28 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { ApplicationLogNotificationActionSendComponent } from '../action-send/action-send.component';
 import { ApplicationLogNotificationViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-application-notification-list',
   templateUrl: './list.component.html',
 })
-export class ApplicationLogNotificationListComponent implements OnInit, OnDestroy {
+export class ApplicationLogNotificationListComponent extends ListBaseComponent<ApplicationLogNotificationService, ApplicationLogNotificationModel, string>
+  implements OnInit, OnDestroy {
   requestLinkApplicationId = 0;
   requestLinkApplicationMemberId = '';
   constructor(
     private contentService: ApplicationLogNotificationService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+    super(contentService, new ApplicationLogNotificationModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -428,12 +433,12 @@ export class ApplicationLogNotificationListComponent implements OnInit, OnDestro
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: ApplicationLogNotificationModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: ApplicationLogNotificationModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/application/app/']);
   }
