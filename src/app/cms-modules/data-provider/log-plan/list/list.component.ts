@@ -23,25 +23,30 @@ import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerMod
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderLogPlanViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-log-plan-list',
   templateUrl: './list.component.html',
 })
-export class DataProviderLogPlanListComponent implements OnInit, OnDestroy {
+export class DataProviderLogPlanListComponent extends ListBaseComponent<DataProviderLogPlanService, DataProviderLogPlanModel, string>
+  implements OnInit, OnDestroy {
   requestLinkPlanId = 0;
   requestLinkSourceId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     public contentService: DataProviderLogPlanService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DataProviderLogPlanModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {

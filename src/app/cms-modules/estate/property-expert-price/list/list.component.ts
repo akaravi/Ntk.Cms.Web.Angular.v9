@@ -26,16 +26,17 @@ import { EstatePropertyExpertPriceEditComponent } from '../edit/edit.component';
 import { EstatePropertyExpertPriceInquiryCalculateComponent } from '../inquiry-calculate/inquiry-calculate.component';
 import { EstatePropertyExpertPriceInquiryListComponent } from '../inquiry-list/inquiry-list.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-estate-property-expert-price-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class EstatePropertyExpertPriceListComponent implements OnInit, OnDestroy {
+export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<EstatePropertyExpertPriceService, EstatePropertyExpertPriceModel, string> implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: EstatePropertyExpertPriceService,
     private cmsToastrService: CmsToastrService,
     private estateEnumService: EstateEnumService,
@@ -46,9 +47,12 @@ export class EstatePropertyExpertPriceListComponent implements OnInit, OnDestroy
     private estatePropertyTypeLanduseService: EstatePropertyTypeLanduseService,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new EstatePropertyExpertPriceModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),
@@ -504,20 +508,20 @@ export class EstatePropertyExpertPriceListComponent implements OnInit, OnDestroy
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstatePropertyExpertPriceModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: EstatePropertyExpertPriceModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: EstatePropertyExpertPriceModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: EstatePropertyExpertPriceModel): void {
-    row["expanded"] = false;
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: EstatePropertyExpertPriceModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: EstatePropertyExpertPriceModel): void {
+  //   row["expanded"] = false;
+  // }
 
 
   expandedElement: any;

@@ -22,29 +22,33 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CoreModuleLogLikeEditComponent } from '../edit/edit.component';
 import { CoreModuleLogLikeViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-coremodulelog-like-list',
   templateUrl: './list.component.html',
 
 })
-export class CoreModuleLogLikeListComponent implements OnInit, OnDestroy {
+export class CoreModuleLogLikeListComponent extends ListBaseComponent<CoreModuleLogLikeService, CoreModuleLogLikeModel, string>
+implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestlinkMemberId = 0;
   constructor(
     private coreEnumService: CoreEnumService,
     public contentService: CoreModuleLogLikeService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
     private tokenHelper: TokenHelper,
-    public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router,
-  ) {
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
+  ) {super(contentService, new CoreModuleLogLikeModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -485,12 +489,12 @@ export class CoreModuleLogLikeListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreModuleLogLikeModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreModuleLogLikeModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

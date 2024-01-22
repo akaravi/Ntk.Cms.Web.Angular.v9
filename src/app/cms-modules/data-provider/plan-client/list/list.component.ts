@@ -26,26 +26,29 @@ import { DataProviderPlanClientAddComponent } from '../add/add.component';
 import { DataProviderPlanClientDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanClientEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-plan-client-list',
   templateUrl: './list.component.html',
 })
-export class DataProviderPlanClientListComponent implements OnInit, OnDestroy {
+export class DataProviderPlanClientListComponent extends ListBaseComponent<DataProviderPlanClientService, DataProviderPlanClientModel, number>
+implements OnInit, OnDestroy {
   requestLinkPlanId = 0;
   requestLinkClientId = 0;
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: DataProviderPlanClientService,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
-
-  ) {
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
+  ) {super(contentService, new DataProviderPlanClientModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -411,11 +414,11 @@ export class DataProviderPlanClientListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DataProviderPlanClientModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: DataProviderPlanClientModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

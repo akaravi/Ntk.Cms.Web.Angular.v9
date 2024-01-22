@@ -24,22 +24,27 @@ import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-e
 import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { CoreModuleSaleInvoiceViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-modulesaleinvoice-list',
   templateUrl: './list.component.html',
 })
-export class CoreModuleSaleInvoiceListComponent implements OnInit, OnDestroy {
+export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreModuleSaleInvoiceService, CoreModuleSaleInvoiceModel, number>
+  implements OnInit, OnDestroy {
   requestHeaderItemGroupId = 0;
   constructor(
     public contentService: CoreModuleSaleInvoiceService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new CoreModuleSaleInvoiceModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -439,11 +444,11 @@ export class CoreModuleSaleInvoiceListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreModuleSaleInvoiceModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreModuleSaleInvoiceModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

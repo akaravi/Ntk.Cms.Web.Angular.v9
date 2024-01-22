@@ -25,15 +25,17 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { ContactContentAddComponent } from '../add/add.component';
 import { ContactContentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-contact-content-list',
   templateUrl: './list.component.html',
 })
-export class ContactContentListComponent implements OnInit, OnDestroy {
+export class ContactContentListComponent extends ListBaseComponent<ContactContentService, ContactContentModel, string>
+  implements OnInit, OnDestroy {
   requestLinkCategoryId = '';
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: ContactContentService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -41,9 +43,12 @@ export class ContactContentListComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new ContactContentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkCategoryId = this.activatedRoute.snapshot.paramMap.get('LinkCategoryId');
 
@@ -388,12 +393,12 @@ export class ContactContentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: ContactContentModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: ContactContentModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionSelectorSelect(model: ContactCategoryModel | null): void {
     /*filter */
     var sortColumn = this.filteModelContent.sortColumn;

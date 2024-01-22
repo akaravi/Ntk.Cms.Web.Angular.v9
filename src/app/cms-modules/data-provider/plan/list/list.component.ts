@@ -25,24 +25,29 @@ import { DataProviderPlanAddComponent } from '../add/add.component';
 import { DataProviderPlanDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-data-provider-plan-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class DataProviderPlanListComponent implements OnInit, OnDestroy {
+export class DataProviderPlanListComponent extends ListBaseComponent<DataProviderPlanService, DataProviderPlanModel, number>
+  implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: DataProviderPlanService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DataProviderPlanModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -258,12 +263,13 @@ export class DataProviderPlanListComponent implements OnInit, OnDestroy {
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(DataProviderPlanDeleteComponent, { 
+    const dialogRef = this.dialog.open(DataProviderPlanDeleteComponent, {
       height: '40%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-       data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
       if (result && result.dialogChangedDate) {
@@ -467,13 +473,13 @@ export class DataProviderPlanListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DataProviderPlanModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: DataProviderPlanModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
   onActionTableRowMouseEnter(row: DataProviderPlanModel): void {
     this.onActionTableRowSelect(row);
     row["expanded"] = true;

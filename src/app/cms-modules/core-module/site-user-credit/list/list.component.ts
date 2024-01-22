@@ -23,15 +23,17 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { CoreModuleSiteUserCreditChargeDirectComponent } from '../charge-direct/charge-direct.component';
 import { CoreModuleSiteUserCreditEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-coremodule-site-user-credit-list',
   templateUrl: './list.component.html',
 
 })
-export class CoreModuleSiteUserCreditListComponent implements OnInit, OnDestroy {
+export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<CoreModuleSiteUserCreditService, CoreModuleSiteUserCreditModel, number>
+  implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: CoreModuleSiteUserCreditService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -39,9 +41,12 @@ export class CoreModuleSiteUserCreditListComponent implements OnInit, OnDestroy 
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private coreModuleService: CoreModuleService,
-    public dialog: MatDialog,
     public router: Router,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new CoreModuleSiteUserCreditModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
@@ -406,11 +411,11 @@ export class CoreModuleSiteUserCreditListComponent implements OnInit, OnDestroy 
     });
     //open popup
   }
-  onActionTableRowSelect(row: CoreModuleSiteUserCreditModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreModuleSiteUserCreditModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

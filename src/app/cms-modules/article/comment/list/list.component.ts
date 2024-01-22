@@ -25,6 +25,8 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 import { ArticleCommentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-article-comment-list',
   templateUrl: './list.component.html',
@@ -36,7 +38,8 @@ import { environment } from 'src/environments/environment';
     ]),
   ],
 })
-export class ArticleCommentListComponent implements OnInit, OnDestroy {
+export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommentService, ArticleCommentModel, number>
+  implements OnInit, OnDestroy {
   constructor(
     private commentService: ArticleCommentService,
     public contentService: ArticleContentService,
@@ -45,10 +48,12 @@ export class ArticleCommentListComponent implements OnInit, OnDestroy {
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
-    private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public tokenHelper: TokenHelper,
     public dialog: MatDialog) {
+    super(commentService, new ArticleCommentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
@@ -433,12 +438,12 @@ export class ArticleCommentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: ArticleCommentModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: ArticleCommentModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/article/content/']);
   }
@@ -542,8 +547,8 @@ export class ArticleCommentListComponent implements OnInit, OnDestroy {
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

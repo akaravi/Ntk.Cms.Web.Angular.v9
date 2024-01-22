@@ -26,24 +26,29 @@ import { DataProviderSourceAddComponent } from '../add/add.component';
 import { DataProviderSourceDeleteComponent } from '../delete/delete.component';
 import { DataProviderSourceEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-source-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class DataProviderSourceListComponent implements OnInit, OnDestroy {
+export class DataProviderSourceListComponent extends ListBaseComponent<DataProviderSourceService, DataProviderSourceModel, number>
+  implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: DataProviderSourceService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DataProviderSourceModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -276,11 +281,12 @@ export class DataProviderSourceListComponent implements OnInit, OnDestroy {
     else
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(DataProviderSourceDeleteComponent, {
-       height: '40%',
-       panelClass: panelClass,
+      height: '40%',
+      panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-        data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
       if (result && result.dialogChangedDate) {
@@ -448,18 +454,18 @@ export class DataProviderSourceListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DataProviderSourceModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: DataProviderSourceModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: DataProviderSourceModel): void {
-    row["expanded"] = false;
-  }
+  // onActionTableRowSelect(row: DataProviderSourceModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: DataProviderSourceModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: DataProviderSourceModel): void {
+  //   row["expanded"] = false;
+  // }
   expandedElement: any;
 }

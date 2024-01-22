@@ -23,21 +23,26 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CoreGuideAddComponent } from '../add/add.component';
 import { CoreGuideEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-guide-list',
   templateUrl: './list.component.html',
 })
-export class CoreGuideListComponent implements OnInit, OnDestroy {
+export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, CoreGuideModel, number>
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: CoreGuideService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+    super(contentService, new CoreGuideModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -237,7 +242,7 @@ export class CoreGuideListComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(CoreGuideAddComponent, {
       height: '90%',
       panelClass: panelClass,
-      
+
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
       data: { parentId: this.categoryModelSelected.id }
@@ -455,11 +460,11 @@ export class CoreGuideListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreGuideModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreGuideModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

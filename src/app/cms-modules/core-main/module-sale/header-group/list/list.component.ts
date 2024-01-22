@@ -26,14 +26,16 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CoreModuleSaleHeaderGroupAddComponent } from '../add/add.component';
 import { CoreModuleSaleHeaderGroupEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-modulesaleheadergroup-list',
   templateUrl: './list.component.html',
 })
-export class CoreModuleSaleHeaderGroupListComponent implements OnInit, OnDestroy {
+export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<CoreModuleSaleHeaderGroupService, CoreModuleSaleHeaderGroupModel, number>
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: CoreModuleSaleHeaderGroupService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private coreUserGroupService: CoreUserGroupService,
@@ -42,7 +44,10 @@ export class CoreModuleSaleHeaderGroupListComponent implements OnInit, OnDestroy
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new CoreModuleSaleHeaderGroupModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -477,11 +482,11 @@ export class CoreModuleSaleHeaderGroupListComponent implements OnInit, OnDestroy
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreModuleSaleHeaderGroupModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreModuleSaleHeaderGroupModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

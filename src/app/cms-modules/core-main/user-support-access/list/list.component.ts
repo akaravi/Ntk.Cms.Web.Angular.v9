@@ -23,19 +23,21 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CoreUserSupportAccessAddComponent } from '../add/add.component';
 import { CoreUserSupportAccessEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-core-user-support-access-list',
   templateUrl: './list.component.html',
 
 })
-export class CoreUserSupportAccessListComponent implements OnInit, OnDestroy {
+export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUserSupportAccessService, CoreUserSupportAccessModel, number>
+  implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestModuleName = '';
   requestModuleEntityName = '';
   constructor(
     public contentService: CoreUserSupportAccessService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
@@ -43,7 +45,10 @@ export class CoreUserSupportAccessListComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new CoreUserSupportAccessModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
@@ -447,11 +452,11 @@ export class CoreUserSupportAccessListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreUserSupportAccessModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreUserSupportAccessModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

@@ -23,15 +23,17 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CoreUserClaimTypeAddComponent } from '../add/add.component';
 import { CoreUserClaimTypeEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-userclaimtype-list',
   templateUrl: './list.component.html',
 
 })
-export class CoreUserClaimTypeListComponent implements OnInit, OnDestroy {
+export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserClaimTypeService, CoreUserClaimTypeModel, number>
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: CoreUserClaimTypeService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private coreEnumService: CoreEnumService,
@@ -39,7 +41,10 @@ export class CoreUserClaimTypeListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+    super(contentService, new CoreUserClaimTypeModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -461,11 +466,11 @@ export class CoreUserClaimTypeListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: CoreUserClaimTypeModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: CoreUserClaimTypeModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

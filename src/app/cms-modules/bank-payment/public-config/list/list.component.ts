@@ -25,14 +25,16 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { BankPaymentPublicConfigAddComponent } from '../add/add.component';
 import { BankPaymentPublicConfigEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-bankpayment-publicconfig-list',
   templateUrl: './list.component.html',
 })
-export class BankPaymentPublicConfigListComponent implements OnInit, OnDestroy {
+export class BankPaymentPublicConfigListComponent extends ListBaseComponent<BankPaymentPublicConfigService, BankPaymentPublicConfigModel, number>
+implements OnInit, OnDestroy {
   constructor(
     public contentService: BankPaymentPublicConfigService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private coreCurrencyService: CoreCurrencyService,
@@ -40,7 +42,10 @@ export class BankPaymentPublicConfigListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+    super(contentService, new BankPaymentPublicConfigModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -422,10 +427,10 @@ export class BankPaymentPublicConfigListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: BankPaymentPublicConfigModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: BankPaymentPublicConfigModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 }
