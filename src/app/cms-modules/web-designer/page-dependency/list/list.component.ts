@@ -25,15 +25,16 @@ import { environment } from 'src/environments/environment';
 import { WebDesignerMainPageDependencyAddComponent } from '../add/add.component';
 import { WebDesignerMainPageDependencyAutoAddPageComponent } from '../auto-add-page/auto-add-page.component';
 import { WebDesignerMainPageDependencyEditComponent } from '../edit/edit.component';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-webdesigner-pagedependency-list',
   templateUrl: './list.component.html',
 })
-export class WebDesignerMainPageDependencyListComponent implements OnInit, OnDestroy {
+export class WebDesignerMainPageDependencyListComponent extends ListBaseComponent< WebDesignerMainPageDependencyService, WebDesignerMainPageDependencyModel, string> implements OnInit, OnDestroy {
   requestLinkModuleId = 0;
   constructor(
     public contentService: WebDesignerMainPageDependencyService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private coreModuleService: CoreModuleService,
@@ -43,7 +44,10 @@ export class WebDesignerMainPageDependencyListComponent implements OnInit, OnDes
     public http: HttpClient,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new WebDesignerMainPageDependencyModel(), pageInfo, publicHelper, dialog)
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkModuleId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkModuleId'));
     this.optionsSearch.parentMethods = {
@@ -511,10 +515,10 @@ export class WebDesignerMainPageDependencyListComponent implements OnInit, OnDes
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: WebDesignerMainPageDependencyModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: WebDesignerMainPageDependencyModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 }

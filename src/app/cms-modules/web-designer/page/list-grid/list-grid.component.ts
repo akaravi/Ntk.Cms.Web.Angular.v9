@@ -25,27 +25,31 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { environment } from 'src/environments/environment';
 import { WebDesignerMainPageAddComponent } from '../add/add.component';
 import { WebDesignerMainPageEditComponent } from '../edit/edit.component';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-webdesigner-page-list-grid',
   templateUrl: './list-grid.component.html',
 })
-export class WebDesignerMainPageListGridComponent implements OnInit, OnDestroy {
+export class WebDesignerMainPageListGridComponent extends ListBaseComponent< WebDesignerMainPageService, WebDesignerMainPageModel, string> implements OnInit, OnDestroy {
   requestLinkPageParentGuId = '';
   requestLinkPageTemplateGuId = '';
   requestLinkPageDependencyGuId = '';
   constructor(
     public contentService: WebDesignerMainPageService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private webDesignerMainPageTemplateService: WebDesignerMainPageTemplateService,
     private coreSiteCategoryService: CoreSiteCategoryService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    private tokenHelper: TokenHelper,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new WebDesignerMainPageModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId')) {
       this.requestLinkPageTemplateGuId = this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId');
@@ -508,12 +512,12 @@ export class WebDesignerMainPageListGridComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: WebDesignerMainPageModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: WebDesignerMainPageModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParentTemplate(): void {
     this.router.navigate(['/webdesigner/pagetemplate']);
   }

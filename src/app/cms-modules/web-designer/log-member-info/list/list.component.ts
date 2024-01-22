@@ -24,24 +24,28 @@ import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-e
 import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { WebDesignerLogMemberInfoViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-webdesigner-logmemberinfo-list',
   templateUrl: './list.component.html',
 })
-export class WebDesignerLogMemberInfoListComponent implements OnInit, OnDestroy {
+export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<WebDesignerLogMemberInfoService, WebDesignerLogMemberInfoModel, string> implements OnInit, OnDestroy {
   requestLinkMemberId = 0;
   constructor(
     public contentService: WebDesignerLogMemberInfoService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    this.loading.cdr = this.cdr;
+      super(contentService, new WebDesignerLogMemberInfoModel(), pageInfo, publicHelper, dialog);
+      this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -380,12 +384,12 @@ export class WebDesignerLogMemberInfoListComponent implements OnInit, OnDestroy 
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: WebDesignerLogMemberInfoModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: WebDesignerLogMemberInfoModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/application/app/']);
   }
