@@ -26,26 +26,30 @@ import { DataProviderPlanSourceAddComponent } from '../add/add.component';
 import { DataProviderPlanSourceDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanSourceEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-plan-source-list',
   templateUrl: './list.component.html',
 })
-export class DataProviderPlanSourceListComponent implements OnInit, OnDestroy {
+export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataProviderPlanSourceService, DataProviderPlanSourceModel, number>
+  implements OnInit, OnDestroy {
   requestLinkPlanId = 0;
   requestLinkSourceId = 0;
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: DataProviderPlanSourceService,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
-
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DataProviderPlanSourceModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -276,12 +280,13 @@ export class DataProviderPlanSourceListComponent implements OnInit, OnDestroy {
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(DataProviderPlanSourceDeleteComponent, { 
+    const dialogRef = this.dialog.open(DataProviderPlanSourceDeleteComponent, {
       height: '40%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-       data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
       if (result && result.dialogChangedDate) {
@@ -411,11 +416,11 @@ export class DataProviderPlanSourceListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DataProviderPlanSourceModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: DataProviderPlanSourceModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

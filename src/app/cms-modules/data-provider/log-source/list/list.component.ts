@@ -23,24 +23,29 @@ import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerMod
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderLogSourceViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-log-source-list',
   templateUrl: './list.component.html',
 })
-export class DataProviderLogSourceListComponent implements OnInit, OnDestroy {
+export class DataProviderLogSourceListComponent extends ListBaseComponent<DataProviderLogSourceService, DataProviderLogSourceModel, string>
+  implements OnInit, OnDestroy {
   requestLinkSourceId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     public contentService: DataProviderLogSourceService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DataProviderLogSourceModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -310,12 +315,12 @@ export class DataProviderLogSourceListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DataProviderLogSourceModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: DataProviderLogSourceModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
 
     if (this.requestLinkSourceId > 0) {

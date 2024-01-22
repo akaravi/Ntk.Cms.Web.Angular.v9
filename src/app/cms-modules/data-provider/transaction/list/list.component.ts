@@ -23,27 +23,32 @@ import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerMod
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderTransactionViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-donate-transaction-list',
   templateUrl: './list.component.html',
 })
-export class DataProviderTransactionListComponent implements OnInit, OnDestroy {
+export class DataProviderTransactionListComponent extends ListBaseComponent<DataProviderTransactionService, DataProviderTransactionModel, number>
+  implements OnInit, OnDestroy {
   requestLinkCmsUserId = 0;
   requestLinkPlanId = 0;
   requestLinkPlanPriceId = 0;
   requestLinkClientId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     public contentService: DataProviderTransactionService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DataProviderTransactionModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -344,12 +349,12 @@ export class DataProviderTransactionListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DataProviderTransactionModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: DataProviderTransactionModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
 
     if (this.requestLinkCmsUserId > 0) {
