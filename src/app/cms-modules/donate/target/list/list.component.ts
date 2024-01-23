@@ -26,24 +26,28 @@ import { DonateTargetAddComponent } from '../add/add.component';
 import { DonateTargetDeleteComponent } from '../delete/delete.component';
 import { DonateTargetEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-donate-target-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class DonateTargetListComponent implements OnInit, OnDestroy {
+export class DonateTargetListComponent extends ListBaseComponent<DonateTargetService, DonateTargetModel, number> implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: DonateTargetService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DonateTargetModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),
@@ -401,20 +405,20 @@ export class DonateTargetListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DonateTargetModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: DonateTargetModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: DonateTargetModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: DonateTargetModel): void {
-    row["expanded"] = false;
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: DonateTargetModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: DonateTargetModel): void {
+  //   row["expanded"] = false;
+  // }
 
   onActionbuttonTargetPeriodList(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {

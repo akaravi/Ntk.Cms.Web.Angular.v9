@@ -23,21 +23,25 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { SmsMainApiPathCompanyAddComponent } from '../add/add.component';
 import { SmsMainApiPathCompanyEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-sms-apipathcompany-list',
   templateUrl: './list.component.html',
 })
-export class SmsMainApiPathCompanyListComponent implements OnInit, OnDestroy {
+export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMainApiPathCompanyService, SmsMainApiPathCompanyModel, string> implements OnInit, OnDestroy {
   constructor(
     public contentService: SmsMainApiPathCompanyService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new SmsMainApiPathCompanyModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -414,11 +418,11 @@ export class SmsMainApiPathCompanyListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: SmsMainApiPathCompanyModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: SmsMainApiPathCompanyModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

@@ -23,23 +23,27 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { EstatePropertyAdsAddComponent } from '../add/add.component';
 import { EstatePropertyAdsEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-property-ads-list',
   templateUrl: './list.component.html'
 })
-export class EstatePropertyAdsListComponent implements OnInit, OnDestroy {
+export class EstatePropertyAdsListComponent extends ListBaseComponent<EstatePropertyAdsService, EstatePropertyAdsModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId = '';
   constructor(
     private contentService: EstatePropertyAdsService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstatePropertyAdsModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
     this.optionsSearch.parentMethods = {
@@ -389,12 +393,12 @@ export class EstatePropertyAdsListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstatePropertyAdsModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: EstatePropertyAdsModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/estate/property/']);
   }

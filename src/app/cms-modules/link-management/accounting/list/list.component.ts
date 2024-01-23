@@ -26,24 +26,28 @@ import { LinkManagementAccountingAddComponent } from '../add/add.component';
 import { LinkManagementAccountingDeleteComponent } from '../delete/delete.component';
 import { LinkManagementAccountingEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-accounting-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class LinkManagementAccountingListComponent implements OnInit, OnDestroy {
+export class LinkManagementAccountingListComponent extends ListBaseComponent<LinkManagementAccountingService, LinkManagementAccountingModel, number> implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: LinkManagementAccountingService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new LinkManagementAccountingModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -369,19 +373,19 @@ export class LinkManagementAccountingListComponent implements OnInit, OnDestroy 
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: LinkManagementAccountingModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: LinkManagementAccountingModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: LinkManagementAccountingModel): void {
-    row["expanded"] = false;
-  }
+  // onActionTableRowSelect(row: LinkManagementAccountingModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: LinkManagementAccountingModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: LinkManagementAccountingModel): void {
+  //   row["expanded"] = false;
+  // }
   expandedElement: any;
 
   onActionbuttonAccountingDetail(model: LinkManagementAccountingModel = this.tableRowSelected): void {
@@ -394,12 +398,12 @@ export class LinkManagementAccountingListComponent implements OnInit, OnDestroy 
     this.router.navigate(['/linkmanagement/accountingdetail/LinkManagementAccountingId', this.tableRowSelected.id]);
   }
 
-  onActionbuttonComment(model: LinkManagementAccountingModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id === 0) {
-      const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
-      this.cmsToastrService.typeErrorSelected(message);
-      return;
-    }
-    this.router.navigate(['/linkmanagement/Accounting-log/', model.id]);
-  }
+  // onActionbuttonComment(model: LinkManagementAccountingModel = this.tableRowSelected): void {
+  //   if (!model || !model.id || model.id === 0) {
+  //     const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
+  //     this.cmsToastrService.typeErrorSelected(message);
+  //     return;
+  //   }
+  //   this.router.navigate(['/linkmanagement/Accounting-log/', model.id]);
+  // }
 }

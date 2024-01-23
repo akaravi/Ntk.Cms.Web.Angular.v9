@@ -25,16 +25,17 @@ import { TicketingAnswerAddComponent } from '../add/add.component';
 import { TicketingAnswerEditComponent } from '../edit/edit.component';
 import { TicketingAnswerViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-ticketing-answer-list',
   templateUrl: './list.component.html'
 })
-export class TicketingAnswerListComponent implements OnInit, OnDestroy {
+export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAnswerService, TicketingAnswerModel,number> implements OnInit, OnDestroy {
   requestLinkTaskId = 0;
   constructor(
     public contentService: TicketingAnswerService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
@@ -42,7 +43,10 @@ export class TicketingAnswerListComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private ticketingEnumService: TicketingEnumService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new TicketingAnswerModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -455,12 +459,12 @@ export class TicketingAnswerListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: TicketingAnswerModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: TicketingAnswerModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/ticketing/task/']);
   }

@@ -23,6 +23,8 @@ import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-e
 import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { PollingVoteEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-polling-vote-list',
   templateUrl: './list.component.html',
@@ -34,20 +36,22 @@ import { environment } from 'src/environments/environment';
     ]),
   ],
 })
-export class PollingVoteListComponent implements OnInit, OnDestroy {
+export class PollingVoteListComponent extends ListBaseComponent< PollingVoteService, PollingVoteModel, string> implements OnInit, OnDestroy {
   requestContentId = 0;
   requestOptionId = 0;
   constructor(
     private contentService: PollingVoteService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new PollingVoteModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -428,12 +432,12 @@ export class PollingVoteListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: PollingVoteModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: PollingVoteModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/polling/content/']);
   }

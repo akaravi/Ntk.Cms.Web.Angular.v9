@@ -23,22 +23,26 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { EstateContractTypeAddComponent } from '../add/add.component';
 import { EstateContractTypeEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-contract-type-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class EstateContractTypeListComponent implements OnInit, OnDestroy {
+export class EstateContractTypeListComponent extends ListBaseComponent<EstateContractTypeService, EstateContractTypeModel, string> implements OnInit, OnDestroy {
   constructor(
     private contentService: EstateContractTypeService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstateContractTypeModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -409,11 +413,11 @@ export class EstateContractTypeListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstateContractTypeModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: EstateContractTypeModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

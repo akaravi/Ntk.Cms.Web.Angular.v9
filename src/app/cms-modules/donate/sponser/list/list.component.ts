@@ -25,23 +25,27 @@ import { DonateSponserAddComponent } from '../add/add.component';
 import { DonateSponserDeleteComponent } from '../delete/delete.component';
 import { DonateSponserEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-donate-sponser-list',
   templateUrl: './list.component.html',
 })
-export class DonateSponserListComponent implements OnInit, OnDestroy {
+export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorService, DonateSponsorModel, number> implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: DonateSponsorService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DonateSponsorModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),
@@ -393,12 +397,12 @@ export class DonateSponserListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DonateSponsorModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: DonateSponsorModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
   onActionbuttonTargetPeriodSponserRow(model: DonateSponsorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {

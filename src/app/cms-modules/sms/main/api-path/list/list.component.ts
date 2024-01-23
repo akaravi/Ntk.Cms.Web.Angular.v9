@@ -23,11 +23,13 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { SmsMainApiPathAddComponent } from '../add/add.component';
 import { SmsMainApiPathSendTestComponent } from '../sendTest/sendTest.component';
 import { environment } from 'src/environments/environment';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-sms-apipath-list',
   templateUrl: './list.component.html'
 })
-export class SmsMainApiPathListComponent implements OnInit, OnDestroy {
+export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPathService, SmsMainApiPathModel, string> implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkCompanyId = '';
   requestLinkPublicConfigId = '';
@@ -35,7 +37,6 @@ export class SmsMainApiPathListComponent implements OnInit, OnDestroy {
     public contentService: SmsMainApiPathService,
     private smsMainApiPathCompanyService: SmsMainApiPathCompanyService,
     private smsMainApiPathPublicConfigService: SmsMainApiPathPublicConfigService,
-    public publicHelper: PublicHelper,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -43,7 +44,10 @@ export class SmsMainApiPathListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new SmsMainApiPathModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -662,12 +666,12 @@ export class SmsMainApiPathListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: SmsMainApiPathModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: SmsMainApiPathModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path-company']);
   }

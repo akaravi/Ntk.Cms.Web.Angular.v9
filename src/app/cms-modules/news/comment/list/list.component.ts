@@ -25,6 +25,8 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 import { NewsCommentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-news-comment-list',
   templateUrl: './list.component.html',
@@ -36,20 +38,22 @@ import { environment } from 'src/environments/environment';
     ]),
   ],
 })
-export class NewsCommentListComponent implements OnInit, OnDestroy {
+export class NewsCommentListComponent extends ListBaseComponent<NewsContentService, NewsCommentModel, number>implements OnInit, OnDestroy {
   requestContentId = 0;
   constructor(
     private commentService: NewsCommentService,
     public contentService: NewsContentService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new NewsCommentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
       this.searchInChecking =
@@ -435,12 +439,12 @@ export class NewsCommentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: NewsCommentModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: NewsCommentModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/news/content/']);
   }

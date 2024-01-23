@@ -23,25 +23,29 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { EstateAccountAgencyAddComponent } from '../add/add.component';
 import { EstateAccountAgencyEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-account-agency-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class EstateAccountAgencyListComponent implements OnInit, OnDestroy {
+export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAccountAgencyService, EstateAccountAgencyModel, string> implements OnInit, OnDestroy {
   requestLinkAccountUserId = '';
   requestLinkLocationWorkAreaIds: number[];
   constructor(
     private contentService: EstateAccountAgencyService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private activatedRoute: ActivatedRoute,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstateAccountAgencyModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -512,19 +516,19 @@ export class EstateAccountAgencyListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstateAccountAgencyModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: EstateAccountAgencyModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: EstateAccountAgencyModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: EstateAccountAgencyModel): void {
-    row["expanded"] = false;
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: EstateAccountAgencyModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: EstateAccountAgencyModel): void {
+  //   row["expanded"] = false;
+  // }
 
 }

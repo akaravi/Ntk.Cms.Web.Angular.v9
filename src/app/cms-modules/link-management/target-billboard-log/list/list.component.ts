@@ -25,27 +25,31 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { LinkManagementTargetBillboardLogDeleteComponent } from '../delete/delete.component';
 import { LinkManagementTargetBillboardLogEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-target-billboard-log-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class LinkManagementTargetBillboardLogListComponent implements OnInit, OnDestroy {
+export class LinkManagementTargetBillboardLogListComponent extends ListBaseComponent<LinkManagementTargetBillboardLogService, LinkManagementTargetBillboardLogModel, string> implements OnInit, OnDestroy {
   requestLinkManagementBillboardId = 0;
   requestLinkManagementTargetId = 0;
   requestKey = '';
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: LinkManagementTargetBillboardLogService,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new LinkManagementTargetBillboardLogModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkManagementBillboardId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkManagementBillboardId'));
     this.requestLinkManagementTargetId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkManagementTargetId'));
@@ -413,19 +417,19 @@ export class LinkManagementTargetBillboardLogListComponent implements OnInit, On
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: LinkManagementTargetBillboardLogModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: LinkManagementTargetBillboardLogModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: LinkManagementTargetBillboardLogModel): void {
-    row["expanded"] = false;
-  }
+  // onActionTableRowSelect(row: LinkManagementTargetBillboardLogModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: LinkManagementTargetBillboardLogModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: LinkManagementTargetBillboardLogModel): void {
+  //   row["expanded"] = false;
+  // }
   onActionBackToParent(): void {
     if (this.requestLinkManagementBillboardId > 0) {
       this.router.navigate(['/linkmanagement/billboard/']);

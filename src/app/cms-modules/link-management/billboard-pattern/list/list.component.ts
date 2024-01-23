@@ -27,25 +27,28 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { LinkManagementBillboardPatternAddComponent } from '../add/add.component';
 import { LinkManagementBillboardPatternDeleteComponent } from '../delete/delete.component';
 import { LinkManagementBillboardPatternEditComponent } from '../edit/edit.component';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-billboard-pattern-list',
   templateUrl: './list.component.html',
 })
-export class LinkManagementBillboardPatternListComponent implements OnInit, OnDestroy {
+export class LinkManagementBillboardPatternListComponent extends ListBaseComponent<LinkManagementBillboardPatternService, LinkManagementBillboardPatternModel, number> implements OnInit, OnDestroy {
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: LinkManagementBillboardPatternService,
     private cmsToastrService: CmsToastrService,
     private linkManagementEnumService: LinkManagementEnumService,
     private router: Router,
     private tokenHelper: TokenHelper,
-    private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
-
+    private cdr: ChangeDetectorRef,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new LinkManagementBillboardPatternModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -407,10 +410,10 @@ export class LinkManagementBillboardPatternListComponent implements OnInit, OnDe
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: LinkManagementBillboardPatternModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: LinkManagementBillboardPatternModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 }

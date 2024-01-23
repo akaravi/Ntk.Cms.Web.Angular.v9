@@ -23,22 +23,26 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { environment } from 'src/environments/environment';
 import { EstateCategoryRackAddComponent } from '../add/add.component';
 import { EstateCategoryRackEditComponent } from '../edit/edit.component';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-category-rack-list',
   templateUrl: './list.component.html',
   styleUrls: ['list.component.scss']
 })
-export class EstateCategoryRackListComponent implements OnInit, OnDestroy {
+export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCategoryRackService, EstateCategoryRackModel, string> implements OnInit, OnDestroy {
   constructor(
     private contentService: EstateCategoryRackService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstateCategoryRackModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -423,11 +427,11 @@ export class EstateCategoryRackListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstateCategoryRackModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: EstateCategoryRackModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

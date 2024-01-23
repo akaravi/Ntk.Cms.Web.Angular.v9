@@ -28,24 +28,28 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { NewsContentDeleteComponent } from '../delete/delete.component';
 import { environment } from 'src/environments/environment';
 import { I } from '@angular/cdk/keycodes';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-news-content-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class NewsContentListComponent implements OnInit, OnDestroy {
+export class NewsContentListComponent extends ListBaseComponent<NewsContentService, NewsContentModel, number> implements OnInit, OnDestroy {
   requestLinkCategoryId = 0;
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: NewsContentService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private activatedRoute: ActivatedRoute,
-    public dialog: MatDialog,
-    private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    private cdr: ChangeDetectorRef,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new NewsContentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.activatedRoute.params.subscribe((data) => {
@@ -459,32 +463,32 @@ export class NewsContentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: NewsContentModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: NewsContentModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: NewsContentModel): void {
-    row["expanded"] = false;
-  }
-  onActionbuttonComment(model: NewsContentModel = this.tableRowSelected, event?: MouseEvent): void {
-    if (!model || !model.id || model.id === 0) {
-      this.cmsToastrService.typeErrorSelectedRow();
-      return;
-    }
+  // onActionTableRowSelect(row: NewsContentModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: NewsContentModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: NewsContentModel): void {
+  //   row["expanded"] = false;
+  // }
+  // onActionbuttonComment(model: NewsContentModel = this.tableRowSelected, event?: MouseEvent): void {
+  //   if (!model || !model.id || model.id === 0) {
+  //     this.cmsToastrService.typeErrorSelectedRow();
+  //     return;
+  //   }
 
-    if (event?.ctrlKey) {
-      this.link = "/#/news/comment/";
-      window.open(this.link, "_blank");
-    } else {
-      this.router.navigate(['/news/comment/', model.id]);
-    }
-  }
+  //   if (event?.ctrlKey) {
+  //     this.link = "/#/news/comment/";
+  //     window.open(this.link, "_blank");
+  //   } else {
+  //     this.router.navigate(['/news/comment/', model.id]);
+  //   }
+  // }
   onActionbuttonLinkTo(model: NewsContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();

@@ -23,15 +23,16 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { SmsMainApiNumberPermissionAddComponent } from '../add/add.component';
 import { SmsMainApiNumberPermissionEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-sms-api-number-permission-list',
   templateUrl: './list.component.html'
 })
-export class SmsMainApiNumberPermissionListComponent implements OnInit, OnDestroy {
+export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string> implements OnInit, OnDestroy {
   requestLinkApiNumberId = '';
   constructor(
     public contentService: SmsMainApiNumberPermissionService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -39,7 +40,10 @@ export class SmsMainApiNumberPermissionListComponent implements OnInit, OnDestro
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new SmsMainApiNumberPermissionModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -423,12 +427,12 @@ export class SmsMainApiNumberPermissionListComponent implements OnInit, OnDestro
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: SmsMainApiNumberPermissionModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: SmsMainApiNumberPermissionModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path']);
   }

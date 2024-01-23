@@ -25,13 +25,15 @@ import { CmsExportListComponent } from "src/app/shared/cms-export-list/cmsExport
 import { CmsLinkToComponent } from "src/app/shared/cms-link-to/cms-link-to.component";
 import { EstatePropertyQuickViewComponent } from "../quick-view/quick-view.component";
 import { environment } from "src/environments/environment";
+import { ListBaseComponent } from "src/app/core/cmsComponent/listBaseComponent";
+import { PageInfoService } from "src/app/core/services/page-info.service";
 
 
 @Component({
   selector: "app-estate-property-quick-list",
   templateUrl: "./quick-list.component.html",
 })
-export class EstatePropertyQuickListComponent
+export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePropertyService, EstatePropertyModel, string>
   implements OnInit, OnDestroy, AfterViewInit {
   requestSearchTitle = "";
   requestSearchCustomerTel = "";
@@ -49,16 +51,17 @@ export class EstatePropertyQuickListComponent
     private dialogRef: MatDialogRef<EstatePropertyQuickListComponent>,
     public contentService: EstatePropertyService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
-
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new EstatePropertyModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     if (data) {
       if (data.searchTitle)
@@ -790,20 +793,20 @@ export class EstatePropertyQuickListComponent
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstatePropertyModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: EstatePropertyModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: EstatePropertyModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: EstatePropertyModel): void {
-    row["expanded"] = false;
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: EstatePropertyModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: EstatePropertyModel): void {
+  //   row["expanded"] = false;
+  // }
   onActionBackToParent(): void {
     this.router.navigate(["/ticketing/departemen/"]);
   }

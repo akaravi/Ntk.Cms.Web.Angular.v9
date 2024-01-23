@@ -24,17 +24,18 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { SmsLogOutBoxQueueEditComponent } from '../edit/edit.component';
 import { SmsLogOutBoxQueueViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-sms-log-outboxqueue-list',
   templateUrl: './list.component.html'
 })
-export class SmsLogOutBoxQueueListComponent implements OnInit, OnDestroy {
+export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutBoxQueueService, SmsLogOutBoxQueueModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
   constructor(
     public contentService: SmsLogOutBoxQueueService,
     private smsMainApiPathService: SmsMainApiPathService,
-    public publicHelper: PublicHelper,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -42,7 +43,10 @@ export class SmsLogOutBoxQueueListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new SmsLogOutBoxQueueModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -548,12 +552,12 @@ export class SmsLogOutBoxQueueListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: SmsLogOutBoxQueueModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: SmsLogOutBoxQueueModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     // this.router.navigate(['/sms/main/api-path-company']);
   }

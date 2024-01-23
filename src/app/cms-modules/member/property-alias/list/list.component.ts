@@ -26,22 +26,26 @@ import { MemberPropertyAliasAddComponent } from '../add/add.component';
 import { MemberPropertyAliasDeleteComponent } from '../delete/delete.component';
 import { MemberPropertyAliasEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-member-propertyalias-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class MemberPropertyAliasListComponent implements OnInit, OnDestroy {
+export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPropertyAliasService, MemberPropertyAliasModel, number> implements OnInit, OnDestroy {
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: MemberPropertyAliasService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
-    private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    private cdr: ChangeDetectorRef,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new MemberPropertyAliasModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -362,19 +366,19 @@ export class MemberPropertyAliasListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: MemberPropertyAliasModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: MemberPropertyAliasModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: MemberPropertyAliasModel): void {
-    row["expanded"] = false;
-  }
+  // onActionTableRowSelect(row: MemberPropertyAliasModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: MemberPropertyAliasModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: MemberPropertyAliasModel): void {
+  //   row["expanded"] = false;
+  // }
   expandedElement: any;
 
 

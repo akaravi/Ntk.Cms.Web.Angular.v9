@@ -13,10 +13,12 @@ import {
 import { Subscription } from 'rxjs';
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
 import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
 import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
@@ -28,17 +30,19 @@ import { environment } from 'src/environments/environment';
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class EstateBillboardListComponent implements OnInit, OnDestroy {
+export class EstateBillboardListComponent extends ListBaseComponent<EstateBillboardService, EstateBillboardModel, string> implements OnInit, OnDestroy {
   constructor(
     public contentService: EstateBillboardService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstateBillboardModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -428,20 +432,20 @@ export class EstateBillboardListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstateBillboardModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: EstateBillboardModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: EstateBillboardModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: EstateBillboardModel): void {
-    row["expanded"] = false;
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: EstateBillboardModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: EstateBillboardModel): void {
+  //   row["expanded"] = false;
+  // }
   onActionbuttonLinkTo(
     model: EstateBillboardModel = this.tableRowSelected
   ): void {

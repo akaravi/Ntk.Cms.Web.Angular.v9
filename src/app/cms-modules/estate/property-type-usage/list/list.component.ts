@@ -23,21 +23,25 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { EstatePropertyTypeUsageAddComponent } from '../add/add.component';
 import { EstatePropertyTypeUsageEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-hstate-propertytypeusage-list',
   templateUrl: './list.component.html'
 })
-export class EstatePropertyTypeUsageListComponent implements OnInit, OnDestroy {
+export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<EstatePropertyTypeUsageService, EstatePropertyTypeUsageModel, string> implements OnInit, OnDestroy {
   constructor(
     private contentService: EstatePropertyTypeUsageService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private router: Router,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstatePropertyTypeUsageModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -393,12 +397,12 @@ export class EstatePropertyTypeUsageListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstatePropertyTypeUsageModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: EstatePropertyTypeUsageModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionbuttonContentDetailList(model: EstatePropertyTypeUsageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');

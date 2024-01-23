@@ -24,15 +24,16 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { SmsMainCustomerCreditAddComponent } from '../add/add.component';
 import { SmsMainCustomerCreditEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-sms-customercredit-list',
   templateUrl: './list.component.html'
 })
-export class SmsMainCustomerCreditListComponent implements OnInit, OnDestroy {
+export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMainCustomerCreditService, SmsMainCustomerCreditModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
   constructor(
     public contentService: SmsMainCustomerCreditService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -40,7 +41,10 @@ export class SmsMainCustomerCreditListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new SmsMainCustomerCreditModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -418,10 +422,10 @@ export class SmsMainCustomerCreditListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: SmsMainCustomerCreditModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: SmsMainCustomerCreditModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 }

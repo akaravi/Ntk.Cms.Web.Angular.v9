@@ -42,15 +42,16 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     public contentService: EstateCustomerOrderService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     public estatePropertyDetailGroupService: EstatePropertyDetailGroupService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private activatedRoute: ActivatedRoute,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog,
-    public pageInfo: PageInfoService) {
+    ) {
     super(contentService, new EstateCustomerOrderModel(), pageInfo, publicHelper, dialog);
 
     this.loading.cdr = this.cdr;

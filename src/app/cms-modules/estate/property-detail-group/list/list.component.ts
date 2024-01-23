@@ -24,22 +24,26 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { EstatePropertyDetailGroupAddComponent } from '../add/add.component';
 import { EstatePropertyDetailGroupEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-property-detail-group-list',
   templateUrl: './list.component.html'
 })
-export class EstatePropertyDetailGroupListComponent implements OnInit, OnDestroy {
+export class EstatePropertyDetailGroupListComponent extends ListBaseComponent<EstatePropertyDetailGroupService, EstatePropertyDetailGroupModel, string> implements OnInit, OnDestroy {
   constructor(
     private contentService: EstatePropertyDetailGroupService,
     private estatePropertyTypeLanduseService: EstatePropertyTypeLanduseService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstatePropertyDetailGroupModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -437,11 +441,11 @@ export class EstatePropertyDetailGroupListComponent implements OnInit, OnDestroy
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstatePropertyDetailGroupModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: EstatePropertyDetailGroupModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

@@ -25,6 +25,8 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { EstatePropertyDetailAddComponent } from '../add/add.component';
 import { EstatePropertyDetailEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-property-detail-list',
   templateUrl: './list.component.html'
@@ -36,13 +38,13 @@ export class EstatePropertyDetailListComponent implements OnInit, OnDestroy {
     private estatePropertyDetailGroupService: EstatePropertyDetailGroupService,
     private estatePropertyTypeLanduseService: EstatePropertyTypeLanduseService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeLanduseId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyTypeLanduseId');

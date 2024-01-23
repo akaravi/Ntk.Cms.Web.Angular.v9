@@ -26,25 +26,29 @@ import { LinkManagementAccountingDetailAddComponent } from '../add/add.component
 import { LinkManagementAccountingDetailDeleteComponent } from '../delete/delete.component';
 import { LinkManagementAccountingDetailEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-AccountingDetail-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class LinkManagementAccountingDetailListComponent implements OnInit, OnDestroy {
+export class LinkManagementAccountingDetailListComponent extends ListBaseComponent<LinkManagementAccountingDetailService, LinkManagementAccountingDetailModel, number> implements OnInit, OnDestroy {
   requestLinkManagementAccountingId = 0;
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: LinkManagementAccountingDetailService,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private tokenHelper: TokenHelper,
-    private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    private cdr: ChangeDetectorRef,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new LinkManagementAccountingDetailModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; 
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkManagementAccountingId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkManagementAccountingId'));
@@ -374,18 +378,18 @@ export class LinkManagementAccountingDetailListComponent implements OnInit, OnDe
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: LinkManagementAccountingDetailModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: LinkManagementAccountingDetailModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: LinkManagementAccountingDetailModel): void {
-    row["expanded"] = false;
-  }
+  // onActionTableRowSelect(row: LinkManagementAccountingDetailModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: LinkManagementAccountingDetailModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: LinkManagementAccountingDetailModel): void {
+  //   row["expanded"] = false;
+  // }
   expandedElement: any;
 }

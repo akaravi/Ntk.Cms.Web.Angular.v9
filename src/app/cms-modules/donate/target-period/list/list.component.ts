@@ -26,25 +26,28 @@ import { DonateTargetPeriodAddComponent } from '../add/add.component';
 import { DonateTargetPeriodDeleteComponent } from '../delete/delete.component';
 import { DonateTargetPeriodEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-donate-target-period-list',
   templateUrl: './list.component.html',
 })
-export class DonateTargetPeriodListComponent implements OnInit, OnDestroy {
+export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTargetPeriodService, DonateTargetPeriodModel, number> implements OnInit, OnDestroy {
   requestLinkTargeId = 0;
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: DonateTargetPeriodService,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
-
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(contentService, new DonateTargetPeriodModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),
@@ -443,11 +446,11 @@ export class DonateTargetPeriodListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DonateTargetPeriodModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: DonateTargetPeriodModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

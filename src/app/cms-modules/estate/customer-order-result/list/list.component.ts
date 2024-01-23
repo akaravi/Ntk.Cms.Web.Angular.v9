@@ -22,16 +22,17 @@ import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-e
 import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { EstateCustomerOrderResultViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-customer-order-result-list',
   templateUrl: './list.component.html',
 })
-export class EstateCustomerOrderResultListComponent implements OnInit, OnDestroy {
+export class EstateCustomerOrderResultListComponent extends ListBaseComponent<EstateCustomerOrderResultService, EstateCustomerOrderResultModel, string> implements OnInit, OnDestroy {
   requestLinkCustomerOrder = '';
   requestLinkProperty = '';
   constructor(
     private contentService: EstateCustomerOrderResultService,
-    public publicHelper: PublicHelper,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -39,7 +40,10 @@ export class EstateCustomerOrderResultListComponent implements OnInit, OnDestroy
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstateCustomerOrderResultModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkCustomerOrder = this.activatedRoute.snapshot.paramMap.get('LinkCustomerOrder');
@@ -387,20 +391,20 @@ export class EstateCustomerOrderResultListComponent implements OnInit, OnDestroy
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstateCustomerOrderResultModel): void {
-    this.tableRowSelected = row;
+  // onActionTableRowSelect(row: EstateCustomerOrderResultModel): void {
+  //   this.tableRowSelected = row;
 
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: EstateCustomerOrderResultModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: EstateCustomerOrderResultModel): void {
-    row["expanded"] = false;
-  }
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: EstateCustomerOrderResultModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: EstateCustomerOrderResultModel): void {
+  //   row["expanded"] = false;
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/estate/customer-order/']);
   }

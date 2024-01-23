@@ -23,25 +23,29 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { MemberPropertyDetailAddComponent } from '../add/add.component';
 import { MemberPropertyDetailEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-member-propertydetail-list',
   templateUrl: './list.component.html'
 })
-export class MemberPropertyDetailListComponent implements OnInit, OnDestroy {
+export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberPropertyDetailService, MemberPropertyDetailModel, number> implements OnInit, OnDestroy {
   requestLinkPropertyTypeId = 0;
   constructor(
     private contentService: MemberPropertyDetailService,
     private memberPropertyDetailGroupService: MemberPropertyDetailGroupService,
     private memberPropertyTypeService: MemberPropertyTypeService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new MemberPropertyDetailModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeId = +this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
     this.optionsSearch.parentMethods = {
@@ -483,12 +487,12 @@ export class MemberPropertyDetailListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: MemberPropertyDetailModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: MemberPropertyDetailModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   // onActionBackToParent(): void {
   //   this.router.navigate(['/estate/property-type-landuse/']);
   // }

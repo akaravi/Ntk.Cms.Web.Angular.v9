@@ -24,22 +24,26 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { MemberPropertyDetailGroupAddComponent } from '../add/add.component';
 import { MemberPropertyDetailGroupEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-member-propertydetailgroup-list',
   templateUrl: './list.component.html'
 })
-export class MemberPropertyDetailGroupListComponent implements OnInit, OnDestroy {
+export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<MemberPropertyDetailGroupService, MemberPropertyDetailGroupModel, number> implements OnInit, OnDestroy {
   constructor(
     private contentService: MemberPropertyDetailGroupService,
     private memberPropertyTypeService: MemberPropertyTypeService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new MemberPropertyDetailGroupModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -441,11 +445,11 @@ export class MemberPropertyDetailGroupListComponent implements OnInit, OnDestroy
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: MemberPropertyDetailGroupModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: MemberPropertyDetailGroupModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

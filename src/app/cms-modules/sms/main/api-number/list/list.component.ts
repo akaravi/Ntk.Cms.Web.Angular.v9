@@ -23,16 +23,17 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { SmsMainApiNumberAddComponent } from '../add/add.component';
 import { SmsMainApiNumberEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-sms-api-number-list',
   templateUrl: './list.component.html',
 })
-export class SmsMainApiNumberListComponent implements OnInit, OnDestroy {
+export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiNumberService, SmsMainApiNumberModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
   constructor(
     public contentService: SmsMainApiNumberService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -40,7 +41,10 @@ export class SmsMainApiNumberListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new SmsMainApiNumberModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -479,12 +483,12 @@ export class SmsMainApiNumberListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: SmsMainApiNumberModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: SmsMainApiNumberModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path']);
   }

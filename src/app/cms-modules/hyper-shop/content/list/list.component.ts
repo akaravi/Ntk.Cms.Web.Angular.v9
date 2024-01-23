@@ -26,24 +26,28 @@ import { HyperShopContentAddComponent } from '../add/add.component';
 import { HyperShopContentEditComponent } from '../edit/edit.component';
 import { HyperShopContentViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-hypershop-content-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class HyperShopContentListComponent implements OnInit, OnDestroy {
+export class HyperShopContentListComponent extends ListBaseComponent<HyperShopContentService, HyperShopContentModel, string> implements OnInit, OnDestroy {
   requestPareintId = '';
   constructor(
     private contentService: HyperShopContentService,
     private activatedRoute: ActivatedRoute,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new HyperShopContentModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -478,19 +482,19 @@ export class HyperShopContentListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: HyperShopContentModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"]
-  }
-  onActionTableRowMouseEnter(row: HyperShopContentModel): void {
-    this.onActionTableRowSelect(row);
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: HyperShopContentModel): void {
-    row["expanded"] = false;
-  }
+  // onActionTableRowSelect(row: HyperShopContentModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"]
+  // }
+  // onActionTableRowMouseEnter(row: HyperShopContentModel): void {
+  //   this.onActionTableRowSelect(row);
+  //   row["expanded"] = true;
+  // }
+  // onActionTableRowMouseLeave(row: HyperShopContentModel): void {
+  //   row["expanded"] = false;
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/ticketing/departemen/']);
   }

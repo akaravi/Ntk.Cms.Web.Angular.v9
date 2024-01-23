@@ -26,28 +26,31 @@ import { DonateTargetPeriodSponserAddComponent } from '../add/add.component';
 import { DonateTargetPeriodSponserDeleteComponent } from '../delete/delete.component';
 import { DonateTargetPeriodSponserEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 
 @Component({
   selector: 'app-donate-target-period-sponser-list',
   templateUrl: './list.component.html',
 })
-export class DonateTargetPeriodSponserListComponent implements OnInit, OnDestroy {
+export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<DonateTargetPeriodSponsorService, DonateTargetPeriodSponsorModel, number> implements OnInit, OnDestroy {
   requestLinkSponserId = 0;
   requestLinkTargetPeriodId = 0;
 
   constructor(
-    public publicHelper: PublicHelper,
     public contentService: DonateTargetPeriodSponsorService,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
-
+    super(contentService, new DonateTargetPeriodSponsorModel(), pageInfo, publicHelper, dialog);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.requestLinkSponserId =
@@ -425,11 +428,11 @@ export class DonateTargetPeriodSponserListComponent implements OnInit, OnDestroy
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: DonateTargetPeriodSponsorModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: DonateTargetPeriodSponsorModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
 
 }

@@ -24,19 +24,20 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { SmsLogInBoxEditComponent } from '../edit/edit.component';
 import { SmsLogInBoxViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-sms-log-inbox-list',
   templateUrl: './list.component.html'
 })
-export class SmsLogInBoxListComponent implements OnInit, OnDestroy {
+export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxService, SmsLogInBoxModel, string> implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkPrivateConfigId = '';
   requestLinkApiNumberId = '';
   constructor(
     public contentService: SmsLogInBoxService,
     private smsMainApiPathService: SmsMainApiPathService,
-    public publicHelper: PublicHelper,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -44,7 +45,10 @@ export class SmsLogInBoxListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new SmsLogInBoxModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -593,12 +597,12 @@ export class SmsLogInBoxListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: SmsLogInBoxModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: SmsLogInBoxModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     // this.router.navigate(['/sms/main/api-path-company']);
   }

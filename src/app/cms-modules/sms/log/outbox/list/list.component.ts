@@ -23,11 +23,13 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { SmsLogOutBoxEditComponent } from '../edit/edit.component';
 import { SmsLogOutBoxViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-sms-log-outbox-list',
   templateUrl: './list.component.html'
 })
-export class SmsLogOutBoxListComponent implements OnInit, OnDestroy {
+export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxService, SmsLogOutBoxModel, string> implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkPrivateConfigId = '';
   requestLinkApiNumberId = '';
@@ -35,7 +37,6 @@ export class SmsLogOutBoxListComponent implements OnInit, OnDestroy {
     private contentService: SmsLogOutBoxService,
     // private smsMainApiPathCompanyService: SmsMainApiPathCompanyService,
     // private smsMainApiPathPublicConfigService: SmsMainApiPathPublicConfigService,
-    public publicHelper: PublicHelper,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -44,7 +45,10 @@ export class SmsLogOutBoxListComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new SmsLogOutBoxModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -615,12 +619,12 @@ export class SmsLogOutBoxListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: SmsLogOutBoxModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: SmsLogOutBoxModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path-company']);
   }
