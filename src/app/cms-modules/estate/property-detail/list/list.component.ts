@@ -31,7 +31,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
   selector: 'app-estate-property-detail-list',
   templateUrl: './list.component.html'
 })
-export class EstatePropertyDetailListComponent implements OnInit, OnDestroy {
+export class EstatePropertyDetailListComponent extends ListBaseComponent<EstatePropertyDetailService, EstatePropertyDetailModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyTypeLanduseId = '';
   constructor(
     private contentService: EstatePropertyDetailService,
@@ -44,8 +44,10 @@ export class EstatePropertyDetailListComponent implements OnInit, OnDestroy {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstatePropertyDetailModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeLanduseId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyTypeLanduseId');
     this.optionsSearch.parentMethods = {
@@ -476,12 +478,12 @@ export class EstatePropertyDetailListComponent implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionTableRowSelect(row: EstatePropertyDetailModel): void {
-    this.tableRowSelected = row;
-    if (!row["expanded"])
-      row["expanded"] = false;
-    row["expanded"] = !row["expanded"];
-  }
+  // onActionTableRowSelect(row: EstatePropertyDetailModel): void {
+  //   this.tableRowSelected = row;
+  //   if (!row["expanded"])
+  //     row["expanded"] = false;
+  //   row["expanded"] = !row["expanded"];
+  // }
   onActionBackToParent(): void {
     this.router.navigate(['/estate/property-type-landuse/']);
   }
