@@ -11,11 +11,13 @@ import { ContentInfoModel } from "../models/contentInfoModel";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { PageInfoService } from "../services/page-info.service";
 //IApiCmsServerBase
-export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
+export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
     pageInfo.updateContentService(baseService);
+    this.DataGetAccess();
   }
   baseService: TService;
+
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();
   tableRowSelected: TModel;

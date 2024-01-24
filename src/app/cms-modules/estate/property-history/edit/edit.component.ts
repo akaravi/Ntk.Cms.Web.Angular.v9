@@ -4,23 +4,25 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountUserModel, EstateActivityTypeModel, EstateCustomerOrderModel, EstateEnumService, EstatePropertyHistoryModel, EstatePropertyHistoryService, EstatePropertyModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-estate-property-history-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EstatePropertyHistoryEditComponent implements OnInit {
+export class EstatePropertyHistoryEditComponent extends EditBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -29,11 +31,15 @@ export class EstatePropertyHistoryEditComponent implements OnInit {
     public estatePropertyHistoryService: EstatePropertyHistoryService,
     private cmsToastrService: CmsToastrService,
     public estateEnumService: EstateEnumService,
-    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), pageInfo, publicHelper, dialog);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestId = data.id;

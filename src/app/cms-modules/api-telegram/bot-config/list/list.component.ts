@@ -72,7 +72,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
   tableRowsSelected: Array<ApiTelegramBotConfigModel> = [];
   tableRowSelected: ApiTelegramBotConfigModel = new ApiTelegramBotConfigModel();
   tableSource: MatTableDataSource<ApiTelegramBotConfigModel> = new MatTableDataSource<ApiTelegramBotConfigModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

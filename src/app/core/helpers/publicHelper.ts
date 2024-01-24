@@ -34,7 +34,7 @@ import { ThemeStoreModel } from '../models/themeStoreModel';
 export class PublicHelper {
   constructor(
     private router: Router,
-    private cmsToastrService: CmsToastrService,
+    public cmsToastrService: CmsToastrService,
     public translate: TranslateService,
     private coreEnumService: CoreEnumService,
     private coreCurrencyService: CoreCurrencyService,

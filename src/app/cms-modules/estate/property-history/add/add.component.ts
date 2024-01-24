@@ -4,23 +4,25 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, EstateAccountUserModel, EstateActivityTypeModel, EstateCustomerOrderModel, EstateEnumService, EstatePropertyHistoryModel, EstatePropertyHistoryService, EstatePropertyModel, FormInfoModel, InfoEnumModel, TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-estate-property-history-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class EstatePropertyHistoryAddComponent implements OnInit {
+export class EstatePropertyHistoryAddComponent  extends AddBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string>  implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyHistoryAddComponent>,
@@ -28,11 +30,14 @@ export class EstatePropertyHistoryAddComponent implements OnInit {
     public estatePropertyHistoryService: EstatePropertyHistoryService,
     private cmsToastrService: CmsToastrService,
     public estateEnumService: EstateEnumService,
-    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
+    public dialog: MatDialog,
   ) {
+    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -49,7 +54,7 @@ export class EstatePropertyHistoryAddComponent implements OnInit {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
@@ -68,7 +73,7 @@ export class EstatePropertyHistoryAddComponent implements OnInit {
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
 
-    this.DataGetAccess();
+    
     this.getEstateActivityStatusEnum();
   }
 
@@ -78,28 +83,7 @@ export class EstatePropertyHistoryAddComponent implements OnInit {
     });
   }
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
-    this.estatePropertyHistoryService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';
