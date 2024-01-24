@@ -42,7 +42,7 @@ export class PublicHelper {
     private coreModuleService: CoreModuleService,
     private cmsStoreService: CmsStoreService,
     public dialog: MatDialog,
-    private pageInfo: PageInfoService
+    public pageInfo: PageInfoService
   ) {
     this.fileManagerTreeConfig = new TreeModel(this.treefileConfig);
     this.appClientVersion = environment.appVersion;

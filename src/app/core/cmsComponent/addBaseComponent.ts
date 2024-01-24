@@ -5,12 +5,11 @@ import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { PageInfoService } from "../services/page-info.service";
 //IApiCmsServerBase
 export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
+  constructor(public baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
     pageInfo.updateContentService(baseService);
     this.DataGetAccess();
     this.dataModel = item;
   }
-  baseService: TService;
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();

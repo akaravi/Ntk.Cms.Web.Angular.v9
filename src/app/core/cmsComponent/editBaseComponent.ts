@@ -12,11 +12,10 @@ import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { PageInfoService } from "../services/page-info.service";
 //IApiCmsServerBase
 export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
+  constructor(public baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
     pageInfo.updateContentService(baseService);
     this.dataModel=item;
   }
-  baseService: TService;
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();
@@ -31,7 +30,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
     else
       panelClass = 'dialog-min';
 
-    const dialogRef = this.dialog.open(CmsDataMemoComponent, {
+    const dialogRef = this.publicHelper.dialog.open(CmsDataMemoComponent, {
       height: "70%",
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -57,7 +56,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsDataPinComponent, {
+    const dialogRef = this.publicHelper.dialog.open(CmsDataPinComponent, {
       height: "70%",
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -83,7 +82,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsDataTaskComponent, {
+    const dialogRef = this.publicHelper.dialog.open(CmsDataTaskComponent, {
       height: "70%",
 
       panelClass: panelClass,
@@ -110,7 +109,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsDataCommentComponent, {
+    const dialogRef = this.publicHelper.dialog.open(CmsDataCommentComponent, {
       height: "70%",
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,

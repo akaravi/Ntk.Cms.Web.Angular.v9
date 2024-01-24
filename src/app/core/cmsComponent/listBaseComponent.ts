@@ -14,10 +14,9 @@ import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
+  constructor(public baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
     pageInfo.updateContentService(baseService);
   }
-  baseService: TService;
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();
@@ -59,8 +58,8 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-
-    const dialogRef = this.dialog.open(CmsDataMemoComponent, {
+debugger
+    const dialogRef = this.publicHelper.dialog.open(CmsDataMemoComponent, {
       height: "70%",
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -86,7 +85,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsDataPinComponent, {
+    const dialogRef = this.publicHelper.dialog.open(CmsDataPinComponent, {
       height: "70%",
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -112,7 +111,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsDataTaskComponent, {
+    const dialogRef = this.publicHelper.dialog.open(CmsDataTaskComponent, {
       height: "70%",
 
       panelClass: panelClass,
@@ -139,7 +138,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsDataCommentComponent, {
+    const dialogRef = this.publicHelper.dialog.open(CmsDataCommentComponent, {
       height: "70%",
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,

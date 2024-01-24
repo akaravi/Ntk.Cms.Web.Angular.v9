@@ -18,7 +18,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CmsDataPinComponent implements OnInit {
   static nextId = 0;
   id = ++CmsDataPinComponent.nextId;
-  requestService: IApiCmsServerBase;
+  service: IApiCmsServerBase;
   constructor(private cmsToastrService: CmsToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CmsDataPinComponent>,
@@ -31,11 +31,11 @@ export class CmsDataPinComponent implements OnInit {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
-      this.requestService = data.service;
+      this.service = data.service;
       this.dataModel.moduleEntityId = data.id;
     }
 
-    if (!this.requestService)
+    if (!this.service)
       this.dialogRef.close({ dialogChangedDate: true });
 
   }
@@ -65,7 +65,7 @@ export class CmsDataPinComponent implements OnInit {
 
     /*filter CLone*/
     if (this.dataModel.moduleEntityId && this.dataModel.moduleEntityId.length > 0) {
-      this.requestService.ServicePinGetAllEntity(this.dataModel.moduleEntityId).subscribe({
+      this.service.ServicePinGetAllEntity(this.dataModel.moduleEntityId).subscribe({
         next: (ret) => {
           this.dataModelResult = ret;
           if (ret.listItems?.length > 0)
@@ -84,7 +84,7 @@ export class CmsDataPinComponent implements OnInit {
       );
     }
     else {
-      this.requestService.ServicePinGetAll().subscribe({
+      this.service.ServicePinGetAll().subscribe({
         next: (ret) => {
           this.dataModelResult = ret;
           if (ret.listItems?.length > 0)
@@ -110,7 +110,7 @@ export class CmsDataPinComponent implements OnInit {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
 
-    this.requestService.ServicePinAdd(this.dataModel.moduleEntityId).subscribe({
+    this.service.ServicePinAdd(this.dataModel.moduleEntityId).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
         // this.dataModelResultBase = ret;
@@ -141,7 +141,7 @@ export class CmsDataPinComponent implements OnInit {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
 
-    this.requestService.ServicePinDelete(id).subscribe({
+    this.service.ServicePinDelete(id).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
         // this.dataModelResultBase = ret;
