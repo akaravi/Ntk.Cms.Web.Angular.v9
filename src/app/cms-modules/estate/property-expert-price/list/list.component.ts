@@ -75,11 +75,11 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
   dataModelEstateContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstatePropertyExpertPriceModel> = [];
   tableRowSelected: EstatePropertyExpertPriceModel = new EstatePropertyExpertPriceModel();
   tableSource: MatTableDataSource<EstatePropertyExpertPriceModel> = new MatTableDataSource<EstatePropertyExpertPriceModel>();

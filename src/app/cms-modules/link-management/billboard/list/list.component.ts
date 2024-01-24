@@ -68,11 +68,11 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
   categoryPatternModelSelected: LinkManagementBillboardPatternModel;
   dataModelResult: ErrorExceptionResult<LinkManagementBillboardModel> = new ErrorExceptionResult<LinkManagementBillboardModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<LinkManagementBillboardModel> = [];
   tableRowSelected: LinkManagementBillboardModel = new LinkManagementBillboardModel();
   tableSource: MatTableDataSource<LinkManagementBillboardModel> = new MatTableDataSource<LinkManagementBillboardModel>();

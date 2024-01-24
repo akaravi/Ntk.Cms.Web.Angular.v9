@@ -99,11 +99,11 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogReportDataModel> = new ErrorExceptionResult<CoreLogReportDataModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreLogReportDataModel> = [];
   tableRowSelected: CoreLogReportDataModel = new CoreLogReportDataModel();
   tableSource: MatTableDataSource<CoreLogReportDataModel> = new MatTableDataSource<CoreLogReportDataModel>();

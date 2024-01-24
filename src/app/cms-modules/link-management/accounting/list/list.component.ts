@@ -62,11 +62,11 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementAccountingModel> = new ErrorExceptionResult<LinkManagementAccountingModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<LinkManagementAccountingModel> = [];
   tableRowSelected: LinkManagementAccountingModel = new LinkManagementAccountingModel();
   tableSource: MatTableDataSource<LinkManagementAccountingModel> = new MatTableDataSource<LinkManagementAccountingModel>();

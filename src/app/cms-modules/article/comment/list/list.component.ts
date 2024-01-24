@@ -79,11 +79,11 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
   requestContentId = 0;
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ArticleCommentModel> = new ErrorExceptionResult<ArticleCommentModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ArticleCommentModel> = [];
   tableRowSelected: ArticleCommentModel = new ArticleCommentModel();
   tableSource: MatTableDataSource<ArticleCommentModel> = new MatTableDataSource<ArticleCommentModel>();

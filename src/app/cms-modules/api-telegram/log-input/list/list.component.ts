@@ -60,11 +60,11 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApiTelegramLogInputModel> = new ErrorExceptionResult<ApiTelegramLogInputModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ApiTelegramLogInputModel> = [];
   tableRowSelected: ApiTelegramLogInputModel = new ApiTelegramLogInputModel();
   tableSource: MatTableDataSource<ApiTelegramLogInputModel> = new MatTableDataSource<ApiTelegramLogInputModel>();

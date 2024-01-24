@@ -77,11 +77,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogErrorModel> = new ErrorExceptionResult<CoreLogErrorModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreLogErrorModel> = [];
   tableRowSelected: CoreLogErrorModel = new CoreLogErrorModel();
   tableSource: MatTableDataSource<CoreLogErrorModel> = new MatTableDataSource<CoreLogErrorModel>();

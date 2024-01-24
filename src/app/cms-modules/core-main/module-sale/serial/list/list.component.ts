@@ -64,11 +64,11 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleSaleSerialModel> = new ErrorExceptionResult<CoreModuleSaleSerialModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleSaleSerialModel> = [];
   tableRowSelected: CoreModuleSaleSerialModel = new CoreModuleSaleSerialModel();
   tableSource: MatTableDataSource<CoreModuleSaleSerialModel> = new MatTableDataSource<CoreModuleSaleSerialModel>();

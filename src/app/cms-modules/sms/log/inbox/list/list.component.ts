@@ -71,11 +71,11 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
 
   categoryModelSelected: SmsMainApiPathModel;
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsLogInBoxModel> = [];
   tableRowSelected: SmsLogInBoxModel = new SmsLogInBoxModel();
   tableSource: MatTableDataSource<SmsLogInBoxModel> = new MatTableDataSource<SmsLogInBoxModel>();

@@ -68,11 +68,11 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
   dataModelResult: ErrorExceptionResult<CoreModuleSaleHeaderGroupModel> = new ErrorExceptionResult<CoreModuleSaleHeaderGroupModel>();
   dataModelCoreUserGroupResult: ErrorExceptionResult<CoreUserGroupModel> = new ErrorExceptionResult<CoreUserGroupModel>();
   dataModelCoreSiteCategoryResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleSaleHeaderGroupModel> = [];
   tableRowSelected: CoreModuleSaleHeaderGroupModel = new CoreModuleSaleHeaderGroupModel();
   tableSource: MatTableDataSource<CoreModuleSaleHeaderGroupModel> = new MatTableDataSource<CoreModuleSaleHeaderGroupModel>();

@@ -75,11 +75,11 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   categoryModelSelected: SmsMainApiPathModel;
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsLogOutBoxDetailModel> = [];
   tableRowSelected: SmsLogOutBoxDetailModel = new SmsLogOutBoxDetailModel();
   tableSource: MatTableDataSource<SmsLogOutBoxDetailModel> = new MatTableDataSource<SmsLogOutBoxDetailModel>();

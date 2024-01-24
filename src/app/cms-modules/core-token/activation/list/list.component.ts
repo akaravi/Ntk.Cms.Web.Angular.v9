@@ -87,11 +87,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenActivationModel> = new ErrorExceptionResult<CoreTokenActivationModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreTokenActivationModel> = [];
   tableRowSelected: CoreTokenActivationModel = new CoreTokenActivationModel();
   tableSource: MatTableDataSource<CoreTokenActivationModel> = new MatTableDataSource<CoreTokenActivationModel>();

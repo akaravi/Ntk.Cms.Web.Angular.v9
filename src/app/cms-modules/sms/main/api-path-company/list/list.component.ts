@@ -59,11 +59,11 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiPathCompanyModel> = new ErrorExceptionResult<SmsMainApiPathCompanyModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsMainApiPathCompanyModel> = [];
   tableRowSelected: SmsMainApiPathCompanyModel = new SmsMainApiPathCompanyModel();
   tableSource: MatTableDataSource<SmsMainApiPathCompanyModel> = new MatTableDataSource<SmsMainApiPathCompanyModel>();

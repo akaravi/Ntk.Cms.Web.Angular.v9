@@ -61,11 +61,11 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateContractTypeModel> = [];
   tableRowSelected: EstateContractTypeModel = new EstateContractTypeModel();
   tableSource: MatTableDataSource<EstateContractTypeModel> = new MatTableDataSource<EstateContractTypeModel>();

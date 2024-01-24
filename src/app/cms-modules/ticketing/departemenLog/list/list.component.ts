@@ -63,11 +63,11 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<TicketingDepartemenLogModel> = new ErrorExceptionResult<TicketingDepartemenLogModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<TicketingDepartemenLogModel> = [];
   tableRowSelected: TicketingDepartemenLogModel = new TicketingDepartemenLogModel();
   tableSource: MatTableDataSource<TicketingDepartemenLogModel> = new MatTableDataSource<TicketingDepartemenLogModel>();

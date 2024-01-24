@@ -70,11 +70,11 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<TicketingTaskModel> = new ErrorExceptionResult<TicketingTaskModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<TicketingTaskModel> = [];
   tableRowSelected: TicketingTaskModel = new TicketingTaskModel();
   tableSource: MatTableDataSource<TicketingTaskModel> = new MatTableDataSource<TicketingTaskModel>();

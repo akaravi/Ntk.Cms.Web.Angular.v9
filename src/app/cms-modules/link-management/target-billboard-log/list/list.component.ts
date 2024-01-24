@@ -81,11 +81,11 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementTargetBillboardLogModel> = new ErrorExceptionResult<LinkManagementTargetBillboardLogModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<LinkManagementTargetBillboardLogModel> = [];
   tableRowSelected: LinkManagementTargetBillboardLogModel = new LinkManagementTargetBillboardLogModel();
   tableSource: MatTableDataSource<LinkManagementTargetBillboardLogModel> = new MatTableDataSource<LinkManagementTargetBillboardLogModel>();

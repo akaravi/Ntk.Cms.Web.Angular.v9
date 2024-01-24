@@ -61,11 +61,11 @@ implements OnInit, OnDestroy {
 
   dataModelResult: ErrorExceptionResult<CoreModuleSiteCreditModel> = new ErrorExceptionResult<CoreModuleSiteCreditModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleSiteCreditModel> = [];
   tableRowSelected: CoreModuleSiteCreditModel = new CoreModuleSiteCreditModel();
   tableSource: MatTableDataSource<CoreModuleSiteCreditModel> = new MatTableDataSource<CoreModuleSiteCreditModel>();

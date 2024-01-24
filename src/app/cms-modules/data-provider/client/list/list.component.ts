@@ -63,11 +63,11 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
   categoryModelSelected: DataProviderPlanModel;
   dataModelResult: ErrorExceptionResult<DataProviderClientModel> = new ErrorExceptionResult<DataProviderClientModel>();
   link: string;
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DataProviderClientModel> = [];
   tableRowSelected: DataProviderClientModel = new DataProviderClientModel();
   tableSource: MatTableDataSource<DataProviderClientModel> = new MatTableDataSource<DataProviderClientModel>();

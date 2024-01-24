@@ -77,11 +77,11 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserModel> = new ErrorExceptionResult<CoreUserModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreUserModel> = [];
   tableRowSelected: CoreUserModel = new CoreUserModel();
   tableSource: MatTableDataSource<CoreUserModel> = new MatTableDataSource<CoreUserModel>();

@@ -64,11 +64,11 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateAdsTypeModel> = new ErrorExceptionResult<EstateAdsTypeModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateAdsTypeModel> = [];
   tableRowSelected: EstateAdsTypeModel = new EstateAdsTypeModel();
   tableSource: MatTableDataSource<EstateAdsTypeModel> = new MatTableDataSource<EstateAdsTypeModel>();

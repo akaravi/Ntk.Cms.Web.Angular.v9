@@ -63,11 +63,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreCurrencyModel> = [];
   tableRowSelected: CoreCurrencyModel = new CoreCurrencyModel();
   tableSource: MatTableDataSource<CoreCurrencyModel> = new MatTableDataSource<CoreCurrencyModel>();

@@ -90,11 +90,11 @@ export class CoreModuleLogReportAbuseListComponent extends ListBaseComponent<Cor
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogReportAbuseModel> = new ErrorExceptionResult<CoreModuleLogReportAbuseModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleLogReportAbuseModel> = [];
   tableRowSelected: CoreModuleLogReportAbuseModel = new CoreModuleLogReportAbuseModel();
   tableSource: MatTableDataSource<CoreModuleLogReportAbuseModel> = new MatTableDataSource<CoreModuleLogReportAbuseModel>();

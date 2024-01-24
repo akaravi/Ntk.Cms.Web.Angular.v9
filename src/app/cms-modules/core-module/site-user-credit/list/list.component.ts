@@ -63,11 +63,11 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
 
   dataModelResult: ErrorExceptionResult<CoreModuleSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleSiteUserCreditModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleSiteUserCreditModel> = [];
   tableRowSelected: CoreModuleSiteUserCreditModel = new CoreModuleSiteUserCreditModel();
   tableSource: MatTableDataSource<CoreModuleSiteUserCreditModel> = new MatTableDataSource<CoreModuleSiteUserCreditModel>();

@@ -63,11 +63,11 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleSaleInvoiceModel> = new ErrorExceptionResult<CoreModuleSaleInvoiceModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleSaleInvoiceModel> = [];
   tableRowSelected: CoreModuleSaleInvoiceModel = new CoreModuleSaleInvoiceModel();
   tableSource: MatTableDataSource<CoreModuleSaleInvoiceModel> = new MatTableDataSource<CoreModuleSaleInvoiceModel>();

@@ -60,11 +60,11 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApiTelegramMemberInfoModel> = new ErrorExceptionResult<ApiTelegramMemberInfoModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ApiTelegramMemberInfoModel> = [];
   tableRowSelected: ApiTelegramMemberInfoModel = new ApiTelegramMemberInfoModel();
   tableSource: MatTableDataSource<ApiTelegramMemberInfoModel> = new MatTableDataSource<ApiTelegramMemberInfoModel>();

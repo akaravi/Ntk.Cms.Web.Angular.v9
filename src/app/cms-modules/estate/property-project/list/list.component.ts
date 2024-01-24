@@ -58,11 +58,11 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyProjectModel> = new ErrorExceptionResult<EstatePropertyProjectModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstatePropertyProjectModel> = [];
   tableRowSelected: EstatePropertyProjectModel = new EstatePropertyProjectModel();
   tableSource: MatTableDataSource<EstatePropertyProjectModel> = new MatTableDataSource<EstatePropertyProjectModel>();

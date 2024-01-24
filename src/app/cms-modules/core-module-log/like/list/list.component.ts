@@ -89,11 +89,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogLikeModel> = new ErrorExceptionResult<CoreModuleLogLikeModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleLogLikeModel> = [];
   tableRowSelected: CoreModuleLogLikeModel = new CoreModuleLogLikeModel();
   tableSource: MatTableDataSource<CoreModuleLogLikeModel> = new MatTableDataSource<CoreModuleLogLikeModel>();

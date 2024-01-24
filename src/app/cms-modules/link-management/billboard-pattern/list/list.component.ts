@@ -63,11 +63,11 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementBillboardPatternModel> = new ErrorExceptionResult<LinkManagementBillboardPatternModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<LinkManagementBillboardPatternModel> = [];
   tableRowSelected: LinkManagementBillboardPatternModel = new LinkManagementBillboardPatternModel();
   tableSource: MatTableDataSource<LinkManagementBillboardPatternModel> = new MatTableDataSource<LinkManagementBillboardPatternModel>();

@@ -88,11 +88,11 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenUserBadLoginModel> = new ErrorExceptionResult<CoreTokenUserBadLoginModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreTokenUserBadLoginModel> = [];
   tableRowSelected: CoreTokenUserBadLoginModel = new CoreTokenUserBadLoginModel();
   tableSource: MatTableDataSource<CoreTokenUserBadLoginModel> = new MatTableDataSource<CoreTokenUserBadLoginModel>();

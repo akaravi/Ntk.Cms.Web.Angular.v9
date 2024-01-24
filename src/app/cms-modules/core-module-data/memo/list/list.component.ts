@@ -74,11 +74,11 @@ export class CoreModuleDataMemoListComponent extends ListBaseComponent<CoreModul
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleDataMemoModel> = new ErrorExceptionResult<CoreModuleDataMemoModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleDataMemoModel> = [];
   tableRowSelected: CoreModuleDataMemoModel = new CoreModuleDataMemoModel();
   tableSource: MatTableDataSource<CoreModuleDataMemoModel> = new MatTableDataSource<CoreModuleDataMemoModel>();

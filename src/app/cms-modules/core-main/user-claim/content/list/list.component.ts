@@ -90,11 +90,11 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserClaimContentModel> = new ErrorExceptionResult<CoreUserClaimContentModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreUserClaimContentModel> = [];
   tableRowSelected: CoreUserClaimContentModel = new CoreUserClaimContentModel();
   tableSource: MatTableDataSource<CoreUserClaimContentModel> = new MatTableDataSource<CoreUserClaimContentModel>();

@@ -13,7 +13,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel,
   ErrorExceptionResult,
   EstateActivityTypeModel,
   EstateActivityTypeService,
@@ -25,16 +24,12 @@ import {
   FilterModel,
   InfoEnumModel,
   RecordStatusEnum,
-  SortTypeEnum,
-  TokenInfoModel,
+  SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ContentInfoModel } from 'src/app/core/models/contentInfoModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
@@ -47,7 +42,6 @@ import { EstatePropertyHistoryAddMobileComponent } from '../add/add.mobile.compo
 import { EstatePropertyHistoryEditComponent } from '../edit/edit.component';
 import { EstatePropertyHistoryEditMobileComponent } from '../edit/edit.mobile.component';
 import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-view.component';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-estate-property-history-list',
   templateUrl: './list.component.html',
@@ -137,19 +131,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertyHistoryModel> =
-    new ErrorExceptionResult<EstatePropertyHistoryModel>();
   dataModelActivityTypeResult: ErrorExceptionResult<EstateActivityTypeModel> =
     new ErrorExceptionResult<EstateActivityTypeModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel =
-    new ComponentOptionStatistModel();
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
-  tableRowsSelected: Array<EstatePropertyHistoryModel> = [];
-  tableRowSelected: EstatePropertyHistoryModel =
-    new EstatePropertyHistoryModel();
+
   tableSource: MatTableDataSource<EstatePropertyHistoryModel> =
     new MatTableDataSource<EstatePropertyHistoryModel>();
   categoryModelSelected: EstateActivityTypeModel;

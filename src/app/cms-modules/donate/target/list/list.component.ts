@@ -66,11 +66,11 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
   categoryModelSelected: DonateTargetCategoryModel;
   dataModelResult: ErrorExceptionResult<DonateTargetModel> = new ErrorExceptionResult<DonateTargetModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DonateTargetModel> = [];
   tableRowSelected: DonateTargetModel = new DonateTargetModel();
   tableSource: MatTableDataSource<DonateTargetModel> = new MatTableDataSource<DonateTargetModel>();

@@ -59,11 +59,11 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<MemberGroupModel> = new ErrorExceptionResult<MemberGroupModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<MemberGroupModel> = [];
   tableRowSelected: MemberGroupModel = new MemberGroupModel();
   tableSource: MatTableDataSource<MemberGroupModel> = new MatTableDataSource<MemberGroupModel>();

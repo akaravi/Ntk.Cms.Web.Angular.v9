@@ -63,11 +63,11 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
   categoryModelSelected: ArticleCategoryModel;
   dataModelResult: ErrorExceptionResult<ArticleContentModel> = new ErrorExceptionResult<ArticleContentModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ArticleContentModel> = [];
   tableRowSelected: ArticleContentModel = new ArticleContentModel();
   tableSource: MatTableDataSource<ArticleContentModel> = new MatTableDataSource<ArticleContentModel>();

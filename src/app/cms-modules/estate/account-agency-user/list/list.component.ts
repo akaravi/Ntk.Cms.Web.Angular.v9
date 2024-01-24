@@ -58,11 +58,11 @@ export class EstateAccountAgencyUserListComponent extends ListBaseComponent<Esta
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyUserModel> = new ErrorExceptionResult<EstateAccountAgencyUserModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateAccountAgencyUserModel> = [];
   tableRowSelected: EstateAccountAgencyUserModel = new EstateAccountAgencyUserModel();
   tableSource: MatTableDataSource<EstateAccountAgencyUserModel> = new MatTableDataSource<EstateAccountAgencyUserModel>();

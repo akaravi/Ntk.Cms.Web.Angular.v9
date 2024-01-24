@@ -88,11 +88,11 @@ export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenMicroServiceModel> = new ErrorExceptionResult<CoreTokenMicroServiceModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreTokenMicroServiceModel> = [];
   tableRowSelected: CoreTokenMicroServiceModel = new CoreTokenMicroServiceModel();
   tableSource: MatTableDataSource<CoreTokenMicroServiceModel> = new MatTableDataSource<CoreTokenMicroServiceModel>();

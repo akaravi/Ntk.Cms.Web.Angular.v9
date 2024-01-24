@@ -74,11 +74,11 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleDataPinModel> = new ErrorExceptionResult<CoreModuleDataPinModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleDataPinModel> = [];
   tableRowSelected: CoreModuleDataPinModel = new CoreModuleDataPinModel();
   tableSource: MatTableDataSource<CoreModuleDataPinModel> = new MatTableDataSource<CoreModuleDataPinModel>();

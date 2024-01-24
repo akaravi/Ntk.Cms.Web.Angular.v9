@@ -59,11 +59,11 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DonateLogViewModel> = new ErrorExceptionResult<DonateLogViewModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DonateLogViewModel> = [];
   tableRowSelected: DonateLogViewModel = new DonateLogViewModel();
   tableSource: MatTableDataSource<DonateLogViewModel> = new MatTableDataSource<DonateLogViewModel>();

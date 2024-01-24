@@ -59,11 +59,11 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstatePropertyTypeUsageModel> = [];
   tableRowSelected: EstatePropertyTypeUsageModel = new EstatePropertyTypeUsageModel();
   tableSource: MatTableDataSource<EstatePropertyTypeUsageModel> = new MatTableDataSource<EstatePropertyTypeUsageModel>();

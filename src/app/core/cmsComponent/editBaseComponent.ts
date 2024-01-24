@@ -1,5 +1,5 @@
 import { MatDialog } from "@angular/material/dialog";
-import { BaseEntity, BaseModuleEntity, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, IApiCmsServerBase } from "ntk-cms-api";
+import { BaseEntity, BaseModuleEntity, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
@@ -17,9 +17,9 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
     this.dataModel=item;
   }
   baseService: TService;
-  loading = new ProgressSpinnerModel();
-  
+  tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
   dataModel: TModel;
 

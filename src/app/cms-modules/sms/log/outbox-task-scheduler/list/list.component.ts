@@ -69,11 +69,11 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
 
   categoryModelSelected: SmsMainApiPathModel;
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsLogOutBoxTaskSchedulerModel> = [];
   tableRowSelected: SmsLogOutBoxTaskSchedulerModel = new SmsLogOutBoxTaskSchedulerModel();
   tableSource: MatTableDataSource<SmsLogOutBoxTaskSchedulerModel> = new MatTableDataSource<SmsLogOutBoxTaskSchedulerModel>();

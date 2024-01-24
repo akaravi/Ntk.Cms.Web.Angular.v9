@@ -76,11 +76,11 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
     = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
   dataModelEstatePropertyDetailGroupResult: ErrorExceptionResult<EstatePropertyDetailGroupModel>
     = new ErrorExceptionResult<EstatePropertyDetailGroupModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstatePropertyDetailModel> = [];
   tableRowSelected: EstatePropertyDetailModel = new EstatePropertyDetailModel();
   tableSource: MatTableDataSource<EstatePropertyDetailModel> = new MatTableDataSource<EstatePropertyDetailModel>();

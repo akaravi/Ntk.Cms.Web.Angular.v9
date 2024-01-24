@@ -61,11 +61,11 @@ export class DataProviderLogPlanListComponent extends ListBaseComponent<DataProv
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DataProviderLogPlanModel> = new ErrorExceptionResult<DataProviderLogPlanModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DataProviderLogPlanModel> = [];
   tableRowSelected: DataProviderLogPlanModel = new DataProviderLogPlanModel();
   tableSource: MatTableDataSource<DataProviderLogPlanModel> = new MatTableDataSource<DataProviderLogPlanModel>();

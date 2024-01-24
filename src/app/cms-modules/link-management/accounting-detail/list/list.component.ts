@@ -70,11 +70,11 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementAccountingDetailModel> = new ErrorExceptionResult<LinkManagementAccountingDetailModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<LinkManagementAccountingDetailModel> = [];
   tableRowSelected: LinkManagementAccountingDetailModel = new LinkManagementAccountingDetailModel();
   tableSource: MatTableDataSource<LinkManagementAccountingDetailModel> = new MatTableDataSource<LinkManagementAccountingDetailModel>();

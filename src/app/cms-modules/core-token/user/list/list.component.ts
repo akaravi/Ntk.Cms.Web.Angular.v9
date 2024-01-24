@@ -86,11 +86,11 @@ export class CoreTokenUserListComponent extends ListBaseComponent<CoreTokenUserS
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenUserModel> = new ErrorExceptionResult<CoreTokenUserModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreTokenUserModel> = [];
   tableRowSelected: CoreTokenUserModel = new CoreTokenUserModel();
   tableSource: MatTableDataSource<CoreTokenUserModel> = new MatTableDataSource<CoreTokenUserModel>();

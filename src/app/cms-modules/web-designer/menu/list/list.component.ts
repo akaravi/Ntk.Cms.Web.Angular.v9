@@ -58,11 +58,11 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainMenuModel> = new ErrorExceptionResult<WebDesignerMainMenuModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<WebDesignerMainMenuModel> = [];
   tableRowSelected: WebDesignerMainMenuModel = new WebDesignerMainMenuModel();
   tableSource: MatTableDataSource<WebDesignerMainMenuModel> = new MatTableDataSource<WebDesignerMainMenuModel>();

@@ -81,11 +81,11 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
   requestContentId = 0;
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BlogCommentModel> = new ErrorExceptionResult<BlogCommentModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<BlogCommentModel> = [];
   tableRowSelected: BlogCommentModel = new BlogCommentModel();
   tableSource: MatTableDataSource<BlogCommentModel> = new MatTableDataSource<BlogCommentModel>();

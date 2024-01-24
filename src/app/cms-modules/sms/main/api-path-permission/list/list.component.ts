@@ -61,11 +61,11 @@ export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<Sms
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiPathPermissionModel> = new ErrorExceptionResult<SmsMainApiPathPermissionModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsMainApiPathPermissionModel> = [];
   tableRowSelected: SmsMainApiPathPermissionModel = new SmsMainApiPathPermissionModel();
   tableSource: MatTableDataSource<SmsMainApiPathPermissionModel> = new MatTableDataSource<SmsMainApiPathPermissionModel>();

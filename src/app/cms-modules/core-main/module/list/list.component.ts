@@ -63,11 +63,11 @@ export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleModel> = [];
   tableRowSelected: CoreModuleModel = new CoreModuleModel();
   tableSource: MatTableDataSource<CoreModuleModel> = new MatTableDataSource<CoreModuleModel>();

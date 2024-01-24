@@ -69,11 +69,11 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
   categoryModelSelected: CatalogCategoryModel;
   dataModelResult: ErrorExceptionResult<CatalogContentModel> = new ErrorExceptionResult<CatalogContentModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CatalogContentModel> = [];
   tableRowSelected: CatalogContentModel = new CatalogContentModel();
   tableSource: MatTableDataSource<CatalogContentModel> = new MatTableDataSource<CatalogContentModel>();

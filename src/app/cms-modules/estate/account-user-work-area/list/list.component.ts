@@ -58,11 +58,11 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateAccountUserWorkAreaModel> = new ErrorExceptionResult<EstateAccountUserWorkAreaModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateAccountUserWorkAreaModel> = [];
   tableRowSelected: EstateAccountUserWorkAreaModel = new EstateAccountUserWorkAreaModel();
   tableSource: MatTableDataSource<EstateAccountUserWorkAreaModel> = new MatTableDataSource<EstateAccountUserWorkAreaModel>();

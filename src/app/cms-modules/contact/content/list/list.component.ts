@@ -70,11 +70,11 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
 
   dataModelResult: ErrorExceptionResult<ContactContentModel> = new ErrorExceptionResult<ContactContentModel>();
   categoryModelSelected: ContactCategoryModel = new ContactCategoryModel();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ContactContentModel> = [];
   tableRowSelected: ContactContentModel = new ContactContentModel();
   tableSource: MatTableDataSource<ContactContentModel> = new MatTableDataSource<ContactContentModel>();

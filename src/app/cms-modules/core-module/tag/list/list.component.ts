@@ -63,11 +63,11 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
   categoryModelSelected: CoreModuleTagCategoryModel;
   dataModelResult: ErrorExceptionResult<CoreModuleTagModel> = new ErrorExceptionResult<CoreModuleTagModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleTagModel> = [];
   tableRowSelected: CoreModuleTagModel = new CoreModuleTagModel();
   tableSource: MatTableDataSource<CoreModuleTagModel> = new MatTableDataSource<CoreModuleTagModel>();

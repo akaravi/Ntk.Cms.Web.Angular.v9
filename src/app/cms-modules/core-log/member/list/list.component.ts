@@ -90,11 +90,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogMemberModel> = new ErrorExceptionResult<CoreLogMemberModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreLogMemberModel> = [];
   tableRowSelected: CoreLogMemberModel = new CoreLogMemberModel();
   tableSource: MatTableDataSource<CoreLogMemberModel> = new MatTableDataSource<CoreLogMemberModel>();

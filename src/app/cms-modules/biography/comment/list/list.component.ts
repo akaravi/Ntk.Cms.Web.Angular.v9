@@ -79,11 +79,11 @@ implements OnInit, OnDestroy {
   requestContentId = 0;
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BiographyCommentModel> = new ErrorExceptionResult<BiographyCommentModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<BiographyCommentModel> = [];
   tableRowSelected: BiographyCommentModel = new BiographyCommentModel();
   tableSource: MatTableDataSource<BiographyCommentModel> = new MatTableDataSource<BiographyCommentModel>();

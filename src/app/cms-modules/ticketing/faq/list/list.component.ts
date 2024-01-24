@@ -64,11 +64,11 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<TicketingFaqModel> = new ErrorExceptionResult<TicketingFaqModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<TicketingFaqModel> = [];
   tableRowSelected: TicketingFaqModel = new TicketingFaqModel();
   tableSource: MatTableDataSource<TicketingFaqModel> = new MatTableDataSource<TicketingFaqModel>();

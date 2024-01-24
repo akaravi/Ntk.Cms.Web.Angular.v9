@@ -88,11 +88,11 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateCustomerOrderResultModel> = new ErrorExceptionResult<EstateCustomerOrderResultModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateCustomerOrderResultModel> = [];
   tableRowSelected: EstateCustomerOrderResultModel = new EstateCustomerOrderResultModel();
   tableSource: MatTableDataSource<EstateCustomerOrderResultModel> = new MatTableDataSource<EstateCustomerOrderResultModel>();

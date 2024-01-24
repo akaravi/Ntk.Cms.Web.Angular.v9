@@ -90,11 +90,11 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleLogSiteUserCreditModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleLogSiteUserCreditModel> = [];
   tableRowSelected: CoreModuleLogSiteUserCreditModel = new CoreModuleLogSiteUserCreditModel();
   tableSource: MatTableDataSource<CoreModuleLogSiteUserCreditModel> = new MatTableDataSource<CoreModuleLogSiteUserCreditModel>();

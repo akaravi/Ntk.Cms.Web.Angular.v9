@@ -74,11 +74,11 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     = new ErrorExceptionResult<MemberPropertyTypeModel>();
   dataModelMemberPropertyDetailGroupResult: ErrorExceptionResult<MemberPropertyDetailGroupModel>
     = new ErrorExceptionResult<MemberPropertyDetailGroupModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<MemberPropertyDetailModel> = [];
   tableRowSelected: MemberPropertyDetailModel = new MemberPropertyDetailModel();
   tableSource: MatTableDataSource<MemberPropertyDetailModel> = new MatTableDataSource<MemberPropertyDetailModel>();

@@ -67,11 +67,11 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationSourceModel> = new ErrorExceptionResult<ApplicationSourceModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ApplicationSourceModel> = [];
   tableRowSelected: ApplicationSourceModel = new ApplicationSourceModel();
   tableSource: MatTableDataSource<ApplicationSourceModel> = new MatTableDataSource<ApplicationSourceModel>();

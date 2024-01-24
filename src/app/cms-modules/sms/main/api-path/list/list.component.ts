@@ -71,11 +71,11 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
 
   categoryModelSelected: SmsMainApiPathCompanyModel;
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsMainApiPathModel> = [];
   tableRowSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   tableSource: MatTableDataSource<SmsMainApiPathModel> = new MatTableDataSource<SmsMainApiPathModel>();

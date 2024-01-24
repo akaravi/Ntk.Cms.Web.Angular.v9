@@ -68,11 +68,11 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
   categoryModelSelected: BlogCategoryModel;
   dataModelResult: ErrorExceptionResult<BlogContentModel> = new ErrorExceptionResult<BlogContentModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<BlogContentModel> = [];
   tableRowSelected: BlogContentModel = new BlogContentModel();
   tableSource: MatTableDataSource<BlogContentModel> = new MatTableDataSource<BlogContentModel>();

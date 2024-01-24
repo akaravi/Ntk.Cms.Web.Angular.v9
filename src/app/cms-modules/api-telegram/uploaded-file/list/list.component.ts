@@ -60,11 +60,11 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApiTelegramUploadedFileModel> = new ErrorExceptionResult<ApiTelegramUploadedFileModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ApiTelegramUploadedFileModel> = [];
   tableRowSelected: ApiTelegramUploadedFileModel = new ApiTelegramUploadedFileModel();
   tableSource: MatTableDataSource<ApiTelegramUploadedFileModel> = new MatTableDataSource<ApiTelegramUploadedFileModel>();

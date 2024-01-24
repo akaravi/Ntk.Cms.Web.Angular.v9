@@ -70,11 +70,11 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BankPaymentTransactionModel> = new ErrorExceptionResult<BankPaymentTransactionModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<BankPaymentTransactionModel> = [];
   tableRowSelected: BankPaymentTransactionModel = new BankPaymentTransactionModel();

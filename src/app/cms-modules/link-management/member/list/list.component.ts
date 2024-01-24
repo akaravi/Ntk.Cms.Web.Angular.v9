@@ -62,11 +62,11 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementMemberModel> = new ErrorExceptionResult<LinkManagementMemberModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<LinkManagementMemberModel> = [];
   tableRowSelected: LinkManagementMemberModel = new LinkManagementMemberModel();
   tableSource: MatTableDataSource<LinkManagementMemberModel> = new MatTableDataSource<LinkManagementMemberModel>();

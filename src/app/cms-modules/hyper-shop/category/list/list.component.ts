@@ -60,11 +60,11 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<HyperShopCategoryModel> = new ErrorExceptionResult<HyperShopCategoryModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<HyperShopCategoryModel> = [];
   tableRowSelected: HyperShopCategoryModel = new HyperShopCategoryModel();
   tableSource: MatTableDataSource<HyperShopCategoryModel> = new MatTableDataSource<HyperShopCategoryModel>();

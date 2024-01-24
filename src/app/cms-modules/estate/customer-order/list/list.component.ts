@@ -85,12 +85,12 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   tableContentSelected = [];
   filteModelContent = new EstateCustomerOrderFilterModel();
   dataModelResult: ErrorExceptionResult<EstateCustomerOrderModel> = new ErrorExceptionResult<EstateCustomerOrderModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
   dataModelPropertyDetailGroups: EstatePropertyDetailGroupModel[] = [];
   enumInputDataType = InputDataTypeEnum;
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateCustomerOrderModel> = [];
   tableRowSelected: EstateCustomerOrderModel = new EstateCustomerOrderModel();
   tableSource: MatTableDataSource<EstateCustomerOrderModel> = new MatTableDataSource<EstateCustomerOrderModel>();

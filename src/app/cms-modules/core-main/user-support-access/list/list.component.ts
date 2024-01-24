@@ -86,11 +86,11 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserSupportAccessModel> = new ErrorExceptionResult<CoreUserSupportAccessModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreUserSupportAccessModel> = [];
   tableRowSelected: CoreUserSupportAccessModel = new CoreUserSupportAccessModel();
   tableSource: MatTableDataSource<CoreUserSupportAccessModel> = new MatTableDataSource<CoreUserSupportAccessModel>();

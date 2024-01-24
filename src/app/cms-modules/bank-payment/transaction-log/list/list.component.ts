@@ -65,11 +65,11 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BankPaymentTransactionLogModel> = new ErrorExceptionResult<BankPaymentTransactionLogModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<BankPaymentTransactionLogModel> = [];
   tableRowSelected: BankPaymentTransactionLogModel = new BankPaymentTransactionLogModel();

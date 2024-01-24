@@ -59,11 +59,11 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainPageTemplateModel> = new ErrorExceptionResult<WebDesignerMainPageTemplateModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<WebDesignerMainPageTemplateModel> = [];
   tableRowSelected: WebDesignerMainPageTemplateModel = new WebDesignerMainPageTemplateModel();
   tableSource: MatTableDataSource<WebDesignerMainPageTemplateModel> = new MatTableDataSource<WebDesignerMainPageTemplateModel>();

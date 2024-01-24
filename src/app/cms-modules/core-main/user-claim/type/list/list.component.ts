@@ -65,11 +65,11 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
   dataModelResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();
   dataModelCoreUserGroupResult: ErrorExceptionResult<CoreUserGroupModel> = new ErrorExceptionResult<CoreUserGroupModel>();
   dataModelCoreSiteCategoryResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreUserClaimTypeModel> = [];
   tableRowSelected: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();
   tableSource: MatTableDataSource<CoreUserClaimTypeModel> = new MatTableDataSource<CoreUserClaimTypeModel>();

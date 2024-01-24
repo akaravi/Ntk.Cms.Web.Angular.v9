@@ -69,11 +69,11 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogAvoidDuplicateDataEntryModel> = new ErrorExceptionResult<CoreLogAvoidDuplicateDataEntryModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreLogAvoidDuplicateDataEntryModel> = [];
   tableRowSelected: CoreLogAvoidDuplicateDataEntryModel = new CoreLogAvoidDuplicateDataEntryModel();
   tableSource: MatTableDataSource<CoreLogAvoidDuplicateDataEntryModel> = new MatTableDataSource<CoreLogAvoidDuplicateDataEntryModel>();

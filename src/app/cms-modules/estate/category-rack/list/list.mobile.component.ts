@@ -62,11 +62,11 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateCategoryRackModel> = new ErrorExceptionResult<EstateCategoryRackModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateCategoryRackModel> = [];
   tableRowSelected: EstateCategoryRackModel = new EstateCategoryRackModel();
   tableSource: MatTableDataSource<EstateCategoryRackModel> = new MatTableDataSource<EstateCategoryRackModel>();

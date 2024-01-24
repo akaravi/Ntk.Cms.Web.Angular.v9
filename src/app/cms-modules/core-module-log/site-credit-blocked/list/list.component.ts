@@ -90,11 +90,11 @@ export class CoreModuleLogSiteCreditBlockedListComponent extends ListBaseCompone
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogSiteCreditBlockedModel> = new ErrorExceptionResult<CoreModuleLogSiteCreditBlockedModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleLogSiteCreditBlockedModel> = [];
   tableRowSelected: CoreModuleLogSiteCreditBlockedModel = new CoreModuleLogSiteCreditBlockedModel();
   tableSource: MatTableDataSource<CoreModuleLogSiteCreditBlockedModel> = new MatTableDataSource<CoreModuleLogSiteCreditBlockedModel>();

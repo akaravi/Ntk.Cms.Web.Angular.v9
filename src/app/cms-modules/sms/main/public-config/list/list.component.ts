@@ -62,11 +62,11 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
   dataModelResult: ErrorExceptionResult<SmsMainApiPathPublicConfigModel> = new ErrorExceptionResult<SmsMainApiPathPublicConfigModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsMainApiPathPublicConfigModel> = [];
   tableRowSelected: SmsMainApiPathPublicConfigModel = new SmsMainApiPathPublicConfigModel();
   tableSource: MatTableDataSource<SmsMainApiPathPublicConfigModel> = new MatTableDataSource<SmsMainApiPathPublicConfigModel>();

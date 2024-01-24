@@ -74,11 +74,11 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleDataTaskModel> = new ErrorExceptionResult<CoreModuleDataTaskModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleDataTaskModel> = [];
   tableRowSelected: CoreModuleDataTaskModel = new CoreModuleDataTaskModel();
   tableSource: MatTableDataSource<CoreModuleDataTaskModel> = new MatTableDataSource<CoreModuleDataTaskModel>();

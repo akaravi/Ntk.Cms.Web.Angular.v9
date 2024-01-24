@@ -60,11 +60,11 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateActivityTypeModel> = new ErrorExceptionResult<EstateActivityTypeModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateActivityTypeModel> = [];
   tableRowSelected: EstateActivityTypeModel = new EstateActivityTypeModel();
   tableSource: MatTableDataSource<EstateActivityTypeModel> = new MatTableDataSource<EstateActivityTypeModel>();

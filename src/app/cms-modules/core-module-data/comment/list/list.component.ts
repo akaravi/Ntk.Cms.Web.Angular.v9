@@ -74,11 +74,11 @@ export class CoreModuleDataCommentListComponent extends ListBaseComponent<CoreMo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleDataCommentModel> = new ErrorExceptionResult<CoreModuleDataCommentModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleDataCommentModel> = [];
   tableRowSelected: CoreModuleDataCommentModel = new CoreModuleDataCommentModel();
   tableSource: MatTableDataSource<CoreModuleDataCommentModel> = new MatTableDataSource<CoreModuleDataCommentModel>();

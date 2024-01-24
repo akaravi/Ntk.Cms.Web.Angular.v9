@@ -74,11 +74,11 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   categoryModelSelected: SmsMainApiPathModel;
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsLogApiPathModel> = [];
   tableRowSelected: SmsLogApiPathModel = new SmsLogApiPathModel();
   tableSource: MatTableDataSource<SmsLogApiPathModel> = new MatTableDataSource<SmsLogApiPathModel>();

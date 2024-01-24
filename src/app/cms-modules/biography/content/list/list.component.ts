@@ -60,11 +60,11 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
   filteModelContent = new FilterModel();
   categoryModelSelected: BiographyCategoryModel;
   dataModelResult: ErrorExceptionResult<BiographyContentModel> = new ErrorExceptionResult<BiographyContentModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<BiographyContentModel> = [];
   tableRowSelected: BiographyContentModel = new BiographyContentModel();
   tableSource: MatTableDataSource<BiographyContentModel> = new MatTableDataSource<BiographyContentModel>();

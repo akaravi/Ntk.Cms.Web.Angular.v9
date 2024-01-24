@@ -67,11 +67,11 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainPageDependencyModel>
     = new ErrorExceptionResult<WebDesignerMainPageDependencyModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<WebDesignerMainPageDependencyModel> = [];
   tableRowSelected: WebDesignerMainPageDependencyModel = new WebDesignerMainPageDependencyModel();
   tableSource: MatTableDataSource<WebDesignerMainPageDependencyModel> = new MatTableDataSource<WebDesignerMainPageDependencyModel>();

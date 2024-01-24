@@ -74,11 +74,11 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogShowKeyModel> = new ErrorExceptionResult<CoreModuleLogShowKeyModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleLogShowKeyModel> = [];
   tableRowSelected: CoreModuleLogShowKeyModel = new CoreModuleLogShowKeyModel();
   tableSource: MatTableDataSource<CoreModuleLogShowKeyModel> = new MatTableDataSource<CoreModuleLogShowKeyModel>();

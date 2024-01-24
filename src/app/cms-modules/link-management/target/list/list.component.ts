@@ -71,11 +71,11 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
   categoryPatternModelSelected: LinkManagementBillboardPatternModel;
   dataModelResult: ErrorExceptionResult<LinkManagementTargetModel> = new ErrorExceptionResult<LinkManagementTargetModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<LinkManagementTargetModel> = [];
   tableRowSelected: LinkManagementTargetModel = new LinkManagementTargetModel();
   tableSource: MatTableDataSource<LinkManagementTargetModel> = new MatTableDataSource<LinkManagementTargetModel>();

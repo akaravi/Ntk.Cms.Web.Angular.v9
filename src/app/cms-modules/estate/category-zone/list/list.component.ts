@@ -60,11 +60,11 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateCategoryZoneModel> = new ErrorExceptionResult<EstateCategoryZoneModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateCategoryZoneModel> = [];
   tableRowSelected: EstateCategoryZoneModel = new EstateCategoryZoneModel();
   tableSource: MatTableDataSource<EstateCategoryZoneModel> = new MatTableDataSource<EstateCategoryZoneModel>();

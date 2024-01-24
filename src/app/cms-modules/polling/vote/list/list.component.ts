@@ -68,11 +68,11 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<PollingVoteModel> = new ErrorExceptionResult<PollingVoteModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<PollingVoteModel> = [];
   tableRowSelected: PollingVoteModel = new PollingVoteModel();
   tableSource: MatTableDataSource<PollingVoteModel> = new MatTableDataSource<PollingVoteModel>();

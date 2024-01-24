@@ -59,11 +59,11 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
   categoryModelSelected: FileCategoryModel;
   dataModelResult: ErrorExceptionResult<FileContentModel> = new ErrorExceptionResult<FileContentModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<FileContentModel> = [];
   tableRowSelected: FileContentModel = new FileContentModel();
   tableSource: MatTableDataSource<FileContentModel> = new MatTableDataSource<FileContentModel>();

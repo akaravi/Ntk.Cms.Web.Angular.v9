@@ -64,11 +64,11 @@ export class TicketingTemplateListComponent extends ListBaseComponent<TicketingT
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<TicketingTemplateModel> = new ErrorExceptionResult<TicketingTemplateModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<TicketingTemplateModel> = [];
   tableRowSelected: TicketingTemplateModel = new TicketingTemplateModel();
   tableSource: MatTableDataSource<TicketingTemplateModel> = new MatTableDataSource<TicketingTemplateModel>();

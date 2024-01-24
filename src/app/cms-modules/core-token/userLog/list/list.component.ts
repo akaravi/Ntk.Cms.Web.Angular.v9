@@ -86,11 +86,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenUserLogModel> = new ErrorExceptionResult<CoreTokenUserLogModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreTokenUserLogModel> = [];
   tableRowSelected: CoreTokenUserLogModel = new CoreTokenUserLogModel();
   tableSource: MatTableDataSource<CoreTokenUserLogModel> = new MatTableDataSource<CoreTokenUserLogModel>();

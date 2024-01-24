@@ -69,11 +69,11 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent< SmsMa
 
   dataModelResult: ErrorExceptionResult<SmsMainMessageContentModel> = new ErrorExceptionResult<SmsMainMessageContentModel>();
   categoryModelSelected: SmsMainMessageCategoryModel = new SmsMainMessageCategoryModel();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsMainMessageContentModel> = [];
   tableRowSelected: SmsMainMessageContentModel = new SmsMainMessageContentModel();
   tableSource: MatTableDataSource<SmsMainMessageContentModel> = new MatTableDataSource<SmsMainMessageContentModel>();

@@ -78,11 +78,11 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<NewsCommentModel> = new ErrorExceptionResult<NewsCommentModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<NewsCommentModel> = [];
   tableRowSelected: NewsCommentModel = new NewsCommentModel();
   tableSource: MatTableDataSource<NewsCommentModel> = new MatTableDataSource<NewsCommentModel>();

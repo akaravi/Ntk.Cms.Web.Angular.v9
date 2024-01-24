@@ -61,11 +61,11 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreSiteCategoryModel> = [];
   tableRowSelected: CoreSiteCategoryModel = new CoreSiteCategoryModel();
   tableSource: MatTableDataSource<CoreSiteCategoryModel> = new MatTableDataSource<CoreSiteCategoryModel>();

@@ -71,11 +71,11 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyAdsModel> = new ErrorExceptionResult<EstateAccountAgencyAdsModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateAccountAgencyAdsModel> = [];
   tableRowSelected: EstateAccountAgencyAdsModel = new EstateAccountAgencyAdsModel();
   tableSource: MatTableDataSource<EstateAccountAgencyAdsModel> = new MatTableDataSource<EstateAccountAgencyAdsModel>();

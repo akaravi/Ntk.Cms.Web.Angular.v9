@@ -64,11 +64,11 @@ implements OnInit, OnDestroy {
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BankPaymentPublicConfigModel> = new ErrorExceptionResult<BankPaymentPublicConfigModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<BankPaymentPublicConfigModel> = [];
   tableRowSelected: BankPaymentPublicConfigModel = new BankPaymentPublicConfigModel();
   tableSource: MatTableDataSource<BankPaymentPublicConfigModel> = new MatTableDataSource<BankPaymentPublicConfigModel>();

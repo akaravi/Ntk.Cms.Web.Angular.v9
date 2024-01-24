@@ -62,11 +62,11 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiNumberModel> = new ErrorExceptionResult<SmsMainApiNumberModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsMainApiNumberModel> = [];
   tableRowSelected: SmsMainApiNumberModel = new SmsMainApiNumberModel();
   tableSource: MatTableDataSource<SmsMainApiNumberModel> = new MatTableDataSource<SmsMainApiNumberModel>();

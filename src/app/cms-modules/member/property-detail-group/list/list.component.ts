@@ -63,11 +63,11 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
   dataModelResult: ErrorExceptionResult<MemberPropertyDetailGroupModel> = new ErrorExceptionResult<MemberPropertyDetailGroupModel>();
   dataModelMemberPropertyTypeResult: ErrorExceptionResult<MemberPropertyTypeModel> =
     new ErrorExceptionResult<MemberPropertyTypeModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<MemberPropertyDetailGroupModel> = [];
   tableRowSelected: MemberPropertyDetailGroupModel = new MemberPropertyDetailGroupModel();
   tableSource: MatTableDataSource<MemberPropertyDetailGroupModel> = new MatTableDataSource<MemberPropertyDetailGroupModel>();

@@ -74,11 +74,11 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleEntityModel> = new ErrorExceptionResult<CoreModuleEntityModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleEntityModel> = [];
   tableRowSelected: CoreModuleEntityModel = new CoreModuleEntityModel();
   tableSource: MatTableDataSource<CoreModuleEntityModel> = new MatTableDataSource<CoreModuleEntityModel>();

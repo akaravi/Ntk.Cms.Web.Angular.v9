@@ -59,11 +59,11 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<MemberPropertyAliasModel> = new ErrorExceptionResult<MemberPropertyAliasModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<MemberPropertyAliasModel> = [];
   tableRowSelected: MemberPropertyAliasModel = new MemberPropertyAliasModel();
   tableSource: MatTableDataSource<MemberPropertyAliasModel> = new MatTableDataSource<MemberPropertyAliasModel>();

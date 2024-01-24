@@ -66,11 +66,11 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<TicketingAnswerModel> = new ErrorExceptionResult<TicketingAnswerModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<TicketingAnswerModel> = [];
   tableRowSelected: TicketingAnswerModel = new TicketingAnswerModel();
   tableSource: MatTableDataSource<TicketingAnswerModel> = new MatTableDataSource<TicketingAnswerModel>();

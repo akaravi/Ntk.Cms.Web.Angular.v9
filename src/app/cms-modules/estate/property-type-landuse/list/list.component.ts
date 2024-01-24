@@ -59,11 +59,11 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstatePropertyTypeLanduseModel> = [];
   tableRowSelected: EstatePropertyTypeLanduseModel = new EstatePropertyTypeLanduseModel();
   tableSource: MatTableDataSource<EstatePropertyTypeLanduseModel> = new MatTableDataSource<EstatePropertyTypeLanduseModel>();

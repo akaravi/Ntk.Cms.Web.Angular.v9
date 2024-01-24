@@ -63,11 +63,11 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DataProviderTransactionModel> = new ErrorExceptionResult<DataProviderTransactionModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DataProviderTransactionModel> = [];
   tableRowSelected: DataProviderTransactionModel = new DataProviderTransactionModel();
   tableSource: MatTableDataSource<DataProviderTransactionModel> = new MatTableDataSource<DataProviderTransactionModel>();

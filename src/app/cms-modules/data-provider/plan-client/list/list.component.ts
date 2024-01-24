@@ -63,11 +63,11 @@ implements OnInit, OnDestroy {
   categoryModelSelected: DataProviderPlanCategoryModel;
   dataModelResult: ErrorExceptionResult<DataProviderPlanClientModel> = new ErrorExceptionResult<DataProviderPlanClientModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DataProviderPlanClientModel> = [];
   tableRowSelected: DataProviderPlanClientModel = new DataProviderPlanClientModel();
   tableSource: MatTableDataSource<DataProviderPlanClientModel> = new MatTableDataSource<DataProviderPlanClientModel>();

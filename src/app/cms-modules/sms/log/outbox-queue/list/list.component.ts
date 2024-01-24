@@ -69,11 +69,11 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
 
   categoryModelSelected: SmsMainApiPathModel;
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsLogOutBoxQueueModel> = [];
   tableRowSelected: SmsLogOutBoxQueueModel = new SmsLogOutBoxQueueModel();
   tableSource: MatTableDataSource<SmsLogOutBoxQueueModel> = new MatTableDataSource<SmsLogOutBoxQueueModel>();

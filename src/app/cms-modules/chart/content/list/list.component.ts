@@ -64,11 +64,11 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
   categoryModelSelected: ChartCategoryModel;
   dataModelResult: ErrorExceptionResult<ChartContentModel> = new ErrorExceptionResult<ChartContentModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ChartContentModel> = [];
   tableRowSelected: ChartContentModel = new ChartContentModel();
   tableSource: MatTableDataSource<ChartContentModel> = new MatTableDataSource<ChartContentModel>();

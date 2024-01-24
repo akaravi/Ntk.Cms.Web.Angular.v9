@@ -61,11 +61,11 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateBillboardModel> = new ErrorExceptionResult<EstateBillboardModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateBillboardModel> = [];
   tableRowSelected: EstateBillboardModel = new EstateBillboardModel();
   tableSource: MatTableDataSource<EstateBillboardModel> = new MatTableDataSource<EstateBillboardModel>();

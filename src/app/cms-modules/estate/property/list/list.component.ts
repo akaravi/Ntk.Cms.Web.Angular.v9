@@ -204,18 +204,8 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   searchInResponsible = false;
   searchInResponsibleChecked = false;
   filteModelContent = new EstatePropertyFilterModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertyModel> =
-    new ErrorExceptionResult<EstatePropertyModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel =
-    new ComponentOptionStatistModel();
   dataModelPropertyDetailGroups: EstatePropertyDetailGroupModel[] = [];
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
-  tableRowsSelected: Array<EstatePropertyModel> = [];
-  // tableRowSelected: EstatePropertyModel = new EstatePropertyModel();
-  tableSource: MatTableDataSource<EstatePropertyModel> =
-    new MatTableDataSource<EstatePropertyModel>();
+  tableSource: MatTableDataSource<EstatePropertyModel> =    new MatTableDataSource<EstatePropertyModel>();
   categoryModelSelected: EstatePropertyTypeLanduseModel;
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

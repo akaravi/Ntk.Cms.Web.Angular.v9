@@ -79,11 +79,10 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
   requestContentId = 0;
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ChartCommentModel> = new ErrorExceptionResult<ChartCommentModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<ChartCommentModel> = [];
   tableRowSelected: ChartCommentModel = new ChartCommentModel();
   tableSource: MatTableDataSource<ChartCommentModel> = new MatTableDataSource<ChartCommentModel>();

@@ -1,5 +1,5 @@
 import { MatDialog } from "@angular/material/dialog";
-import { BaseEntity, BaseModuleEntity, DataFieldInfoModel, IApiCmsServerBase } from "ntk-cms-api";
+import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
@@ -10,15 +10,22 @@ import { PublicHelper } from "../helpers/publicHelper";
 import { ContentInfoModel } from "../models/contentInfoModel";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { PageInfoService } from "../services/page-info.service";
+import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
+import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
     pageInfo.updateContentService(baseService);
   }
   baseService: TService;
+  tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();
+  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
+  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
   tableRowSelected: TModel;
+  tableRowsSelected: Array<TModel> = [];
+  dataModelResult: ErrorExceptionResult<TModel> = new ErrorExceptionResult<TModel>();
   onActionTableRowSelect(row: TModel): void {
     this.tableRowSelected = row;
     this.pageInfo.updateContentInfo(new ContentInfoModel(row.id, row['title'], row['viewContentHidden'], '', row['urlViewContent']));

@@ -82,11 +82,11 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
 
   filteModelContent = new EstateAccountUserFilterModel();
   dataModelResult: ErrorExceptionResult<EstateAccountUserModel> = new ErrorExceptionResult<EstateAccountUserModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstateAccountUserModel> = [];
   tableRowSelected: EstateAccountUserModel = new EstateAccountUserModel();
   tableSource: MatTableDataSource<EstateAccountUserModel> = new MatTableDataSource<EstateAccountUserModel>();

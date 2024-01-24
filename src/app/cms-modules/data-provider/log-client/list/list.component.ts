@@ -59,11 +59,11 @@ implements OnInit, OnDestroy {
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DataProviderLogClientModel> = new ErrorExceptionResult<DataProviderLogClientModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DataProviderLogClientModel> = [];
   tableRowSelected: DataProviderLogClientModel = new DataProviderLogClientModel();
   tableSource: MatTableDataSource<DataProviderLogClientModel> = new MatTableDataSource<DataProviderLogClientModel>();

@@ -64,11 +64,11 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
   categoryModelSelected: DonateTargetCategoryModel;
   dataModelResult: ErrorExceptionResult<DonateSponsorModel> = new ErrorExceptionResult<DonateSponsorModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DonateSponsorModel> = [];
   tableRowSelected: DonateSponsorModel = new DonateSponsorModel();
   tableSource: MatTableDataSource<DonateSponsorModel> = new MatTableDataSource<DonateSponsorModel>();

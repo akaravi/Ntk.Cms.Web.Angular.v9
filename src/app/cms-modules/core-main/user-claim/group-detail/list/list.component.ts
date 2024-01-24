@@ -81,11 +81,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserClaimGroupDetailModel> = new ErrorExceptionResult<CoreUserClaimGroupDetailModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreUserClaimGroupDetailModel> = [];
   tableRowSelected: CoreUserClaimGroupDetailModel = new CoreUserClaimGroupDetailModel();
   tableSource: MatTableDataSource<CoreUserClaimGroupDetailModel> = new MatTableDataSource<CoreUserClaimGroupDetailModel>();

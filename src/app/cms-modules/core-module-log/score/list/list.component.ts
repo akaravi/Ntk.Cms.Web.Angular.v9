@@ -90,11 +90,11 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogScoreModel> = new ErrorExceptionResult<CoreModuleLogScoreModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleLogScoreModel> = [];
   tableRowSelected: CoreModuleLogScoreModel = new CoreModuleLogScoreModel();
   tableSource: MatTableDataSource<CoreModuleLogScoreModel> = new MatTableDataSource<CoreModuleLogScoreModel>();

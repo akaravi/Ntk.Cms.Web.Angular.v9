@@ -67,11 +67,11 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyAdsModel> = new ErrorExceptionResult<EstatePropertyAdsModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<EstatePropertyAdsModel> = [];
   tableRowSelected: EstatePropertyAdsModel = new EstatePropertyAdsModel();
   tableSource: MatTableDataSource<EstatePropertyAdsModel> = new MatTableDataSource<EstatePropertyAdsModel>();

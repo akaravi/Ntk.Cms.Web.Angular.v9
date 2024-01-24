@@ -69,11 +69,11 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationLogNotificationModel> = new ErrorExceptionResult<ApplicationLogNotificationModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<ApplicationLogNotificationModel> = [];
   tableRowSelected: ApplicationLogNotificationModel = new ApplicationLogNotificationModel();

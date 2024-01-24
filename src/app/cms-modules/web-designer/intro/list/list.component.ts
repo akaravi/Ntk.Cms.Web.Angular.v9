@@ -60,11 +60,11 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainIntroModel> = new ErrorExceptionResult<WebDesignerMainIntroModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<WebDesignerMainIntroModel> = [];
   tableRowSelected: WebDesignerMainIntroModel = new WebDesignerMainIntroModel();
   tableSource: MatTableDataSource<WebDesignerMainIntroModel> = new MatTableDataSource<WebDesignerMainIntroModel>();

@@ -72,11 +72,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogCurrencyModel> = new ErrorExceptionResult<CoreLogCurrencyModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreLogCurrencyModel> = [];
   tableRowSelected: CoreLogCurrencyModel = new CoreLogCurrencyModel();
   tableSource: MatTableDataSource<CoreLogCurrencyModel> = new MatTableDataSource<CoreLogCurrencyModel>();

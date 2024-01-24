@@ -61,11 +61,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserGroupModel> = new ErrorExceptionResult<CoreUserGroupModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreUserGroupModel> = [];
   tableRowSelected: CoreUserGroupModel = new CoreUserGroupModel();
   tableSource: MatTableDataSource<CoreUserGroupModel> = new MatTableDataSource<CoreUserGroupModel>();

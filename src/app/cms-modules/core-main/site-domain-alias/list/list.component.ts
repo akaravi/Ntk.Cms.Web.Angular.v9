@@ -72,11 +72,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreSiteDomainAliasModel> = new ErrorExceptionResult<CoreSiteDomainAliasModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreSiteDomainAliasModel> = [];
   tableRowSelected: CoreSiteDomainAliasModel = new CoreSiteDomainAliasModel();
   tableSource: MatTableDataSource<CoreSiteDomainAliasModel> = new MatTableDataSource<CoreSiteDomainAliasModel>();

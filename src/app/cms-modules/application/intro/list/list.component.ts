@@ -67,11 +67,11 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationIntroModel> = new ErrorExceptionResult<ApplicationIntroModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<ApplicationIntroModel> = [];
   tableRowSelected: ApplicationIntroModel = new ApplicationIntroModel();

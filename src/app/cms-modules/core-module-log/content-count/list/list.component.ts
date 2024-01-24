@@ -90,11 +90,11 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogContentCountModel> = new ErrorExceptionResult<CoreModuleLogContentCountModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleLogContentCountModel> = [];
   tableRowSelected: CoreModuleLogContentCountModel = new CoreModuleLogContentCountModel();
   tableSource: MatTableDataSource<CoreModuleLogContentCountModel> = new MatTableDataSource<CoreModuleLogContentCountModel>();

@@ -62,11 +62,11 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainCustomerCreditModel> = new ErrorExceptionResult<SmsMainCustomerCreditModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsMainCustomerCreditModel> = [];
   tableRowSelected: SmsMainCustomerCreditModel = new SmsMainCustomerCreditModel();
   tableSource: MatTableDataSource<SmsMainCustomerCreditModel> = new MatTableDataSource<SmsMainCustomerCreditModel>();

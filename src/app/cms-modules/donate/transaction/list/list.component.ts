@@ -62,11 +62,11 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DonateTransactionModel> = new ErrorExceptionResult<DonateTransactionModel>();
 
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<DonateTransactionModel> = [];
   tableRowSelected: DonateTransactionModel = new DonateTransactionModel();
   tableSource: MatTableDataSource<DonateTransactionModel> = new MatTableDataSource<DonateTransactionModel>();

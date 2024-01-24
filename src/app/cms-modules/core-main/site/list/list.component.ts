@@ -80,11 +80,11 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreSiteModel> = new ErrorExceptionResult<CoreSiteModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreSiteModel> = [];
   tableRowSelected: CoreSiteModel = new CoreSiteModel();
   tableSource: MatTableDataSource<CoreSiteModel> = new MatTableDataSource<CoreSiteModel>();

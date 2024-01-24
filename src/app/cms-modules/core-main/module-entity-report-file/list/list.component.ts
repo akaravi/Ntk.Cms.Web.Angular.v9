@@ -73,11 +73,11 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleEntityReportFileModel> = new ErrorExceptionResult<CoreModuleEntityReportFileModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreModuleEntityReportFileModel> = [];
   tableRowSelected: CoreModuleEntityReportFileModel = new CoreModuleEntityReportFileModel();
   tableSource: MatTableDataSource<CoreModuleEntityReportFileModel> = new MatTableDataSource<CoreModuleEntityReportFileModel>();

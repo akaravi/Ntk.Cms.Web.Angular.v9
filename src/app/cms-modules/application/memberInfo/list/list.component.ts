@@ -69,11 +69,11 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationMemberInfoModel> = new ErrorExceptionResult<ApplicationMemberInfoModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<ApplicationMemberInfoModel> = [];
   tableRowSelected: ApplicationMemberInfoModel = new ApplicationMemberInfoModel();

@@ -64,11 +64,11 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiPathPriceServiceModel> = new ErrorExceptionResult<SmsMainApiPathPriceServiceModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<SmsMainApiPathPriceServiceModel> = [];
   tableRowSelected: SmsMainApiPathPriceServiceModel = new SmsMainApiPathPriceServiceModel();
   tableSource: MatTableDataSource<SmsMainApiPathPriceServiceModel> = new MatTableDataSource<SmsMainApiPathPriceServiceModel>();

@@ -62,11 +62,11 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerLogMemberInfoModel> = new ErrorExceptionResult<WebDesignerLogMemberInfoModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<WebDesignerLogMemberInfoModel> = [];
   tableRowSelected: WebDesignerLogMemberInfoModel = new WebDesignerLogMemberInfoModel();
   tableSource: MatTableDataSource<WebDesignerLogMemberInfoModel> = new MatTableDataSource<WebDesignerLogMemberInfoModel>();

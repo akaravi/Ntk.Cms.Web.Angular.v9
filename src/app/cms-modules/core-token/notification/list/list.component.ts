@@ -88,11 +88,11 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenNotificationModel> = new ErrorExceptionResult<CoreTokenNotificationModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   tableRowsSelected: Array<CoreTokenNotificationModel> = [];
   tableRowSelected: CoreTokenNotificationModel = new CoreTokenNotificationModel();
   tableSource: MatTableDataSource<CoreTokenNotificationModel> = new MatTableDataSource<CoreTokenNotificationModel>();
