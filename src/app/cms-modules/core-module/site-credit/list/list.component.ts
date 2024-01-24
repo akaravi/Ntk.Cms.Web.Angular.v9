@@ -44,7 +44,7 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
-  ) {super(contentService, new CoreModuleSiteCreditModel(), pageInfo, publicHelper, dialog);
+  ) {super(contentService, new CoreModuleSiteCreditModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

@@ -52,7 +52,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new BankPaymentPrivateSiteConfigModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new BankPaymentPrivateSiteConfigModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

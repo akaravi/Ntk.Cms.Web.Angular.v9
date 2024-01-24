@@ -49,7 +49,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent< Web
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new WebDesignerMainPageModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new WebDesignerMainPageModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId')) {
       this.requestLinkPageTemplateGuId = this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId');

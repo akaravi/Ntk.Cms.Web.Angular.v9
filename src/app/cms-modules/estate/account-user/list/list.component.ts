@@ -44,7 +44,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstateAccountUserModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new EstateAccountUserModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

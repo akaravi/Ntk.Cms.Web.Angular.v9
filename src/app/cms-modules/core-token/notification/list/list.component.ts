@@ -47,7 +47,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreTokenNotificationModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreTokenNotificationModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

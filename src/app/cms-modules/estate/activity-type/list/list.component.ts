@@ -41,7 +41,7 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstateActivityTypeModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new EstateActivityTypeModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

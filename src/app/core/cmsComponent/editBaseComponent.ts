@@ -12,8 +12,8 @@ import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { PageInfoService } from "../services/page-info.service";
 //IApiCmsServerBase
 export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(public baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
-    pageInfo.updateContentService(baseService);
+  constructor(public baseService: TService, public item: TModel,  public publicHelper: PublicHelper) {
+    publicHelper.pageInfo.updateContentService(baseService);
     this.dataModel=item;
   }
   tokenInfo = new TokenInfoModel();

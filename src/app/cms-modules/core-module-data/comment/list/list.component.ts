@@ -47,7 +47,7 @@ export class CoreModuleDataCommentListComponent extends ListBaseComponent<CoreMo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleDataCommentModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreModuleDataCommentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

@@ -45,7 +45,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new MemberPropertyAliasModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new MemberPropertyAliasModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

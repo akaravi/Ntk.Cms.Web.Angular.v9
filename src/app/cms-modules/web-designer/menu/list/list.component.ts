@@ -40,7 +40,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new WebDesignerMainMenuModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new WebDesignerMainMenuModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

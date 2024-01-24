@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IApiCmsServerBase } from "ntk-cms-api";
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-
 @Component({
   selector: 'app-cms-html-list',
   templateUrl: './cms-html-list.component.html',
@@ -17,12 +17,14 @@ export class CmsHtmlListComponent implements OnInit {
   @Input() optionCategoryTitle = 'دسته بندی';
   @Input() optionSelectRowItemTitle = '';
   @Input() optionClassBody = 'ntk-cms-html-tree-body';
-
   @Input() optionTreeDisplay = true;
   @Input()
   public set optionLoading(v: ProgressSpinnerModel) {
     this.loading = v;
   }
+  @Output() optionOnActionbuttonMemo = new EventEmitter<any>();
+  @Output() optionOnActionbuttonMemoRow = new EventEmitter<any>();
+
   loading = new ProgressSpinnerModel();
 
   constructor(
@@ -47,7 +49,7 @@ export class CmsHtmlListComponent implements OnInit {
   }
   actionViewMenuItemRow(state?: boolean) {
     if (state == true) {
-      this.viewMenuItemRow =true ;
+      this.viewMenuItemRow = true;
     } else if (state == false) {
       this.viewMenuItemRow = false;
     } else {
@@ -69,6 +71,12 @@ export class CmsHtmlListComponent implements OnInit {
 
     this.viewMenuItemRow = false;
     this.viewTree = false;
+  }
+  onActionbuttonMemo(): void {
+    this.optionOnActionbuttonMemo.emit();
+  }
+  onActionbuttonMemoRow(): void {
+    this.optionOnActionbuttonMemoRow.emit();
   }
   /*
   <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true">

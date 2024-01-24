@@ -44,7 +44,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new WebDesignerLogMemberInfoModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new WebDesignerLogMemberInfoModel(), publicHelper);
       this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

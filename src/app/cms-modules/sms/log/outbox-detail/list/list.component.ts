@@ -43,7 +43,7 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsLogOutBoxDetailModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new SmsLogOutBoxDetailModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkOutBoxId = this.activatedRoute.snapshot.paramMap.get('LinkOutBoxId');

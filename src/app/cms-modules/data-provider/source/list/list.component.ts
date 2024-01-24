@@ -48,7 +48,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DataProviderSourceModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new DataProviderSourceModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {

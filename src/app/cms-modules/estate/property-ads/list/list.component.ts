@@ -43,7 +43,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstatePropertyAdsModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new EstatePropertyAdsModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
     this.optionsSearch.parentMethods = {

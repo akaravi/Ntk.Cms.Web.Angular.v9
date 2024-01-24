@@ -44,7 +44,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsMainApiNumberModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new SmsMainApiNumberModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

@@ -46,7 +46,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreSiteModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new CoreSiteModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

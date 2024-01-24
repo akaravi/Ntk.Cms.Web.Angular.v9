@@ -41,7 +41,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstatePropertyTypeLanduseModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new EstatePropertyTypeLanduseModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

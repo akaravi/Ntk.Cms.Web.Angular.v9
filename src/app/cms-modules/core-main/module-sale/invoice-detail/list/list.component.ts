@@ -46,7 +46,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreModuleSaleInvoiceDetailModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new CoreModuleSaleInvoiceDetailModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkInvoiceId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkInvoiceId'));

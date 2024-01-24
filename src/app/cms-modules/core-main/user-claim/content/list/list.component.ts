@@ -49,7 +49,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreUserClaimContentModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new CoreUserClaimContentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkUserClaimTypeId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserClaimTypeId'));

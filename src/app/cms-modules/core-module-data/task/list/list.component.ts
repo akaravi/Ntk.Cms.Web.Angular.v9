@@ -47,7 +47,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleDataTaskModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreModuleDataTaskModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

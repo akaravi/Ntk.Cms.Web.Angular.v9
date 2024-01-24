@@ -48,7 +48,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new TicketingTaskModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new TicketingTaskModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
 

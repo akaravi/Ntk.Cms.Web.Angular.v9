@@ -47,7 +47,7 @@ implements OnInit, OnDestroy {
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
-    public dialog: MatDialog) {super(contentService, new CoreUserClaimGroupDetailModel(), pageInfo, publicHelper, dialog);
+    public dialog: MatDialog) {super(contentService, new CoreUserClaimGroupDetailModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkUserClaimTypeId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserClaimTypeId'));

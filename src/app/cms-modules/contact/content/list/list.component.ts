@@ -48,7 +48,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ContactContentModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new ContactContentModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkCategoryId = this.activatedRoute.snapshot.paramMap.get('LinkCategoryId');
 

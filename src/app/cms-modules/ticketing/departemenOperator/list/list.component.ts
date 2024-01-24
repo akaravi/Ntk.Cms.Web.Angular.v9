@@ -41,7 +41,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new TicketingDepartemenOperatorModel, pageInfo, publicHelper, dialog);
+      super(contentService, new TicketingDepartemenOperatorModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

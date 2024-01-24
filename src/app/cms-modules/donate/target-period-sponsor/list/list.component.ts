@@ -50,7 +50,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DonateTargetPeriodSponsorModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new DonateTargetPeriodSponsorModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.requestLinkSponserId =

@@ -67,7 +67,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyHistoryModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new EstatePropertyHistoryModel(), publicHelper);
 
     pageInfo.updateContentService(contentService);
     this.loading.cdr = this.cdr;

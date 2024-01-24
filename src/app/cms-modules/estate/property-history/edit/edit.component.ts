@@ -38,7 +38,7 @@ export class EstatePropertyHistoryEditComponent extends EditBaseComponent<Estate
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), pageInfo, publicHelper, dialog);
+    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

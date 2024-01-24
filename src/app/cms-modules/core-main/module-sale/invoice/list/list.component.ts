@@ -44,7 +44,7 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreModuleSaleInvoiceModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new CoreModuleSaleInvoiceModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

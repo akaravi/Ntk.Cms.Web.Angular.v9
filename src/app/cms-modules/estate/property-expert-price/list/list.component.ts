@@ -52,7 +52,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyExpertPriceModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new EstatePropertyExpertPriceModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),

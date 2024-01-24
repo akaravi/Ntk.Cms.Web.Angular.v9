@@ -43,7 +43,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     public publicHelper: PublicHelper,
     public dialog: MatDialog
   ) {
-    super(contentService, new CoreModuleTagModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreModuleTagModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {

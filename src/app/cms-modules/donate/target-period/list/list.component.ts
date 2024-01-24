@@ -47,7 +47,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DonateTargetPeriodModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new DonateTargetPeriodModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),

@@ -46,7 +46,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
     public pageInfo: PageInfoService,
     private tokenHelper: TokenHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApplicationThemeConfigModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new ApplicationThemeConfigModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

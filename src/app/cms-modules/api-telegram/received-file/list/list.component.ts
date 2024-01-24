@@ -42,7 +42,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApiTelegramReceivedFileModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new ApiTelegramReceivedFileModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

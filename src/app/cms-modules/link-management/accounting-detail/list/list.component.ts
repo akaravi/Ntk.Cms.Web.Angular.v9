@@ -48,7 +48,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementAccountingDetailModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new LinkManagementAccountingDetailModel(), publicHelper);
     this.loading.cdr = this.cdr; 
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkManagementAccountingId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkManagementAccountingId'));

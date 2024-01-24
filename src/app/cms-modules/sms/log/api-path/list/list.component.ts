@@ -42,7 +42,7 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsLogApiPathModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new SmsLogApiPathModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkApiPathId = this.activatedRoute.snapshot.paramMap.get('LinkApiPathId');

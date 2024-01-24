@@ -30,7 +30,7 @@ export class CmsDataMemoComponent implements OnInit {
   ) {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
-    debugger
+    
     if (data) {
       this.service = data.service;
       this.dataModel.moduleEntityId = data.id;

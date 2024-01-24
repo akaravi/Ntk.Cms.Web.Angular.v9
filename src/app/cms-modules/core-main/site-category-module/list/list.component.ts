@@ -46,7 +46,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreSiteCategoryCmsModuleModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new CoreSiteCategoryCmsModuleModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

@@ -46,7 +46,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     private tokenHelper: TokenHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ArticleContentModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new ArticleContentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

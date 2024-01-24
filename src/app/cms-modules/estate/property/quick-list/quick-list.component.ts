@@ -61,7 +61,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new EstatePropertyModel(), publicHelper);
     this.loading.cdr = this.cdr;
     if (data) {
       if (data.searchTitle)

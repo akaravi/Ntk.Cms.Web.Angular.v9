@@ -49,7 +49,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogFavoriteModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreModuleLogFavoriteModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

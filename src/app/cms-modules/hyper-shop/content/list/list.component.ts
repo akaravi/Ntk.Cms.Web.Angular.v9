@@ -47,7 +47,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new HyperShopContentModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new HyperShopContentModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

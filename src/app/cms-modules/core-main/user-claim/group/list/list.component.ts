@@ -46,7 +46,7 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreUserClaimGroupModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreUserClaimGroupModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

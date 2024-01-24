@@ -48,7 +48,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementBillboardPatternModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new LinkManagementBillboardPatternModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {

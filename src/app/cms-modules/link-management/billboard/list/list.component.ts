@@ -44,7 +44,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementBillboardModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new LinkManagementBillboardModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkBillboardPatternId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkBillboardPatternId'));

@@ -42,7 +42,7 @@ implements OnInit, OnDestroy {
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
-    public dialog: MatDialog) {super(contentService, new CoreUserGroupModel(), pageInfo, publicHelper, dialog);
+    public dialog: MatDialog) {super(contentService, new CoreUserGroupModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

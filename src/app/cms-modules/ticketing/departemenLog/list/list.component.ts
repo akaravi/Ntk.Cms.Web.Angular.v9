@@ -42,7 +42,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new TicketingDepartemenLogModel, pageInfo, publicHelper, dialog);
+      super(contentService, new TicketingDepartemenLogModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestDepartemenId = + Number(this.activatedRoute.snapshot.paramMap.get('DepartemenId'));
     this.requestOperatorId = + Number(this.activatedRoute.snapshot.paramMap.get('OperatorId'));

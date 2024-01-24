@@ -47,7 +47,7 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleDataPinModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreModuleDataPinModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

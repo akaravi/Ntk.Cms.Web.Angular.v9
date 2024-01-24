@@ -56,7 +56,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     private tokenHelper: TokenHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ApplicationAppModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new ApplicationAppModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

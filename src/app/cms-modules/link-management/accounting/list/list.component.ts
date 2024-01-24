@@ -47,7 +47,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementAccountingModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new LinkManagementAccountingModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {

@@ -44,7 +44,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsMainCustomerCreditModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new SmsMainCustomerCreditModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

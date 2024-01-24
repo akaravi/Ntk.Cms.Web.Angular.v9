@@ -47,7 +47,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new BankPaymentTransactionLogModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new BankPaymentTransactionLogModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

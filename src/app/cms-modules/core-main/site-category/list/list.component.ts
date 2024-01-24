@@ -42,7 +42,7 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreSiteCategoryModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new CoreSiteCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

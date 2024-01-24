@@ -54,7 +54,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(commentService, new ChartCommentModel(), pageInfo, publicHelper, dialog);
+    super(commentService, new ChartCommentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {

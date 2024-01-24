@@ -41,7 +41,7 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
     public pageInfo: PageInfoService,
     private tokenHelper: TokenHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApiTelegramUploadedFileModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new ApiTelegramUploadedFileModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

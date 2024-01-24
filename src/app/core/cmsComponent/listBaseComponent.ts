@@ -1,4 +1,3 @@
-import { MatDialog } from "@angular/material/dialog";
 import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
@@ -9,13 +8,12 @@ import { environment } from "src/environments/environment";
 import { PublicHelper } from "../helpers/publicHelper";
 import { ContentInfoModel } from "../models/contentInfoModel";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
-import { PageInfoService } from "../services/page-info.service";
 import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(public baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
-    pageInfo.updateContentService(baseService);
+  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper) {
+    publicHelper.pageInfo.updateContentService(baseService);
   }
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -27,14 +25,14 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   dataModelResult: ErrorExceptionResult<TModel> = new ErrorExceptionResult<TModel>();
   onActionTableRowSelect(row: TModel): void {
     this.tableRowSelected = row;
-    this.pageInfo.updateContentInfo(new ContentInfoModel(row.id, row['title'], row['viewContentHidden'], '', row['urlViewContent']));
+    this.publicHelper.pageInfo.updateContentInfo(new ContentInfoModel(row.id, row['title'], row['viewContentHidden'], '', row['urlViewContent']));
     row["expanded"] = true;
   }
   onActionTableRowMouseClick(row: TModel): void {
     if (this.tableRowSelected.id === row.id) {
       row["expanded"] = false;
       this.onActionTableRowSelect(this.item);
-      this.pageInfo.updateContentInfo(new ContentInfoModel('', '', false, '', ''));
+      this.publicHelper.pageInfo.updateContentInfo(new ContentInfoModel('', '', false, '', ''));
     } else {
       this.onActionTableRowSelect(row);
       row["expanded"] = true;
@@ -51,14 +49,39 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     if (!this.tableRowSelected || this.tableRowSelected.id !== row.id)
       row["expanded"] = false;
   }
-  onActionbuttonMemo(model: TModel = this.tableRowSelected): void {
+  onActionbuttonMemo(): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-debugger
+
+    const dialogRef = this.publicHelper.dialog.open(CmsDataMemoComponent, {
+      height: "70%",
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {
+        service: this.baseService,
+      },
+    }
+    );
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.dialogChangedDate) {
+        // this.DataGetAll();
+      }
+    });
+    //open popup
+  }
+  onActionbuttonMemoRow(model: TModel = this.tableRowSelected): void {
+    //open popup
+    var panelClass = '';
+    if (this.publicHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+
     const dialogRef = this.publicHelper.dialog.open(CmsDataMemoComponent, {
       height: "70%",
       panelClass: panelClass,

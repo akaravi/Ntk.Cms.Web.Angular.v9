@@ -42,7 +42,7 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstateBillboardModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new EstateBillboardModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

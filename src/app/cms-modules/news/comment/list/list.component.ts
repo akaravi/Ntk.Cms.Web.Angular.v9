@@ -53,7 +53,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new NewsCommentModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new NewsCommentModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
       this.searchInChecking =

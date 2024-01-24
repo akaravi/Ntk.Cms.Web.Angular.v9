@@ -43,7 +43,7 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogAvoidDuplicateDataEntryModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreLogAvoidDuplicateDataEntryModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));

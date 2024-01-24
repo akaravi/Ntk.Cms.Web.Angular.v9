@@ -42,7 +42,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyProjectModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new EstatePropertyProjectModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

@@ -45,7 +45,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstateAccountAgencyAdsModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new EstateAccountAgencyAdsModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkAccountAgencyId = this.activatedRoute.snapshot.paramMap.get('LinkAccountAgencyId');
 

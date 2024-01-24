@@ -45,7 +45,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new MemberGroupModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new MemberGroupModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

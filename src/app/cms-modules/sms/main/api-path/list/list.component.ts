@@ -47,7 +47,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsMainApiPathModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new SmsMainApiPathModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

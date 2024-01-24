@@ -45,7 +45,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new MemberPropertyDetailModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new MemberPropertyDetailModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeId = +this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
     this.optionsSearch.parentMethods = {

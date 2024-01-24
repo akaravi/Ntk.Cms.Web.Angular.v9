@@ -1,12 +1,10 @@
-import { MatDialog } from "@angular/material/dialog";
 import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 import { PublicHelper } from "../helpers/publicHelper";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
-import { PageInfoService } from "../services/page-info.service";
 //IApiCmsServerBase
 export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(public baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
-    pageInfo.updateContentService(baseService);
+  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper) {
+    publicHelper. pageInfo.updateContentService(baseService);
     this.DataGetAccess();
     this.dataModel = item;
   }

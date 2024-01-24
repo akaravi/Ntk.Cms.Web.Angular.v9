@@ -43,7 +43,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstateAdsTypeModel(), pageInfo, publicHelper, dialog);
+      super(contentService, new EstateAdsTypeModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {

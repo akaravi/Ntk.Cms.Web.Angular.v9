@@ -140,7 +140,7 @@ export class ThemeService {
   private updateHighLightHtmlDom(colorStr: string) {
     if (!colorStr || colorStr.length == 0)
       return;
-    //debugger;
+  
     var pageHighlight = document.querySelectorAll('.page-highlight');
     if (pageHighlight.length) { pageHighlight.forEach(function (e) { e.remove(); }); }
 

@@ -46,7 +46,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ApiTelegramBotConfigModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new ApiTelegramBotConfigModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

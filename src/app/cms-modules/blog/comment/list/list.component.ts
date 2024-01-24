@@ -55,7 +55,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(commentService, new BlogCommentModel(), pageInfo, publicHelper, dialog);
+    super(commentService, new BlogCommentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

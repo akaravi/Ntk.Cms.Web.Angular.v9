@@ -49,7 +49,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new NewsContentModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new NewsContentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.activatedRoute.params.subscribe((data) => {

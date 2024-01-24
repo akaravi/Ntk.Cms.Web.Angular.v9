@@ -46,7 +46,7 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DonateTransactionModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new DonateTransactionModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

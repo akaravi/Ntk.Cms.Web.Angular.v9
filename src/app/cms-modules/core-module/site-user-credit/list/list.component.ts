@@ -46,7 +46,7 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleSiteUserCreditModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreModuleSiteUserCreditModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

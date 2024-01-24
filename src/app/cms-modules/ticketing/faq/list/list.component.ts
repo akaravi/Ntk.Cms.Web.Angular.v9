@@ -44,7 +44,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new TicketingFaqModel, pageInfo, publicHelper, dialog);
+      super(contentService, new TicketingFaqModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

@@ -48,7 +48,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
     public pageInfo: PageInfoService,
     private tokenHelper: TokenHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApplicationSourceModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new ApplicationSourceModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

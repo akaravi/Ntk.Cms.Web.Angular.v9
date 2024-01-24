@@ -48,7 +48,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new BlogContentModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new BlogContentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {

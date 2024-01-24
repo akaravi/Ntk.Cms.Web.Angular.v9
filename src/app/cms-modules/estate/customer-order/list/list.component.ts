@@ -52,7 +52,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
     ) {
-    super(contentService, new EstateCustomerOrderModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new EstateCustomerOrderModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');

@@ -49,7 +49,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogSiteUserCreditModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreModuleLogSiteUserCreditModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

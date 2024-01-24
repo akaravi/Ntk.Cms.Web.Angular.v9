@@ -46,7 +46,7 @@ export class CoreTokenUserListComponent extends ListBaseComponent<CoreTokenUserS
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreTokenUserModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new CoreTokenUserModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
