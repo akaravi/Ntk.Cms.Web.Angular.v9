@@ -102,7 +102,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: ArticleCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

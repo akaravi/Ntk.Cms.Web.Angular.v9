@@ -80,7 +80,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
   tableRowsSelected: Array<SmsLogOutBoxModel> = [];
   tableRowSelected: SmsLogOutBoxModel = new SmsLogOutBoxModel();
   tableSource: MatTableDataSource<SmsLogOutBoxModel> = new MatTableDataSource<SmsLogOutBoxModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

@@ -170,10 +170,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     'QuickView',
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<
-    string,
-    DataFieldInfoModel
-  >();
+
 
   dataModelEstateActivityStatusEnumResult: ErrorExceptionResult<InfoEnumModel> =
     new ErrorExceptionResult<InfoEnumModel>();

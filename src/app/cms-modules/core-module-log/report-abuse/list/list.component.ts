@@ -114,7 +114,7 @@ export class CoreModuleLogReportAbuseListComponent extends ListBaseComponent<Cor
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

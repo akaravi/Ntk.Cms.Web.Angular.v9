@@ -83,7 +83,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
   tableRowSelected: ApplicationAppModel = new ApplicationAppModel();
   tableSource: MatTableDataSource<ApplicationAppModel> = new MatTableDataSource<ApplicationAppModel>();
   categoryModelSelected: ApplicationSourceModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

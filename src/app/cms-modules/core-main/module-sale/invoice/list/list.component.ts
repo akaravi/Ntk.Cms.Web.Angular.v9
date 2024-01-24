@@ -71,7 +71,7 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
   tableRowsSelected: Array<CoreModuleSaleInvoiceModel> = [];
   tableRowSelected: CoreModuleSaleInvoiceModel = new CoreModuleSaleInvoiceModel();
   tableSource: MatTableDataSource<CoreModuleSaleInvoiceModel> = new MatTableDataSource<CoreModuleSaleInvoiceModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   categoryModelSelected: CoreModuleSaleSerialModel = new CoreModuleSaleSerialModel();
 
   tabledisplayedColumns: string[] = [];

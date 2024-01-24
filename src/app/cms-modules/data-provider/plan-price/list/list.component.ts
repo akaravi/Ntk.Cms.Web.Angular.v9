@@ -82,7 +82,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
     'Price',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

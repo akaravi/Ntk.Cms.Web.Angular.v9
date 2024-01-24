@@ -82,7 +82,7 @@ export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreMod
   tableRowsSelected: Array<CoreModuleSaleHeaderModel> = [];
   tableRowSelected: CoreModuleSaleHeaderModel = new CoreModuleSaleHeaderModel();
   tableSource: MatTableDataSource<CoreModuleSaleHeaderModel> = new MatTableDataSource<CoreModuleSaleHeaderModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   categoryModelSelected: CoreModuleSaleHeaderGroupModel = new CoreModuleSaleHeaderGroupModel();
 
   tabledisplayedColumns: string[] = [];

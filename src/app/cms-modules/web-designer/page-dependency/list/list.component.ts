@@ -58,7 +58,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
     this.filteModelContent.sortColumn = 'LinkModuleId';
     this.filteModelContent.sortType = SortTypeEnum.Ascending;
   } SortTypeEnum
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   comment: string;
   author: string;
   dataSource: any;

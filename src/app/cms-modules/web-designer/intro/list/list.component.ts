@@ -52,7 +52,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Descending;
   }
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   comment: string;
   author: string;
   dataSource: any;

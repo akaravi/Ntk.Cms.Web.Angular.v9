@@ -119,7 +119,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: EstateCustomerOrderModel | null;
   cmsApiStoreSubscribe: Subscription;
   propertyDetails: Map<string, string> = new Map<string, string>();

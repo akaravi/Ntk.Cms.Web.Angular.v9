@@ -87,7 +87,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: ApplicationIntroModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

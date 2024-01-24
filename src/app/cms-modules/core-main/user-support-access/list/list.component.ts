@@ -94,7 +94,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
   tableRowsSelected: Array<CoreUserSupportAccessModel> = [];
   tableRowSelected: CoreUserSupportAccessModel = new CoreUserSupportAccessModel();
   tableSource: MatTableDataSource<CoreUserSupportAccessModel> = new MatTableDataSource<CoreUserSupportAccessModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

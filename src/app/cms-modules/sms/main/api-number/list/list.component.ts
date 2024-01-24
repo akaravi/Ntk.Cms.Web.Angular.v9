@@ -70,7 +70,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
   tableRowsSelected: Array<SmsMainApiNumberModel> = [];
   tableRowSelected: SmsMainApiNumberModel = new SmsMainApiNumberModel();
   tableSource: MatTableDataSource<SmsMainApiNumberModel> = new MatTableDataSource<SmsMainApiNumberModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   categoryModelSelected: SmsMainApiPathModel;
 
   tabledisplayedColumns: string[] = [];

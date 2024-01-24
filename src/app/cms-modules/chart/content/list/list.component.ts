@@ -83,7 +83,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

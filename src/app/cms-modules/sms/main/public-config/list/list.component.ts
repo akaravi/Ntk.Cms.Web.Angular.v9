@@ -70,7 +70,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
   tableRowsSelected: Array<SmsMainApiPathPublicConfigModel> = [];
   tableRowSelected: SmsMainApiPathPublicConfigModel = new SmsMainApiPathPublicConfigModel();
   tableSource: MatTableDataSource<SmsMainApiPathPublicConfigModel> = new MatTableDataSource<SmsMainApiPathPublicConfigModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

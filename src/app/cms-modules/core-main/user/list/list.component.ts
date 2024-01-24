@@ -101,7 +101,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: CoreUserModel | null;
   cmsApiStoreSubscribe: Subscription;
 

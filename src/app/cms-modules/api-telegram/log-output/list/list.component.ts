@@ -70,7 +70,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
   tableRowsSelected: Array<ApiTelegramLogOutputModel> = [];
   tableRowSelected: ApiTelegramLogOutputModel = new ApiTelegramLogOutputModel();
   tableSource: MatTableDataSource<ApiTelegramLogOutputModel> = new MatTableDataSource<ApiTelegramLogOutputModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

@@ -1,5 +1,5 @@
 import { MatDialog } from "@angular/material/dialog";
-import { BaseEntity, BaseModuleEntity, DataFieldInfoModel, IApiCmsServerBase } from "ntk-cms-api";
+import { BaseEntity, BaseModuleEntity, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, IApiCmsServerBase } from "ntk-cms-api";
 
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
@@ -14,40 +14,16 @@ import { PageInfoService } from "../services/page-info.service";
 export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(baseService: TService, public item: TModel, public pageInfo: PageInfoService, public publicHelper: PublicHelper, public dialog: MatDialog) {
     pageInfo.updateContentService(baseService);
-    
+    this.dataModel=item;
   }
   baseService: TService;
-
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();
-  tableRowSelected: TModel;
-  onActionTableRowSelect(row: TModel): void {
-    this.tableRowSelected = row;
-    this.pageInfo.updateContentInfo(new ContentInfoModel(row.id, row['title'], row['viewContentHidden'], '', row['urlViewContent']));
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseClick(row: TModel): void {
-    if (this.tableRowSelected.id === row.id) {
-      row["expanded"] = false;
-      this.onActionTableRowSelect(this.item);
-      this.pageInfo.updateContentInfo(new ContentInfoModel('', '', false, '', ''));
-    } else {
-      this.onActionTableRowSelect(row);
-      row["expanded"] = true;
-    }
-  }
-  onActionTableRowMouseEnter(row: TModel): void {
-    if (!environment.cmsViewConfig.tableRowMouseEnter)
-      return;
-    row["expanded"] = true;
-  }
-  onActionTableRowMouseLeave(row: TModel): void {
-    if (!environment.cmsViewConfig.tableRowMouseEnter)
-      return;
-    if (!this.tableRowSelected || this.tableRowSelected.id !== row.id)
-      row["expanded"] = false;
-  }
-  onActionbuttonMemo(model: TModel = this.tableRowSelected): void {
+  
+  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
+  dataModel: TModel;
+
+  onActionbuttonMemo(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -62,8 +38,8 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
       data: {
         service: this.baseService,
-        id: this.tableRowSelected ? this.tableRowSelected.id : '',
-        title: this.tableRowSelected ? this.tableRowSelected['title'] : ''
+        id: this.dataModel ? this.dataModel.id : '',
+        title: this.dataModel ? this.dataModel['title'] : ''
       },
     }
     );
@@ -74,7 +50,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-  onActionbuttonPin(model: TModel = this.tableRowSelected): void {
+  onActionbuttonPin(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -88,8 +64,8 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
       data: {
         service: this.baseService,
-        id: this.tableRowSelected ? this.tableRowSelected.id : '',
-        title: this.tableRowSelected ? this.tableRowSelected['title'] : ''
+        id: this.dataModel ? this.dataModel.id : '',
+        title: this.dataModel ? this.dataModel['title'] : ''
       },
     }
     );
@@ -100,7 +76,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-  onActionbuttonTask(model: TModel = this.tableRowSelected): void {
+  onActionbuttonTask(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -115,8 +91,8 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
       data: {
         service: this.baseService,
-        id: this.tableRowSelected ? this.tableRowSelected.id : '',
-        title: this.tableRowSelected ? this.tableRowSelected['title'] : ''
+        id: this.dataModel ? this.dataModel.id : '',
+        title: this.dataModel ? this.dataModel['title'] : ''
       },
     }
     );
@@ -127,7 +103,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-  onActionbuttonComment(model: TModel = this.tableRowSelected): void {
+  onActionbuttonComment(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -141,8 +117,8 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
       data: {
         service: this.baseService,
-        id: this.tableRowSelected ? this.tableRowSelected.id : '',
-        title: this.tableRowSelected ? this.tableRowSelected['title'] : ''
+        id: this.dataModel ? this.dataModel.id : '',
+        title: this.dataModel ? this.dataModel['title'] : ''
       },
     }
     );

@@ -113,7 +113,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

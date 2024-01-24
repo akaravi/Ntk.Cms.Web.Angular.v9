@@ -88,7 +88,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   cmsApiStoreSubscribe: Subscription;

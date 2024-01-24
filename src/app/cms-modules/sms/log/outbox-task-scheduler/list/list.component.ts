@@ -77,7 +77,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
   tableRowsSelected: Array<SmsLogOutBoxTaskSchedulerModel> = [];
   tableRowSelected: SmsLogOutBoxTaskSchedulerModel = new SmsLogOutBoxTaskSchedulerModel();
   tableSource: MatTableDataSource<SmsLogOutBoxTaskSchedulerModel> = new MatTableDataSource<SmsLogOutBoxTaskSchedulerModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

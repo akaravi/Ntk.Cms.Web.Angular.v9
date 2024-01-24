@@ -83,7 +83,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: TicketingDepartemenLogModel | null;
   cmsApiStoreSubscribe: Subscription;
 

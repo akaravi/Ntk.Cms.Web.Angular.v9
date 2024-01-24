@@ -71,7 +71,7 @@ implements OnInit, OnDestroy {
   tableRowsSelected: Array<CoreCurrencyModel> = [];
   tableRowSelected: CoreCurrencyModel = new CoreCurrencyModel();
   tableSource: MatTableDataSource<CoreCurrencyModel> = new MatTableDataSource<CoreCurrencyModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

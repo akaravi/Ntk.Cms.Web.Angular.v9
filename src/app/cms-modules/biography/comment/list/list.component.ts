@@ -97,7 +97,7 @@ implements OnInit, OnDestroy {
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: BiographyCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

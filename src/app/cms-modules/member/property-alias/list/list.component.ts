@@ -80,7 +80,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     'CreatedDate',
     // 'Action',
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

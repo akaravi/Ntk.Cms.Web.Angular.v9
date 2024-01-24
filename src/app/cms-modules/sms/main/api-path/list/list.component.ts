@@ -79,7 +79,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
   tableRowsSelected: Array<SmsMainApiPathModel> = [];
   tableRowSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   tableSource: MatTableDataSource<SmsMainApiPathModel> = new MatTableDataSource<SmsMainApiPathModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

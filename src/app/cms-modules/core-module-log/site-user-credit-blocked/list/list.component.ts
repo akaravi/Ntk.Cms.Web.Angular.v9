@@ -109,7 +109,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

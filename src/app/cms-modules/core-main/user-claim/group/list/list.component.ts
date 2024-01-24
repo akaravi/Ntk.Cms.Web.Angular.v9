@@ -75,7 +75,7 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
   tableRowsSelected: Array<CoreUserClaimGroupModel> = [];
   tableRowSelected: CoreUserClaimGroupModel = new CoreUserClaimGroupModel();
   tableSource: MatTableDataSource<CoreUserClaimGroupModel> = new MatTableDataSource<CoreUserClaimGroupModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

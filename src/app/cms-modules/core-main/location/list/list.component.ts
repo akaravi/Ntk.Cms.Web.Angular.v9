@@ -89,7 +89,7 @@ implements OnInit, OnDestroy {
   expandedElement: CoreLocationModel | null;
   cmsApiStoreSubscribe: Subscription;
   categoryModelSelected: CoreLocationModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   ngOnInit(): void {
     this.filteModelContent.sortColumn = 'Title';

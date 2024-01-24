@@ -99,7 +99,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
   ];
 
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

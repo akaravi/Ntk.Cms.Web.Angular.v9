@@ -94,7 +94,7 @@ export class CoreModuleDataMemoListComponent extends ListBaseComponent<CoreModul
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   expandedElement: CoreSiteModel | null;

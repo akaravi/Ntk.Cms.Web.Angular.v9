@@ -92,7 +92,7 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
     "LinkTo",
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

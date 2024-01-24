@@ -82,7 +82,7 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     'AmountPure',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

@@ -91,7 +91,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
   ];
 
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   expandedElement: ApplicationSourceModel | null;
   cmsApiStoreSubscribe: Subscription;

@@ -73,7 +73,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
   tableRowsSelected: Array<CoreUserClaimTypeModel> = [];
   tableRowSelected: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();
   tableSource: MatTableDataSource<CoreUserClaimTypeModel> = new MatTableDataSource<CoreUserClaimTypeModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelEnumUserClaimKindsResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

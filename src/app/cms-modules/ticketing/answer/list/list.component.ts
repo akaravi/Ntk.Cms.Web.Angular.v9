@@ -56,7 +56,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Ascending;
   }
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   comment: string;
   author: string;

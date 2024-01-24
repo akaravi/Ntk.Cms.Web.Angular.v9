@@ -95,7 +95,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

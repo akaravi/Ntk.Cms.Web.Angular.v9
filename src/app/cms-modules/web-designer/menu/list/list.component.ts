@@ -51,7 +51,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
     this.filteModelContent.sortColumn = 'ShowInMenuOrder';
     this.filteModelContent.sortType = SortTypeEnum.Ascending;
   }
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   comment: string;
   author: string;
   flag = false;

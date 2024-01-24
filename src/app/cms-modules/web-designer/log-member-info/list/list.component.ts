@@ -86,7 +86,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: WebDesignerLogMemberInfoModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

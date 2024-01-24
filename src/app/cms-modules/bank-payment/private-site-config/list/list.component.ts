@@ -80,7 +80,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
   tableRowSelected: BankPaymentPrivateSiteConfigModel = new BankPaymentPrivateSiteConfigModel();
   tableSource: MatTableDataSource<BankPaymentPrivateSiteConfigModel> = new MatTableDataSource<BankPaymentPrivateSiteConfigModel>();
   categoryModelSelected: BankPaymentPublicConfigModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: BankPaymentPrivateSiteConfigModel | null;
   cmsApiStoreSubscribe: Subscription;
   tabledisplayedColumns: string[] = [];

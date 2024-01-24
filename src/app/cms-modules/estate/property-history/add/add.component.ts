@@ -60,9 +60,7 @@ export class EstatePropertyHistoryAddComponent  extends AddBaseComponent<EstateP
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertyHistoryModel> = new ErrorExceptionResult<EstatePropertyHistoryModel>();
-  dataModel: EstatePropertyHistoryModel = new EstatePropertyHistoryModel();
+  
   dataFileModelFiles = new Map<number, string>();
   formInfo: FormInfoModel = new FormInfoModel();
 

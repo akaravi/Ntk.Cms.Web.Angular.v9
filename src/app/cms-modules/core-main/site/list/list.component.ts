@@ -88,7 +88,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
   tableRowsSelected: Array<CoreSiteModel> = [];
   tableRowSelected: CoreSiteModel = new CoreSiteModel();
   tableSource: MatTableDataSource<CoreSiteModel> = new MatTableDataSource<CoreSiteModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

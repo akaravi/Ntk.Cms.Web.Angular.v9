@@ -72,7 +72,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
   tableRowsSelected: Array<SmsMainApiPathPriceServiceModel> = [];
   tableRowSelected: SmsMainApiPathPriceServiceModel = new SmsMainApiPathPriceServiceModel();
   tableSource: MatTableDataSource<SmsMainApiPathPriceServiceModel> = new MatTableDataSource<SmsMainApiPathPriceServiceModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   categoryModelSelected: SmsMainApiPathModel;
   dataModelSmsMessageTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelSmsOutBoxTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

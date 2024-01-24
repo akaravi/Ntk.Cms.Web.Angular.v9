@@ -92,7 +92,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: ApplicationMemberInfoModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

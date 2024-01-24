@@ -68,7 +68,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
   tableRowsSelected: Array<ApiTelegramLogInputModel> = [];
   tableRowSelected: ApiTelegramLogInputModel = new ApiTelegramLogInputModel();
   tableSource: MatTableDataSource<ApiTelegramLogInputModel> = new MatTableDataSource<ApiTelegramLogInputModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

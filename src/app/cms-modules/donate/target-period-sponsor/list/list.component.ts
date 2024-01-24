@@ -86,7 +86,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

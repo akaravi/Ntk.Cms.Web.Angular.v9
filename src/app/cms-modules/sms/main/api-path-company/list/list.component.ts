@@ -67,7 +67,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
   tableRowsSelected: Array<SmsMainApiPathCompanyModel> = [];
   tableRowSelected: SmsMainApiPathCompanyModel = new SmsMainApiPathCompanyModel();
   tableSource: MatTableDataSource<SmsMainApiPathCompanyModel> = new MatTableDataSource<SmsMainApiPathCompanyModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

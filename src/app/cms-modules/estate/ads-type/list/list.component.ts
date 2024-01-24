@@ -93,7 +93,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

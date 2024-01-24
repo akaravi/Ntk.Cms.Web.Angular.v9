@@ -73,7 +73,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
   tableRowSelected: ApplicationThemeConfigModel = new ApplicationThemeConfigModel();
   tableSource: MatTableDataSource<ApplicationThemeConfigModel> = new MatTableDataSource<ApplicationThemeConfigModel>();
   categoryModelSelected: ApplicationSourceModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: ApplicationThemeConfigModel | null;
   cmsApiStoreSubscribe: Subscription;
   tabledisplayedColumns: string[] = [];

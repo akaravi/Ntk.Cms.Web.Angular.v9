@@ -79,7 +79,7 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
   tableRowsSelected: Array<SmsLogInBoxModel> = [];
   tableRowSelected: SmsLogInBoxModel = new SmsLogInBoxModel();
   tableSource: MatTableDataSource<SmsLogInBoxModel> = new MatTableDataSource<SmsLogInBoxModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

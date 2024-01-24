@@ -81,7 +81,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     'position'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

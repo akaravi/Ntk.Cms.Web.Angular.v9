@@ -82,7 +82,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
   tableRowsSelected: Array<CoreModuleEntityModel> = [];
   tableRowSelected: CoreModuleEntityModel = new CoreModuleEntityModel();
   tableSource: MatTableDataSource<CoreModuleEntityModel> = new MatTableDataSource<CoreModuleEntityModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   categoryModelSelected = new CoreModuleModel();
 

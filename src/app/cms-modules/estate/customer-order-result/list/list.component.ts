@@ -96,7 +96,7 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
   tableRowsSelected: Array<EstateCustomerOrderResultModel> = [];
   tableRowSelected: EstateCustomerOrderResultModel = new EstateCustomerOrderResultModel();
   tableSource: MatTableDataSource<EstateCustomerOrderResultModel> = new MatTableDataSource<EstateCustomerOrderResultModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

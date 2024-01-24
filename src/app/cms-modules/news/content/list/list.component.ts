@@ -95,7 +95,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

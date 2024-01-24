@@ -81,7 +81,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
   tableRowsSelected: Array<CoreModuleSaleItemModel> = [];
   tableRowSelected: CoreModuleSaleItemModel = new CoreModuleSaleItemModel();
   tableSource: MatTableDataSource<CoreModuleSaleItemModel> = new MatTableDataSource<CoreModuleSaleItemModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   categoryModelSelected: CoreModuleSaleHeaderModel = new CoreModuleSaleHeaderModel();
   dataModelEnumCmsModuleSaleItemTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();

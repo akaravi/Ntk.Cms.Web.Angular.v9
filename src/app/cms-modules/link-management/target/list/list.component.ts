@@ -92,7 +92,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

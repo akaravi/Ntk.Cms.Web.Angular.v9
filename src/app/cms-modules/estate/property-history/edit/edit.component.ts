@@ -57,7 +57,6 @@ export class EstatePropertyHistoryEditComponent extends EditBaseComponent<Estate
   appLanguage = 'fa';
   tokenInfo = new TokenInfoModel();
   loading = new ProgressSpinnerModel();
-  dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstatePropertyHistoryModel = new EstatePropertyHistoryModel();
   dataFileModelFiles = new Map<number, string>();
   formInfo: FormInfoModel = new FormInfoModel();

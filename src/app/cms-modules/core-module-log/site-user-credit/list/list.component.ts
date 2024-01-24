@@ -109,7 +109,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

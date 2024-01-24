@@ -86,7 +86,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

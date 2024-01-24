@@ -89,7 +89,7 @@ implements OnInit, OnDestroy {
   tableRowsSelected: Array<CoreUserClaimGroupDetailModel> = [];
   tableRowSelected: CoreUserClaimGroupDetailModel = new CoreUserClaimGroupDetailModel();
   tableSource: MatTableDataSource<CoreUserClaimGroupDetailModel> = new MatTableDataSource<CoreUserClaimGroupDetailModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   categoryModelSelected: CoreUserClaimGroupModel = new CoreUserClaimGroupModel();
   dataModelCoreUserClaimTypeResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();
   dataModelCoreUserClaimGroupResult: ErrorExceptionResult<CoreUserClaimGroupModel> = new ErrorExceptionResult<CoreUserClaimGroupModel>();

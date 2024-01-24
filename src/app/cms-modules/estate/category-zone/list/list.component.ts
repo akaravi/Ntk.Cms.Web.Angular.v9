@@ -79,7 +79,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

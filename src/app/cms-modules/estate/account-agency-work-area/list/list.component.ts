@@ -75,7 +75,7 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

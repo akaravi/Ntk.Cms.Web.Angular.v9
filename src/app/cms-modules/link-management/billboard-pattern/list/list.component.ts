@@ -82,7 +82,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelManagementContentSettingTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   cmsApiStoreSubscribe: Subscription;

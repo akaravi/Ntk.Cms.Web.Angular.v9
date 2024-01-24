@@ -83,7 +83,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

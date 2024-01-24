@@ -121,7 +121,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
     'ExpireDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelEnumSendReportDataStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

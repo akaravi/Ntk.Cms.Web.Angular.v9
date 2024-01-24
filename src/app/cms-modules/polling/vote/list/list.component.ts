@@ -85,7 +85,7 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: PollingVoteModel | null;
   cmsApiStoreSubscribe: Subscription;
 

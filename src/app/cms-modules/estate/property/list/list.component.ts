@@ -246,10 +246,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     "LinkTo",
     "QuickView",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<
-    string,
-    DataFieldInfoModel
-  >();
+
   propertyDetails: Map<string, string> = new Map<string, string>();
   enumInputDataType = InputDataTypeEnum;
   // ** Accardon */

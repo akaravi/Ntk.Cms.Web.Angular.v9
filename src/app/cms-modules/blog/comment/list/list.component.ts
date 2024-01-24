@@ -100,7 +100,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     "LinkTo",
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   expandedElement: BlogCommentModel | null;
   cmsApiStoreSubscribe: Subscription;

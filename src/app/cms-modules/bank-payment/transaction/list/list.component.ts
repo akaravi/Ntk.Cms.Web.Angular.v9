@@ -92,7 +92,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelEnumTransactionRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumTransactionBankStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   expandedElement: BankPaymentTransactionModel | null;

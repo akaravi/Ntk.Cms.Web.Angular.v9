@@ -80,7 +80,7 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

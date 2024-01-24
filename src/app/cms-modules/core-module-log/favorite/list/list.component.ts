@@ -112,7 +112,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

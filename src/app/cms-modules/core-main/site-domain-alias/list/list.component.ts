@@ -94,7 +94,7 @@ implements OnInit, OnDestroy {
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   expandedElement: CoreSiteModel | null;

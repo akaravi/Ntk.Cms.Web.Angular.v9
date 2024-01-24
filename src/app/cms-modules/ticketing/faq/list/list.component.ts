@@ -54,7 +54,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Ascending;
   }
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   comment: string;
   author: string;

@@ -69,7 +69,7 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
   tableRowsSelected: Array<CoreSiteCategoryModel> = [];
   tableRowSelected: CoreSiteCategoryModel = new CoreSiteCategoryModel();
   tableSource: MatTableDataSource<CoreSiteCategoryModel> = new MatTableDataSource<CoreSiteCategoryModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

@@ -81,7 +81,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     'Creditor',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

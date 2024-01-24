@@ -100,7 +100,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
   ];
   dataModelInquiryResult: ErrorExceptionResultBase;
   dataModelInquiry: EstatePriceInquiryDtoModel = new EstatePriceInquiryDtoModel();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

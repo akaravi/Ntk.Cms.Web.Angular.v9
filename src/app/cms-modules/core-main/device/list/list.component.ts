@@ -81,7 +81,7 @@ implements OnInit, OnDestroy {
   tableRowsSelected: Array<CoreDeviceModel> = [];
   tableRowSelected: CoreDeviceModel = new CoreDeviceModel();
   tableSource: MatTableDataSource<CoreDeviceModel> = new MatTableDataSource<CoreDeviceModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelEnumDeviceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumOperatingSystemTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 

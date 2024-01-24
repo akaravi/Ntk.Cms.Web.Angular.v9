@@ -90,7 +90,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     'UpdatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: ApplicationLogNotificationModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

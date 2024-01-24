@@ -60,7 +60,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Descending;
   }
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   comment: string;
   author: string;

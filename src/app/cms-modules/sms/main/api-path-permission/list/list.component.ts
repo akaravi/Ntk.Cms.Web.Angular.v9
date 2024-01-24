@@ -69,7 +69,7 @@ export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<Sms
   tableRowsSelected: Array<SmsMainApiPathPermissionModel> = [];
   tableRowSelected: SmsMainApiPathPermissionModel = new SmsMainApiPathPermissionModel();
   tableSource: MatTableDataSource<SmsMainApiPathPermissionModel> = new MatTableDataSource<SmsMainApiPathPermissionModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   categoryModelSelected: SmsMainApiPathModel;
 
   tabledisplayedColumns: string[] = [];

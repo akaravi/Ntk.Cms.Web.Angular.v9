@@ -84,7 +84,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: BankPaymentTransactionLogModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

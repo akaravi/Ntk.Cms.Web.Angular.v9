@@ -23,22 +23,27 @@ import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExport
 import { environment } from 'src/environments/environment';
 import { EstateCategoryRackAddComponent } from '../add/add.component';
 import { EstateCategoryRackEditComponent } from '../edit/edit.component';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-category-rack-list-mobile',
   templateUrl: './list.mobile.component.html',
   styleUrls: ['list.mobile.component.scss']
 })
-export class EstateCategoryRackListMobileComponent implements OnInit, OnDestroy {
+export class EstateCategoryRackListMobileComponent extends ListBaseComponent<EstateCategoryRackService, EstateCategoryRackModel, string>  implements OnInit, OnDestroy {
   constructor(
     private contentService: EstateCategoryRackService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private router: Router,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public pageInfo: PageInfoService,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog) {
+      super(contentService, new EstateCategoryRackModel(), pageInfo, publicHelper, dialog);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -76,7 +81,7 @@ export class EstateCategoryRackListMobileComponent implements OnInit, OnDestroy 
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

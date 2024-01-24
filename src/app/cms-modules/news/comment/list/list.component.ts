@@ -101,7 +101,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     //'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: NewsCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

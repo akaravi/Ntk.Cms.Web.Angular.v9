@@ -81,7 +81,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
   tableRowsSelected: Array<CoreModuleSaleInvoiceDetailModel> = [];
   tableRowSelected: CoreModuleSaleInvoiceDetailModel = new CoreModuleSaleInvoiceDetailModel();
   tableSource: MatTableDataSource<CoreModuleSaleInvoiceDetailModel> = new MatTableDataSource<CoreModuleSaleInvoiceDetailModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   dataModelEnumCmsModuleSaleItemTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 

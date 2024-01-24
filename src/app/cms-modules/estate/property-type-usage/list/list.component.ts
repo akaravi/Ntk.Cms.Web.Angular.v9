@@ -78,7 +78,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

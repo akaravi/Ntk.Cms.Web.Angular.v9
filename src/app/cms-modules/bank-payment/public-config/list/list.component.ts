@@ -72,7 +72,7 @@ implements OnInit, OnDestroy {
   tableRowsSelected: Array<BankPaymentPublicConfigModel> = [];
   tableRowSelected: BankPaymentPublicConfigModel = new BankPaymentPublicConfigModel();
   tableSource: MatTableDataSource<BankPaymentPublicConfigModel> = new MatTableDataSource<BankPaymentPublicConfigModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkModuleFileLogoIdSrc',

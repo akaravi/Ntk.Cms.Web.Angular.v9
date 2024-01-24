@@ -71,7 +71,7 @@ export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService
   tableRowsSelected: Array<CoreModuleModel> = [];
   tableRowSelected: CoreModuleModel = new CoreModuleModel();
   tableSource: MatTableDataSource<CoreModuleModel> = new MatTableDataSource<CoreModuleModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

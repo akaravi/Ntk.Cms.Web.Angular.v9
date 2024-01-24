@@ -101,7 +101,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

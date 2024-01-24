@@ -94,7 +94,7 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   expandedElement: CoreSiteModel | null;

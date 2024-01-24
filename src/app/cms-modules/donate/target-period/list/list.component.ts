@@ -89,7 +89,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     'CurrentPaymentSum',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

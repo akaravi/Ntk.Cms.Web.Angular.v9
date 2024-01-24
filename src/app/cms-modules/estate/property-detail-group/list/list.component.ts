@@ -82,7 +82,7 @@ export class EstatePropertyDetailGroupListComponent extends ListBaseComponent<Es
     // 'Action'
   ];
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

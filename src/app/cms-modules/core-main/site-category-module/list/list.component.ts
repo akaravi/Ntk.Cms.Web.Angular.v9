@@ -87,7 +87,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
   tableRowsSelected: Array<CoreSiteCategoryCmsModuleModel> = [];
   tableRowSelected: CoreSiteCategoryCmsModuleModel = new CoreSiteCategoryCmsModuleModel();
   tableSource: MatTableDataSource<CoreSiteCategoryCmsModuleModel> = new MatTableDataSource<CoreSiteCategoryCmsModuleModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

@@ -75,7 +75,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     'CreatedDate',
     // 'Action',
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

@@ -111,7 +111,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 

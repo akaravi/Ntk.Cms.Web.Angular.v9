@@ -82,7 +82,7 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
   tableRowsSelected: Array<SmsLogApiPathModel> = [];
   tableRowSelected: SmsLogApiPathModel = new SmsLogApiPathModel();
   tableSource: MatTableDataSource<SmsLogApiPathModel> = new MatTableDataSource<SmsLogApiPathModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

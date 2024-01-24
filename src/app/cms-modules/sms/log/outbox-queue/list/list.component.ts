@@ -77,7 +77,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
   tableRowsSelected: Array<SmsLogOutBoxQueueModel> = [];
   tableRowSelected: SmsLogOutBoxQueueModel = new SmsLogOutBoxQueueModel();
   tableSource: MatTableDataSource<SmsLogOutBoxQueueModel> = new MatTableDataSource<SmsLogOutBoxQueueModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

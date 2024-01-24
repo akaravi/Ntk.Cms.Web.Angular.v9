@@ -69,7 +69,7 @@ implements OnInit, OnDestroy {
   tableRowsSelected: Array<CoreUserGroupModel> = [];
   tableRowSelected: CoreUserGroupModel = new CoreUserGroupModel();
   tableSource: MatTableDataSource<CoreUserGroupModel> = new MatTableDataSource<CoreUserGroupModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

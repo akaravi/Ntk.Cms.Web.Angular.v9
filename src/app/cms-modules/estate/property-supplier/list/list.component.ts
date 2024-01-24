@@ -89,7 +89,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     // 'Action',
     'LinkTo',
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

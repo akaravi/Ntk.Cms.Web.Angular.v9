@@ -94,7 +94,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
     'CreatedDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   expandedElement: CoreSiteModel | null;

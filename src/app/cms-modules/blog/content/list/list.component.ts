@@ -87,7 +87,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   cmsApiStoreSubscribe: Subscription;

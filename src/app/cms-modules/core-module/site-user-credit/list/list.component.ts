@@ -81,7 +81,7 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
     'SumCreditBlocked',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   cmsApiStoreSubscribe: Subscription;

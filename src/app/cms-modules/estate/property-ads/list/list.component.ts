@@ -85,7 +85,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     'ExpireDate',
     // 'Action'
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: EstatePropertyAdsModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

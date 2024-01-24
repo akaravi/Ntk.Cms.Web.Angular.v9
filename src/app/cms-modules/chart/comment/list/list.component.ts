@@ -97,7 +97,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     // 'Action',
     "LinkTo",
   ];
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   expandedElement: ChartCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
 

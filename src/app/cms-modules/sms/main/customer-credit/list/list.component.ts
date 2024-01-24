@@ -70,7 +70,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
   tableRowsSelected: Array<SmsMainCustomerCreditModel> = [];
   tableRowSelected: SmsMainCustomerCreditModel = new SmsMainCustomerCreditModel();
   tableSource: MatTableDataSource<SmsMainCustomerCreditModel> = new MatTableDataSource<SmsMainCustomerCreditModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   categoryModelSelected: SmsMainCustomerCreditModel;
 
   tabledisplayedColumns: string[] = [];
