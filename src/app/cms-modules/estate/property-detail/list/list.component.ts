@@ -47,7 +47,7 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstatePropertyDetailModel(), pageInfo, publicHelper, dialog);
+    super(contentService, new EstatePropertyDetailModel(), pageInfo, publicHelper, dialog);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeLanduseId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyTypeLanduseId');
     this.optionsSearch.parentMethods = {
