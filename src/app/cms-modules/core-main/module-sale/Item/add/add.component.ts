@@ -11,8 +11,8 @@ import {
   FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -20,7 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class CoreModuleSaleItemAddComponent implements OnInit {
+export class CoreModuleSaleItemAddComponent extends AddBaseComponent<CoreModuleSaleItemService, CoreModuleSaleItemModel, number> implements OnInit {
   requestLinkModuleSaleHeader = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -32,6 +32,7 @@ export class CoreModuleSaleItemAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(coreModuleSaleItemService, new CoreModuleSaleItemModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -48,7 +49,6 @@ export class CoreModuleSaleItemAddComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<CoreModuleSaleItemModel> = new ErrorExceptionResult<CoreModuleSaleItemModel>();
   dataModel: CoreModuleSaleItemModel = new CoreModuleSaleItemModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -77,28 +77,28 @@ export class CoreModuleSaleItemAddComponent implements OnInit {
     });
   }
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.coreModuleSaleItemService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.coreModuleSaleItemService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
 
 

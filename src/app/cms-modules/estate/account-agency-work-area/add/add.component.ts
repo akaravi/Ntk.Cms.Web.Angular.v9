@@ -10,9 +10,9 @@ import {
   CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountAgencyWorkAreaModel, EstateAccountAgencyWorkAreaService, EstateEnumService, FormInfoModel, InfoEnumModel, TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -20,7 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class EstateAccountAgencyWorkAreaAddComponent implements OnInit {
+export class EstateAccountAgencyWorkAreaAddComponent extends AddBaseComponent<EstateAccountAgencyWorkAreaService, EstateAccountAgencyWorkAreaModel, string> implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstateAccountAgencyWorkAreaAddComponent>,
@@ -33,6 +33,7 @@ export class EstateAccountAgencyWorkAreaAddComponent implements OnInit {
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
+    super(estateAccountAgencyWorkAreaService, new EstateAccountAgencyWorkAreaModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -46,7 +47,6 @@ export class EstateAccountAgencyWorkAreaAddComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyWorkAreaModel> = new ErrorExceptionResult<EstateAccountAgencyWorkAreaModel>();
   dataModel: EstateAccountAgencyWorkAreaModel = new EstateAccountAgencyWorkAreaModel();
   formInfo: FormInfoModel = new FormInfoModel();
@@ -70,29 +70,29 @@ export class EstateAccountAgencyWorkAreaAddComponent implements OnInit {
   }
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.estateAccountAgencyWorkAreaService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            // this.dataAccessModel = next.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.estateAccountAgencyWorkAreaService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           // this.dataAccessModel = next.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

@@ -19,6 +19,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 
 @Component({
   selector: 'app-linkmanagement-Billboard-add',
@@ -26,7 +27,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   styleUrls: ['./add.component.scss'
   ]
 })
-export class LinkManagementBillboardAddComponent implements OnInit, AfterViewInit {
+export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel ,number> implements OnInit, AfterViewInit {
 
   requestLinkBillboardPatternId = 0;
   constructor(
@@ -40,6 +41,7 @@ export class LinkManagementBillboardAddComponent implements OnInit, AfterViewIni
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(linkManagementBillboardService, new LinkManagementBillboardModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loadingOption.cdr = this.cdr;
 
@@ -59,7 +61,6 @@ export class LinkManagementBillboardAddComponent implements OnInit, AfterViewIni
   optionTabledisplayedColumns = ['Id', 'Option', 'OptionAnswer', 'IsCorrectAnswer', 'NumberOfVotes', 'ScoreOfVotes', 'Action'];
   dataContentCategoryModel: number[] = [];
 
-  loading = new ProgressSpinnerModel();
   loadingOption = new ProgressSpinnerModel();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
@@ -120,28 +121,28 @@ export class LinkManagementBillboardAddComponent implements OnInit, AfterViewIni
 
 
   }
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
-    this.linkManagementBillboardService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.dataAccessModel = ret.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
+  //   this.linkManagementBillboardService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.dataAccessModel = ret.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
   DataGetOne(): void {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');

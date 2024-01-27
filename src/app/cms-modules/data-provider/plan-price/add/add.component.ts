@@ -13,8 +13,8 @@ import {
   FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -22,7 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class DataProviderPlanPriceAddComponent implements OnInit {
+export class DataProviderPlanPriceAddComponent extends AddBaseComponent<DataProviderPlanPriceService, DataProviderPlanPriceModel, number> implements OnInit {
   requestLinkPlanId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -35,6 +35,7 @@ export class DataProviderPlanPriceAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(dataproviderplanpriceservice, new DataProviderPlanPriceModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestLinkPlanId = +data.linkPlanId || 0;
@@ -52,7 +53,6 @@ export class DataProviderPlanPriceAddComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<DataProviderPlanPriceModel> = new ErrorExceptionResult<DataProviderPlanPriceModel>();
   dataModel: DataProviderPlanPriceModel = new DataProviderPlanPriceModel();
 
@@ -93,29 +93,29 @@ export class DataProviderPlanPriceAddComponent implements OnInit {
     }
     );
   }
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.dataproviderplanpriceservice
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            // this.dataAccessModel = next.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.dataproviderplanpriceservice
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           // this.dataAccessModel = next.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

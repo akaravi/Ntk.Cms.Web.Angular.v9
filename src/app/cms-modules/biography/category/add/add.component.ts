@@ -11,15 +11,15 @@ import {
   FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-biography-category-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class BiographyCategoryAddComponent implements OnInit {
+export class BiographyCategoryAddComponent extends AddBaseComponent<BiographyCategoryService, BiographyCategoryModel, number> implements OnInit {
   requestParentId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -31,6 +31,7 @@ export class BiographyCategoryAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(biographyCategoryService, new BiographyCategoryModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -46,7 +47,6 @@ export class BiographyCategoryAddComponent implements OnInit {
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<BiographyCategoryModel> = new ErrorExceptionResult<BiographyCategoryModel>();
   dataModel: BiographyCategoryModel = new BiographyCategoryModel();
   formInfo: FormInfoModel = new FormInfoModel();
@@ -62,28 +62,28 @@ export class BiographyCategoryAddComponent implements OnInit {
     this.DataGetAccess();
   }
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'main';
+  //   this.loading.Start(pName);
 
-    this.biographyCategoryService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.biographyCategoryService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

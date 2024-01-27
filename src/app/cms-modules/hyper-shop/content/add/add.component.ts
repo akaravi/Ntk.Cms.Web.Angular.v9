@@ -10,8 +10,8 @@ import {
   HyperShopContentService, InfoEnumModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsFormsErrorStateMatcher } from 'src/app/core/pipe/cmsFormsErrorStateMatcher';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -21,7 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })
-export class HyperShopContentAddComponent implements OnInit {
+export class HyperShopContentAddComponent extends AddBaseComponent<HyperShopContentService, HyperShopContentModel, string> implements OnInit {
   requestParentId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -33,6 +33,7 @@ export class HyperShopContentAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(hyperShopContentService, new HyperShopContentModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = data.parentId + '';
@@ -49,7 +50,6 @@ export class HyperShopContentAddComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
   formMatcher = new CmsFormsErrorStateMatcher();
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<HyperShopContentModel> = new ErrorExceptionResult<HyperShopContentModel>();
   dataModel: HyperShopContentModel = new HyperShopContentModel();
   dataFileModel = new Map<number, string>();
@@ -69,28 +69,28 @@ export class HyperShopContentAddComponent implements OnInit {
   }
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.hyperShopContentService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.hyperShopContentService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

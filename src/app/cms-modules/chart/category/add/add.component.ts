@@ -11,8 +11,8 @@ import {
   FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -20,7 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class ChartCategoryAddComponent implements OnInit {
+export class ChartCategoryAddComponent extends AddBaseComponent<ChartCategoryService, ChartCategoryModel, number> implements OnInit {
   requestParentId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -32,6 +32,7 @@ export class ChartCategoryAddComponent implements OnInit {
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
+    super(categoryService, new ChartCategoryModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -50,7 +51,6 @@ export class ChartCategoryAddComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<ChartCategoryModel> = new ErrorExceptionResult<ChartCategoryModel>();
   dataModel: ChartCategoryModel = new ChartCategoryModel();
 
@@ -75,28 +75,28 @@ export class ChartCategoryAddComponent implements OnInit {
 
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'main';
+  //   this.loading.Start(pName);
 
-    this.categoryService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.categoryService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

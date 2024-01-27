@@ -17,9 +17,9 @@ import {
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { firstValueFrom, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -28,7 +28,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })
-export class BlogContentAddComponent implements OnInit, AfterViewInit {
+export class BlogContentAddComponent extends AddBaseComponent<BlogContentService, BlogContentModel, number> implements OnInit, AfterViewInit {
   requestCategoryId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -43,6 +43,7 @@ export class BlogContentAddComponent implements OnInit, AfterViewInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(contentService, new BlogContentModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -52,7 +53,6 @@ export class BlogContentAddComponent implements OnInit, AfterViewInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   mapOptonCenter = new PoinModel();
 
-  loading = new ProgressSpinnerModel();
   formInfo: FormInfoModel = new FormInfoModel();
   dataModel = new BlogContentModel();
   dataModelResult: ErrorExceptionResult<BlogContentModel> = new ErrorExceptionResult<BlogContentModel>();
@@ -105,29 +105,29 @@ export class BlogContentAddComponent implements OnInit, AfterViewInit {
     //   onActionSelect: (x) => this.onActionContentSimilarSelect(x),
     // };
   }
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'main';
+  //   this.loading.Start(pName);
 
-    this.contentService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.dataAccessModel = ret.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.contentService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.dataAccessModel = ret.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
   onActionTagChange(model: any): void {
     this.tagDataModel = model;
   }

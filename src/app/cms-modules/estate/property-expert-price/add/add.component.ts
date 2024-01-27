@@ -11,9 +11,9 @@ import {
   EstatePropertyExpertPriceService, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FormInfoModel, InfoEnumModel, TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -21,7 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class EstatePropertyExpertPriceAddComponent implements OnInit {
+export class EstatePropertyExpertPriceAddComponent extends AddBaseComponent<EstatePropertyExpertPriceService, EstatePropertyExpertPriceModel, string> implements OnInit {
   requestTargetCategoryId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -35,6 +35,7 @@ export class EstatePropertyExpertPriceAddComponent implements OnInit {
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
+    super(estatePropertyExpertPriceService, new EstatePropertyExpertPriceModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // if (data) {
     //   this.requestTargetCategoryId = +data.linkTargetCategoryId || 0;
@@ -55,7 +56,6 @@ export class EstatePropertyExpertPriceAddComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyExpertPriceModel> = new ErrorExceptionResult<EstatePropertyExpertPriceModel>();
   dataModel: EstatePropertyExpertPriceModel = new EstatePropertyExpertPriceModel();
   dataModelEstatePropertyExpertPriceTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
@@ -82,28 +82,28 @@ export class EstatePropertyExpertPriceAddComponent implements OnInit {
     });
   }
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.estatePropertyExpertPriceService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.estatePropertyExpertPriceService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

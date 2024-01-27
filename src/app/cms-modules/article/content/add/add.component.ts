@@ -11,13 +11,12 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   AccessModel, ArticleCategoryModel, ArticleContentModel, ArticleContentOtherInfoModel, ArticleContentOtherInfoService, ArticleContentService, ArticleContentSimilarModel, ArticleContentSimilarService, ArticleContentTagModel, ArticleContentTagService, CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
-} from 'ntk-cms-api';
+  FormInfoModel} from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { firstValueFrom, of } from 'rxjs';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-article-content-add',
@@ -25,7 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./add.component.scss'
   ]
 })
-export class ArticleContentAddComponent implements OnInit, AfterViewInit {
+export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentService, ArticleContentModel, number> implements OnInit, AfterViewInit {
   requestCategoryId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -40,6 +39,7 @@ export class ArticleContentAddComponent implements OnInit, AfterViewInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(contentService, new ArticleContentModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -48,7 +48,6 @@ export class ArticleContentAddComponent implements OnInit, AfterViewInit {
   dataModel = new ArticleContentModel();
   dataModelResult: ErrorExceptionResult<ArticleContentModel> = new ErrorExceptionResult<ArticleContentModel>();
 
-  loading = new ProgressSpinnerModel();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -88,29 +87,29 @@ export class ArticleContentAddComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
   }
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'main';
+  //   this.loading.Start(pName);
 
-    this.contentService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.dataAccessModel = ret.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.contentService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.dataAccessModel = ret.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
   onActionTagChange(model: any): void {
     this.tagDataModel = model;
   }

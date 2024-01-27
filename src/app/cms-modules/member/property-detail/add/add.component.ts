@@ -1,5 +1,6 @@
 
 import { ENTER } from '@angular/cdk/keycodes';
+import { NumberSymbol } from '@angular/common';
 import {
   ChangeDetectorRef, Component, Inject, OnInit,
   ViewChild
@@ -14,8 +15,8 @@ import {
   MemberPropertyDetailService, MemberPropertyTypeModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -23,7 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class MemberPropertyDetailAddComponent implements OnInit {
+export class MemberPropertyDetailAddComponent extends AddBaseComponent<MemberPropertyDetailService, MemberPropertyDetailModel, number> implements OnInit {
   requestLinkPropertyTypeId = 0;
   requestLinkPropertyDetailGroupId = 0;
   constructor(
@@ -37,6 +38,7 @@ export class MemberPropertyDetailAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(memberPropertyDetailService, new MemberPropertyDetailModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestLinkPropertyTypeId = +data.linkPropertyTypeId;
@@ -56,7 +58,6 @@ export class MemberPropertyDetailAddComponent implements OnInit {
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<MemberPropertyDetailModel> = new ErrorExceptionResult<MemberPropertyDetailModel>();
   dataModel: MemberPropertyDetailModel = new MemberPropertyDetailModel();
   formInfo: FormInfoModel = new FormInfoModel();
@@ -80,28 +81,28 @@ export class MemberPropertyDetailAddComponent implements OnInit {
   // }
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.memberPropertyDetailService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.memberPropertyDetailService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

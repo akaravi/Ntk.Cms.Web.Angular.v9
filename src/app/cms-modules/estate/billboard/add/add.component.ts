@@ -7,20 +7,20 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreCurrencyModel, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, EstateBillboardModel, EstateBillboardService, FormInfoModel, InfoEnumModel, SortTypeEnum
+  CoreCurrencyModel, CoreEnumService, DataFieldInfoModel, EstateBillboardModel, EstateBillboardService, FormInfoModel, SortTypeEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 
 @Component({
   selector: 'app-estate-billboard-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class EstateBillboardAddComponent implements OnInit {
+export class EstateBillboardAddComponent extends AddBaseComponent<EstateBillboardService, EstateBillboardModel, string> implements OnInit {
   requestId = '';
   constructor(
     private router: Router,
@@ -32,6 +32,7 @@ export class EstateBillboardAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(estateBillboardService, new EstateBillboardModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -46,7 +47,6 @@ export class EstateBillboardAddComponent implements OnInit {
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
 
   dataModel: EstateBillboardModel = new EstateBillboardModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();
@@ -64,30 +64,30 @@ export class EstateBillboardAddComponent implements OnInit {
   }
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.estateBillboardService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            // this.dataAccessModel = next.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-            this.dataFieldInfoModel = ret.access.fieldsInfo;
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.estateBillboardService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           // this.dataAccessModel = next.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //           this.dataFieldInfoModel = ret.access.fieldsInfo;
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

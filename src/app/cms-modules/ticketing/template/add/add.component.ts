@@ -7,8 +7,8 @@ import {
   FormInfoModel, InfoEnumModel, TicketingDepartemenModel, TicketingTemplateModel,
   TicketingTemplateService
 } from 'ntk-cms-api';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsFormsErrorStateMatcher } from 'src/app/core/pipe/cmsFormsErrorStateMatcher';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -18,7 +18,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })
-export class TicketingTemplateAddComponent implements OnInit {
+export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTemplateService, TicketingTemplateModel, number> implements OnInit {
   requestParentId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -30,6 +30,7 @@ export class TicketingTemplateAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(ticketingTemplateService, new TicketingTemplateModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = +data.parentId || 0;
@@ -42,7 +43,6 @@ export class TicketingTemplateAddComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
   formMatcher = new CmsFormsErrorStateMatcher();
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<TicketingTemplateModel> = new ErrorExceptionResult<TicketingTemplateModel>();
   dataModel: TicketingTemplateModel = new TicketingTemplateModel();
   formInfo: FormInfoModel = new FormInfoModel();
@@ -59,28 +59,28 @@ export class TicketingTemplateAddComponent implements OnInit {
   }
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.ticketingTemplateService
-      .ServiceViewModel()
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            // this.dataAccessModel = next.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        (error) => {
-          this.cmsToastrService.typeErrorGetAccess(error);
-          this.loading.Stop(pName);
-        }
-      );
-  }
+  //   this.ticketingTemplateService
+  //     .ServiceViewModel()
+  //     .subscribe(
+  //       async (next) => {
+  //         if (next.isSuccess) {
+  //           // this.dataAccessModel = next.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       (error) => {
+  //         this.cmsToastrService.typeErrorGetAccess(error);
+  //         this.loading.Stop(pName);
+  //       }
+  //     );
+  // }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

@@ -17,9 +17,9 @@ import {
   FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -28,7 +28,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })
-export class CatalogContentAddComponent implements OnInit, AfterViewInit {
+export class CatalogContentAddComponent extends AddBaseComponent<CatalogContentService, CatalogContentModel, string> implements OnInit, AfterViewInit {
   requestCategoryId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -40,6 +40,7 @@ export class CatalogContentAddComponent implements OnInit, AfterViewInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(contentService, new CatalogContentModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -49,7 +50,6 @@ export class CatalogContentAddComponent implements OnInit, AfterViewInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   mapOptonCenter = new PoinModel();
 
-  loading = new ProgressSpinnerModel();
   formInfo: FormInfoModel = new FormInfoModel();
   dataModel = new CatalogContentModel();
   dataModelResult: ErrorExceptionResult<CatalogContentModel> = new ErrorExceptionResult<CatalogContentModel>();
@@ -99,29 +99,29 @@ export class CatalogContentAddComponent implements OnInit, AfterViewInit {
     //   onActionSelect: (x) => this.onActionContentSimilarSelect(x),
     // };
   }
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'main';
+  //   this.loading.Start(pName);
 
-    this.contentService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.dataAccessModel = ret.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.contentService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.dataAccessModel = ret.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   onActionFileSelectedLinkMainImageId(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;

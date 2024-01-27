@@ -4,24 +4,25 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, ApplicationThemeConfigModel,
   ApplicationThemeConfigService, CoreEnumService, CoreSiteCategoryModel, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
-} from 'ntk-cms-api';
+  FormInfoModel} from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+
+type NewType = MatDialog;
 
 @Component({
   selector: 'app-core-sitecategorycmsmodule-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class ApplicationThemeConfigAddComponent implements OnInit {
+export class ApplicationThemeConfigAddComponent extends AddBaseComponent<ApplicationThemeConfigService, ApplicationThemeConfigModel, number> implements OnInit {
   requestLinkSourceId = 0;
   requestLinkCmsSiteCategoryId = 0;
   constructor(
@@ -30,10 +31,11 @@ export class ApplicationThemeConfigAddComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public applicationThemeConfigService: ApplicationThemeConfigService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
+    public publicHelper: PublicHelper,
   ) {
+    super(applicationThemeConfigService, new ApplicationThemeConfigModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -55,7 +57,6 @@ export class ApplicationThemeConfigAddComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
 
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<ApplicationThemeConfigModel> = new ErrorExceptionResult<ApplicationThemeConfigModel>();
   dataModel: ApplicationThemeConfigModel = new ApplicationThemeConfigModel();
 
@@ -71,29 +72,29 @@ export class ApplicationThemeConfigAddComponent implements OnInit {
   }
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'main';
+  //   this.loading.Start(pName);
 
-    this.applicationThemeConfigService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.dataAccessModel = ret.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.applicationThemeConfigService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.dataAccessModel = ret.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
