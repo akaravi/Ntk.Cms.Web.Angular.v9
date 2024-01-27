@@ -10,8 +10,8 @@ import {
   FormInfoModel, InfoEnumModel, TicketingDepartemenModel, TicketingDepartemenService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -19,7 +19,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class TicketingDepartemenAddComponent implements OnInit {
+export class TicketingDepartemenAddComponent extends AddBaseComponent<TicketingDepartemenService, TicketingDepartemenModel, number> implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<TicketingDepartemenAddComponent>,
@@ -30,6 +30,7 @@ export class TicketingDepartemenAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(ticketingDepartemenService, new TicketingDepartemenModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
@@ -39,7 +40,6 @@ export class TicketingDepartemenAddComponent implements OnInit {
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<TicketingDepartemenModel> = new ErrorExceptionResult<TicketingDepartemenModel>();
   dataModel: TicketingDepartemenModel = new TicketingDepartemenModel();
   formInfo: FormInfoModel = new FormInfoModel();
@@ -59,29 +59,29 @@ export class TicketingDepartemenAddComponent implements OnInit {
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
   }
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.ticketingDepartemenService
-      .ServiceViewModel()
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            // this.dataAccessModel = next.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
+  //   this.ticketingDepartemenService
+  //     .ServiceViewModel()
+  //     .subscribe(
+  //       async (next) => {
+  //         if (next.isSuccess) {
+  //           // this.dataAccessModel = next.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
 
-          }
-          this.loading.Stop(pName);
-        },
-        (error) => {
-          this.cmsToastrService.typeErrorGetAccess(error);
-          this.loading.Stop(pName);
-        }
-      );
-  }
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       (error) => {
+  //         this.cmsToastrService.typeErrorGetAccess(error);
+  //         this.loading.Stop(pName);
+  //       }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

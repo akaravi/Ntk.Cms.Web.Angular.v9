@@ -13,15 +13,15 @@ import {
   WebDesignerMainPageDependencyModel, WebDesignerMainPageModel, WebDesignerMainPageService, WebDesignerMainPageTemplateModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-webdesigner-page-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class WebDesignerMainPageAddComponent implements OnInit {
+export class WebDesignerMainPageAddComponent extends AddBaseComponent<WebDesignerMainPageService, WebDesignerMainPageModel, string>  implements OnInit {
   requestLinkPageDependencyGuId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -33,6 +33,7 @@ export class WebDesignerMainPageAddComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(webDesignerMainPageService, new WebDesignerMainPageModel, publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestLinkPageDependencyGuId = data.linkPageDependencyGuId + '';
@@ -48,7 +49,6 @@ export class WebDesignerMainPageAddComponent implements OnInit {
   keywordDataModel = [];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainPageModel> = new ErrorExceptionResult<WebDesignerMainPageModel>();
   dataModel: WebDesignerMainPageModel = new WebDesignerMainPageModel();
   formInfo: FormInfoModel = new FormInfoModel();
@@ -66,28 +66,28 @@ export class WebDesignerMainPageAddComponent implements OnInit {
       this.dataModelEnumPageAbilityTypeResult = next;
     });
   }
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.webDesignerMainPageService
-      .ServiceViewModel()
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            // this.dataAccessModel = next.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        (error) => {
-          this.cmsToastrService.typeErrorGetAccess(error);
-          this.loading.Stop(pName);
-        }
-      );
-  }
+  //   this.webDesignerMainPageService
+  //     .ServiceViewModel()
+  //     .subscribe(
+  //       async (next) => {
+  //         if (next.isSuccess) {
+  //           // this.dataAccessModel = next.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       (error) => {
+  //         this.cmsToastrService.typeErrorGetAccess(error);
+  //         this.loading.Stop(pName);
+  //       }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
