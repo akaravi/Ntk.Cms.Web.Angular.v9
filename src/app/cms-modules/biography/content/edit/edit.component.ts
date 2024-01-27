@@ -50,7 +50,7 @@ implements OnInit, AfterViewInit {
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModel = new BiographyContentModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataContentTagModelResult: ErrorExceptionResult<BiographyContentTagModel> = new ErrorExceptionResult<BiographyContentTagModel>();
@@ -69,7 +69,7 @@ implements OnInit, AfterViewInit {
   similarTabledataSource = new MatTableDataSource<BiographyContentModel>();
   otherInfoTabledataSource = new MatTableDataSource<BiographyContentOtherInfoModel>();
   dataAccessModel: AccessModel;
-  loading = new ProgressSpinnerModel();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

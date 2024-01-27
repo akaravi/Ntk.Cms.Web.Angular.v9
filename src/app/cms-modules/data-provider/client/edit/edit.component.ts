@@ -62,15 +62,15 @@ implements OnInit {
   cmsApiStoreSubscribe: Subscription;
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
-  tokenInfo = new TokenInfoModel();
+  
 
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: DataProviderClientModel = new DataProviderClientModel();
 

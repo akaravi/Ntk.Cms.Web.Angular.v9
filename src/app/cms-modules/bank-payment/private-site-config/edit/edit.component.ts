@@ -44,11 +44,11 @@ export class BankPaymentPrivateSiteConfigEditComponent extends EditBaseComponent
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: BankPaymentPrivateSiteConfigAliasJsonModel = new BankPaymentPrivateSiteConfigAliasJsonModel();
   formInfo: FormInfoModel = new FormInfoModel();

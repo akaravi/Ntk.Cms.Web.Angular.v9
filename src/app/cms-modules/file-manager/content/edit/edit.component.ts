@@ -54,7 +54,7 @@ implements OnInit, AfterViewInit {
   similarTabledisplayedColumns = ['Id', 'RecordStatus', 'Title', 'Action'];
   similarTabledataSource = new MatTableDataSource<FileContentModel>();
 
-  loading = new ProgressSpinnerModel();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -67,7 +67,7 @@ implements OnInit, AfterViewInit {
   keywordDataModel = [];
   tagIdsData: number[];
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   appLanguage = 'fa';

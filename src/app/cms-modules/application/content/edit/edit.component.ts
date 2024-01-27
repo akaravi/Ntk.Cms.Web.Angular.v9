@@ -45,10 +45,10 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   @ViewChild(CmsMapComponent) childMap: CmsMapComponent;
-  loading = new ProgressSpinnerModel();
+  
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModel = new ApplicationAppModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 

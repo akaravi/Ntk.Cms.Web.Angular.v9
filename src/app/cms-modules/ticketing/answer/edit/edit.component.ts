@@ -48,8 +48,8 @@ implements OnInit {
 
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+  
+  
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   dataModel = new TicketingAnswerModel();

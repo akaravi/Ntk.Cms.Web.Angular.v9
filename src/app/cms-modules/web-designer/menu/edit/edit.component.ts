@@ -41,9 +41,9 @@ implements OnInit {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: WebDesignerMainMenuModel = new WebDesignerMainMenuModel();
   formInfo: FormInfoModel = new FormInfoModel();

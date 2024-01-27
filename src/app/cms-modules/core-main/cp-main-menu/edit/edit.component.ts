@@ -51,12 +51,12 @@ implements OnInit {
 
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreCpMainMenuModel = new CoreCpMainMenuModel();
 
@@ -70,7 +70,7 @@ implements OnInit {
   dataCoreCpMainMenuModel: CoreUserGroupModel[];
   dataCoreCpMainMenuIds: number[] = [];
   dataCoreCpMainMenuCmsUserGroupModel: CoreCpMainMenuCmsUserGroupModel[];
-  tokenInfo = new TokenInfoModel();
+  
   ngOnInit(): void {
     if (this.requestId > 0) {
       this.formInfo.formTitle = this.translate.instant('TITLE.Edit');

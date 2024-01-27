@@ -46,12 +46,12 @@ export class CoreModuleEntityEditComponent extends EditBaseComponent<CoreModuleE
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreModuleEntityModel = new CoreModuleEntityModel();
 

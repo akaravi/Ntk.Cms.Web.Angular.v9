@@ -43,7 +43,7 @@ export class TicketingFaqEditComponent  extends EditBaseComponent<TicketingFaqSe
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
 
@@ -51,7 +51,7 @@ export class TicketingFaqEditComponent  extends EditBaseComponent<TicketingFaqSe
   appLanguage = 'fa';
   formMatcher = new CmsFormsErrorStateMatcher();
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: TicketingFaqModel = new TicketingFaqModel();
   dataFileModel = new Map<number, string>();

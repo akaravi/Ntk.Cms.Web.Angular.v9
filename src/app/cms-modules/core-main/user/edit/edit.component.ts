@@ -65,7 +65,7 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreUserModel = new CoreUserModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -73,7 +73,7 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
   formInfo: FormInfoModel = new FormInfoModel();
 
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   fileManagerOpenForm = false;
 

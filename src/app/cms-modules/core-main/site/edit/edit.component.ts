@@ -65,10 +65,10 @@ implements OnInit, OnDestroy {
     });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  loading = new ProgressSpinnerModel();
+  
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModel = new CoreSiteModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
@@ -84,7 +84,7 @@ implements OnInit, OnDestroy {
   fileManagerOpenFormLinkFileIdLogo = false;
   fileManagerOpenFormLinkImageLogoId = false;
   appLanguage = 'fa';
-  tokenInfo = new TokenInfoModel();
+  
   cmsApiStoreSubscribe: Subscription;
   fileManagerTree: TreeModel;
   mapMarker: any;

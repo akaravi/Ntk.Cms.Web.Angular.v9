@@ -71,9 +71,9 @@ export class ChartContentEditComponent extends EditBaseComponent<ChartContentSer
   similarTabledataSource = new MatTableDataSource<ChartContentModel>();
   otherInfoTabledataSource = new MatTableDataSource<ChartContentOtherInfoModel>();
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
-  loading = new ProgressSpinnerModel();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

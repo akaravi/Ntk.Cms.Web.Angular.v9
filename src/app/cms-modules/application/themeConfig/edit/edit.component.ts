@@ -48,7 +48,7 @@ export class ApplicationThemeConfigEditComponent extends EditBaseComponent<Appli
   appLanguage = 'fa';
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: ApplicationThemeConfigModel = new ApplicationThemeConfigModel();
 
@@ -59,7 +59,7 @@ export class ApplicationThemeConfigEditComponent extends EditBaseComponent<Appli
   fileManagerOpenForm = false;
 
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   ngOnInit(): void {
     if (this.requestId <= 0) {

@@ -45,10 +45,10 @@ implements OnInit, OnDestroy {
       this.requestId = data.id;
     }
   }
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreTokenMicroServiceModel = new CoreTokenMicroServiceModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -57,7 +57,7 @@ implements OnInit, OnDestroy {
 
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   fileManagerOpenForm = false;

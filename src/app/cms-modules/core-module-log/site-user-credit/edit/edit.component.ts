@@ -46,16 +46,16 @@ implements OnInit, OnDestroy {
       this.requestId = data.id;
     }
   }
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResult<CoreModuleLogSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleLogSiteUserCreditModel>();
   dataModel: CoreModuleLogSiteUserCreditModel = new CoreModuleLogSiteUserCreditModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   fileManagerOpenForm = false;

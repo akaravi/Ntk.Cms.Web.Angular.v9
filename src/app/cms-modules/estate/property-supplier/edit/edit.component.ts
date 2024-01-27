@@ -46,7 +46,7 @@ implements OnInit, AfterViewInit {
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModel = new EstatePropertySupplierModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
@@ -59,7 +59,7 @@ implements OnInit, AfterViewInit {
   similarTabledisplayedColumns = ['LinkMainImageIdSrc', 'Id', 'RecordStatus', 'Title', 'Action'];
   similarTabledataSource = new MatTableDataSource<EstatePropertySupplierModel>();
   dataAccessModel: AccessModel;
-  loading = new ProgressSpinnerModel();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

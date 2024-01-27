@@ -46,16 +46,16 @@ export class CoreModuleDataPinEditComponent extends EditBaseComponent<CoreModule
       this.requestId = data.id;
     }
   }
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreModuleDataPinModel = new CoreModuleDataPinModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   fileManagerOpenForm = false;

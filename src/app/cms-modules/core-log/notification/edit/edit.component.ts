@@ -45,17 +45,17 @@ export class CoreLogNotificationEditComponent extends EditBaseComponent<CoreLogN
       this.requestId = data.id;
     }
   }
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResult<CoreLogNotificationModel> = new ErrorExceptionResult<CoreLogNotificationModel>();
   dataModel: CoreLogNotificationModel = new CoreLogNotificationModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
   dataModelEnumSendNotificationStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   fileManagerOpenForm = false;

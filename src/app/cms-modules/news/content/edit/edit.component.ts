@@ -67,8 +67,8 @@ implements OnInit, AfterViewInit {
   similarTabledataSource = new MatTableDataSource<NewsContentModel>();
   otherInfoTabledataSource = new MatTableDataSource<NewsContentOtherInfoModel>();
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+  
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

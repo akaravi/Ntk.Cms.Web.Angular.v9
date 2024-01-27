@@ -1,27 +1,22 @@
-import { MatDialog } from "@angular/material/dialog";
-import { BaseEntity, BaseModuleEntity, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
-
+import { BaseEntity, DataFieldInfoModel, ErrorExceptionResultBase, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
 import { CmsDataPinComponent } from "src/app/shared/cms-data-pin/cms-data-pin.component";
 import { CmsDataTaskComponent } from "src/app/shared/cms-data-task/cms-data-task.component";
 import { environment } from "src/environments/environment";
 import { PublicHelper } from "../helpers/publicHelper";
-import { ContentInfoModel } from "../models/contentInfoModel";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
-import { PageInfoService } from "../services/page-info.service";
 //IApiCmsServerBase
 export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(public baseService: TService, public item: TModel,  public publicHelper: PublicHelper) {
+  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper) {
     publicHelper.pageInfo.updateContentService(baseService);
-    this.dataModel=item;
+    this.dataModel = item;
   }
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
   dataModel: TModel;
-
   onActionbuttonMemo(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
@@ -29,7 +24,6 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-
     const dialogRef = this.publicHelper.dialog.open(CmsDataMemoComponent, {
       height: "70%",
       panelClass: panelClass,
@@ -84,7 +78,6 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       panelClass = 'dialog-min';
     const dialogRef = this.publicHelper.dialog.open(CmsDataTaskComponent, {
       height: "70%",
-
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
@@ -150,5 +143,4 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
       }
       );
   }
-
 }

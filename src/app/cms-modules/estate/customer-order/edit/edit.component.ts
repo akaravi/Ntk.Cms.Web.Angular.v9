@@ -70,14 +70,14 @@ implements OnInit {
   @ViewChild(EstatePropertyHistoryListComponent) estatePropertyHistoryListComponent: EstatePropertyHistoryListComponent;
   allowActionSend = false;
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   enumInputDataType = InputDataTypeEnum;
   numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateCustomerOrderModel = new EstateCustomerOrderModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();

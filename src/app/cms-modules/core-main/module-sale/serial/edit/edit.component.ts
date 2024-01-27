@@ -52,10 +52,10 @@ export class CoreModuleSaleSerialEditComponent extends EditBaseComponent<CoreMod
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreModuleSaleSerialModel = new CoreModuleSaleSerialModel();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   formInfo: FormInfoModel = new FormInfoModel();
 

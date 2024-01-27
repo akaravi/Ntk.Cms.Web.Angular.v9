@@ -44,17 +44,17 @@ implements OnInit, OnDestroy {
       this.requestId = data.id;
     }
   }
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResult<CoreLogSmsModel> = new ErrorExceptionResult<CoreLogSmsModel>();
   dataModel: CoreLogSmsModel = new CoreLogSmsModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
   dataModelEnumSendSmsStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   fileManagerOpenForm = false;

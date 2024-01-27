@@ -50,13 +50,13 @@ export class EstatePropertyHistoryEditComponent extends EditBaseComponent<Estate
     });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   dataModel: EstatePropertyHistoryModel = new EstatePropertyHistoryModel();
   dataFileModelFiles = new Map<number, string>();
   formInfo: FormInfoModel = new FormInfoModel();

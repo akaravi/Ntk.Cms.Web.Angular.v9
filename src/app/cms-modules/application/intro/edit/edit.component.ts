@@ -41,10 +41,9 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  loading = new ProgressSpinnerModel();
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModel = new ApplicationIntroModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 

@@ -50,7 +50,7 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModel = new ArticleContentModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataContentTagModelResult: ErrorExceptionResult<ArticleContentTagModel> = new ErrorExceptionResult<ArticleContentTagModel>();
@@ -68,7 +68,7 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
   similarTabledataSource = new MatTableDataSource<ArticleContentModel>();
   otherInfoTabledataSource = new MatTableDataSource<ArticleContentOtherInfoModel>();
   dataAccessModel: AccessModel;
-  loading = new ProgressSpinnerModel();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

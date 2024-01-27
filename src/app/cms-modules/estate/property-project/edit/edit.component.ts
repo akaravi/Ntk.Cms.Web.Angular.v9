@@ -53,7 +53,7 @@ export class EstatePropertyProjectEditComponent extends EditBaseComponent<Estate
     });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModel = new EstatePropertyProjectModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
@@ -66,7 +66,7 @@ export class EstatePropertyProjectEditComponent extends EditBaseComponent<Estate
   similarTabledisplayedColumns = ['LinkMainImageIdSrc', 'Id', 'RecordStatus', 'Title', 'Action'];
   similarTabledataSource = new MatTableDataSource<EstatePropertyProjectModel>();
   dataAccessModel: AccessModel;
-  loading = new ProgressSpinnerModel();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -78,7 +78,7 @@ export class EstatePropertyProjectEditComponent extends EditBaseComponent<Estate
   keywordDataModel = [];
   tagIdsData: number[];
   appLanguage = 'fa';
-  tokenInfo = new TokenInfoModel();
+  
   /** map */
   viewMap = false;
   private mapModel: leafletMap;

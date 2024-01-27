@@ -49,8 +49,8 @@ implements OnInit {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+  
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: BiographyCommentModel = new BiographyCommentModel();
   ComponentAction = ComponentActionEnum.none;

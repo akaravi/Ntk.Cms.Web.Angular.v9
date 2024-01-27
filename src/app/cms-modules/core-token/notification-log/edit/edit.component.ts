@@ -44,12 +44,12 @@ implements OnInit, OnDestroy {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResult<CoreTokenNotificationLogModel> = new ErrorExceptionResult<CoreTokenNotificationLogModel>();
   dataModel: CoreTokenNotificationLogModel = new CoreTokenNotificationLogModel();
 

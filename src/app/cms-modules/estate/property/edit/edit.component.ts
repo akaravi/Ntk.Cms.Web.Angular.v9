@@ -73,14 +73,14 @@ implements OnInit, OnDestroy {
   @ViewChild(EstateCustomerOrderListComponent) estateCustomerOrderHaveHistoryListComponent: EstateCustomerOrderListComponent;
   @ViewChild(EstatePropertyHistoryListComponent) estatePropertyHistoryListComponent: EstatePropertyHistoryListComponent;
 
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   enumInputDataType = InputDataTypeEnum;
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  tokenInfo = new TokenInfoModel();
+  
   formMatcher = new CmsFormsErrorStateMatcher();
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModelEstateContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModel: EstatePropertyModel = new EstatePropertyModel();

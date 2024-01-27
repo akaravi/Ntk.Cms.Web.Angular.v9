@@ -53,7 +53,7 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   dataModel = new BlogContentModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
@@ -72,7 +72,7 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
   otherInfoTabledataSource = new MatTableDataSource<BlogContentOtherInfoModel>();
   dataAccessModel: AccessModel;
 
-  loading = new ProgressSpinnerModel();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

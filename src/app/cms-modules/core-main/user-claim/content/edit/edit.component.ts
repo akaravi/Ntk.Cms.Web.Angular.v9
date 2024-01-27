@@ -70,16 +70,16 @@ implements OnInit, OnDestroy {
     });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   cmsApiStoreSubscribe: Subscription;
-  tokenInfo = new TokenInfoModel();
+  
   ProfessionalData = false;
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreUserClaimContentModel = new CoreUserClaimContentModel();
 

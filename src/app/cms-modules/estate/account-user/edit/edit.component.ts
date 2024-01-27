@@ -57,14 +57,14 @@ export class EstateAccountUserEditComponent  extends EditBaseComponent<EstateAcc
     });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   fieldsInfoAgencyUser: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateAccountUserModel = new EstateAccountUserModel();
   dataEstateAccountAgencyUserModel: EstateAccountAgencyUserModel = new EstateAccountAgencyUserModel();
@@ -95,27 +95,27 @@ export class EstateAccountUserEditComponent  extends EditBaseComponent<EstateAcc
     this.DataGetAllGroup();
   }
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
-    this.estateAccountAgencyUserService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfoAgencyUser = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
+  //   this.estateAccountAgencyUserService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.fieldsInfoAgencyUser = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   DataGetOneContent(): void {
 

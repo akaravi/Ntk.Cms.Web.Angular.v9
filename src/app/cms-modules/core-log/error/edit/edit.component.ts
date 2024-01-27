@@ -45,16 +45,16 @@ export class CoreLogErrorEditComponent extends EditBaseComponent<CoreLogErrorSer
       this.requestId = data.id;
     }
   }
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResult<CoreLogErrorModel> = new ErrorExceptionResult<CoreLogErrorModel>();
   dataModel: CoreLogErrorModel = new CoreLogErrorModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   fileManagerOpenForm = false;

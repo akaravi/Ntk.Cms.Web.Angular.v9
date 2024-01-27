@@ -45,16 +45,16 @@ export class CoreModuleLogSiteCreditEditComponent extends EditBaseComponent<Core
       this.requestId = data.id;
     }
   }
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResult<CoreModuleLogSiteCreditModel> = new ErrorExceptionResult<CoreModuleLogSiteCreditModel>();
   dataModel: CoreModuleLogSiteCreditModel = new CoreModuleLogSiteCreditModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
   fileManagerOpenForm = false;

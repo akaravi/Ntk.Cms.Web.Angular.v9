@@ -46,12 +46,12 @@ export class CoreTokenUserEditComponent extends EditBaseComponent<CoreTokenUserS
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
-  tokenInfo = new TokenInfoModel();
+  
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreTokenUserModel = new CoreTokenUserModel();
 

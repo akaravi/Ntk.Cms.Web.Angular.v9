@@ -46,11 +46,11 @@ implements OnInit {
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   @ViewChild(EstatePropertyListComponent) estatePropertyList: EstatePropertyListComponent;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateBillboardModel = new EstateBillboardModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();

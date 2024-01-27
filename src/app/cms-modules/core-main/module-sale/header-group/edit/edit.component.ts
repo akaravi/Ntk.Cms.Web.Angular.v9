@@ -53,10 +53,10 @@ export class CoreModuleSaleHeaderGroupEditComponent extends EditBaseComponent<Co
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreModuleSaleHeaderGroupModel = new CoreModuleSaleHeaderGroupModel();
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   formInfo: FormInfoModel = new FormInfoModel();
 

@@ -52,10 +52,10 @@ export class ApplicationSourceEditComponent extends EditBaseComponent<Applicatio
   requestId = 0;
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  loading = new ProgressSpinnerModel();
+  
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModel = new ApplicationSourceModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 

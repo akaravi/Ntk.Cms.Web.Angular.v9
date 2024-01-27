@@ -47,13 +47,13 @@ implements OnInit {
     });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateAccountAgencyAdsModel = new EstateAccountAgencyAdsModel();
   formInfo: FormInfoModel = new FormInfoModel();

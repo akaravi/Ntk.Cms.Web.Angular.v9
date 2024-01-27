@@ -53,7 +53,7 @@ implements OnInit, AfterViewInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   dataModel = new PollingContentModel();
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
   optionSelected: PollingOptionModel = new PollingOptionModel();
@@ -65,7 +65,7 @@ implements OnInit, AfterViewInit {
   optionTabledisplayedColumns = ['Id', 'Option', 'OptionAnswer', 'IsCorrectAnswer', 'NumberOfVotes', 'ScoreOfVotes', 'Action'];
 
 
-  loading = new ProgressSpinnerModel();
+  
   loadingOption = new ProgressSpinnerModel();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];

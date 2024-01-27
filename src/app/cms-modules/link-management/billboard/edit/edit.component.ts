@@ -47,7 +47,7 @@ implements OnInit, AfterViewInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   dataModel = new LinkManagementBillboardModel();
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
   dataModelEnumManagementContentSettingTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
@@ -58,7 +58,7 @@ implements OnInit, AfterViewInit {
   dataContentCategoryModel: number[] = [];
 
 
-  loading = new ProgressSpinnerModel();
+  
   loadingOption = new ProgressSpinnerModel();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];

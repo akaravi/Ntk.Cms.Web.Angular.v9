@@ -46,12 +46,12 @@ export class CoreSiteCategoryCmsModuleEditComponent extends EditBaseComponent<Co
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
 
 
 
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreSiteCategoryCmsModuleModel = new CoreSiteCategoryCmsModuleModel();
 

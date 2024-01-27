@@ -43,13 +43,13 @@ implements OnInit {
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   keywordDataModel = [];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
-  dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
+  
+  
   dataModel: WebDesignerMainPageModel = new WebDesignerMainPageModel();
   formInfo: FormInfoModel = new FormInfoModel();
 

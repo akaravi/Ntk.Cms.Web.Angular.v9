@@ -49,7 +49,7 @@ export class CatalogContentEditComponent extends EditBaseComponent<CatalogConten
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
 
   dataModel = new CatalogContentModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
@@ -65,7 +65,7 @@ export class CatalogContentEditComponent extends EditBaseComponent<CatalogConten
   otherInfoTabledataSource = new MatTableDataSource<CatalogContentOtherInfoModel>();
   dataAccessModel: AccessModel;
 
-  loading = new ProgressSpinnerModel();
+  
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

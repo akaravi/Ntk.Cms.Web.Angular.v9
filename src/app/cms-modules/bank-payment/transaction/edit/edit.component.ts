@@ -48,14 +48,14 @@ export class BankPaymentTransactionEditComponent extends EditBaseComponent<BankP
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
+  
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: BankPaymentTransactionModel = new BankPaymentTransactionModel();
   formInfo: FormInfoModel = new FormInfoModel();
 
   fileManagerOpenForm = false;
   dataAccessModel: AccessModel;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  
   dataModelEnumTransactionRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumTransactionBankStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   ngOnInit(): void {
