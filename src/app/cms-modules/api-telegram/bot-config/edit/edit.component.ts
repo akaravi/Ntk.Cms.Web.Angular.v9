@@ -12,6 +12,7 @@ import {
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -22,12 +23,14 @@ import { CmsViewComponent } from 'src/app/shared/cms-view/cms-view.component';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class ApiTelegramBotConfigEditComponent implements OnInit {
+export class ApiTelegramBotConfigEditComponent extends EditBaseComponent<ApiTelegramBotConfigService, ApiTelegramBotConfigModel, number>
+  implements OnInit {
   requestId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<ApiTelegramBotConfigEditComponent>,
     public coreEnumService: CoreEnumService,
+    public contentService: ApiTelegramBotConfigService,
     public apiTelegramBotConfigService: ApiTelegramBotConfigService,
     private cmsToastrService: CmsToastrService,
     public publicHelper: PublicHelper,
@@ -35,6 +38,7 @@ export class ApiTelegramBotConfigEditComponent implements OnInit {
     public translate: TranslateService,
     public dialog: MatDialog
   ) {
+    super(contentService, new ApiTelegramBotConfigModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

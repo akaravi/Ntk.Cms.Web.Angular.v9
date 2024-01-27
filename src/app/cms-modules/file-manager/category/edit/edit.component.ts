@@ -10,6 +10,7 @@ import {
   CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FileCategoryModel, FileCategoryService, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -20,7 +21,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class FileCategoryEditComponent implements OnInit {
+export class FileCategoryEditComponent extends EditBaseComponent<FileCategoryService, FileCategoryModel, number>
+implements OnInit {
   requestId = 0;
   requestParentId = 0;
   constructor(
@@ -32,7 +34,8 @@ export class FileCategoryEditComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(fileCategoryService, new FileCategoryModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestId = +data.id || 0;

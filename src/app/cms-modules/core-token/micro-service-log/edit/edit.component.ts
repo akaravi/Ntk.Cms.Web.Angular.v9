@@ -12,6 +12,7 @@ import {
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -22,7 +23,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class CoreTokenMicroServiceLogEditComponent implements OnInit, OnDestroy {
+export class CoreTokenMicroServiceLogEditComponent extends EditBaseComponent<CoreTokenMicroServiceLogService, CoreTokenMicroServiceLogModel, string>
+implements OnInit, OnDestroy {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -34,7 +36,8 @@ export class CoreTokenMicroServiceLogEditComponent implements OnInit, OnDestroy 
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
-  ) {
+  ) {super(coreTokenMicroServiceLogService, new CoreTokenMicroServiceLogModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestId = data.id;

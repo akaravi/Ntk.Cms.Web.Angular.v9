@@ -17,6 +17,7 @@ import {
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { map, of } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -28,7 +29,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'
   ]
 })
-export class ChartContentEditComponent implements OnInit, AfterViewInit {
+export class ChartContentEditComponent extends EditBaseComponent<ChartContentService, ChartContentModel, number>
+  implements OnInit, AfterViewInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -44,6 +46,8 @@ export class ChartContentEditComponent implements OnInit, AfterViewInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(contentService, new ChartContentModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

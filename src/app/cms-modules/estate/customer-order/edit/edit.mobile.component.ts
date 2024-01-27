@@ -21,13 +21,15 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-estate-customer-order-edit-mobile',
   templateUrl: './edit.mobile.component.html',
   styleUrls: ['./edit.mobile.component.scss'],
 })
-export class EstateCustomerOrderEditMobileComponent implements OnInit {
+export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string>
+implements OnInit {
   requestId = '';
   constructor(
     private router: Router,
@@ -37,7 +39,6 @@ export class EstateCustomerOrderEditMobileComponent implements OnInit {
     public estatePropertyTypeUsageService: EstatePropertyTypeUsageService,
     public estatePropertyTypeLanduseService: EstatePropertyTypeLanduseService,
     private estatePropertyService: EstatePropertyService,
-
     private cmsToastrService: CmsToastrService,
     public estatePropertyDetailGroupService: EstatePropertyDetailGroupService,
     public publicHelper: PublicHelper,
@@ -47,7 +48,8 @@ export class EstateCustomerOrderEditMobileComponent implements OnInit {
     public http: HttpClient,
     public dialog: MatDialog,
     public translate: TranslateService,
-  ) {
+  ) {super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');

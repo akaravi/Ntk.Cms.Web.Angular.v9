@@ -17,6 +17,7 @@ import {
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
@@ -27,7 +28,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
-export class CoreSiteEditComponent implements OnInit, OnDestroy {
+export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, CoreSiteModel, number>
+implements OnInit, OnDestroy {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -39,7 +41,8 @@ export class CoreSiteEditComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper
-  ) {
+  ) {super(coreSiteService, new CoreSiteModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));

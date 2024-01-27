@@ -31,11 +31,13 @@ import { EstatePropertyHistoryAddComponent } from '../../property-history/add/ad
 import { EstatePropertyHistoryListComponent } from '../../property-history/list/list.component';
 import { EstatePropertyActionComponent } from '../action/action.component';
 import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 @Component({
   selector: 'app-estate-property-edit',
   templateUrl: './edit.component.html',
 })
-export class EstatePropertyEditComponent implements OnInit, OnDestroy {
+export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropertyService, EstatePropertyModel, string>
+implements OnInit, OnDestroy {
   requestId = '';
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -50,7 +52,8 @@ export class EstatePropertyEditComponent implements OnInit, OnDestroy {
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
     public dialog: MatDialog,
-  ) {
+  ) {super(estatePropertyService, new EstatePropertyModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

@@ -14,6 +14,7 @@ import {
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, SmsEnumService, SmsMainApiPathModel, SmsMainApiPathPermissionModel, SmsMainApiPathPermissionService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -23,7 +24,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class SmsMainApiPathPermissionEditComponent implements OnInit {
+export class SmsMainApiPathPermissionEditComponent extends EditBaseComponent<SmsMainApiPathPermissionService, SmsMainApiPathPermissionModel, string>
+implements OnInit {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -34,7 +36,8 @@ export class SmsMainApiPathPermissionEditComponent implements OnInit {
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(smsMainApiPathPermissionService, new SmsMainApiPathPermissionModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data && data.id) {
       this.requestId = data.id;

@@ -26,13 +26,15 @@ import { EstatePropertyHistoryAddComponent } from '../../property-history/add/ad
 import { EstatePropertyHistoryListComponent } from '../../property-history/list/list.component';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
 import { EstateCustomerOrderActionComponent } from '../action/action.component';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-estate-customer-order-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EstateCustomerOrderEditComponent implements OnInit {
+export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string>
+implements OnInit {
   requestId = '';
   constructor(
     private router: Router,
@@ -40,7 +42,6 @@ export class EstateCustomerOrderEditComponent implements OnInit {
     public estateCustomerOrderService: EstateCustomerOrderService,
     private estateContractTypeService: EstateContractTypeService,
     private estatePropertyService: EstatePropertyService,
-
     public estatePropertyDetailGroupService: EstatePropertyDetailGroupService,
     private cmsToastrService: CmsToastrService,
     public publicHelper: PublicHelper,
@@ -50,7 +51,8 @@ export class EstateCustomerOrderEditComponent implements OnInit {
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
     public dialog: MatDialog,
-  ) {
+  ) {super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
 

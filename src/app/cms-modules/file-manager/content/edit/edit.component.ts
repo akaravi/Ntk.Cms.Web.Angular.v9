@@ -15,6 +15,7 @@ import {
   FileContentService, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -26,7 +27,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'
   ]
 })
-export class FileContentEditComponent implements OnInit, AfterViewInit {
+export class FileContentEditComponent extends EditBaseComponent<FileContentService, FileContentModel, number>
+implements OnInit, AfterViewInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -37,7 +39,8 @@ export class FileContentEditComponent implements OnInit, AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(fileContentService, new FileContentModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

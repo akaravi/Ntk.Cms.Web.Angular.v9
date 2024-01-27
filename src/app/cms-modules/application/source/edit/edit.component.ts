@@ -19,6 +19,7 @@ import {
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -27,9 +28,11 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   selector: 'app-aplication-source-edit',
   templateUrl: './edit.component.html',
 })
-export class ApplicationSourceEditComponent implements OnInit {
+export class ApplicationSourceEditComponent extends EditBaseComponent<ApplicationSourceService, ApplicationSourceModel, number>
+  implements OnInit {
 
   constructor(
+    public contentService: ApplicationSourceService,
     private activatedRoute: ActivatedRoute,
     public publicHelper: PublicHelper,
     public coreEnumService: CoreEnumService,
@@ -40,6 +43,8 @@ export class ApplicationSourceEditComponent implements OnInit {
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private router: Router) {
+      super(contentService, new ApplicationSourceModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

@@ -11,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, CoreEnumService, CoreModuleModel, CoreModuleSiteModel, CoreModuleSiteService, CoreSiteModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -20,7 +21,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './moduleEdit.component.html',
   styleUrls: ['./moduleEdit.component.scss'],
 })
-export class CoreSiteModuleEditComponent implements OnInit {
+export class CoreSiteModuleEditComponent extends EditBaseComponent<CoreModuleSiteService, CoreModuleSiteModel, number>
+  implements OnInit {
   requestLinkSiteId = 0;
   requestLinkModuleId = 0;
   constructor(
@@ -29,10 +31,12 @@ export class CoreSiteModuleEditComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public coreModuleSiteService: CoreModuleSiteService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(coreModuleSiteService, new CoreModuleSiteModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

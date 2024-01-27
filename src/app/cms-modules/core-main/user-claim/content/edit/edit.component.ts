@@ -13,6 +13,7 @@ import {
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -23,7 +24,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class CoreUserClaimContentEditComponent implements OnInit, OnDestroy {
+export class CoreUserClaimContentEditComponent extends EditBaseComponent<CoreUserClaimContentService, CoreUserClaimContentModel, number>
+implements OnInit, OnDestroy {
   requestId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -35,7 +37,8 @@ export class CoreUserClaimContentEditComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
-  ) {
+  ) {super(coreUserClaimContentService, new CoreUserClaimContentModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

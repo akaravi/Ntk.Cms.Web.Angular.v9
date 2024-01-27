@@ -11,6 +11,7 @@ import {
   ErrorExceptionResultBase,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, PollingVoteModel, PollingVoteService
 } from 'ntk-cms-api';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -22,7 +23,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class PollingVoteEditComponent implements OnInit {
+export class PollingVoteEditComponent extends EditBaseComponent<PollingVoteService, PollingVoteModel, string>
+implements OnInit {
   requestId = '';
   requestParentId = 0;
   requestContentId = 0;
@@ -32,10 +34,11 @@ export class PollingVoteEditComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public pollingVoteService: PollingVoteService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(pollingVoteService, new PollingVoteModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestId = data.id || '';

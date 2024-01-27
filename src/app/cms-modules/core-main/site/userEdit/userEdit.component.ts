@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, CoreEnumService, CoreSiteModel, CoreSiteUserModel, CoreSiteUserService, CoreUserGroupModel, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -18,7 +19,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './userEdit.component.html',
   styleUrls: ['./userEdit.component.scss'],
 })
-export class CoreSiteUserEditComponent implements OnInit {
+export class CoreSiteUserEditComponent extends EditBaseComponent<CoreSiteUserService, CoreSiteUserModel, number>
+implements OnInit {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkUserGroupId = 0;
@@ -28,10 +30,11 @@ export class CoreSiteUserEditComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public coreSiteUserService: CoreSiteUserService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(coreSiteUserService, new CoreSiteUserModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

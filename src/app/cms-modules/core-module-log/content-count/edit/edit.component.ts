@@ -13,6 +13,7 @@ import {
   FormInfoModel, ManageUserAccessDataTypesEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -23,7 +24,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class CoreModuleLogContentCountEditComponent implements OnInit, OnDestroy {
+export class CoreModuleLogContentCountEditComponent extends EditBaseComponent<CoreModuleLogContentCountService, CoreModuleLogContentCountModel, string>
+  implements OnInit, OnDestroy {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -36,6 +38,8 @@ export class CoreModuleLogContentCountEditComponent implements OnInit, OnDestroy
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
+    super(coreModuleLogContentCountService, new CoreModuleLogContentCountModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

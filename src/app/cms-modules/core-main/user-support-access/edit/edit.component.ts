@@ -11,6 +11,7 @@ import {
   FilterModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -20,7 +21,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class CoreUserSupportAccessEditComponent implements OnInit {
+export class CoreUserSupportAccessEditComponent extends EditBaseComponent<CoreUserSupportAccessService, CoreUserSupportAccessModel, number>
+  implements OnInit {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestModuleName = '';
@@ -35,6 +37,8 @@ export class CoreUserSupportAccessEditComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(coreUserSupportAccessService, new CoreUserSupportAccessModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

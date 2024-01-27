@@ -28,13 +28,15 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyHistoryEditComponent } from './edit.component';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-estate-property-history-edit-mobile',
   templateUrl: './edit.mobile.component.html',
   styleUrls: ['./edit.mobile.component.scss'],
 })
-export class EstatePropertyHistoryEditMobileComponent implements OnInit {
+export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string>
+implements OnInit {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -48,7 +50,8 @@ export class EstatePropertyHistoryEditMobileComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public tokenHelper: TokenHelper,
     public translate: TranslateService
-  ) {
+  ) {super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant(
       'MESSAGE.Receiving_information'

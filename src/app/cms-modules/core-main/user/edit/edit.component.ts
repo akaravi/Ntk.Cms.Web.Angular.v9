@@ -21,25 +21,28 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CoreUserChangePasswordComponent } from '../changePassword/changePassword.component';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-core-user-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class CoreUserEditComponent implements OnInit, OnDestroy {
+export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, CoreUserModel, number>
+  implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,
     public coreUserService: CoreUserService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public dialog: MatDialog,
     public translate: TranslateService,
   ) {
+    super(coreUserService, new CoreUserModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));
@@ -53,7 +56,7 @@ export class CoreUserEditComponent implements OnInit, OnDestroy {
       this.DataGetOneContent();
     });
   }
-  tokenInfo: TokenInfoModel;
+  // tokenInfo: TokenInfoModel;
   cmsApiStoreSubscribe: Subscription;
 
   requestId = 0;

@@ -17,6 +17,7 @@ import {
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
@@ -28,7 +29,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'
   ]
 })
-export class EstatePropertyProjectEditComponent implements OnInit, AfterViewInit {
+export class EstatePropertyProjectEditComponent extends EditBaseComponent<EstatePropertyProjectService, EstatePropertyProjectModel, string>
+  implements OnInit, AfterViewInit {
   requestId = '';
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -40,6 +42,8 @@ export class EstatePropertyProjectEditComponent implements OnInit, AfterViewInit
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
+    super(contentService, new EstatePropertyProjectModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

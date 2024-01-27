@@ -11,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, CoreEnumService, CoreModuleModel, CoreSiteCategoryCmsModuleModel, CoreSiteCategoryCmsModuleService, CoreSiteCategoryModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -20,7 +21,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class CoreSiteCategoryCmsModuleEditComponent implements OnInit {
+export class CoreSiteCategoryCmsModuleEditComponent extends EditBaseComponent<CoreSiteCategoryCmsModuleService, CoreSiteCategoryCmsModuleModel, number>
+  implements OnInit {
   requestLinkCmsModuleId = 0;
   requestLinkCmsSiteCategoryId = 0;
   constructor(
@@ -31,9 +33,11 @@ export class CoreSiteCategoryCmsModuleEditComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
 
   ) {
+    super(coreSiteCategoryCmsModuleService, new CoreSiteCategoryCmsModuleModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

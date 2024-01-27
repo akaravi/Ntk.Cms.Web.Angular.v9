@@ -14,6 +14,7 @@ import {
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -25,7 +26,8 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class DataProviderClientEditComponent implements OnInit {
+export class DataProviderClientEditComponent extends EditBaseComponent<DataProviderClientService, DataProviderClientModel, number>
+implements OnInit {
   requestId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -40,7 +42,8 @@ export class DataProviderClientEditComponent implements OnInit {
     private dataProviderPlanClientService: DataProviderPlanClientService,
     public translate: TranslateService,
     private tokenHelper: TokenHelper
-  ) {
+  ) {super(dataProviderClientService, new DataProviderClientModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestId = +data.id || 0;

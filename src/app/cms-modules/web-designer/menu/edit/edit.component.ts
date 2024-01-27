@@ -12,6 +12,7 @@ import {
   ErrorExceptionResultBase,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, WebDesignerMainMenuModel, WebDesignerMainMenuService
 } from 'ntk-cms-api';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -20,18 +21,20 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class WebDesignerMainMenuEditComponent implements OnInit {
+export class WebDesignerMainMenuEditComponent extends EditBaseComponent<WebDesignerMainMenuService, WebDesignerMainMenuModel, string>
+implements OnInit {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<WebDesignerMainMenuEditComponent>,
     public coreEnumService: CoreEnumService,
     public webDesignerMainMenuService: WebDesignerMainMenuService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(webDesignerMainMenuService, new WebDesignerMainMenuModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestId = data.id + '';

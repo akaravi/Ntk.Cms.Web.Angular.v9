@@ -16,6 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-linkmanagement-Billboard-edit',
@@ -23,7 +24,8 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   styleUrls: ['./edit.component.scss'
   ]
 })
-export class LinkManagementBillboardEditComponent implements OnInit, AfterViewInit {
+export class LinkManagementBillboardEditComponent extends EditBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number>
+implements OnInit, AfterViewInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -34,7 +36,8 @@ export class LinkManagementBillboardEditComponent implements OnInit, AfterViewIn
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loadingOption.cdr = this.cdr;
 

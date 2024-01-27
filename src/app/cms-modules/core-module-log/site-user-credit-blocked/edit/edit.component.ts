@@ -13,6 +13,7 @@ import {
   FormInfoModel, ManageUserAccessDataTypesEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -25,7 +26,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 
 
-export class CoreModuleLogSiteUserCreditBlockedEditComponent implements OnInit, OnDestroy {
+export class CoreModuleLogSiteUserCreditBlockedEditComponent extends EditBaseComponent<CoreModuleLogSiteUserCreditBlockedService, CoreModuleLogSiteUserCreditBlockedModel, string>
+implements OnInit, OnDestroy {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -37,7 +39,8 @@ export class CoreModuleLogSiteUserCreditBlockedEditComponent implements OnInit, 
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
     public translate: TranslateService,
-  ) {
+  ) {super(coreModuleLogSiteUserCreditBlockedService, new CoreModuleLogSiteUserCreditBlockedModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

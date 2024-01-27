@@ -12,6 +12,7 @@ import {
   TicketingAnswerService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -23,8 +24,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
-export class TicketingAnswerEditComponent implements OnInit {
-  requestId = 0;
+export class TicketingAnswerEditComponent extends EditBaseComponent<TicketingAnswerService, TicketingAnswerModel, number>
+implements OnInit {
+  requestId = 0; 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<TicketingAnswerEditComponent>,
@@ -36,7 +38,8 @@ export class TicketingAnswerEditComponent implements OnInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(ticketingAnswerService, new TicketingAnswerModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {

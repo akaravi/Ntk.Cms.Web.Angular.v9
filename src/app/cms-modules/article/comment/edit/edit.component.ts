@@ -11,6 +11,7 @@ import {
   ErrorExceptionResultBase,
   FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -20,7 +21,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class ArticleCommentEditComponent implements OnInit {
+export class ArticleCommentEditComponent extends EditBaseComponent<ArticleCommentService, ArticleCommentModel, number>
+implements OnInit {
   requestId = 0;
   requestParentId = 0;
   requestContentId = 0;
@@ -30,10 +32,11 @@ export class ArticleCommentEditComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public commentService: ArticleCommentService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(commentService, new ArticleCommentModel(), publicHelper);
+
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

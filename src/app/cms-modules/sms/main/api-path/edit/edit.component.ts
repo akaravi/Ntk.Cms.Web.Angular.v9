@@ -15,6 +15,7 @@ import {
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, SmsMainApiPathAliasJsonModel, SmsMainApiPathCompanyModel, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -24,7 +25,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class SmsMainApiPathEditComponent implements OnInit {
+export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPathService, SmsMainApiPathModel, string>
+implements OnInit {
   requestId = '';
   constructor(
     public coreEnumService: CoreEnumService,
@@ -35,7 +37,8 @@ export class SmsMainApiPathEditComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private activatedRoute: ActivatedRoute,
     public translate: TranslateService,
-  ) {
+  ) {super(smsMainApiPathService, new SmsMainApiPathModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get('Id')) {
       this.requestId = this.activatedRoute.snapshot.paramMap.get('Id');

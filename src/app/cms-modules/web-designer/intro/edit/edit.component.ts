@@ -11,6 +11,7 @@ import {
   WebDesignerMainIntroService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -18,7 +19,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   selector: 'app-webdesigner-intro-edit',
   templateUrl: './edit.component.html',
 })
-export class WebDesignerMainIntroEditComponent implements OnInit {
+export class WebDesignerMainIntroEditComponent extends EditBaseComponent<WebDesignerMainIntroService, WebDesignerMainIntroModel, string>
+implements OnInit {
   requestId = '';
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -29,7 +31,8 @@ export class WebDesignerMainIntroEditComponent implements OnInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(webDesignerMainIntroService, new WebDesignerMainIntroModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (this.activatedRoute.snapshot.paramMap.get('Id')) {

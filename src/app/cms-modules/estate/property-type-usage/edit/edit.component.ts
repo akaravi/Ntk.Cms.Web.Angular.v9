@@ -10,6 +10,7 @@ import {
   CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstatePropertyTypeLanduseModel, EstatePropertyTypeModel, EstatePropertyTypeService, EstatePropertyTypeUsageModel, EstatePropertyTypeUsageService, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -20,7 +21,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EstatePropertyTypeUsageEditComponent implements OnInit {
+export class EstatePropertyTypeUsageEditComponent extends EditBaseComponent<EstatePropertyTypeUsageService, EstatePropertyTypeUsageModel, string>
+  implements OnInit {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -34,6 +36,8 @@ export class EstatePropertyTypeUsageEditComponent implements OnInit {
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
+    super(estatePropertyTypeUsageService, new EstatePropertyTypeUsageModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestId = data.id;

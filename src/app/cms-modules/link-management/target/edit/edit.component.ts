@@ -20,6 +20,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-linkmanagement-target-edit',
@@ -27,7 +28,8 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   styleUrls: ['./edit.component.scss'
   ]
 })
-export class LinkManagementTargetEditComponent implements OnInit, AfterViewInit {
+export class LinkManagementTargetEditComponent extends EditBaseComponent<LinkManagementTargetService, LinkManagementTargetModel, number>
+implements OnInit, AfterViewInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,7 +43,8 @@ export class LinkManagementTargetEditComponent implements OnInit, AfterViewInit 
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {
+  ) {super(linkManagementTargetService, new LinkManagementTargetModel(), publicHelper);
+
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loadingOption.cdr = this.cdr;
 
