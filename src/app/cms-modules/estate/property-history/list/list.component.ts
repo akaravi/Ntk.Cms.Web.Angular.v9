@@ -59,7 +59,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     private cmsToastrService: CmsToastrService,
     private estateActivityTypeService: EstateActivityTypeService,
     public estateEnumService: EstateEnumService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
@@ -67,7 +67,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyHistoryModel(), publicHelper);
+    super(contentService, new EstatePropertyHistoryModel(), publicHelper,tokenHelper);
 
     pageInfo.updateContentService(contentService);
     this.loading.cdr = this.cdr;

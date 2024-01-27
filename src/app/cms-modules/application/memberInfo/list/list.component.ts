@@ -47,11 +47,11 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApplicationMemberInfoModel(), publicHelper);
+    super(contentService, new ApplicationMemberInfoModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

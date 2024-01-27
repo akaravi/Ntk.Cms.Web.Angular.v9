@@ -30,7 +30,7 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
     public coreEnumService: CoreEnumService,
     private activatedRoute: ActivatedRoute,
     private coreModuleService: CoreModuleService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public dialog: MatDialog) {

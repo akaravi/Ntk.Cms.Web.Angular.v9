@@ -43,7 +43,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     public estatePropertyDetailGroupService: EstatePropertyDetailGroupService,
     private cmsToastrService: CmsToastrService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
@@ -52,7 +52,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
     ) {
-    super(contentService, new EstateCustomerOrderModel(), publicHelper);
+    super(contentService, new EstateCustomerOrderModel(), publicHelper,tokenHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');

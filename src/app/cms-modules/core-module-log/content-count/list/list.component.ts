@@ -41,7 +41,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router,
@@ -49,7 +49,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogContentCountModel(), publicHelper);
+    super(contentService, new CoreModuleLogContentCountModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

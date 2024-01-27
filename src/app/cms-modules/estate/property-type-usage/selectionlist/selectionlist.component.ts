@@ -24,7 +24,7 @@ export class EstatePropertyTypeUsageSelectionlistComponent implements OnInit, On
     public categoryService: EstatePropertyTypeUsageService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cmsToastrService: CmsToastrService) {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }

@@ -37,7 +37,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private activatedRoute: ActivatedRoute,
     private coreModuleEntityService: CoreModuleEntityService,
     private router: Router,
@@ -46,7 +46,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreModuleEntityReportFileModel(), publicHelper);
+    super(contentService, new CoreModuleEntityReportFileModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

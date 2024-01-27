@@ -39,7 +39,7 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
     private coreUserClaimTypeService: CoreUserClaimTypeService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public dialog: MatDialog

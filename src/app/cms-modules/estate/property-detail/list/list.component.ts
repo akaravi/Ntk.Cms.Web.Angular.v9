@@ -40,14 +40,14 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new EstatePropertyDetailModel(), publicHelper);
+    super(contentService, new EstatePropertyDetailModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeLanduseId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyTypeLanduseId');
     this.optionsSearch.parentMethods = {

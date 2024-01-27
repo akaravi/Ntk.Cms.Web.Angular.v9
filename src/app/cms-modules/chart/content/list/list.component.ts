@@ -42,14 +42,14 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     public contentService: ChartContentService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ChartContentModel(), publicHelper);
+    super(contentService, new ChartContentModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

@@ -39,14 +39,14 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
     private activatedRoute: ActivatedRoute,
     private coreModuleService: CoreModuleService,
     private coreEnumService: CoreEnumService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreModuleSaleInvoiceDetailModel(), publicHelper);
+      super(contentService, new CoreModuleSaleInvoiceDetailModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkInvoiceId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkInvoiceId'));

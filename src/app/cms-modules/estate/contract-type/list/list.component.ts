@@ -35,14 +35,14 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
     private contentService: EstateContractTypeService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private cmsToastrService: CmsToastrService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstateContractTypeModel(), publicHelper);
+      super(contentService, new EstateContractTypeModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

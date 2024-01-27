@@ -38,7 +38,7 @@ implements OnInit, OnDestroy {
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private coreEnumService: CoreEnumService,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
@@ -46,7 +46,7 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreDeviceModel(), publicHelper);
+      super(contentService, new CoreDeviceModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

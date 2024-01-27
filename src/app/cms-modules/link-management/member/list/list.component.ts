@@ -40,14 +40,14 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
     public contentService: LinkManagementMemberService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementMemberModel(), publicHelper);
+    super(contentService, new LinkManagementMemberModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {

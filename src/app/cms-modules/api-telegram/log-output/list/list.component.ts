@@ -36,14 +36,14 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     private contentService: ApiTelegramLogOutputService,
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new ApiTelegramLogOutputModel(), publicHelper);
+      super(contentService, new ApiTelegramLogOutputModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

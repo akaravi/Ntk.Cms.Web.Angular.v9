@@ -39,14 +39,14 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     private coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreSiteModel(), publicHelper);
+      super(contentService, new CoreSiteModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

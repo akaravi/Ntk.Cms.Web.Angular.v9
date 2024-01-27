@@ -3,7 +3,7 @@
   <br>
 </app-cms-html-notice>
 <br>
-<app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"  (optionOnActionbuttonMemo)="onActionbuttonMemo()"    [optionLoading]="loading" [optionTreeDisplay]="false"
+<app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"  (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()"    [optionLoading]="loading" [optionTreeDisplay]="false"
   [optionActionRowDisplay]="tableRowSelected?.id?.length>0" [optionSelectRowItemTitle]="tableRowSelected?.id">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
@@ -72,13 +72,7 @@
         </a>
         <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
       </div>
-      <div *ngIf="tableRowSelected?.id?.length>0" type="button" class="col-4">
-        <a (click)="onActionButtonPrintEntity(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-print font-22"
-          style="color: #ffffff;"></i><br>
-        </a>
-        <p class="font-11 text-center opacity-70">{{'ACTION.PRINT' | translate}}</p>
-      </div>
+    
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
   <ng-container cms-action-area>

@@ -28,7 +28,7 @@ export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,
     private coreSiteService: CoreSiteService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,

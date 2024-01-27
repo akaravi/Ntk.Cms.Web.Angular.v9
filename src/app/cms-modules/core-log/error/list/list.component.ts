@@ -39,12 +39,12 @@ implements OnInit, OnDestroy {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogErrorModel(), publicHelper);
+    super(contentService, new CoreLogErrorModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));

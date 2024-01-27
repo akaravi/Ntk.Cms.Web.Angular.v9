@@ -32,7 +32,7 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
   ) {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     /*filter Sort*/

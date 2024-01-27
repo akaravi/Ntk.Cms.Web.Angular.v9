@@ -46,12 +46,12 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     private cdr: ChangeDetectorRef,
     private cmsToastrService: CmsToastrService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApplicationLogNotificationModel(), publicHelper);
+    super(contentService, new ApplicationLogNotificationModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

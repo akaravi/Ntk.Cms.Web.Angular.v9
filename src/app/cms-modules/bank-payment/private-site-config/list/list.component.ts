@@ -43,7 +43,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     public contentService: BankPaymentPrivateSiteConfigService,
     private bankPaymentPublicConfigService: BankPaymentPublicConfigService,
     private activatedRoute: ActivatedRoute,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
@@ -52,7 +52,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new BankPaymentPrivateSiteConfigModel(), publicHelper);
+    super(contentService, new BankPaymentPrivateSiteConfigModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

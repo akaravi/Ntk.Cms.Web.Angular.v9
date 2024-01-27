@@ -40,7 +40,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     private activatedRoute: ActivatedRoute,
     private coreModuleService: CoreModuleService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router,
@@ -48,7 +48,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleSiteModel(), publicHelper);
+    super(contentService, new CoreModuleSiteModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

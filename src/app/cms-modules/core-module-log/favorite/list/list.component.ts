@@ -41,7 +41,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router,
@@ -49,7 +49,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogFavoriteModel(), publicHelper);
+    super(contentService, new CoreModuleLogFavoriteModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

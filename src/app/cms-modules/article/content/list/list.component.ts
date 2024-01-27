@@ -43,10 +43,10 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     public pageInfo: PageInfoService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ArticleContentModel(), publicHelper);
+    super(contentService, new ArticleContentModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

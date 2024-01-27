@@ -41,7 +41,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     public contentService: NewsContentService,
     private cmsToastrService: CmsToastrService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private activatedRoute: ActivatedRoute,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
@@ -49,7 +49,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new NewsContentModel(), publicHelper);
+    super(contentService, new NewsContentModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.activatedRoute.params.subscribe((data) => {

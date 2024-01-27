@@ -40,13 +40,13 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
     private activatedRoute: ActivatedRoute,
     private coreModuleService: CoreModuleService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreModuleSaleItemModel(), publicHelper);
+      super(contentService, new CoreModuleSaleItemModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkModuleSaleHeader = + Number(this.activatedRoute.snapshot.paramMap.get('LinkModuleSaleHeader'));

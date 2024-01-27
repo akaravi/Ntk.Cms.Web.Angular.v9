@@ -36,7 +36,7 @@ implements OnInit, OnDestroy {
     public contentService: CoreModuleSiteCreditService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private coreModuleService: CoreModuleService,
@@ -44,7 +44,7 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
-  ) {super(contentService, new CoreModuleSiteCreditModel(), publicHelper);
+  ) {super(contentService, new CoreModuleSiteCreditModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

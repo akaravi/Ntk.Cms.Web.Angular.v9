@@ -47,12 +47,12 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     private bankPaymentEnumService: BankPaymentEnumService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new BankPaymentTransactionModel(), publicHelper);
+    super(contentService, new BankPaymentTransactionModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

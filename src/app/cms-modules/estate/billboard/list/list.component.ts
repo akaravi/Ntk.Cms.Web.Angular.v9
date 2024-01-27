@@ -35,14 +35,14 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
     public contentService: EstateBillboardService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private cmsToastrService: CmsToastrService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstateBillboardModel(), publicHelper);
+      super(contentService, new EstateBillboardModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

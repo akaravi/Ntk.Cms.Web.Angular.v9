@@ -44,12 +44,12 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApplicationIntroModel(), publicHelper);
+    super(contentService, new ApplicationIntroModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

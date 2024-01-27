@@ -39,14 +39,14 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     private activatedRoute: ActivatedRoute,
     public contentService: DonateTransactionService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DonateTransactionModel(), publicHelper);
+    super(contentService, new DonateTransactionModel(), publicHelper,tokenHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

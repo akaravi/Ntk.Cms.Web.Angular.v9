@@ -40,13 +40,13 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
     private coreModuleService: CoreModuleService,
     private coreSiteCategoryService: CoreSiteCategoryService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreUserClaimGroupModel(), publicHelper);
+    super(contentService, new CoreUserClaimGroupModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

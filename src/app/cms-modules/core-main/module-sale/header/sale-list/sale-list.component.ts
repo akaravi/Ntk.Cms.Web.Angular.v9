@@ -30,7 +30,7 @@ export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy 
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,
     private coreModuleService: CoreModuleService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,

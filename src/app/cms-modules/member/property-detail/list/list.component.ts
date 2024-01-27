@@ -38,14 +38,14 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new MemberPropertyDetailModel(), publicHelper);
+      super(contentService, new MemberPropertyDetailModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeId = +this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
     this.optionsSearch.parentMethods = {

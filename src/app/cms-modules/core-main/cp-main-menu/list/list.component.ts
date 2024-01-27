@@ -35,14 +35,14 @@ implements OnInit, OnDestroy {
     public contentService: CoreCpMainMenuService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private cmsToastrService: CmsToastrService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreCpMainMenuModel(), publicHelper);
+      super(contentService, new CoreCpMainMenuModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

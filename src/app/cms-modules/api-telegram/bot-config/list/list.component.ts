@@ -38,7 +38,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     public contentService: ApiTelegramBotConfigService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
@@ -46,7 +46,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ApiTelegramBotConfigModel(), publicHelper);
+    super(contentService, new ApiTelegramBotConfigModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

@@ -40,14 +40,14 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent< SmsMa
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new SmsMainMessageContentModel(), publicHelper);
+    super(contentService, new SmsMainMessageContentModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkCategoryId = this.activatedRoute.snapshot.paramMap.get('LinkCategoryId');
 

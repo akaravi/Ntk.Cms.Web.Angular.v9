@@ -42,14 +42,14 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private coreUserClaimTypeService: CoreUserClaimTypeService,
     private router: Router,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreUserClaimContentModel(), publicHelper);
+      super(contentService, new CoreUserClaimContentModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkUserClaimTypeId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserClaimTypeId'));

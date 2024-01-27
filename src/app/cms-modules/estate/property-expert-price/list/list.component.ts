@@ -45,14 +45,14 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     private estateContractTypeService: EstateContractTypeService,
     private estatePropertyTypeUsageService: EstatePropertyTypeUsageService,
     private estatePropertyTypeLanduseService: EstatePropertyTypeLanduseService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyExpertPriceModel(), publicHelper);
+    super(contentService, new EstatePropertyExpertPriceModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),

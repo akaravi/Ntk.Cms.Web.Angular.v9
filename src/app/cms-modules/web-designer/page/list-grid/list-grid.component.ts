@@ -42,11 +42,11 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new WebDesignerMainPageModel(), publicHelper);
+    super(contentService, new WebDesignerMainPageModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId')) {
       this.requestLinkPageTemplateGuId = this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId');

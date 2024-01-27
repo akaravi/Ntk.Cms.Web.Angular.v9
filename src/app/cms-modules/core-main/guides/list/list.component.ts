@@ -35,14 +35,14 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     public contentService: CoreGuideService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private cmsToastrService: CmsToastrService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreGuideModel(), publicHelper);
+    super(contentService, new CoreGuideModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

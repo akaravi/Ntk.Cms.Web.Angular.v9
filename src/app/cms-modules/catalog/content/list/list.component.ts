@@ -41,7 +41,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
   constructor(
     public contentService: CatalogContentService,
     private cmsToastrService: CmsToastrService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
@@ -49,7 +49,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CatalogContentModel(), publicHelper);
+    super(contentService, new CatalogContentModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {

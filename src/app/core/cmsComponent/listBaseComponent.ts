@@ -9,11 +9,14 @@ import { ContentInfoModel } from "../models/contentInfoModel";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
+import { CmsExportEntityComponent } from "src/app/shared/cms-export-entity/cms-export-entity.component";
+import { TokenHelper } from "../helpers/tokenHelper";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper) {
+  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper,public tokenHelper: TokenHelper) {
     publicHelper.pageInfo.updateContentService(baseService);
   }
+  
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();
@@ -100,6 +103,63 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+onActionbuttonPrintRow(model: any = this.tableRowSelected): void {
+  if (!model || !model.id || model.id.length === 0) {
+    this.publicHelper.cmsToastrService.typeErrorSelectedRow();
+    return;
+  }
+  this.onActionTableRowSelect(model);
+  if (
+    this.dataModelResult == null ||
+    this.dataModelResult.access == null ||
+    !this.dataModelResult.access.accessEditRow
+  ) {
+    this.publicHelper.cmsToastrService.typeErrorAccessWatch();
+    return;
+  }
+  var panelClass = '';
+  if (this.tokenHelper.isMobile)
+    panelClass = 'dialog-fullscreen';
+  else
+    panelClass = 'dialog-min';
+  //open popup
+  const dialogRef = this.publicHelper.dialog.open(CmsExportEntityComponent, {
+    height: "50%",
+    width: "50%",
+    panelClass: panelClass,
+    enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+    exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+    data: {
+      service: this.baseService,
+        id: this.tableRowSelected ? this.tableRowSelected.id : '',
+        title: this.tableRowSelected ? this.tableRowSelected['title'] : ''
+    },
+  }
+  );
+  dialogRef.afterClosed().subscribe((result) => {
+  });
+  //open popup
+}
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
   onActionbuttonPin(model: TModel = this.tableRowSelected): void {
     //open popup
     var panelClass = '';

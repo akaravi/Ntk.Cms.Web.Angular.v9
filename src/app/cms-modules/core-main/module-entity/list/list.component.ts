@@ -38,7 +38,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     public contentService: CoreModuleEntityService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private activatedRoute: ActivatedRoute,
     private coreModuleService: CoreModuleService,
     private router: Router,
@@ -47,7 +47,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreModuleEntityModel(), publicHelper);
+    super(contentService, new CoreModuleEntityModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

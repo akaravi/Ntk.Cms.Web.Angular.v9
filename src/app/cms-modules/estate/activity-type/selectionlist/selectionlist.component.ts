@@ -23,7 +23,7 @@ export class EstateActivityTypeSelectionlistComponent implements OnInit, OnDestr
     public coreEnumService: CoreEnumService,
     public categoryService: EstateActivityTypeService,
     private cdr: ChangeDetectorRef,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService) {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');

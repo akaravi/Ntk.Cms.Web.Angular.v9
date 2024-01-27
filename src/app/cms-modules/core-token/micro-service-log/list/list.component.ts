@@ -39,7 +39,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router,
@@ -47,7 +47,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreTokenMicroServiceLogModel(), publicHelper);
+    super(contentService, new CoreTokenMicroServiceLogModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));

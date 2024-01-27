@@ -53,10 +53,10 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     private cdr: ChangeDetectorRef,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     public pageInfo: PageInfoService,
-    private tokenHelper: TokenHelper,
+    public tokenHelper: TokenHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ApplicationAppModel(), publicHelper);
+    super(contentService, new ApplicationAppModel(), publicHelper,tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
