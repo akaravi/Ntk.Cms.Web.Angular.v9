@@ -24,6 +24,7 @@ export class CmsHtmlListComponent implements OnInit {
   }
   @Output() optionOnActionbuttonMemo = new EventEmitter<any>();
   @Output() optionOnActionbuttonMemoRow = new EventEmitter<any>();
+  @Output() optionOnActionbuttonPrintRow = new EventEmitter<any>();
 
   loading = new ProgressSpinnerModel();
 
@@ -77,6 +78,9 @@ export class CmsHtmlListComponent implements OnInit {
   }
   onActionbuttonMemoRow(): void {
     this.optionOnActionbuttonMemoRow.emit();
+  }
+  onActionbuttonPrintRow(): void {
+    this.optionOnActionbuttonPrintRow.emit();
   }
   /*
   <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true">
