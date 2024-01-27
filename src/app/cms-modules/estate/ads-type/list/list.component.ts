@@ -377,42 +377,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     //open popup
 
   }
-  onActionButtonPrintEntity(model: any = this.tableRowSelected): void {
-    if (!model || !model.id || model.id.length === 0) {
-      this.cmsToastrService.typeErrorSelectedRow();
-      return;
-    }
-    this.onActionTableRowSelect(model);
-    if (
-      this.dataModelResult == null ||
-      this.dataModelResult.access == null ||
-      !this.dataModelResult.access.accessEditRow
-    ) {
-      this.cmsToastrService.typeErrorAccessWatch();
-      return;
-    }
-    //open popup
-    var panelClass = '';
-    if (this.tokenHelper.isMobile)
-      panelClass = 'dialog-fullscreen';
-    else
-      panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsExportEntityComponent, {
-      height: "50%",
-      panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: {
-        service: this.contentService,
-        id: this.tableRowSelected.id,
-        title: this.tableRowSelected.title
-      },
-    }
-    );
-    dialogRef.afterClosed().subscribe((result) => {
-    });
-    //open popup
-  }
+  
 
   onActionbuttonReload(): void {
     this.DataGetAll();
