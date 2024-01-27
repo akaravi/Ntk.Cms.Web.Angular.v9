@@ -13,11 +13,8 @@ import {
   WebDesignerMainPageTemplateService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
@@ -31,7 +28,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
   selector: 'app-webdesigner-page-list-grid',
   templateUrl: './list-grid.component.html',
 })
-export class WebDesignerMainPageListGridComponent extends ListBaseComponent< WebDesignerMainPageService, WebDesignerMainPageModel, string> implements OnInit, OnDestroy {
+export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebDesignerMainPageService, WebDesignerMainPageModel, string> implements OnInit, OnDestroy {
   requestLinkPageParentGuId = '';
   requestLinkPageTemplateGuId = '';
   requestLinkPageDependencyGuId = '';
@@ -49,7 +46,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent< Web
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new WebDesignerMainPageModel(), publicHelper);
+    super(contentService, new WebDesignerMainPageModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId')) {
       this.requestLinkPageTemplateGuId = this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId');
@@ -94,10 +91,10 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent< Web
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainPageModel> = new ErrorExceptionResult<WebDesignerMainPageModel>();
-  
-  
 
-  
+
+
+
   tableRowsSelected: Array<WebDesignerMainPageModel> = [];
   tableRowSelected: WebDesignerMainPageModel = new WebDesignerMainPageModel();
   tableSource: MatTableDataSource<WebDesignerMainPageModel> = new MatTableDataSource<WebDesignerMainPageModel>();
