@@ -86,7 +86,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent< Web
       this.filteModelContent.filters.push(filter);
     }
   }
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+
   comment: string;
   author: string;
   dataSource: any;
@@ -94,11 +94,10 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent< Web
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainPageModel> = new ErrorExceptionResult<WebDesignerMainPageModel>();
-  optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
-  optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
+  
+  
 
-  tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+  
   tableRowsSelected: Array<WebDesignerMainPageModel> = [];
   tableRowSelected: WebDesignerMainPageModel = new WebDesignerMainPageModel();
   tableSource: MatTableDataSource<WebDesignerMainPageModel> = new MatTableDataSource<WebDesignerMainPageModel>();
