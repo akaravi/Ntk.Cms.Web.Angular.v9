@@ -8,11 +8,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, CoreModuleTagCategoryModel, CoreModuleTagModel, CoreModuleTagService, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
-} from 'ntk-cms-api';
+  FormInfoModel} from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -20,7 +19,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add-bulk.component.html',
   styleUrls: ['./add-bulk.component.scss'],
 })
-export class CoreModuleTagAddBulkComponent implements OnInit {
+export class CoreModuleTagAddBulkComponent extends AddBaseComponent<CoreModuleTagService, CoreModuleTagModel, number> implements OnInit {
   requestParentId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -32,6 +31,7 @@ export class CoreModuleTagAddBulkComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(coreModuleTagService, new CoreModuleTagModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -50,7 +50,6 @@ export class CoreModuleTagAddBulkComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<CoreModuleTagModel> = new ErrorExceptionResult<CoreModuleTagModel>();
   dataModel: CoreModuleTagModel = new CoreModuleTagModel();
 

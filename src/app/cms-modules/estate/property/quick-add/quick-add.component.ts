@@ -20,12 +20,13 @@ import { CmsFormsErrorStateMatcher } from 'src/app/core/pipe/cmsFormsErrorStateM
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
 import { environment } from 'src/environments/environment';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 @Component({
   selector: 'app-estate-property-quick-add',
   templateUrl: './quick-add.component.html',
   styleUrls: ["./quick-add.component.scss"],
 })
-export class EstatePropertyQuickAddComponent implements OnInit {
+export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstatePropertyTypeService, EstatePropertyTypeModel, string>  implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<EstatePropertyQuickAddComponent>,
     public coreEnumService: CoreEnumService,
@@ -41,7 +42,7 @@ export class EstatePropertyQuickAddComponent implements OnInit {
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-
+    super(estatePropertyTypeService, new EstatePropertyTypeModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -56,7 +57,6 @@ export class EstatePropertyQuickAddComponent implements OnInit {
   tokenInfo = new TokenInfoModel();
   appLanguage = 'fa';
   formMatcher = new CmsFormsErrorStateMatcher();
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyModel> = new ErrorExceptionResult<EstatePropertyModel>();
   dataModelEstateContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModelEstatePropertyTypeResult: ErrorExceptionResult<EstatePropertyTypeModel> = new ErrorExceptionResult<EstatePropertyTypeModel>();
@@ -138,27 +138,27 @@ export class EstatePropertyQuickAddComponent implements OnInit {
   }
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'ServiceViewModel';
-    this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_access'));
-    this.estatePropertyService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'ServiceViewModel';
+  //   this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_access'));
+  //   this.estatePropertyService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   DataGetPropertyDetailGroup(id: string): void {
     const filteModelProperty = new FilterModel();
