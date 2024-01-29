@@ -32,7 +32,7 @@ export class CoreSiteDomainAliasAddComponent extends AddBaseComponent<CoreSiteDo
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreSiteDomainAliasService, new CoreSiteDomainAliasModel, publicHelper);
+    super(coreSiteDomainAliasService, new CoreSiteDomainAliasModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

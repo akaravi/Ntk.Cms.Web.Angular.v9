@@ -32,7 +32,7 @@ export class CoreModuleSaleHeaderAddComponent extends AddBaseComponent<CoreModul
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleSaleHeaderService, new CoreModuleSaleHeaderModel, publicHelper);
+    super(coreModuleSaleHeaderService, new CoreModuleSaleHeaderModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

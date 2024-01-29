@@ -32,7 +32,7 @@ export class SmsMainApiNumberPermissionAddComponent extends AddBaseComponent<Sms
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(smsMainApiNumberPermissionService, new SmsMainApiNumberPermissionModel, publicHelper);
+    super(smsMainApiNumberPermissionService, new SmsMainApiNumberPermissionModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

@@ -30,7 +30,7 @@ export class WebDesignerMainPageDependencyAddComponent extends AddBaseComponent<
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(webDesignerMainPageDependencyService, new WebDesignerMainPageDependencyModel, publicHelper);
+    super(webDesignerMainPageDependencyService, new WebDesignerMainPageDependencyModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {

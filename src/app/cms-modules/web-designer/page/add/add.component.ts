@@ -33,7 +33,7 @@ export class WebDesignerMainPageAddComponent extends AddBaseComponent<WebDesigne
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(webDesignerMainPageService, new WebDesignerMainPageModel, publicHelper);
+    super(webDesignerMainPageService, new WebDesignerMainPageModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestLinkPageDependencyGuId = data.linkPageDependencyGuId + '';

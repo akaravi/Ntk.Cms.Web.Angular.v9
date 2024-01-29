@@ -35,7 +35,7 @@ export class DataProviderPlanPriceAddComponent extends AddBaseComponent<DataProv
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(dataproviderplanpriceservice, new DataProviderPlanPriceModel, publicHelper);
+    super(dataproviderplanpriceservice, new DataProviderPlanPriceModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestLinkPlanId = +data.linkPlanId || 0;

@@ -32,7 +32,7 @@ export class PollingCategoryAddComponent extends AddBaseComponent<PollingCategor
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(pollingCategoryService, new PollingCategoryModel, publicHelper);
+    super(pollingCategoryService, new PollingCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = +data.parentId || 0;

@@ -32,7 +32,7 @@ export class SmsMainApiPathAddComponent extends AddBaseComponent<SmsMainApiPathS
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(smsMainApiPathService, new SmsMainApiPathModel, publicHelper);
+    super(smsMainApiPathService, new SmsMainApiPathModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data && data.id) {
       this.requestId = data.id;

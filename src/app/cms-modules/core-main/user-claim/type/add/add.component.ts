@@ -31,7 +31,7 @@ export class CoreUserClaimTypeAddComponent extends AddBaseComponent<CoreUserClai
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreUserClaimTypeService, new CoreUserClaimTypeModel, publicHelper);
+    super(coreUserClaimTypeService, new CoreUserClaimTypeModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

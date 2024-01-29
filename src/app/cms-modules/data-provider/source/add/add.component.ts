@@ -32,7 +32,7 @@ export class DataProviderSourceAddComponent extends AddBaseComponent<DataProvide
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(dataProviderSourceService, new DataProviderSourceModel, publicHelper);
+    super(dataProviderSourceService, new DataProviderSourceModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

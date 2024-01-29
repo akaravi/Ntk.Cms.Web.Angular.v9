@@ -31,7 +31,7 @@ export class CoreUserGroupAddComponent extends AddBaseComponent<CoreUserGroupSer
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreUserGroupService, new CoreUserGroupModel, publicHelper);
+    super(coreUserGroupService, new CoreUserGroupModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

@@ -32,7 +32,7 @@ export class ContactCategoryAddComponent extends AddBaseComponent<ContactCategor
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contactCategoryService, new ContactCategoryModel, publicHelper);
+    super(contactCategoryService, new ContactCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data && data.parentId && data.parentId.length > 0) {
       this.requestParentId = data.parentId;

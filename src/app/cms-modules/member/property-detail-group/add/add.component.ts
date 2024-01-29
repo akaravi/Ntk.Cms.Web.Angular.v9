@@ -33,7 +33,7 @@ export class MemberPropertyDetailGroupAddComponent extends AddBaseComponent<Memb
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(memberPropertyDetailGroupService, new MemberPropertyDetailGroupModel, publicHelper);
+    super(memberPropertyDetailGroupService, new MemberPropertyDetailGroupModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {

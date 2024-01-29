@@ -33,7 +33,7 @@ export class CoreCpMainMenuAddComponent extends AddBaseComponent<CoreCpMainMenuS
     public translate: TranslateService,
     public tokenHelper: TokenHelper,
   ) {
-    super(coreCpMainMenuService, new CoreCpMainMenuModel, publicHelper);
+    super(coreCpMainMenuService, new CoreCpMainMenuModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

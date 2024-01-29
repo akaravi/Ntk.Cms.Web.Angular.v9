@@ -31,7 +31,7 @@ export class WebDesignerMainMenuAddComponent extends AddBaseComponent<WebDesigne
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(webDesignerMainMenuService, new WebDesignerMainMenuModel, publicHelper);
+    super(webDesignerMainMenuService, new WebDesignerMainMenuModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

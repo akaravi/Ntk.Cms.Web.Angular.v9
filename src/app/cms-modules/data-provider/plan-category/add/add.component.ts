@@ -33,7 +33,7 @@ export class DataProviderPlanCategoryAddComponent extends AddBaseComponent<DataP
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(dataProviderPlanCategoryService, new DataProviderPlanCategoryModel, publicHelper);
+    super(dataProviderPlanCategoryService, new DataProviderPlanCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = +data.parentId || 0;

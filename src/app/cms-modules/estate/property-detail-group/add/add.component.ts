@@ -30,7 +30,7 @@ export class EstatePropertyDetailGroupAddComponent extends AddBaseComponent<Esta
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estatePropertyDetailGroupService, new EstatePropertyDetailGroupModel, publicHelper);
+    super(estatePropertyDetailGroupService, new EstatePropertyDetailGroupModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {

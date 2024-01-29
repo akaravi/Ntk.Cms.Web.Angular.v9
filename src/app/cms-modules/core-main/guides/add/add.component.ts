@@ -32,7 +32,7 @@ export class CoreGuideAddComponent extends AddBaseComponent<CoreGuideService, Co
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreGuideService, new CoreGuideModel, publicHelper);
+    super(coreGuideService, new CoreGuideModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

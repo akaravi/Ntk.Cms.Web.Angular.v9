@@ -29,7 +29,7 @@ export class WebDesignerMainPageTemplateAddComponent extends AddBaseComponent<We
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(webDesignerMainPageTemplateService, new WebDesignerMainPageTemplateModel, publicHelper);
+    super(webDesignerMainPageTemplateService, new WebDesignerMainPageTemplateModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

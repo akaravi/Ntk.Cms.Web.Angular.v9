@@ -5,15 +5,14 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, ApplicationSourceModel, CaptchaModel, CoreAuthService, CoreEnumService,
   DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, FormSubmitedStatusEnum, InfoEnumModel, TicketingTaskDtoModel, TicketingTaskModel,
-  TicketingTaskService, TicketingTemplateModel, TokenInfoModel
-} from 'ntk-cms-api';
+  FormInfoModel, FormSubmitedStatusEnum, TicketingTaskDtoModel, TicketingTaskModel,
+  TicketingTaskService, TicketingTemplateModel} from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -21,7 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './contact-us-add.component.html',
   styleUrls: ['./contact-us-add.component.scss']
 })
-export class TicketingTaskContactUsAddComponent implements OnInit {
+export class TicketingTaskContactUsAddComponent extends AddBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit {
   requestLinkDepartemenId = 0;
   constructor(
     private tokenHelper: TokenHelper,
@@ -34,6 +33,7 @@ export class TicketingTaskContactUsAddComponent implements OnInit {
     private router: Router,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef) {
+      super(ticketingTaskService, new TicketingTaskModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -50,12 +50,11 @@ export class TicketingTaskContactUsAddComponent implements OnInit {
     });
   }
   cmsApiStoreSubscribe: Subscription;
-  tokenInfo: TokenInfoModel;
+  // tokenInfo: TokenInfoModel;
 
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   dataModel = new TicketingTaskDtoModel();
@@ -92,28 +91,28 @@ export class TicketingTaskContactUsAddComponent implements OnInit {
     this.DataAddContent();
   }
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.ticketingTaskService
-      .ServiceViewModel()
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            this.dataAccessModel = next.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        (error) => {
-          this.cmsToastrService.typeErrorGetAccess(error);
-          this.loading.Stop(pName);
-        }
-      );
-  }
+  //   this.ticketingTaskService
+  //     .ServiceViewModel()
+  //     .subscribe(
+  //       async (next) => {
+  //         if (next.isSuccess) {
+  //           this.dataAccessModel = next.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       (error) => {
+  //         this.cmsToastrService.typeErrorGetAccess(error);
+  //         this.loading.Stop(pName);
+  //       }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;

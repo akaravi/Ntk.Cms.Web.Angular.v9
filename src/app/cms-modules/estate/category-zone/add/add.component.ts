@@ -29,7 +29,7 @@ export class EstateCategoryZoneAddComponent extends AddBaseComponent<EstateCateg
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateCategoryZoneService, new EstateCategoryZoneModel, publicHelper);
+    super(estateCategoryZoneService, new EstateCategoryZoneModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

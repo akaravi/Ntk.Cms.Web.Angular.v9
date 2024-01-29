@@ -29,7 +29,7 @@ export class ArticleCategoryAddComponent extends AddBaseComponent<ArticleCategor
     public translate: TranslateService,
     public publicHelper: PublicHelper,
   ) {
-    super(categoryService, new ArticleCategoryModel, publicHelper);
+    super(categoryService, new ArticleCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

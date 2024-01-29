@@ -44,7 +44,7 @@ export class EstateCustomerOrderAddComponent extends AddBaseComponent<EstateCust
     public dialog: MatDialog,
     public translate: TranslateService,
   ) {
-    super(estateCustomerOrderService, new EstateCustomerOrderModel, publicHelper);
+    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');

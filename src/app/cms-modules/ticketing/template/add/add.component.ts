@@ -30,7 +30,7 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(ticketingTemplateService, new TicketingTemplateModel, publicHelper);
+    super(ticketingTemplateService, new TicketingTemplateModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = +data.parentId || 0;

@@ -32,7 +32,7 @@ export class MemberPropertyAliasAddComponent extends AddBaseComponent<MemberProp
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(memberPropertyAliasService, new MemberPropertyAliasModel, publicHelper);
+    super(memberPropertyAliasService, new MemberPropertyAliasModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

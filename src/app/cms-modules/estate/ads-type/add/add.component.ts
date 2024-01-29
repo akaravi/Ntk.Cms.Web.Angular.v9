@@ -29,7 +29,7 @@ export class EstateAdsTypeAddComponent extends AddBaseComponent<EstateAdsTypeSer
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateAdsTypeService, new EstateAdsTypeModel, publicHelper);
+    super(estateAdsTypeService, new EstateAdsTypeModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
 

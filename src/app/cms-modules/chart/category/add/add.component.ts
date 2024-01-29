@@ -32,7 +32,7 @@ export class ChartCategoryAddComponent extends AddBaseComponent<ChartCategorySer
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(categoryService, new ChartCategoryModel, publicHelper);
+    super(categoryService, new ChartCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

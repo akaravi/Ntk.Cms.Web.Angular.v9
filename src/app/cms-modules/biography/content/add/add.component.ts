@@ -42,7 +42,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(biographyContentService, new BiographyContentModel, publicHelper);
+    super(biographyContentService, new BiographyContentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

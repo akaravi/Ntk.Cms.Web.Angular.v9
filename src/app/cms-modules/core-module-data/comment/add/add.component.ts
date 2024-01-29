@@ -32,7 +32,7 @@ export class CoreModuleDataCommentAddComponent extends AddBaseComponent<CoreModu
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleDataCommentService, new CoreModuleDataCommentModel, publicHelper);
+    super(coreModuleDataCommentService, new CoreModuleDataCommentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
