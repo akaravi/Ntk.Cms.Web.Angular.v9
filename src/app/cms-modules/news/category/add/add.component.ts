@@ -31,7 +31,7 @@ export class NewsCategoryAddComponent extends AddBaseComponent<NewsCategoryServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new NewsCategoryModel, publicHelper);
+    super(categoryService, new NewsCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = +data.parentId || 0;

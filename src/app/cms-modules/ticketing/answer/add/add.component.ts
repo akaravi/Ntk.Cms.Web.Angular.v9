@@ -35,7 +35,7 @@ export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswe
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(ticketingAnswerService, new TicketingAnswerModel, publicHelper);
+    super(ticketingAnswerService, new TicketingAnswerModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {

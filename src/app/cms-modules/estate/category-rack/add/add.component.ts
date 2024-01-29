@@ -29,7 +29,7 @@ export class EstateCategoryRackAddComponent extends AddBaseComponent<EstateCateg
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateCategoryRackService, new EstateCategoryRackModel, publicHelper);
+    super(estateCategoryRackService, new EstateCategoryRackModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

@@ -32,7 +32,7 @@ export class EstatePropertyTypeUsageAddComponent extends AddBaseComponent<Estate
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estatePropertyTypeUsageService, new EstatePropertyTypeUsageModel, publicHelper);
+    super(estatePropertyTypeUsageService, new EstatePropertyTypeUsageModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {

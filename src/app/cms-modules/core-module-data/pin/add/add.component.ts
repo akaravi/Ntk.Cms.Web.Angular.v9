@@ -32,7 +32,7 @@ export class CoreModuleDataPinAddComponent extends AddBaseComponent<CoreModuleDa
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleDataPinService, new CoreModuleDataPinModel, publicHelper);
+    super(coreModuleDataPinService, new CoreModuleDataPinModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

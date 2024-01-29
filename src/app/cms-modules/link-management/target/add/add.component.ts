@@ -40,7 +40,7 @@ export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManag
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(linkManagementTargetService, new LinkManagementTargetModel, publicHelper);
+    super(linkManagementTargetService, new LinkManagementTargetModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loadingOption.cdr = this.cdr;
 

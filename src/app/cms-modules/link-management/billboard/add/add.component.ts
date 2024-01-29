@@ -41,7 +41,7 @@ export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkMa
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(linkManagementBillboardService, new LinkManagementBillboardModel, publicHelper);
+    super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loadingOption.cdr = this.cdr;
 

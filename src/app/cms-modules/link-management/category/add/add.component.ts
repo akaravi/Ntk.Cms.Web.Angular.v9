@@ -32,7 +32,7 @@ export class LinkManagementCategoryAddComponent extends AddBaseComponent<LinkMan
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new LinkManagementCategoryModel, publicHelper);
+    super(categoryService, new LinkManagementCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = +data.parentId || 0;

@@ -35,7 +35,7 @@ export class EstatePropertyExpertPriceAddComponent extends AddBaseComponent<Esta
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estatePropertyExpertPriceService, new EstatePropertyExpertPriceModel, publicHelper);
+    super(estatePropertyExpertPriceService, new EstatePropertyExpertPriceModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // if (data) {
     //   this.requestTargetCategoryId = +data.linkTargetCategoryId || 0;

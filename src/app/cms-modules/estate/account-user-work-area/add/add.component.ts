@@ -33,7 +33,7 @@ export class EstateAccountUserWorkAreaAddComponent extends AddBaseComponent<Esta
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estateAccountUserWorkAreaService, new EstateAccountUserWorkAreaModel, publicHelper);
+    super(estateAccountUserWorkAreaService, new EstateAccountUserWorkAreaModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {

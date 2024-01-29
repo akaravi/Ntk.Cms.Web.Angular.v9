@@ -31,7 +31,7 @@ export class CoreDeviceAddComponent extends AddBaseComponent<CoreDeviceService, 
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreDeviceService, new CoreDeviceModel, publicHelper);
+    super(coreDeviceService, new CoreDeviceModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

@@ -32,7 +32,7 @@ export class SmsMainMessageContentAddComponent extends AddBaseComponent<SmsMainM
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(SmsMainMessageContentService, new SmsMainMessageContentModel, publicHelper);
+    super(SmsMainMessageContentService, new SmsMainMessageContentModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     if (data && data.linkCategoryId && data.linkCategoryId.length > 0)

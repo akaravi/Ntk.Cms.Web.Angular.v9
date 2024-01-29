@@ -31,7 +31,7 @@ export class BiographyCategoryAddComponent extends AddBaseComponent<BiographyCat
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(biographyCategoryService, new BiographyCategoryModel, publicHelper);
+    super(biographyCategoryService, new BiographyCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

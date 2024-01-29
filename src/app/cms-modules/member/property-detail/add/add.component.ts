@@ -38,7 +38,7 @@ export class MemberPropertyDetailAddComponent extends AddBaseComponent<MemberPro
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(memberPropertyDetailService, new MemberPropertyDetailModel, publicHelper);
+    super(memberPropertyDetailService, new MemberPropertyDetailModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestLinkPropertyTypeId = +data.linkPropertyTypeId;

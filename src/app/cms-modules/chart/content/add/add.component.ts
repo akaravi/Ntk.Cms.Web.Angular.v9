@@ -43,7 +43,7 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new ChartContentModel, publicHelper);
+    super(contentService, new ChartContentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

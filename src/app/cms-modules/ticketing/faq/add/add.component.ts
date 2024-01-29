@@ -31,7 +31,7 @@ export class TicketingFaqAddComponent extends AddBaseComponent<TicketingFaqServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(ticketingFaqService, new TicketingFaqModel, publicHelper);
+    super(ticketingFaqService, new TicketingFaqModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = +data.parentId || 0;

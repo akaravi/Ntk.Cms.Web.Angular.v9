@@ -32,7 +32,7 @@ export class EstateBillboardAddComponent extends AddBaseComponent<EstateBillboar
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateBillboardService, new EstateBillboardModel, publicHelper);
+    super(estateBillboardService, new EstateBillboardModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');

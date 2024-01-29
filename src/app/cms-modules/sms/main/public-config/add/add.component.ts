@@ -31,7 +31,7 @@ export class SmsMainApiPathPublicConfigAddComponent extends AddBaseComponent<Sms
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(smsMainApiPathPublicConfigService, new SmsMainApiPathPublicConfigModel, publicHelper);
+    super(smsMainApiPathPublicConfigService, new SmsMainApiPathPublicConfigModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

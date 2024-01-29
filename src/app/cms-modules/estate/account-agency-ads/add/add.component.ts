@@ -34,7 +34,7 @@ export class EstateAccountAgencyAdsAddComponent extends AddBaseComponent<EstateA
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estateAccountAgencyAdsService, new EstateAccountAgencyAdsModel, publicHelper);
+    super(estateAccountAgencyAdsService, new EstateAccountAgencyAdsModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data && data.linkAccountAgencyId) {
       this.requestLinkAccountAgencyId = data.linkAccountAgencyId;

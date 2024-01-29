@@ -35,7 +35,7 @@ export class EstatePropertyDetailAddComponent extends AddBaseComponent<EstatePro
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estatePropertyDetailService, new EstatePropertyDetailModel, publicHelper);
+    super(estatePropertyDetailService, new EstatePropertyDetailModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

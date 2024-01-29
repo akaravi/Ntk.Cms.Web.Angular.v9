@@ -31,7 +31,7 @@ export class CoreModuleSaleHeaderGroupAddComponent extends AddBaseComponent<Core
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleSaleHeaderGroupService, new CoreModuleSaleHeaderGroupModel, publicHelper);
+    super(coreModuleSaleHeaderGroupService, new CoreModuleSaleHeaderGroupModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

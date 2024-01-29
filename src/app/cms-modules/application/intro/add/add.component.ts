@@ -32,7 +32,7 @@ export class ApplicationIntroAddComponent extends AddBaseComponent<ApplicationIn
     private cdr: ChangeDetectorRef,
     private router: Router,
     public publicHelper: PublicHelper,) {
-      super(applicationIntroService, new ApplicationIntroModel, publicHelper);
+      super(applicationIntroService, new ApplicationIntroModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

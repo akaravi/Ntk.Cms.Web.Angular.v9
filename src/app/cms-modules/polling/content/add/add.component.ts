@@ -43,7 +43,7 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(pollingContentService, new PollingContentModel, publicHelper);
+    super(pollingContentService, new PollingContentModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loadingOption.cdr = this.cdr;
 

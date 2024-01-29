@@ -32,7 +32,7 @@ export class CoreLocationAddComponent extends AddBaseComponent<CoreLocationServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreLocationService, new CoreLocationModel, publicHelper);
+    super(coreLocationService, new CoreLocationModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

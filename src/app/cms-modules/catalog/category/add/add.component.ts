@@ -32,7 +32,7 @@ export class CatalogCategoryAddComponent extends AddBaseComponent<CatalogCategor
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new CatalogCategoryModel, publicHelper);
+    super(categoryService, new CatalogCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

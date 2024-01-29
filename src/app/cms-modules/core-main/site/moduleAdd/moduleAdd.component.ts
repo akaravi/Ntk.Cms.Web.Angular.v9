@@ -9,10 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, CoreEnumService, CoreModuleModel, CoreModuleSiteModel,
   CoreModuleSiteService, CoreSiteModel, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
-} from 'ntk-cms-api';
+  FormInfoModel} from 'ntk-cms-api';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -20,7 +19,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './moduleAdd.component.html',
   styleUrls: ['./moduleAdd.component.scss'],
 })
-export class CoreSiteModuleAddComponent implements OnInit {
+export class CoreSiteModuleAddComponent extends AddBaseComponent<CoreModuleSiteService, CoreModuleSiteModel, number> implements OnInit {
   requestLinkSiteId = 0;
   requestLinkModuleId = 0;
   constructor(
@@ -29,10 +28,11 @@ export class CoreSiteModuleAddComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public coreSiteService: CoreModuleSiteService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
+    super(coreSiteService, new CoreModuleSiteModel, publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -53,7 +53,6 @@ export class CoreSiteModuleAddComponent implements OnInit {
   dataAccessModel: AccessModel;
 
 
-  loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<CoreModuleSiteModel> = new ErrorExceptionResult<CoreModuleSiteModel>();
   dataModel: CoreModuleSiteModel = new CoreModuleSiteModel();
 
@@ -69,29 +68,29 @@ export class CoreSiteModuleAddComponent implements OnInit {
   }
 
 
-  DataGetAccess(): void {
-    const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+  // DataGetAccess(): void {
+  //   const pName = this.constructor.name + 'DataGetAccess';
+  //   this.loading.Start(pName);
 
-    this.coreSiteService
-      .ServiceViewModel()
-      .subscribe({
-        next: (ret) => {
-          if (ret.isSuccess) {
-            this.dataAccessModel = ret.access;
-            this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          } else {
-            this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-          }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
-        }
-      }
-      );
-  }
+  //   this.coreSiteService
+  //     .ServiceViewModel()
+  //     .subscribe({
+  //       next: (ret) => {
+  //         if (ret.isSuccess) {
+  //           this.dataAccessModel = ret.access;
+  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+  //         } else {
+  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
+  //         }
+  //         this.loading.Stop(pName);
+  //       },
+  //       error: (er) => {
+  //         this.cmsToastrService.typeErrorGetAccess(er);
+  //         this.loading.Stop(pName);
+  //       }
+  //     }
+  //     );
+  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

@@ -29,7 +29,7 @@ export class BankPaymentPublicConfigAddComponent extends AddBaseComponent<BankPa
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(bankPaymentPublicConfigService, new BankPaymentPublicConfigModel, publicHelper);
+    super(bankPaymentPublicConfigService, new BankPaymentPublicConfigModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

@@ -31,7 +31,7 @@ export class ApplicationSourceAddComponent extends AddBaseComponent<ApplicationS
     private cdr: ChangeDetectorRef,
     private router: Router,
     public publicHelper: PublicHelper,) {
-      super(applicationSourceService, new ApplicationSourceModel, publicHelper);
+      super(applicationSourceService, new ApplicationSourceModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

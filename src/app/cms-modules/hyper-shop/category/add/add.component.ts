@@ -31,7 +31,7 @@ export class HyperShopCategoryAddComponent extends AddBaseComponent<HyperShopCat
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(hyperShopCategoryService, new HyperShopCategoryModel, publicHelper);
+    super(hyperShopCategoryService, new HyperShopCategoryModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

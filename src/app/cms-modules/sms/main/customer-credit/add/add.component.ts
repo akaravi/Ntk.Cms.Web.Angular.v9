@@ -32,7 +32,7 @@ export class SmsMainCustomerCreditAddComponent extends AddBaseComponent<SmsMainC
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(SmsMainCustomerCreditService, new SmsMainCustomerCreditModel, publicHelper);
+    super(SmsMainCustomerCreditService, new SmsMainCustomerCreditModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

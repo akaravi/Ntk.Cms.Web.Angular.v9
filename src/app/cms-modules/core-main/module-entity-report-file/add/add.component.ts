@@ -31,7 +31,7 @@ export class CoreModuleEntityReportFileAddComponent extends AddBaseComponent<Cor
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleEntityReportFileService, new CoreModuleEntityReportFileModel, publicHelper);
+    super(coreModuleEntityReportFileService, new CoreModuleEntityReportFileModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

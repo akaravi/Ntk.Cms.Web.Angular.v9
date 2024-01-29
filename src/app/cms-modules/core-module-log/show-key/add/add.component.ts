@@ -32,7 +32,7 @@ export class CoreModuleLogShowKeyAddComponent extends AddBaseComponent<CoreModul
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleLogShowKeyService, new CoreModuleLogShowKeyModel, publicHelper);
+    super(coreModuleLogShowKeyService, new CoreModuleLogShowKeyModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

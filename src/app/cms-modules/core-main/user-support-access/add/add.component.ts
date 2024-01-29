@@ -31,7 +31,7 @@ export class CoreUserSupportAccessAddComponent extends AddBaseComponent<CoreUser
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreUserSupportAccessService, new CoreUserSupportAccessModel, publicHelper);
+    super(coreUserSupportAccessService, new CoreUserSupportAccessModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

@@ -33,7 +33,7 @@ export class SmsMainApiPathPriceServiceAddComponent extends AddBaseComponent<Sms
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(smsMainApiPathPriceServiceService, new SmsMainApiPathPriceServiceModel, publicHelper);
+    super(smsMainApiPathPriceServiceService, new SmsMainApiPathPriceServiceModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data.linkApiPathId && data.linkApiPathId.length > 0)

@@ -36,7 +36,7 @@ export class EstateAccountAgencyAddComponent extends AddBaseComponent<EstateAcco
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estateAccountAgencyService, new EstateAccountAgencyModel, publicHelper);
+    super(estateAccountAgencyService, new EstateAccountAgencyModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {

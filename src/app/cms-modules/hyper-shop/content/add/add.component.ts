@@ -33,7 +33,7 @@ export class HyperShopContentAddComponent extends AddBaseComponent<HyperShopCont
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(hyperShopContentService, new HyperShopContentModel, publicHelper);
+    super(hyperShopContentService, new HyperShopContentModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
       this.requestParentId = data.parentId + '';

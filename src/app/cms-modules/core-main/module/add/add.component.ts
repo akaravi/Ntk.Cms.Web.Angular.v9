@@ -31,7 +31,7 @@ export class CoreModuleAddComponent extends AddBaseComponent<CoreModuleService, 
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleService, new CoreModuleModel, publicHelper);
+    super(coreModuleService, new CoreModuleModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

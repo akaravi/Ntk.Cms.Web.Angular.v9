@@ -36,7 +36,7 @@ export class CoreUserClaimContentAddComponent extends AddBaseComponent<CoreUserC
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
   ) {
-    super(coreUserClaimContentService, new CoreUserClaimContentModel, publicHelper);
+    super(coreUserClaimContentService, new CoreUserClaimContentModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

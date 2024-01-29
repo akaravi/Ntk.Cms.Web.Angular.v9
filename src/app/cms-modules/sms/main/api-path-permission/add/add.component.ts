@@ -33,7 +33,7 @@ export class SmsMainApiPathPermissionAddComponent extends AddBaseComponent<SmsMa
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(smsMainApiPathPermissionService, new SmsMainApiPathPermissionModel, publicHelper);
+    super(smsMainApiPathPermissionService, new SmsMainApiPathPermissionModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

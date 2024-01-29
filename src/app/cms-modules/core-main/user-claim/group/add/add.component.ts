@@ -31,7 +31,7 @@ export class CoreUserClaimGroupAddComponent extends AddBaseComponent<CoreUserCla
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreUserClaimGroupService, new CoreUserClaimGroupModel, publicHelper);
+    super(coreUserClaimGroupService, new CoreUserClaimGroupModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
