@@ -1,4 +1,4 @@
-import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
+import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, FilterModel, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
 import { CmsDataPinComponent } from "src/app/shared/cms-data-pin/cms-data-pin.component";
@@ -12,11 +12,13 @@ import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel"
 import { CmsExportEntityComponent } from "src/app/shared/cms-export-entity/cms-export-entity.component";
 import { TokenHelper } from "../helpers/tokenHelper";
 import { MatTableDataSource } from "@angular/material/table";
+import { CmsExportListComponent } from "src/app/shared/cms-export-list/cmsExportList.component";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public tokenHelper: TokenHelper) {
     publicHelper.pageInfo.updateContentService(baseService);
   }
+  filteModelContent = new FilterModel();
   tableSource: MatTableDataSource<TModel> = new MatTableDataSource<TModel>();
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -109,6 +111,30 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
       row['expanded'] = flag;
     });
   }
+  onActionbuttonExport(): void {
+    //open popup
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+        panelClass = 'dialog-fullscreen';
+
+    else
+        panelClass = 'dialog-min';
+    const dialogRef = this.publicHelper.dialog.open(CmsExportListComponent, {
+        height: "50%",
+        enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+        exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+        panelClass: panelClass,
+        data: {
+            service: this.baseService,
+            filterModel: this.filteModelContent,
+            title: ''
+        },
+    }
+    );
+    dialogRef.afterClosed().subscribe((result) => {
+    });
+    //open popup
+}
   /////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////

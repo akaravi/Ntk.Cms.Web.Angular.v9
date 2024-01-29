@@ -347,30 +347,7 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
     this.onActionTableRowSelect(model);
     window.open(this.tableRowSelected.urlViewContent, '_blank');
   }
-  onActionbuttonExport(): void {
-    //open popup
-    var panelClass = '';
-    if (this.tokenHelper.isMobile)
-      panelClass = 'dialog-fullscreen';
-    else
-      panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsExportListComponent, {
-      height: "50%",
-      panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: {
-        service: this.contentService,
-        filterModel: this.filteModelContent,
-        title: ''
-      },
-    }
-    );
-    dialogRef.afterClosed().subscribe((result) => {
-    });
-    //open popup
-
-  }
+  
   
 
   onActionbuttonCopyNewRow(model: EstateBillboardModel = this.tableRowSelected, event?: MouseEvent): void {

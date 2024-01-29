@@ -23,6 +23,7 @@ export class CmsHtmlListComponent implements OnInit {
     this.loading = v;
   }
   @Output() optionOnActionbuttonMemo = new EventEmitter<any>();
+  @Output() optionOnActionbuttonExport = new EventEmitter<any>();
   @Output() optionOnActionbuttonMemoRow = new EventEmitter<any>();
   @Output() optionOnActionbuttonPrintRow = new EventEmitter<any>();
 
@@ -75,6 +76,9 @@ export class CmsHtmlListComponent implements OnInit {
   }
   onActionbuttonMemo(): void {
     this.optionOnActionbuttonMemo.emit();
+  }
+  onActionbuttonExport(): void {
+    this.optionOnActionbuttonExport.emit();
   }
   onActionbuttonMemoRow(): void {
     this.optionOnActionbuttonMemoRow.emit();

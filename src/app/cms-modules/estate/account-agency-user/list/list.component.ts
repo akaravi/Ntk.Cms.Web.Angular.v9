@@ -302,30 +302,7 @@ export class EstateAccountAgencyUserListComponent extends ListBaseComponent<Esta
     );
 
   }
-  onActionbuttonExport(): void {
-    //open popup
-    var panelClass = '';
-    if (this.tokenHelper.isMobile)
-      panelClass = 'dialog-fullscreen';
-    else
-      panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsExportListComponent, {
-      height: "50%",
-      panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: {
-        service: this.contentService,
-        filterModel: this.filteModelContent,
-        title: ''
-      },
-    }
-    );
-    dialogRef.afterClosed().subscribe((result) => {
-    });
-    //open popup
-
-  }
+  
 
   onActionbuttonReload(): void {
     this.DataGetAll();

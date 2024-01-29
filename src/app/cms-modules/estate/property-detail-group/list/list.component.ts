@@ -43,7 +43,7 @@ export class EstatePropertyDetailGroupListComponent extends ListBaseComponent<Es
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstatePropertyDetailGroupModel(), publicHelper,tokenHelper);
+    super(contentService, new EstatePropertyDetailGroupModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -63,11 +63,11 @@ export class EstatePropertyDetailGroupListComponent extends ListBaseComponent<Es
   dataModelResult: ErrorExceptionResult<EstatePropertyDetailGroupModel> = new ErrorExceptionResult<EstatePropertyDetailGroupModel>();
   dataModelEstatePropertyTypeLanduseResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> =
     new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstatePropertyDetailGroupModel> = [];
   tableRowSelected: EstatePropertyDetailGroupModel = new EstatePropertyDetailGroupModel();
   tableSource: MatTableDataSource<EstatePropertyDetailGroupModel> = new MatTableDataSource<EstatePropertyDetailGroupModel>();
@@ -82,7 +82,7 @@ export class EstatePropertyDetailGroupListComponent extends ListBaseComponent<Es
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -375,30 +375,7 @@ export class EstatePropertyDetailGroupListComponent extends ListBaseComponent<Es
     );
 
   }
-  onActionbuttonExport(): void {
-    //open popup
-    var panelClass = '';
-    if (this.tokenHelper.isMobile)
-      panelClass = 'dialog-fullscreen';
-    else
-      panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CmsExportListComponent, {
-      height: "30%",
-      panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: {
-        service: this.contentService,
-        id: this.tableRowSelected.id,
-        title: this.tableRowSelected.title
-      },
-    }
-    );
-    dialogRef.afterClosed().subscribe((result) => {
-    });
-    //open popup
-  }
- 
+
   onActionbuttonReload(): void {
     this.DataGetAll();
   }
