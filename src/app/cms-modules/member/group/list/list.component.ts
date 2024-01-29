@@ -343,9 +343,5 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
 }

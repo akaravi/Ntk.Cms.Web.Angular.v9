@@ -836,11 +836,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });
   }

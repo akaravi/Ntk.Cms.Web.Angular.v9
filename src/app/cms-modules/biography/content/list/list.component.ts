@@ -444,9 +444,5 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
 }

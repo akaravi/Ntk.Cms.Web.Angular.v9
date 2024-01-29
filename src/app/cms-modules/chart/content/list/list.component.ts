@@ -471,9 +471,5 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+ 
 }

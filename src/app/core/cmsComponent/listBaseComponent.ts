@@ -11,12 +11,13 @@ import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
 import { CmsExportEntityComponent } from "src/app/shared/cms-export-entity/cms-export-entity.component";
 import { TokenHelper } from "../helpers/tokenHelper";
+import { MatTableDataSource } from "@angular/material/table";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper,public tokenHelper: TokenHelper) {
+  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public tokenHelper: TokenHelper) {
     publicHelper.pageInfo.updateContentService(baseService);
   }
-  
+  tableSource: MatTableDataSource<TModel> = new MatTableDataSource<TModel>();
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   loading = new ProgressSpinnerModel();
@@ -103,62 +104,67 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-onActionbuttonPrintRow(model: any = this.tableRowSelected): void {
-  if (!model || !model.id || model.id.length === 0) {
-    this.publicHelper.cmsToastrService.typeErrorSelectedRow();
-    return;
+  onActionGridExpandRows(flag: boolean) {
+    this.tableSource.data.forEach(row => {
+      row['expanded'] = flag;
+    });
   }
-  this.onActionTableRowSelect(model);
-  if (
-    this.dataModelResult == null ||
-    this.dataModelResult.access == null ||
-    !this.dataModelResult.access.accessEditRow
-  ) {
-    this.publicHelper.cmsToastrService.typeErrorAccessWatch();
-    return;
-  }
-  var panelClass = '';
-  if (this.tokenHelper.isMobile)
-    panelClass = 'dialog-fullscreen';
-  else
-    panelClass = 'dialog-min';
-  //open popup
-  const dialogRef = this.publicHelper.dialog.open(CmsExportEntityComponent, {
-    height: "50%",
-    width: "50%",
-    panelClass: panelClass,
-    enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-    exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-    data: {
-      service: this.baseService,
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  onActionbuttonPrintRow(model: any = this.tableRowSelected): void {
+    if (!model || !model.id || model.id.length === 0) {
+      this.publicHelper.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+    this.onActionTableRowSelect(model);
+    if (
+      this.dataModelResult == null ||
+      this.dataModelResult.access == null ||
+      !this.dataModelResult.access.accessEditRow
+    ) {
+      this.publicHelper.cmsToastrService.typeErrorAccessWatch();
+      return;
+    }
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    //open popup
+    const dialogRef = this.publicHelper.dialog.open(CmsExportEntityComponent, {
+      height: "50%",
+      width: "50%",
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {
+        service: this.baseService,
         id: this.tableRowSelected ? this.tableRowSelected.id : '',
         title: this.tableRowSelected ? this.tableRowSelected['title'] : ''
-    },
+      },
+    }
+    );
+    dialogRef.afterClosed().subscribe((result) => {
+    });
+    //open popup
   }
-  );
-  dialogRef.afterClosed().subscribe((result) => {
-  });
-  //open popup
-}
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
 
   onActionbuttonPin(model: TModel = this.tableRowSelected): void {
     //open popup

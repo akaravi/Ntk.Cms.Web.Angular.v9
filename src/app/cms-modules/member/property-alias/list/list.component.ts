@@ -347,9 +347,5 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
 }

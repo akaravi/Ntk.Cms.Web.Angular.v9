@@ -493,11 +493,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
   onActionPriceInquiryCalculate(): void {
 
     if (

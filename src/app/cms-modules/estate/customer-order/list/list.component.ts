@@ -650,11 +650,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       }
       );
   }
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
   onActionSelectorLocation(model: number[] | null): void {
 
     this.filteModelContent.linkLocationIds = model;

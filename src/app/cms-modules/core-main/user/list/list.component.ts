@@ -558,9 +558,5 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
   onActionbuttonUserSupportList(row: CoreUserModel): void {
     this.router.navigate(['/core/user-support-access/list/LinkSiteId/', 0, 'LinkUserId', row.id]);
   }
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+ 
 }

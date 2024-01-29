@@ -448,9 +448,5 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+ 
 }

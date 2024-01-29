@@ -407,9 +407,5 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
 }

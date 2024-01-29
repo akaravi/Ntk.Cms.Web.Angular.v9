@@ -397,11 +397,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
   onActionbuttonLinkTo(
     model: EstatePropertyProjectModel = this.tableRowSelected
   ): void {

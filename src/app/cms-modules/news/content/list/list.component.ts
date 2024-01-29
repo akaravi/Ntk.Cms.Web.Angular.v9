@@ -509,9 +509,5 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
 
   expandedElement: any;
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
 }

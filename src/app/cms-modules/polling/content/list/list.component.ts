@@ -362,9 +362,5 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
 }

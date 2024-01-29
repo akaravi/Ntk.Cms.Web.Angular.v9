@@ -1139,11 +1139,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
   setStep(index: number): void {
     this.step = index;
   }

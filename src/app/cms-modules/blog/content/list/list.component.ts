@@ -474,9 +474,5 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
 
 
 
-  onActionGridExpandRows(flag: boolean) {
-    this.tableSource.data.forEach(row => {
-      row['expanded'] = flag;
-    })
-  }
+
 }
