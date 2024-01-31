@@ -79,6 +79,15 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
   onActionbuttonMemoRow(model: TModel = this.tableRowSelected): void {
     //open popup
     var panelClass = '';
@@ -115,35 +124,27 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     //open popup
     var panelClass = '';
     if (this.tokenHelper.isMobile)
-        panelClass = 'dialog-fullscreen';
+      panelClass = 'dialog-fullscreen';
 
     else
-        panelClass = 'dialog-min';
+      panelClass = 'dialog-min';
     const dialogRef = this.publicHelper.dialog.open(CmsExportListComponent, {
-        height: "50%",
-        enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-        exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-        panelClass: panelClass,
-        data: {
-            service: this.baseService,
-            filterModel: this.filteModelContent,
-            title: ''
-        },
+      height: "50%",
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      panelClass: panelClass,
+      data: {
+        service: this.baseService,
+        filterModel: this.filteModelContent,
+        title: ''
+      },
     }
     );
     dialogRef.afterClosed().subscribe((result) => {
     });
     //open popup
-}
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////
+  }
+
   onActionbuttonPrintRow(model: any = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.publicHelper.cmsToastrService.typeErrorSelectedRow();
