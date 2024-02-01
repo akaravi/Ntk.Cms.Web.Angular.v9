@@ -36,7 +36,7 @@ export class CmsDataMemoComponent implements OnInit {
       this.dataModel.moduleEntityId = data.id;
       this.dataModel.subjectTitle = data.title;
     }
-
+////
     if (!this.service)
       this.dialogRef.close({ dialogChangedDate: true });
 
