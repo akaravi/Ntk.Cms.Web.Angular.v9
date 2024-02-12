@@ -2,5 +2,5 @@
   <div class="content">
     <router-outlet></router-outlet>
   </div>
-  <app-menu-footer></app-menu-footer>
+  <app-menu-footer *ngIf="this.env.loadDemoTheme"></app-menu-footer>
 </div>

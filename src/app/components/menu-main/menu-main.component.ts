@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./menu-main.component.scss']
 })
 export class MenuMainComponent implements OnInit {
+  env = environment;
 
   constructor(
     public tokenHelper: TokenHelper,
@@ -50,7 +51,7 @@ export class MenuMainComponent implements OnInit {
   appAngularVersion: string = environment.appVersion;
   appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
 
-  loadDemoTheme = environment.loadDemoTheme;
+
   tokenInfo = new TokenInfoModel();
   cmsApiStoreSubscribe: Subscription;
   loading = new ProgressSpinnerModel();

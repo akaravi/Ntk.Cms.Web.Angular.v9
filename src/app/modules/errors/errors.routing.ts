@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './error404/error404.component';
 import { Error500Component } from './error500/error500.component';
 import { ErrorsComponent } from './errors.component';
+import { environment } from 'src/environments/environment';
 
 const routes: Routes = [
   {
@@ -27,4 +28,7 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ErrorsRoutingModule {}
+export class ErrorsRoutingModule {
+
+
+}
