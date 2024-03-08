@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pages',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PagesComponent implements OnInit {
   @HostBinding('class') class = 'd-flex flex-column flex-root';
+  env = environment;
   constructor(private router: Router) { }
 
   ngOnInit(): void { }

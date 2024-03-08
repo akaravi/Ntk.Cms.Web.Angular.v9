@@ -1,251 +1,269 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
-    <div class="content mb-0">
-        <p class="mb-0 color-highlight font-600 font-12">
-            حساب کاربری خود را ویرایش کنید
-        </p>
-        <h4>اطلاعات</h4>
-        <h4>اطلاعات اولیه</h4>
-        <p>
-            اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-            فقط یک صفحه ساختگی است.
-        </p>
-        <!--Content-->
-        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-        {{ formInfo.formTitle }}
-        <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
-            <mat-step label="{{'TITLE.Config_Module' | translate}}" state="main">
-                <p>{{'TITLE.Settings_that_the_module_applies_to_the_site' | translate}}</p>
-                <!-- StatusRenderUser Field -->
-                <div class="d-flex mb-3">
-                    <div class="pt-1">
-                        <h5 data-trigger-switch="dataConfigSiteValuesModel.statusRenderUser" class="font-600 font-14">
-                          StatusRenderUser</h5>
-                    </div>
-                    <div class="ms-auto me-3 pe-2">
-                        <div class="custom-control ios-switch small-switch">
-                            <input type="checkbox" class="ios-input" id="dataConfigSiteValuesModel.statusRenderUser"
-                                [(ngModel)]="dataConfigSiteValuesModel.statusRenderUser"
-                                name="dataConfigSiteValuesModel.statusRenderUser">
-                            <label class="custom-control-label" for="dataConfigSiteValuesModel.statusRenderUser"></label>
-                        </div>
-                    </div>
-                </div> 
-                <!-- UseDataDefaulteSite -->
-                <div class="d-flex mb-3">
-                    <div class="pt-1">
-                        <h5 data-trigger-switch="dataConfigSiteValuesModel.useDataDefaulteSite" class="font-600 font-14">
-                            {{'TITLE.Display_the_default_site_information_on_the_site' | translate}}</h5>
-                    </div>
-                    <div class="ms-auto me-3 pe-2">
-                        <div class="custom-control ios-switch small-switch">
-                            <input type="checkbox" class="ios-input" id="dataConfigSiteValuesModel.useDataDefaulteSite"
-                                [(ngModel)]="dataConfigSiteValuesModel.useDataDefaulteSite"
-                                name="dataConfigSiteValuesModel.useDataDefaulteSite">
-                            <label class="custom-control-label" for="dataConfigSiteValuesModel.useDataDefaulteSite"></label>
-                        </div>
-                    </div>
-                </div> 
-                <!-- autoArchiveDataDay Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.autoArchiveDataDay" class="color-highlight">{{'TITLE.ARCHIEVE'|translate}}</label>
-                    <input matInput [(ngModel)]="dataConfigSiteValuesModel.autoArchiveDataDay"
-                        name="dataConfigSiteValuesModel.autoArchiveDataDay" #autoArchiveDataDay type="number"
-                        placeholder="60" class="form-control validate-name" id="dataConfigSiteValuesModel.autoArchiveDataDay" />
-                </div>
-                <!-- aboutAgentMobiles Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.aboutAgentMobiles" class="color-highlight">{{'TITLE.TITLE.LIST_ESTATE_PHONE' | translate}}</label>
-                    <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.aboutAgentMobiles"
-                        name="dataConfigSiteValuesModel.aboutAgentMobiles" #aboutAgentMobiles type="text"
-                        placeholder="09123456" minlength="0" maxlength="500" rows="5" class="form-control validate-name" id="dataConfigSiteValuesModel.aboutAgentMobiles"></textarea>
-                    <em  >{{ aboutAgentMobiles.value.length }} / 500</em>
-                </div>
-                <!-- aboutAgentTels Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.aboutAgentTels" class="color-highlight">{{'TITLE.TITLE.LIST_ESTATE_PHONE' | translate}}</label>
-                    <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.aboutAgentTels"
-                        name="dataConfigSiteValuesModel.aboutAgentTels" #aboutAgentTels type="text"
-                        placeholder="09123456" minlength="0" maxlength="500" rows="5" class="form-control validate-name" id="dataConfigSiteValuesModel.aboutAgentTels"></textarea>
-                    <em  >{{ aboutAgentTels.value.length }} / 500</em>
-                </div>
-                <!-- aboutCustomerMobiles Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.aboutCustomerMobiles" class="color-highlight">{{'TITLE.LIST_CUSTOMER_PHONE_MOBILE' | translate}}</label>
-                    <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.aboutCustomerMobiles"
-                        name="dataConfigSiteValuesModel.aboutCustomerMobiles" #aboutCustomerMobiles type="text"
-                        placeholder="09123456" minlength="0" maxlength="500" rows="5" class="form-control validate-name" id="dataConfigSiteValuesModel.aboutCustomerMobiles"></textarea>
-                    <em  >{{ aboutCustomerMobiles.value.length }} / 500</em>
-                </div>
-                <!-- aboutCustomerTels Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.aboutCustomerTels" class="color-highlight">{{'TITLE.LIST_CUSTOMER_PHONE' | translate}}</label>
-                    <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.aboutCustomerTels"
-                        name="dataConfigSiteValuesModel.aboutCustomerTels" #aboutCustomerTels type="text"
-                        placeholder="09123456" minlength="0" maxlength="500" rows="5" class="form-control validate-name" id="dataConfigSiteValuesModel.aboutCustomerTels"></textarea>
-                    <em  >{{ aboutCustomerTels.value.length }} / 500</em>
-                </div>
-                <hr>
-                <!-- customerOrderActionSendSmsToAgencyAreaWorkMessage Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgencyAreaWorkMessage" class="color-highlight">{{'متن ارسالی سفارش مشتری به آژانس های منطقه' | translate}}</label>
-                    <textarea matInput
-                        [(ngModel)]="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgencyAreaWorkMessage"
-                        name="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgencyAreaWorkMessage"
-                        #customerOrderActionSendSmsToAgencyAreaWorkMessage type="text" placeholder="09123456"
-                        minlength="0" maxlength="500" rows="5" class="form-control validate-name" id="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgencyAreaWorkMessage"></textarea>
-                    <em  >{{ customerOrderActionSendSmsToAgencyAreaWorkMessage.value.length }} /
-                        500</em>
-                </div>
-                <!-- customerOrderActionSendSmsToAgentAreaWorkMessage Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgentAreaWorkMessage" class="color-highlight">{{'متن ارسالی سفارش مشتری به کارشناسان منطقه' | translate}}</label>
-                    <textarea matInput
-                        [(ngModel)]="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgentAreaWorkMessage"
-                        name="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgentAreaWorkMessage"
-                        #customerOrderActionSendSmsToAgentAreaWorkMessage type="text" placeholder="09123456"
-                        minlength="0" maxlength="500" rows="5" class="form-control validate-name" id="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgentAreaWorkMessage"></textarea>
-                    <em  >{{ customerOrderActionSendSmsToAgentAreaWorkMessage.value.length }} /
-                        500</em>
-                </div>
-                <!-- estateActionSendSmsToAgencyAreaWorkMessage Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.estateActionSendSmsToAgencyAreaWorkMessage" class="color-highlight">{{'متن ارسالی ملک به آژانس های منطقه' | translate}}</label>
-                    <textarea matInput
-                        [(ngModel)]="dataConfigSiteValuesModel.estateActionSendSmsToAgencyAreaWorkMessage"
-                        name="dataConfigSiteValuesModel.estateActionSendSmsToAgencyAreaWorkMessage"
-                        #estateActionSendSmsToAgencyAreaWorkMessage type="text" placeholder="09123456" minlength="0"
-                        maxlength="500" rows="5" class="form-control validate-name" id="dataConfigSiteValuesModel.estateActionSendSmsToAgencyAreaWorkMessage"></textarea>
-                    <em  >{{ estateActionSendSmsToAgencyAreaWorkMessage.value.length }} / 500</em>
-                </div>
-                <!-- estateActionSendSmsToAgentAreaWorkMessage Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteValuesModel.estateActionSendSmsToAgentAreaWorkMessage" class="color-highlight">{{'متن ارسالی ملک به کارشناسان منطقه' | translate}}</label>
-                    <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.estateActionSendSmsToAgentAreaWorkMessage"
-                        name="dataConfigSiteValuesModel.estateActionSendSmsToAgentAreaWorkMessage"
-                        #estateActionSendSmsToAgentAreaWorkMessage type="text" placeholder="09123456" minlength="0"
-                        maxlength="500" rows="5" class="form-control validate-name" id="dataConfigSiteValuesModel.estateActionSendSmsToAgentAreaWorkMessage"></textarea>
-                    <em  >{{ estateActionSendSmsToAgentAreaWorkMessage.value.length }} / 500</em>
-                </div>
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+        <mat-step label="{{'TITLE.Config_Module' | translate}}" state="main">
+          <p>{{'TITLE.Settings_that_the_module_applies_to_the_site' | translate}}</p>
+          <!-- StatusRenderUser Field -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataConfigSiteValuesModel.statusRenderUser" class="font-600 font-14">
+                StatusRenderUser</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataConfigSiteValuesModel.statusRenderUser"
+                  [(ngModel)]="dataConfigSiteValuesModel.statusRenderUser"
+                  name="dataConfigSiteValuesModel.statusRenderUser">
+                <label class="custom-control-label" for="dataConfigSiteValuesModel.statusRenderUser"></label>
+              </div>
+            </div>
+          </div>
+          <!-- UseDataDefaulteSite -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataConfigSiteValuesModel.useDataDefaulteSite" class="font-600 font-14">
+                {{'TITLE.Display_the_default_site_information_on_the_site' | translate}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataConfigSiteValuesModel.useDataDefaulteSite"
+                  [(ngModel)]="dataConfigSiteValuesModel.useDataDefaulteSite"
+                  name="dataConfigSiteValuesModel.useDataDefaulteSite">
+                <label class="custom-control-label" for="dataConfigSiteValuesModel.useDataDefaulteSite"></label>
+              </div>
+            </div>
+          </div>
 
-                <hr>
-                <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                    <div [innerHTML]="dataConfigSiteValuesModel | prettyjson"></div>
+          <!-- autoContractByCallDataDay Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.autoContractByCallDataDay"
+              class="color-highlight">{{'TITLE.Contract_ARCHIEVE'|translate}}</label>
+            <input matInput [(ngModel)]="dataConfigSiteValuesModel.autoContractByCallDataDay"
+              name="dataConfigSiteValuesModel.autoContractByCallDataDay" #autoContractByCallDataDay type="number"
+              placeholder="60" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.autoContractByCallDataDay" />
+          </div>
+          <!-- autoArchiveDataDay Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.autoArchiveDataDay"
+              class="color-highlight">{{'TITLE.SELF_ARCHIEVE'|translate}}</label>
+            <input matInput [(ngModel)]="dataConfigSiteValuesModel.autoArchiveDataDay"
+              name="dataConfigSiteValuesModel.autoArchiveDataDay" #autoArchiveDataDay type="number" placeholder="60"
+              class="form-control validate-name" id="dataConfigSiteValuesModel.autoArchiveDataDay" />
+          </div>
+          <!-- aboutAgentMobiles Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.aboutAgentMobiles"
+              class="color-highlight">{{'TITLE.TITLE.LIST_ESTATE_PHONE' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.aboutAgentMobiles"
+              name="dataConfigSiteValuesModel.aboutAgentMobiles" #aboutAgentMobiles type="text" placeholder="09123456"
+              minlength="0" maxlength="500" rows="5" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.aboutAgentMobiles"></textarea>
+            <em>{{ aboutAgentMobiles.value.length }} / 500</em>
+          </div>
+          <!-- aboutAgentTels Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.aboutAgentTels"
+              class="color-highlight">{{'TITLE.TITLE.LIST_ESTATE_PHONE' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.aboutAgentTels"
+              name="dataConfigSiteValuesModel.aboutAgentTels" #aboutAgentTels type="text" placeholder="09123456"
+              minlength="0" maxlength="500" rows="5" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.aboutAgentTels"></textarea>
+            <em>{{ aboutAgentTels.value.length }} / 500</em>
+          </div>
+          <!-- aboutCustomerMobiles Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.aboutCustomerMobiles"
+              class="color-highlight">{{'TITLE.LIST_CUSTOMER_PHONE_MOBILE' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.aboutCustomerMobiles"
+              name="dataConfigSiteValuesModel.aboutCustomerMobiles" #aboutCustomerMobiles type="text"
+              placeholder="09123456" minlength="0" maxlength="500" rows="5" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.aboutCustomerMobiles"></textarea>
+            <em>{{ aboutCustomerMobiles.value.length }} / 500</em>
+          </div>
+          <!-- aboutCustomerTels Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.aboutCustomerTels"
+              class="color-highlight">{{'TITLE.LIST_CUSTOMER_PHONE' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.aboutCustomerTels"
+              name="dataConfigSiteValuesModel.aboutCustomerTels" #aboutCustomerTels type="text" placeholder="09123456"
+              minlength="0" maxlength="500" rows="5" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.aboutCustomerTels"></textarea>
+            <em>{{ aboutCustomerTels.value.length }} / 500</em>
+          </div>
+          <hr>
+          <!-- customerOrderActionSendSmsToAgencyAreaWorkMessage Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgencyAreaWorkMessage"
+              class="color-highlight">{{'متن ارسالی سفارش مشتری به آژانس های منطقه' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgencyAreaWorkMessage"
+              name="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgencyAreaWorkMessage"
+              #customerOrderActionSendSmsToAgencyAreaWorkMessage type="text" placeholder="09123456" minlength="0"
+              maxlength="500" rows="5" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgencyAreaWorkMessage"></textarea>
+            <em>{{ customerOrderActionSendSmsToAgencyAreaWorkMessage.value.length }} /
+              500</em>
+          </div>
+          <!-- customerOrderActionSendSmsToAgentAreaWorkMessage Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgentAreaWorkMessage"
+              class="color-highlight">{{'متن ارسالی سفارش مشتری به کارشناسان منطقه' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgentAreaWorkMessage"
+              name="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgentAreaWorkMessage"
+              #customerOrderActionSendSmsToAgentAreaWorkMessage type="text" placeholder="09123456" minlength="0"
+              maxlength="500" rows="5" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.customerOrderActionSendSmsToAgentAreaWorkMessage"></textarea>
+            <em>{{ customerOrderActionSendSmsToAgentAreaWorkMessage.value.length }} /
+              500</em>
+          </div>
+          <!-- estateActionSendSmsToAgencyAreaWorkMessage Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.estateActionSendSmsToAgencyAreaWorkMessage"
+              class="color-highlight">{{'متن ارسالی ملک به آژانس های منطقه' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.estateActionSendSmsToAgencyAreaWorkMessage"
+              name="dataConfigSiteValuesModel.estateActionSendSmsToAgencyAreaWorkMessage"
+              #estateActionSendSmsToAgencyAreaWorkMessage type="text" placeholder="09123456" minlength="0"
+              maxlength="500" rows="5" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.estateActionSendSmsToAgencyAreaWorkMessage"></textarea>
+            <em>{{ estateActionSendSmsToAgencyAreaWorkMessage.value.length }} / 500</em>
+          </div>
+          <!-- estateActionSendSmsToAgentAreaWorkMessage Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesModel.estateActionSendSmsToAgentAreaWorkMessage"
+              class="color-highlight">{{'متن ارسالی ملک به کارشناسان منطقه' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteValuesModel.estateActionSendSmsToAgentAreaWorkMessage"
+              name="dataConfigSiteValuesModel.estateActionSendSmsToAgentAreaWorkMessage"
+              #estateActionSendSmsToAgentAreaWorkMessage type="text" placeholder="09123456" minlength="0"
+              maxlength="500" rows="5" class="form-control validate-name"
+              id="dataConfigSiteValuesModel.estateActionSendSmsToAgentAreaWorkMessage"></textarea>
+            <em>{{ estateActionSendSmsToAgentAreaWorkMessage.value.length }} / 500</em>
+          </div>
 
-                </div>
+          <hr>
+          <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+            <div [innerHTML]="dataConfigSiteValuesModel | prettyjson"></div>
 
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                    <button type="button"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-                        (click)="onActionBackToParent()">
-                        {{'ACTION.BACK' | translate}}
-                    </button>
-                    <button type="button"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        [disabled]="!vform.form.valid" matStepperNext>
-                        {{'ACTION.NEXT' | translate}}
-                    </button>
-                    <button type="submit"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                        [disabled]="!vform.form.valid">
-                        {{'ACTION.SAVE' | translate}}
-                    </button>
-                </div>
-            </mat-step>
+          </div>
 
-            <mat-step label="{{'TITLE.Saved_Value' | translate}}" state="main">
-                <p>{{'TITLE.Values_saved_by_the_system' | translate}}</p>
-                <!-- RowCount Field -->
-                <div class="d-flex mb-3">
-                    <div class="pt-1">
-                        <h5 data-trigger-switch="dataSiteStorageModel.rowCount" class="font-600 font-14">
-                            RowCount</h5>
-                    </div>
-                    <div class="ms-auto me-3 pe-2">
-                        <div class="custom-control ios-switch small-switch">
-                            <input type="checkbox" class="ios-input" id="dataSiteStorageModel.rowCount"
-                                [(ngModel)]="dataSiteStorageModel.rowCount"
-                                name="dataSiteStorageModel.rowCount">
-                            <label class="custom-control-label" for="dataSiteStorageModel.rowCount"></label>
-                        </div>
-                    </div>
-                </div> 
-                <!-- MainDataContentRowCount Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataSiteStorageModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
-                    <input matInput [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"
-                        name="dataSiteStorageModel.mainDataContentRowCount"
-                        #dataSiteStorageModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name" id="dataSiteStorageModel.mainDataContentRowCount" />
-                </div>
-                <!-- UpdatedContent Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataSiteStorageModel.updatedContent" class="color-highlight">UpdatedContent</label>
-                    <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedContent"
-                        [(ngModel)]="dataSiteStorageModel.updatedContent" name="dataSiteStorageModel.updatedContent" class="form-control validate-name" id="dataSiteStorageModel.updatedContent" />
-                    <mat-datepicker-toggle matSuffix
-                        [for]="dataSiteStorageModel_UpdatedContent"></mat-datepicker-toggle>
-                    <mat-datepicker touchUi #dataSiteStorageModel_UpdatedContent></mat-datepicker>
-                </div>
-                <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                    <div [innerHTML]="dataSiteStorageModel | prettyjson"></div>
-                </div>
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                    <button type="button"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        matStepperPrevious>
-                        {{'ACTION.BEFOR' | translate}}
-                    </button>
-                    <button type="button"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        [disabled]="!vform.form.valid" matStepperNext>
-                        {{'ACTION.NEXT' | translate}}
-                    </button>
-                    <button type="submit"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                        [disabled]="!vform.form.valid">
-                        {{'ACTION.SAVE' | translate}}
-                    </button>
-                </div>
-            </mat-step>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-            <mat-step label="{{'TITLE.Accessibility' | translate}}" state="main">
-                <p>{{'TITLE.This_website_accesses_this_module' | translate}}</p>
-                <!-- MainDataContentRowCount Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataConfigSiteAccessValuesModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
-                    <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
-                        name="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
-                        #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
-                        required />
-                    <mat-error *ngIf="dataConfigSiteAccessValuesModel_MainDataContentRowCount.errors?.required">
-                        MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>
-                    </mat-error>
-                </div>
-                <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                    <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
-                </div>
-                <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                    <button type="button"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        matStepperPrevious>
-                        {{'ACTION.BEFOR' | translate}}
-                    </button>
-                    <button type="button"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                        [disabled]="!vform.form.valid" matStepperNext>
-                        {{'ACTION.NEXT' | translate}}
-                    </button>
-                    <button type="submit"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                        [disabled]="!vform.form.valid">
-                        {{'ACTION.SAVE' | translate}}
-                    </button>
-                </div>
-            </mat-step>
+        <mat-step label="{{'TITLE.Saved_Value' | translate}}" state="main">
+          <p>{{'TITLE.Values_saved_by_the_system' | translate}}</p>
+          <!-- RowCount Field -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataSiteStorageModel.rowCount" class="font-600 font-14">
+                RowCount</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataSiteStorageModel.rowCount"
+                  [(ngModel)]="dataSiteStorageModel.rowCount" name="dataSiteStorageModel.rowCount">
+                <label class="custom-control-label" for="dataSiteStorageModel.rowCount"></label>
+              </div>
+            </div>
+          </div>
+          <!-- MainDataContentRowCount Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataSiteStorageModel.mainDataContentRowCount"
+              class="color-highlight">MainDataContentRowCount</label>
+            <input matInput [(ngModel)]="dataSiteStorageModel.mainDataContentRowCount"
+              name="dataSiteStorageModel.mainDataContentRowCount" #dataSiteStorageModel_MainDataContentRowCount
+              type="number" placeholder="0" class="form-control validate-name"
+              id="dataSiteStorageModel.mainDataContentRowCount" />
+          </div>
+          <!-- UpdatedContent Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataSiteStorageModel.updatedContent" class="color-highlight">UpdatedContent</label>
+            <input matInput [matDatepicker]="dataSiteStorageModel_UpdatedContent"
+              [(ngModel)]="dataSiteStorageModel.updatedContent" name="dataSiteStorageModel.updatedContent"
+              class="form-control validate-name" id="dataSiteStorageModel.updatedContent" />
+            <mat-datepicker-toggle matSuffix [for]="dataSiteStorageModel_UpdatedContent"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #dataSiteStorageModel_UpdatedContent></mat-datepicker>
+          </div>
+          <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+            <div [innerHTML]="dataSiteStorageModel | prettyjson"></div>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-        </mat-vertical-stepper>
+        <mat-step label="{{'TITLE.Accessibility' | translate}}" state="main">
+          <p>{{'TITLE.This_website_accesses_this_module' | translate}}</p>
+          <!-- MainDataContentRowCount Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
+              class="color-highlight">MainDataContentRowCount</label>
+            <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
+              name="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
+              #dataConfigSiteAccessValuesModel_MainDataContentRowCount type="number" placeholder="0"
+              class="form-control validate-name" id="dataConfigSiteAccessValuesModel.mainDataContentRowCount"
+              required />
+            <mat-error *ngIf="dataConfigSiteAccessValuesModel_MainDataContentRowCount.errors?.required">
+              MainDataContentRowCount is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+            <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-        </form>
-        <!--Content-->
-    </div>
+      </mat-vertical-stepper>
+
+    </form>
+    <!--Content-->
+  </div>
 </div>
