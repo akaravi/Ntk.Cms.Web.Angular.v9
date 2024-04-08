@@ -31,18 +31,18 @@
     </a>
 
 
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" (click)="onActionCleanDataMenu('/dashboard')">
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" (click)="onActionCleanDataMenu('/dashboard')"  style="cursor: pointer;">
       <i class="fa fa-home gradient-green color-white"></i>
       <span>داشبورد</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')">
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')"  style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>انتخاب سایت</span>
       <i class="fa fa-angle-left"></i>
     </a>
     <a *ngIf="!this.tokenInfo|| !this.tokenInfo.userId|| this.tokenInfo.userId<=0" id="nav-components"
-      (click)="onActionCleanDataMenu('/auth/singinbysms')">
+      (click)="onActionCleanDataMenu('/auth/singinbysms')"  style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>ورود</span>
       <i class="fa fa-angle-left"></i>
