@@ -38,7 +38,13 @@
 .mat-option-text{
   line-height:initial !important;
 }
-
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color:none !important;
+  }
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  box-shadow:none !important;
+  }
+  
 /*
  NTK optimaze
 */
