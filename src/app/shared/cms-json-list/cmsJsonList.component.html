@@ -1,38 +1,54 @@
-<!--optionMethod 1-->
-<div class="table" *ngIf="optionMethod===1 && dataModel">
-  <div class="th" *ngIf="optionViewHead">
-    <div class="td">{{'TITLE.parameter' | translate}}</div>
-    <div class="td">{{'TITLE.Values' | translate}}</div>
-    <div class="clear"></div>
-  </div>
-  <div class="tr" *ngFor="let head of dataModel | listkeys : optionFields ">
-    <div class="td">{{(optionFields && optionFields.size>0)? optionFields.get(head): head}}</div>
-    <div class="td">{{dataModel[head]}}</div>
-    <div style="clear: both;"></div>
-  </div>
-</div>
-<!--optionMethod 2-->
-<div class="table" *ngIf="optionMethod===2 && dataModel">
-  <div class="th" *ngIf="optionViewHead">
-    <div class="td" *ngFor="let head of dataModel[0] | listkeys : optionFields" >{{(optionFields && optionFields.size>0)?
-      optionFields.get(head): head}}</div>
-    <div class="clear"></div>
-  </div>
-  <div class="tr" *ngFor="let item of dataModel">
-    <div class="td" *ngFor="let list of item | listkeys: optionFields">{{item[list]}}</div>
-    <div style="clear: both;"></div>
-  </div>
-</div>
-
-<!--optionMethod 3-->
-<div class="table" *ngIf="optionMethod===3 && dataModel">
-  <div class="th" *ngIf="optionViewHead">
-    <div class="td" *ngFor="let head of dataModel[0] | listkeys : optionFields" >{{(optionFields && optionFields.size>0)?
-      optionFields.get(head): head}}</div>
-    <div class="clear"></div>
-  </div>
-  <div class="tr">
-    <div class="td"  *ngFor="let list of dataModel | listkeys : optionFields">{{dataModel[list]}}</div>
-    <div style="clear: both;"></div>
+<div class="card card-style">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
+    <h4>اطلاعات اولیه</h4>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <!--optionMethod 1-->
+    <div class="table" *ngIf="optionMethod===1 && dataModel">
+      <div class="th" *ngIf="optionViewHead">
+        <div class="td">{{'TITLE.parameter' | translate}}</div>
+        <div class="td">{{'TITLE.Values' | translate}}</div>
+        <div class="clear"></div>
+      </div>
+      <div class="tr" *ngFor="let head of dataModel | listkeys : optionFields ">
+        <div class="td">{{(optionFields && optionFields.size>0)? optionFields.get(head): head}}</div>
+        <div class="td">{{dataModel[head]}}</div>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+    <!--optionMethod 2-->
+    <div class="table" *ngIf="optionMethod===2 && dataModel">
+      <div class="th" *ngIf="optionViewHead">
+        <div class="td" *ngFor="let head of dataModel[0] | listkeys : optionFields">{{(optionFields &&
+          optionFields.size>0)?
+          optionFields.get(head): head}}</div>
+        <div class="clear"></div>
+      </div>
+      <div class="tr" *ngFor="let item of dataModel">
+        <div class="td" *ngFor="let list of item | listkeys: optionFields">{{item[list]}}</div>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+    <!--optionMethod 3-->
+    <div class="table" *ngIf="optionMethod===3 && dataModel">
+      <div class="th" *ngIf="optionViewHead">
+        <div class="td" *ngFor="let head of dataModel[0] | listkeys : optionFields">{{(optionFields &&
+          optionFields.size>0)?
+          optionFields.get(head): head}}</div>
+        <div class="clear"></div>
+      </div>
+      <div class="tr">
+        <div class="td" *ngFor="let list of dataModel | listkeys : optionFields">{{dataModel[list]}}</div>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+    <!--Content-->
   </div>
 </div>
