@@ -48,7 +48,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementTargetModel(), publicHelper,tokenHelper);
+    super(contentService, new LinkManagementTargetModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkBillboardPatternId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkBillboardPatternId'));
@@ -71,11 +71,11 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
   categoryPatternModelSelected: LinkManagementBillboardPatternModel;
   dataModelResult: ErrorExceptionResult<LinkManagementTargetModel> = new ErrorExceptionResult<LinkManagementTargetModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<LinkManagementTargetModel> = [];
   tableRowSelected: LinkManagementTargetModel = new LinkManagementTargetModel();
   tableSource: MatTableDataSource<LinkManagementTargetModel> = new MatTableDataSource<LinkManagementTargetModel>();
@@ -88,11 +88,11 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     'CurrentViewCount',
     'CurrentClickCount',
     'CreatedDate',
-    'UpdatedDate',
+    //'UpdatedDate',
     // 'Action',
     "LinkTo",
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -341,8 +341,8 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonLinkTo(model: LinkManagementTargetModel = this.tableRowSelected): void {
