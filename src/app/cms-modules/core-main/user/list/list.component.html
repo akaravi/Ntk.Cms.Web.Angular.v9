@@ -55,7 +55,7 @@
   </ng-container>
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-      <div *ngIf="dataModelResult.access.accessAddRow" class="col-4">
+      <div *ngIf="dataModelResult?.access?.accessAddRow" class="col-4">
           <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal" 
             (click)="onActionbuttonNewRow()" target="_blank">
             <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
@@ -175,7 +175,7 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row" [ngClass]="row.recordStatus|statusCellClass"> <i
             [ngClass]="row.recordStatus|statusIconClass"></i>
-          <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult.access.accessEditRow"
+          <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
             [contentService]="contentService" [row]="row" style="background: none; border: none;"
             [ngStyle]="{'display': row.id === tableRowSelected.id ? '' : 'none' }">
           </select>

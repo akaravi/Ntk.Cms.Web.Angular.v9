@@ -96,7 +96,7 @@
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
 
-    <div *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute" class="col-4">
+    <div *ngIf="dataModelResult?.access?.accessAddRow && optionloadByRoute" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
         (click)="onActionbuttonNewRow($event)" target="_blank">
         <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
@@ -105,7 +105,7 @@
       <p class="font-11 text-center opacity-70">{{'ACTION.ADD' |
         translate}}</p>
     </div>
-    <div *ngIf="dataModelResult.access.accessAddRow && optionloadByRoute" class="col-4">
+    <div *ngIf="dataModelResult?.access?.accessAddRow && optionloadByRoute" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         (click)="onActionbuttonQuickAddRow($event)" target="_blank" id="openModalButton" data-toggle="modal"
         data-target="#categoryModal">
@@ -121,7 +121,7 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
 
     <div
-      *ngIf="dataModelResult.access.accessEditRow && (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
+      *ngIf="dataModelResult?.access?.accessEditRow && (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
       class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta"
         (click)="onActionbuttonEditRow(tableRowSelected,$event)" target="_blank"><i class=" fa-solid fa-pen font-22"
@@ -130,7 +130,7 @@
         translate}}</p>
     </div>
     <div
-      *ngIf="dataModelResult.access.accessDeleteRow && optionloadByRoute&& (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
+      *ngIf="dataModelResult?.access?.accessDeleteRow && optionloadByRoute&& (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
       class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red"
         (click)="onActionbuttonDeleteRow(tableRowSelected)" target="_blank"><i class="fa-solid fa-trash font-22"
@@ -146,7 +146,7 @@
       <p class="font-11 text-center opacity-70">{{'ACTION.ActionSendSmsToCustomerOrder'|translate}}</p>
     </div>
     
-    <div *ngIf="dataModelResult.access.accessEditRow" class="col-4">
+    <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         (click)="onActionbuttonAdsRow(tableRowSelected,$event)" target="_blank"><i
           class="fa-solid fa-bullseye-pointer font-22" style="color: #ffffff;"></i><br>
@@ -514,7 +514,7 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row" [ngClass]="row.recordStatus|statusCellClass"> <i
             [ngClass]="row.recordStatus|statusIconClass"></i>
-          <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult.access.accessEditRow"
+          <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
             [contentService]="contentService" [row]="row" style="background: none; border: none;"
             [ngStyle]="{'display': row.id === tableRowSelected.id ? '' : 'none' }">
           </select>
