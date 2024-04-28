@@ -90,11 +90,11 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogScoreModel> = new ErrorExceptionResult<CoreModuleLogScoreModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleLogScoreModel> = [];
   tableRowSelected: CoreModuleLogScoreModel = new CoreModuleLogScoreModel();
   tableSource: MatTableDataSource<CoreModuleLogScoreModel> = new MatTableDataSource<CoreModuleLogScoreModel>();
@@ -113,7 +113,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
 
@@ -420,8 +420,8 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -431,12 +431,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleLogScoreModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

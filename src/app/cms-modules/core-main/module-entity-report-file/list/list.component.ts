@@ -73,15 +73,15 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleEntityReportFileModel> = new ErrorExceptionResult<CoreModuleEntityReportFileModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleEntityReportFileModel> = [];
   tableRowSelected: CoreModuleEntityReportFileModel = new CoreModuleEntityReportFileModel();
   tableSource: MatTableDataSource<CoreModuleEntityReportFileModel> = new MatTableDataSource<CoreModuleEntityReportFileModel>();
-  
+
   dataModelCoreModuleEntityResult: ErrorExceptionResult<CoreModuleEntityModel> = new ErrorExceptionResult<CoreModuleEntityModel>();
   dataModelEnumReportFileTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -360,8 +360,8 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     this.onActionTableRowSelect(model);
     this.router.navigate(['corelog/report-data/LinkModuleEntityReportFileId/', model.id]);
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -370,11 +370,6 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleEntityReportFileModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

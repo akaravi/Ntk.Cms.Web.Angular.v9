@@ -86,15 +86,15 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserSupportAccessModel> = new ErrorExceptionResult<CoreUserSupportAccessModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreUserSupportAccessModel> = [];
   tableRowSelected: CoreUserSupportAccessModel = new CoreUserSupportAccessModel();
   tableSource: MatTableDataSource<CoreUserSupportAccessModel> = new MatTableDataSource<CoreUserSupportAccessModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -381,8 +381,8 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -392,11 +392,6 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreUserSupportAccessModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

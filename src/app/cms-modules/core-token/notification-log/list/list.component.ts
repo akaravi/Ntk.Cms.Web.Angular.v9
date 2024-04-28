@@ -86,11 +86,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenNotificationLogModel> = new ErrorExceptionResult<CoreTokenNotificationLogModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreTokenNotificationLogModel> = [];
   tableRowSelected: CoreTokenNotificationLogModel = new CoreTokenNotificationLogModel();
   tableSource: MatTableDataSource<CoreTokenNotificationLogModel> = new MatTableDataSource<CoreTokenNotificationLogModel>();
@@ -111,7 +111,7 @@ implements OnInit, OnDestroy {
     'ExpireDate',
     // 'Action'
   ];
-  
+
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -419,8 +419,8 @@ implements OnInit, OnDestroy {
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -430,12 +430,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreTokenNotificationLogModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

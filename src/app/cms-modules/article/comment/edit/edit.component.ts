@@ -49,8 +49,8 @@ implements OnInit {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
-  
+
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: ArticleCommentModel = new ArticleCommentModel();
   ComponentAction = ComponentActionEnum.none;
@@ -75,29 +75,6 @@ implements OnInit {
 
   }
 
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'main';
-  //   this.loading.Start(pName);
-
-  //   this.commentService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           // this.dataAccessModel = next.access;
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();

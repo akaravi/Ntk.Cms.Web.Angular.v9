@@ -90,15 +90,15 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserClaimContentModel> = new ErrorExceptionResult<CoreUserClaimContentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreUserClaimContentModel> = [];
   tableRowSelected: CoreUserClaimContentModel = new CoreUserClaimContentModel();
   tableSource: MatTableDataSource<CoreUserClaimContentModel> = new MatTableDataSource<CoreUserClaimContentModel>();
-  
+
   categoryModelSelected: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();
   dataModelCoreUserClaimTypeResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();
 
@@ -449,8 +449,8 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -460,12 +460,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreUserClaimContentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/userclaim/type/']);
   }

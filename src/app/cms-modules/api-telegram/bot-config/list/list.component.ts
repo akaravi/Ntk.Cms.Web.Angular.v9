@@ -12,15 +12,10 @@ import {
   ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 import { CmsViewComponent } from 'src/app/shared/cms-view/cms-view.component';
 import { ApiTelegramActionSendMessageComponent } from '../../action/send-message/send-message.component';
@@ -64,15 +59,15 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApiTelegramBotConfigModel> = new ErrorExceptionResult<ApiTelegramBotConfigModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ApiTelegramBotConfigModel> = [];
   tableRowSelected: ApiTelegramBotConfigModel = new ApiTelegramBotConfigModel();
   tableSource: MatTableDataSource<ApiTelegramBotConfigModel> = new MatTableDataSource<ApiTelegramBotConfigModel>();
-  
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',
@@ -470,8 +465,8 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     }
     );
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -480,12 +475,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApiTelegramBotConfigModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionbuttonLinkTo(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();

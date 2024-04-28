@@ -81,11 +81,11 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementTargetBillboardLogModel> = new ErrorExceptionResult<LinkManagementTargetBillboardLogModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<LinkManagementTargetBillboardLogModel> = [];
   tableRowSelected: LinkManagementTargetBillboardLogModel = new LinkManagementTargetBillboardLogModel();
   tableSource: MatTableDataSource<LinkManagementTargetBillboardLogModel> = new MatTableDataSource<LinkManagementTargetBillboardLogModel>();
@@ -99,7 +99,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
     'LinkManagementTargetId',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -346,8 +346,8 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -357,19 +357,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: LinkManagementTargetBillboardLogModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: LinkManagementTargetBillboardLogModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: LinkManagementTargetBillboardLogModel): void {
-  //   row["expanded"] = false;
-  // }
+
   onActionBackToParent(): void {
     if (this.requestLinkManagementBillboardId > 0) {
       this.router.navigate(['/linkmanagement/billboard/']);

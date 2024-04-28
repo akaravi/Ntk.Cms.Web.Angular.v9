@@ -300,8 +300,8 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -311,12 +311,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: TicketingTaskModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/ticketing/departemen/']);
   }

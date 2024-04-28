@@ -74,11 +74,11 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleDataPinModel> = new ErrorExceptionResult<CoreModuleDataPinModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleDataPinModel> = [];
   tableRowSelected: CoreModuleDataPinModel = new CoreModuleDataPinModel();
   tableSource: MatTableDataSource<CoreModuleDataPinModel> = new MatTableDataSource<CoreModuleDataPinModel>();
@@ -94,7 +94,7 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
   expandedElement: CoreSiteModel | null;
@@ -376,8 +376,8 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
 
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -387,12 +387,7 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleDataPinModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

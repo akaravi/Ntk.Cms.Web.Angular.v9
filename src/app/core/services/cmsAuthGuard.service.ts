@@ -20,8 +20,8 @@ export class CmsAuthGuard implements CanActivate, OnDestroy {
 
     const token = this.coreAuthService.getUserToken();
     if (!token || token.length === 0) {
-      //this.router.navigate(['auth'], { queryParams: { returnUrl: state.url } });
-      this.router.navigate(['page'], { queryParams: { returnUrl: state.url } });
+      this.router.navigate(['auth'], { queryParams: { returnUrl: state.url } });
+      //this.router.navigate(['page'], { queryParams: { returnUrl: state.url } });
       return false;
     }
 
@@ -50,8 +50,8 @@ export class CmsAuthGuard implements CanActivate, OnDestroy {
     if (tokenInfo && tokenInfo.userId > 0) {
       return true;
     }
-    //this.router.navigate(['auth'], { queryParams: { returnUrl: state.url } });
-    this.router.navigate(['page'], { queryParams: { returnUrl: state.url } });
+    this.router.navigate(['auth'], { queryParams: { returnUrl: state.url } });
+    //this.router.navigate(['page'], { queryParams: { returnUrl: state.url } });
     return false;
   }
   delay(ms: number) {

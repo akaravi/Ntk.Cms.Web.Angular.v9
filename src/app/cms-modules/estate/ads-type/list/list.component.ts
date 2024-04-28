@@ -64,11 +64,11 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateAdsTypeModel> = new ErrorExceptionResult<EstateAdsTypeModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateAdsTypeModel> = [];
   tableRowSelected: EstateAdsTypeModel = new EstateAdsTypeModel();
   tableSource: MatTableDataSource<EstateAdsTypeModel> = new MatTableDataSource<EstateAdsTypeModel>();
@@ -93,7 +93,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -353,8 +353,8 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -363,11 +363,6 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateAdsTypeModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

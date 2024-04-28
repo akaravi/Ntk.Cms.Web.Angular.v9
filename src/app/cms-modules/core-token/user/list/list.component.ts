@@ -86,11 +86,11 @@ export class CoreTokenUserListComponent extends ListBaseComponent<CoreTokenUserS
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenUserModel> = new ErrorExceptionResult<CoreTokenUserModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreTokenUserModel> = [];
   tableRowSelected: CoreTokenUserModel = new CoreTokenUserModel();
   tableSource: MatTableDataSource<CoreTokenUserModel> = new MatTableDataSource<CoreTokenUserModel>();
@@ -111,7 +111,7 @@ export class CoreTokenUserListComponent extends ListBaseComponent<CoreTokenUserS
     'tokenExpireDate',
     // 'Action'
   ];
-  
+
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -443,8 +443,8 @@ export class CoreTokenUserListComponent extends ListBaseComponent<CoreTokenUserS
     }
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkDeviceId]);
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -454,12 +454,7 @@ export class CoreTokenUserListComponent extends ListBaseComponent<CoreTokenUserS
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreTokenUserModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

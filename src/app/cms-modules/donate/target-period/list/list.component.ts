@@ -66,11 +66,11 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
   categoryModelSelected: DonateTargetCategoryModel;
   dataModelResult: ErrorExceptionResult<DonateTargetPeriodModel> = new ErrorExceptionResult<DonateTargetPeriodModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DonateTargetPeriodModel> = [];
   tableRowSelected: DonateTargetPeriodModel = new DonateTargetPeriodModel();
   tableSource: MatTableDataSource<DonateTargetPeriodModel> = new MatTableDataSource<DonateTargetPeriodModel>();
@@ -89,7 +89,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     'CurrentPaymentSum',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -344,8 +344,8 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonDonateTargetPeriodAccountRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
@@ -386,11 +386,6 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DonateTargetPeriodModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

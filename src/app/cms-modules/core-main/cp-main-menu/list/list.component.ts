@@ -60,11 +60,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreCpMainMenuModel> = new ErrorExceptionResult<CoreCpMainMenuModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreCpMainMenuModel> = [];
   tableRowSelected: CoreCpMainMenuModel = new CoreCpMainMenuModel();
   tableSource: MatTableDataSource<CoreCpMainMenuModel> = new MatTableDataSource<CoreCpMainMenuModel>();
@@ -85,7 +85,7 @@ implements OnInit, OnDestroy {
     'position'
   ];
 
-  
+
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 
@@ -384,24 +384,19 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
     this.filteModelContent.sortColumn = 'ShowInMenuOrder';
-    
+
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreCpMainMenuModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

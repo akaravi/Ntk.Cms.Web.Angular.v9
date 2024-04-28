@@ -68,11 +68,11 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
   categoryModelSelected: BlogCategoryModel;
   dataModelResult: ErrorExceptionResult<BlogContentModel> = new ErrorExceptionResult<BlogContentModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<BlogContentModel> = [];
   tableRowSelected: BlogContentModel = new BlogContentModel();
   tableSource: MatTableDataSource<BlogContentModel> = new MatTableDataSource<BlogContentModel>();
@@ -87,7 +87,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     // 'Action',
     "LinkTo",
   ];
-  
+
 
 
   cmsApiStoreSubscribe: Subscription;
@@ -350,8 +350,8 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     );
 
   }
-  
- 
+
+
   onActionbuttonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
@@ -368,27 +368,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: BlogContentModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: BlogContentModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: BlogContentModel): void {
-  //   row["expanded"] = false;
-  // }
-  // onActionbuttonComment(model: BlogContentModel = this.tableRowSelected): void {
-  //   if (!model || !model.id || model.id === 0) {
-  //     this.cmsToastrService.typeErrorSelectedRow();
-  //     return;
-  //   }
-  //   this.router.navigate(['/blog/comment/', model.id]);
-  // }
   onActionbuttonLinkTo(
     model: BlogContentModel = this.tableRowSelected
   ): void {

@@ -64,15 +64,15 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiPathPriceServiceModel> = new ErrorExceptionResult<SmsMainApiPathPriceServiceModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainApiPathPriceServiceModel> = [];
   tableRowSelected: SmsMainApiPathPriceServiceModel = new SmsMainApiPathPriceServiceModel();
   tableSource: MatTableDataSource<SmsMainApiPathPriceServiceModel> = new MatTableDataSource<SmsMainApiPathPriceServiceModel>();
-  
+
   categoryModelSelected: SmsMainApiPathModel;
   dataModelSmsMessageTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelSmsOutBoxTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
@@ -388,8 +388,8 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
   }
 
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -399,12 +399,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainApiPathPriceServiceModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path']);
   }

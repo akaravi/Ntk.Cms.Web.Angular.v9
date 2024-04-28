@@ -68,15 +68,15 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
   dataModelResult: ErrorExceptionResult<CoreModuleSaleHeaderGroupModel> = new ErrorExceptionResult<CoreModuleSaleHeaderGroupModel>();
   dataModelCoreUserGroupResult: ErrorExceptionResult<CoreUserGroupModel> = new ErrorExceptionResult<CoreUserGroupModel>();
   dataModelCoreSiteCategoryResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleSaleHeaderGroupModel> = [];
   tableRowSelected: CoreModuleSaleHeaderGroupModel = new CoreModuleSaleHeaderGroupModel();
   tableSource: MatTableDataSource<CoreModuleSaleHeaderGroupModel> = new MatTableDataSource<CoreModuleSaleHeaderGroupModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -411,8 +411,8 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -422,11 +422,6 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleSaleHeaderGroupModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

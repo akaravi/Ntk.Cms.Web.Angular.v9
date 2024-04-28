@@ -64,15 +64,15 @@ implements OnInit, OnDestroy {
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BankPaymentPublicConfigModel> = new ErrorExceptionResult<BankPaymentPublicConfigModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<BankPaymentPublicConfigModel> = [];
   tableRowSelected: BankPaymentPublicConfigModel = new BankPaymentPublicConfigModel();
   tableSource: MatTableDataSource<BankPaymentPublicConfigModel> = new MatTableDataSource<BankPaymentPublicConfigModel>();
-  
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkModuleFileLogoIdSrc',
@@ -357,8 +357,8 @@ implements OnInit, OnDestroy {
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPublicConfigId', this.tableRowSelected.id]);
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -367,10 +367,5 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: BankPaymentPublicConfigModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 }

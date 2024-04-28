@@ -74,11 +74,11 @@ export class CoreModuleDataCommentListComponent extends ListBaseComponent<CoreMo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleDataCommentModel> = new ErrorExceptionResult<CoreModuleDataCommentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleDataCommentModel> = [];
   tableRowSelected: CoreModuleDataCommentModel = new CoreModuleDataCommentModel();
   tableSource: MatTableDataSource<CoreModuleDataCommentModel> = new MatTableDataSource<CoreModuleDataCommentModel>();
@@ -94,7 +94,7 @@ export class CoreModuleDataCommentListComponent extends ListBaseComponent<CoreMo
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
   expandedElement: CoreSiteModel | null;
@@ -376,8 +376,8 @@ export class CoreModuleDataCommentListComponent extends ListBaseComponent<CoreMo
 
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -387,12 +387,7 @@ export class CoreModuleDataCommentListComponent extends ListBaseComponent<CoreMo
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleDataCommentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

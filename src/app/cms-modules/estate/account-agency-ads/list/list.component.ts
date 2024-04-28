@@ -71,11 +71,11 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyAdsModel> = new ErrorExceptionResult<EstateAccountAgencyAdsModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateAccountAgencyAdsModel> = [];
   tableRowSelected: EstateAccountAgencyAdsModel = new EstateAccountAgencyAdsModel();
   tableSource: MatTableDataSource<EstateAccountAgencyAdsModel> = new MatTableDataSource<EstateAccountAgencyAdsModel>();
@@ -99,7 +99,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
   ];
 
 
-  
+
 
 
 
@@ -359,8 +359,8 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -370,12 +370,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateAccountAgencyAdsModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/estate/property/']);
   }

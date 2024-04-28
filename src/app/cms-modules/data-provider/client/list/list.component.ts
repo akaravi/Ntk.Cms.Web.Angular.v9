@@ -63,11 +63,11 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
   categoryModelSelected: DataProviderPlanModel;
   dataModelResult: ErrorExceptionResult<DataProviderClientModel> = new ErrorExceptionResult<DataProviderClientModel>();
   link: string;
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DataProviderClientModel> = [];
   tableRowSelected: DataProviderClientModel = new DataProviderClientModel();
   tableSource: MatTableDataSource<DataProviderClientModel> = new MatTableDataSource<DataProviderClientModel>();
@@ -79,7 +79,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     'Title',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -334,8 +334,8 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     );
 
   }
-  
-  
+
+
 
   onActionbuttonClientCreditAccountRow(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0 || !model.linkSiteId || model.linkSiteId === 0) {
@@ -400,19 +400,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DataProviderClientModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: DataProviderClientModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: DataProviderClientModel): void {
-  //   row["expanded"] = false;
-  // }
+
   expandedElement: any;
   onActionbuttonTransactionList(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {

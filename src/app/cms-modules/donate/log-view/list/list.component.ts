@@ -59,11 +59,11 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DonateLogViewModel> = new ErrorExceptionResult<DonateLogViewModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DonateLogViewModel> = [];
   tableRowSelected: DonateLogViewModel = new DonateLogViewModel();
   tableSource: MatTableDataSource<DonateLogViewModel> = new MatTableDataSource<DonateLogViewModel>();
@@ -78,7 +78,7 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
     'VisitDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -249,8 +249,8 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -260,10 +260,5 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DonateLogViewModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 }

@@ -59,11 +59,11 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<MemberGroupModel> = new ErrorExceptionResult<MemberGroupModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<MemberGroupModel> = [];
   tableRowSelected: MemberGroupModel = new MemberGroupModel();
   tableSource: MatTableDataSource<MemberGroupModel> = new MatTableDataSource<MemberGroupModel>();
@@ -75,7 +75,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     'CreatedDate',
     // 'Action',
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {
@@ -288,8 +288,8 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     );
 
   }
-  
-  
+
+
   onActionbuttonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
@@ -302,22 +302,8 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: MemberGroupModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: MemberGroupModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: MemberGroupModel): void {
-  //   row["expanded"] = false;
-  // }
+
   expandedElement: any;
-
-
 
 
 }

@@ -61,15 +61,15 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiNumberPermissionModel> = new ErrorExceptionResult<SmsMainApiNumberPermissionModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainApiNumberPermissionModel> = [];
   tableRowSelected: SmsMainApiNumberPermissionModel = new SmsMainApiNumberPermissionModel();
   tableSource: MatTableDataSource<SmsMainApiNumberPermissionModel> = new MatTableDataSource<SmsMainApiNumberPermissionModel>();
-  
+
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
@@ -356,8 +356,8 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -367,12 +367,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainApiNumberPermissionModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path']);
   }

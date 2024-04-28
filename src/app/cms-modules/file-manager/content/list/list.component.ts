@@ -59,11 +59,11 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
   categoryModelSelected: FileCategoryModel;
   dataModelResult: ErrorExceptionResult<FileContentModel> = new ErrorExceptionResult<FileContentModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<FileContentModel> = [];
   tableRowSelected: FileContentModel = new FileContentModel();
   tableSource: MatTableDataSource<FileContentModel> = new MatTableDataSource<FileContentModel>();
@@ -77,7 +77,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
     'UpdatedDate',
     // 'Action'
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -294,8 +294,8 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -305,12 +305,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: FileContentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onClickDownload(row: FileContentModel): void {
     this.router.navigate(['/file/comment/']);
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-page-aboutus',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageAboutusComponent implements OnInit {
 
-  constructor() { }
+  constructor(public pageInfo: PageInfoService, public translate: TranslateService,) { }
 
   ngOnInit(): void {
+    this.pageInfo.updateTitle(this.translate.instant('ACTION.ABOUT'));
   }
 
 }

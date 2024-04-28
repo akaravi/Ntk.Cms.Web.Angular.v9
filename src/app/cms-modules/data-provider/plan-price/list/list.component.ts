@@ -63,11 +63,11 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
 
   dataModelResult: ErrorExceptionResult<DataProviderPlanPriceModel> = new ErrorExceptionResult<DataProviderPlanPriceModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DataProviderPlanPriceModel> = [];
   tableRowSelected: DataProviderPlanPriceModel = new DataProviderPlanPriceModel();
   tableSource: MatTableDataSource<DataProviderPlanPriceModel> = new MatTableDataSource<DataProviderPlanPriceModel>();
@@ -82,7 +82,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
     'Price',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -324,8 +324,8 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -335,12 +335,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DataProviderPlanPriceModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/data-provider/plan/']);
   }

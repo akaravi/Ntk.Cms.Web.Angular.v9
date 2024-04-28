@@ -62,11 +62,11 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementAccountingModel> = new ErrorExceptionResult<LinkManagementAccountingModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<LinkManagementAccountingModel> = [];
   tableRowSelected: LinkManagementAccountingModel = new LinkManagementAccountingModel();
   tableSource: MatTableDataSource<LinkManagementAccountingModel> = new MatTableDataSource<LinkManagementAccountingModel>();
@@ -81,7 +81,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     'Creditor',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -237,8 +237,8 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(LinkManagementAccountingDeleteComponent, { 
-      height: '90%', 
+    const dialogRef = this.dialog.open(LinkManagementAccountingDeleteComponent, {
+      height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
@@ -299,8 +299,8 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -313,19 +313,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: LinkManagementAccountingModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: LinkManagementAccountingModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: LinkManagementAccountingModel): void {
-  //   row["expanded"] = false;
-  // }
+
   expandedElement: any;
 
   onActionbuttonAccountingDetail(model: LinkManagementAccountingModel = this.tableRowSelected): void {
@@ -338,12 +326,5 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     this.router.navigate(['/linkmanagement/accountingdetail/LinkManagementAccountingId', this.tableRowSelected.id]);
   }
 
-  // onActionbuttonComment(model: LinkManagementAccountingModel = this.tableRowSelected): void {
-  //   if (!model || !model.id || model.id === 0) {
-  //     const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
-  //     this.cmsToastrService.typeErrorSelected(message);
-  //     return;
-  //   }
-  //   this.router.navigate(['/linkmanagement/Accounting-log/', model.id]);
-  // }
+
 }

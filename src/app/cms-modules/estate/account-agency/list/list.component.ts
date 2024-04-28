@@ -83,11 +83,11 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
 
   filteModelContent = new EstateAccountAgencyFilterModel();
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyModel> = new ErrorExceptionResult<EstateAccountAgencyModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateAccountAgencyModel> = [];
   tableRowSelected: EstateAccountAgencyModel = new EstateAccountAgencyModel();
   tableSource: MatTableDataSource<EstateAccountAgencyModel> = new MatTableDataSource<EstateAccountAgencyModel>();
@@ -102,7 +102,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
     // 'Action',
   ];
 
-  
+
 
 
 
@@ -371,8 +371,8 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
     );
 
   }
-  
-  
+
+
 
   onActionbuttonAgentRow(
     mode: EstateAccountAgencyModel = this.tableRowSelected, event?: MouseEvent
@@ -458,19 +458,6 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateAccountAgencyModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: EstateAccountAgencyModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: EstateAccountAgencyModel): void {
-  //   row["expanded"] = false;
-  // }
 
 }

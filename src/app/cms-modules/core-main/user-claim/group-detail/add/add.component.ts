@@ -76,28 +76,7 @@ export class CoreUserClaimGroupDetailAddComponent extends AddBaseComponent<CoreU
     this.DataGetAccess();
   }
 
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'DataGetAccess';
-  //   this.loading.Start(pName);
 
-  //   this.coreUserClaimGroupDetailService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
 
 
 

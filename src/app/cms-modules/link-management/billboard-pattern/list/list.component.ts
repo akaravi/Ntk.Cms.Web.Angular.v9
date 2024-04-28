@@ -63,11 +63,11 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementBillboardPatternModel> = new ErrorExceptionResult<LinkManagementBillboardPatternModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<LinkManagementBillboardPatternModel> = [];
   tableRowSelected: LinkManagementBillboardPatternModel = new LinkManagementBillboardPatternModel();
   tableSource: MatTableDataSource<LinkManagementBillboardPatternModel> = new MatTableDataSource<LinkManagementBillboardPatternModel>();
@@ -82,7 +82,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     'UpdatedDate',
     // 'Action'
   ];
-  
+
   dataModelManagementContentSettingTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
   cmsApiStoreSubscribe: Subscription;
@@ -339,8 +339,8 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -350,10 +350,5 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: LinkManagementBillboardPatternModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 }

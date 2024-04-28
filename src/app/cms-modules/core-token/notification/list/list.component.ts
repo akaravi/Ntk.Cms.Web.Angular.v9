@@ -88,11 +88,11 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenNotificationModel> = new ErrorExceptionResult<CoreTokenNotificationModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreTokenNotificationModel> = [];
   tableRowSelected: CoreTokenNotificationModel = new CoreTokenNotificationModel();
   tableSource: MatTableDataSource<CoreTokenNotificationModel> = new MatTableDataSource<CoreTokenNotificationModel>();
@@ -113,7 +113,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
     'ExpireDate',
     // 'Action'
   ];
-  
+
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -416,8 +416,8 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -427,12 +427,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreTokenNotificationModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

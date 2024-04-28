@@ -62,15 +62,15 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
   dataModelResult: ErrorExceptionResult<SmsMainApiPathPublicConfigModel> = new ErrorExceptionResult<SmsMainApiPathPublicConfigModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainApiPathPublicConfigModel> = [];
   tableRowSelected: SmsMainApiPathPublicConfigModel = new SmsMainApiPathPublicConfigModel();
   tableSource: MatTableDataSource<SmsMainApiPathPublicConfigModel> = new MatTableDataSource<SmsMainApiPathPublicConfigModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -384,8 +384,8 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
     this.router.navigate(['/sms/main/api-path/list/LinkPublicConfigId', this.tableRowSelected.id]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -395,11 +395,6 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainApiPathPublicConfigModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

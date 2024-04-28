@@ -89,11 +89,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogSiteCreditModel> = new ErrorExceptionResult<CoreModuleLogSiteCreditModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleLogSiteCreditModel> = [];
   tableRowSelected: CoreModuleLogSiteCreditModel = new CoreModuleLogSiteCreditModel();
   tableSource: MatTableDataSource<CoreModuleLogSiteCreditModel> = new MatTableDataSource<CoreModuleLogSiteCreditModel>();
@@ -107,7 +107,7 @@ implements OnInit, OnDestroy {
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
 
@@ -388,8 +388,8 @@ implements OnInit, OnDestroy {
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -399,12 +399,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleLogSiteCreditModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

@@ -74,15 +74,15 @@ export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreMod
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleSaleHeaderModel> = new ErrorExceptionResult<CoreModuleSaleHeaderModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleSaleHeaderModel> = [];
   tableRowSelected: CoreModuleSaleHeaderModel = new CoreModuleSaleHeaderModel();
   tableSource: MatTableDataSource<CoreModuleSaleHeaderModel> = new MatTableDataSource<CoreModuleSaleHeaderModel>();
-  
+
   categoryModelSelected: CoreModuleSaleHeaderGroupModel = new CoreModuleSaleHeaderGroupModel();
 
   tabledisplayedColumns: string[] = [];
@@ -422,8 +422,8 @@ export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreMod
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -434,12 +434,7 @@ export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreMod
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleSaleHeaderModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/modulesale/headergroup']);
   }

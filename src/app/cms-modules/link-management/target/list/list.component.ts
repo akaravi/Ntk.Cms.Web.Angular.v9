@@ -411,19 +411,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: LinkManagementTargetModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: LinkManagementTargetModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: LinkManagementTargetModel): void {
-  //   row["expanded"] = false;
-  // }
+
   expandedElement: any;
 
 

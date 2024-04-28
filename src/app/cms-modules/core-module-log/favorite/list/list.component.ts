@@ -90,11 +90,11 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogFavoriteModel> = new ErrorExceptionResult<CoreModuleLogFavoriteModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleLogFavoriteModel> = [];
   tableRowSelected: CoreModuleLogFavoriteModel = new CoreModuleLogFavoriteModel();
   tableSource: MatTableDataSource<CoreModuleLogFavoriteModel> = new MatTableDataSource<CoreModuleLogFavoriteModel>();
@@ -112,7 +112,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
 
@@ -434,8 +434,8 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -445,12 +445,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleLogFavoriteModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

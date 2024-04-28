@@ -60,15 +60,15 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApiTelegramLogInputModel> = new ErrorExceptionResult<ApiTelegramLogInputModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ApiTelegramLogInputModel> = [];
   tableRowSelected: ApiTelegramLogInputModel = new ApiTelegramLogInputModel();
   tableSource: MatTableDataSource<ApiTelegramLogInputModel> = new MatTableDataSource<ApiTelegramLogInputModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -268,8 +268,8 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     });
     //open popup
   }
-  
- 
+
+
 
 
   onActionbuttonReload(): void {
@@ -279,12 +279,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApiTelegramLogInputModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //   row["expanded"] = false;
-  // row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['api-telegram/bot-config']);
   }

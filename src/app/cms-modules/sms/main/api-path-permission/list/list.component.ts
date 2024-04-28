@@ -61,15 +61,15 @@ export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<Sms
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiPathPermissionModel> = new ErrorExceptionResult<SmsMainApiPathPermissionModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainApiPathPermissionModel> = [];
   tableRowSelected: SmsMainApiPathPermissionModel = new SmsMainApiPathPermissionModel();
   tableSource: MatTableDataSource<SmsMainApiPathPermissionModel> = new MatTableDataSource<SmsMainApiPathPermissionModel>();
-  
+
   categoryModelSelected: SmsMainApiPathModel;
 
   tabledisplayedColumns: string[] = [];
@@ -378,8 +378,8 @@ export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<Sms
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -389,12 +389,7 @@ export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<Sms
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainApiPathPermissionModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path']);
   }

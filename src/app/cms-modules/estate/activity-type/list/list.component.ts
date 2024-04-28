@@ -60,11 +60,11 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateActivityTypeModel> = new ErrorExceptionResult<EstateActivityTypeModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateActivityTypeModel> = [];
   tableRowSelected: EstateActivityTypeModel = new EstateActivityTypeModel();
   tableSource: MatTableDataSource<EstateActivityTypeModel> = new MatTableDataSource<EstateActivityTypeModel>();
@@ -79,7 +79,7 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -358,8 +358,8 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -368,11 +368,6 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateActivityTypeModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

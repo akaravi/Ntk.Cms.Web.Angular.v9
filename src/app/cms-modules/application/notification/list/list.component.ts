@@ -69,11 +69,11 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationLogNotificationModel> = new ErrorExceptionResult<ApplicationLogNotificationModel>();
-  
-  
 
-  
-  
+
+
+
+
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<ApplicationLogNotificationModel> = [];
   tableRowSelected: ApplicationLogNotificationModel = new ApplicationLogNotificationModel();
@@ -90,7 +90,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     'UpdatedDate',
     // 'Action'
   ];
-  
+
   expandedElement: ApplicationLogNotificationModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -363,8 +363,8 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     }
     );
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -373,12 +373,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApplicationLogNotificationModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/application/app/']);
   }

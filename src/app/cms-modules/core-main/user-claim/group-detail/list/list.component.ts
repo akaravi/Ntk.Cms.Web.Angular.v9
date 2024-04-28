@@ -81,15 +81,15 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserClaimGroupDetailModel> = new ErrorExceptionResult<CoreUserClaimGroupDetailModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreUserClaimGroupDetailModel> = [];
   tableRowSelected: CoreUserClaimGroupDetailModel = new CoreUserClaimGroupDetailModel();
   tableSource: MatTableDataSource<CoreUserClaimGroupDetailModel> = new MatTableDataSource<CoreUserClaimGroupDetailModel>();
-  
+
   categoryModelSelected: CoreUserClaimGroupModel = new CoreUserClaimGroupModel();
   dataModelCoreUserClaimTypeResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();
   dataModelCoreUserClaimGroupResult: ErrorExceptionResult<CoreUserClaimGroupModel> = new ErrorExceptionResult<CoreUserClaimGroupModel>();
@@ -394,8 +394,8 @@ implements OnInit, OnDestroy {
 
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -405,12 +405,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreUserClaimGroupDetailModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParentType(): void {
     this.router.navigate(['/core/userclaim/type/']);
   }

@@ -438,8 +438,8 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     }
     window.open(this.dataModelResult.item.htmlPreviewUrl, '_blank');
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -448,12 +448,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: WebDesignerMainPageModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParentTemplate(): void {
     this.router.navigate(['/webdesigner/pagetemplate']);
   }

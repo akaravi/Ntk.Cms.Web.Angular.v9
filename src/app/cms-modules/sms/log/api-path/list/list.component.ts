@@ -74,15 +74,15 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   categoryModelSelected: SmsMainApiPathModel;
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsLogApiPathModel> = [];
   tableRowSelected: SmsLogApiPathModel = new SmsLogApiPathModel();
   tableSource: MatTableDataSource<SmsLogApiPathModel> = new MatTableDataSource<SmsLogApiPathModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -307,8 +307,8 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
 
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -318,19 +318,7 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsLogApiPathModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: SmsLogApiPathModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: SmsLogApiPathModel): void {
-  //   row["expanded"] = false;
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path']);
   }

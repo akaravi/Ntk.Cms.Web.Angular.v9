@@ -22,7 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
 })
 export class ApplicationAppAddComponent extends AddBaseComponent<ApplicationAppService, ApplicationAppModel, number> implements OnInit {
-  constructor( 
+  constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,
     public applicationEnumService: ApplicationEnumService,
@@ -87,28 +87,6 @@ export class ApplicationAppAddComponent extends AddBaseComponent<ApplicationAppS
     }
     this.DataAddContent();
   }
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'main';
-  //   this.loading.Start(pName);
-  //   this.applicationAppService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           this.dataAccessModel = ret.access;
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

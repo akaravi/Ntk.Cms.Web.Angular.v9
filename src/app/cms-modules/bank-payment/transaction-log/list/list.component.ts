@@ -65,11 +65,11 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BankPaymentTransactionLogModel> = new ErrorExceptionResult<BankPaymentTransactionLogModel>();
-  
-  
 
-  
-  
+
+
+
+
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<BankPaymentTransactionLogModel> = [];
   tableRowSelected: BankPaymentTransactionLogModel = new BankPaymentTransactionLogModel();
@@ -84,7 +84,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     'CreatedDate',
     // 'Action'
   ];
-  
+
   expandedElement: BankPaymentTransactionLogModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -294,8 +294,8 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     }
     );
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -304,12 +304,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: BankPaymentTransactionLogModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/bankpayment/transaction/']);
   }

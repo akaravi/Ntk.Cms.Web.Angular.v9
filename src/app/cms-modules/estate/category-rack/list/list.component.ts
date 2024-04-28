@@ -58,11 +58,11 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateCategoryRackModel> = new ErrorExceptionResult<EstateCategoryRackModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateCategoryRackModel> = [];
   tableRowSelected: EstateCategoryRackModel = new EstateCategoryRackModel();
   tableSource: MatTableDataSource<EstateCategoryRackModel> = new MatTableDataSource<EstateCategoryRackModel>();
@@ -77,7 +77,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -356,8 +356,8 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -366,11 +366,6 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateCategoryRackModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

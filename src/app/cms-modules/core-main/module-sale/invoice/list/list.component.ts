@@ -63,15 +63,15 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleSaleInvoiceModel> = new ErrorExceptionResult<CoreModuleSaleInvoiceModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleSaleInvoiceModel> = [];
   tableRowSelected: CoreModuleSaleInvoiceModel = new CoreModuleSaleInvoiceModel();
   tableSource: MatTableDataSource<CoreModuleSaleInvoiceModel> = new MatTableDataSource<CoreModuleSaleInvoiceModel>();
-  
+
   categoryModelSelected: CoreModuleSaleSerialModel = new CoreModuleSaleSerialModel();
 
   tabledisplayedColumns: string[] = [];
@@ -373,8 +373,8 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -384,11 +384,6 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleSaleInvoiceModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

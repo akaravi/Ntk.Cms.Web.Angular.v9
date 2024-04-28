@@ -63,15 +63,15 @@ export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleModel> = [];
   tableRowSelected: CoreModuleModel = new CoreModuleModel();
   tableSource: MatTableDataSource<CoreModuleModel> = new MatTableDataSource<CoreModuleModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -427,8 +427,8 @@ export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService
     this.onActionTableRowSelect(model);
     this.router.navigate(['core/module-entity/LinkModuleId/', model.id]);
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -438,11 +438,6 @@ export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

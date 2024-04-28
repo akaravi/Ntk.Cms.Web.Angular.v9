@@ -79,11 +79,11 @@ implements OnInit, OnDestroy {
   requestContentId = 0;
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BiographyCommentModel> = new ErrorExceptionResult<BiographyCommentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<BiographyCommentModel> = [];
   tableRowSelected: BiographyCommentModel = new BiographyCommentModel();
   tableSource: MatTableDataSource<BiographyCommentModel> = new MatTableDataSource<BiographyCommentModel>();
@@ -97,7 +97,7 @@ implements OnInit, OnDestroy {
     // 'Action',
     "LinkTo",
   ];
-  
+
   expandedElement: BiographyCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -361,8 +361,8 @@ implements OnInit, OnDestroy {
     this.searchInChecking = model;
     this.DataGetAll();
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -371,12 +371,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: BiographyCommentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/biography/content/']);
   }
@@ -401,7 +396,7 @@ implements OnInit, OnDestroy {
       .subscribe({
         next: (ret) => {
           if (ret.isSuccess) {
-            
+
             //open popup
             const dialogRef = this.dialog.open(CmsLinkToComponent, {
               // height: "90%",

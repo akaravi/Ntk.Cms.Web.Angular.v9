@@ -52,7 +52,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Descending;
   }
-  
+
   comment: string;
   author: string;
   dataSource: any;
@@ -60,11 +60,11 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainIntroModel> = new ErrorExceptionResult<WebDesignerMainIntroModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<WebDesignerMainIntroModel> = [];
   tableRowSelected: WebDesignerMainIntroModel = new WebDesignerMainIntroModel();
   tableSource: MatTableDataSource<WebDesignerMainIntroModel> = new MatTableDataSource<WebDesignerMainIntroModel>();
@@ -287,8 +287,8 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
       }
     );
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -297,12 +297,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: WebDesignerMainIntroModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

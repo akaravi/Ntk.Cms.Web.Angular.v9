@@ -69,11 +69,11 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogAvoidDuplicateDataEntryModel> = new ErrorExceptionResult<CoreLogAvoidDuplicateDataEntryModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreLogAvoidDuplicateDataEntryModel> = [];
   tableRowSelected: CoreLogAvoidDuplicateDataEntryModel = new CoreLogAvoidDuplicateDataEntryModel();
   tableSource: MatTableDataSource<CoreLogAvoidDuplicateDataEntryModel> = new MatTableDataSource<CoreLogAvoidDuplicateDataEntryModel>();
@@ -88,7 +88,7 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
     'CreatedDate',
     // 'Action'
   ];
-  
+
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   expandedElement: CoreSiteModel | null;
@@ -354,8 +354,8 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  
- 
+
+
 
 
   onActionbuttonReload(): void {
@@ -365,12 +365,7 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreLogAvoidDuplicateDataEntryModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

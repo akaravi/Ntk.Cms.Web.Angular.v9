@@ -63,11 +63,11 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DataProviderTransactionModel> = new ErrorExceptionResult<DataProviderTransactionModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DataProviderTransactionModel> = [];
   tableRowSelected: DataProviderTransactionModel = new DataProviderTransactionModel();
   tableSource: MatTableDataSource<DataProviderTransactionModel> = new MatTableDataSource<DataProviderTransactionModel>();
@@ -88,7 +88,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -278,8 +278,8 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -289,12 +289,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DataProviderTransactionModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
 
     if (this.requestLinkCmsUserId > 0) {

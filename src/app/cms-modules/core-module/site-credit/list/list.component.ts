@@ -61,11 +61,11 @@ implements OnInit, OnDestroy {
 
   dataModelResult: ErrorExceptionResult<CoreModuleSiteCreditModel> = new ErrorExceptionResult<CoreModuleSiteCreditModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleSiteCreditModel> = [];
   tableRowSelected: CoreModuleSiteCreditModel = new CoreModuleSiteCreditModel();
   tableSource: MatTableDataSource<CoreModuleSiteCreditModel> = new MatTableDataSource<CoreModuleSiteCreditModel>();
@@ -78,7 +78,7 @@ implements OnInit, OnDestroy {
     'SumCreditBlocked',
     // 'Action'
   ];
-  
+
 
 
   cmsApiStoreSubscribe: Subscription;
@@ -295,8 +295,8 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
   onActionbuttonSiteCreditBuyAccountRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
@@ -346,11 +346,6 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleSiteCreditModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

@@ -73,15 +73,15 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreDeviceModel> = new ErrorExceptionResult<CoreDeviceModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreDeviceModel> = [];
   tableRowSelected: CoreDeviceModel = new CoreDeviceModel();
   tableSource: MatTableDataSource<CoreDeviceModel> = new MatTableDataSource<CoreDeviceModel>();
-  
+
   dataModelEnumDeviceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumOperatingSystemTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -369,8 +369,8 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -380,12 +380,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreDeviceModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

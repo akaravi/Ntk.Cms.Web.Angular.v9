@@ -87,11 +87,11 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreTokenMicroServiceLogModel> = new ErrorExceptionResult<CoreTokenMicroServiceLogModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreTokenMicroServiceLogModel> = [];
   tableRowSelected: CoreTokenMicroServiceLogModel = new CoreTokenMicroServiceLogModel();
   tableSource: MatTableDataSource<CoreTokenMicroServiceLogModel> = new MatTableDataSource<CoreTokenMicroServiceLogModel>();
@@ -112,7 +112,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
     'ExpireDate',
     // 'Action'
   ];
-  
+
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -420,8 +420,8 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -431,12 +431,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreTokenMicroServiceLogModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

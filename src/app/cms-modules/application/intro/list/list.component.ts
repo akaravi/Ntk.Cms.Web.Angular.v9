@@ -67,11 +67,11 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationIntroModel> = new ErrorExceptionResult<ApplicationIntroModel>();
-  
-  
 
-  
-  
+
+
+
+
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<ApplicationIntroModel> = [];
   tableRowSelected: ApplicationIntroModel = new ApplicationIntroModel();
@@ -87,7 +87,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     'UpdatedDate',
     // 'Action'
   ];
-  
+
   expandedElement: ApplicationIntroModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -324,8 +324,8 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     }
     );
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -334,12 +334,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApplicationIntroModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/application/app/']);
   }

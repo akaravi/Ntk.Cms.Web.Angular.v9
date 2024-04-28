@@ -75,15 +75,15 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   categoryModelSelected: SmsMainApiPathModel;
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsLogOutBoxDetailModel> = [];
   tableRowSelected: SmsLogOutBoxDetailModel = new SmsLogOutBoxDetailModel();
   tableSource: MatTableDataSource<SmsLogOutBoxDetailModel> = new MatTableDataSource<SmsLogOutBoxDetailModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -305,8 +305,8 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
 
   }
 
-  
-  
+
+
 
   onActionbuttonViewRow(model: SmsLogOutBoxDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -346,19 +346,7 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsLogOutBoxDetailModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: SmsLogOutBoxDetailModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: SmsLogOutBoxDetailModel): void {
-  //   row["expanded"] = false;
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/sms/log/outbox']);
   }

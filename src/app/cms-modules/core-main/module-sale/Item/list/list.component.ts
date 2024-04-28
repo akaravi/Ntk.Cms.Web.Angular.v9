@@ -73,15 +73,15 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleSaleItemModel> = new ErrorExceptionResult<CoreModuleSaleItemModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleSaleItemModel> = [];
   tableRowSelected: CoreModuleSaleItemModel = new CoreModuleSaleItemModel();
   tableSource: MatTableDataSource<CoreModuleSaleItemModel> = new MatTableDataSource<CoreModuleSaleItemModel>();
-  
+
   categoryModelSelected: CoreModuleSaleHeaderModel = new CoreModuleSaleHeaderModel();
   dataModelEnumCmsModuleSaleItemTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
@@ -391,8 +391,8 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
   }
 
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -402,12 +402,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleSaleItemModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/modulesale/headergroup']);
   }

@@ -59,11 +59,11 @@ implements OnInit, OnDestroy {
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DataProviderLogClientModel> = new ErrorExceptionResult<DataProviderLogClientModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DataProviderLogClientModel> = [];
   tableRowSelected: DataProviderLogClientModel = new DataProviderLogClientModel();
   tableSource: MatTableDataSource<DataProviderLogClientModel> = new MatTableDataSource<DataProviderLogClientModel>();
@@ -74,7 +74,7 @@ implements OnInit, OnDestroy {
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -245,8 +245,8 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -256,12 +256,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DataProviderLogClientModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
 
     if (this.requestLinkClientId > 0) {

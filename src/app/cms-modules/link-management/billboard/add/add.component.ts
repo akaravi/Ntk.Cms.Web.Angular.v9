@@ -121,28 +121,7 @@ export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkMa
 
 
   }
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'DataGetAccess';
-  //   this.loading.Start(pName);
-  //   this.linkManagementBillboardService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           this.dataAccessModel = ret.access;
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
+
   DataGetOne(): void {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');

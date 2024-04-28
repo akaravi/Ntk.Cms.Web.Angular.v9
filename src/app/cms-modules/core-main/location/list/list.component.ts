@@ -63,11 +63,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLocationModel> = new ErrorExceptionResult<CoreLocationModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreLocationModel> = [];
   tableRowSelected: CoreLocationModel = new CoreLocationModel();
   tableSource: MatTableDataSource<CoreLocationModel> = new MatTableDataSource<CoreLocationModel>();
@@ -89,7 +89,7 @@ implements OnInit, OnDestroy {
   expandedElement: CoreLocationModel | null;
   cmsApiStoreSubscribe: Subscription;
   categoryModelSelected: CoreLocationModel;
-  
+
 
   ngOnInit(): void {
     this.filteModelContent.sortColumn = 'Title';
@@ -396,8 +396,8 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -407,11 +407,6 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreLocationModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

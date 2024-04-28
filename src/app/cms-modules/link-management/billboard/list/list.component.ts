@@ -68,11 +68,11 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
   categoryPatternModelSelected: LinkManagementBillboardPatternModel;
   dataModelResult: ErrorExceptionResult<LinkManagementBillboardModel> = new ErrorExceptionResult<LinkManagementBillboardModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<LinkManagementBillboardModel> = [];
   tableRowSelected: LinkManagementBillboardModel = new LinkManagementBillboardModel();
   tableSource: MatTableDataSource<LinkManagementBillboardModel> = new MatTableDataSource<LinkManagementBillboardModel>();
@@ -86,7 +86,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     'UpdatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -325,8 +325,8 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -336,12 +336,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: LinkManagementBillboardModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 
   onActionbuttonLog(model: LinkManagementBillboardModel = this.tableRowSelected): void {

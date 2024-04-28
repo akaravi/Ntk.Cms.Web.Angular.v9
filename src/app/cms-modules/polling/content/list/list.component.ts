@@ -61,11 +61,11 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
   categoryModelSelected: PollingCategoryModel;
   dataModelResult: ErrorExceptionResult<PollingContentModel> = new ErrorExceptionResult<PollingContentModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<PollingContentModel> = [];
   tableRowSelected: PollingContentModel = new PollingContentModel();
   tableSource: MatTableDataSource<PollingContentModel> = new MatTableDataSource<PollingContentModel>();
@@ -79,7 +79,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
     'UpdatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -297,8 +297,8 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
     }
     );
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -311,19 +311,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: PollingContentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: PollingContentModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: PollingContentModel): void {
-  //   row["expanded"] = false;
-  // }
+
 
 
   onActionbuttonResults(model: PollingContentModel = this.tableRowSelected): void {

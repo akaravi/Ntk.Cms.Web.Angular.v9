@@ -77,11 +77,11 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserModel> = new ErrorExceptionResult<CoreUserModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreUserModel> = [];
   tableRowSelected: CoreUserModel = new CoreUserModel();
   tableSource: MatTableDataSource<CoreUserModel> = new MatTableDataSource<CoreUserModel>();
@@ -101,7 +101,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     // 'Action'
   ];
 
-  
+
   expandedElement: CoreUserModel | null;
   cmsApiStoreSubscribe: Subscription;
 
@@ -455,8 +455,8 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -468,20 +468,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreUserModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: CoreUserModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: CoreUserModel): void {
-  //   row["expanded"] = false;
-  // }
 
   onActionbuttonSiteList(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
@@ -534,5 +521,5 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
   onActionbuttonUserSupportList(row: CoreUserModel): void {
     this.router.navigate(['/core/user-support-access/list/LinkSiteId/', 0, 'LinkUserId', row.id]);
   }
- 
+
 }

@@ -51,18 +51,18 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
     this.filteModelContent.sortColumn = 'ShowInMenuOrder';
     this.filteModelContent.sortType = SortTypeEnum.Ascending;
   }
-  
+
   comment: string;
   author: string;
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainMenuModel> = new ErrorExceptionResult<WebDesignerMainMenuModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<WebDesignerMainMenuModel> = [];
   tableRowSelected: WebDesignerMainMenuModel = new WebDesignerMainMenuModel();
   tableSource: MatTableDataSource<WebDesignerMainMenuModel> = new MatTableDataSource<WebDesignerMainMenuModel>();
@@ -347,8 +347,8 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.filteModelContent.sortColumn = 'ShowInMenuOrder';
@@ -358,10 +358,5 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: WebDesignerMainMenuModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 }

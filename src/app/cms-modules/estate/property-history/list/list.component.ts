@@ -602,8 +602,8 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       },
     });
   }
-   
-  
+
+
 
   onActionbuttonPropertyQuickViewRow(id: any): void {
     if (!id || id.length === 0) {
@@ -711,21 +711,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstatePropertyHistoryModel): void {
-  //   this.pageInfo.updateContentInfo(
-  //     new ContentInfoModel(row.id, row.title, false, '', '')
-  //   );
-  //   this.tableRowSelected = row;
-  //   if (!row['expanded']) row['expanded'] = false;
-  //   row['expanded'] = !row['expanded'];
-  // }
-  // onActionTableRowMouseEnter(row: EstatePropertyHistoryModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row['expanded'] = true;
-  // }
-  // onActionTableRowMouseLeave(row: EstatePropertyHistoryModel): void {
-  //   row['expanded'] = false;
-  // }
+
   onActionbuttonInCheckingOnDate(model: boolean): void {
     this.searchInCheckingOnDay = model;
     if (this.searchInCheckingOnDay) {

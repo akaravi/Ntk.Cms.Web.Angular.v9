@@ -63,11 +63,11 @@ export class DataProviderPlanListComponent extends ListBaseComponent<DataProvide
   filteModelContent = new FilterModel();
   categoryModelSelected: DataProviderPlanCategoryModel;
   dataModelResult: ErrorExceptionResult<DataProviderPlanModel> = new ErrorExceptionResult<DataProviderPlanModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DataProviderPlanModel> = [];
   tableRowSelected: DataProviderPlanModel = new DataProviderPlanModel();
   tableSource: MatTableDataSource<DataProviderPlanModel> = new MatTableDataSource<DataProviderPlanModel>();
@@ -79,7 +79,7 @@ export class DataProviderPlanListComponent extends ListBaseComponent<DataProvide
     'Title',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -399,8 +399,8 @@ export class DataProviderPlanListComponent extends ListBaseComponent<DataProvide
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -413,13 +413,7 @@ export class DataProviderPlanListComponent extends ListBaseComponent<DataProvide
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DataProviderPlanModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
   onActionTableRowMouseEnter(row: DataProviderPlanModel): void {
     this.onActionTableRowSelect(row);
     row["expanded"] = true;

@@ -71,16 +71,16 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BankPaymentPrivateSiteConfigModel> = new ErrorExceptionResult<BankPaymentPrivateSiteConfigModel>();
   dataModelPublicResult: ErrorExceptionResult<BankPaymentPublicConfigModel> = new ErrorExceptionResult<BankPaymentPublicConfigModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<BankPaymentPrivateSiteConfigModel> = [];
   tableRowSelected: BankPaymentPrivateSiteConfigModel = new BankPaymentPrivateSiteConfigModel();
   tableSource: MatTableDataSource<BankPaymentPrivateSiteConfigModel> = new MatTableDataSource<BankPaymentPrivateSiteConfigModel>();
   categoryModelSelected: BankPaymentPublicConfigModel;
-  
+
   expandedElement: BankPaymentPrivateSiteConfigModel | null;
   cmsApiStoreSubscribe: Subscription;
   tabledisplayedColumns: string[] = [];
@@ -435,8 +435,8 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     });
   }
 
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -445,12 +445,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: BankPaymentPrivateSiteConfigModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/bankpayment/publicconfig/']);
   }

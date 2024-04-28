@@ -79,11 +79,11 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
   requestContentId = 0;
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ArticleCommentModel> = new ErrorExceptionResult<ArticleCommentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ArticleCommentModel> = [];
   tableRowSelected: ArticleCommentModel = new ArticleCommentModel();
   tableSource: MatTableDataSource<ArticleCommentModel> = new MatTableDataSource<ArticleCommentModel>();
@@ -102,7 +102,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     // 'Action',
     "LinkTo",
   ];
-  
+
   expandedElement: ArticleCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -368,8 +368,8 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     this.searchInChecking = model;
     this.DataGetAll();
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -378,12 +378,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ArticleCommentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/article/content/']);
   }

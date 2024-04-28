@@ -88,15 +88,15 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateCustomerOrderResultModel> = new ErrorExceptionResult<EstateCustomerOrderResultModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateCustomerOrderResultModel> = [];
   tableRowSelected: EstateCustomerOrderResultModel = new EstateCustomerOrderResultModel();
   tableSource: MatTableDataSource<EstateCustomerOrderResultModel> = new MatTableDataSource<EstateCustomerOrderResultModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -292,8 +292,8 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
 
   }
 
-  
- 
+
+
 
   onActionbuttonViewRow(model: EstateCustomerOrderResultModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -333,20 +333,7 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateCustomerOrderResultModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: EstateCustomerOrderResultModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: EstateCustomerOrderResultModel): void {
-  //   row["expanded"] = false;
-  // }
   onActionBackToParent(): void {
     this.router.navigate(['/estate/customer-order/']);
   }

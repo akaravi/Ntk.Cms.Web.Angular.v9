@@ -69,11 +69,11 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
   filteModelContent = new FilterModel();
   categoryModelSelected: NewsCategoryModel;
   dataModelResult: ErrorExceptionResult<NewsContentModel> = new ErrorExceptionResult<NewsContentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<NewsContentModel> = [];
   tableRowSelected: NewsContentModel = new NewsContentModel();
   tableSource: MatTableDataSource<NewsContentModel> = new MatTableDataSource<NewsContentModel>();
@@ -95,7 +95,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     // 'Action',
     "LinkTo",
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {
@@ -386,8 +386,8 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       }
     });
   }
-  
-  
+
+
   onActionbuttonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
@@ -403,32 +403,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: NewsContentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: NewsContentModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: NewsContentModel): void {
-  //   row["expanded"] = false;
-  // }
-  // onActionbuttonComment(model: NewsContentModel = this.tableRowSelected, event?: MouseEvent): void {
-  //   if (!model || !model.id || model.id === 0) {
-  //     this.cmsToastrService.typeErrorSelectedRow();
-  //     return;
-  //   }
 
-  //   if (event?.ctrlKey) {
-  //     this.link = "/#/news/comment/";
-  //     window.open(this.link, "_blank");
-  //   } else {
-  //     this.router.navigate(['/news/comment/', model.id]);
-  //   }
-  // }
   onActionbuttonLinkTo(model: NewsContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();

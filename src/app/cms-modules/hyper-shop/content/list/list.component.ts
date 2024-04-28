@@ -65,11 +65,11 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<HyperShopContentModel> = new ErrorExceptionResult<HyperShopContentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<HyperShopContentModel> = [];
   tableRowSelected: HyperShopContentModel = new HyperShopContentModel();
   tableSource: MatTableDataSource<HyperShopContentModel> = new MatTableDataSource<HyperShopContentModel>();
@@ -88,7 +88,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
     'Discount',
     // 'Action'
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.paramMap.get('PareintId')) {
@@ -409,8 +409,8 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -422,19 +422,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: HyperShopContentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: HyperShopContentModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: HyperShopContentModel): void {
-  //   row["expanded"] = false;
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/ticketing/departemen/']);
   }

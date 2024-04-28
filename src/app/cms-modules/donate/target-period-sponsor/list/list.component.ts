@@ -69,11 +69,11 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
   categoryModelSelected: DonateTargetCategoryModel;
   dataModelResult: ErrorExceptionResult<DonateTargetPeriodSponsorModel> = new ErrorExceptionResult<DonateTargetPeriodSponsorModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DonateTargetPeriodSponsorModel> = [];
   tableRowSelected: DonateTargetPeriodSponsorModel = new DonateTargetPeriodSponsorModel();
   tableSource: MatTableDataSource<DonateTargetPeriodSponsorModel> = new MatTableDataSource<DonateTargetPeriodSponsorModel>();
@@ -86,7 +86,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
     'UpdatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -293,7 +293,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(DonateTargetPeriodSponserDeleteComponent, { 
+    const dialogRef = this.dialog.open(DonateTargetPeriodSponserDeleteComponent, {
       height: '40%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -357,8 +357,8 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -368,11 +368,6 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DonateTargetPeriodSponsorModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

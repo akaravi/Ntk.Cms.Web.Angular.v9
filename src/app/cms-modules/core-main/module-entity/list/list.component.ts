@@ -74,15 +74,15 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleEntityModel> = new ErrorExceptionResult<CoreModuleEntityModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleEntityModel> = [];
   tableRowSelected: CoreModuleEntityModel = new CoreModuleEntityModel();
   tableSource: MatTableDataSource<CoreModuleEntityModel> = new MatTableDataSource<CoreModuleEntityModel>();
-  
+
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   categoryModelSelected = new CoreModuleModel();
 
@@ -381,8 +381,8 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
 
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -392,11 +392,6 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleEntityModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

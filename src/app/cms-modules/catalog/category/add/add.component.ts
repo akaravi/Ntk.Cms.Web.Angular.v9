@@ -77,30 +77,6 @@ export class CatalogCategoryAddComponent extends AddBaseComponent<CatalogCategor
   }
 
 
-
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'main';
-  //   this.loading.Start(pName);
-
-  //   this.categoryService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           // this.dataAccessModel = next.access;
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';
