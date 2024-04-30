@@ -34,20 +34,26 @@
 
 <div class="card card-style">
   <div class="content">
-    <h5 class="font-14 opacity-50">فعالت ها <a routerLink="{{widgetInfoModel.link}}" routerLinkActive="active" class="float-end color-highlight">نمایش همه</a></h5>
+    <h5 class="font-14 opacity-50">فعالیت ها <a routerLink="{{widgetInfoModel.link}}" routerLinkActive="active" class="float-end color-highlight">نمایش همه</a></h5>
     <div class="divider mb-3"></div>
 
     <div class="list-group list-custom-small list-menu ms-0 me-2">
-      <a routerLink="{{widgetInfoModel?.items?.get('Active')?.link}}" class="menu-active">
+      <a routerLink="{{widgetInfoModel?.items?.get('Read')?.link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
-        <span>فعال</span>
-        <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("Active")?.count}}</span>
+        <span>خوانده شده</span>
+        <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("Read")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
-      <a routerLink="{{widgetInfoModel?.items?.get('All')?.link}}">
+      <a routerLink="{{widgetInfoModel?.items?.get('Unread')?.link}}">
         <i class="fa fa-heart gradient-green color-white"></i>
-        <span>همه</span>
-        <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("All")?.count}}</span>
+        <span>خوانده نشده</span>
+        <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("Unread")?.count}}</span>
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a routerLink="{{widgetInfoModel?.items?.get('Answered')?.link}}">
+        <i class="fa fa-heart gradient-green color-white"></i>
+        <span>جواب داده شده</span>
+        <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("Answered")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
     </div>
