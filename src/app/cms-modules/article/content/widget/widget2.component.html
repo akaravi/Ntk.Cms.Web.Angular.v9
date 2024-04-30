@@ -1,29 +1,23 @@
-<!--begin::Tiles Widget 11-->
-<div class="card card-custom height">
-  <div class="card-body">
-    <div class="ntk-cms-html-widget-header pb-2">
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-      <span [ngClass]="svgCSSClass" [inlineSVG]="'./assets/media/svg/icons/Files/Selected-file.svg'"
-        style="filter: invert(0.7);" class="svg-icon svg-icon-3x svg-icon-white ml-n2"></span>
-      <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+
+<div class="card card-style">
+  <div class="content">
+    <h5 class="font-14 opacity-50">مقاله ها <a routerLink="{{widgetInfoModel.link}}" routerLinkActive="active" class="float-end color-highlight">نمایش همه</a></h5>
+    <div class="divider mb-3"></div>
+
+    <div class="list-group list-custom-small list-menu ms-0 me-2">
+      <a routerLink="{{widgetInfoModel.link}}" class="menu-active">
+        <i class="fa fa-comment gradient-blue color-white"></i>
+        <span>فعال</span>
+        <span class="badge gradient-blue color-white">{{modelData?.get("Active")}}</span>
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a routerLink="{{widgetInfoModel.link}}">
+        <i class="fa fa-heart gradient-green color-white"></i>
+        <span>همه</span>
+        <span class="badge gradient-green color-white">{{modelData?.get("All")}}</span>
+        <i class="fa fa-angle-left"></i>
+      </a>
     </div>
-    <div class="ntk-cms-html-widget-body">
-      <app-progress-spinner [options]="loading"> </app-progress-spinner>
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-      <div *ngFor="let item of modelData| keyvalue ; index as i" [ngClass]="textInverseCSSClass"
-        class="text-dark text-hover-primary fw-bolder fs-3">
-        <h4>
-          {{translateHelp('TITLE.',item.key)|translate}} : {{item.value}}
-        </h4>
-      </div>
-      <!--end::cms-body-->
-    </div>
-    <div class="ntk-cms-html-widget-footer">
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-      <a routerLink="{{widgetInfoModel.link}}" routerLinkActive="active" [ngClass]="textInverseCSSClass"
-        class="text-dark text-hover-primary fw-bolder fs-3">{{widgetInfoModel.title}}</a>
-      <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
+
   </div>
 </div>
-<!--end::Tiles Widget 11-->
