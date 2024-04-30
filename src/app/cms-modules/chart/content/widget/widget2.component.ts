@@ -1,4 +1,3 @@
-
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ChartContentService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';

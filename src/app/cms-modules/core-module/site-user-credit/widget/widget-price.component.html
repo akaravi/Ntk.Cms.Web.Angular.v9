@@ -1,31 +1,15 @@
-<!--begin::Tiles Widget 11-->
-<div class="card card-custom">
-  <div class="card-body">
-    <div class="ntk-cms-html-widget-header">
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-      <span [ngClass]="svgCSSClass" [inlineSVG]="'./assets/media/svg/icons/Shopping/Dollar.svg'"
-        style="filter: invert(0.7);" class="svg-icon svg-icon-3x svg-icon-white ml-n2"></span>
-      <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+<div class="card card-style">
+  <div class="content">
+    <h5 class="font-14 opacity-50">{{'ACTION.CREDIT_USER' | translate}}</h5>
+    <div class="divider mb-3"></div>
+    <div *ngFor="let item of dataModelResult.listItems" class="list-group list-custom-small list-menu ms-0 me-2">
+      <a routerLink="{{widgetInfoModel.link}}" class="menu-active">
+        <i class="fa fa-comment gradient-blue color-white"></i>
+        <span>{{ item.linkModuleId | cmstitle :dataModelCoreModuleResult.listItems}}</span>
+        <span class="badge gradient-blue color-white">{{ item.credit }}</span>
+        <i class="fa fa-angle-left"></i>
+      </a>
     </div>
-    <div class="ntk-cms-html-widget-body">
-      <app-progress-spinner [options]="loading"> </app-progress-spinner>
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
-      <h4 class="text-dark text-hover-primary fw-bolder fs-3">{{'ACTION.CREDIT_USER' | translate}}</h4>
-
-      <div *ngFor="let item of dataModelResult.listItems" [ngClass]="textInverseCSSClass"
-        class="row font-weight-bolder font-size-h4 mt-3">
-        <div class="col-6 text-dark fw-bolder fs-3">{{ item.linkModuleId | cmstitle :
-          dataModelCoreModuleResult.listItems}} :</div>
-        <div class="col-4 fw-bolder fs-3 text-primary">{{ item.credit }}</div>
-      </div>
-      <!--end::cms-body-->
-    </div>
-    <div class="ntk-cms-html-widget-footer">
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-      <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </div>
   </div>
 </div>
-<!--end::Tiles Widget 11-->
