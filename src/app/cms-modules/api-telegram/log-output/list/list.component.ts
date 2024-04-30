@@ -62,15 +62,15 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApiTelegramLogOutputModel> = new ErrorExceptionResult<ApiTelegramLogOutputModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ApiTelegramLogOutputModel> = [];
   tableRowSelected: ApiTelegramLogOutputModel = new ApiTelegramLogOutputModel();
   tableSource: MatTableDataSource<ApiTelegramLogOutputModel> = new MatTableDataSource<ApiTelegramLogOutputModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -264,8 +264,8 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     });
     //open popup
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -274,12 +274,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApiTelegramLogOutputModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionbuttonLinkTo(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }

@@ -24,25 +24,27 @@
   <div class="mt-4"></div>
   <h6 class="menu-divider">منو</h6>
   <div class="list-group list-custom-small list-menu">
-    <a id="nav-welcome" href="index.html">
+    <a id="nav-welcome" href="/">
       <i class="fa fa-heart gradient-red color-white"></i>
       <span>خانه</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
 
 
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" (click)="onActionCleanDataMenu('/dashboard')"  style="cursor: pointer;">
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" (click)="onActionCleanDataMenu('/dashboard')"
+      style="cursor: pointer;">
       <i class="fa fa-home gradient-green color-white"></i>
       <span>داشبورد</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')"  style="cursor: pointer;">
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')"
+      style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>انتخاب سایت</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
     <a *ngIf="!this.tokenInfo|| !this.tokenInfo.userId|| this.tokenInfo.userId<=0" id="nav-components"
-      (click)="onActionCleanDataMenu('/auth/singinbysms')"  style="cursor: pointer;">
+      (click)="onActionCleanDataMenu('/auth/singinbysms')" style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>ورود</span>
       <!-- <i class="fa fa-angle-left"></i> -->
@@ -55,12 +57,12 @@
       <i class="fa fa-angle-left"></i>
     </a>
 
-    <a id="nav-contact" (click)="onActionCleanDataMenu('/page/aboutus')"  style="cursor: pointer;">
+    <a id="nav-contact" (click)="onActionCleanDataMenu('/page/aboutus')" style="cursor: pointer;">
       <i class="fa fa-envelope gradient-teal color-white"></i>
       <span>درباره ما</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
-    <a id="nav-contact" (click)="onActionCleanDataMenu('/page/contactus')"  style="cursor: pointer;">
+    <a id="nav-contact" (click)="onActionCleanDataMenu('/page/contactus')" style="cursor: pointer;">
       <i class="fa fa-envelope gradient-teal color-white"></i>
       <span>ارتباط با ما</span>
       <!-- <i class="fa fa-angle-left"></i> -->
@@ -68,12 +70,14 @@
   </div>
   <h6 class="menu-divider mt-4">تنظیمات</h6>
   <div class="list-group list-custom-small list-menu">
-    <a (click)="themeStore?.dataMenu!=='menu-colors' ? themeStore.dataMenu='menu-colors':themeStore.dataMenu=''"  style="cursor: pointer;">
+    <a (click)="themeStore?.dataMenu!=='menu-colors' ? themeStore.dataMenu='menu-colors':themeStore.dataMenu=''"
+      style="cursor: pointer;">
       <i class="fa fa-brush gradient-highlight color-white"></i>
       <span>رنگ بندی</span>
       <i class="fa fa-angle-left"></i>
     </a>
-    <a (click)="themeStore?.dataMenu!=='menu-language' ? themeStore.dataMenu='menu-language':themeStore.dataMenu=''"  style="cursor: pointer;">
+    <a (click)="themeStore?.dataMenu!=='menu-language' ? themeStore.dataMenu='menu-language':themeStore.dataMenu=''"
+      style="cursor: pointer;">
       <i class="fa fa-globe gradient-highlight color-white"></i>
       <span>زبان</span>
       <i class="fa fa-angle-left"></i>
@@ -89,8 +93,8 @@
       </div>
     </a>
   </div>
-  <h6 class="menu-divider mt-4"  *ngIf="this.env.loadDemoTheme">مخاطبین</h6>
-  <div class="list-group list-custom-small list-menu ps-2"  *ngIf="this.env.loadDemoTheme">
+  <h6 class="menu-divider mt-4" *ngIf="this.env.loadDemoTheme">مخاطبین</h6>
+  <div class="list-group list-custom-small list-menu ps-2" *ngIf="this.env.loadDemoTheme">
     <a>
       <img src="assets/images/pictures/1s.jpg">
       <span>زانیار مدنی</span>

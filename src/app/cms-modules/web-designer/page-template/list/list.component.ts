@@ -51,7 +51,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Descending;
   }
-  
+
   comment: string;
   author: string;
   dataSource: any;
@@ -59,11 +59,11 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainPageTemplateModel> = new ErrorExceptionResult<WebDesignerMainPageTemplateModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<WebDesignerMainPageTemplateModel> = [];
   tableRowSelected: WebDesignerMainPageTemplateModel = new WebDesignerMainPageTemplateModel();
   tableSource: MatTableDataSource<WebDesignerMainPageTemplateModel> = new MatTableDataSource<WebDesignerMainPageTemplateModel>();
@@ -312,8 +312,8 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
     }
     this.router.navigate(['/webdesigner/page/LinkPageTemplateGuId', this.tableRowSelected.id]);
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -322,10 +322,5 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: WebDesignerMainPageTemplateModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 }

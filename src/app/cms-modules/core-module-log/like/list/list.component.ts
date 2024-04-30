@@ -89,11 +89,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogLikeModel> = new ErrorExceptionResult<CoreModuleLogLikeModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleLogLikeModel> = [];
   tableRowSelected: CoreModuleLogLikeModel = new CoreModuleLogLikeModel();
   tableSource: MatTableDataSource<CoreModuleLogLikeModel> = new MatTableDataSource<CoreModuleLogLikeModel>();
@@ -111,7 +111,7 @@ implements OnInit, OnDestroy {
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
 
@@ -418,8 +418,8 @@ implements OnInit, OnDestroy {
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -429,12 +429,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleLogLikeModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

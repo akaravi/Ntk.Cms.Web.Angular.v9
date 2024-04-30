@@ -63,11 +63,11 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
 
   dataModelResult: ErrorExceptionResult<CoreModuleSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleSiteUserCreditModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleSiteUserCreditModel> = [];
   tableRowSelected: CoreModuleSiteUserCreditModel = new CoreModuleSiteUserCreditModel();
   tableSource: MatTableDataSource<CoreModuleSiteUserCreditModel> = new MatTableDataSource<CoreModuleSiteUserCreditModel>();
@@ -81,7 +81,7 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
     'SumCreditBlocked',
     // 'Action'
   ];
-  
+
 
 
   cmsApiStoreSubscribe: Subscription;
@@ -299,8 +299,8 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -351,11 +351,6 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
     });
     //open popup
   }
-  // onActionTableRowSelect(row: CoreModuleSiteUserCreditModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

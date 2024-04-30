@@ -67,15 +67,15 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
   dataModelResult: ErrorExceptionResult<CoreUserClaimGroupModel> = new ErrorExceptionResult<CoreUserClaimGroupModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   dataModelCoreSiteCategoryResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreUserClaimGroupModel> = [];
   tableRowSelected: CoreUserClaimGroupModel = new CoreUserClaimGroupModel();
   tableSource: MatTableDataSource<CoreUserClaimGroupModel> = new MatTableDataSource<CoreUserClaimGroupModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -385,8 +385,8 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -396,11 +396,6 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreUserClaimGroupModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

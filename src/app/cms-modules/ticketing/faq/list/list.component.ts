@@ -54,7 +54,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Ascending;
   }
-  
+
 
   comment: string;
   author: string;
@@ -64,11 +64,11 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<TicketingFaqModel> = new ErrorExceptionResult<TicketingFaqModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<TicketingFaqModel> = [];
   tableRowSelected: TicketingFaqModel = new TicketingFaqModel();
   tableSource: MatTableDataSource<TicketingFaqModel> = new MatTableDataSource<TicketingFaqModel>();
@@ -362,8 +362,8 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -373,12 +373,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: TicketingFaqModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/ticketing/departemen/']);
   }

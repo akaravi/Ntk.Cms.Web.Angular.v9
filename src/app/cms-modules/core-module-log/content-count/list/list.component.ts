@@ -90,11 +90,11 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogContentCountModel> = new ErrorExceptionResult<CoreModuleLogContentCountModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleLogContentCountModel> = [];
   tableRowSelected: CoreModuleLogContentCountModel = new CoreModuleLogContentCountModel();
   tableSource: MatTableDataSource<CoreModuleLogContentCountModel> = new MatTableDataSource<CoreModuleLogContentCountModel>();
@@ -111,7 +111,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
 
@@ -433,8 +433,8 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -444,12 +444,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleLogContentCountModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

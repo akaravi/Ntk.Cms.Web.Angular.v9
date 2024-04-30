@@ -75,29 +75,7 @@ export class DataProviderPlanCategoryAddComponent extends AddBaseComponent<DataP
 
 
 
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'DataGetAccess';
-  //   this.loading.Start(pName);
 
-  //   this.dataProviderPlanCategoryService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           // this.dataAccessModel = next.access;
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
 
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

@@ -70,11 +70,11 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BankPaymentTransactionModel> = new ErrorExceptionResult<BankPaymentTransactionModel>();
-  
-  
 
-  
-  
+
+
+
+
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<BankPaymentTransactionModel> = [];
   tableRowSelected: BankPaymentTransactionModel = new BankPaymentTransactionModel();
@@ -92,7 +92,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     'UpdatedDate',
     // 'Action'
   ];
-  
+
   dataModelEnumTransactionRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumTransactionBankStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   expandedElement: BankPaymentTransactionModel | null;
@@ -402,8 +402,8 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     }
     );
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -412,12 +412,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: BankPaymentTransactionModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/bankpayment/privatesiteconfig/']);
   }

@@ -69,11 +69,11 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationMemberInfoModel> = new ErrorExceptionResult<ApplicationMemberInfoModel>();
-  
-  
 
-  
-  
+
+
+
+
   categoryModelSelected: ApplicationAppModel;
   tableRowsSelected: Array<ApplicationMemberInfoModel> = [];
   tableRowSelected: ApplicationMemberInfoModel = new ApplicationMemberInfoModel();
@@ -92,7 +92,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     'CreatedDate',
     // 'Action'
   ];
-  
+
   expandedElement: ApplicationMemberInfoModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -398,8 +398,8 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     }
     );
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -411,19 +411,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApplicationMemberInfoModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
-  // onActionTableRowMouseEnter(row: ApplicationMemberInfoModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: ApplicationMemberInfoModel): void {
-  //   row["expanded"] = false;
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/application/app/']);
   }

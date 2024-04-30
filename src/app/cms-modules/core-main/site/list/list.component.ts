@@ -80,15 +80,15 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreSiteModel> = new ErrorExceptionResult<CoreSiteModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreSiteModel> = [];
   tableRowSelected: CoreSiteModel = new CoreSiteModel();
   tableSource: MatTableDataSource<CoreSiteModel> = new MatTableDataSource<CoreSiteModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -457,8 +457,8 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -468,12 +468,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreSiteModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParentUserList(): void {
     this.router.navigate(['/core/user/']);
   }

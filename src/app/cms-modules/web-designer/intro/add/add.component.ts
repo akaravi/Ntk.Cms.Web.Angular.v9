@@ -66,28 +66,7 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
     }
     this.DataAddContent();
   }
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'DataGetAccess';
-  //   this.loading.Start(pName);
-
-  //   this.webDesignerMainIntroService
-  //     .ServiceViewModel()
-  //     .subscribe(
-  //       async (next) => {
-  //         if (next.isSuccess) {
-  //           this.dataAccessModel = next.access;
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       (error) => {
-  //         this.cmsToastrService.typeErrorGetAccess(error);
-  //         this.loading.Stop(pName);
-  //       }
-  //     );
-  // }
+  
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

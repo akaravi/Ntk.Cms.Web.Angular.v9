@@ -358,7 +358,7 @@ implements OnInit, OnDestroy {
       this.cmsToastrService.typeErrorAccessEdit();
       return;
     }
- 
+
     const dialogRef = this.dialog.open(CoreUserChangePasswordComponent, {
       //height: '90%',
       data: { linkUserId: this.tableRowSelected.linkUserId }
@@ -504,8 +504,8 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -515,20 +515,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreSiteUserModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: CoreSiteUserModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: CoreSiteUserModel): void {
-  //   row["expanded"] = false;
-  // }
   onActionbuttonSiteList(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();

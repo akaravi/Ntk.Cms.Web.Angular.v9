@@ -61,11 +61,11 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateContractTypeModel> = [];
   tableRowSelected: EstateContractTypeModel = new EstateContractTypeModel();
   tableSource: MatTableDataSource<EstateContractTypeModel> = new MatTableDataSource<EstateContractTypeModel>();
@@ -81,7 +81,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -345,8 +345,8 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -355,11 +355,6 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateContractTypeModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

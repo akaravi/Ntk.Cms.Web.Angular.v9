@@ -72,11 +72,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreSiteDomainAliasModel> = new ErrorExceptionResult<CoreSiteDomainAliasModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreSiteDomainAliasModel> = [];
   tableRowSelected: CoreSiteDomainAliasModel = new CoreSiteDomainAliasModel();
   tableSource: MatTableDataSource<CoreSiteDomainAliasModel> = new MatTableDataSource<CoreSiteDomainAliasModel>();
@@ -94,7 +94,7 @@ implements OnInit, OnDestroy {
     'UpdatedDate',
     // 'Action'
   ];
-  
+
 
 
   expandedElement: CoreSiteModel | null;
@@ -349,8 +349,8 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -359,12 +359,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreSiteDomainAliasModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

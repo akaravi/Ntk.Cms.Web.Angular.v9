@@ -60,11 +60,11 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateCategoryZoneModel> = new ErrorExceptionResult<EstateCategoryZoneModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateCategoryZoneModel> = [];
   tableRowSelected: EstateCategoryZoneModel = new EstateCategoryZoneModel();
   tableSource: MatTableDataSource<EstateCategoryZoneModel> = new MatTableDataSource<EstateCategoryZoneModel>();
@@ -79,7 +79,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -360,8 +360,8 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -370,11 +370,6 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateCategoryZoneModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

@@ -90,11 +90,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogNotificationModel> = new ErrorExceptionResult<CoreLogNotificationModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreLogNotificationModel> = [];
   tableRowSelected: CoreLogNotificationModel = new CoreLogNotificationModel();
   tableSource: MatTableDataSource<CoreLogNotificationModel> = new MatTableDataSource<CoreLogNotificationModel>();
@@ -113,7 +113,7 @@ implements OnInit, OnDestroy {
     'CreatedDate',
     // 'Action'
   ];
-  
+
   dataModelEnumSendNotificationStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumContentTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -402,8 +402,8 @@ implements OnInit, OnDestroy {
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -413,12 +413,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreLogNotificationModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

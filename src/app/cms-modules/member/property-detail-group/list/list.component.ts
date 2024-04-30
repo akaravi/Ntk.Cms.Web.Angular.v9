@@ -63,11 +63,11 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
   dataModelResult: ErrorExceptionResult<MemberPropertyDetailGroupModel> = new ErrorExceptionResult<MemberPropertyDetailGroupModel>();
   dataModelMemberPropertyTypeResult: ErrorExceptionResult<MemberPropertyTypeModel> =
     new ErrorExceptionResult<MemberPropertyTypeModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<MemberPropertyDetailGroupModel> = [];
   tableRowSelected: MemberPropertyDetailGroupModel = new MemberPropertyDetailGroupModel();
   tableSource: MatTableDataSource<MemberPropertyDetailGroupModel> = new MatTableDataSource<MemberPropertyDetailGroupModel>();
@@ -82,7 +82,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -374,8 +374,8 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -385,11 +385,6 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: MemberPropertyDetailGroupModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

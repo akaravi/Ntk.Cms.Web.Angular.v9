@@ -59,27 +59,6 @@ export class EstatePropertySupplierCategoryAddComponent extends AddBaseComponent
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
   }
 
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'DataGetAccess';
-  //   this.loading.Start(pName);
-  //   this.estatePropertySupplierCategoryService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
   DataAddContent(): void {
     //! for convert color to hex
     this.dataModel.iconColor = this.dataModel.iconColor?.toString();

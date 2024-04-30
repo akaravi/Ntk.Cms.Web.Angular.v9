@@ -60,15 +60,15 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApiTelegramMemberInfoModel> = new ErrorExceptionResult<ApiTelegramMemberInfoModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ApiTelegramMemberInfoModel> = [];
   tableRowSelected: ApiTelegramMemberInfoModel = new ApiTelegramMemberInfoModel();
   tableSource: MatTableDataSource<ApiTelegramMemberInfoModel> = new MatTableDataSource<ApiTelegramMemberInfoModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -303,8 +303,8 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
     this.onActionTableRowSelect(model);
     this.router.navigate(['core/sitecategorymodule/LinkCmsModuleId/', model.id]);
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -314,10 +314,5 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApiTelegramMemberInfoModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 }

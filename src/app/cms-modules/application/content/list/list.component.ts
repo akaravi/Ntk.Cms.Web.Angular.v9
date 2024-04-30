@@ -74,16 +74,16 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationAppModel> = new ErrorExceptionResult<ApplicationAppModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ApplicationAppModel> = [];
   tableRowSelected: ApplicationAppModel = new ApplicationAppModel();
   tableSource: MatTableDataSource<ApplicationAppModel> = new MatTableDataSource<ApplicationAppModel>();
   categoryModelSelected: ApplicationSourceModel;
-  
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',
@@ -356,8 +356,8 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     );
 
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -366,12 +366,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApplicationAppModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/application/source/']);
   }

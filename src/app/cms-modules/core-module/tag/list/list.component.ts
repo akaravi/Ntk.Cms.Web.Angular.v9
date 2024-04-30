@@ -63,11 +63,11 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
   categoryModelSelected: CoreModuleTagCategoryModel;
   dataModelResult: ErrorExceptionResult<CoreModuleTagModel> = new ErrorExceptionResult<CoreModuleTagModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleTagModel> = [];
   tableRowSelected: CoreModuleTagModel = new CoreModuleTagModel();
   tableSource: MatTableDataSource<CoreModuleTagModel> = new MatTableDataSource<CoreModuleTagModel>();
@@ -79,7 +79,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     'Title',
     // 'Action'
   ];
-  
+
 
 
   cmsApiStoreSubscribe: Subscription;
@@ -360,8 +360,8 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     }
     );
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -371,11 +371,6 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleTagModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

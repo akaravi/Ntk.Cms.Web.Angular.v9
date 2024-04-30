@@ -58,29 +58,6 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
     this.DataGetAccess();
   }
 
-
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'DataGetAccess';
-  //   this.loading.Start(pName);
-
-  //   this.ticketingTemplateService
-  //     .ServiceViewModel()
-  //     .subscribe(
-  //       async (next) => {
-  //         if (next.isSuccess) {
-  //           // this.dataAccessModel = next.access;
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(next.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       (error) => {
-  //         this.cmsToastrService.typeErrorGetAccess(error);
-  //         this.loading.Stop(pName);
-  //       }
-  //     );
-  // }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

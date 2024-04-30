@@ -75,11 +75,11 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
   dataModelEstateContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstatePropertyExpertPriceModel> = [];
   tableRowSelected: EstatePropertyExpertPriceModel = new EstatePropertyExpertPriceModel();
   tableSource: MatTableDataSource<EstatePropertyExpertPriceModel> = new MatTableDataSource<EstatePropertyExpertPriceModel>();
@@ -100,7 +100,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
   ];
   dataModelInquiryResult: ErrorExceptionResultBase;
   dataModelInquiry: EstatePriceInquiryDtoModel = new EstatePriceInquiryDtoModel();
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -436,8 +436,8 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     );
 
   }
-  
- 
+
+
 
 
   onActionbuttonReload(): void {
@@ -450,20 +450,6 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstatePropertyExpertPriceModel): void {
-  //   this.tableRowSelected = row;
-
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: EstatePropertyExpertPriceModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: EstatePropertyExpertPriceModel): void {
-  //   row["expanded"] = false;
-  // }
 
 
   expandedElement: any;

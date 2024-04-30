@@ -63,11 +63,11 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<TicketingDepartemenLogModel> = new ErrorExceptionResult<TicketingDepartemenLogModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<TicketingDepartemenLogModel> = [];
   tableRowSelected: TicketingDepartemenLogModel = new TicketingDepartemenLogModel();
   tableSource: MatTableDataSource<TicketingDepartemenLogModel> = new MatTableDataSource<TicketingDepartemenLogModel>();
@@ -83,7 +83,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     'UpdatedDate',
     // 'Action'
   ];
-  
+
   expandedElement: TicketingDepartemenLogModel | null;
   cmsApiStoreSubscribe: Subscription;
 
@@ -294,8 +294,8 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -305,12 +305,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: TicketingDepartemenLogModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     if (this.requestOperatorId > 0)
       this.router.navigate(['/application/app/']);

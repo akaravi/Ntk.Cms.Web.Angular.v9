@@ -717,8 +717,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
 
 
 
-   
-  
+
+
   onActionbuttonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
@@ -736,20 +736,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstatePropertyModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: EstatePropertyModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: EstatePropertyModel): void {
-  //   row["expanded"] = false;
-  // }
   onActionBackToParent(): void {
     this.router.navigate(["/ticketing/departemen/"]);
   }

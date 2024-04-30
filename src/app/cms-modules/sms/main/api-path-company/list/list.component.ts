@@ -59,15 +59,15 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiPathCompanyModel> = new ErrorExceptionResult<SmsMainApiPathCompanyModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainApiPathCompanyModel> = [];
   tableRowSelected: SmsMainApiPathCompanyModel = new SmsMainApiPathCompanyModel();
   tableSource: MatTableDataSource<SmsMainApiPathCompanyModel> = new MatTableDataSource<SmsMainApiPathCompanyModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -347,8 +347,8 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -358,11 +358,6 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainApiPathCompanyModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

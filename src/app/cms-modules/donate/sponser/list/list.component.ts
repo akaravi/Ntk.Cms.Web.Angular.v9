@@ -64,11 +64,11 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
   categoryModelSelected: DonateTargetCategoryModel;
   dataModelResult: ErrorExceptionResult<DonateSponsorModel> = new ErrorExceptionResult<DonateSponsorModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DonateSponsorModel> = [];
   tableRowSelected: DonateSponsorModel = new DonateSponsorModel();
   tableSource: MatTableDataSource<DonateSponsorModel> = new MatTableDataSource<DonateSponsorModel>();
@@ -83,7 +83,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     'UpdatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -257,7 +257,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     ) {
       this.cmsToastrService.typeErrorAccessDelete();
       return;
-    } 
+    }
      var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
@@ -326,8 +326,8 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -337,12 +337,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DonateSponsorModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
   onActionbuttonTargetPeriodSponserRow(model: DonateSponsorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {

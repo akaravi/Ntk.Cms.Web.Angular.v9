@@ -78,11 +78,11 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<NewsCommentModel> = new ErrorExceptionResult<NewsCommentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<NewsCommentModel> = [];
   tableRowSelected: NewsCommentModel = new NewsCommentModel();
   tableSource: MatTableDataSource<NewsCommentModel> = new MatTableDataSource<NewsCommentModel>();
@@ -101,7 +101,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     //'Action',
     "LinkTo",
   ];
-  
+
   expandedElement: NewsCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -369,8 +369,8 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     this.searchInChecking = model;
     this.DataGetAll();
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -379,12 +379,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: NewsCommentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/news/content/']);
   }

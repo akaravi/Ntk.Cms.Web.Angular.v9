@@ -59,11 +59,11 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstatePropertyTypeUsageModel> = [];
   tableRowSelected: EstatePropertyTypeUsageModel = new EstatePropertyTypeUsageModel();
   tableSource: MatTableDataSource<EstatePropertyTypeUsageModel> = new MatTableDataSource<EstatePropertyTypeUsageModel>();
@@ -78,7 +78,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -328,8 +328,8 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -339,12 +339,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstatePropertyTypeUsageModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionbuttonContentDetailList(model: EstatePropertyTypeUsageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');

@@ -69,11 +69,11 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstatePropertySupplierModel> = new ErrorExceptionResult<EstatePropertySupplierModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstatePropertySupplierModel> = [];
   tableRowSelected: EstatePropertySupplierModel = new EstatePropertySupplierModel();
   tableSource: MatTableDataSource<EstatePropertySupplierModel> = new MatTableDataSource<EstatePropertySupplierModel>();
@@ -89,7 +89,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     // 'Action',
     'LinkTo',
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {
@@ -317,8 +317,8 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     );
 
   }
-  
-  
+
+
   onActionbuttonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
@@ -345,20 +345,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstatePropertySupplierModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: EstatePropertySupplierModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: EstatePropertySupplierModel): void {
-  //   row["expanded"] = false;
-  // }
   expandedElement: any;
 
 

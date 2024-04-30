@@ -457,8 +457,8 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
       }
     });
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -468,12 +468,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleSiteModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

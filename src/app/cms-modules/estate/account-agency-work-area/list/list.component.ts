@@ -58,11 +58,11 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyWorkAreaModel> = new ErrorExceptionResult<EstateAccountAgencyWorkAreaModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateAccountAgencyWorkAreaModel> = [];
   tableRowSelected: EstateAccountAgencyWorkAreaModel = new EstateAccountAgencyWorkAreaModel();
   tableSource: MatTableDataSource<EstateAccountAgencyWorkAreaModel> = new MatTableDataSource<EstateAccountAgencyWorkAreaModel>();
@@ -75,7 +75,7 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -302,7 +302,7 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
     );
 
   }
-  
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -311,11 +311,6 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateAccountAgencyWorkAreaModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

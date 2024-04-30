@@ -76,11 +76,11 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
     = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
   dataModelEstatePropertyDetailGroupResult: ErrorExceptionResult<EstatePropertyDetailGroupModel>
     = new ErrorExceptionResult<EstatePropertyDetailGroupModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstatePropertyDetailModel> = [];
   tableRowSelected: EstatePropertyDetailModel = new EstatePropertyDetailModel();
   tableSource: MatTableDataSource<EstatePropertyDetailModel> = new MatTableDataSource<EstatePropertyDetailModel>();
@@ -97,7 +97,7 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -409,8 +409,8 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -420,12 +420,7 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstatePropertyDetailModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/estate/property-type-landuse/']);
   }

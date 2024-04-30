@@ -79,10 +79,10 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
   requestContentId = 0;
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ChartCommentModel> = new ErrorExceptionResult<ChartCommentModel>();
-  
 
-  
-  
+
+
+
   tableRowsSelected: Array<ChartCommentModel> = [];
   tableRowSelected: ChartCommentModel = new ChartCommentModel();
   tableSource: MatTableDataSource<ChartCommentModel> = new MatTableDataSource<ChartCommentModel>();
@@ -96,7 +96,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     // 'Action',
     "LinkTo",
   ];
-  
+
   expandedElement: ChartCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
 
@@ -373,8 +373,8 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     this.searchInChecking = model;
     this.DataGetAll();
   }
-  
- 
+
+
 
 
   onActionbuttonReload(): void {
@@ -384,12 +384,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ChartCommentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/chart/content/']);
   }

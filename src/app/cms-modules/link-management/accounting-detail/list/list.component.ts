@@ -49,7 +49,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
     public dialog: MatDialog,
   ) {
     super(contentService, new LinkManagementAccountingDetailModel(), publicHelper,tokenHelper);
-    this.loading.cdr = this.cdr; 
+    this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkManagementAccountingId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkManagementAccountingId'));
     this.optionsSearch.parentMethods = {
@@ -70,11 +70,11 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementAccountingDetailModel> = new ErrorExceptionResult<LinkManagementAccountingDetailModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<LinkManagementAccountingDetailModel> = [];
   tableRowSelected: LinkManagementAccountingDetailModel = new LinkManagementAccountingDetailModel();
   tableSource: MatTableDataSource<LinkManagementAccountingDetailModel> = new MatTableDataSource<LinkManagementAccountingDetailModel>();
@@ -86,7 +86,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
     'UpdatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -242,8 +242,8 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(LinkManagementAccountingDetailDeleteComponent, { 
-      height: '90%', 
+    const dialogRef = this.dialog.open(LinkManagementAccountingDetailDeleteComponent, {
+      height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
@@ -304,8 +304,8 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -318,18 +318,6 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: LinkManagementAccountingDetailModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: LinkManagementAccountingDetailModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: LinkManagementAccountingDetailModel): void {
-  //   row["expanded"] = false;
-  // }
+
   expandedElement: any;
 }

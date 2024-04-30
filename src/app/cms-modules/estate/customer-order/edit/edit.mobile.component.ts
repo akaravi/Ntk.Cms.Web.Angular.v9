@@ -66,15 +66,15 @@ implements OnInit {
 
   @ViewChild(EstatePropertyListComponent) estatePropertyList: EstatePropertyListComponent;
   allowActionSend = false;
-  
+
   numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   enumInputDataType = InputDataTypeEnum;
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  
+
   linkParentId = '';
-  
+
   dataModelContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModelPropertyTypeUsageResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
   dataModelPropertyTypeLanduseResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
@@ -115,29 +115,7 @@ implements OnInit {
   }
 
   dataFieldInfoModel: DataFieldInfoModel[];
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'DataGetAccess';
-  //   this.loading.Start(pName);
 
-  //   this.estateCustomerOrderService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-
-  // }
   DataGetAccessEstate(): void {
     this.estatePropertyService
       .ServiceViewModel()

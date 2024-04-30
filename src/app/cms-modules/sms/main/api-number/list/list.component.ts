@@ -62,15 +62,15 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainApiNumberModel> = new ErrorExceptionResult<SmsMainApiNumberModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainApiNumberModel> = [];
   tableRowSelected: SmsMainApiNumberModel = new SmsMainApiNumberModel();
   tableSource: MatTableDataSource<SmsMainApiNumberModel> = new MatTableDataSource<SmsMainApiNumberModel>();
-  
+
   categoryModelSelected: SmsMainApiPathModel;
 
   tabledisplayedColumns: string[] = [];
@@ -412,8 +412,8 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -423,12 +423,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainApiNumberModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path']);
   }

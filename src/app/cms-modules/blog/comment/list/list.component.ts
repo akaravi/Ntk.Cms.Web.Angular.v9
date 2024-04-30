@@ -81,11 +81,11 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
   requestContentId = 0;
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<BlogCommentModel> = new ErrorExceptionResult<BlogCommentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<BlogCommentModel> = [];
   tableRowSelected: BlogCommentModel = new BlogCommentModel();
   tableSource: MatTableDataSource<BlogCommentModel> = new MatTableDataSource<BlogCommentModel>();
@@ -100,7 +100,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     "LinkTo",
   ];
 
-  
+
 
   expandedElement: BlogCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
@@ -381,8 +381,8 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     this.searchInChecking = model;
     this.DataGetAll();
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -391,12 +391,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: BlogCommentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/blog/content/']);
   }

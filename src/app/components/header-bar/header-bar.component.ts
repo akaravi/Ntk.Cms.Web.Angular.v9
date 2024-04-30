@@ -8,7 +8,6 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ContentInfoModel } from 'src/app/core/models/contentInfoModel';
 import { PageLinkModel } from 'src/app/core/models/pageLinkModel';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
-import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { ThemeService, ThemeModeType } from 'src/app/core/services/theme.service';
 import { CmsDataCommentComponent } from 'src/app/shared/cms-data-comment/cms-data-comment.component';
@@ -50,9 +49,7 @@ export class HeaderBarComponent implements OnInit {
       }
     });
 
-    this.tokenHelper.getCurrentToken().then((value) => {
-      this.tokenInfo = value;
-    });
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
       this.tokenInfo = value;
 
@@ -75,6 +72,10 @@ export class HeaderBarComponent implements OnInit {
     this.description$ = this.pageInfoService.description.asObservable();
     this.bc$ = this.pageInfoService.breadcrumbs.asObservable();
 
+
+    this.tokenHelper.getCurrentToken().then((value) => {
+      this.tokenInfo = value;
+    });
     this.pageInfoService.contentService.asObservable().subscribe((next) => {
       this.contentService = next;
       this.cdr.detectChanges();

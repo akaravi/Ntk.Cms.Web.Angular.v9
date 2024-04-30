@@ -69,11 +69,11 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
   categoryModelSelected: CatalogCategoryModel;
   dataModelResult: ErrorExceptionResult<CatalogContentModel> = new ErrorExceptionResult<CatalogContentModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CatalogContentModel> = [];
   tableRowSelected: CatalogContentModel = new CatalogContentModel();
   tableSource: MatTableDataSource<CatalogContentModel> = new MatTableDataSource<CatalogContentModel>();
@@ -88,7 +88,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     // 'Action',
     "LinkTo",
   ];
-  
+
 
 
   cmsApiStoreSubscribe: Subscription;
@@ -327,8 +327,8 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     );
 
   }
-  
-  
+
+
 
 
 
@@ -342,27 +342,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CatalogContentModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: CatalogContentModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: CatalogContentModel): void {
-  //   row["expanded"] = false;
-  // }
-  // onActionbuttonComment(model: CatalogContentModel = this.tableRowSelected): void {
-  //   if (!model || !model.id || model.id.length === 0) {
-  //     this.cmsToastrService.typeErrorSelectedRow();
-  //     return;
-  //   }
-  //   this.router.navigate(['/catalog/comment/', model.id]);
-  // }
   onActionbuttonLinkTo(
     model: CatalogContentModel = this.tableRowSelected
   ): void {
@@ -424,5 +404,5 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
 
 
 
- 
+
 }

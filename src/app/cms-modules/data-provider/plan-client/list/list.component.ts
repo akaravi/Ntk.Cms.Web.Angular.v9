@@ -63,11 +63,11 @@ implements OnInit, OnDestroy {
   categoryModelSelected: DataProviderPlanCategoryModel;
   dataModelResult: ErrorExceptionResult<DataProviderPlanClientModel> = new ErrorExceptionResult<DataProviderPlanClientModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DataProviderPlanClientModel> = [];
   tableRowSelected: DataProviderPlanClientModel = new DataProviderPlanClientModel();
   tableSource: MatTableDataSource<DataProviderPlanClientModel> = new MatTableDataSource<DataProviderPlanClientModel>();
@@ -78,7 +78,7 @@ implements OnInit, OnDestroy {
     'ExpireDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -279,8 +279,8 @@ implements OnInit, OnDestroy {
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(DataProviderPlanClientDeleteComponent, { 
-      height: '40%', 
+    const dialogRef = this.dialog.open(DataProviderPlanClientDeleteComponent, {
+      height: '40%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
@@ -343,8 +343,8 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -354,11 +354,6 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DataProviderPlanClientModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

@@ -69,15 +69,15 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
 
   categoryModelSelected: SmsMainApiPathModel;
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsLogOutBoxQueueModel> = [];
   tableRowSelected: SmsLogOutBoxQueueModel = new SmsLogOutBoxQueueModel();
   tableSource: MatTableDataSource<SmsLogOutBoxQueueModel> = new MatTableDataSource<SmsLogOutBoxQueueModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -482,8 +482,8 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     this.router.navigate(['/sms/main/api-path-price-service/LinkApiPathId', this.tableRowSelected.id]);
   }
 
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -492,12 +492,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsLogOutBoxQueueModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     // this.router.navigate(['/sms/main/api-path-company']);
   }

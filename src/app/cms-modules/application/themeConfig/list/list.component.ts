@@ -64,16 +64,16 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationThemeConfigModel> = new ErrorExceptionResult<ApplicationThemeConfigModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ApplicationThemeConfigModel> = [];
   tableRowSelected: ApplicationThemeConfigModel = new ApplicationThemeConfigModel();
   tableSource: MatTableDataSource<ApplicationThemeConfigModel> = new MatTableDataSource<ApplicationThemeConfigModel>();
   categoryModelSelected: ApplicationSourceModel;
-  
+
   expandedElement: ApplicationThemeConfigModel | null;
   cmsApiStoreSubscribe: Subscription;
   tabledisplayedColumns: string[] = [];
@@ -350,8 +350,8 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
 
     this.router.navigate(['/application/app/LinkThemeConfigId', this.tableRowSelected.id]);
   }
-  
- 
+
+
 
 
   onActionbuttonReload(): void {
@@ -361,12 +361,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApplicationThemeConfigModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/application/app/']);
   }

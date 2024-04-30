@@ -64,11 +64,11 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
   categoryModelSelected: DataProviderPlanModel;
   dataModelResult: ErrorExceptionResult<DataProviderSourceModel> = new ErrorExceptionResult<DataProviderSourceModel>();
   link: string;
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DataProviderSourceModel> = [];
   tableRowSelected: DataProviderSourceModel = new DataProviderSourceModel();
   tableSource: MatTableDataSource<DataProviderSourceModel> = new MatTableDataSource<DataProviderSourceModel>();
@@ -83,7 +83,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
     'KeyCode',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -380,8 +380,8 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -394,18 +394,6 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DataProviderSourceModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: DataProviderSourceModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: DataProviderSourceModel): void {
-  //   row["expanded"] = false;
-  // }
+
   expandedElement: any;
 }

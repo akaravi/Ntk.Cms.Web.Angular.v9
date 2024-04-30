@@ -60,11 +60,11 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DataProviderLogSourceModel> = new ErrorExceptionResult<DataProviderLogSourceModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DataProviderLogSourceModel> = [];
   tableRowSelected: DataProviderLogSourceModel = new DataProviderLogSourceModel();
   tableSource: MatTableDataSource<DataProviderLogSourceModel> = new MatTableDataSource<DataProviderLogSourceModel>();
@@ -75,7 +75,7 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -245,8 +245,8 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -255,12 +255,7 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DataProviderLogSourceModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
 
     if (this.requestLinkSourceId > 0) {

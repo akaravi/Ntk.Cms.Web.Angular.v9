@@ -61,15 +61,15 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreUserGroupModel> = new ErrorExceptionResult<CoreUserGroupModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreUserGroupModel> = [];
   tableRowSelected: CoreUserGroupModel = new CoreUserGroupModel();
   tableSource: MatTableDataSource<CoreUserGroupModel> = new MatTableDataSource<CoreUserGroupModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -343,8 +343,8 @@ implements OnInit, OnDestroy {
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -354,11 +354,6 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreUserGroupModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

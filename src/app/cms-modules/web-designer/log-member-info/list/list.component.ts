@@ -62,11 +62,11 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<WebDesignerLogMemberInfoModel> = new ErrorExceptionResult<WebDesignerLogMemberInfoModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<WebDesignerLogMemberInfoModel> = [];
   tableRowSelected: WebDesignerLogMemberInfoModel = new WebDesignerLogMemberInfoModel();
   tableSource: MatTableDataSource<WebDesignerLogMemberInfoModel> = new MatTableDataSource<WebDesignerLogMemberInfoModel>();
@@ -86,7 +86,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
     'CreatedDate',
     // 'Action'
   ];
-  
+
   expandedElement: WebDesignerLogMemberInfoModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -314,8 +314,8 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
     }
     );
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -324,12 +324,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: WebDesignerLogMemberInfoModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/application/app/']);
   }

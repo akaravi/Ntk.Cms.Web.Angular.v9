@@ -74,11 +74,11 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogShowKeyModel> = new ErrorExceptionResult<CoreModuleLogShowKeyModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleLogShowKeyModel> = [];
   tableRowSelected: CoreModuleLogShowKeyModel = new CoreModuleLogShowKeyModel();
   tableSource: MatTableDataSource<CoreModuleLogShowKeyModel> = new MatTableDataSource<CoreModuleLogShowKeyModel>();
@@ -94,7 +94,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
   expandedElement: CoreSiteModel | null;
@@ -376,8 +376,8 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
 
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -387,12 +387,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleLogShowKeyModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

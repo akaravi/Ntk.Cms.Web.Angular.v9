@@ -68,11 +68,11 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<PollingVoteModel> = new ErrorExceptionResult<PollingVoteModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<PollingVoteModel> = [];
   tableRowSelected: PollingVoteModel = new PollingVoteModel();
   tableSource: MatTableDataSource<PollingVoteModel> = new MatTableDataSource<PollingVoteModel>();
@@ -85,7 +85,7 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
     'UpdatedDate',
     // 'Action'
   ];
-  
+
   expandedElement: PollingVoteModel | null;
   cmsApiStoreSubscribe: Subscription;
 
@@ -361,8 +361,8 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -372,12 +372,7 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: PollingVoteModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/polling/content/']);
   }

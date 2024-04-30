@@ -61,15 +61,15 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreSiteCategoryModel> = [];
   tableRowSelected: CoreSiteCategoryModel = new CoreSiteCategoryModel();
   tableSource: MatTableDataSource<CoreSiteCategoryModel> = new MatTableDataSource<CoreSiteCategoryModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -365,8 +365,8 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/site/list/LinkSiteCategoryId', this.tableRowSelected.id]);
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -376,11 +376,6 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreSiteCategoryModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

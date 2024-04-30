@@ -59,11 +59,11 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<MemberPropertyAliasModel> = new ErrorExceptionResult<MemberPropertyAliasModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<MemberPropertyAliasModel> = [];
   tableRowSelected: MemberPropertyAliasModel = new MemberPropertyAliasModel();
   tableSource: MatTableDataSource<MemberPropertyAliasModel> = new MatTableDataSource<MemberPropertyAliasModel>();
@@ -80,7 +80,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     'CreatedDate',
     // 'Action',
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {
@@ -230,7 +230,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(MemberPropertyAliasDeleteComponent, { 
+    const dialogRef = this.dialog.open(MemberPropertyAliasDeleteComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -292,8 +292,8 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     );
 
   }
-  
-  
+
+
   onActionbuttonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
@@ -306,22 +306,6 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: MemberPropertyAliasModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: MemberPropertyAliasModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: MemberPropertyAliasModel): void {
-  //   row["expanded"] = false;
-  // }
+
   expandedElement: any;
-
-
-
-
 }

@@ -63,11 +63,11 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
   categoryModelSelected: ArticleCategoryModel;
   dataModelResult: ErrorExceptionResult<ArticleContentModel> = new ErrorExceptionResult<ArticleContentModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ArticleContentModel> = [];
   tableRowSelected: ArticleContentModel = new ArticleContentModel();
   tableSource: MatTableDataSource<ArticleContentModel> = new MatTableDataSource<ArticleContentModel>();
@@ -89,7 +89,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     // 'Action',
     "LinkTo",
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {
@@ -358,8 +358,8 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     );
 
   }
-  
- 
+
+
   onActionbuttonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
@@ -375,19 +375,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ArticleContentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
-  // onActionTableRowMouseEnter(row: ArticleContentModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: ArticleContentModel): void {
-  //   row["expanded"] = false;
-  // }
+
   onActionbuttonComment(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));

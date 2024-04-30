@@ -90,11 +90,11 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleLogSiteUserCreditBlockedModel> = new ErrorExceptionResult<CoreModuleLogSiteUserCreditBlockedModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleLogSiteUserCreditBlockedModel> = [];
   tableRowSelected: CoreModuleLogSiteUserCreditBlockedModel = new CoreModuleLogSiteUserCreditBlockedModel();
   tableSource: MatTableDataSource<CoreModuleLogSiteUserCreditBlockedModel> = new MatTableDataSource<CoreModuleLogSiteUserCreditBlockedModel>();
@@ -109,7 +109,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
 
@@ -405,8 +405,8 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -416,12 +416,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleLogSiteUserCreditBlockedModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

@@ -67,11 +67,11 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
   tableContentSelected = [];
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyAdsModel> = new ErrorExceptionResult<EstatePropertyAdsModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstatePropertyAdsModel> = [];
   tableRowSelected: EstatePropertyAdsModel = new EstatePropertyAdsModel();
   tableSource: MatTableDataSource<EstatePropertyAdsModel> = new MatTableDataSource<EstatePropertyAdsModel>();
@@ -85,7 +85,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     'ExpireDate',
     // 'Action'
   ];
-  
+
   expandedElement: EstatePropertyAdsModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -325,8 +325,8 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     }
     );
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -335,12 +335,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstatePropertyAdsModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/estate/property/']);
   }

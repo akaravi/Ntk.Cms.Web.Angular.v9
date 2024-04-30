@@ -105,29 +105,7 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
     //   onActionSelect: (x) => this.onActionContentSimilarSelect(x),
     // };
   }
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'main';
-  //   this.loading.Start(pName);
 
-  //   this.contentService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           this.dataAccessModel = ret.access;
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
   onActionTagChange(model: any): void {
     this.tagDataModel = model;
   }

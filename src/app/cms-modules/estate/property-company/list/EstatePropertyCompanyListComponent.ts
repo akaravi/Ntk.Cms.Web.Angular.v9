@@ -299,8 +299,8 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
         );
 
     }
-    
-  
+
+
     onActionbuttonWithHierarchy(): void {
         this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
         this.DataGetAll();
@@ -327,25 +327,12 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
         this.filteModelContent.filters = model;
         this.DataGetAll();
     }
-    // onActionTableRowSelect(row: EstatePropertyCompanyModel): void {
-    //     this.tableRowSelected = row;
 
-    //     if (!row["expanded"])
-    //         row["expanded"] = false;
-    //     row["expanded"] = !row["expanded"];
-    // }
-    // onActionTableRowMouseEnter(row: EstatePropertyCompanyModel): void {
-    //     this.onActionTableRowSelect(row);
-    //     row["expanded"] = true;
-    // }
-    // onActionTableRowMouseLeave(row: EstatePropertyCompanyModel): void {
-    //     row["expanded"] = false;
-    // }
     expandedElement: any;
 
 
 
-   
+
     onActionbuttonLinkTo(
         model: EstatePropertyCompanyModel = this.tableRowSelected
     ): void {

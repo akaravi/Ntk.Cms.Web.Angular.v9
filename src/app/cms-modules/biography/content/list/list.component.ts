@@ -60,11 +60,11 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
   filteModelContent = new FilterModel();
   categoryModelSelected: BiographyCategoryModel;
   dataModelResult: ErrorExceptionResult<BiographyContentModel> = new ErrorExceptionResult<BiographyContentModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<BiographyContentModel> = [];
   tableRowSelected: BiographyContentModel = new BiographyContentModel();
   tableSource: MatTableDataSource<BiographyContentModel> = new MatTableDataSource<BiographyContentModel>();
@@ -79,7 +79,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     // 'Action',
     "LinkTo",
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {
@@ -321,8 +321,8 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     }
     );
   }
-  
- 
+
+
   onActionbuttonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
@@ -338,27 +338,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: BiographyContentModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: BiographyContentModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: BiographyContentModel): void {
-  //   row["expanded"] = false;
-  // }
-  // onActionbuttonComment(model: BiographyContentModel = this.tableRowSelected): void {
-  //   if (!model || !model.id || model.id === 0) {
-  //     this.cmsToastrService.typeErrorSelectedRow();
-  //     return;
-  //   }
-  //   this.router.navigate(['/biography/comment/', model.id]);
-  // }
   onActionbuttonLinkTo(
     model: BiographyContentModel = this.tableRowSelected
   ): void {

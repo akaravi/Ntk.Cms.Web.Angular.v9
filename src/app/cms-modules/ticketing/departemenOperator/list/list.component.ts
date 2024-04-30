@@ -51,7 +51,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Descending;
   }
-  
+
 
   comment: string;
   author: string;
@@ -61,11 +61,11 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<TicketingDepartemenOperatorModel> = new ErrorExceptionResult<TicketingDepartemenOperatorModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<TicketingDepartemenOperatorModel> = [];
   tableRowSelected: TicketingDepartemenOperatorModel = new TicketingDepartemenOperatorModel();
   tableSource: MatTableDataSource<TicketingDepartemenOperatorModel> = new MatTableDataSource<TicketingDepartemenOperatorModel>();
@@ -305,8 +305,8 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -316,12 +316,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: TicketingDepartemenOperatorModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/ticketing/departeman/']);
   }

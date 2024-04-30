@@ -58,11 +58,11 @@ export class EstateAccountAgencyUserListComponent extends ListBaseComponent<Esta
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyUserModel> = new ErrorExceptionResult<EstateAccountAgencyUserModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateAccountAgencyUserModel> = [];
   tableRowSelected: EstateAccountAgencyUserModel = new EstateAccountAgencyUserModel();
   tableSource: MatTableDataSource<EstateAccountAgencyUserModel> = new MatTableDataSource<EstateAccountAgencyUserModel>();
@@ -75,7 +75,7 @@ export class EstateAccountAgencyUserListComponent extends ListBaseComponent<Esta
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -302,7 +302,7 @@ export class EstateAccountAgencyUserListComponent extends ListBaseComponent<Esta
     );
 
   }
-  
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -311,11 +311,6 @@ export class EstateAccountAgencyUserListComponent extends ListBaseComponent<Esta
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateAccountAgencyUserModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

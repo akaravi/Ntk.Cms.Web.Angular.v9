@@ -26,7 +26,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class EstateAccountAgencyAddComponent extends AddBaseComponent<EstateAccountAgencyService, EstateAccountAgencyModel, string> implements OnInit {
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any, 
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstateAccountAgencyAddComponent>,
     public coreEnumService: CoreEnumService,
     public estateAccountAgencyService: EstateAccountAgencyService,
@@ -70,28 +70,6 @@ export class EstateAccountAgencyAddComponent extends AddBaseComponent<EstateAcco
   }
 
 
-  // DataGetAccess(): void {
-  //   const pName = this.constructor.name + 'DataGetAccess';
-  //   this.loading.Start(pName);
-
-  //   this.estateAccountAgencyService
-  //     .ServiceViewModel()
-  //     .subscribe({
-  //       next: (ret) => {
-  //         if (ret.isSuccess) {
-  //           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-  //         } else {
-  //           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
-  //         }
-  //         this.loading.Stop(pName);
-  //       },
-  //       error: (er) => {
-  //         this.cmsToastrService.typeErrorGetAccess(er);
-  //         this.loading.Stop(pName);
-  //       }
-  //     }
-  //     );
-  // }
   DataAddContent(): void {
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
     this.formInfo.formError = '';

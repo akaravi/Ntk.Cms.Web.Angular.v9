@@ -62,11 +62,11 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<LinkManagementMemberModel> = new ErrorExceptionResult<LinkManagementMemberModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<LinkManagementMemberModel> = [];
   tableRowSelected: LinkManagementMemberModel = new LinkManagementMemberModel();
   tableSource: MatTableDataSource<LinkManagementMemberModel> = new MatTableDataSource<LinkManagementMemberModel>();
@@ -81,7 +81,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
     'CurrentCreditor',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -233,7 +233,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(LinkManagementMemberDeleteComponent, { 
+    const dialogRef = this.dialog.open(LinkManagementMemberDeleteComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -292,8 +292,8 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -306,18 +306,6 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: LinkManagementMemberModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: LinkManagementMemberModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: LinkManagementMemberModel): void {
-  //   row["expanded"] = false;
-  // }
+
   expandedElement: any;
 }

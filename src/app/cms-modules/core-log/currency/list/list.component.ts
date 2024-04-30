@@ -72,11 +72,11 @@ implements OnInit, OnDestroy {
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogCurrencyModel> = new ErrorExceptionResult<CoreLogCurrencyModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreLogCurrencyModel> = [];
   tableRowSelected: CoreLogCurrencyModel = new CoreLogCurrencyModel();
   tableSource: MatTableDataSource<CoreLogCurrencyModel> = new MatTableDataSource<CoreLogCurrencyModel>();
@@ -95,7 +95,7 @@ implements OnInit, OnDestroy {
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
 
@@ -326,8 +326,8 @@ implements OnInit, OnDestroy {
     );
   }
 
-  
- 
+
+
 
 
   onActionbuttonReload(): void {
@@ -337,12 +337,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreLogCurrencyModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/currency/']);
   }

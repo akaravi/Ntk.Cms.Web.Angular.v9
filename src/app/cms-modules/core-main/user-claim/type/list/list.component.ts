@@ -65,15 +65,15 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
   dataModelResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();
   dataModelCoreUserGroupResult: ErrorExceptionResult<CoreUserGroupModel> = new ErrorExceptionResult<CoreUserGroupModel>();
   dataModelCoreSiteCategoryResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreUserClaimTypeModel> = [];
   tableRowSelected: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();
   tableSource: MatTableDataSource<CoreUserClaimTypeModel> = new MatTableDataSource<CoreUserClaimTypeModel>();
-  
+
   dataModelEnumUserClaimKindsResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 
@@ -395,8 +395,8 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
 
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -406,11 +406,6 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreUserClaimTypeModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

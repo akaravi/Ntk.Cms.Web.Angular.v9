@@ -74,11 +74,11 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     = new ErrorExceptionResult<MemberPropertyTypeModel>();
   dataModelMemberPropertyDetailGroupResult: ErrorExceptionResult<MemberPropertyDetailGroupModel>
     = new ErrorExceptionResult<MemberPropertyDetailGroupModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<MemberPropertyDetailModel> = [];
   tableRowSelected: MemberPropertyDetailModel = new MemberPropertyDetailModel();
   tableSource: MatTableDataSource<MemberPropertyDetailModel> = new MatTableDataSource<MemberPropertyDetailModel>();
@@ -95,7 +95,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -417,8 +417,8 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -427,13 +427,5 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: MemberPropertyDetailModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
-  // onActionBackToParent(): void {
-  //   this.router.navigate(['/estate/property-type-landuse/']);
-  // }
+
 }

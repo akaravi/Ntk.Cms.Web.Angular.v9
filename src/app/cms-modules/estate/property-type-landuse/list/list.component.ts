@@ -59,11 +59,11 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstatePropertyTypeLanduseModel> = [];
   tableRowSelected: EstatePropertyTypeLanduseModel = new EstatePropertyTypeLanduseModel();
   tableSource: MatTableDataSource<EstatePropertyTypeLanduseModel> = new MatTableDataSource<EstatePropertyTypeLanduseModel>();
@@ -78,7 +78,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -347,8 +347,8 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -357,11 +357,6 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstatePropertyTypeLanduseModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

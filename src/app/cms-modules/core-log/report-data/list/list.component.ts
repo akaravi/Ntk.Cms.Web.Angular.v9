@@ -99,11 +99,11 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreLogReportDataModel> = new ErrorExceptionResult<CoreLogReportDataModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreLogReportDataModel> = [];
   tableRowSelected: CoreLogReportDataModel = new CoreLogReportDataModel();
   tableSource: MatTableDataSource<CoreLogReportDataModel> = new MatTableDataSource<CoreLogReportDataModel>();
@@ -121,7 +121,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
     'ExpireDate',
     // 'Action'
   ];
-  
+
   dataModelEnumSendReportDataStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 
@@ -433,10 +433,10 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
 
-  
 
 
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -445,12 +445,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreLogReportDataModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

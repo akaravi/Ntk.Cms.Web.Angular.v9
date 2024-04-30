@@ -22,8 +22,7 @@ export const routes: Routes = [
   {
     path: '',
     canActivate: [CmsAuthGuard],
-    loadChildren: () =>
-      import('./modules/panel/panel.module').then((m) => m.PanelModule),
+    loadChildren: () => import('./modules/panel/panel.module').then((m) => m.PanelModule),
   },
   { path: '**', redirectTo: 'error/404' },
 ];

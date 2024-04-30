@@ -61,15 +61,15 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApiTelegramReceivedFileModel> = new ErrorExceptionResult<ApiTelegramReceivedFileModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ApiTelegramReceivedFileModel> = [];
   tableRowSelected: ApiTelegramReceivedFileModel = new ApiTelegramReceivedFileModel();
   tableSource: MatTableDataSource<ApiTelegramReceivedFileModel> = new MatTableDataSource<ApiTelegramReceivedFileModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -261,8 +261,8 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
     this.onActionTableRowSelect(model);
     this.router.navigate(['core/sitecategorymodule/LinkCmsModuleId/', model.id]);
   }
-  
- 
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -271,11 +271,6 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApiTelegramReceivedFileModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

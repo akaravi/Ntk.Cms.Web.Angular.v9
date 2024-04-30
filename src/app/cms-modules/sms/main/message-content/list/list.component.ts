@@ -69,11 +69,11 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent< SmsMa
 
   dataModelResult: ErrorExceptionResult<SmsMainMessageContentModel> = new ErrorExceptionResult<SmsMainMessageContentModel>();
   categoryModelSelected: SmsMainMessageCategoryModel = new SmsMainMessageCategoryModel();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainMessageContentModel> = [];
   tableRowSelected: SmsMainMessageContentModel = new SmsMainMessageContentModel();
   tableSource: MatTableDataSource<SmsMainMessageContentModel> = new MatTableDataSource<SmsMainMessageContentModel>();
@@ -86,7 +86,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent< SmsMa
     'UpdatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -321,8 +321,8 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent< SmsMa
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -332,12 +332,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent< SmsMa
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainMessageContentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionSelectorSelect(model: SmsMainMessageCategoryModel | null): void {
     /*filter */
     var sortColumn = this.filteModelContent.sortColumn;

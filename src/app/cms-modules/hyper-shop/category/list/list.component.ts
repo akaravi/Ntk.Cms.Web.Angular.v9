@@ -60,11 +60,11 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<HyperShopCategoryModel> = new ErrorExceptionResult<HyperShopCategoryModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<HyperShopCategoryModel> = [];
   tableRowSelected: HyperShopCategoryModel = new HyperShopCategoryModel();
   tableSource: MatTableDataSource<HyperShopCategoryModel> = new MatTableDataSource<HyperShopCategoryModel>();
@@ -80,7 +80,7 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
     // 'Action'
   ];
 
-  
+
 
 
 
@@ -339,8 +339,8 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
     );
 
   }
-  
-  
+
+
 
   onActionbuttonReload(): void {
     this.DataGetAll();
@@ -349,11 +349,6 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: HyperShopCategoryModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

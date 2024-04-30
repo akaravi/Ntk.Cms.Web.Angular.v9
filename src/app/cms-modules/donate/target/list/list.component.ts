@@ -66,11 +66,11 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
   categoryModelSelected: DonateTargetCategoryModel;
   dataModelResult: ErrorExceptionResult<DonateTargetModel> = new ErrorExceptionResult<DonateTargetModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DonateTargetModel> = [];
   tableRowSelected: DonateTargetModel = new DonateTargetModel();
   tableSource: MatTableDataSource<DonateTargetModel> = new MatTableDataSource<DonateTargetModel>();
@@ -83,7 +83,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -331,8 +331,8 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -345,20 +345,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DonateTargetModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: DonateTargetModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: DonateTargetModel): void {
-  //   row["expanded"] = false;
-  // }
 
   onActionbuttonTargetPeriodList(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {

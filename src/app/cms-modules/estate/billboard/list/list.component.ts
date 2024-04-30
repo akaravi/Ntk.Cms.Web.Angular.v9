@@ -61,11 +61,11 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<EstateBillboardModel> = new ErrorExceptionResult<EstateBillboardModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<EstateBillboardModel> = [];
   tableRowSelected: EstateBillboardModel = new EstateBillboardModel();
   tableSource: MatTableDataSource<EstateBillboardModel> = new MatTableDataSource<EstateBillboardModel>();
@@ -92,7 +92,7 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
     "LinkTo",
   ];
 
-  
+
 
 
 
@@ -347,8 +347,8 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
     this.onActionTableRowSelect(model);
     window.open(this.tableRowSelected.urlViewContent, '_blank');
   }
-  
-  
+
+
 
   onActionbuttonCopyNewRow(model: EstateBillboardModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -374,20 +374,7 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: EstateBillboardModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: EstateBillboardModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: EstateBillboardModel): void {
-  //   row["expanded"] = false;
-  // }
   onActionbuttonLinkTo(
     model: EstateBillboardModel = this.tableRowSelected
   ): void {

@@ -71,15 +71,15 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
 
   categoryModelSelected: SmsMainApiPathModel;
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsLogInBoxModel> = [];
   tableRowSelected: SmsLogInBoxModel = new SmsLogInBoxModel();
   tableSource: MatTableDataSource<SmsLogInBoxModel> = new MatTableDataSource<SmsLogInBoxModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -500,8 +500,8 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
     this.router.navigate(['/sms/main/api-path-price-service/LinkApiPathId', this.tableRowSelected.id]);
   }
 
-  
-  
+
+
 
   onActionbuttonSendMessage(model: SmsLogInBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -537,12 +537,7 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsLogInBoxModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     // this.router.navigate(['/sms/main/api-path-company']);
   }

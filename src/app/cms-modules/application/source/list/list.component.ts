@@ -67,11 +67,11 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<ApplicationSourceModel> = new ErrorExceptionResult<ApplicationSourceModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ApplicationSourceModel> = [];
   tableRowSelected: ApplicationSourceModel = new ApplicationSourceModel();
   tableSource: MatTableDataSource<ApplicationSourceModel> = new MatTableDataSource<ApplicationSourceModel>();
@@ -91,7 +91,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
   ];
 
 
-  
+
 
   expandedElement: ApplicationSourceModel | null;
   cmsApiStoreSubscribe: Subscription;
@@ -324,8 +324,8 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
     );
 
   }
-  
-   
+
+
 
   onActionbuttonBuildApps(mode: ApplicationSourceModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
@@ -366,11 +366,6 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ApplicationSourceModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

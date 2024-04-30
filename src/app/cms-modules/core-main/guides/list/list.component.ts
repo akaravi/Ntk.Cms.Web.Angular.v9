@@ -387,8 +387,8 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -400,11 +400,6 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreGuideModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 
 }

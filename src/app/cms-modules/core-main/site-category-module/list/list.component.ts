@@ -79,15 +79,15 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreSiteCategoryCmsModuleModel> = new ErrorExceptionResult<CoreSiteCategoryCmsModuleModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreSiteCategoryCmsModuleModel> = [];
   tableRowSelected: CoreSiteCategoryCmsModuleModel = new CoreSiteCategoryCmsModuleModel();
   tableSource: MatTableDataSource<CoreSiteCategoryCmsModuleModel> = new MatTableDataSource<CoreSiteCategoryCmsModuleModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -374,8 +374,8 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
     this.onActionTableRowSelect(model);
     this.router.navigate([model.virtual_CmsModule.className + '/config/mainadmin/']);
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -385,12 +385,8 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreSiteCategoryCmsModuleModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/sitecategory/']);
   }

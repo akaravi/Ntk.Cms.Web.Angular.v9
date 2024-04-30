@@ -62,15 +62,15 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<SmsMainCustomerCreditModel> = new ErrorExceptionResult<SmsMainCustomerCreditModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainCustomerCreditModel> = [];
   tableRowSelected: SmsMainCustomerCreditModel = new SmsMainCustomerCreditModel();
   tableSource: MatTableDataSource<SmsMainCustomerCreditModel> = new MatTableDataSource<SmsMainCustomerCreditModel>();
-  
+
   categoryModelSelected: SmsMainCustomerCreditModel;
 
   tabledisplayedColumns: string[] = [];
@@ -351,8 +351,8 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
 
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -362,10 +362,5 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainCustomerCreditModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 }

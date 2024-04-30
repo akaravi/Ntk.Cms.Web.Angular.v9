@@ -64,11 +64,11 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
   categoryModelSelected: ChartCategoryModel;
   dataModelResult: ErrorExceptionResult<ChartContentModel> = new ErrorExceptionResult<ChartContentModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ChartContentModel> = [];
   tableRowSelected: ChartContentModel = new ChartContentModel();
   tableSource: MatTableDataSource<ChartContentModel> = new MatTableDataSource<ChartContentModel>();
@@ -83,7 +83,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     // 'Action',
     "LinkTo",
   ];
-  
+
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {
@@ -348,8 +348,8 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     );
 
   }
-  
- 
+
+
   onActionbuttonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
@@ -365,27 +365,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ChartContentModel): void {
-  //   this.tableRowSelected = row;
 
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"]
-  // }
-  // onActionTableRowMouseEnter(row: ChartContentModel): void {
-  //   this.onActionTableRowSelect(row);
-  //   row["expanded"] = true;
-  // }
-  // onActionTableRowMouseLeave(row: ChartContentModel): void {
-  //   row["expanded"] = false;
-  // }
-  // onActionbuttonComment(model: ChartContentModel = this.tableRowSelected): void {
-  //   if (!model || !model.id || model.id === 0) {
-  //     this.cmsToastrService.typeErrorSelectedRow();
-  //     return;
-  //   }
-  //   this.router.navigate(['/chart/comment/', model.id]);
-  // }
   onActionbuttonLinkTo(
     model: ChartContentModel = this.tableRowSelected
   ): void {
@@ -447,5 +427,5 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
 
 
 
- 
+
 }

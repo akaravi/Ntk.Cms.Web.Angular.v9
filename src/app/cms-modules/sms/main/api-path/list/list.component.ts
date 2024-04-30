@@ -71,15 +71,15 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
 
   categoryModelSelected: SmsMainApiPathCompanyModel;
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<SmsMainApiPathModel> = [];
   tableRowSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   tableSource: MatTableDataSource<SmsMainApiPathModel> = new MatTableDataSource<SmsMainApiPathModel>();
-  
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -552,8 +552,8 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     this.router.navigate(['/sms/main/api-path-price-service/LinkApiPathId', this.tableRowSelected.id]);
   }
 
-  
-  
+
+
 
   onActionbuttonSendTest(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -606,12 +606,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: SmsMainApiPathModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/sms/main/api-path-company']);
   }

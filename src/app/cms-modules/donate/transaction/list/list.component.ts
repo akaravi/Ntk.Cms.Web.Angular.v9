@@ -62,11 +62,11 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<DonateTransactionModel> = new ErrorExceptionResult<DonateTransactionModel>();
 
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<DonateTransactionModel> = [];
   tableRowSelected: DonateTransactionModel = new DonateTransactionModel();
   tableSource: MatTableDataSource<DonateTransactionModel> = new MatTableDataSource<DonateTransactionModel>();
@@ -82,7 +82,7 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     'AmountPure',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -264,8 +264,8 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -275,10 +275,5 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: DonateTransactionModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
 }

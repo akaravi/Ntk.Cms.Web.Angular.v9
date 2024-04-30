@@ -74,11 +74,11 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
 
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreModuleDataTaskModel> = new ErrorExceptionResult<CoreModuleDataTaskModel>();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<CoreModuleDataTaskModel> = [];
   tableRowSelected: CoreModuleDataTaskModel = new CoreModuleDataTaskModel();
   tableSource: MatTableDataSource<CoreModuleDataTaskModel> = new MatTableDataSource<CoreModuleDataTaskModel>();
@@ -94,7 +94,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     'CreatedDate',
     // 'Action'
   ];
-  
+
 
 
   expandedElement: CoreSiteModel | null;
@@ -376,8 +376,8 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
 
   }
 
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -387,12 +387,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: CoreModuleDataTaskModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+
   onActionBackToParent(): void {
     this.router.navigate(['/core/site/']);
   }

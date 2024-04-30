@@ -70,11 +70,11 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
 
   dataModelResult: ErrorExceptionResult<ContactContentModel> = new ErrorExceptionResult<ContactContentModel>();
   categoryModelSelected: ContactCategoryModel = new ContactCategoryModel();
-  
-  
 
-  
-  
+
+
+
+
   tableRowsSelected: Array<ContactContentModel> = [];
   tableRowSelected: ContactContentModel = new ContactContentModel();
   tableSource: MatTableDataSource<ContactContentModel> = new MatTableDataSource<ContactContentModel>();
@@ -87,7 +87,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     'UpdatedDate',
     // 'Action'
   ];
-  
+
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
@@ -322,8 +322,8 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     );
 
   }
-  
-  
+
+
 
 
   onActionbuttonReload(): void {
@@ -333,12 +333,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  // onActionTableRowSelect(row: ContactContentModel): void {
-  //   this.tableRowSelected = row;
-  //   if (!row["expanded"])
-  //     row["expanded"] = false;
-  //   row["expanded"] = !row["expanded"];
-  // }
+ 
   onActionSelectorSelect(model: ContactCategoryModel | null): void {
     /*filter */
     var sortColumn = this.filteModelContent.sortColumn;
