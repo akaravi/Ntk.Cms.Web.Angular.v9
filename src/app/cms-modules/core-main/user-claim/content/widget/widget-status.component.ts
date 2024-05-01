@@ -20,7 +20,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-core-userclaimcontent-widget-status',
   templateUrl: './widget-status.component.html',
-  styleUrls: ['./widget-status.component.scss']
+ 
 })
 export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';

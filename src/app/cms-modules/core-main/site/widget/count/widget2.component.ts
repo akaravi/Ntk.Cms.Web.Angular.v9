@@ -11,7 +11,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-core-site-widget-count2',
   templateUrl: './widget2.component.html',
-  styleUrls: ['./widget2.component.scss']
+
 })
 
 export class CoreSiteWidgetCount2Component implements OnInit, OnDestroy {

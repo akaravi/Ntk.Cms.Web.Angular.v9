@@ -9,7 +9,7 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
 @Component({
   selector: 'app-ticketing-task-widget2',
   templateUrl: './widget2.component.html',
-  styleUrls: ['./widget2.component.scss']
+
 })
 export class TicketingTaskWidget2Component implements OnInit, OnDestroy {
   @Input() cssClass = '';
@@ -59,14 +59,14 @@ export class TicketingTaskWidget2Component implements OnInit, OnDestroy {
     this.loading.Start(this.constructor.name + 'Answered', this.translate.instant('MESSAGE.Get_answered_tickets_statistics'));
     this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_tickets'));
 
-    this.widgetInfoModel.set(new WidgetContentInfoModel('Unread', 0, 0, ''));
-    this.widgetInfoModel.set(new WidgetContentInfoModel('Read', 1, 0, ''));
-    this.widgetInfoModel.set(new WidgetContentInfoModel('Answered', 2, 0, ''));
-    this.widgetInfoModel.set(new WidgetContentInfoModel('All', 3, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Unread', 0, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Read', 1, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Answered', 2, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 3, 0, ''));
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.widgetInfoModel.set(new WidgetContentInfoModel('All', 3, ret.totalRowCount, '/ticketing/task/'));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 3, ret.totalRowCount, '/ticketing/task/'));
         }
         this.loading.Stop(this.constructor.name + 'All');
       },
@@ -83,7 +83,7 @@ export class TicketingTaskWidget2Component implements OnInit, OnDestroy {
     this.service.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.widgetInfoModel.set(new WidgetContentInfoModel('Read', 1, ret.totalRowCount, '/ticketing/task/listTicketStatus/' + TicketStatusEnum.Read));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Read', 1, ret.totalRowCount, '/ticketing/task/listTicketStatus/' + TicketStatusEnum.Read));
         }
         this.loading.Stop(this.constructor.name + 'Read');
       }
@@ -101,7 +101,7 @@ export class TicketingTaskWidget2Component implements OnInit, OnDestroy {
     this.service.ServiceGetCount(filterStatist2).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.widgetInfoModel.set(new WidgetContentInfoModel('Unread', 0, ret.totalRowCount, '/ticketing/task/listTicketStatus/' + TicketStatusEnum.Unread));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Unread', 0, ret.totalRowCount, '/ticketing/task/listTicketStatus/' + TicketStatusEnum.Unread));
         }
         this.loading.Stop(this.constructor.name + 'Unread');
       }
@@ -119,7 +119,7 @@ export class TicketingTaskWidget2Component implements OnInit, OnDestroy {
     this.service.ServiceGetCount(filterStatist3).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.widgetInfoModel.set(new WidgetContentInfoModel('Answered', 2, ret.totalRowCount, '/ticketing/task/listTicketStatus/' + TicketStatusEnum.Answered));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Answered', 2, ret.totalRowCount, '/ticketing/task/listTicketStatus/' + TicketStatusEnum.Answered));
         }
         this.loading.Stop(this.constructor.name + 'Answered');
       }
