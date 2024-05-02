@@ -1,52 +1,42 @@
-<div class="card card-custom card-stretch gutter-b">
-  <div class="ntk-cms-html-widget-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    <div class="card-header border-0 mt-4">
-      <h3 class="card-title align-items-start flex-column">
-        <span class="card-label font-weight-bolder text-dark">{{widgetInfoModel.title}}</span>
-        <span class="text-muted mt-3 font-weight-bold font-size-sm">{{widgetInfoModel.description}}</span>
-      </h3>
-      <div class="card-toolbar">
-        <div *ngIf="widgetInfoModel.link && widgetInfoModel.link.length>0">
-          <a routerLink="{{widgetInfoModel.link}}" routerLinkActive="active" ngbDropdownToggle
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <i class="ki ki-bold-more-hor"></i>
-          </a>
-          <div ngbDropdownMenu class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-          </div>
-        </div>
-      </div>
+<div class="card card-style">
+  <div class="content">
+    <h5 class="font-14 opacity-50">{{widgetInfoModel.title}} <a routerLink="{{widgetInfoModel.link}}"
+        routerLinkActive="active" class="float-end color-highlight">نمایش همه</a></h5>
+    <div class="divider mb-3"></div>
+
+    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+      [responsive]="chartOptions.responsive"></apx-chart>
+
+    <div class="list-group list-custom-small list-menu ms-0 me-2">
+      <a routerLink="{{widgetInfoModel.link}}" class="menu-active">
+        <i class="fa fa-comment gradient-blue color-white"></i>
+        <span>نیاز به تایید</span>
+        <span class="badge gradient-blue color-white">{{modelData?.get("Pending")}}</span>
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a routerLink="{{widgetInfoModel.link}}">
+        <i class="fa fa-heart gradient-green color-white"></i>
+        <span>غیر فعال</span>
+        <span class="badge gradient-green color-white">{{modelData?.get("Disable")}}</span>
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a routerLink="{{widgetInfoModel.link}}">
+        <i class="fa fa-heart gradient-green color-white"></i>
+        <span>فعال</span>
+        <span class="badge gradient-green color-white">{{modelData?.get("Available")}}</span>
+        <i class="fa fa-angle-left"></i>
+      </a>
     </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-widget-body">
-    <app-progress-spinner [options]="loading"> </app-progress-spinner>
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <div class="card-body pt-8">
-      <!--begin::Item-->
-      <div *ngFor="let item of modelData| keyvalue ; index as i" class="d-flex align-items-center mb-10">
-        <!--begin::Symbol-->
-        <div class="symbol symbol-40 {{indexTheme[i]}} mr-5">
-          <span class="symbol-label">
-
-          </span>
-        </div>
-        <!--end::Symbol-->
-
-        <!--begin::Text-->
-        <div class="d-flex flex-column font-weight-bold">
-          <a class="text-dark-75 text-hover-primary mb-1 font-size-lg cursor-pointer">{{item.key}}</a>
-          <span class="text-muted">{{item.value}}</span>
-        </div>
-        <!--end::Text-->
-      </div>
-      <!--end::Item-->
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-widget-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <a routerLink="/estate/property/add" routerLinkActive="active" class="text-dark text-hover-primary fw-bolder fs-3">
+      {{widgetInfoModel.title}}
+      <span [inlineSVG]="'./assets/media/svg/icons/Navigation/Arrow-right.svg'"
+        class="svg-icon ssvg-icon-lg svg-icon-secondary svg-icon-white"></span>
+    </a>
+    <a routerLink="/estate/property/Action/quick-add" routerLinkActive="active"
+      class="text-dark text-hover-primary fw-bolder fs-3">
+      {{'ACTION.QUICK_ADD' |translate}}
+      <span [inlineSVG]="'./assets/media/svg/icons/Navigation/Arrow-right.svg'"
+        class="svg-icon ssvg-icon-lg svg-icon-secondary"></span>
+    </a>
   </div>
 </div>

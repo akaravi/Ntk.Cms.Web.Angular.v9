@@ -27,12 +27,12 @@
 <div class="content mb-0 mt-3">
   <div class="row mb-0">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
-      <app-estate-customer-order-widget-chart [(optionLoading)]="loading">
-      </app-estate-customer-order-widget-chart>
+      <app-estate-customer-order-widget [(optionLoading)]="loading">
+      </app-estate-customer-order-widget>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
-      <app-estate-property-widget-chart [(optionLoading)]="loading">
-      </app-estate-property-widget-chart>
+      <app-estate-property-widget [(optionLoading)]="loading">
+      </app-estate-property-widget>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
       <app-estate-property-history-widget2 [(optionLoading)]="loading">
