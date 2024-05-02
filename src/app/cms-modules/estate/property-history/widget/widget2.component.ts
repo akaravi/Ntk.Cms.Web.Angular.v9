@@ -11,7 +11,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-property-history-widget2',
   templateUrl: './widget2.component.html',
-  styleUrls: ['./widget2.component.scss']
+
 })
 
 export class EstatePropertyHistoryWidget2Component implements OnInit, OnDestroy {
@@ -28,7 +28,8 @@ export class EstatePropertyHistoryWidget2Component implements OnInit, OnDestroy 
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr;
+    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }
   filteModelContent = new FilterModel();
   modelData = new Map<string, number>();
@@ -42,7 +43,7 @@ export class EstatePropertyHistoryWidget2Component implements OnInit, OnDestroy 
     this.loading = value;
   }
   ngOnInit() {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_customer_order');
+    this.widgetInfoModel.title = this.translate.instant('ROUTE.ESTATE.HISTORY');
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/estate/customer-order';
 
@@ -75,8 +76,10 @@ export class EstatePropertyHistoryWidget2Component implements OnInit, OnDestroy 
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
+        this.loading.Stop(this.constructor.name + 'All');
       },
       error: (er) => {
+        this.loading.Stop(this.constructor.name + 'All');
       }
     }
     );

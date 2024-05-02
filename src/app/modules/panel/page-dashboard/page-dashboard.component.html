@@ -27,16 +27,16 @@
 <div class="content mb-0 mt-3">
   <div class="row mb-0">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
-      <app-estate-customer-order-widget-chart [(optionLoading)]="loading" >
+      <app-estate-customer-order-widget-chart [(optionLoading)]="loading">
       </app-estate-customer-order-widget-chart>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
-      <app-estate-property-widget-chart [(optionLoading)]="loading" >
+      <app-estate-property-widget-chart [(optionLoading)]="loading">
       </app-estate-property-widget-chart>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
-      <app-estate-property-history-widget-add [(optionLoading)]="loading" >
-      </app-estate-property-history-widget-add>
+      <app-estate-property-history-widget2 [(optionLoading)]="loading">
+      </app-estate-property-history-widget2>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
       <app-coremodule-site-credit-widget-price [(optionLoading)]="loading" class="mb-xl-4 mb-sm-4"
@@ -54,59 +54,53 @@
       </app-core-userclaimcontent-widget-status>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-      <app-ticketing-task-widget2 [(optionLoading)]="loading"  >
+      <app-ticketing-task-widget2 [(optionLoading)]="loading">
       </app-ticketing-task-widget2>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-      <app-core-site-widget-count2 [(optionLoading)]="loading" ></app-core-site-widget-count2>
+      <app-core-site-widget-count2 [(optionLoading)]="loading"></app-core-site-widget-count2>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['application']">
-      <app-application-memberinfo-widget2 [(optionLoading)]="loading" 
-        >
+      <app-application-memberinfo-widget2 [(optionLoading)]="loading">
       </app-application-memberinfo-widget2>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['core']">
-      <app-ReportAbuse-widget2 [(optionLoading)]="loading" *ngIf="this.tokenHelper.isAdminSite" 
-        [widgetHeight]="'200px'" [baseColor]="'success'">
+      <app-ReportAbuse-widget2 [(optionLoading)]="loading" *ngIf="this.tokenHelper.isAdminSite" [widgetHeight]="'200px'"
+        [baseColor]="'success'">
       </app-ReportAbuse-widget2>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['chart']">
-      <app-chart-content-widget2 [(optionLoading)]="loading"  [widgetHeight]="'200px'"
+      <app-chart-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
         [baseColor]="'primary'"></app-chart-content-widget2>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['article']">
-      <app-article-content-widget2 [(optionLoading)]="loading"  [widgetHeight]="'200px'"
+      <app-article-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
         [iconColor]="'success'"></app-article-content-widget2>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['blog']">
-      <app-blog-content-widget2 [(optionLoading)]="loading"  [widgetHeight]="'200px'"
+      <app-blog-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
         [baseColor]="'primary'"></app-blog-content-widget2>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['biography']">
-      <app-biography-content-widget2 [(optionLoading)]="loading"  [widgetHeight]="'200px'"
+      <app-biography-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
         [baseColor]="'primary'"></app-biography-content-widget2>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['news']">
-      <app-news-content-widget2 [(optionLoading)]="loading"  [widgetHeight]="'200px'"
+      <app-news-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
         [iconColor]="'success'"></app-news-content-widget2>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['application']">
-      <app-application-app-widget2 [(optionLoading)]="loading"  [widgetHeight]="'200px'"
-        [baseColor]="'success'">
+      <app-application-app-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'" [baseColor]="'success'">
       </app-application-app-widget2>
 
     </div>
-    <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['application']">
-      <app-application-app-widget-create [(optionLoading)]="loading" >
-      </app-application-app-widget-create>
 
-    </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
 
     </div>

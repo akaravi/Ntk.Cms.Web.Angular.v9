@@ -9,7 +9,7 @@ import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 @Component({
   selector: 'app-news-content-widget2',
   templateUrl: './widget2.component.html',
-  styleUrls: ['./widget2.component.scss']
+
 })
 export class NewsContentWidget2Component implements OnInit, OnDestroy {
   @Input() cssClass = '';

@@ -1,25 +1,24 @@
 <!--begin::Card-->
-<div class="card card-custom gutter-b">
-  <!--begin::Header-->
-  <div *ngIf="optionHeaderDisplay" class="card-header card-header-tabs-line">
-    <div class="card-title">
-      <ng-content select="[cms-header]"></ng-content>
-    </div>
-  </div>
-  <!--end::Header-->
-  <!--begin::Body-->
-  <div class="card-body overflow-scroll">
+<div class="card card-style">
+  <div class="content mb-0">
+    <!--begin::Header-->
+    <p *ngIf="formInfo.formTitle?.length>0" class="mb-0 color-highlight font-600 font-12">
+      {{ formInfo.formTitle }}
+    </p>
+    <p *ngIf="formInfo.formDescription?.length>0">
+      {{ formInfo.formDescription }}
+    </p>
+    <br>
+    <ng-content select="[cms-message]"></ng-content>
+    <!--end::Header-->
+    <!--begin::Body-->
     <app-progress-spinner [options]="loading"> </app-progress-spinner>
-    <ng-content  select="[cms-body]"></ng-content>
+    <ng-content select="[cms-body]"></ng-content>
+    <!--end::Body-->
+    <!--begin::Footer-->
+
+    <ng-content select="[cms-footer]"></ng-content>
+    <!--end::Footer-->
   </div>
-  <!--end::Body-->
-  <!--begin::Footer-->
-  <div class="card-body">
-    <div class="row">
-      <ng-content select="[cms-message]"></ng-content>
-      <ng-content *ngIf="optionFooterDisplay " select="[cms-footer]"></ng-content>
-    </div>
-  </div>
-  <!--end::Footer-->
 </div>
 <!--end::Card-->

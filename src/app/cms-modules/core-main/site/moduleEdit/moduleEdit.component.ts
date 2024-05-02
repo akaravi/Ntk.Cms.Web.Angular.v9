@@ -106,7 +106,7 @@ export class CoreSiteModuleEditComponent extends EditBaseComponent<CoreModuleSit
         if (ret.isSuccess) {
           if (ret.listItems && ret.listItems.length > 0) {
             this.dataModel = ret.listItems[0];
-            this.formInfo.formTitle = this.formInfo.formTitle + ' ' + ret.item.title;
+            this.formInfo.formTitle = this.formInfo.formTitle + ' ' + this.dataModel.linkSiteId + '#' + this.dataModel.linkModuleId;
             this.formInfo.formAlert = '';
           }
           else {
