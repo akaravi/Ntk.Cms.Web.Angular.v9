@@ -45,7 +45,7 @@ export class EstatePropertyHistoryWidget2Component implements OnInit, OnDestroy 
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('ROUTE.ESTATE.HISTORY');
     this.widgetInfoModel.description = '';
-    this.widgetInfoModel.link = '/estate/history';
+    this.widgetInfoModel.link = '/estate/property-history';
 
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
@@ -114,11 +114,11 @@ export class EstatePropertyHistoryWidget2Component implements OnInit, OnDestroy 
         if (ret.isSuccess) {
           if (ret.totalRowCount > 0) {
             this.modelData.set('InChecking', ret.totalRowCount);
-            this.widgetInfoModel.link = '/estate/customer-order/InChecking/true';
+            this.widgetInfoModel.link = '/estate/property-history/InChecking/true';
           }
           else {
             this.modelData.delete('InChecking');
-            this.widgetInfoModel.link = '/estate/customer-order';
+            this.widgetInfoModel.link = '/estate/property-history';
           }
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
