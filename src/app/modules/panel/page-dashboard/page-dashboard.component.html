@@ -1,4 +1,4 @@
-<div class="card card-style bg-11 mt-3" data-card-height="160">
+<div *ngIf="loadDemoTheme" class="card card-style bg-11 mt-3" data-card-height="160">
   <div class="card-bottom ps-3 pb-3">
     <h1 class="font-17 color-white mb-n3">در یک نگاه</h1>
     <h4 class="font-13 color-white mb-4 opacity-50">آخرین آمار</h4>
@@ -110,7 +110,7 @@
 
 
 
-<div class="content mb-0 mt-3">
+<div *ngIf="loadDemoTheme" class="content mb-0 mt-3">
   <div class="row mb-0">
     <div class="col-6 pe-1">
       <div class="card card-style mx-0 mb-2 p-3">
@@ -139,7 +139,7 @@
   </div>
 </div>
 
-<div class="content mt-0 mb-0">
+<div *ngIf="loadDemoTheme" class="content mt-0 mb-0">
   <div class="row mb-0">
     <div class="col-6">
       <div class="card mx-0 card-style" data-card-height="260">
@@ -197,7 +197,7 @@
   </div>
 </div>
 
-<div class="card card-style">
+<div *ngIf="loadDemoTheme" class="card card-style">
   <div class="content">
     <h5 class="font-14 opacity-50">اعلان ها <a href="#" class="float-end color-highlight">نمایش همه</a></h5>
     <div class="divider mb-3"></div>
@@ -220,7 +220,7 @@
   </div>
 </div>
 
-<div class="card card-style mt-4">
+<div *ngIf="loadDemoTheme" class="card card-style mt-4">
   <div class="content">
     <h5 class="font-14 opacity-50">گزارش درآمد<a href="#" class="float-end color-highlight">نمایش همه</a></h5>
 
@@ -256,7 +256,7 @@
   </div>
 </div>
 
-<div class="card card-style mt-4">
+<div *ngIf="loadDemoTheme" class="card card-style mt-4">
   <div class="content">
     <h5 class="font-14 opacity-50">گزارش از همکاران<a href="#" class="float-end color-highlight">نمایش همه</a></h5>
 
@@ -286,7 +286,7 @@
   </div>
 </div>
 
-<div class="card card-style mt-4">
+<div *ngIf="loadDemoTheme" class="card card-style mt-4">
   <div class="content">
     <h5 class="font-14 opacity-50">پرفروشترین محصولات<a href="#" class="float-end color-highlight">نمایش همه</a></h5>
 
@@ -323,7 +323,7 @@
   </div>
 </div>
 
-<div class="card card-style mt-4">
+<div *ngIf="loadDemoTheme" class="card card-style mt-4">
   <div class="content">
     <h5 class="font-14 opacity-50">پربازدیدترین محصولات<a href="#" class="float-end color-highlight">نمایش همه</a></h5>
 
@@ -370,7 +370,7 @@
   </div>
 </div>
 
-<div class="card card-style mt-4">
+<div *ngIf="loadDemoTheme" class="card card-style mt-4">
   <div class="content mb-0">
     <h5 class="font-14 opacity-50">بیشترین بازدید از<a href="#" class="float-end color-highlight">نمایش همه</a></h5>
 
@@ -385,7 +385,7 @@
 </div>
 
 
-<div class="card card-style">
+<div *ngIf="loadDemoTheme" class="card card-style">
   <div class="content">
     <h4>نمایش محتوا بر اساس تم</h4>
     <p>
@@ -395,7 +395,8 @@
   </div>
 </div>
 
-<div data-toggle-theme class="card card-style show-on-theme-light" data-card-height="150" style="height: 150px;">
+<div *ngIf="loadDemoTheme" data-toggle-theme class="card card-style show-on-theme-light" data-card-height="150"
+  style="height: 150px;">
   <div class="card-center text-center">
     <h3 class="color-white ps-3 mb-0">من در تم روشن نمایش داده میشوم</h3>
     <p class="ps-3 color-white opacity-50 mb-0">این کارت فقط در تم روشن نمایش داده می شود</p>
@@ -405,7 +406,8 @@
 
 
 
-<div data-toggle-theme class="card card-style show-on-theme-dark" data-card-height="150" style="height: 150px;">
+<div *ngIf="loadDemoTheme" data-toggle-theme class="card card-style show-on-theme-dark" data-card-height="150"
+  style="height: 150px;">
   <div class="card-center text-center">
     <h3 class="ps-3 color-black mb-0">من در تم تاریک نمایش داده میشوم</h3>
     <p class="ps-3 color-black opacity-80 mb-0">این کارت فقط در تم تاریک نمایش داده می شود</p>
