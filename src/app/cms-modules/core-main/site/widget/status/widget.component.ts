@@ -12,19 +12,19 @@ import {
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { PersianCalendarService } from 'src/app/core/pipe/persian-date/persian-date.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
   selector: 'app-core-site-widget-status',
   templateUrl: './widget.component.html',
-  styleUrls: ['./widget.component.scss']
+
 })
 export class CoreSiteWidgetStatusComponent implements OnInit, OnDestroy {
   tokenInfoModel = new TokenInfoModel();
   filteModelContent = new FilterModel();
-  modelData = new Map<string, string>();
+
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
   indexTheme = ['symbol-light-success', 'symbol-light-warning', 'symbol-light-danger', 'symbol-light-info', 'symbol-light-info', 'symbol-light-info'];
@@ -68,21 +68,21 @@ export class CoreSiteWidgetStatusComponent implements OnInit, OnDestroy {
       return;
     }
     this.widgetInfoModel.link = '/core/site/edit/' + this.tokenInfoModel.siteId;
-    this.modelData.set('Id', this.tokenInfoModel.siteId + '');
-    this.modelData.set('Title', '...');
-    this.modelData.set('Domain', '...');
-    this.modelData.set('Sub Domain', '...');
-    this.modelData.set('Created Date', '...');
-    this.modelData.set('Expire Date', '...');
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Id',0,0,'','', this.tokenInfoModel.siteId + ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Title',1,0,'','', '...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Domain',2,0,'','', '...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Sub Domain',3, 0,'','','...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Created Date',4,0,'','', '...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Expire Date',5,0,'','', '...'));
     this.service.ServiceGetOneById(this.tokenInfoModel.siteId).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('Title', ret.item.title);
-          this.modelData.set('Domain', ret.item.domain);
-          this.modelData.set('Sub Domain', ret.item.subDomain);
-          this.modelData.set('Created Date', this.persianCalendarService.PersianCalendar(ret.item.createdDate));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Title',1,0,'','', ret.item.title));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Domain',2,0,'','', ret.item.domain));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Sub Domain',3,0,'','', ret.item.subDomain));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Created Date',4,0,'','', this.persianCalendarService.PersianCalendar(ret.item.createdDate)));
           if (ret.item.expireDate) {
-            this.modelData.set('Expire Date', this.persianCalendarService.PersianCalendar(ret.item.expireDate));
+            this.widgetInfoModel.setItem(new WidgetContentInfoModel('Expire Date',5,0,'','', this.persianCalendarService.PersianCalendar(ret.item.expireDate)));
           }
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);

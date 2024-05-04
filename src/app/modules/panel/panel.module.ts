@@ -24,7 +24,7 @@ import { EstatePropertyHistoryWidgetComponent } from 'src/app/cms-modules/estate
 import { EstatePropertyWidgetComponent } from 'src/app/cms-modules/estate/property/widget/widget.component';
 import { NewsContentWidgetComponent } from 'src/app/cms-modules/news/content/widget/widget.component';
 import { TicketingTaskWidgetComponent } from 'src/app/cms-modules/ticketing/task/widget/widget.component';
-import { WebDesignerLogMemberInfoWidgetComponent } from 'src/app/cms-modules/web-designer/log-member-info/widget/widget.component';
+
 import { ComponentsModule } from 'src/app/components/components.module';
 import { CmsHtmlWidgetComponent } from 'src/app/shared/cms-html-widget/cms-html-widget.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -32,6 +32,7 @@ import { PageDashboardComponent } from './page-dashboard/page-dashboard.componen
 import { PageMenuComponent } from './page-menu/page-menu.component';
 import { PanelComponent } from './panel.component';
 import { PagesPanelRoutingModule } from './panel.routing';
+import { WebDesignerLogMemberInfoWidgetComponent } from 'src/app/cms-modules/web-designer/log-member-info/widget/widget.component';
 
 
 @NgModule({
@@ -40,9 +41,8 @@ import { PagesPanelRoutingModule } from './panel.routing';
     PageDashboardComponent,
     PageMenuComponent,
     /*widget*/
-    WebDesignerLogMemberInfoWidgetComponent,
-    WebDesignerLogMemberInfoWidgetComponent,
 
+    WebDesignerLogMemberInfoWidgetComponent,
     ApplicationAppWidgetComponent,
     ApplicationMemberInfoWidgetComponent,
     NewsContentWidgetComponent,

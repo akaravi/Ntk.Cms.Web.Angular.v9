@@ -24,7 +24,7 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <div class="card-body pt-8">
       <!--begin::Item-->
-      <div *ngFor="let item of modelData| keyvalue ; index as i" class="d-flex align-items-center mb-10">
+      <div *ngFor="let item of widgetInfoModel?.items| keyvalue ; index as i" class="d-flex align-items-center mb-10">
         <!--begin::Symbol-->
         <div class="symbol symbol-40 {{indexTheme[i]}} mr-5">
           <span class="symbol-label">

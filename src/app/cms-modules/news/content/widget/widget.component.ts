@@ -5,7 +5,7 @@ import { FilterDataModel, FilterModel, NewsContentService, RecordStatusEnum } fr
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 @Component({
   selector: 'app-news-content-widget',
   templateUrl: './widget.component.html',
@@ -27,7 +27,7 @@ export class NewsContentWidgetComponent implements OnInit, OnDestroy {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }
   filteModelContent = new FilterModel();
-  modelData = new Map<string, number>();
+  
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
@@ -56,12 +56,14 @@ export class NewsContentWidgetComponent implements OnInit, OnDestroy {
   onActionStatist(): void {
     this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_news_statistics'));
     this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_news'));
-    this.modelData.set('Active', 0);
-    this.modelData.set('All', 1);
+
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('All', ret.totalRowCount);
+
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, ret.totalRowCount, this.widgetInfoModel.link));
         }
         this.loading.Stop(this.constructor.name + 'All');
       },
@@ -78,7 +80,7 @@ export class NewsContentWidgetComponent implements OnInit, OnDestroy {
     this.service.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('Active', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, ret.totalRowCount, this.widgetInfoModel.link));
         }
         this.loading.Stop(this.constructor.name + 'Active');
       }

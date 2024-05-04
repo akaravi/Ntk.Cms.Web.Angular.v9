@@ -9,19 +9,19 @@
       <a *ngIf="modelData?.has('InChecking')" routerLink="{{widgetInfoModel.link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
         <span>در حال بررسی</span>
-        <span class="badge gradient-blue color-white">{{modelData?.get("InChecking")}}</span>
+        <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("InChecking")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
       <a routerLink="{{widgetInfoModel.link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
         <span>فعال</span>
-        <span class="badge gradient-blue color-white">{{modelData?.get("Active")}}</span>
+        <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("Active")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
       <a routerLink="{{widgetInfoModel.link}}">
         <i class="fa fa-heart gradient-green color-white"></i>
         <span>همه</span>
-        <span class="badge gradient-green color-white">{{modelData?.get("All")}}</span>
+        <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("All")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
     </div>

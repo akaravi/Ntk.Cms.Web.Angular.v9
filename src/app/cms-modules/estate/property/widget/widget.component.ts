@@ -5,7 +5,7 @@ import { Subscription, forkJoin } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ChartOptionsModel } from 'src/app/core/models/chartOptionsModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -54,7 +54,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
 
 
   }
-  modelData = new Map<string, number>();
+
   public chartOptions: Partial<ChartOptionsModel>;
   filteModelContent = new FilterModel();
   widgetInfoModel = new WidgetInfoModel();
@@ -123,7 +123,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
         this.widgetInfoModel.link = '/estate/property/';
       }
       if (ret.isSuccess) {
-        this.modelData.set('Available', ret.totalRowCount);
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, this.widgetInfoModel.link));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
@@ -132,7 +132,8 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       series[1] = ret.totalRowCount;
       labels[1] = 'غیر فعال';
       if (ret.isSuccess) {
-        this.modelData.set('Disable', ret.totalRowCount);
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 1, ret.totalRowCount, this.widgetInfoModel.link));
+
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
@@ -141,7 +142,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       series[2] = ret.totalRowCount;
       labels[2] = 'نیاز به تایید';
       if (ret.isSuccess) {
-        this.modelData.set('Pending', ret.totalRowCount);
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, ret.totalRowCount, this.widgetInfoModel.link));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }

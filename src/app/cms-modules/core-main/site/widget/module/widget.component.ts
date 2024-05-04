@@ -7,17 +7,17 @@ import {
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
   selector: 'app-core-site-widget-module',
   templateUrl: './widget.component.html',
-  styleUrls: ['./widget.component.scss']
+
 })
 export class CoreSiteWidgetModuleComponent implements OnInit, OnDestroy {
   filteModelContent = new FilterModel();
-  modelData = new Map<string, number>();
+
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
   indexTheme = ['symbol-light-success', 'symbol-light-warning', 'symbol-light-danger', 'symbol-light-info'];
@@ -57,10 +57,12 @@ export class CoreSiteWidgetModuleComponent implements OnInit, OnDestroy {
   onActionStatist(): void {
     this.loading.Start(this.constructor.name + 'Active');
     this.loading.Start(this.constructor.name + 'All');
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('All', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, ret.totalRowCount, this.widgetInfoModel.link));
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -80,7 +82,7 @@ export class CoreSiteWidgetModuleComponent implements OnInit, OnDestroy {
     this.service.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('Active', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, ret.totalRowCount, this.widgetInfoModel.link));
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }

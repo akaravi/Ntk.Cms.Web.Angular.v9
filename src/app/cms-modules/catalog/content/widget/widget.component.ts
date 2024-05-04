@@ -5,27 +5,22 @@ import { CatalogContentService, FilterDataModel, FilterModel, RecordStatusEnum }
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
   selector: 'app-catalog-content-widget',
   templateUrl: './widget.component.html',
-})
-export class CatalogContentWidgetComponent implements OnInit, OnDestroy {
-  filteModelContent = new FilterModel();
-  modelData = new Map<string, number>();
-  widgetInfoModel = new WidgetInfoModel();
-  cmsApiStoreSubscribe: Subscription;
-  indexTheme = ['symbol-light-success', 'symbol-light-warning', 'symbol-light-danger', 'symbol-light-info'];
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
 
+})
+
+export class CatalogContentWidgetComponent implements OnInit, OnDestroy {
+  @Input() cssClass = '';
+  @Input() widgetHeight = '200px';
+  @Input() baseColor = 'success';
+  @Input() iconColor = 'success';
+  textInverseCSSClass;
+  svgCSSClass;
   constructor(
     private service: CatalogContentService,
     private cmsToastrService: CmsToastrService,
@@ -36,15 +31,31 @@ export class CatalogContentWidgetComponent implements OnInit, OnDestroy {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }
-  ngOnInit(): void {
+  filteModelContent = new FilterModel();
+
+  widgetInfoModel = new WidgetInfoModel();
+  cmsApiStoreSubscribe: Subscription;
+  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
+  get optionLoading(): ProgressSpinnerModel {
+    return this.loading;
+  }
+  @Input() set optionLoading(value: ProgressSpinnerModel) {
+    this.loading = value;
+  }
+  ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Catalog');
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/catalog/content';
 
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
+      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Catalog');
       this.onActionStatist();
     });
+
+    this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
+    this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
+    this.svgCSSClass = `svg-icon--${this.iconColor}`;
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -52,14 +63,14 @@ export class CatalogContentWidgetComponent implements OnInit, OnDestroy {
   }
 
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'Active');
-    this.loading.Start(this.constructor.name + 'All');
-    this.modelData.set('Active', 0);
-    this.modelData.set('All', 1);
+    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_catalog_statistics'));
+    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_catalog'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('All', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, ret.totalRowCount, this.widgetInfoModel.link));
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -79,17 +90,19 @@ export class CatalogContentWidgetComponent implements OnInit, OnDestroy {
     this.service.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('Active', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, ret.totalRowCount, this.widgetInfoModel.link));
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(this.constructor.name + 'Active');
-      }
-      ,
+      },
       error: (er) => {
         this.loading.Stop(this.constructor.name + 'Active');
       }
     }
     );
+  }
+  translateHelp(t: string, v: string): string {
+    return t + v;
   }
 }

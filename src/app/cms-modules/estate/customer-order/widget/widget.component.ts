@@ -6,7 +6,7 @@ import { Subscription, forkJoin } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ChartOptionsModel } from 'src/app/core/models/chartOptionsModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -24,7 +24,8 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr;
+     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     /** chart*/
     this.chartOptions = {
       series: [],
@@ -50,7 +51,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     /** chart*/
   }
   public chartOptions: Partial<ChartOptionsModel>;
-  modelData = new Map<string, number>();
+
 
   filteModelContent = new FilterModel();
   widgetInfoModel = new WidgetInfoModel();
@@ -110,12 +111,24 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     const s3 = this.service.ServiceGetCount(filterStatist3);
     var series = [];
     var labels = [];
+
+
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Archive', 1, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 3, 0, ''));
+
+
+
+
+
     forkJoin([s0, s1, s2, s3]).subscribe(results => {
       //*results */
       var ret = results[0];
       series[0] = ret.totalRowCount;
       labels[0] = this.translate.instant('MESSAGE.customer_order_list_active');
       if (ret.isSuccess) {
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, ''));
         this.rowExist = true;
         this.widgetInfoModel.title = this.translate.instant('TITLE.Add_Property');
         this.widgetInfoModel.description = this.translate.instant('TITLE.Number_Registered_Property') + ' : ' + ret.totalRowCount;
@@ -130,7 +143,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       series[1] = ret.totalRowCount;
       labels[1] = this.translate.instant('MESSAGE.customer_order_list_close');
       if (ret.isSuccess) {
-        this.modelData.set('InChecking', ret.totalRowCount);
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Archive', 1, ret.totalRowCount, ''));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
@@ -139,7 +152,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       series[2] = ret.totalRowCount;
       labels[2] = this.translate.instant('MESSAGE.customer_order_needs_approval');
       if (ret.isSuccess) {
-
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, ret.totalRowCount, ''));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
@@ -148,7 +161,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       series[3] = ret.totalRowCount;
       labels[3] = this.translate.instant('MESSAGE.customer_order_list_disable');
       if (ret.isSuccess) {
-
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 3, ret.totalRowCount, ''));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
@@ -159,151 +172,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
 
   }
 
-  onActionStatist2222222222(): void {
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.customer_order_list'));
-    this.loading.Start(this.constructor.name + 'Available', this.translate.instant('MESSAGE.customer_order_list_active'));
-    this.loading.Start(this.constructor.name + 'Archive', this.translate.instant('MESSAGE.customer_order_list_close'));
-    this.loading.Start(this.constructor.name + 'Disable', this.translate.instant('MESSAGE.customer_order_list_disable'));
-    this.loading.Start(this.constructor.name + 'Pending', this.translate.instant('MESSAGE.customer_order_needs_approval'));
-    this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.service.ServiceGetCount(this.filteModelContent).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          this.rowExist = true;
-          this.widgetInfoModel.title = this.translate.instant('TITLE.Add_CustomerOrder');
-          this.widgetInfoModel.description = this.translate.instant('TITLE.Number_Registered_CustomerOrder') + ' : ' + ret.totalRowCount;
-          this.widgetInfoModel.link = '/estate/customer-order/add';
-        }
-        else {
-          this.widgetInfoModel.title = this.translate.instant('TITLE.Register_your_first_customer_order');
-          this.widgetInfoModel.link = '/estate/customer-order/add';
-        }
-        this.loading.Stop(this.constructor.name + 'All');
 
-      },
-      error: (er) => {
-        this.widgetInfoModel.title = this.translate.instant('TITLE.Add_new_properties');
-        this.widgetInfoModel.link = '/estate/customer-order/add';
-        this.loading.Stop(this.constructor.name + 'All');
-      }
-    }
-    );
-    /** Pending*/
-    const filterStatist2 = JSON.parse(JSON.stringify(this.filteModelContent));
-    let fastfilter1 = new FilterDataModel();
-    fastfilter1.propertyName = 'RecordStatus';
-    fastfilter1.value = RecordStatusEnum.Pending;
-    fastfilter1.searchType = FilterDataModelSearchTypesEnum.Equal;
-    filterStatist2.filters.push(fastfilter1);
-
-    this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.service.ServiceGetCount(filterStatist2).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          if (ret.totalRowCount > 0) {
-            this.modelData.set('Pending', ret.totalRowCount);
-          }
-          else {
-            this.modelData.delete('Pending');
-          }
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(this.constructor.name + 'Pending');
-
-      },
-      error: (er) => {
-        this.loading.Stop(this.constructor.name + 'Pending');
-      }
-    }
-    );
-    /** Available */
-    const filterStatist3 = JSON.parse(JSON.stringify(this.filteModelContent));
-    fastfilter1 = new FilterDataModel();
-    fastfilter1.propertyName = 'RecordStatus';
-    fastfilter1.value = RecordStatusEnum.Available;
-    fastfilter1.searchType = FilterDataModelSearchTypesEnum.Equal;
-    filterStatist3.filters.push(fastfilter1);
-
-    this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.service.ServiceGetCount(filterStatist3).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          if (ret.totalRowCount > 0) {
-            this.modelData.set('Available', ret.totalRowCount);
-          }
-          else {
-            this.modelData.delete('Available');
-          }
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(this.constructor.name + 'Available');
-
-      },
-      error: (er) => {
-        this.loading.Stop(this.constructor.name + 'Available');
-      }
-    }
-    );
-    /** Archive */
-    const filterStatist4 = JSON.parse(JSON.stringify(this.filteModelContent));
-    fastfilter1 = new FilterDataModel();
-    fastfilter1.propertyName = 'RecordStatus';
-    fastfilter1.value = RecordStatusEnum.Archive;
-    fastfilter1.searchType = FilterDataModelSearchTypesEnum.Equal;
-    filterStatist4.filters.push(fastfilter1);
-    this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.service.ServiceGetCount(filterStatist4).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          if (ret.totalRowCount > 0) {
-            this.modelData.set('Archive', ret.totalRowCount);
-          }
-          else {
-            this.modelData.delete('Archive');
-          }
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(this.constructor.name + 'Archive');
-
-      },
-      error: (er) => {
-        this.loading.Stop(this.constructor.name + 'Archive');
-      }
-    }
-    );
-    /** Disable */
-    const filterStatist5 = JSON.parse(JSON.stringify(this.filteModelContent));
-    fastfilter1 = new FilterDataModel();
-    fastfilter1.propertyName = 'RecordStatus';
-    fastfilter1.value = RecordStatusEnum.Disable;
-    fastfilter1.searchType = FilterDataModelSearchTypesEnum.Equal;
-    filterStatist5.filters.push(fastfilter1);
-    this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.service.ServiceGetCount(filterStatist5).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          if (ret.totalRowCount > 0) {
-            this.modelData.set('Disable', ret.totalRowCount);
-          }
-          else {
-            this.modelData.delete('Disable');
-          }
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(this.constructor.name + 'Disable');
-
-      },
-      error: (er) => {
-        this.loading.Stop(this.constructor.name + 'Disable');
-      }
-    }
-    );
-
-  }
   translateHelp(t: string, v: string): string {
     return t + v;
   }

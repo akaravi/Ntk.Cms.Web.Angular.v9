@@ -5,18 +5,35 @@ import { FilterDataModel, FilterModel, RecordStatusEnum, WebDesignerLogMemberInf
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+
 @Component({
   selector: 'app-webdesigner-logmemberinfo-widget',
   templateUrl: './widget.component.html',
+
 })
 export class WebDesignerLogMemberInfoWidgetComponent implements OnInit, OnDestroy {
+  @Input() cssClass = '';
+  @Input() widgetHeight = '200px';
+  @Input() baseColor = 'success';
+  @Input() iconColor = 'success';
+  textInverseCSSClass;
+  svgCSSClass;
+  constructor(
+    private service: WebDesignerLogMemberInfoService,
+    private cdr: ChangeDetectorRef,
+    private cmsToastrService: CmsToastrService,
+    private tokenHelper: TokenHelper,
+    public translate: TranslateService,
+  ) {
+    this.loading.cdr = this.cdr;
+    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+  }
   filteModelContent = new FilterModel();
-  modelData = new Map<string, number>();
+
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
-  indexTheme = ['symbol-light-success', 'symbol-light-warning', 'symbol-light-danger', 'symbol-light-info'];
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
   get optionLoading(): ProgressSpinnerModel {
     return this.loading;
@@ -24,37 +41,31 @@ export class WebDesignerLogMemberInfoWidgetComponent implements OnInit, OnDestro
   @Input() set optionLoading(value: ProgressSpinnerModel) {
     this.loading = value;
   }
-  constructor(
-    private service: WebDesignerLogMemberInfoService,
-    private cdr: ChangeDetectorRef,
-    private tokenHelper: TokenHelper,
-    private cmsToastrService: CmsToastrService,
-    public translate: TranslateService,
-  ) {
-    this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
-  }
-  ngOnInit(): void {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Your_users');
-    this.widgetInfoModel.description = this.translate.instant('TITLE.Users_loggedin_to_your_applications');
-    this.widgetInfoModel.link = '/application/memberinfo';
+  ngOnInit() {
+    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Member');
+    this.widgetInfoModel.description = '';
+    this.widgetInfoModel.link = '/application/content';
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
+      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Member');
       this.onActionStatist();
     });
+    this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
+    this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
+    this.svgCSSClass = `svg-icon--${this.iconColor}`;
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_member_of_application_statistics'));
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_member_of_application'));
-    this.modelData.set('Active', 0);
-    this.modelData.set('All', 1);
+    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_registered_members'));
+    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_all_registered_members'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('All', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, ret.totalRowCount, this.widgetInfoModel.link));
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -73,17 +84,19 @@ export class WebDesignerLogMemberInfoWidgetComponent implements OnInit, OnDestro
     this.service.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('Active', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, ret.totalRowCount, this.widgetInfoModel.link));
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(this.constructor.name + 'Active');
-      }
-      ,
+      },
       error: (er) => {
         this.loading.Stop(this.constructor.name + 'Active');
       }
     }
     );
+  }
+  translateHelp(t: string, v: string): string {
+    return t + v;
   }
 }

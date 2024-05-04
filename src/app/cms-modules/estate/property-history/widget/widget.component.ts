@@ -5,7 +5,7 @@ import { EstatePropertyHistoryService, FilterDataModel, FilterDataModelSearchTyp
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -65,14 +65,16 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     this.loading.Start(this.constructor.name + 'InChecking');
     this.loading.Start(this.constructor.name + 'Active');
     this.loading.Start(this.constructor.name + 'All');
-    this.modelData.set('InChecking', 0);
-    this.modelData.set('Active', 0);
-    this.modelData.set('All', 1);
+
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('InChecking', 2, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
+
     this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('All', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, ret.totalRowCount, this.widgetInfoModel.link));
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -93,7 +95,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     this.service.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.modelData.set('Active', ret.totalRowCount);
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, ret.totalRowCount, this.widgetInfoModel.link));
         }
         this.loading.Stop(this.constructor.name + 'Active');
       },
