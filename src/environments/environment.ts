@@ -11,7 +11,7 @@ export const environment = {
   appVersion: require('../../package.json').version,
   appName: require('../../package.json').name,
   authKey: 'authf649fc9a5f55',
-  loadDemoTheme: true,
+  loadDemoTheme: false,
   ProgressConsoleLog: false,
   leafletUrl: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
   mainTitle: 'سامانه مدیریتی محتوا',
