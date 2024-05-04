@@ -1,18 +1,16 @@
-
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BiographyContentService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
+import { ChartContentService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-biography-content-widget2',
-  templateUrl: './widget2.component.html',
-  
+  selector: 'app-chart-content-widget',
+  templateUrl: './widget.component.html',
 })
-export class BiographyContentWidget2Component implements OnInit, OnDestroy {
+export class ChartContentWidgetComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
   @Input() widgetHeight = '200px';
   @Input() baseColor = 'success';
@@ -20,7 +18,7 @@ export class BiographyContentWidget2Component implements OnInit, OnDestroy {
   textInverseCSSClass;
   svgCSSClass;
   constructor(
-    private service: BiographyContentService,
+    private service: ChartContentService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
@@ -41,12 +39,12 @@ export class BiographyContentWidget2Component implements OnInit, OnDestroy {
     this.loading = value;
   }
   ngOnInit() {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Biography');
+    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Chart');
     this.widgetInfoModel.description = '';
-    this.widgetInfoModel.link = '/biography/content';
+    this.widgetInfoModel.link = '/chart/content';
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Biography');
+      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Chart');
       this.onActionStatist();
     });
     this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
@@ -57,8 +55,8 @@ export class BiographyContentWidget2Component implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_biography_statistics'));
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_biography'));
+    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_chart_statistics'));
+    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_chart'));
     this.modelData.set('Active', 0);
     this.modelData.set('All', 1);
     this.service.ServiceGetCount(this.filteModelContent).subscribe({

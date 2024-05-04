@@ -9,12 +9,12 @@ import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-property-history-widget2',
-  templateUrl: './widget2.component.html',
+  selector: 'app-estate-property-history-widget',
+  templateUrl: './widget.component.html',
 
 })
 
-export class EstatePropertyHistoryWidget2Component implements OnInit, OnDestroy {
+export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
   @Input() widgetHeight = '200px';
   @Input() baseColor = 'success';

@@ -9,12 +9,12 @@ import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-blog-content-widget2',
-  templateUrl: './widget2.component.html',
-  
+  selector: 'app-blog-content-widget',
+  templateUrl: './widget.component.html',
+
 })
 
-export class BlogContentWidget2Component implements OnInit, OnDestroy {
+export class BlogContentWidgetComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
   @Input() widgetHeight = '200px';
   @Input() baseColor = 'success';

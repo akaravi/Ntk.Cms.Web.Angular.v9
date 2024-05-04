@@ -35,8 +35,8 @@
       </app-estate-property-widget>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['estate']">
-      <app-estate-property-history-widget2 [(optionLoading)]="loading">
-      </app-estate-property-history-widget2>
+      <app-estate-property-history-widget [(optionLoading)]="loading">
+      </app-estate-property-history-widget>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
       <app-coremodule-site-credit-widget-price [(optionLoading)]="loading" style="cursor: pointer;"
@@ -53,50 +53,50 @@
       </app-core-userclaimcontent-widget-status>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-      <app-ticketing-task-widget2 [(optionLoading)]="loading">
-      </app-ticketing-task-widget2>
+      <app-ticketing-task-widget [(optionLoading)]="loading">
+      </app-ticketing-task-widget>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-      <app-core-site-widget-count2 [(optionLoading)]="loading"></app-core-site-widget-count2>
+      <app-core-site-widget-count [(optionLoading)]="loading"></app-core-site-widget-count>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['application']">
-      <app-application-memberinfo-widget2 [(optionLoading)]="loading">
-      </app-application-memberinfo-widget2>
+      <app-application-memberinfo-widget [(optionLoading)]="loading">
+      </app-application-memberinfo-widget>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['core']">
-      <app-ReportAbuse-widget2 [(optionLoading)]="loading" *ngIf="this.tokenHelper.isAdminSite" [widgetHeight]="'200px'"
+      <app-ReportAbuse-widget [(optionLoading)]="loading" *ngIf="this.tokenHelper.isAdminSite" [widgetHeight]="'200px'"
         [baseColor]="'success'">
-      </app-ReportAbuse-widget2>
+      </app-ReportAbuse-widget>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['chart']">
-      <app-chart-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
-        [baseColor]="'primary'"></app-chart-content-widget2>
+      <app-chart-content-widget [(optionLoading)]="loading" [widgetHeight]="'200px'"
+        [baseColor]="'primary'"></app-chart-content-widget>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['article']">
-      <app-article-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
-        [iconColor]="'success'"></app-article-content-widget2>
+      <app-article-content-widget [(optionLoading)]="loading" [widgetHeight]="'200px'"
+        [iconColor]="'success'"></app-article-content-widget>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['blog']">
-      <app-blog-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
-        [baseColor]="'primary'"></app-blog-content-widget2>
+      <app-blog-content-widget [(optionLoading)]="loading" [widgetHeight]="'200px'"
+        [baseColor]="'primary'"></app-blog-content-widget>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['biography']">
-      <app-biography-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
-        [baseColor]="'primary'"></app-biography-content-widget2>
+      <app-biography-content-widget [(optionLoading)]="loading" [widgetHeight]="'200px'"
+        [baseColor]="'primary'"></app-biography-content-widget>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['news']">
-      <app-news-content-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'"
-        [iconColor]="'success'"></app-news-content-widget2>
+      <app-news-content-widget [(optionLoading)]="loading" [widgetHeight]="'200px'"
+        [iconColor]="'success'"></app-news-content-widget>
 
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['application']">
-      <app-application-app-widget2 [(optionLoading)]="loading" [widgetHeight]="'200px'" [baseColor]="'success'">
-      </app-application-app-widget2>
+      <app-application-app-widget [(optionLoading)]="loading" [widgetHeight]="'200px'" [baseColor]="'success'">
+      </app-application-app-widget>
 
     </div>
 

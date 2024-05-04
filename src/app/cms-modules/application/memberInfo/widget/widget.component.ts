@@ -1,18 +1,19 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ArticleContentService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
+import { ApplicationMemberInfoService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+
 @Component({
-  selector: 'app-article-content-widget2',
-  templateUrl: './widget2.component.html',
-  
+  selector: 'app-application-memberinfo-widget',
+  templateUrl: './widget.component.html',
+
 })
-export class ArticleContentWidget2Component implements OnInit, OnDestroy {
+export class ApplicationMemberInfoWidgetComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
   @Input() widgetHeight = '200px';
   @Input() baseColor = 'success';
@@ -20,9 +21,9 @@ export class ArticleContentWidget2Component implements OnInit, OnDestroy {
   textInverseCSSClass;
   svgCSSClass;
   constructor(
-    private service: ArticleContentService,
-    private cmsToastrService: CmsToastrService,
+    private service: ApplicationMemberInfoService,
     private cdr: ChangeDetectorRef,
+    private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -41,14 +42,12 @@ export class ArticleContentWidget2Component implements OnInit, OnDestroy {
     this.loading = value;
   }
   ngOnInit() {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Atricle');
+    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Member');
     this.widgetInfoModel.description = '';
-    this.widgetInfoModel.link = '/article/content';
-
+    this.widgetInfoModel.link = '/application/memberinfo';
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Atricle');
-
+      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Member');
       this.onActionStatist();
     });
     this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
@@ -59,8 +58,8 @@ export class ArticleContentWidget2Component implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_article_statistics'));
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_articles'));
+    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_registered_members'));
+    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_all_registered_members'));
     this.modelData.set('Active', 0);
     this.modelData.set('All', 1);
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
@@ -90,8 +89,7 @@ export class ArticleContentWidget2Component implements OnInit, OnDestroy {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(this.constructor.name + 'Active');
-      }
-      ,
+      },
       error: (er) => {
         this.loading.Stop(this.constructor.name + 'Active');
       }

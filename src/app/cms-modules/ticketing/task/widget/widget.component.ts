@@ -7,11 +7,11 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 @Component({
-  selector: 'app-ticketing-task-widget2',
-  templateUrl: './widget2.component.html',
+  selector: 'app-ticketing-task-widget',
+  templateUrl: './widget.component.html',
 
 })
-export class TicketingTaskWidget2Component implements OnInit, OnDestroy {
+export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
   @Input() widgetHeight = '200px';
   @Input() baseColor = 'success';

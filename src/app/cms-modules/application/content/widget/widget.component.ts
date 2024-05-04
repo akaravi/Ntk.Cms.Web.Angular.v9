@@ -1,20 +1,17 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { CoreSiteService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
+import { ApplicationAppService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
-import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-
 @Component({
-  selector: 'app-core-site-widget-count2',
-  templateUrl: './widget2.component.html',
+  selector: 'app-application-app-widget',
+  templateUrl: './widget.component.html',
 
 })
-
-export class CoreSiteWidgetCount2Component implements OnInit, OnDestroy {
+export class ApplicationAppWidgetComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
   @Input() widgetHeight = '200px';
   @Input() baseColor = 'success';
@@ -22,8 +19,7 @@ export class CoreSiteWidgetCount2Component implements OnInit, OnDestroy {
   textInverseCSSClass;
   svgCSSClass;
   constructor(
-    private service: CoreSiteService,
-    private cmsToastrService: CmsToastrService,
+    private service: ApplicationAppService,
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
@@ -43,46 +39,38 @@ export class CoreSiteWidgetCount2Component implements OnInit, OnDestroy {
     this.loading = value;
   }
   ngOnInit() {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_MemberSite');
+    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Application');
     this.widgetInfoModel.description = '';
-    this.widgetInfoModel.link = '/core/site';
-
+    this.widgetInfoModel.link = '/application/content';
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_MemberSite');
+      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Application');
       this.onActionStatist();
     });
-
     this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
     this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
     this.svgCSSClass = `svg-icon--${this.iconColor}`;
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
-
   }
-
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_member_sites'));
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_all_member_sites'));
+    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_application_statistics'));
+    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_applications'));
     this.modelData.set('Active', 0);
     this.modelData.set('All', 1);
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           this.modelData.set('All', ret.totalRowCount);
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(this.constructor.name + 'All');
-
       },
       error: (er) => {
         this.loading.Stop(this.constructor.name + 'All');
       }
     }
     );
-
     const filterStatist1 = JSON.parse(JSON.stringify(this.filteModelContent));
     const fastfilter = new FilterDataModel();
     fastfilter.propertyName = 'RecordStatus';
@@ -92,12 +80,10 @@ export class CoreSiteWidgetCount2Component implements OnInit, OnDestroy {
       next: (ret) => {
         if (ret.isSuccess) {
           this.modelData.set('Active', ret.totalRowCount);
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(this.constructor.name + 'Active');
-
-      },
+      }
+      ,
       error: (er) => {
         this.loading.Stop(this.constructor.name + 'Active');
       }

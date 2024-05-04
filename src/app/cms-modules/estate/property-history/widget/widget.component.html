@@ -5,6 +5,7 @@
     <div class="divider mb-3"></div>
 
     <div class="list-group list-custom-small list-menu ms-0 me-2">
+      <app-progress-spinner [options]="loading"> </app-progress-spinner>
       <a *ngIf="modelData?.has('InChecking')" routerLink="{{widgetInfoModel.link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
         <span>در حال بررسی</span>

@@ -1,17 +1,18 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FilterDataModel, FilterModel, NewsContentService, RecordStatusEnum } from 'ntk-cms-api';
+import { ArticleContentService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
+import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-news-content-widget2',
-  templateUrl: './widget2.component.html',
+  selector: 'app-article-content-widget',
+  templateUrl: './widget.component.html',
 
 })
-export class NewsContentWidget2Component implements OnInit, OnDestroy {
+export class ArticleContentWidgetComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
   @Input() widgetHeight = '200px';
   @Input() baseColor = 'success';
@@ -19,12 +20,14 @@ export class NewsContentWidget2Component implements OnInit, OnDestroy {
   textInverseCSSClass;
   svgCSSClass;
   constructor(
-    private service: NewsContentService,
+    private service: ArticleContentService,
+    private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr;
+    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }
   filteModelContent = new FilterModel();
   modelData = new Map<string, number>();
@@ -38,12 +41,14 @@ export class NewsContentWidget2Component implements OnInit, OnDestroy {
     this.loading = value;
   }
   ngOnInit() {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_news');
+    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Atricle');
     this.widgetInfoModel.description = '';
-    this.widgetInfoModel.link = '/news/content';
+    this.widgetInfoModel.link = '/article/content';
+
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_news');
+      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Atricle');
+
       this.onActionStatist();
     });
     this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
@@ -54,14 +59,16 @@ export class NewsContentWidget2Component implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_news_statistics'));
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_news'));
+    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_article_statistics'));
+    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_articles'));
     this.modelData.set('Active', 0);
     this.modelData.set('All', 1);
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           this.modelData.set('All', ret.totalRowCount);
+        } else {
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(this.constructor.name + 'All');
       },
@@ -79,6 +86,8 @@ export class NewsContentWidget2Component implements OnInit, OnDestroy {
       next: (ret) => {
         if (ret.isSuccess) {
           this.modelData.set('Active', ret.totalRowCount);
+        } else {
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(this.constructor.name + 'Active');
       }
