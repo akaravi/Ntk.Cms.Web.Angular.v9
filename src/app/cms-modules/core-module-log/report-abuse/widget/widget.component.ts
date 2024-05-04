@@ -11,12 +11,8 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
   templateUrl: './widget.component.html',
 })
 export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestroy {
-  @Input() cssClass = '';
-  @Input() widgetHeight = '200px';
-  @Input() baseColor = 'success';
-  @Input() iconColor = 'success';
-  textInverseCSSClass;
-  svgCSSClass;
+
+
   constructor(
     private service: CoreModuleLogReportAbuseService,
     private cdr: ChangeDetectorRef,
@@ -46,9 +42,7 @@ export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestro
       this.widgetInfoModel.title = this.translate.instant('TITLE.Report_Abuse');
       this.onActionStatist();
     });
-    this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
-    this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
-    this.svgCSSClass = `svg-icon--${this.iconColor}`;
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

@@ -1,52 +1,48 @@
-<div class="card card-custom card-stretch gutter-b">
-  <div class="ntk-cms-html-widget-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    <div class="card-header border-0 mt-4">
-      <h3 class="card-title align-items-start flex-column">
-        <span class="card-label font-weight-bolder text-dark">{{widgetInfoModel.title}}</span>
-        <span class="text-muted mt-3 font-weight-bold font-size-sm">{{widgetInfoModel.description}}</span>
-      </h3>
-      <div class="card-toolbar">
-        <div *ngIf="widgetInfoModel.link && widgetInfoModel.link.length>0">
-          <a routerLink="{{widgetInfoModel.link}}" routerLinkActive="active" ngbDropdownToggle
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <i class="ki ki-bold-more-hor"></i>
-          </a>
-          <div ngbDropdownMenu class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-          </div>
-        </div>
+<div class="content mb-0 mt-3">
+  <div class="row mb-0">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
+      <div class="card card-style mx-0 mb-2 p-3">
+        <h6 class="font-14">نام کاربری</h6>
+        <h3 class="color-green-dark mb-0">{{dataModel.username}}</h3>
       </div>
     </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-widget-body">
-    <app-progress-spinner [options]="loading"> </app-progress-spinner>
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <div class="card-body pt-8">
-      <!--begin::Item-->
-      <div *ngFor="let item of modelData| keyvalue ; index as i" class="d-flex align-items-center mb-10">
-        <!--begin::Symbol-->
-        <div class="symbol symbol-40 {{indexTheme[i]}} mr-5">
-          <span class="symbol-label">
-
-          </span>
-        </div>
-        <!--end::Symbol-->
-
-        <!--begin::Text-->
-        <div class="d-flex flex-column font-weight-bold">
-          <a class="text-dark-75 text-hover-primary mb-1 font-size-lg cursor-pointer">{{item.key}}</a>
-          <span class="text-muted">{{item.value}}</span>
-        </div>
-        <!--end::Text-->
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
+      <div class="card card-style mx-0 mb-2 p-3">
+        <h6 class="font-14">نام</h6>
+        <h3 class="color-red-dark mb-0">{{dataModel.name}} {{dataModel.lastName}}</h3>
       </div>
-      <!--end::Item-->
     </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  </div>
-  <div class="ntk-cms-html-widget-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
+      <div class="card card-style mx-0 mb-2 p-3">
+        <h6 class="font-14">ایمیل</h6>
+        <h3 class="color-red-dark mb-0">{{dataModel.email}}</h3>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
+      <div class="card card-style mx-0 mb-2 p-3">
+        <h6 class="font-14">موبایل</h6>
+        <h3 class="color-red-dark mb-0">{{dataModel.mobile}}</h3>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4"
+      *ngIf="dataModel.email?.length>0 &&!dataModel.emailConfirmed">
+      <div class="card card-style mx-0 mb-2 p-3">
+        <h6 class="font-14">نیاز به تایید ایمیل</h6>
+        <h3 class="color-red-dark mb-0">برای تایید کلیک کنید</h3>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4"
+      *ngIf="dataModel.mobile?.length>0 &&!dataModel.mobileConfirmed">
+      <div class="card card-style mx-0 mb-2 p-3">
+        <h6 class="font-14">نیاز به تایید شماره همراه</h6>
+        <h3 class="color-red-dark mb-0">برای تایید کلیک کنید</h3>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4" *ngIf="dataModel.expireDate">
+      <div class="card card-style mx-0 mb-2 p-3">
+        <h6 class="font-14">انقضا حساب کاربری</h6>
+        <h3 class="color-blue-dark mb-0">{{dataModel.expireDate|persianDate}}</h3>
+      </div>
+    </div>
   </div>
 </div>

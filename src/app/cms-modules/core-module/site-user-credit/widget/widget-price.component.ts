@@ -25,12 +25,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./widget-price.component.scss']
 })
 export class CoreModuleSiteUserCreditWidgetPriceComponent implements OnInit, OnDestroy {
-  @Input() cssClass = '';
-  @Input() widgetHeight = 'auto';
-  @Input() baseColor = 'success';
-  @Input() iconColor = 'success';
-  textInverseCSSClass;
-  svgCSSClass;
+
+
   constructor(
     private service: CoreModuleSiteUserCreditService,
     private cmsToastrService: CmsToastrService,
@@ -73,9 +69,7 @@ export class CoreModuleSiteUserCreditWidgetPriceComponent implements OnInit, OnD
       this.DataGetAll();
       // this.onActionStatist();
     });
-    this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
-    this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
-    this.svgCSSClass = `svg-icon--${this.iconColor}`;
+
 
     this.getModuleList();
   }

@@ -20,15 +20,11 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-core-userclaimcontent-widget-status',
   templateUrl: './widget-status.component.html',
- 
+
 })
 export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDestroy {
-  @Input() cssClass = '';
-  @Input() widgetHeight = 'auto';
-  @Input() baseColor = 'success';
-  @Input() iconColor = 'success';
-  textInverseCSSClass;
-  svgCSSClass;
+
+
   constructor(
     private service: CoreUserClaimContentService,
     private cmsToastrService: CmsToastrService,
@@ -65,9 +61,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
       this.onActionStatist();
     });
 
-    this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
-    this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
-    this.svgCSSClass = `svg-icon--${this.iconColor}`;
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -126,9 +120,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
         if (ret.isSuccess) {
           this.dataModelResult = ret;
           if (this.dataModelResult.listItems.find(x => x.recordStatus !== RecordStatusEnum.Pending && !x.isApproved)) {
-            this.baseColor = 'warnning';
-            this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
-            this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
+        
           }
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);

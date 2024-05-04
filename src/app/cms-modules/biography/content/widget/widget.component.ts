@@ -13,12 +13,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 })
 export class BiographyContentWidgetComponent implements OnInit, OnDestroy {
-  @Input() cssClass = '';
-  @Input() widgetHeight = '200px';
-  @Input() baseColor = 'success';
-  @Input() iconColor = 'success';
-  textInverseCSSClass;
-  svgCSSClass;
+
+
   constructor(
     private service: BiographyContentService,
     private cmsToastrService: CmsToastrService,
@@ -49,9 +45,7 @@ export class BiographyContentWidgetComponent implements OnInit, OnDestroy {
       this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Biography');
       this.onActionStatist();
     });
-    this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
-    this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
-    this.svgCSSClass = `svg-icon--${this.iconColor}`;
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

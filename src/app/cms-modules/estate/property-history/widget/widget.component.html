@@ -6,19 +6,21 @@
 
     <div class="list-group list-custom-small list-menu ms-0 me-2">
       <app-progress-spinner [options]="loading"> </app-progress-spinner>
-      <a *ngIf="modelData?.has('InChecking')" routerLink="{{widgetInfoModel.link}}" class="menu-active">
+      <a *ngIf="widgetInfoModel?.items?.has('InChecking')"
+        routerLink="{{widgetInfoModel?.items?.get('InChecking').link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
         <span>در حال بررسی</span>
         <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("InChecking")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
-      <a routerLink="{{widgetInfoModel.link}}" class="menu-active">
+      <a *ngIf="widgetInfoModel?.items?.has('Available')" routerLink="{{widgetInfoModel?.items?.get('Available').link}}"
+        class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
         <span>فعال</span>
-        <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("Active")?.count}}</span>
+        <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("Available")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
-      <a routerLink="{{widgetInfoModel.link}}">
+      <a routerLink="{{widgetInfoModel?.items?.get('All').link}}">
         <i class="fa fa-heart gradient-green color-white"></i>
         <span>همه</span>
         <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("All")?.count}}</span>

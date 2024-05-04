@@ -12,12 +12,8 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
 
 })
 export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
-  @Input() cssClass = '';
-  @Input() widgetHeight = '200px';
-  @Input() baseColor = 'success';
-  @Input() iconColor = 'success';
-  textInverseCSSClass;
-  svgCSSClass;
+
+
   constructor(
     private service: TicketingTaskService,
     private cdr: ChangeDetectorRef,
@@ -27,7 +23,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }
   filteModelContent = new FilterModel();
-  // modelData = new WidgetContentInfoModel[];
+  
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
@@ -46,9 +42,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
       this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_tickets');
       this.onActionStatist();
     });
-    this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
-    this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
-    this.svgCSSClass = `svg-icon--${this.iconColor}`;
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

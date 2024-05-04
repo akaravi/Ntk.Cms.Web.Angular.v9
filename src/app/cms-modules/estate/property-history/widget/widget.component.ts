@@ -15,12 +15,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 
 export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
-  @Input() cssClass = '';
-  @Input() widgetHeight = '200px';
-  @Input() baseColor = 'success';
-  @Input() iconColor = 'success';
-  textInverseCSSClass;
-  svgCSSClass;
+
+
   constructor(
     private service: EstatePropertyHistoryService,
     private cmsToastrService: CmsToastrService,
@@ -32,7 +28,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }
   filteModelContent = new FilterModel();
-  modelData = new Map<string, number>();
+
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
@@ -52,9 +48,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
       this.onActionStatist();
     });
 
-    this.cssClass = `bg-${this.baseColor} ${this.cssClass}`;
-    this.textInverseCSSClass = `text-inverse-${this.baseColor}`;
-    this.svgCSSClass = `svg-icon--${this.iconColor}`;
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -63,18 +57,18 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
 
   onActionStatist(): void {
     this.loading.Start(this.constructor.name + 'InChecking');
-    this.loading.Start(this.constructor.name + 'Active');
+    this.loading.Start(this.constructor.name + 'Available');
     this.loading.Start(this.constructor.name + 'All');
 
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('InChecking', 2, 0, ''));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, 0, ''));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('InChecking', 0, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 1, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 2, 0, ''));
 
     this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, ret.totalRowCount, this.widgetInfoModel.link));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 2, ret.totalRowCount, this.widgetInfoModel.link));
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -95,12 +89,12 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     this.service.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, ret.totalRowCount, this.widgetInfoModel.link));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 1, ret.totalRowCount, this.widgetInfoModel.link));
         }
-        this.loading.Stop(this.constructor.name + 'Active');
+        this.loading.Stop(this.constructor.name + 'Available');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'Active');
+        this.loading.Stop(this.constructor.name + 'Available');
       }
     }
     );
@@ -115,11 +109,10 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
       next: (ret) => {
         if (ret.isSuccess) {
           if (ret.totalRowCount > 0) {
-            this.modelData.set('InChecking', ret.totalRowCount);
-            this.widgetInfoModel.link = '/estate/property-history/InChecking/true';
+            this.widgetInfoModel.setItem(new WidgetContentInfoModel('InChecking', 0, ret.totalRowCount, '/estate/property-history/InChecking/true'));
           }
           else {
-            this.modelData.delete('InChecking');
+
             this.widgetInfoModel.link = '/estate/property-history';
           }
         } else {
