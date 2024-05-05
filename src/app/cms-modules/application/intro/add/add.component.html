@@ -2,16 +2,14 @@
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
-      حساب کاربری خود را ویرایش کنید
+      {{ formInfo.formTitle }}
     </p><app-cms-html-notice [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
       <h4> {{'TITLE.Add_help' | translate}}</h4>
       {{'TITLE.In_this_section_you_can_create_a_new_guide' | translate}}
     </app-cms-html-notice>
     <br>
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-      {{ formInfo.formTitle }}
-      <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
       <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
         <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
@@ -126,7 +124,7 @@
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
     </form>
     <h4>اطلاعات</h4>
-    <h4>اطلاعات اولیه</h4>
+    
     <p>
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
