@@ -64,16 +64,13 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<BankPaymentTransactionLogModel> = new ErrorExceptionResult<BankPaymentTransactionLogModel>();
 
 
 
 
 
   categoryModelSelected: ApplicationAppModel;
-  tableRowsSelected: Array<BankPaymentTransactionLogModel> = [];
-  tableRowSelected: BankPaymentTransactionLogModel = new BankPaymentTransactionLogModel();
-  tableSource: MatTableDataSource<BankPaymentTransactionLogModel> = new MatTableDataSource<BankPaymentTransactionLogModel>();
+
   dataModelEnumTransactionRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

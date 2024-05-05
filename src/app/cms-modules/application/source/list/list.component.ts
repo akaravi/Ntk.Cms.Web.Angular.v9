@@ -66,15 +66,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<ApplicationSourceModel> = new ErrorExceptionResult<ApplicationSourceModel>();
 
-
-
-
-
-  tableRowsSelected: Array<ApplicationSourceModel> = [];
-  tableRowSelected: ApplicationSourceModel = new ApplicationSourceModel();
-  tableSource: MatTableDataSource<ApplicationSourceModel> = new MatTableDataSource<ApplicationSourceModel>();
 
 
   tabledisplayedColumns: string[] = [];

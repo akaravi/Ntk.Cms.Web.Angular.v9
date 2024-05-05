@@ -61,16 +61,11 @@ implements OnInit, OnDestroy {
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: DataProviderPlanCategoryModel;
-  dataModelResult: ErrorExceptionResult<DataProviderPlanClientModel> = new ErrorExceptionResult<DataProviderPlanClientModel>();
 
 
 
 
 
-
-  tableRowsSelected: Array<DataProviderPlanClientModel> = [];
-  tableRowSelected: DataProviderPlanClientModel = new DataProviderPlanClientModel();
-  tableSource: MatTableDataSource<DataProviderPlanClientModel> = new MatTableDataSource<DataProviderPlanClientModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

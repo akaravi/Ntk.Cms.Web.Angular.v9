@@ -62,15 +62,11 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<TicketingDepartemenLogModel> = new ErrorExceptionResult<TicketingDepartemenLogModel>();
 
 
 
 
 
-  tableRowsSelected: Array<TicketingDepartemenLogModel> = [];
-  tableRowSelected: TicketingDepartemenLogModel = new TicketingDepartemenLogModel();
-  tableSource: MatTableDataSource<TicketingDepartemenLogModel> = new MatTableDataSource<TicketingDepartemenLogModel>();
   categoryModelSelected: ApplicationSourceModel;
 
   tabledisplayedColumns: string[] = [];

@@ -60,15 +60,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<TicketingDepartemenModel> = new ErrorExceptionResult<TicketingDepartemenModel>();
 
-
-
-
-
-  tableRowsSelected: Array<TicketingDepartemenModel> = [];
-  tableRowSelected: TicketingDepartemenModel = new TicketingDepartemenModel();
-  tableSource: MatTableDataSource<TicketingDepartemenModel> = new MatTableDataSource<TicketingDepartemenModel>();
 
 
   tabledisplayedColumns: string[] = [];

@@ -57,16 +57,7 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
 
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<DonateLogViewModel> = new ErrorExceptionResult<DonateLogViewModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<DonateLogViewModel> = [];
-  tableRowSelected: DonateLogViewModel = new DonateLogViewModel();
-  tableSource: MatTableDataSource<DonateLogViewModel> = new MatTableDataSource<DonateLogViewModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

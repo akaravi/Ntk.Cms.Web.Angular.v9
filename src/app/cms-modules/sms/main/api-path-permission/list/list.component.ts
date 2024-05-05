@@ -60,15 +60,7 @@ export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<Sms
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsMainApiPathPermissionModel> = new ErrorExceptionResult<SmsMainApiPathPermissionModel>();
 
-
-
-
-
-  tableRowsSelected: Array<SmsMainApiPathPermissionModel> = [];
-  tableRowSelected: SmsMainApiPathPermissionModel = new SmsMainApiPathPermissionModel();
-  tableSource: MatTableDataSource<SmsMainApiPathPermissionModel> = new MatTableDataSource<SmsMainApiPathPermissionModel>();
 
   categoryModelSelected: SmsMainApiPathModel;
 

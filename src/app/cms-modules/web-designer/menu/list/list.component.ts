@@ -57,15 +57,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<WebDesignerMainMenuModel> = new ErrorExceptionResult<WebDesignerMainMenuModel>();
 
-
-
-
-
-  tableRowsSelected: Array<WebDesignerMainMenuModel> = [];
-  tableRowSelected: WebDesignerMainMenuModel = new WebDesignerMainMenuModel();
-  tableSource: MatTableDataSource<WebDesignerMainMenuModel> = new MatTableDataSource<WebDesignerMainMenuModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Icon',

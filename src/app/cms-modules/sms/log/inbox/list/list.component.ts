@@ -65,20 +65,11 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsLogInBoxModel> = new ErrorExceptionResult<SmsLogInBoxModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
 
   categoryModelSelected: SmsMainApiPathModel;
 
-
-
-
-
-
-  tableRowsSelected: Array<SmsLogInBoxModel> = [];
-  tableRowSelected: SmsLogInBoxModel = new SmsLogInBoxModel();
-  tableSource: MatTableDataSource<SmsLogInBoxModel> = new MatTableDataSource<SmsLogInBoxModel>();
 
 
 

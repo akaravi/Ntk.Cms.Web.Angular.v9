@@ -62,16 +62,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: DonateTargetCategoryModel;
-  dataModelResult: ErrorExceptionResult<DonateSponsorModel> = new ErrorExceptionResult<DonateSponsorModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<DonateSponsorModel> = [];
-  tableRowSelected: DonateSponsorModel = new DonateSponsorModel();
-  tableSource: MatTableDataSource<DonateSponsorModel> = new MatTableDataSource<DonateSponsorModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

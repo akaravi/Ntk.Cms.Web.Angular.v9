@@ -59,15 +59,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreCpMainMenuModel> = new ErrorExceptionResult<CoreCpMainMenuModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreCpMainMenuModel> = [];
-  tableRowSelected: CoreCpMainMenuModel = new CoreCpMainMenuModel();
-  tableSource: MatTableDataSource<CoreCpMainMenuModel> = new MatTableDataSource<CoreCpMainMenuModel>();
 
 
   tabledisplayedColumns: string[] = [];

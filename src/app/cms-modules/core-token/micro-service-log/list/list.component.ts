@@ -86,16 +86,6 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreTokenMicroServiceLogModel> = new ErrorExceptionResult<CoreTokenMicroServiceLogModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreTokenMicroServiceLogModel> = [];
-  tableRowSelected: CoreTokenMicroServiceLogModel = new CoreTokenMicroServiceLogModel();
-  tableSource: MatTableDataSource<CoreTokenMicroServiceLogModel> = new MatTableDataSource<CoreTokenMicroServiceLogModel>();
-
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

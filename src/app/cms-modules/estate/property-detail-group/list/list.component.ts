@@ -60,17 +60,9 @@ export class EstatePropertyDetailGroupListComponent extends ListBaseComponent<Es
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertyDetailGroupModel> = new ErrorExceptionResult<EstatePropertyDetailGroupModel>();
   dataModelEstatePropertyTypeLanduseResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> =
     new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstatePropertyDetailGroupModel> = [];
-  tableRowSelected: EstatePropertyDetailGroupModel = new EstatePropertyDetailGroupModel();
-  tableSource: MatTableDataSource<EstatePropertyDetailGroupModel> = new MatTableDataSource<EstatePropertyDetailGroupModel>();
 
 
   tabledisplayedColumns: string[] = [];

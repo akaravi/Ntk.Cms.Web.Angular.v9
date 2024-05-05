@@ -64,15 +64,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<HyperShopContentModel> = new ErrorExceptionResult<HyperShopContentModel>();
 
-
-
-
-
-  tableRowsSelected: Array<HyperShopContentModel> = [];
-  tableRowSelected: HyperShopContentModel = new HyperShopContentModel();
-  tableSource: MatTableDataSource<HyperShopContentModel> = new MatTableDataSource<HyperShopContentModel>();
   categoryModelSelected: HyperShopCategoryModel;
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

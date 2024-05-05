@@ -79,15 +79,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreSiteModel> = new ErrorExceptionResult<CoreSiteModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreSiteModel> = [];
-  tableRowSelected: CoreSiteModel = new CoreSiteModel();
-  tableSource: MatTableDataSource<CoreSiteModel> = new MatTableDataSource<CoreSiteModel>();
 
 
 

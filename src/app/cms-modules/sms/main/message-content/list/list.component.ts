@@ -67,16 +67,8 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent< SmsMa
   }
   filteModelContent = new FilterModel();
 
-  dataModelResult: ErrorExceptionResult<SmsMainMessageContentModel> = new ErrorExceptionResult<SmsMainMessageContentModel>();
   categoryModelSelected: SmsMainMessageCategoryModel = new SmsMainMessageCategoryModel();
 
-
-
-
-
-  tableRowsSelected: Array<SmsMainMessageContentModel> = [];
-  tableRowSelected: SmsMainMessageContentModel = new SmsMainMessageContentModel();
-  tableSource: MatTableDataSource<SmsMainMessageContentModel> = new MatTableDataSource<SmsMainMessageContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

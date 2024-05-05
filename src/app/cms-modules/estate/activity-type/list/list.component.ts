@@ -59,15 +59,7 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateActivityTypeModel> = new ErrorExceptionResult<EstateActivityTypeModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstateActivityTypeModel> = [];
-  tableRowSelected: EstateActivityTypeModel = new EstateActivityTypeModel();
-  tableSource: MatTableDataSource<EstateActivityTypeModel> = new MatTableDataSource<EstateActivityTypeModel>();
 
 
   tabledisplayedColumns: string[] = [];

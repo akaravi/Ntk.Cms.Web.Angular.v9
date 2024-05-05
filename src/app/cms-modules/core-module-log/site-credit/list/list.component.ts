@@ -88,17 +88,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleLogSiteCreditModel> = new ErrorExceptionResult<CoreModuleLogSiteCreditModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreModuleLogSiteCreditModel> = [];
-  tableRowSelected: CoreModuleLogSiteCreditModel = new CoreModuleLogSiteCreditModel();
-  tableSource: MatTableDataSource<CoreModuleLogSiteCreditModel> = new MatTableDataSource<CoreModuleLogSiteCreditModel>();
-
-
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

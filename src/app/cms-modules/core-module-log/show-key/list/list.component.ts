@@ -73,15 +73,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleLogShowKeyModel> = new ErrorExceptionResult<CoreModuleLogShowKeyModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleLogShowKeyModel> = [];
-  tableRowSelected: CoreModuleLogShowKeyModel = new CoreModuleLogShowKeyModel();
-  tableSource: MatTableDataSource<CoreModuleLogShowKeyModel> = new MatTableDataSource<CoreModuleLogShowKeyModel>();
 
 
   tabledisplayedColumns: string[] = [];

@@ -64,16 +64,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: DonateTargetCategoryModel;
-  dataModelResult: ErrorExceptionResult<DonateTargetModel> = new ErrorExceptionResult<DonateTargetModel>();
-
-
-
-
-
-
-  tableRowsSelected: Array<DonateTargetModel> = [];
-  tableRowSelected: DonateTargetModel = new DonateTargetModel();
-  tableSource: MatTableDataSource<DonateTargetModel> = new MatTableDataSource<DonateTargetModel>();
+  
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

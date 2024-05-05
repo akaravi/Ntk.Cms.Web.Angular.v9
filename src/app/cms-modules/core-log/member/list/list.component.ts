@@ -89,15 +89,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreLogMemberModel> = new ErrorExceptionResult<CoreLogMemberModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreLogMemberModel> = [];
-  tableRowSelected: CoreLogMemberModel = new CoreLogMemberModel();
-  tableSource: MatTableDataSource<CoreLogMemberModel> = new MatTableDataSource<CoreLogMemberModel>();
+ 
 
 
   tabledisplayedColumns: string[] = [];

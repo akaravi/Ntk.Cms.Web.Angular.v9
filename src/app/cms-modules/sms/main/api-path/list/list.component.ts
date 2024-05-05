@@ -64,7 +64,6 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
   dataModelCompanyResult: ErrorExceptionResult<SmsMainApiPathCompanyModel> = new ErrorExceptionResult<SmsMainApiPathCompanyModel>();
   dataModelPublicResult: ErrorExceptionResult<SmsMainApiPathPublicConfigModel> = new ErrorExceptionResult<SmsMainApiPathPublicConfigModel>();
@@ -73,12 +72,6 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
 
 
 
-
-
-
-  tableRowsSelected: Array<SmsMainApiPathModel> = [];
-  tableRowSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
-  tableSource: MatTableDataSource<SmsMainApiPathModel> = new MatTableDataSource<SmsMainApiPathModel>();
 
 
 

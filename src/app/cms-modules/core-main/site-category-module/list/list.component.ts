@@ -78,16 +78,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreSiteCategoryCmsModuleModel> = new ErrorExceptionResult<CoreSiteCategoryCmsModuleModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreSiteCategoryCmsModuleModel> = [];
-  tableRowSelected: CoreSiteCategoryCmsModuleModel = new CoreSiteCategoryCmsModuleModel();
-  tableSource: MatTableDataSource<CoreSiteCategoryCmsModuleModel> = new MatTableDataSource<CoreSiteCategoryCmsModuleModel>();
-
+ 
 
 
   tabledisplayedColumns: string[] = [];

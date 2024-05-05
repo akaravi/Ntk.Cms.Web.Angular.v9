@@ -89,15 +89,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleLogFavoriteModel> = new ErrorExceptionResult<CoreModuleLogFavoriteModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleLogFavoriteModel> = [];
-  tableRowSelected: CoreModuleLogFavoriteModel = new CoreModuleLogFavoriteModel();
-  tableSource: MatTableDataSource<CoreModuleLogFavoriteModel> = new MatTableDataSource<CoreModuleLogFavoriteModel>();
 
 
   tabledisplayedColumns: string[] = [];

@@ -86,16 +86,7 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateCustomerOrderResultModel> = new ErrorExceptionResult<EstateCustomerOrderResultModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<EstateCustomerOrderResultModel> = [];
-  tableRowSelected: EstateCustomerOrderResultModel = new EstateCustomerOrderResultModel();
-  tableSource: MatTableDataSource<EstateCustomerOrderResultModel> = new MatTableDataSource<EstateCustomerOrderResultModel>();
 
 
 

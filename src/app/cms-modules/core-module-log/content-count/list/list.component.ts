@@ -89,15 +89,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleLogContentCountModel> = new ErrorExceptionResult<CoreModuleLogContentCountModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreModuleLogContentCountModel> = [];
-  tableRowSelected: CoreModuleLogContentCountModel = new CoreModuleLogContentCountModel();
-  tableSource: MatTableDataSource<CoreModuleLogContentCountModel> = new MatTableDataSource<CoreModuleLogContentCountModel>();
+ 
 
 
   tabledisplayedColumns: string[] = [];

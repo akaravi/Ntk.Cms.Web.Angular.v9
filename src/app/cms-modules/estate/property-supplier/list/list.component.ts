@@ -67,16 +67,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
   link: string;
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertySupplierModel> = new ErrorExceptionResult<EstatePropertySupplierModel>();
-
-
-
-
-
-
-  tableRowsSelected: Array<EstatePropertySupplierModel> = [];
-  tableRowSelected: EstatePropertySupplierModel = new EstatePropertySupplierModel();
-  tableSource: MatTableDataSource<EstatePropertySupplierModel> = new MatTableDataSource<EstatePropertySupplierModel>();
+  
   categoryModelSelected: EstatePropertySupplierCategoryModel;
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

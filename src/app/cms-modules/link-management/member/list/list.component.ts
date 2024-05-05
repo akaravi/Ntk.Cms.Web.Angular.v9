@@ -60,16 +60,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
 
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<LinkManagementMemberModel> = new ErrorExceptionResult<LinkManagementMemberModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<LinkManagementMemberModel> = [];
-  tableRowSelected: LinkManagementMemberModel = new LinkManagementMemberModel();
-  tableSource: MatTableDataSource<LinkManagementMemberModel> = new MatTableDataSource<LinkManagementMemberModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
 

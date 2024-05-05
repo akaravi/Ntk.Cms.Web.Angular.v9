@@ -68,10 +68,7 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsLogOutBoxDetailModel> = new ErrorExceptionResult<SmsLogOutBoxDetailModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
-  // dataModelCompanyResult: ErrorExceptionResult<SmsMainApiPathCompanyModel> = new ErrorExceptionResult<SmsMainApiPathCompanyModel>();
-  // dataModelPublicResult: ErrorExceptionResult<SmsMainApiPathPublicConfigModel> = new ErrorExceptionResult<SmsMainApiPathPublicConfigModel>();
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   categoryModelSelected: SmsMainApiPathModel;
 
@@ -80,9 +77,6 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
 
 
 
-  tableRowsSelected: Array<SmsLogOutBoxDetailModel> = [];
-  tableRowSelected: SmsLogOutBoxDetailModel = new SmsLogOutBoxDetailModel();
-  tableSource: MatTableDataSource<SmsLogOutBoxDetailModel> = new MatTableDataSource<SmsLogOutBoxDetailModel>();
 
 
 

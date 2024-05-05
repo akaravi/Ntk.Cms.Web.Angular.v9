@@ -87,16 +87,6 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreTokenUserBadLoginModel> = new ErrorExceptionResult<CoreTokenUserBadLoginModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreTokenUserBadLoginModel> = [];
-  tableRowSelected: CoreTokenUserBadLoginModel = new CoreTokenUserBadLoginModel();
-  tableSource: MatTableDataSource<CoreTokenUserBadLoginModel> = new MatTableDataSource<CoreTokenUserBadLoginModel>();
-
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

@@ -68,16 +68,11 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
   }
   filteModelContent = new FilterModel();
 
-  dataModelResult: ErrorExceptionResult<ContactContentModel> = new ErrorExceptionResult<ContactContentModel>();
   categoryModelSelected: ContactCategoryModel = new ContactCategoryModel();
 
 
 
 
-
-  tableRowsSelected: Array<ContactContentModel> = [];
-  tableRowSelected: ContactContentModel = new ContactContentModel();
-  tableSource: MatTableDataSource<ContactContentModel> = new MatTableDataSource<ContactContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

@@ -69,15 +69,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<TicketingTaskModel> = new ErrorExceptionResult<TicketingTaskModel>();
 
-
-
-
-
-  tableRowsSelected: Array<TicketingTaskModel> = [];
-  tableRowSelected: TicketingTaskModel = new TicketingTaskModel();
-  tableSource: MatTableDataSource<TicketingTaskModel> = new MatTableDataSource<TicketingTaskModel>();
   categoryModelSelected: TicketingDepartemenModel;
   dataModelEnumTicketStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   tabledisplayedColumns: string[] = [];

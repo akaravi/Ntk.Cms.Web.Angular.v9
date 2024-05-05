@@ -64,17 +64,11 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreUserClaimGroupModel> = new ErrorExceptionResult<CoreUserClaimGroupModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   dataModelCoreSiteCategoryResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
 
 
 
-
-
-  tableRowsSelected: Array<CoreUserClaimGroupModel> = [];
-  tableRowSelected: CoreUserClaimGroupModel = new CoreUserClaimGroupModel();
-  tableSource: MatTableDataSource<CoreUserClaimGroupModel> = new MatTableDataSource<CoreUserClaimGroupModel>();
 
 
 

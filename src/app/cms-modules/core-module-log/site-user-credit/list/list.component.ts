@@ -89,16 +89,6 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleLogSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleLogSiteUserCreditModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreModuleLogSiteUserCreditModel> = [];
-  tableRowSelected: CoreModuleLogSiteUserCreditModel = new CoreModuleLogSiteUserCreditModel();
-  tableSource: MatTableDataSource<CoreModuleLogSiteUserCreditModel> = new MatTableDataSource<CoreModuleLogSiteUserCreditModel>();
-
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

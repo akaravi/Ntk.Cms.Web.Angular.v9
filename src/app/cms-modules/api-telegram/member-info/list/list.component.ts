@@ -65,10 +65,6 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
 
 
 
-  tableRowsSelected: Array<ApiTelegramMemberInfoModel> = [];
-  tableRowSelected: ApiTelegramMemberInfoModel = new ApiTelegramMemberInfoModel();
-  tableSource: MatTableDataSource<ApiTelegramMemberInfoModel> = new MatTableDataSource<ApiTelegramMemberInfoModel>();
-
 
 
   tabledisplayedColumns: string[] = [];

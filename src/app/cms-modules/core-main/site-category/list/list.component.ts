@@ -60,16 +60,6 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreSiteCategoryModel> = [];
-  tableRowSelected: CoreSiteCategoryModel = new CoreSiteCategoryModel();
-  tableSource: MatTableDataSource<CoreSiteCategoryModel> = new MatTableDataSource<CoreSiteCategoryModel>();
-
 
 
   tabledisplayedColumns: string[] = [];

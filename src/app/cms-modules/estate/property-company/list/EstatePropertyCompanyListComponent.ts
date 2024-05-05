@@ -56,16 +56,13 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
     link: string;
 
     filteModelContent = new FilterModel();
-    dataModelResult: ErrorExceptionResult<EstatePropertyCompanyModel> = new ErrorExceptionResult<EstatePropertyCompanyModel>();
 
     optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
     optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
 
     tokenInfo = new TokenInfoModel();
     loading = new ProgressSpinnerModel();
-    tableRowsSelected: Array<EstatePropertyCompanyModel> = [];
-    tableRowSelected: EstatePropertyCompanyModel = new EstatePropertyCompanyModel();
-    tableSource: MatTableDataSource<EstatePropertyCompanyModel> = new MatTableDataSource<EstatePropertyCompanyModel>();
+
     categoryModelSelected: EstatePropertyCompanyModel;
     tabledisplayedColumns: string[] = [];
     tabledisplayedColumnsSource: string[] = [

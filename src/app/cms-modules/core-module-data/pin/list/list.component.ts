@@ -73,15 +73,7 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleDataPinModel> = new ErrorExceptionResult<CoreModuleDataPinModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleDataPinModel> = [];
-  tableRowSelected: CoreModuleDataPinModel = new CoreModuleDataPinModel();
-  tableSource: MatTableDataSource<CoreModuleDataPinModel> = new MatTableDataSource<CoreModuleDataPinModel>();
 
 
   tabledisplayedColumns: string[] = [];

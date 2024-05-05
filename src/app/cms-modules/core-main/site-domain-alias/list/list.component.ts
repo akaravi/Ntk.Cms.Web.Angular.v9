@@ -71,15 +71,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreSiteDomainAliasModel> = new ErrorExceptionResult<CoreSiteDomainAliasModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreSiteDomainAliasModel> = [];
-  tableRowSelected: CoreSiteDomainAliasModel = new CoreSiteDomainAliasModel();
-  tableSource: MatTableDataSource<CoreSiteDomainAliasModel> = new MatTableDataSource<CoreSiteDomainAliasModel>();
 
 
   tabledisplayedColumns: string[] = [];

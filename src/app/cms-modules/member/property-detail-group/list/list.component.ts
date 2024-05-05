@@ -60,17 +60,12 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<MemberPropertyDetailGroupModel> = new ErrorExceptionResult<MemberPropertyDetailGroupModel>();
   dataModelMemberPropertyTypeResult: ErrorExceptionResult<MemberPropertyTypeModel> =
     new ErrorExceptionResult<MemberPropertyTypeModel>();
 
 
 
 
-
-  tableRowsSelected: Array<MemberPropertyDetailGroupModel> = [];
-  tableRowSelected: MemberPropertyDetailGroupModel = new MemberPropertyDetailGroupModel();
-  tableSource: MatTableDataSource<MemberPropertyDetailGroupModel> = new MatTableDataSource<MemberPropertyDetailGroupModel>();
 
 
   tabledisplayedColumns: string[] = [];

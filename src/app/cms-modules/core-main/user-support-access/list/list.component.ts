@@ -85,15 +85,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreUserSupportAccessModel> = new ErrorExceptionResult<CoreUserSupportAccessModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreUserSupportAccessModel> = [];
-  tableRowSelected: CoreUserSupportAccessModel = new CoreUserSupportAccessModel();
-  tableSource: MatTableDataSource<CoreUserSupportAccessModel> = new MatTableDataSource<CoreUserSupportAccessModel>();
 
 
 

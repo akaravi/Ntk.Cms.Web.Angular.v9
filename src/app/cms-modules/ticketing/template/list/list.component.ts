@@ -63,15 +63,7 @@ export class TicketingTemplateListComponent extends ListBaseComponent<TicketingT
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<TicketingTemplateModel> = new ErrorExceptionResult<TicketingTemplateModel>();
 
-
-
-
-
-  tableRowsSelected: Array<TicketingTemplateModel> = [];
-  tableRowSelected: TicketingTemplateModel = new TicketingTemplateModel();
-  tableSource: MatTableDataSource<TicketingTemplateModel> = new MatTableDataSource<TicketingTemplateModel>();
   categoryModelSelected: TicketingDepartemenModel;
 
   tabledisplayedColumns: string[] = [];

@@ -60,15 +60,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstateContractTypeModel> = [];
-  tableRowSelected: EstateContractTypeModel = new EstateContractTypeModel();
-  tableSource: MatTableDataSource<EstateContractTypeModel> = new MatTableDataSource<EstateContractTypeModel>();
 
 
   tabledisplayedColumns: string[] = [];

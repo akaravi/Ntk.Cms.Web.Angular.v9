@@ -62,16 +62,8 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: DataProviderPlanModel;
-  dataModelResult: ErrorExceptionResult<DataProviderSourceModel> = new ErrorExceptionResult<DataProviderSourceModel>();
   link: string;
 
-
-
-
-
-  tableRowsSelected: Array<DataProviderSourceModel> = [];
-  tableRowSelected: DataProviderSourceModel = new DataProviderSourceModel();
-  tableSource: MatTableDataSource<DataProviderSourceModel> = new MatTableDataSource<DataProviderSourceModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

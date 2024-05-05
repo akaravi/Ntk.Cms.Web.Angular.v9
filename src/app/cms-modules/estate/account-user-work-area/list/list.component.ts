@@ -57,15 +57,7 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateAccountUserWorkAreaModel> = new ErrorExceptionResult<EstateAccountUserWorkAreaModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstateAccountUserWorkAreaModel> = [];
-  tableRowSelected: EstateAccountUserWorkAreaModel = new EstateAccountUserWorkAreaModel();
-  tableSource: MatTableDataSource<EstateAccountUserWorkAreaModel> = new MatTableDataSource<EstateAccountUserWorkAreaModel>();
 
 
   tabledisplayedColumns: string[] = [];

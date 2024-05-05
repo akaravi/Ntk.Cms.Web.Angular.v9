@@ -66,16 +66,14 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<ApplicationIntroModel> = new ErrorExceptionResult<ApplicationIntroModel>();
+
 
 
 
 
 
   categoryModelSelected: ApplicationAppModel;
-  tableRowsSelected: Array<ApplicationIntroModel> = [];
-  tableRowSelected: ApplicationIntroModel = new ApplicationIntroModel();
-  tableSource: MatTableDataSource<ApplicationIntroModel> = new MatTableDataSource<ApplicationIntroModel>();
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

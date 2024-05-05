@@ -79,16 +79,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
   }
   link: string;
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<LinkManagementTargetBillboardLogModel> = new ErrorExceptionResult<LinkManagementTargetBillboardLogModel>();
-
-
-
-
-
-
-  tableRowsSelected: Array<LinkManagementTargetBillboardLogModel> = [];
-  tableRowSelected: LinkManagementTargetBillboardLogModel = new LinkManagementTargetBillboardLogModel();
-  tableSource: MatTableDataSource<LinkManagementTargetBillboardLogModel> = new MatTableDataSource<LinkManagementTargetBillboardLogModel>();
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

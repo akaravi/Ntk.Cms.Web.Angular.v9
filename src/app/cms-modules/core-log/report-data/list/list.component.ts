@@ -98,15 +98,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreLogReportDataModel> = new ErrorExceptionResult<CoreLogReportDataModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreLogReportDataModel> = [];
-  tableRowSelected: CoreLogReportDataModel = new CoreLogReportDataModel();
-  tableSource: MatTableDataSource<CoreLogReportDataModel> = new MatTableDataSource<CoreLogReportDataModel>();
 
 
   tabledisplayedColumns: string[] = [];

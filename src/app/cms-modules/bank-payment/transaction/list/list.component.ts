@@ -69,16 +69,13 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<BankPaymentTransactionModel> = new ErrorExceptionResult<BankPaymentTransactionModel>();
 
 
 
 
 
   categoryModelSelected: ApplicationAppModel;
-  tableRowsSelected: Array<BankPaymentTransactionModel> = [];
-  tableRowSelected: BankPaymentTransactionModel = new BankPaymentTransactionModel();
-  tableSource: MatTableDataSource<BankPaymentTransactionModel> = new MatTableDataSource<BankPaymentTransactionModel>();
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

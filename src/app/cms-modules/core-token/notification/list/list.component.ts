@@ -87,17 +87,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreTokenNotificationModel> = new ErrorExceptionResult<CoreTokenNotificationModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreTokenNotificationModel> = [];
-  tableRowSelected: CoreTokenNotificationModel = new CoreTokenNotificationModel();
-  tableSource: MatTableDataSource<CoreTokenNotificationModel> = new MatTableDataSource<CoreTokenNotificationModel>();
-
-
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

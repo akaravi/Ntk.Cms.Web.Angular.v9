@@ -67,16 +67,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: CatalogCategoryModel;
-  dataModelResult: ErrorExceptionResult<CatalogContentModel> = new ErrorExceptionResult<CatalogContentModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<CatalogContentModel> = [];
-  tableRowSelected: CatalogContentModel = new CatalogContentModel();
-  tableSource: MatTableDataSource<CatalogContentModel> = new MatTableDataSource<CatalogContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

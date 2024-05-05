@@ -71,15 +71,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreLogCurrencyModel> = new ErrorExceptionResult<CoreLogCurrencyModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreLogCurrencyModel> = [];
-  tableRowSelected: CoreLogCurrencyModel = new CoreLogCurrencyModel();
-  tableSource: MatTableDataSource<CoreLogCurrencyModel> = new MatTableDataSource<CoreLogCurrencyModel>();
 
 
   tabledisplayedColumns: string[] = [];

@@ -73,15 +73,7 @@ export class CoreModuleDataCommentListComponent extends ListBaseComponent<CoreMo
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleDataCommentModel> = new ErrorExceptionResult<CoreModuleDataCommentModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleDataCommentModel> = [];
-  tableRowSelected: CoreModuleDataCommentModel = new CoreModuleDataCommentModel();
-  tableSource: MatTableDataSource<CoreModuleDataCommentModel> = new MatTableDataSource<CoreModuleDataCommentModel>();
 
 
   tabledisplayedColumns: string[] = [];

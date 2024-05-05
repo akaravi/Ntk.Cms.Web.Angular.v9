@@ -69,7 +69,6 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<MemberPropertyDetailModel> = new ErrorExceptionResult<MemberPropertyDetailModel>();
   dataModelMemberPropertyTypeResult: ErrorExceptionResult<MemberPropertyTypeModel>
     = new ErrorExceptionResult<MemberPropertyTypeModel>();
   dataModelMemberPropertyDetailGroupResult: ErrorExceptionResult<MemberPropertyDetailGroupModel>
@@ -77,11 +76,6 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
 
 
 
-
-
-  tableRowsSelected: Array<MemberPropertyDetailModel> = [];
-  tableRowSelected: MemberPropertyDetailModel = new MemberPropertyDetailModel();
-  tableSource: MatTableDataSource<MemberPropertyDetailModel> = new MatTableDataSource<MemberPropertyDetailModel>();
   categoryModelSelected: MemberPropertyDetailGroupModel;
 
   tabledisplayedColumns: string[] = [];

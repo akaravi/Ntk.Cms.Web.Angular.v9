@@ -67,15 +67,7 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<PollingVoteModel> = new ErrorExceptionResult<PollingVoteModel>();
 
-
-
-
-
-  tableRowsSelected: Array<PollingVoteModel> = [];
-  tableRowSelected: PollingVoteModel = new PollingVoteModel();
-  tableSource: MatTableDataSource<PollingVoteModel> = new MatTableDataSource<PollingVoteModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

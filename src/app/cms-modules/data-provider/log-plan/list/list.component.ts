@@ -59,16 +59,7 @@ export class DataProviderLogPlanListComponent extends ListBaseComponent<DataProv
 
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<DataProviderLogPlanModel> = new ErrorExceptionResult<DataProviderLogPlanModel>();
 
-  
-  
-
-  
-  
-  tableRowsSelected: Array<DataProviderLogPlanModel> = [];
-  tableRowSelected: DataProviderLogPlanModel = new DataProviderLogPlanModel();
-  tableSource: MatTableDataSource<DataProviderLogPlanModel> = new MatTableDataSource<DataProviderLogPlanModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

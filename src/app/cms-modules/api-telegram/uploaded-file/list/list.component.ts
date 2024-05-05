@@ -65,12 +65,6 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
 
 
 
-  tableRowsSelected: Array<ApiTelegramUploadedFileModel> = [];
-  tableRowSelected: ApiTelegramUploadedFileModel = new ApiTelegramUploadedFileModel();
-  tableSource: MatTableDataSource<ApiTelegramUploadedFileModel> = new MatTableDataSource<ApiTelegramUploadedFileModel>();
-
-
-
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

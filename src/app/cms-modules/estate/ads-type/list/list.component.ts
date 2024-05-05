@@ -63,15 +63,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateAdsTypeModel> = new ErrorExceptionResult<EstateAdsTypeModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstateAdsTypeModel> = [];
-  tableRowSelected: EstateAdsTypeModel = new EstateAdsTypeModel();
-  tableSource: MatTableDataSource<EstateAdsTypeModel> = new MatTableDataSource<EstateAdsTypeModel>();
 
 
   tabledisplayedColumns: string[] = [];

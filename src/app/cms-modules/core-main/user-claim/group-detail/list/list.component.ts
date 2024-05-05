@@ -80,15 +80,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreUserClaimGroupDetailModel> = new ErrorExceptionResult<CoreUserClaimGroupDetailModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreUserClaimGroupDetailModel> = [];
-  tableRowSelected: CoreUserClaimGroupDetailModel = new CoreUserClaimGroupDetailModel();
-  tableSource: MatTableDataSource<CoreUserClaimGroupDetailModel> = new MatTableDataSource<CoreUserClaimGroupDetailModel>();
+ 
 
   categoryModelSelected: CoreUserClaimGroupModel = new CoreUserClaimGroupModel();
   dataModelCoreUserClaimTypeResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();

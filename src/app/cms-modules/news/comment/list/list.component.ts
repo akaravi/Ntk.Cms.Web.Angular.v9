@@ -77,15 +77,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
   searchInCheckingChecked = false;
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<NewsCommentModel> = new ErrorExceptionResult<NewsCommentModel>();
 
-
-
-
-
-  tableRowsSelected: Array<NewsCommentModel> = [];
-  tableRowSelected: NewsCommentModel = new NewsCommentModel();
-  tableSource: MatTableDataSource<NewsCommentModel> = new MatTableDataSource<NewsCommentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

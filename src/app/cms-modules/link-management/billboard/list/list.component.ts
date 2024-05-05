@@ -66,16 +66,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
   filteModelContent = new LinkManagementBillboardFilterModel();
   categoryModelSelected: LinkManagementCategoryModel;
   categoryPatternModelSelected: LinkManagementBillboardPatternModel;
-  dataModelResult: ErrorExceptionResult<LinkManagementBillboardModel> = new ErrorExceptionResult<LinkManagementBillboardModel>();
-
-
-
-
-
-
-  tableRowsSelected: Array<LinkManagementBillboardModel> = [];
-  tableRowSelected: LinkManagementBillboardModel = new LinkManagementBillboardModel();
-  tableSource: MatTableDataSource<LinkManagementBillboardModel> = new MatTableDataSource<LinkManagementBillboardModel>();
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

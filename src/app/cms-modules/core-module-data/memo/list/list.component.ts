@@ -73,15 +73,7 @@ export class CoreModuleDataMemoListComponent extends ListBaseComponent<CoreModul
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleDataMemoModel> = new ErrorExceptionResult<CoreModuleDataMemoModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreModuleDataMemoModel> = [];
-  tableRowSelected: CoreModuleDataMemoModel = new CoreModuleDataMemoModel();
-  tableSource: MatTableDataSource<CoreModuleDataMemoModel> = new MatTableDataSource<CoreModuleDataMemoModel>();
+  
 
 
   tabledisplayedColumns: string[] = [];

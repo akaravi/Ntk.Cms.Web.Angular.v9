@@ -61,16 +61,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsMainApiNumberModel> = new ErrorExceptionResult<SmsMainApiNumberModel>();
-
-
-
-
-
-  tableRowsSelected: Array<SmsMainApiNumberModel> = [];
-  tableRowSelected: SmsMainApiNumberModel = new SmsMainApiNumberModel();
-  tableSource: MatTableDataSource<SmsMainApiNumberModel> = new MatTableDataSource<SmsMainApiNumberModel>();
-
+ 
   categoryModelSelected: SmsMainApiPathModel;
 
   tabledisplayedColumns: string[] = [];

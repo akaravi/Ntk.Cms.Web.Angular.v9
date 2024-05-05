@@ -76,15 +76,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreUserModel> = new ErrorExceptionResult<CoreUserModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreUserModel> = [];
-  tableRowSelected: CoreUserModel = new CoreUserModel();
-  tableSource: MatTableDataSource<CoreUserModel> = new MatTableDataSource<CoreUserModel>();
 
 
   tabledisplayedColumns: string[] = [];

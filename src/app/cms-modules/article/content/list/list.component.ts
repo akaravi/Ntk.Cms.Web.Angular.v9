@@ -61,16 +61,12 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
 
   filteModelContent = new FilterModel();
   categoryModelSelected: ArticleCategoryModel;
-  dataModelResult: ErrorExceptionResult<ArticleContentModel> = new ErrorExceptionResult<ArticleContentModel>();
 
 
 
 
 
 
-  tableRowsSelected: Array<ArticleContentModel> = [];
-  tableRowSelected: ArticleContentModel = new ArticleContentModel();
-  tableSource: MatTableDataSource<ArticleContentModel> = new MatTableDataSource<ArticleContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

@@ -89,15 +89,7 @@ export class CoreModuleLogReportAbuseListComponent extends ListBaseComponent<Cor
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleLogReportAbuseModel> = new ErrorExceptionResult<CoreModuleLogReportAbuseModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleLogReportAbuseModel> = [];
-  tableRowSelected: CoreModuleLogReportAbuseModel = new CoreModuleLogReportAbuseModel();
-  tableSource: MatTableDataSource<CoreModuleLogReportAbuseModel> = new MatTableDataSource<CoreModuleLogReportAbuseModel>();
 
 
   tabledisplayedColumns: string[] = [];

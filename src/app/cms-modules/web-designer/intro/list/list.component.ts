@@ -59,15 +59,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<WebDesignerMainIntroModel> = new ErrorExceptionResult<WebDesignerMainIntroModel>();
-
-
-
-
-
-  tableRowsSelected: Array<WebDesignerMainIntroModel> = [];
-  tableRowSelected: WebDesignerMainIntroModel = new WebDesignerMainIntroModel();
-  tableSource: MatTableDataSource<WebDesignerMainIntroModel> = new MatTableDataSource<WebDesignerMainIntroModel>();
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

@@ -60,16 +60,7 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
 
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<DonateTransactionModel> = new ErrorExceptionResult<DonateTransactionModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<DonateTransactionModel> = [];
-  tableRowSelected: DonateTransactionModel = new DonateTransactionModel();
-  tableSource: MatTableDataSource<DonateTransactionModel> = new MatTableDataSource<DonateTransactionModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

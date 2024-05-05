@@ -60,16 +60,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<LinkManagementAccountingModel> = new ErrorExceptionResult<LinkManagementAccountingModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<LinkManagementAccountingModel> = [];
-  tableRowSelected: LinkManagementAccountingModel = new LinkManagementAccountingModel();
-  tableSource: MatTableDataSource<LinkManagementAccountingModel> = new MatTableDataSource<LinkManagementAccountingModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

@@ -199,18 +199,14 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
   filteModelContent = new FilterModel();
   formInfo: FormInfoModel = new FormInfoModel();
 
-  dataModelResult: ErrorExceptionResult<EstatePropertyModel> =
-    new ErrorExceptionResult<EstatePropertyModel>();
+
   optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
   optionsStatist: ComponentOptionStatistModel =
     new ComponentOptionStatistModel();
 
   tokenInfo = new TokenInfoModel();
   loading = new ProgressSpinnerModel();
-  tableRowsSelected: Array<EstatePropertyModel> = [];
-  tableRowSelected: EstatePropertyModel = new EstatePropertyModel();
-  tableSource: MatTableDataSource<EstatePropertyModel> =
-    new MatTableDataSource<EstatePropertyModel>();
+
   categoryModelSelected: EstatePropertyTypeLanduseModel;
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

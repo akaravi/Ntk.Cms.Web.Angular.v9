@@ -57,16 +57,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: FileCategoryModel;
-  dataModelResult: ErrorExceptionResult<FileContentModel> = new ErrorExceptionResult<FileContentModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<FileContentModel> = [];
-  tableRowSelected: FileContentModel = new FileContentModel();
-  tableSource: MatTableDataSource<FileContentModel> = new MatTableDataSource<FileContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

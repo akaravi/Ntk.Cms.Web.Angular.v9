@@ -78,14 +78,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
   searchInCheckingChecked = false;
   requestContentId = 0;
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<ChartCommentModel> = new ErrorExceptionResult<ChartCommentModel>();
 
-
-
-
-  tableRowsSelected: Array<ChartCommentModel> = [];
-  tableRowSelected: ChartCommentModel = new ChartCommentModel();
-  tableSource: MatTableDataSource<ChartCommentModel> = new MatTableDataSource<ChartCommentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

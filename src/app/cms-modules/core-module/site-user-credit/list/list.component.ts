@@ -61,16 +61,11 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
   }
   filteModelContent = new FilterModel();
 
-  dataModelResult: ErrorExceptionResult<CoreModuleSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleSiteUserCreditModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
 
 
 
 
-
-  tableRowsSelected: Array<CoreModuleSiteUserCreditModel> = [];
-  tableRowSelected: CoreModuleSiteUserCreditModel = new CoreModuleSiteUserCreditModel();
-  tableSource: MatTableDataSource<CoreModuleSiteUserCreditModel> = new MatTableDataSource<CoreModuleSiteUserCreditModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'RecordStatus',

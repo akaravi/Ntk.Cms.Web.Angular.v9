@@ -84,16 +84,12 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   flag = false;
   tableContentSelected = [];
   filteModelContent = new EstateCustomerOrderFilterModel();
-  dataModelResult: ErrorExceptionResult<EstateCustomerOrderModel> = new ErrorExceptionResult<EstateCustomerOrderModel>();
   
   
   dataModelPropertyDetailGroups: EstatePropertyDetailGroupModel[] = [];
   enumInputDataType = InputDataTypeEnum;
   
-  
-  tableRowsSelected: Array<EstateCustomerOrderModel> = [];
-  tableRowSelected: EstateCustomerOrderModel = new EstateCustomerOrderModel();
-  tableSource: MatTableDataSource<EstateCustomerOrderModel> = new MatTableDataSource<EstateCustomerOrderModel>();
+ 
   tabledisplayedColumns: string[] = [];
   categoryModelSelected: EstateCustomerOrderModel;
   step = 0;

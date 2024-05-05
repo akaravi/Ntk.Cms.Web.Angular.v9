@@ -58,15 +58,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstatePropertyTypeLanduseModel> = [];
-  tableRowSelected: EstatePropertyTypeLanduseModel = new EstatePropertyTypeLanduseModel();
-  tableSource: MatTableDataSource<EstatePropertyTypeLanduseModel> = new MatTableDataSource<EstatePropertyTypeLanduseModel>();
 
 
   tabledisplayedColumns: string[] = [];

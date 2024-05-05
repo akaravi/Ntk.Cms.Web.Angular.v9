@@ -66,16 +66,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: BlogCategoryModel;
-  dataModelResult: ErrorExceptionResult<BlogContentModel> = new ErrorExceptionResult<BlogContentModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<BlogContentModel> = [];
-  tableRowSelected: BlogContentModel = new BlogContentModel();
-  tableSource: MatTableDataSource<BlogContentModel> = new MatTableDataSource<BlogContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

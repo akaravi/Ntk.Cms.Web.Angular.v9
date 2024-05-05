@@ -60,15 +60,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreUserGroupModel> = new ErrorExceptionResult<CoreUserGroupModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreUserGroupModel> = [];
-  tableRowSelected: CoreUserGroupModel = new CoreUserGroupModel();
-  tableSource: MatTableDataSource<CoreUserGroupModel> = new MatTableDataSource<CoreUserGroupModel>();
 
 
 

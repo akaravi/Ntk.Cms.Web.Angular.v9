@@ -61,15 +61,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<WebDesignerLogMemberInfoModel> = new ErrorExceptionResult<WebDesignerLogMemberInfoModel>();
-
-
-
-
-
-  tableRowsSelected: Array<WebDesignerLogMemberInfoModel> = [];
-  tableRowSelected: WebDesignerLogMemberInfoModel = new WebDesignerLogMemberInfoModel();
-  tableSource: MatTableDataSource<WebDesignerLogMemberInfoModel> = new MatTableDataSource<WebDesignerLogMemberInfoModel>();
+  
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

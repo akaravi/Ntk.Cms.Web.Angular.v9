@@ -59,15 +59,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: BiographyCategoryModel;
-  dataModelResult: ErrorExceptionResult<BiographyContentModel> = new ErrorExceptionResult<BiographyContentModel>();
 
-
-
-
-
-  tableRowsSelected: Array<BiographyContentModel> = [];
-  tableRowSelected: BiographyContentModel = new BiographyContentModel();
-  tableSource: MatTableDataSource<BiographyContentModel> = new MatTableDataSource<BiographyContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

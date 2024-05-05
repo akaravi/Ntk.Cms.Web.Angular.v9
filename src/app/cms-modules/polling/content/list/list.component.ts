@@ -59,16 +59,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: PollingCategoryModel;
-  dataModelResult: ErrorExceptionResult<PollingContentModel> = new ErrorExceptionResult<PollingContentModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<PollingContentModel> = [];
-  tableRowSelected: PollingContentModel = new PollingContentModel();
-  tableSource: MatTableDataSource<PollingContentModel> = new MatTableDataSource<PollingContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

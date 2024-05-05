@@ -69,16 +69,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
   filteModelContent = new LinkManagementTargetFilterModel();
   categoryModelSelected: LinkManagementCategoryModel;
   categoryPatternModelSelected: LinkManagementBillboardPatternModel;
-  dataModelResult: ErrorExceptionResult<LinkManagementTargetModel> = new ErrorExceptionResult<LinkManagementTargetModel>();
-
-
-
-
-
-
-  tableRowsSelected: Array<LinkManagementTargetModel> = [];
-  tableRowSelected: LinkManagementTargetModel = new LinkManagementTargetModel();
-  tableSource: MatTableDataSource<LinkManagementTargetModel> = new MatTableDataSource<LinkManagementTargetModel>();
+  
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

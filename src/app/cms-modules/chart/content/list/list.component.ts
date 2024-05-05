@@ -62,16 +62,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: ChartCategoryModel;
-  dataModelResult: ErrorExceptionResult<ChartContentModel> = new ErrorExceptionResult<ChartContentModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<ChartContentModel> = [];
-  tableRowSelected: ChartContentModel = new ChartContentModel();
-  tableSource: MatTableDataSource<ChartContentModel> = new MatTableDataSource<ChartContentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

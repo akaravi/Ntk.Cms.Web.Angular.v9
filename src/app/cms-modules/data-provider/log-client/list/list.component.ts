@@ -57,16 +57,7 @@ implements OnInit, OnDestroy {
 
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<DataProviderLogClientModel> = new ErrorExceptionResult<DataProviderLogClientModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<DataProviderLogClientModel> = [];
-  tableRowSelected: DataProviderLogClientModel = new DataProviderLogClientModel();
-  tableSource: MatTableDataSource<DataProviderLogClientModel> = new MatTableDataSource<DataProviderLogClientModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

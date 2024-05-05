@@ -205,7 +205,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   searchInResponsibleChecked = false;
   filteModelContent = new EstatePropertyFilterModel();
   dataModelPropertyDetailGroups: EstatePropertyDetailGroupModel[] = [];
-  tableSource: MatTableDataSource<EstatePropertyModel> =    new MatTableDataSource<EstatePropertyModel>();
+  
   categoryModelSelected: EstatePropertyTypeLanduseModel;
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

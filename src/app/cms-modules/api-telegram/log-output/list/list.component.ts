@@ -67,12 +67,6 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
 
 
 
-  tableRowsSelected: Array<ApiTelegramLogOutputModel> = [];
-  tableRowSelected: ApiTelegramLogOutputModel = new ApiTelegramLogOutputModel();
-  tableSource: MatTableDataSource<ApiTelegramLogOutputModel> = new MatTableDataSource<ApiTelegramLogOutputModel>();
-
-
-
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

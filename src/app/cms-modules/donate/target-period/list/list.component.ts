@@ -64,16 +64,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: DonateTargetCategoryModel;
-  dataModelResult: ErrorExceptionResult<DonateTargetPeriodModel> = new ErrorExceptionResult<DonateTargetPeriodModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<DonateTargetPeriodModel> = [];
-  tableRowSelected: DonateTargetPeriodModel = new DonateTargetPeriodModel();
-  tableSource: MatTableDataSource<DonateTargetPeriodModel> = new MatTableDataSource<DonateTargetPeriodModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

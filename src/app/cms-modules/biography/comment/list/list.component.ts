@@ -78,15 +78,7 @@ implements OnInit, OnDestroy {
   searchInCheckingChecked = false;
   requestContentId = 0;
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<BiographyCommentModel> = new ErrorExceptionResult<BiographyCommentModel>();
-
-
-
-
-
-  tableRowsSelected: Array<BiographyCommentModel> = [];
-  tableRowSelected: BiographyCommentModel = new BiographyCommentModel();
-  tableSource: MatTableDataSource<BiographyCommentModel> = new MatTableDataSource<BiographyCommentModel>();
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

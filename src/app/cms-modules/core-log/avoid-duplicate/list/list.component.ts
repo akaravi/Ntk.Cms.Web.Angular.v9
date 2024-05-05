@@ -68,15 +68,7 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreLogAvoidDuplicateDataEntryModel> = new ErrorExceptionResult<CoreLogAvoidDuplicateDataEntryModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreLogAvoidDuplicateDataEntryModel> = [];
-  tableRowSelected: CoreLogAvoidDuplicateDataEntryModel = new CoreLogAvoidDuplicateDataEntryModel();
-  tableSource: MatTableDataSource<CoreLogAvoidDuplicateDataEntryModel> = new MatTableDataSource<CoreLogAvoidDuplicateDataEntryModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

@@ -72,15 +72,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleEntityReportFileModel> = new ErrorExceptionResult<CoreModuleEntityReportFileModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleEntityReportFileModel> = [];
-  tableRowSelected: CoreModuleEntityReportFileModel = new CoreModuleEntityReportFileModel();
-  tableSource: MatTableDataSource<CoreModuleEntityReportFileModel> = new MatTableDataSource<CoreModuleEntityReportFileModel>();
 
   dataModelCoreModuleEntityResult: ErrorExceptionResult<CoreModuleEntityModel> = new ErrorExceptionResult<CoreModuleEntityModel>();
   dataModelEnumReportFileTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

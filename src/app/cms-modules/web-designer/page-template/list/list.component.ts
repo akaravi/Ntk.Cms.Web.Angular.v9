@@ -53,15 +53,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<WebDesignerMainPageTemplateModel> = new ErrorExceptionResult<WebDesignerMainPageTemplateModel>();
 
-
-
-
-
-  tableRowsSelected: Array<WebDesignerMainPageTemplateModel> = [];
-  tableRowSelected: WebDesignerMainPageTemplateModel = new WebDesignerMainPageTemplateModel();
-  tableSource: MatTableDataSource<WebDesignerMainPageTemplateModel> = new MatTableDataSource<WebDesignerMainPageTemplateModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

@@ -61,16 +61,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
 
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<DataProviderTransactionModel> = new ErrorExceptionResult<DataProviderTransactionModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<DataProviderTransactionModel> = [];
-  tableRowSelected: DataProviderTransactionModel = new DataProviderTransactionModel();
-  tableSource: MatTableDataSource<DataProviderTransactionModel> = new MatTableDataSource<DataProviderTransactionModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

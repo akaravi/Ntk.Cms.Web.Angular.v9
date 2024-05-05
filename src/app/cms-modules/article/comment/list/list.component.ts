@@ -78,15 +78,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
   searchInCheckingChecked = false;
   requestContentId = 0;
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<ArticleCommentModel> = new ErrorExceptionResult<ArticleCommentModel>();
 
-
-
-
-
-  tableRowsSelected: Array<ArticleCommentModel> = [];
-  tableRowSelected: ArticleCommentModel = new ArticleCommentModel();
-  tableSource: MatTableDataSource<ArticleCommentModel> = new MatTableDataSource<ArticleCommentModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

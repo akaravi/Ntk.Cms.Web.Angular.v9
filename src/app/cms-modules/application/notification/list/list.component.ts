@@ -68,16 +68,13 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<ApplicationLogNotificationModel> = new ErrorExceptionResult<ApplicationLogNotificationModel>();
 
 
 
 
 
   categoryModelSelected: ApplicationAppModel;
-  tableRowsSelected: Array<ApplicationLogNotificationModel> = [];
-  tableRowSelected: ApplicationLogNotificationModel = new ApplicationLogNotificationModel();
-  tableSource: MatTableDataSource<ApplicationLogNotificationModel> = new MatTableDataSource<ApplicationLogNotificationModel>();
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

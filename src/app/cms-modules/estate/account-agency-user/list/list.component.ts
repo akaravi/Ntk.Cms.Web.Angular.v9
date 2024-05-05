@@ -57,15 +57,7 @@ export class EstateAccountAgencyUserListComponent extends ListBaseComponent<Esta
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateAccountAgencyUserModel> = new ErrorExceptionResult<EstateAccountAgencyUserModel>();
-
-
-
-
-
-  tableRowsSelected: Array<EstateAccountAgencyUserModel> = [];
-  tableRowSelected: EstateAccountAgencyUserModel = new EstateAccountAgencyUserModel();
-  tableSource: MatTableDataSource<EstateAccountAgencyUserModel> = new MatTableDataSource<EstateAccountAgencyUserModel>();
+ 
 
 
   tabledisplayedColumns: string[] = [];

@@ -61,16 +61,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: CoreModuleTagCategoryModel;
-  dataModelResult: ErrorExceptionResult<CoreModuleTagModel> = new ErrorExceptionResult<CoreModuleTagModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<CoreModuleTagModel> = [];
-  tableRowSelected: CoreModuleTagModel = new CoreModuleTagModel();
-  tableSource: MatTableDataSource<CoreModuleTagModel> = new MatTableDataSource<CoreModuleTagModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

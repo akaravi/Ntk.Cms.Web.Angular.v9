@@ -68,16 +68,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
     }
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<LinkManagementAccountingDetailModel> = new ErrorExceptionResult<LinkManagementAccountingDetailModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<LinkManagementAccountingDetailModel> = [];
-  tableRowSelected: LinkManagementAccountingDetailModel = new LinkManagementAccountingDetailModel();
-  tableSource: MatTableDataSource<LinkManagementAccountingDetailModel> = new MatTableDataSource<LinkManagementAccountingDetailModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

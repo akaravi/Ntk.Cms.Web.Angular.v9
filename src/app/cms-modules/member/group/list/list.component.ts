@@ -57,16 +57,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     this.filteModelContent.sortType = SortTypeEnum.Descending;
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<MemberGroupModel> = new ErrorExceptionResult<MemberGroupModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<MemberGroupModel> = [];
-  tableRowSelected: MemberGroupModel = new MemberGroupModel();
-  tableSource: MatTableDataSource<MemberGroupModel> = new MatTableDataSource<MemberGroupModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

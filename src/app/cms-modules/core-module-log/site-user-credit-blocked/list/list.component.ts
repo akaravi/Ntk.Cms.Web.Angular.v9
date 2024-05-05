@@ -89,15 +89,6 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleLogSiteUserCreditBlockedModel> = new ErrorExceptionResult<CoreModuleLogSiteUserCreditBlockedModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreModuleLogSiteUserCreditBlockedModel> = [];
-  tableRowSelected: CoreModuleLogSiteUserCreditBlockedModel = new CoreModuleLogSiteUserCreditBlockedModel();
-  tableSource: MatTableDataSource<CoreModuleLogSiteUserCreditBlockedModel> = new MatTableDataSource<CoreModuleLogSiteUserCreditBlockedModel>();
 
 
   tabledisplayedColumns: string[] = [];

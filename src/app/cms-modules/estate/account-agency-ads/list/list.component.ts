@@ -70,15 +70,6 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateAccountAgencyAdsModel> = new ErrorExceptionResult<EstateAccountAgencyAdsModel>();
-
-
-
-
-
-  tableRowsSelected: Array<EstateAccountAgencyAdsModel> = [];
-  tableRowSelected: EstateAccountAgencyAdsModel = new EstateAccountAgencyAdsModel();
-  tableSource: MatTableDataSource<EstateAccountAgencyAdsModel> = new MatTableDataSource<EstateAccountAgencyAdsModel>();
 
 
   tabledisplayedColumns: string[] = [];

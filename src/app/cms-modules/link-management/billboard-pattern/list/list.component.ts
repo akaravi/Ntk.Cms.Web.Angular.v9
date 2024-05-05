@@ -61,16 +61,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     this.getManagementContentSettingTypeEnum();
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<LinkManagementBillboardPatternModel> = new ErrorExceptionResult<LinkManagementBillboardPatternModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<LinkManagementBillboardPatternModel> = [];
-  tableRowSelected: LinkManagementBillboardPatternModel = new LinkManagementBillboardPatternModel();
-  tableSource: MatTableDataSource<LinkManagementBillboardPatternModel> = new MatTableDataSource<LinkManagementBillboardPatternModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

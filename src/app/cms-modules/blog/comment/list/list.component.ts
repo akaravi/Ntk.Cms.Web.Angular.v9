@@ -80,15 +80,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
   searchInCheckingChecked = false;
   requestContentId = 0;
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<BlogCommentModel> = new ErrorExceptionResult<BlogCommentModel>();
-
-
-
-
-
-  tableRowsSelected: Array<BlogCommentModel> = [];
-  tableRowSelected: BlogCommentModel = new BlogCommentModel();
-  tableSource: MatTableDataSource<BlogCommentModel> = new MatTableDataSource<BlogCommentModel>();
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

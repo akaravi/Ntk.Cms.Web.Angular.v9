@@ -63,7 +63,6 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsLogOutBoxTaskSchedulerModel> = new ErrorExceptionResult<SmsLogOutBoxTaskSchedulerModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
 
@@ -72,11 +71,6 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
 
 
 
-
-
-  tableRowsSelected: Array<SmsLogOutBoxTaskSchedulerModel> = [];
-  tableRowSelected: SmsLogOutBoxTaskSchedulerModel = new SmsLogOutBoxTaskSchedulerModel();
-  tableSource: MatTableDataSource<SmsLogOutBoxTaskSchedulerModel> = new MatTableDataSource<SmsLogOutBoxTaskSchedulerModel>();
 
 
 

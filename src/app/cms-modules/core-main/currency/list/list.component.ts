@@ -62,15 +62,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreCurrencyModel> = [];
-  tableRowSelected: CoreCurrencyModel = new CoreCurrencyModel();
-  tableSource: MatTableDataSource<CoreCurrencyModel> = new MatTableDataSource<CoreCurrencyModel>();
 
 
 

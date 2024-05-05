@@ -81,15 +81,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
   tableContentSelected = [];
 
   filteModelContent = new EstateAccountUserFilterModel();
-  dataModelResult: ErrorExceptionResult<EstateAccountUserModel> = new ErrorExceptionResult<EstateAccountUserModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstateAccountUserModel> = [];
-  tableRowSelected: EstateAccountUserModel = new EstateAccountUserModel();
-  tableSource: MatTableDataSource<EstateAccountUserModel> = new MatTableDataSource<EstateAccountUserModel>();
 
 
   tabledisplayedColumns: string[] = [];

@@ -89,15 +89,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleLogScoreModel> = new ErrorExceptionResult<CoreModuleLogScoreModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleLogScoreModel> = [];
-  tableRowSelected: CoreModuleLogScoreModel = new CoreModuleLogScoreModel();
-  tableSource: MatTableDataSource<CoreModuleLogScoreModel> = new MatTableDataSource<CoreModuleLogScoreModel>();
 
 
   tabledisplayedColumns: string[] = [];

@@ -65,16 +65,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<WebDesignerMainPageDependencyModel>
-    = new ErrorExceptionResult<WebDesignerMainPageDependencyModel>();
 
-
-
-
-
-  tableRowsSelected: Array<WebDesignerMainPageDependencyModel> = [];
-  tableRowSelected: WebDesignerMainPageDependencyModel = new WebDesignerMainPageDependencyModel();
-  tableSource: MatTableDataSource<WebDesignerMainPageDependencyModel> = new MatTableDataSource<WebDesignerMainPageDependencyModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   categoryModelSelected = new CoreModuleModel();
   tabledisplayedColumns: string[] = [];

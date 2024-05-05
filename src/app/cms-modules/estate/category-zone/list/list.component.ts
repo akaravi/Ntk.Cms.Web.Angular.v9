@@ -59,15 +59,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateCategoryZoneModel> = new ErrorExceptionResult<EstateCategoryZoneModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstateCategoryZoneModel> = [];
-  tableRowSelected: EstateCategoryZoneModel = new EstateCategoryZoneModel();
-  tableSource: MatTableDataSource<EstateCategoryZoneModel> = new MatTableDataSource<EstateCategoryZoneModel>();
 
 
   tabledisplayedColumns: string[] = [];

@@ -78,7 +78,6 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleSiteModel> = new ErrorExceptionResult<CoreModuleSiteModel>();
   optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
   optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
 
@@ -90,9 +89,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
   @Input() set optionLoading(value: ProgressSpinnerModel) {
     this.loading = value;
   }
-  tableRowsSelected: Array<CoreModuleSiteModel> = [];
-  tableRowSelected: CoreModuleSiteModel = new CoreModuleSiteModel();
-  tableSource: MatTableDataSource<CoreModuleSiteModel> = new MatTableDataSource<CoreModuleSiteModel>();
+
 
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
 

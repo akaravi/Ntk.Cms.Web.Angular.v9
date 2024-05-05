@@ -66,15 +66,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertyAdsModel> = new ErrorExceptionResult<EstatePropertyAdsModel>();
-
-
-
-
-
-  tableRowsSelected: Array<EstatePropertyAdsModel> = [];
-  tableRowSelected: EstatePropertyAdsModel = new EstatePropertyAdsModel();
-  tableSource: MatTableDataSource<EstatePropertyAdsModel> = new MatTableDataSource<EstatePropertyAdsModel>();
+  
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Title',

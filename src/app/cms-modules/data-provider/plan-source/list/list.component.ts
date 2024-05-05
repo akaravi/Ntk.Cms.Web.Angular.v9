@@ -62,16 +62,7 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: DataProviderPlanCategoryModel;
-  dataModelResult: ErrorExceptionResult<DataProviderPlanSourceModel> = new ErrorExceptionResult<DataProviderPlanSourceModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<DataProviderPlanSourceModel> = [];
-  tableRowSelected: DataProviderPlanSourceModel = new DataProviderPlanSourceModel();
-  tableSource: MatTableDataSource<DataProviderPlanSourceModel> = new MatTableDataSource<DataProviderPlanSourceModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

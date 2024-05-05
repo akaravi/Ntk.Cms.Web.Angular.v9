@@ -60,15 +60,6 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsMainApiNumberPermissionModel> = new ErrorExceptionResult<SmsMainApiNumberPermissionModel>();
-
-
-
-
-
-  tableRowsSelected: Array<SmsMainApiNumberPermissionModel> = [];
-  tableRowSelected: SmsMainApiNumberPermissionModel = new SmsMainApiNumberPermissionModel();
-  tableSource: MatTableDataSource<SmsMainApiNumberPermissionModel> = new MatTableDataSource<SmsMainApiNumberPermissionModel>();
 
 
   tabledisplayedColumns: string[] = [];

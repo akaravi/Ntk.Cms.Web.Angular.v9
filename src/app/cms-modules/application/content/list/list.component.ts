@@ -73,15 +73,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<ApplicationAppModel> = new ErrorExceptionResult<ApplicationAppModel>();
 
-
-
-
-
-  tableRowsSelected: Array<ApplicationAppModel> = [];
-  tableRowSelected: ApplicationAppModel = new ApplicationAppModel();
-  tableSource: MatTableDataSource<ApplicationAppModel> = new MatTableDataSource<ApplicationAppModel>();
   categoryModelSelected: ApplicationSourceModel;
 
   tabledisplayedColumns: string[] = [];

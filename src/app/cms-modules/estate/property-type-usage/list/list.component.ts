@@ -58,15 +58,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstatePropertyTypeUsageModel> = [];
-  tableRowSelected: EstatePropertyTypeUsageModel = new EstatePropertyTypeUsageModel();
-  tableSource: MatTableDataSource<EstatePropertyTypeUsageModel> = new MatTableDataSource<EstatePropertyTypeUsageModel>();
 
 
   tabledisplayedColumns: string[] = [];

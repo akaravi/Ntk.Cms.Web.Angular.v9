@@ -57,16 +57,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     this.filteModelContent.sortType = SortTypeEnum.Descending;
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<MemberPropertyAliasModel> = new ErrorExceptionResult<MemberPropertyAliasModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<MemberPropertyAliasModel> = [];
-  tableRowSelected: MemberPropertyAliasModel = new MemberPropertyAliasModel();
-  tableSource: MatTableDataSource<MemberPropertyAliasModel> = new MatTableDataSource<MemberPropertyAliasModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

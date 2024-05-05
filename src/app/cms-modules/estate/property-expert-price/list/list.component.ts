@@ -68,7 +68,6 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
 
   }
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstatePropertyExpertPriceModel> = new ErrorExceptionResult<EstatePropertyExpertPriceModel>();
   dataModelEstatePropertyExpertPriceTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEstatePropertyTypeUsageResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
   dataModelEstatePropertyTypeLanduseResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
@@ -80,9 +79,6 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
 
 
 
-  tableRowsSelected: Array<EstatePropertyExpertPriceModel> = [];
-  tableRowSelected: EstatePropertyExpertPriceModel = new EstatePropertyExpertPriceModel();
-  tableSource: MatTableDataSource<EstatePropertyExpertPriceModel> = new MatTableDataSource<EstatePropertyExpertPriceModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

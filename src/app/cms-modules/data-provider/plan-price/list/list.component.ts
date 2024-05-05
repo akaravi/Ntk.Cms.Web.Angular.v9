@@ -61,16 +61,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
   }
   filteModelContent = new FilterModel();
 
-  dataModelResult: ErrorExceptionResult<DataProviderPlanPriceModel> = new ErrorExceptionResult<DataProviderPlanPriceModel>();
-
-
-
-
-
-
-  tableRowsSelected: Array<DataProviderPlanPriceModel> = [];
-  tableRowSelected: DataProviderPlanPriceModel = new DataProviderPlanPriceModel();
-  tableSource: MatTableDataSource<DataProviderPlanPriceModel> = new MatTableDataSource<DataProviderPlanPriceModel>();
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

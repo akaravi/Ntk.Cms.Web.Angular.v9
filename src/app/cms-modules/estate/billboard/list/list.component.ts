@@ -60,15 +60,7 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateBillboardModel> = new ErrorExceptionResult<EstateBillboardModel>();
 
-
-
-
-
-  tableRowsSelected: Array<EstateBillboardModel> = [];
-  tableRowSelected: EstateBillboardModel = new EstateBillboardModel();
-  tableSource: MatTableDataSource<EstateBillboardModel> = new MatTableDataSource<EstateBillboardModel>();
 
 
   tabledisplayedColumns: string[] = [];

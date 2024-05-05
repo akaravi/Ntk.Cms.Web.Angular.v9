@@ -68,15 +68,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
 
   filteModelContent = new FilterModel();
   categoryModelSelected: NewsCategoryModel;
-  dataModelResult: ErrorExceptionResult<NewsContentModel> = new ErrorExceptionResult<NewsContentModel>();
-
-
-
-
-
-  tableRowsSelected: Array<NewsContentModel> = [];
-  tableRowSelected: NewsContentModel = new NewsContentModel();
-  tableSource: MatTableDataSource<NewsContentModel> = new MatTableDataSource<NewsContentModel>();
+  
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

@@ -61,15 +61,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<EstateCategoryRackModel> = new ErrorExceptionResult<EstateCategoryRackModel>();
-  
-  
-
-  
-  
-  tableRowsSelected: Array<EstateCategoryRackModel> = [];
-  tableRowSelected: EstateCategoryRackModel = new EstateCategoryRackModel();
-  tableSource: MatTableDataSource<EstateCategoryRackModel> = new MatTableDataSource<EstateCategoryRackModel>();
+ 
 
 
   tabledisplayedColumns: string[] = [];

@@ -65,17 +65,10 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleSaleHeaderGroupModel> = new ErrorExceptionResult<CoreModuleSaleHeaderGroupModel>();
   dataModelCoreUserGroupResult: ErrorExceptionResult<CoreUserGroupModel> = new ErrorExceptionResult<CoreUserGroupModel>();
   dataModelCoreSiteCategoryResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
 
 
-
-
-
-  tableRowsSelected: Array<CoreModuleSaleHeaderGroupModel> = [];
-  tableRowSelected: CoreModuleSaleHeaderGroupModel = new CoreModuleSaleHeaderGroupModel();
-  tableSource: MatTableDataSource<CoreModuleSaleHeaderGroupModel> = new MatTableDataSource<CoreModuleSaleHeaderGroupModel>();
 
 
 

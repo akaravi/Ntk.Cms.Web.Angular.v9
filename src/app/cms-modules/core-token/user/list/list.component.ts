@@ -85,15 +85,6 @@ export class CoreTokenUserListComponent extends ListBaseComponent<CoreTokenUserS
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreTokenUserModel> = new ErrorExceptionResult<CoreTokenUserModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreTokenUserModel> = [];
-  tableRowSelected: CoreTokenUserModel = new CoreTokenUserModel();
-  tableSource: MatTableDataSource<CoreTokenUserModel> = new MatTableDataSource<CoreTokenUserModel>();
 
 
   tabledisplayedColumns: string[] = [];

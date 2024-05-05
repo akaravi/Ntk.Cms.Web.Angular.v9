@@ -63,15 +63,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<ApplicationThemeConfigModel> = new ErrorExceptionResult<ApplicationThemeConfigModel>();
 
-
-
-
-
-  tableRowsSelected: Array<ApplicationThemeConfigModel> = [];
-  tableRowSelected: ApplicationThemeConfigModel = new ApplicationThemeConfigModel();
-  tableSource: MatTableDataSource<ApplicationThemeConfigModel> = new MatTableDataSource<ApplicationThemeConfigModel>();
   categoryModelSelected: ApplicationSourceModel;
 
   expandedElement: ApplicationThemeConfigModel | null;

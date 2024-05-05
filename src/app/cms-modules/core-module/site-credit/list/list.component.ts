@@ -59,16 +59,9 @@ implements OnInit, OnDestroy {
   }
   filteModelContent = new FilterModel();
 
-  dataModelResult: ErrorExceptionResult<CoreModuleSiteCreditModel> = new ErrorExceptionResult<CoreModuleSiteCreditModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
 
 
-
-
-
-  tableRowsSelected: Array<CoreModuleSiteCreditModel> = [];
-  tableRowSelected: CoreModuleSiteCreditModel = new CoreModuleSiteCreditModel();
-  tableSource: MatTableDataSource<CoreModuleSiteCreditModel> = new MatTableDataSource<CoreModuleSiteCreditModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'RecordStatus',

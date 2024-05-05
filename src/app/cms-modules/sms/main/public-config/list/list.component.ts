@@ -59,17 +59,8 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsMainApiPathPublicConfigModel> = new ErrorExceptionResult<SmsMainApiPathPublicConfigModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
 
-
-
-
-
-
-  tableRowsSelected: Array<SmsMainApiPathPublicConfigModel> = [];
-  tableRowSelected: SmsMainApiPathPublicConfigModel = new SmsMainApiPathPublicConfigModel();
-  tableSource: MatTableDataSource<SmsMainApiPathPublicConfigModel> = new MatTableDataSource<SmsMainApiPathPublicConfigModel>();
 
 
 

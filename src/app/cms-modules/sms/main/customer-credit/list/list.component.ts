@@ -61,16 +61,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<SmsMainCustomerCreditModel> = new ErrorExceptionResult<SmsMainCustomerCreditModel>();
-
-
-
-
-
-  tableRowsSelected: Array<SmsMainCustomerCreditModel> = [];
-  tableRowSelected: SmsMainCustomerCreditModel = new SmsMainCustomerCreditModel();
-  tableSource: MatTableDataSource<SmsMainCustomerCreditModel> = new MatTableDataSource<SmsMainCustomerCreditModel>();
-
+ 
   categoryModelSelected: SmsMainCustomerCreditModel;
 
   tabledisplayedColumns: string[] = [];

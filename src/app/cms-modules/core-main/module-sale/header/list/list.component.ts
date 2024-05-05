@@ -73,15 +73,7 @@ export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreMod
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleSaleHeaderModel> = new ErrorExceptionResult<CoreModuleSaleHeaderModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreModuleSaleHeaderModel> = [];
-  tableRowSelected: CoreModuleSaleHeaderModel = new CoreModuleSaleHeaderModel();
-  tableSource: MatTableDataSource<CoreModuleSaleHeaderModel> = new MatTableDataSource<CoreModuleSaleHeaderModel>();
+ 
 
   categoryModelSelected: CoreModuleSaleHeaderGroupModel = new CoreModuleSaleHeaderGroupModel();
 

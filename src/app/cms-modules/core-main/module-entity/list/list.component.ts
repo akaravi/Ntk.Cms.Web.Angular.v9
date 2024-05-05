@@ -73,15 +73,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleEntityModel> = new ErrorExceptionResult<CoreModuleEntityModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleEntityModel> = [];
-  tableRowSelected: CoreModuleEntityModel = new CoreModuleEntityModel();
-  tableSource: MatTableDataSource<CoreModuleEntityModel> = new MatTableDataSource<CoreModuleEntityModel>();
 
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   categoryModelSelected = new CoreModuleModel();

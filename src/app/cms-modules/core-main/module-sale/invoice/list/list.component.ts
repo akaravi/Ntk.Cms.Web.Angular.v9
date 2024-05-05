@@ -62,15 +62,7 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleSaleInvoiceModel> = new ErrorExceptionResult<CoreModuleSaleInvoiceModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreModuleSaleInvoiceModel> = [];
-  tableRowSelected: CoreModuleSaleInvoiceModel = new CoreModuleSaleInvoiceModel();
-  tableSource: MatTableDataSource<CoreModuleSaleInvoiceModel> = new MatTableDataSource<CoreModuleSaleInvoiceModel>();
 
   categoryModelSelected: CoreModuleSaleSerialModel = new CoreModuleSaleSerialModel();
 

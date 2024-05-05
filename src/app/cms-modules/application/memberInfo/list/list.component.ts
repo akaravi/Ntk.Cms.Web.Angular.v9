@@ -68,16 +68,13 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<ApplicationMemberInfoModel> = new ErrorExceptionResult<ApplicationMemberInfoModel>();
 
 
 
 
 
   categoryModelSelected: ApplicationAppModel;
-  tableRowsSelected: Array<ApplicationMemberInfoModel> = [];
-  tableRowSelected: ApplicationMemberInfoModel = new ApplicationMemberInfoModel();
-  tableSource: MatTableDataSource<ApplicationMemberInfoModel> = new MatTableDataSource<ApplicationMemberInfoModel>();
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

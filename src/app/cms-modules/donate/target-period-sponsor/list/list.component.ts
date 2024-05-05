@@ -67,16 +67,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: DonateTargetCategoryModel;
-  dataModelResult: ErrorExceptionResult<DonateTargetPeriodSponsorModel> = new ErrorExceptionResult<DonateTargetPeriodSponsorModel>();
-
-
-
-
-
-
-  tableRowsSelected: Array<DonateTargetPeriodSponsorModel> = [];
-  tableRowSelected: DonateTargetPeriodSponsorModel = new DonateTargetPeriodSponsorModel();
-  tableSource: MatTableDataSource<DonateTargetPeriodSponsorModel> = new MatTableDataSource<DonateTargetPeriodSponsorModel>();
+ 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Id',

@@ -59,15 +59,6 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreGuideModel> = new ErrorExceptionResult<CoreGuideModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreGuideModel> = [];
-  tableRowSelected: CoreGuideModel = new CoreGuideModel();
-  tableSource: MatTableDataSource<CoreGuideModel> = new MatTableDataSource<CoreGuideModel>();
 
 
   tabledisplayedColumns: string[] = [];

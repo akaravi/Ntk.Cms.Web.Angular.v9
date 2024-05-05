@@ -69,16 +69,12 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<BankPaymentPrivateSiteConfigModel> = new ErrorExceptionResult<BankPaymentPrivateSiteConfigModel>();
   dataModelPublicResult: ErrorExceptionResult<BankPaymentPublicConfigModel> = new ErrorExceptionResult<BankPaymentPublicConfigModel>();
 
 
 
 
 
-  tableRowsSelected: Array<BankPaymentPrivateSiteConfigModel> = [];
-  tableRowSelected: BankPaymentPrivateSiteConfigModel = new BankPaymentPrivateSiteConfigModel();
-  tableSource: MatTableDataSource<BankPaymentPrivateSiteConfigModel> = new MatTableDataSource<BankPaymentPrivateSiteConfigModel>();
   categoryModelSelected: BankPaymentPublicConfigModel;
 
   expandedElement: BankPaymentPrivateSiteConfigModel | null;

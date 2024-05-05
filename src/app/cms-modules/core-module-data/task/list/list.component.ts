@@ -73,16 +73,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreModuleDataTaskModel> = new ErrorExceptionResult<CoreModuleDataTaskModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreModuleDataTaskModel> = [];
-  tableRowSelected: CoreModuleDataTaskModel = new CoreModuleDataTaskModel();
-  tableSource: MatTableDataSource<CoreModuleDataTaskModel> = new MatTableDataSource<CoreModuleDataTaskModel>();
-
+  
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [

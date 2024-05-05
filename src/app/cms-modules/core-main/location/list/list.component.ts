@@ -62,15 +62,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreLocationModel> = new ErrorExceptionResult<CoreLocationModel>();
-
-
-
-
-
-  tableRowsSelected: Array<CoreLocationModel> = [];
-  tableRowSelected: CoreLocationModel = new CoreLocationModel();
-  tableSource: MatTableDataSource<CoreLocationModel> = new MatTableDataSource<CoreLocationModel>();
+ 
   dataModelEnumLocationTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

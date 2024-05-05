@@ -89,15 +89,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<CoreUserClaimContentModel> = new ErrorExceptionResult<CoreUserClaimContentModel>();
 
-
-
-
-
-  tableRowsSelected: Array<CoreUserClaimContentModel> = [];
-  tableRowSelected: CoreUserClaimContentModel = new CoreUserClaimContentModel();
-  tableSource: MatTableDataSource<CoreUserClaimContentModel> = new MatTableDataSource<CoreUserClaimContentModel>();
 
   categoryModelSelected: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();
   dataModelCoreUserClaimTypeResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();

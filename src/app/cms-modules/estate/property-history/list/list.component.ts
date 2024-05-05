@@ -9,7 +9,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -33,8 +32,6 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { environment } from 'src/environments/environment';
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
 import { EstatePropertyHistoryAddComponent } from '../add/add.component';
@@ -135,8 +132,6 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     new ErrorExceptionResult<EstateActivityTypeModel>();
 
 
-  tableSource: MatTableDataSource<EstatePropertyHistoryModel> =
-    new MatTableDataSource<EstatePropertyHistoryModel>();
   categoryModelSelected: EstateActivityTypeModel;
   searchInCheckingOnDay = false;
   searchInCheckingOnDayChecked = false;

@@ -62,16 +62,8 @@ implements OnInit, OnDestroy {
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
-  dataModelResult: ErrorExceptionResult<BankPaymentPublicConfigModel> = new ErrorExceptionResult<BankPaymentPublicConfigModel>();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
 
-
-
-
-
-  tableRowsSelected: Array<BankPaymentPublicConfigModel> = [];
-  tableRowSelected: BankPaymentPublicConfigModel = new BankPaymentPublicConfigModel();
-  tableSource: MatTableDataSource<BankPaymentPublicConfigModel> = new MatTableDataSource<BankPaymentPublicConfigModel>();
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
