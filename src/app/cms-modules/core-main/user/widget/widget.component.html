@@ -1,27 +1,27 @@
-<div class="content mb-0 mt-3">
+<div class="content mb-0 mt-3" *ngIf="dataModel?.id>0">
   <div class="row mb-0">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
       <div class="card card-style mx-0 mb-2 p-3">
         <h6 class="font-14">نام کاربری</h6>
-        <h3 class="color-green-dark mb-0">{{dataModel.username}}</h3>
+        <h3 class="color-green-dark mb-0" style="direction: ltr;text-align: center;">{{dataModel.username}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
       <div class="card card-style mx-0 mb-2 p-3">
         <h6 class="font-14">نام</h6>
-        <h3 class="color-red-dark mb-0">{{dataModel.name}} {{dataModel.lastName}}</h3>
+        <h3 class="color-red-dark mb-0" style="text-align: center;">{{dataModel.name}} {{dataModel.lastName}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
       <div class="card card-style mx-0 mb-2 p-3">
         <h6 class="font-14">ایمیل</h6>
-        <h3 class="color-red-dark mb-0">{{dataModel.email}}</h3>
+        <h3 class="color-red-dark mb-0" style="direction: ltr;text-align: center;">{{dataModel.email}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
       <div class="card card-style mx-0 mb-2 p-3">
         <h6 class="font-14">موبایل</h6>
-        <h3 class="color-red-dark mb-0">{{dataModel.mobile}}</h3>
+        <h3 class="color-red-dark mb-0" style="direction: ltr;text-align: center;">{{dataModel.mobile}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4"
@@ -41,7 +41,7 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4" *ngIf="dataModel.expireDate">
       <div class="card card-style mx-0 mb-2 p-3">
         <h6 class="font-14">انقضا حساب کاربری</h6>
-        <h3 class="color-blue-dark mb-0">{{dataModel.expireDate|persianDate}}</h3>
+        <h3 class="color-blue-dark mb-0" style="text-align: center;">{{dataModel.expireDate|persianDate}}</h3>
       </div>
     </div>
   </div>
