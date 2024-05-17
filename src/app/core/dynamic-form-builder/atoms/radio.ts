@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
   selector: 'radio',
   template: `
         <div class="form-check" *ngFor="let opt of field.options">
-          <input [formControl]="optionFormControl" class="form-check-input" type="radio" [value]="opt.key" >
+          <input [formControl]="optionFormControl" class="form-check-input input-ltr" type="radio" [value]="opt.key" >
           <label class="form-check-label">
             {{opt.label}}
           </label>
