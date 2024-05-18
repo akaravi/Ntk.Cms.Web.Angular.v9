@@ -64,7 +64,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
+    //'Id',
     'RecordStatus',
     'Title',
     // 'Action'

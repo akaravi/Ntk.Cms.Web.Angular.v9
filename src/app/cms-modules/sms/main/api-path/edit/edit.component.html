@@ -436,6 +436,9 @@
         </mat-step>
 
         <mat-step label="{{'TITLE.Credit_return_status' | translate}}" state="seo">
+
+       
+
           <!-- StatusOutOfServiceMonitorApiChar Field -->
           <div *ngIf="fieldsInfo['statusOutOfServiceMonitorApiChar']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -579,6 +582,10 @@
               [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red"
+            (click)="onActionbuttonGetBalance()">
+            {{'بررسی اعتبار مسیر' | translate}}
+          </button>
             <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
               [disabled]="!vform.form.valid">
               {{'ACTION.SAVE' | translate}}

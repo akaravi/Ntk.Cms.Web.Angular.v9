@@ -71,7 +71,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
+  //  'Id',
     'RecordStatus',
     'LinkApiPathId',
     'RegulatorNumber',
