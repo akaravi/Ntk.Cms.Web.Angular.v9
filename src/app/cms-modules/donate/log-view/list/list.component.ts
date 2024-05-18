@@ -63,7 +63,7 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+
     'DonateTargetId',
     'DeviceId',
     'VisitDate',

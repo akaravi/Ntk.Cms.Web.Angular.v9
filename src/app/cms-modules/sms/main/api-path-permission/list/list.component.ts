@@ -68,7 +68,7 @@ export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<Sms
   tabledisplayedColumnsSource: string[] = [
     //'Id',
     'RecordStatus',
-    'Title',
+    'linkApiPathId',
     // 'Action'
   ];
 

@@ -3,24 +3,17 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult,
+
   FilterDataModel,
   FilterModel,
   LinkManagementAccountingModel,
-  LinkManagementAccountingService, RecordStatusEnum, SortTypeEnum, TokenInfoModel
-} from 'ntk-cms-api';
+  LinkManagementAccountingService, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { LinkManagementAccountingAddComponent } from '../add/add.component';
 import { LinkManagementAccountingDeleteComponent } from '../delete/delete.component';
@@ -32,7 +25,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-linkmanagement-accounting-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class LinkManagementAccountingListComponent extends ListBaseComponent<LinkManagementAccountingService, LinkManagementAccountingModel, number> implements OnInit, OnDestroy {
 
