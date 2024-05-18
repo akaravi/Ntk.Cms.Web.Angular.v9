@@ -21,6 +21,7 @@ export class CmsHtmlListComponent implements OnInit {
     } else if (typeof id === 'string' && id.length > 0) {
       this.optionActionRowDisplay = true;
     } else {
+      this.optionActionRowDisplay = false;
       this.viewMenuItemRow = false;
       this.viewMenuMain = false;
       this.lastSelectId = null;

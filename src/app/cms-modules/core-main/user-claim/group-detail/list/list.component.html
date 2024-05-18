@@ -99,7 +99,7 @@
                         [ngClass]="row.recordStatus|statusIconClass"></i>
                     <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
                         [contentService]="contentService" [row]="row" style="background: none; border: none;"
-                        [ngStyle]="{'display': row.id === tableRowSelected.id ? '' : 'none' }">
+                        [ngStyle]="{'display': row.id === tableRowSelected?.id ? '' : 'none' }">
                     </select> </mat-cell>
             </ng-container>
             <!-- LinkUserClaimGroupId Column -->

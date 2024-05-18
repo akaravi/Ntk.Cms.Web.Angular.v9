@@ -9,7 +9,7 @@
         <mat-icon matSuffix *ngIf="dataModel.serialNumber" matSuffix mat-icon-button aria-label="Clear"
           (click)="dataModel.serialNumber = ''">close</mat-icon>
         <mat-icon matSuffix>mode_edit</mat-icon>
-        <mat-hint  >{{ serialNumber.value.length }} / 20</mat-hint>
+        <mat-hint>{{ serialNumber.value.length }} / 20</mat-hint>
         <mat-error *ngIf="serialNumber.errors?.required">
           {{fieldsInfo['serialNumber']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
@@ -25,7 +25,7 @@
         <mat-icon matSuffix *ngIf="dataModel.pwdForUse" matSuffix mat-icon-button aria-label="Clear"
           (click)="dataModel.pwdForUse = ''">close</mat-icon>
         <mat-icon matSuffix>mode_edit</mat-icon>
-        <mat-hint  >{{ pwdForUse.value.length }} / 20</mat-hint>
+        <mat-hint>{{ pwdForUse.value.length }} / 20</mat-hint>
         <mat-error *ngIf="pwdForUse.errors?.required">
           {{fieldsInfo['pwdForUse']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
@@ -81,7 +81,7 @@
 
         <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
-          [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
+          [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
         </mat-row>
       </mat-table>
 

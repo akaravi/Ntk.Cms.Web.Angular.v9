@@ -125,7 +125,7 @@
                         [ngClass]="row.recordStatus|statusIconClass"></i>
                     <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
                         [contentService]="contentService" [row]="row" style="background: none; border: none;"
-                        [ngStyle]="{'display': row.id === tableRowSelected.id ? '' : 'none' }">
+                        [ngStyle]="{'display': row.id === tableRowSelected?.id ? '' : 'none' }">
                     </select> </mat-cell>
             </ng-container>
             <!-- HasUsed Column -->
@@ -190,7 +190,7 @@
             </ng-container>
             <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
-                [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
+                [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
             </mat-row>
         </mat-table>
 

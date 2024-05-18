@@ -1,8 +1,7 @@
 <app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"
     (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"
     (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
-    [optionActionRowId]="tableRowSelected?.id"
-    [optionSelectRowItemTitle]="tableRowSelected?.id">
+    [optionActionRowId]="tableRowSelected?.id" [optionSelectRowItemTitle]="tableRowSelected?.id">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         --------------------------------------
@@ -119,7 +118,7 @@
                         [ngClass]="row.recordStatus|statusIconClass"></i>
                     <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
                         [contentService]="contentService" [row]="row" style="background: none; border: none;"
-                        [ngStyle]="{'display': row.id === tableRowSelected.id ? '' : 'none' }">
+                        [ngStyle]="{'display': row.id === tableRowSelected?.id ? '' : 'none' }">
                     </select> </mat-cell>
             </ng-container>
             <!-- virtual_CmsSiteCategory.title Column -->

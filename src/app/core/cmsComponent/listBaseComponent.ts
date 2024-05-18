@@ -28,10 +28,26 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   tableRowSelected: TModel;
   tableRowsSelected: Array<TModel> = [];
   dataModelResult: ErrorExceptionResult<TModel> = new ErrorExceptionResult<TModel>();
+  clickCount = 0;
   onActionTableRowSelect(row: TModel): void {
-    this.tableRowSelected = row;
-    this.publicHelper.pageInfo.updateContentInfo(new ContentInfoModel(row.id, row['title'], row['viewContentHidden'], '', row['urlViewContent']));
-    row["expanded"] = true;
+    this.clickCount++;
+    setTimeout(() => {
+      if (this.clickCount === 1) {
+        // single
+        this.tableRowSelected = row;
+        this.publicHelper.pageInfo.updateContentInfo(new ContentInfoModel(row.id, row['title'], row['viewContentHidden'], '', row['urlViewContent']));
+        row["expanded"] = true;
+        // single
+      } else if (this.clickCount === 2) {
+        // double
+        this.tableRowSelected = null;
+        row["expanded"] = false;
+        // double
+      }
+      this.clickCount = 0;
+    }, 250)
+
+
   }
   onActionTableRowMouseClick(row: TModel): void {
     if (this.tableRowSelected.id === row.id) {
