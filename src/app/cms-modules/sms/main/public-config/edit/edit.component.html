@@ -4,11 +4,10 @@
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
     </p>
-    <h4>اطلاعات</h4>
-    
+    <h4>تنظیمات پایه سرویس</h4>
+
     <p>
-      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-      فقط یک صفحه ساختگی است.
+      مقادیر تنظیمات پاییه سرویس را با دقت وارد نمایید
     </p>
     <!--content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
@@ -90,9 +89,9 @@
         </div>
       </div>
 
-           <!-- publicConfigJsonFormatter Field -->
-           <dynamic-form-builder-cms [formGroup]="vform.form" [(jsonValue)]="dataModel.publicConfigJsonValues"
-           [propertiesInfos]="dataModel.publicConfigJsonFormatter"></dynamic-form-builder-cms>
+      <!-- publicConfigJsonFormatter Field -->
+      <dynamic-form-builder-cms [formGroup]="vform.form" [(jsonValue)]="dataModel.publicConfigJsonValues"
+        [propertiesInfos]="dataModel.publicConfigJsonFormatter"></dynamic-form-builder-cms>
 
 
       <!-- Memo Field -->
@@ -128,7 +127,7 @@
 
 
 
-      
+
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
