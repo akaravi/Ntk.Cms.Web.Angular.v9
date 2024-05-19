@@ -13,6 +13,33 @@ export class CmsHtmlListComponent implements OnInit {
   @Input() optionActionDisplay = true;
   @Input() optionFooterDisplay = true;
   @Input() optionActionRowDisplay = false;
+  lastSelectId: number | string;
+  @Input()
+  public set optionActionRowId(id: number | string) {
+    if (typeof id === 'number' && id > 0) {
+      this.optionActionRowDisplay = true;
+    } else if (typeof id === 'string' && id.length > 0) {
+      this.optionActionRowDisplay = true;
+    } else {
+      this.optionActionRowDisplay = false;
+      this.viewMenuItemRow = false;
+      this.viewMenuMain = false;
+      this.lastSelectId = null;
+      return;
+    }
+    if (this.lastSelectId != id) {
+      this.viewMenuItemRow = false;
+      this.viewMenuMain = false;
+    }
+    this.lastSelectId = id;
+  }
+  @Input()
+  public set optionActionRowDisplayMenu(status: boolean) {
+    if (this.optionActionRowDisplay && status)
+      this.viewMenuItemRow = true;
+    else
+      this.viewMenuItemRow = false;
+  }
   @Input() optionTitle = 'منوی عملیات';
   @Input() optionCategoryTitle = 'دسته بندی';
   @Input() optionSelectRowItemTitle = '';

@@ -5,9 +5,9 @@ import { FormGroup } from '@angular/forms';
   selector: 'checkbox',
   template: `
         <div [formGroup]="optionFormGroup" >
-          <div *ngFor="let opt of field.options" class="form-check form-check">
+          <div *ngFor="let opt of field.options" class="form-check form-check ">
           <label class="form-check-label">
-             <input [formControlName]="opt.key" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+             <input [formControlName]="opt.key" class="form-check-input input-ltr" type="checkbox" id="inlineCheckbox1" value="option1" />
              {{opt.label}}</label>
           </div>
       </div>

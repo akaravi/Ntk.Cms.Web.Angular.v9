@@ -71,7 +71,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent< SmsMa
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
+   // 'Id',
     'RecordStatus',
     'Title',
     'CreatedDate',

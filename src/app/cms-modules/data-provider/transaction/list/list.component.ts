@@ -3,23 +3,16 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, DataProviderTransactionModel,
-  DataProviderTransactionService, ErrorExceptionResult,
+  DataProviderTransactionModel,
+  DataProviderTransactionService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
-} from 'ntk-cms-api';
+  FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderTransactionViewComponent } from '../view/view.component';
 import { environment } from 'src/environments/environment';

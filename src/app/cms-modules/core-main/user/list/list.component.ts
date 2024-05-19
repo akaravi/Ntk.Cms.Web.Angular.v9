@@ -3,23 +3,16 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AuthRenewTokenModel, CoreAuthService, CoreUserModel,
-  CoreUserService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
-} from 'ntk-cms-api';
+  CoreUserService, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { CoreUserAddComponent } from '../add/add.component';
 import { CoreUserChangePasswordComponent } from '../changePassword/changePassword.component';
 import { CoreUserEmailConfirmComponent } from '../emailConfirm/emailConfirm.component';
@@ -30,7 +23,7 @@ import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-user-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class CoreUserListComponent extends ListBaseComponent<CoreUserService, CoreUserModel, number>
   implements OnInit, OnDestroy {

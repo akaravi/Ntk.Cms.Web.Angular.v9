@@ -1,8 +1,10 @@
 <app-sms-log-outbox-header *ngIf="this.requestLinkOutBoxId?.length>0" [optionId]="this.requestLinkOutBoxId">
 </app-sms-log-outbox-header>
 
-<app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"  (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"  (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()"    [optionLoading]="loading" [optionTreeDisplay]="false"
-    [optionActionRowDisplay]="tableRowSelected?.id?.length>0" [optionSelectRowItemTitle]="tableRowSelected?.id">
+<app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"
+    (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"
+    (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
+    [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelect3Click" [optionSelectRowItemTitle]="tableRowSelected?.id">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         <app-sms-apipath-tree (optionChange)="onActionSelectorSelect($event)"></app-sms-apipath-tree>
@@ -45,26 +47,26 @@
     </ng-container>
     <ng-container cms-action>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-            
+
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
     </ng-container>
     <ng-container cms-action-row>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-            <div *ngIf="dataModelResult?.access?.accessWatchRow && tableRowSelected?.id?.length>0" class="col-4">
-                <a (click)="onActionbuttonViewRow(tableRowSelected)" type="button"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank" data-toggle="modal" data-target="#categoryModal"><i class="fa-solid fa-eye font-22" style="color: #FFFFFF;"></i>
-                    <br></a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.VIEW' | translate}}</p>
-            </div>
-            <div *ngIf="dataModelResult?.access?.accessDeleteRow && tableRowSelected?.id?.length>0" class="col-4">
-                <a (click)="onActionbuttonDeleteRow(tableRowSelected)" type="button"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red"
-                    target="_blank"><i class="fa-solid fa-trash font-22"
-                    style="color: #ffffff;"></i><br></a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' |translate}}</p>
-            </div>
-             
+        <div *ngIf="dataModelResult?.access?.accessWatchRow && tableRowSelected?.id?.length>0" class="col-4">
+            <a (click)="onActionbuttonViewRow(tableRowSelected)" type="button"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"
+                data-toggle="modal" data-target="#categoryModal"><i class="fa-solid fa-eye font-22"
+                    style="color: #FFFFFF;"></i>
+                <br></a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.VIEW' | translate}}</p>
+        </div>
+        <div *ngIf="dataModelResult?.access?.accessDeleteRow && tableRowSelected?.id?.length>0" class="col-4">
+            <a (click)="onActionbuttonDeleteRow(tableRowSelected)" type="button"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i
+                    class="fa-solid fa-trash font-22" style="color: #ffffff;"></i><br></a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' |translate}}</p>
+        </div>
+
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>
     <ng-container cms-action-area>
@@ -148,11 +150,11 @@
             <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
                 (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-                [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
+                [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
             </mat-row>
             <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowSelect(row)"
                 (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-                [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
+                [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
             </mat-row>
         </mat-table>
 

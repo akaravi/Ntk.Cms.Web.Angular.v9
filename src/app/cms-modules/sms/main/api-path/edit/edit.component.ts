@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, SmsMainApiPathAliasJsonModel, SmsMainApiPathCompanyModel, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathService
+  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, SmsApiGetBalanceDtoModel, SmsMainApiPathAliasJsonModel, SmsMainApiPathCompanyModel, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
@@ -26,7 +26,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'],
 })
 export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPathService, SmsMainApiPathModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   constructor(
     public coreEnumService: CoreEnumService,
@@ -37,7 +37,8 @@ implements OnInit {
     private cdr: ChangeDetectorRef,
     private activatedRoute: ActivatedRoute,
     public translate: TranslateService,
-  ) {super(smsMainApiPathService, new SmsMainApiPathModel(), publicHelper);
+  ) {
+    super(smsMainApiPathService, new SmsMainApiPathModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get('Id')) {
@@ -48,14 +49,14 @@ implements OnInit {
 
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
 
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: SmsMainApiPathAliasJsonModel = new SmsMainApiPathAliasJsonModel();
   formInfo: FormInfoModel = new FormInfoModel();
@@ -155,6 +156,29 @@ implements OnInit {
     );
   }
 
+  onActionbuttonGetBalance(): any {
+    const pName = this.constructor.name + 'GetBalance';
+    this.loading.Start(pName);
+    var modelData = new SmsApiGetBalanceDtoModel();
+    modelData.linkApiPathId = this.requestId;
+
+    this.smsMainApiPathService.ServiceGetBalance(modelData).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " ");
+        }
+        else {
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+        }
+        this.loading.Stop(pName);
+      },
+      error: (er) => {
+        this.cmsToastrService.typeError(er);
+        this.loading.Stop(pName);
+      }
+    }
+    );
+  }
   onActionSelectorSelectLinkApiPathCompanyId(model: SmsMainApiPathCompanyModel | null): void {
     if (!model || model.id.length <= 0) {
       const message = this.translate.instant('MESSAGE.Information_application_is_not_clear');
@@ -204,4 +228,5 @@ implements OnInit {
   onFormCancel(): void {
     this.router.navigate(['/sms/main/api-path/list']);
   }
+
 }

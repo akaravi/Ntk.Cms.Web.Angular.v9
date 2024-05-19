@@ -2,8 +2,10 @@
 </app-data-provider-plan-header>
 
 <app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"
-    (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"  (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
-    [optionActionRowDisplay]="tableRowSelected?.id>0" [optionSelectRowItemTitle]="tableRowSelected?.id">
+    (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"
+    (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
+    [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+    [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
 
@@ -54,7 +56,7 @@
             <p class="font-11 text-center opacity-70">{{'ACTION.ADD' |
                 translate}}</p>
         </div>
-        
+
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
     </ng-container>
     <ng-container cms-action-row>
@@ -80,7 +82,7 @@
             </a>
             <p class="font-11 text-center opacity-70">{{'ACTION.TRANSACTIONS' | translate}}</p>
         </div>
-        
+
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>
     <ng-container cms-action-area>
@@ -121,7 +123,7 @@
                     <i [ngClass]="row.recordStatus|statusIconClass"></i>
                     <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
                         [contentService]="contentService" [row]="row" style="background: none; border: none;"
-                        [ngStyle]="{'display': row.id === tableRowSelected.id ? '' : 'none' }">
+                        [ngStyle]="{'display': row.id === tableRowSelected?.id ? '' : 'none' }">
                     </select>
                 </mat-cell>
             </ng-container>
@@ -165,7 +167,7 @@
             </ng-container>
             <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
-                [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
+                [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
             </mat-row>
         </mat-table>
 

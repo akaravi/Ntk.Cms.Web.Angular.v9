@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreCurrencyModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsMainApiPathCompanyModel,
+  CoreCurrencyModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsApiGetBalanceDtoModel, SmsMainApiPathCompanyModel,
   SmsMainApiPathCompanyService, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathPublicConfigService, SmsMainApiPathService, SortTypeEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -78,7 +78,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
-    'Id',
+    //'Id',
     'RecordStatus',
     'Title',
     'LinkApiPathCompanyId',
@@ -397,6 +397,36 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     }
     );
 
+  }
+  
+  onActionbuttonGetBalance(model: SmsMainApiPathModel = this.tableRowSelected): any {
+    if (!model || !model.id || model.id.length === 0) {
+
+      const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
+      this.cmsToastrService.typeErrorSelected(message);
+      return;
+    }
+    const pName = this.constructor.name + 'GetBalance';
+    this.loading.Start(pName);
+    var modelData = new SmsApiGetBalanceDtoModel();
+    modelData.linkApiPathId = model.id;
+
+    this.contentService.ServiceGetBalance(modelData).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " ");
+        }
+        else {
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+        }
+        this.loading.Stop(pName);
+      },
+      error: (er) => {
+        this.cmsToastrService.typeError(er);
+        this.loading.Stop(pName);
+      }
+    }
+    );
   }
   onActionbuttonSuperSedersList(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {

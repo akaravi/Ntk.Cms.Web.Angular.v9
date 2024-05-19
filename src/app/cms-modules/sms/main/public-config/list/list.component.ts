@@ -67,7 +67,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
-    'Id',
+   // 'Id',
     'RecordStatus',
     'Title',
     'ClassName',

@@ -28,10 +28,46 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   tableRowSelected: TModel;
   tableRowsSelected: Array<TModel> = [];
   dataModelResult: ErrorExceptionResult<TModel> = new ErrorExceptionResult<TModel>();
+  clickCount = 0;
+  public tableRowSelectDoubleClick = false;
+  public tableRowSelect3Click = false;
   onActionTableRowSelect(row: TModel): void {
-    this.tableRowSelected = row;
-    this.publicHelper.pageInfo.updateContentInfo(new ContentInfoModel(row.id, row['title'], row['viewContentHidden'], '', row['urlViewContent']));
-    row["expanded"] = true;
+    this.clickCount++;
+    setTimeout(() => {
+      this.tableRowSelected = row;
+      this.publicHelper.pageInfo.updateContentInfo(new ContentInfoModel(row.id, row['title'], row['viewContentHidden'], '', row['urlViewContent']));
+
+      if (this.tableRowSelected.id === row.id) {
+        if (row["expanded"] == true)
+          row["expanded"] = false;
+        else
+          row["expanded"] = true;
+      }
+      else{
+        row["expanded"] = false;
+      }
+
+      if (this.clickCount === 1) {
+        // single
+        this.tableRowSelectDoubleClick = false;
+        this.tableRowSelect3Click = false;
+        // single
+      } else if (this.clickCount === 2) {
+        // double
+        this.tableRowSelectDoubleClick = true;
+        this.tableRowSelect3Click = false;
+        // double
+      } else if (this.clickCount === 3) {
+        // double
+        this.tableRowSelectDoubleClick = false;
+        this.tableRowSelect3Click = true;
+        // double
+      }
+
+      this.clickCount = 0;
+    }, 500)//250
+
+
   }
   onActionTableRowMouseClick(row: TModel): void {
     if (this.tableRowSelected.id === row.id) {

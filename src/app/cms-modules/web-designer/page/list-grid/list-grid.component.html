@@ -1,5 +1,7 @@
-<app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"  (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"  (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()"    [optionLoading]="loading" [optionTreeDisplay]="false"
-    [optionActionRowDisplay]="tableRowSelected?.id?.length>0" [optionSelectRowItemTitle]="tableRowSelected?.title">
+<app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"
+    (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"
+    (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
+    [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick" [optionSelectRowItemTitle]="tableRowSelected?.title">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         --------------------------------------
@@ -46,62 +48,61 @@
     </ng-container>
     <ng-container cms-action>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-            <div *ngIf="dataModelResult?.access?.accessAddRow " class="col-4">
-                <a (click)="onActionbuttonNewRow()" type="button"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
-                    target="_blank"><i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
-                    <br></a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.ADD' | translate}}</p>
-            </div>
-            
+        <div *ngIf="dataModelResult?.access?.accessAddRow " class="col-4">
+            <a (click)="onActionbuttonNewRow()" type="button"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal" target="_blank"><i
+                    class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+                <br></a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.ADD' | translate}}</p>
+        </div>
+
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
     </ng-container>
     <ng-container cms-action-row>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-            <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
-                <a (click)="onActionbuttonEditRow(tableRowSelected)"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta"
-                    target="_blank"><i class="fa-solid fa-pen font-22"
-                    style="color: #ffffff;"></i><br>
-                </a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
-            </div>
-            <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
-                <a (click)="onActionbuttonDeleteRow(tableRowSelected)"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i class="fa-solid fa-trash font-22"
-                    style="color: #ffffff;"></i><br>
-                </a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
-            </div>
-            <div class="col-4">
-                <a (click)="onActionbuttonHtmlEditor(tableRowSelected)"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank"><i class="fa-solid fa-page font-22" style="color: #ffffff;"></i><br>
-                </a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.PAGE_DESIGN' | translate}}</p>
-            </div>
-            <div class="col-4">
-                <a (click)="onActionbuttonHtmlView(tableRowSelected)"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank"><i class="fa-solid fa-page font-22" style="color: #ffffff;"></i><br>
-                </a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.SHOW_PAGE' | translate}}</p>
-            </div>
-            <div *ngIf="tableRowSelected.linkPageParentGuId?.length>0" class="col-4">
-                <a (click)="onActionbuttonHtmlViewWithOutParent(tableRowSelected)"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank"><i class="fa-solid fa-page font-22" style="color: #ffffff;"></i><br>
-                </a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.DISPLAY_PAGE_WITHOUT_PARENT' | translate}}</p>
-            </div>
-            <div class="col-4">
-                <a (click)="onActionbuttonSiteRouteView(tableRowSelected)"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    target="_blank"><i class="fa-solid fa-globe font-22" style="color: #ffffff;"></i><br>
-                </a>
-                <p class="font-11 text-center opacity-70">{{'ACTION.SHOW_WEB' | translate}}</p>
-            </div>
-            
+        <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
+            <a (click)="onActionbuttonEditRow(tableRowSelected)"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i
+                    class="fa-solid fa-pen font-22" style="color: #ffffff;"></i><br>
+            </a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
+        </div>
+        <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
+            <a (click)="onActionbuttonDeleteRow(tableRowSelected)"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i
+                    class="fa-solid fa-trash font-22" style="color: #ffffff;"></i><br>
+            </a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
+        </div>
+        <div class="col-4">
+            <a (click)="onActionbuttonHtmlEditor(tableRowSelected)"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                target="_blank"><i class="fa-solid fa-page font-22" style="color: #ffffff;"></i><br>
+            </a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.PAGE_DESIGN' | translate}}</p>
+        </div>
+        <div class="col-4">
+            <a (click)="onActionbuttonHtmlView(tableRowSelected)"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                target="_blank"><i class="fa-solid fa-page font-22" style="color: #ffffff;"></i><br>
+            </a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.SHOW_PAGE' | translate}}</p>
+        </div>
+        <div *ngIf="tableRowSelected.linkPageParentGuId?.length>0" class="col-4">
+            <a (click)="onActionbuttonHtmlViewWithOutParent(tableRowSelected)"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                target="_blank"><i class="fa-solid fa-page font-22" style="color: #ffffff;"></i><br>
+            </a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.DISPLAY_PAGE_WITHOUT_PARENT' | translate}}</p>
+        </div>
+        <div class="col-4">
+            <a (click)="onActionbuttonSiteRouteView(tableRowSelected)"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                target="_blank"><i class="fa-solid fa-globe font-22" style="color: #ffffff;"></i><br>
+            </a>
+            <p class="font-11 text-center opacity-70">{{'ACTION.SHOW_WEB' | translate}}</p>
+        </div>
+
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     </ng-container>
     <ng-container cms-action-area>
@@ -135,7 +136,7 @@
                         [ngClass]="row.recordStatus|statusIconClass"></i>
                     <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
                         [contentService]="contentService" [row]="row"
-                        [ngStyle]="{'display': row.id === tableRowSelected.id ? '' : 'none' }">
+                        [ngStyle]="{'display': row.id === tableRowSelected?.id ? '' : 'none' }">
                     </select> </mat-cell>
             </ng-container>
             <!-- Title Column -->
@@ -201,7 +202,7 @@
             </ng-container>
             <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
-                [ngStyle]="{'background': row.id === tableRowSelected.id ? '#d3d3da' : '' }">
+                [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
             </mat-row>
         </mat-table>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
