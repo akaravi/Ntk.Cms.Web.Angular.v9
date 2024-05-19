@@ -7,7 +7,7 @@
 <app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"
     (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"
     (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
-    [optionActionRowId]="tableRowSelected?.id" [optionSelectRowItemTitle]="tableRowSelected?.id">
+    [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick" [optionSelectRowItemTitle]="tableRowSelected?.id">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         --------------------------------------

@@ -2,7 +2,7 @@
 </app-cms-guide-notice>
 <app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"
   (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"
-  [optionLoading]="loading" [optionTreeDisplay]="true && optionloadByRoute" [optionActionRowId]="tableRowSelected?.id"
+  [optionLoading]="loading" [optionTreeDisplay]="true && optionloadByRoute" [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionSelectRowItemTitle]="tableRowSelected?.title">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
@@ -546,11 +546,11 @@
         </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowMouseClick(row)"
+      <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
         [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
       </mat-row>
-      <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowMouseClick(row)"
+      <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowSelect(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
         [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
       </mat-row>
