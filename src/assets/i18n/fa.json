@@ -1638,6 +1638,7 @@
   "ROUTE.CORE.LOCATION": "موقعیت مکانی ",
   "ROUTE.CORE.DEVICE": "دستگاه ",
   "ROUTE.CORE.GUIDE": "مهمان ",
+  "ROUTE.CORE.ADDRESS": "آدرس ها",
   "ROUTE.COREMODULE": "اعتبار کاربر",
   "ROUTE.COREMODULELOG": "ماژول بندی",
   "ROUTE.COREMODULELOG.MEMO": "ماژول بندی",

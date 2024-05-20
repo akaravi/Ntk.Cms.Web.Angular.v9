@@ -164,24 +164,24 @@
       <p>
         نسبت به اطلاعات ثبت شده بررسی فرمایید
       </p>
-      <a href="#" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
         *ngIf="dataModelResult.item?.urlResellerUserShortLinkUrl?.length>0"
         (click)="onActionbuttonResllerUser()">{{'ACTION.VIEW_CHART' | translate}}
         {{'TITLE.Sharing_address_with_your_user_account' | translate}}</a>
-      <a href="#" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
         *ngIf="dataModelResult.item?.urlResellerUserShortLinkUrl?.length>0"
         (click)="onActionbuttonResllerUserShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
         {{'TITLE.Sharing_address_with_your_user_account' | translate}}</a>
-      <a href="#" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
         *ngIf="dataModelResult.item?.urlResellerSiteCategoryShortLinkUrl?.length>0"
         (click)="onActionbuttonResllerUserCategoryShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
         {{'TITLE.Sharing_address_with_existing_system_category' | translate}}</a>
 
-      <a href="#" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
         *ngIf="dataModelResult.item?.urlResellerSiteShortLinkUrl?.length>0"
         (click)="onActionbuttonResllerSite()">{{'ACTION.VIEW_CHART' | translate}} {{'TITLE.Website_sharing_address' |
         translate}}</a>
-      <a href="#" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
+      <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
         *ngIf="dataModelResult.item?.urlResellerSiteShortLinkUrl?.length>0"
         (click)="onActionbuttonResllerSiteShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
         {{'TITLE.Website_sharing_address' | translate}}</a>

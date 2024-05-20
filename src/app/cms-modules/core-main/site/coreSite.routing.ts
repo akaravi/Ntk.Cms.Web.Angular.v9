@@ -110,15 +110,19 @@ const routes: Routes = [
       /** userlist */
       {
         path: 'info',
-        component: CoreInfoComponent
+        canActivate: [CmsAuthSiteGuard],
+        component: CoreInfoComponent,
+        data: { title: 'ROUTE.CORE.ADDRESS' },
       },
       {
         path: 'reseller-chart',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteResellerChartComponent
 
       },
       {
         path: 'reseller-chart/LinkSiteId/:LinkSiteId',
+        canActivate: [CmsAuthSiteGuard],
         component: CoreSiteResellerChartComponent
 
       }
