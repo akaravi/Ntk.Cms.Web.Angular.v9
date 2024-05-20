@@ -104,7 +104,7 @@
             <label for="dataModel.source" class="color-highlight">{{'TITLE.Source_page_address' | translate}}</label>
             <input matInput type="text" [(ngModel)]="dataModel.source" name="dataModel.source" #Source type="text"
               dir="ltr" style="text-align: left;" placeholder="{{'TITLE.Content_reference_website_link' | translate}}"
-              disabled="{{!fieldsInfo['source']?.accessAddField}}" minlength="3" maxlength="500" 
+              disabled="{{!fieldsInfo['source']?.accessAddField}}" minlength="3" maxlength="500"
               class="form-control validate-name" id="dataModel.source" />
             <i *ngIf="!Source.value" class="fa fa-times  invalid color-red-dark"></i>
             <i *ngIf="Source.value" class="fa fa-check  valid color-green-dark"></i>

@@ -7,7 +7,8 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, EstateCategoryRackModel, EstateCategoryRackService, FormInfoModel} from 'ntk-cms-api';
+  CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, EstateCategoryRackModel, EstateCategoryRackService, FormInfoModel
+} from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';

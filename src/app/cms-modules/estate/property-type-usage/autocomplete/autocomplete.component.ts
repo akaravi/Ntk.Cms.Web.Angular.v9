@@ -49,7 +49,7 @@ export class EstatePropertyTypeUsageCompleteComponent implements OnInit {
   addOnBlur = true;
   ngOnInit(): void {
     if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
-    this.optionLabel = this.optionPlaceholder;
+      this.optionLabel = this.optionPlaceholder;
   }
 
   // filter and return the values

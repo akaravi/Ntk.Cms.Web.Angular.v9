@@ -3,30 +3,23 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ContactCategoryModel, ContactContentModel,
-  ContactContentService, DataFieldInfoModel, ErrorExceptionResult,
+  ContactContentService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { ContactContentAddComponent } from '../add/add.component';
 import { ContactContentEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-contact-content-list',
@@ -48,7 +41,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ContactContentModel(), publicHelper,tokenHelper);
+    super(contentService, new ContactContentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkCategoryId = this.activatedRoute.snapshot.paramMap.get('LinkCategoryId');
 
@@ -328,7 +321,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
- 
+
   onActionSelectorSelect(model: ContactCategoryModel | null): void {
     /*filter */
     var sortColumn = this.filteModelContent.sortColumn;

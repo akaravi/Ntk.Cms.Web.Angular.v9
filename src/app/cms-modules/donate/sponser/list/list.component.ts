@@ -3,30 +3,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, DonateSponsorModel,
-  DonateSponsorService, DonateTargetCategoryModel, ErrorExceptionResult,
+  DonateSponsorModel,
+  DonateSponsorService, DonateTargetCategoryModel,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DonateSponserAddComponent } from '../add/add.component';
 import { DonateSponserDeleteComponent } from '../delete/delete.component';
 import { DonateSponserEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-donate-sponser-list',
@@ -45,7 +39,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DonateSponsorModel(), publicHelper,tokenHelper);
+    super(contentService, new DonateSponsorModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),
@@ -249,17 +243,18 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
       this.cmsToastrService.typeErrorAccessDelete();
       return;
     }
-     var panelClass = '';
+    var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(DonateSponserDeleteComponent, {
-       height: '40%',
-       panelClass: panelClass,
+      height: '40%',
+      panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-        data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         this.DataGetAll();

@@ -4,29 +4,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ArticleCommentModel,
-  ArticleCommentService, ArticleContentService, DataFieldInfoModel, RecordStatusEnum, SortTypeEnum,
-  ErrorExceptionResult, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, TokenInfoModel
+  ArticleCommentService, ArticleContentService,
+  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { ArticleCommentEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
+import { environment } from 'src/environments/environment';
+import { ArticleCommentEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-article-comment-list',
   templateUrl: './list.component.html',
@@ -53,7 +48,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     public pageInfo: PageInfoService,
     public tokenHelper: TokenHelper,
     public dialog: MatDialog) {
-    super(commentService, new ArticleCommentModel(), publicHelper,tokenHelper);
+    super(commentService, new ArticleCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {

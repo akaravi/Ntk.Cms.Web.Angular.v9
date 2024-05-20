@@ -11,15 +11,16 @@ import { TranslateService } from '@ngx-translate/core';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
-  AccessModel, ArticleCategoryModel, ArticleContentCategoryModel, ArticleContentCategoryService, ArticleContentModel, ArticleContentOtherInfoModel, ArticleContentOtherInfoService, ArticleContentService, ArticleContentSimilarModel, ArticleContentSimilarService, ArticleContentTagModel, ArticleContentTagService, ClauseTypeEnum, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  AccessModel, ArticleCategoryModel, ArticleContentCategoryModel, ArticleContentCategoryService, ArticleContentModel, ArticleContentOtherInfoModel, ArticleContentOtherInfoService, ArticleContentService, ArticleContentSimilarModel, ArticleContentSimilarService, ArticleContentTagModel, ArticleContentTagService, ClauseTypeEnum, CoreLocationModel,
+  ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel,
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { map, of } from 'rxjs';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-article-content-edit',
@@ -50,7 +51,7 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
   dataModel = new ArticleContentModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataContentTagModelResult: ErrorExceptionResult<ArticleContentTagModel> = new ErrorExceptionResult<ArticleContentTagModel>();
@@ -68,7 +69,7 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
   similarTabledataSource = new MatTableDataSource<ArticleContentModel>();
   otherInfoTabledataSource = new MatTableDataSource<ArticleContentOtherInfoModel>();
   dataAccessModel: AccessModel;
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

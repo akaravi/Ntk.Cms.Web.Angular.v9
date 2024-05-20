@@ -14,7 +14,7 @@ import {
   AccessModel,
   CatalogContentModel, CatalogContentOtherInfoModel, CatalogContentService,
   CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
+  FormInfoModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';

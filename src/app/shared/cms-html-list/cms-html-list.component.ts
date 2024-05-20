@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IApiCmsServerBase } from "ntk-cms-api";
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
@@ -114,38 +113,38 @@ export class CmsHtmlListComponent implements OnInit {
     this.optionOnActionbuttonPrintRow.emit();
   }
   /*
-  <app-cms-html-list [optionLoading]="loading" [optionTreeDisplay]="true">
-    <ng-container cms-tree>
+  <app-cms-html-list  [optionLoading]="loading" [optionTreeDisplay]="true">
+    <ng-container  cms-tree>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     </ng-container>
-    <ng-container cms-header>
+    <ng-container  cms-header>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </ng-container>
-    <ng-container cms-action>
+    <ng-container  cms-action>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
     </ng-container>
-    <ng-container cms-action-area>
+    <ng-container  cms-action-area>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
     </ng-container>
-    <ng-container cms-body>
+    <ng-container  cms-body>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </ng-container>
-    <ng-container cms-message>
+    <ng-container  cms-message>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
     </ng-container>
-    <ng-container cms-footer>
+    <ng-container  cms-footer>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->

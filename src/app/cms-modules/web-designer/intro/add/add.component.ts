@@ -7,7 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, CoreEnumService,
   DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel, WebDesignerMainIntroModel,
+  FormInfoModel,
+  WebDesignerMainIntroModel,
   WebDesignerMainIntroService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
@@ -66,7 +67,7 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
     }
     this.DataAddContent();
   }
-  
+
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

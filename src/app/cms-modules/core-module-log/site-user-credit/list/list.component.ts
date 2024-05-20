@@ -6,17 +6,18 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleLogSiteUserCreditModel, CoreModuleLogSiteUserCreditService, CoreSiteModel, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  CoreEnumService, CoreModuleLogSiteUserCreditModel, CoreModuleLogSiteUserCreditService, CoreSiteModel, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { CoreModuleLogSiteUserCreditEditComponent } from '../edit/edit.component';
 import { CoreModuleLogSiteUserCreditViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-coremodulelog-site-user-credit--list',
@@ -42,7 +43,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogSiteUserCreditModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreModuleLogSiteUserCreditModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

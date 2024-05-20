@@ -4,20 +4,22 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, DataFieldInfoModel, DataProviderClientModel,
+  CoreEnumService,
+  DataProviderClientModel,
   DataProviderClientService, DataProviderPlanClientModel,
-  DataProviderPlanClientService, DataProviderPlanModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
+  DataProviderPlanClientService, DataProviderPlanModel,
+  ErrorExceptionResultBase, FilterDataModel, FilterModel, FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 
@@ -27,7 +29,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
   styleUrls: ['./edit.component.scss'],
 })
 export class DataProviderClientEditComponent extends EditBaseComponent<DataProviderClientService, DataProviderClientModel, number>
-implements OnInit {
+  implements OnInit {
   requestId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -42,7 +44,8 @@ implements OnInit {
     private dataProviderPlanClientService: DataProviderPlanClientService,
     public translate: TranslateService,
     private tokenHelper: TokenHelper
-  ) {super(dataProviderClientService, new DataProviderClientModel(), publicHelper);
+  ) {
+    super(dataProviderClientService, new DataProviderClientModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -62,15 +65,15 @@ implements OnInit {
   cmsApiStoreSubscribe: Subscription;
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
-  
+
 
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: DataProviderClientModel = new DataProviderClientModel();
 

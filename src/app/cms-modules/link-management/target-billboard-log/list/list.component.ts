@@ -6,20 +6,20 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-
   FilterDataModel,
   FilterModel,
   LinkManagementTargetBillboardLogModel,
-  LinkManagementTargetBillboardLogService, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  LinkManagementTargetBillboardLogService, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { LinkManagementTargetBillboardLogDeleteComponent } from '../delete/delete.component';
 import { LinkManagementTargetBillboardLogEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-target-billboard-log-list',
@@ -42,7 +42,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementTargetBillboardLogModel(), publicHelper,tokenHelper);
+    super(contentService, new LinkManagementTargetBillboardLogModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkManagementBillboardId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkManagementBillboardId'));
     this.requestLinkManagementTargetId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkManagementTargetId'));
@@ -241,11 +241,12 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
     else
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(LinkManagementTargetBillboardLogDeleteComponent, {
-       height: '90%',
-       panelClass: panelClass,
+      height: '90%',
+      panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-       data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         this.DataGetAll();

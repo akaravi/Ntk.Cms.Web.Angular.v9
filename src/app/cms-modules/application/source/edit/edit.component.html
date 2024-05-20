@@ -5,7 +5,7 @@
       {{ formInfo.formTitle }}
     </p>
     <h4>اطلاعات</h4>
-    
+
     <p>
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
@@ -53,10 +53,9 @@
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
             *ngIf="fieldsInfo['osType']?.accessWatchField">
             <label for="dataModel.osType" class="color-highlight">{{fieldsInfo['osType']?.fieldTitle}}</label>
-            <select [(ngModel)]="dataModel.osType"
-              [disabled]="!fieldsInfo['osType']?.accessEditField" name="dataModel.osType" #osType="ngModel"
-              ngClass="osType-{{ dataModel.osType }}" required class="form-control validate-name"
-              id="dataModel.osType">
+            <select [(ngModel)]="dataModel.osType" [disabled]="!fieldsInfo['osType']?.accessEditField"
+              name="dataModel.osType" #osType="ngModel" ngClass="osType-{{ dataModel.osType }}" required
+              class="form-control validate-name" id="dataModel.osType">
               <option *ngFor="
                           let item of dataModelEnumOsTypeResult.listItems;
                           index as i

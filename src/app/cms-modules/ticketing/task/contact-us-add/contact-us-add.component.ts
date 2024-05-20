@@ -6,7 +6,8 @@ import {
   AccessModel, ApplicationSourceModel, CaptchaModel, CoreAuthService, CoreEnumService,
   DataFieldInfoModel, ErrorExceptionResult,
   FormInfoModel, FormSubmitedStatusEnum, TicketingTaskDtoModel, TicketingTaskModel,
-  TicketingTaskService, TicketingTemplateModel} from 'ntk-cms-api';
+  TicketingTaskService, TicketingTemplateModel
+} from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
@@ -33,7 +34,7 @@ export class TicketingTaskContactUsAddComponent extends AddBaseComponent<Ticketi
     private router: Router,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef) {
-      super(ticketingTaskService, new TicketingTaskModel(), publicHelper);
+    super(ticketingTaskService, new TicketingTaskModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {

@@ -1,18 +1,18 @@
+import { MatTableDataSource } from "@angular/material/table";
 import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, FilterModel, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
 import { CmsDataPinComponent } from "src/app/shared/cms-data-pin/cms-data-pin.component";
 import { CmsDataTaskComponent } from "src/app/shared/cms-data-task/cms-data-task.component";
+import { CmsExportEntityComponent } from "src/app/shared/cms-export-entity/cms-export-entity.component";
+import { CmsExportListComponent } from "src/app/shared/cms-export-list/cmsExportList.component";
 import { environment } from "src/environments/environment";
 import { PublicHelper } from "../helpers/publicHelper";
+import { TokenHelper } from "../helpers/tokenHelper";
 import { ContentInfoModel } from "../models/contentInfoModel";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
-import { CmsExportEntityComponent } from "src/app/shared/cms-export-entity/cms-export-entity.component";
-import { TokenHelper } from "../helpers/tokenHelper";
-import { MatTableDataSource } from "@angular/material/table";
-import { CmsExportListComponent } from "src/app/shared/cms-export-list/cmsExportList.component";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public tokenHelper: TokenHelper) {
@@ -43,7 +43,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
         else
           row["expanded"] = true;
       }
-      else{
+      else {
         row["expanded"] = false;
       }
 

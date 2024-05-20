@@ -17,8 +17,8 @@ import { CoreSiteCategoryTreeComponent } from './tree/tree.component';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
-import { CoreModuleModule } from '../module/coreModule.module';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { CoreModuleModule } from '../module/coreModule.module';
 // import { CoreSiteCategoryCmsModuleListComponent } from './moduleList/moduleList.component';
 
 @NgModule({

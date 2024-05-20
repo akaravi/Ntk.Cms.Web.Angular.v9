@@ -4,11 +4,11 @@ import { CoreTokenActivationListComponent } from './activation/list/list.compone
 import { CoreTokenComponent } from './core-token.component';
 import { CoreTokenMicroServiceLogListComponent } from './micro-service-log/list/list.component';
 import { CoreTokenMicroServiceListComponent } from './micro-service/list/list.component';
+import { CoreTokenNotificationLogListComponent } from './notification-log/list/list.component';
+import { CoreTokenNotificationListComponent } from './notification/list/list.component';
 import { CoreTokenUserListComponent } from './user/list/list.component';
 import { CoreTokenUserBadLoginListComponent } from './userBadLogin/list/list.component';
 import { CoreTokenUserLogListComponent } from './userLog/list/list.component';
-import { CoreTokenNotificationListComponent } from './notification/list/list.component';
-import { CoreTokenNotificationLogListComponent } from './notification-log/list/list.component';
 
 const routes: Routes = [
   {
@@ -97,8 +97,8 @@ const routes: Routes = [
         component: CoreTokenMicroServiceLogListComponent,
         data: { title: 'ROUTE.CORETOKEN.MICROSERVICELOG' },
       },
-       /** */
-       {
+      /** */
+      {
         path: 'notification',
         component: CoreTokenNotificationListComponent,
         data: { title: 'ROUTE.CORETOKEN.NOTIFICATION' },
@@ -117,4 +117,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CoreTokenRoutes {}
+export class CoreTokenRoutes { }

@@ -3,31 +3,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel,
   DataProviderPlanModel, DataProviderSourceModel,
-  DataProviderSourceService, ErrorExceptionResult,
+  DataProviderSourceService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderSourceAddComponent } from '../add/add.component';
 import { DataProviderSourceDeleteComponent } from '../delete/delete.component';
 import { DataProviderSourceEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-source-list',
@@ -48,7 +41,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DataProviderSourceModel(), publicHelper,tokenHelper);
+    super(contentService, new DataProviderSourceModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {

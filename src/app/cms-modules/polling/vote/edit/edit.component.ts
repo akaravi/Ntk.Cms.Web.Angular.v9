@@ -4,17 +4,17 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
+  CoreEnumService,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, PollingVoteModel, PollingVoteService
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum, PollingVoteModel, PollingVoteService
 } from 'ntk-cms-api';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -24,7 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'],
 })
 export class PollingVoteEditComponent extends EditBaseComponent<PollingVoteService, PollingVoteModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   requestParentId = 0;
   requestContentId = 0;
@@ -37,7 +37,8 @@ implements OnInit {
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(pollingVoteService, new PollingVoteModel(), publicHelper);
+  ) {
+    super(pollingVoteService, new PollingVoteModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -47,10 +48,10 @@ implements OnInit {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
 
 
-  
+
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: PollingVoteModel = new PollingVoteModel();
 

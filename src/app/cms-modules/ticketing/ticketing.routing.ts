@@ -137,4 +137,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TicketingRouting {}
+export class TicketingRouting { }

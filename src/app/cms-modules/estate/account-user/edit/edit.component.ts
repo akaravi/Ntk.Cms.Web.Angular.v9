@@ -5,15 +5,17 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   CoreEnumService, CoreLocationModel,
-  CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountAgencyUserModel, EstateAccountAgencyUserService, EstateAccountUserModel, EstateAccountUserService, FilterDataModel,
-  FilterModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
+  CoreUserModel, DataFieldInfoModel,
+  ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountAgencyUserModel, EstateAccountAgencyUserService, EstateAccountUserModel, EstateAccountUserService, FilterDataModel,
+  FilterModel, FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
@@ -28,7 +30,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EstateAccountUserEditComponent  extends EditBaseComponent<EstateAccountUserService, EstateAccountUserModel, string>
+export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAccountUserService, EstateAccountUserModel, string>
   implements OnInit {
   requestId = '';
   constructor(
@@ -42,7 +44,8 @@ export class EstateAccountUserEditComponent  extends EditBaseComponent<EstateAcc
     public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(estateAccountUserService, new EstateAccountUserModel(), publicHelper);
+  ) {
+    super(estateAccountUserService, new EstateAccountUserModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {

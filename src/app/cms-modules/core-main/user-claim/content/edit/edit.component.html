@@ -5,154 +5,158 @@
       {{ formInfo.formTitle }}
     </p>
     <h4>اطلاعات</h4>
-    
+
     <p>
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-        <!-- RecordStatus Field -->
-        <app-cms-enum-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-          [optionSelectFirstItem]="true">
-        </app-cms-enum-record-status-selector>
-        <!-- Title Field -->
-        <div *ngIf="fieldsInfo['title']?.accessWatchField && ProfessionalData"
-          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
-          <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-            placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
-            [disabled]="!fieldsInfo['description']?.accessEditField" class="form-control validate-name"
-            id="dataModel.title" />
-          <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
-          <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
-          <em>{{ Title.value.length }} / 100</em>
-          <mat-error *ngIf="Title.errors?.required">
-            Title is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
+      <!-- RecordStatus Field -->
+      <app-cms-enum-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionSelectFirstItem]="true">
+      </app-cms-enum-record-status-selector>
+      <!-- Title Field -->
+      <div *ngIf="fieldsInfo['title']?.accessWatchField && ProfessionalData"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+          placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+          [disabled]="!fieldsInfo['description']?.accessEditField" class="form-control validate-name"
+          id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Title.value.length }} / 100</em>
+        <mat-error *ngIf="Title.errors?.required">
+          Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
 
-        <!-- TitleResourceLanguage Field -->
+      <!-- TitleResourceLanguage Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.titleResourceLanguage"
+          class="color-highlight">{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModel.titleResourceLanguage" name="dataModel.titleResourceLanguage"
+          #TitleResourceLanguage type="text" placeholder="{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}"
+          minlength="3" maxlength="100" required [disabled]="!fieldsInfo['titleResourceLanguage']?.accessEditField"
+          class="form-control validate-name" id="dataModel.titleResourceLanguage" />
+        <em>{{ TitleResourceLanguage.value.length }} / 100</em>
+        <mat-error *ngIf="TitleResourceLanguage.errors?.required">
+          {{fieldsInfo['titleResourceLanguage']?.fieldTitle}} is <strong>{{'MESSAGE.required' |
+            translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- LinkUserId Field -->
+      <app-cms-user-selector (optionChange)="onActionSelectUser($event)" [optionSelectForce]="this.dataModel.linkUserId"
+        *ngIf="ProfessionalData" [optionPlaceholder]="this.translate.instant('TITLE.USER')" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkUserId']?.accessEditField">
+      </app-cms-user-selector>
+
+      <!-- LinkSiteId Field -->
+      <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [optionSelectForce]="this.dataModel.linkSiteId"
+        *ngIf="ProfessionalData" [optionPlaceholder]="this.translate.instant('TITLE.SITE')" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkSiteId']?.accessEditField">
+      </app-cms-site-selector>
+
+      <!-- LinkUserClaimTypeId Field -->
+      <app-core-userclaimtype-selector (optionChange)="onActionSelectClaimType($event)" *ngIf="ProfessionalData"
+        [optionSelectForce]="this.dataModel.linkUserClaimTypeId" [(optionLoading)]="loading"
+        [optionPlaceholder]="this.translate.instant('TITLE.DOCUMENT_CATEGORY')"
+        [optionDisabled]="!fieldsInfo['linkUserClaimTypeId']?.accessEditField">
+      </app-core-userclaimtype-selector>
+      <!-- LinkFileContentId Field -->
+      <div class="mb-3">
+        <img *ngIf="dataModel?.linkFileContentIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+          aria-hidden src="{{dataModel.linkFileContentIdSrc | cmsthumbnail}}" height="50" width="50" />
+      </div>
+      <div class="mb-9">
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.titleResourceLanguage" class="color-highlight">{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}</label>
-          <input matInput [(ngModel)]="dataModel.titleResourceLanguage" name="dataModel.titleResourceLanguage"
-            #TitleResourceLanguage type="text" placeholder="{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}"
-            minlength="3" maxlength="100" required [disabled]="!fieldsInfo['titleResourceLanguage']?.accessEditField" class="form-control validate-name" id="dataModel.titleResourceLanguage" />
-          <em  >{{ TitleResourceLanguage.value.length }} / 100</em>
-          <mat-error *ngIf="TitleResourceLanguage.errors?.required">
-            {{fieldsInfo['titleResourceLanguage']?.fieldTitle}} is <strong>{{'MESSAGE.required' |
-              translate}}</strong>
-          </mat-error>
+          <label for="dataModel.linkFileContentId" (click)="fileManagerOpenForm = true"
+            class="color-highlight">{{'TITLE.Document_File' | translate}}
+          </label>
+          <input matInput [(ngModel)]="dataModel.linkFileContentId" name=" dataModel.linkFileContentId"
+            #LinkFileContentId type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
+            (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkFileContentId" />
         </div>
-        <!-- LinkUserId Field -->
-        <app-cms-user-selector (optionChange)="onActionSelectUser($event)" [optionSelectForce]="this.dataModel.linkUserId"
-          *ngIf="ProfessionalData" [optionPlaceholder]="this.translate.instant('TITLE.USER')" [(optionLoading)]="loading"
-          [optionDisabled]="!fieldsInfo['linkUserId']?.accessEditField">
-        </app-cms-user-selector>
-
-        <!-- LinkSiteId Field -->
-        <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [optionSelectForce]="this.dataModel.linkSiteId"
-          *ngIf="ProfessionalData" [optionPlaceholder]="this.translate.instant('TITLE.SITE')" [(optionLoading)]="loading"
-          [optionDisabled]="!fieldsInfo['linkSiteId']?.accessEditField">
-        </app-cms-site-selector>
-
-        <!-- LinkUserClaimTypeId Field -->
-        <app-core-userclaimtype-selector (optionChange)="onActionSelectClaimType($event)" *ngIf="ProfessionalData"
-          [optionSelectForce]="this.dataModel.linkUserClaimTypeId" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.DOCUMENT_CATEGORY')"
-          [optionDisabled]="!fieldsInfo['linkUserClaimTypeId']?.accessEditField">
-        </app-core-userclaimtype-selector>
-        <!-- LinkFileContentId Field -->
-        <div class="mb-3">
-          <img *ngIf="dataModel?.linkFileContentIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-            aria-hidden src="{{dataModel.linkFileContentIdSrc | cmsthumbnail}}" height="50" width="50" />
+        <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
+          [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
+          [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
+        </cms-file-manager>
+      </div>
+      <!-- Description Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+          placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="0" maxlength="500" rows=5
+          class="form-control validate-name" id="dataModel.description"></textarea>
+        <em>{{ Description.value.length }} / 500</em>
+        <mat-error *ngIf="Description.errors?.required">
+          {{fieldsInfo['description']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <hr>
+      <!-- IsApproved Field -->
+      <div class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.isApproved" class="font-600 font-14">
+            {{fieldsInfo['isApproved']?.fieldTitle}}</h5>
         </div>
-        <div class="mb-9">
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label  for="dataModel.linkFileContentId" (click)="fileManagerOpenForm = true" class="color-highlight">{{'TITLE.Document_File' | translate}}
-            </label>
-            <input matInput [(ngModel)]="dataModel.linkFileContentId" name=" dataModel.linkFileContentId" #LinkFileContentId
-              type="text" placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-              (click)="fileManagerOpenForm = true" class="form-control validate-name"  id="dataModel.linkFileContentId"/>
-          </div>
-          <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
-            [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
-            [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
-          </cms-file-manager>
-        </div>
-        <!-- Description Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-          <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-            placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="0" maxlength="500" rows=5 class="form-control validate-name" id="dataModel.description"></textarea>
-          <em  >{{ Description.value.length }} / 500</em>
-          <mat-error *ngIf="Description.errors?.required">
-            {{fieldsInfo['description']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
-        <hr>
-        <!-- IsApproved Field -->
-        <div class="d-flex mb-3">
-          <div class="pt-1">
-              <h5 data-trigger-switch="dataModel.isApproved" class="font-600 font-14">
-                  {{fieldsInfo['isApproved']?.fieldTitle}}</h5>
-          </div>
-          <div class="ms-auto me-3 pe-2">
-              <div class="custom-control ios-switch small-switch">
-                  <input type="checkbox" class="ios-input" id="dataModel.isApproved"
-                      [(ngModel)]="dataModel.isApproved"
-                      name="dataModel.isApproved">
-                  <label class="custom-control-label" for="dataModel.isApproved"></label>
-              </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.isApproved" [(ngModel)]="dataModel.isApproved"
+              name="dataModel.isApproved">
+            <label class="custom-control-label" for="dataModel.isApproved"></label>
           </div>
         </div>
-        <!-- ApprovedResult Field -->
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.approvedResult" class="color-highlight">{{fieldsInfo['approvedResult']?.fieldTitle}}</label>
-          <textarea matInput [(ngModel)]="dataModel.approvedResult" name="dataModel.approvedResult" #ApprovedResult
-            type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="0" maxlength="500"
-            rows=5 class="form-control validate-name" id="dataModel.approvedResult"></textarea>
-          <em  >{{ ApprovedResult.value.length }} / 500</em>
-          <mat-error *ngIf="ApprovedResult.errors?.required">
-            {{fieldsInfo['approvedResult']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
-          </mat-error>
-        </div>
+      </div>
+      <!-- ApprovedResult Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.approvedResult"
+          class="color-highlight">{{fieldsInfo['approvedResult']?.fieldTitle}}</label>
+        <textarea matInput [(ngModel)]="dataModel.approvedResult" name="dataModel.approvedResult" #ApprovedResult
+          type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="0" maxlength="500" rows=5
+          class="form-control validate-name" id="dataModel.approvedResult"></textarea>
+        <em>{{ ApprovedResult.value.length }} / 500</em>
+        <mat-error *ngIf="ApprovedResult.errors?.required">
+          {{fieldsInfo['approvedResult']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
 
-        <!-- approveCheckDate Field -->
-        <div *ngIf="fieldsInfo['approveCheckDate']?.accessWatchField"
-          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.approveCheckDate" class="color-highlight">{{ fieldsInfo["approveCheckDate"]?.fieldTitle
-            }}</label>
-          <input matInput [matDatepicker]="approveCheckDate" type="text" [(ngModel)]="dataModel.approveCheckDate"
-            name="dataModel.approveCheckDate" placeholder="{{fieldsInfo['approveCheckDate']?.fieldTitle }}" minlength="3"
-            maxlength="100" disabled="{{!fieldsInfo['approveCheckDate']?.accessEditField}}"
-            class="form-control validate-name" id="dataModel.approveCheckDate" />
-          <mat-datepicker-toggle matSuffix [for]="approveCheckDate"></mat-datepicker-toggle>
-          <mat-datepicker touchUi #approveCheckDate></mat-datepicker>
-        </div>
+      <!-- approveCheckDate Field -->
+      <div *ngIf="fieldsInfo['approveCheckDate']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.approveCheckDate" class="color-highlight">{{ fieldsInfo["approveCheckDate"]?.fieldTitle
+          }}</label>
+        <input matInput [matDatepicker]="approveCheckDate" type="text" [(ngModel)]="dataModel.approveCheckDate"
+          name="dataModel.approveCheckDate" placeholder="{{fieldsInfo['approveCheckDate']?.fieldTitle }}" minlength="3"
+          maxlength="100" disabled="{{!fieldsInfo['approveCheckDate']?.accessEditField}}"
+          class="form-control validate-name" id="dataModel.approveCheckDate" />
+        <mat-datepicker-toggle matSuffix [for]="approveCheckDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #approveCheckDate></mat-datepicker>
+      </div>
 
-        <!-- ExpireDate Field -->
-        <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
-          class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
-          <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate"
-            name="dataModel.expireDate" placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3"
-            maxlength="100" disabled="{{!fieldsInfo['expireDate']?.accessEditField}}" class="form-control validate-name"
-            id="dataModel.expireDate" />
-          <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
-          <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-        </div>
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-          <button type="button" (click)="onFormCancel()"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-            <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-          </button>
-          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-            (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-            <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-          </button>
-        </div>
+      <!-- ExpireDate Field -->
+      <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
+        <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate"
+          name="dataModel.expireDate" placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3"
+          maxlength="100" disabled="{{!fieldsInfo['expireDate']?.accessEditField}}" class="form-control validate-name"
+          id="dataModel.expireDate" />
+        <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #ExpireDate></mat-datepicker>
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+          (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+        </button>
+      </div>
     </form>
     <!--Content-->
   </div>

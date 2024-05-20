@@ -5,14 +5,14 @@
       {{ formInfo.formTitle }}
     </p>
     <h4>اطلاعات</h4>
-    
+
     <p>
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
     </p>
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-              <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
         <mat-step label="{{'TITLE.Config_Module' | translate}}" state="main">
           <p>{{'TITLE.Settings_that_the_module_applies_to_the_site' | translate}}</p>
           <!-- StatusRenderUser Field -->

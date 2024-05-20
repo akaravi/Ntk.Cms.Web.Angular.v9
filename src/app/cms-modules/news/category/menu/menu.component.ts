@@ -1,13 +1,11 @@
-import { I } from '@angular/cdk/keycodes';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { CoreCpMainMenuModel, CoreCpMainMenuService, ErrorExceptionResult, FilterDataModel, FilterModel, NewsCategoryModel, NewsCategoryService, TokenInfoModel } from 'ntk-cms-api';
+import { ErrorExceptionResult, FilterDataModel, FilterModel, NewsCategoryModel, NewsCategoryService, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
-import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({

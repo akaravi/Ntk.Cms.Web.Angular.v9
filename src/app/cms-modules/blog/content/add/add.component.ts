@@ -12,7 +12,7 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   AccessModel, BlogCategoryModel, BlogContentModel, BlogContentOtherInfoModel, BlogContentOtherInfoService, BlogContentService, BlogContentSimilarModel, BlogContentSimilarService, BlogContentTagModel, BlogContentTagService, CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
+  FormInfoModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { firstValueFrom, of } from 'rxjs';

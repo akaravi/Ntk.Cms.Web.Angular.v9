@@ -3,31 +3,25 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel,
-  CoreCurrencyService, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstateContractTypeModel, EstateContractTypeService, EstateEnumService, EstatePriceInquiryDtoModel, EstatePropertyExpertPriceModel,
+  CoreCurrencyService,
+  ErrorExceptionResult, ErrorExceptionResultBase, EstateContractTypeModel, EstateContractTypeService, EstateEnumService, EstatePriceInquiryDtoModel, EstatePropertyExpertPriceModel,
   EstatePropertyExpertPriceService, EstatePropertyTypeLanduseModel, EstatePropertyTypeLanduseService, EstatePropertyTypeUsageModel, EstatePropertyTypeUsageService, FilterDataModel,
-  FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { EstatePropertyExpertPriceAddComponent } from '../add/add.component';
 import { EstatePropertyExpertPriceEditComponent } from '../edit/edit.component';
 import { EstatePropertyExpertPriceInquiryCalculateComponent } from '../inquiry-calculate/inquiry-calculate.component';
 import { EstatePropertyExpertPriceInquiryListComponent } from '../inquiry-list/inquiry-list.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-estate-property-expert-price-list',
@@ -52,7 +46,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyExpertPriceModel(), publicHelper,tokenHelper);
+    super(contentService, new EstatePropertyExpertPriceModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),

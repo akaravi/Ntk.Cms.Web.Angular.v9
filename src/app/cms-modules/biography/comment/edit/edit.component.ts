@@ -4,17 +4,17 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  BiographyCommentModel, BiographyCommentService, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
+  BiographyCommentModel, BiographyCommentService, CoreEnumService,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-biography-comment-edit',
@@ -22,7 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'],
 })
 export class BiographyCommentEditComponent extends EditBaseComponent<BiographyCommentService, BiographyCommentModel, number>
-implements OnInit {
+  implements OnInit {
   requestId = 0;
   requestParentId = 0;
   requestContentId = 0;
@@ -35,7 +35,8 @@ implements OnInit {
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(biographyCommentService, new BiographyCommentModel(), publicHelper);
+  ) {
+    super(biographyCommentService, new BiographyCommentModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -49,8 +50,8 @@ implements OnInit {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
-  
+
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: BiographyCommentModel = new BiographyCommentModel();
   ComponentAction = ComponentActionEnum.none;

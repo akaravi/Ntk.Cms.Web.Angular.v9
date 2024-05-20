@@ -4,7 +4,8 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Map as leafletMap } from 'leaflet';
 import {
-  AccessModel, ClauseTypeEnum, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel, LinkManagementBillboardCategoryModel, LinkManagementBillboardCategoryService, LinkManagementBillboardModel, LinkManagementBillboardPatternModel, LinkManagementBillboardService, LinkManagementMemberModel, ManageUserAccessDataTypesEnum
+  AccessModel, ClauseTypeEnum,
+  ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel, LinkManagementBillboardCategoryModel, LinkManagementBillboardCategoryService, LinkManagementBillboardModel, LinkManagementBillboardPatternModel, LinkManagementBillboardService, LinkManagementMemberModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -13,10 +14,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { MatStepper } from '@angular/material/stepper';
 import { TranslateService } from '@ngx-translate/core';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-linkmanagement-Billboard-edit',
@@ -25,7 +26,7 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
   ]
 })
 export class LinkManagementBillboardEditComponent extends EditBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number>
-implements OnInit, AfterViewInit {
+  implements OnInit, AfterViewInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -36,7 +37,8 @@ implements OnInit, AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper);
+  ) {
+    super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loadingOption.cdr = this.cdr;
@@ -47,7 +49,7 @@ implements OnInit, AfterViewInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   dataModel = new LinkManagementBillboardModel();
   dataAccessModel: AccessModel;
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
   dataModelEnumManagementContentSettingTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
@@ -58,7 +60,7 @@ implements OnInit, AfterViewInit {
   dataContentCategoryModel: number[] = [];
 
 
-  
+
   loadingOption = new ProgressSpinnerModel();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];

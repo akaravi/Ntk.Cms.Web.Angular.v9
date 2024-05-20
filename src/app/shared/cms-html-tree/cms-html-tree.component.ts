@@ -22,24 +22,24 @@ export class CmsHtmlTreeComponent implements OnInit {
   }
   /*
   <app-cms-html-tree [optionLoading]="loading" [optionHeaderDisplay]="true" [optionActionDisplay]="true" [optionFooterDisplay]="false">
-<ng-container cms-tree-header>
+<ng-container  cms-tree-header>
  </ng-container>
- <ng-container cms-tree-action>
+ <ng-container  cms-tree-action>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </ng-container>
-    <ng-container cms-action>
+    <ng-container  cms-action>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
     </ng-container>
-    <ng-container cms-body>
+    <ng-container  cms-body>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </ng-container>
-    <ng-container cms-footer>
+    <ng-container  cms-footer>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->

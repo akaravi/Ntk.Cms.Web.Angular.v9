@@ -6,21 +6,21 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-
   FilterDataModel,
   FilterModel,
   LinkManagementAccountingModel,
-  LinkManagementAccountingService, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  LinkManagementAccountingService, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { LinkManagementAccountingAddComponent } from '../add/add.component';
 import { LinkManagementAccountingDeleteComponent } from '../delete/delete.component';
 import { LinkManagementAccountingEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-accounting-list',
@@ -40,7 +40,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementAccountingModel(), publicHelper,tokenHelper);
+    super(contentService, new LinkManagementAccountingModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -226,7 +226,8 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         this.DataGetAll();

@@ -5,7 +5,8 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, InfoEnumModel, MemberPropertyAliasModel,
+  DataFieldInfoModel, ErrorExceptionResult,
+  MemberPropertyAliasModel,
   MemberPropertyAliasService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';

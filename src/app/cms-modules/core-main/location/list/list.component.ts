@@ -3,35 +3,30 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, CoreLocationModel,
-  CoreLocationService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreLocationService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreLocationAddBulkComponent } from '../add-bulk/add-bulk.component';
 import { CoreLocationAddComponent } from '../add/add.component';
 import { CoreLocationEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-location-list',
   templateUrl: './list.component.html',
 })
 export class CoreLocationListComponent extends ListBaseComponent<CoreLocationService, CoreLocationModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: CoreLocationService,
     private coreEnumService: CoreEnumService,
@@ -44,7 +39,7 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreLocationModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreLocationModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -62,7 +57,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
- 
+
   dataModelEnumLocationTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

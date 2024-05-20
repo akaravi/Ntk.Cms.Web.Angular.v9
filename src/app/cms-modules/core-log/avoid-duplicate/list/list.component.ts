@@ -3,26 +3,21 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreLogAvoidDuplicateDataEntryModel, CoreLogAvoidDuplicateDataEntryService, CoreSiteModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreLogAvoidDuplicateDataEntryModel, CoreLogAvoidDuplicateDataEntryService, CoreSiteModel,
+  ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { CoreLogAvoidDuplicateDataEntryEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
+import { CoreLogAvoidDuplicateDataEntryEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-core-log-avoid-duplicate-list',
   templateUrl: './list.component.html',
@@ -43,7 +38,7 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogAvoidDuplicateDataEntryModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreLogAvoidDuplicateDataEntryModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));

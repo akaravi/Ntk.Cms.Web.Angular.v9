@@ -1,7 +1,7 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { CoreUserModel, CoreUserService, FilterModel, TokenInfoModel } from 'ntk-cms-api';
+import { CoreUserModel, CoreUserService, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';

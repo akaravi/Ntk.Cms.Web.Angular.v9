@@ -35,7 +35,7 @@ export class AuthSingInComponent implements OnInit {
       this.connectionStatus = value.connectionStatus;
     });
   }
-  loadDemoTheme=environment.loadDemoTheme;
+  loadDemoTheme = environment.loadDemoTheme;
   connectionStatus = new ConnectionStatusModel();
   firstRun = true;
   hidePassword = true;

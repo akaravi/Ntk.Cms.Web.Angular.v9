@@ -2,30 +2,23 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult,
   FilterDataModel,
   FilterModel, RecordStatusEnum, SortTypeEnum, TicketingDepartemenModel, TicketingFaqModel,
-  TicketingFaqService, TokenInfoModel
+  TicketingFaqService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { TicketingFaqAddComponent } from '../add/add.component';
 import { TicketingFaqEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-application-app-list',
   templateUrl: './list.component.html'
@@ -44,7 +37,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new TicketingFaqModel, publicHelper,tokenHelper);
+    super(contentService, new TicketingFaqModel, publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -196,10 +189,10 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
       parentId = this.categoryModelSelected.id;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(TicketingFaqAddComponent, {
       height: '90%',
       panelClass: panelClass,

@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreModuleModel,
   CoreModuleService,
-  DataFieldInfoModel, ErrorExceptionResult, InfoEnumModel
+  DataFieldInfoModel, ErrorExceptionResult
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';

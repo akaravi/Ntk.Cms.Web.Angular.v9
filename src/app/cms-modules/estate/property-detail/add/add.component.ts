@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, EstateEnumService, EstatePropertyDetailGroupModel, EstatePropertyDetailModel, EstatePropertyDetailService, EstatePropertyTypeLanduseModel, FormInfoModel, InfoEnumModel

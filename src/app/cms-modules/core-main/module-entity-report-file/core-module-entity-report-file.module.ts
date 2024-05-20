@@ -5,6 +5,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import {
   CoreModuleEntityReportFileService
 } from 'ntk-cms-api';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreSharedModule } from '../core.shared.module';
 import { CoreModuleEntityModule } from '../module-entity/core-module-entity.module';
@@ -13,7 +14,6 @@ import { CoreModuleEntityReportFileComponent } from './core-module-entity-report
 import { CoreModuleEntityReportFileRouting } from './core-module-entity-report-file.routing';
 import { CoreModuleEntityReportFileEditComponent } from './edit/edit.component';
 import { CoreModuleEntityReportFileListComponent } from './list/list.component';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 
 
 @NgModule({

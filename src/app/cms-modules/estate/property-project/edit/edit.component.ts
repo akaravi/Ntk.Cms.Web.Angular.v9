@@ -11,17 +11,18 @@ import { TranslateService } from '@ngx-translate/core';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
-  AccessModel, ClauseTypeEnum, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstatePropertyCompanyModel, EstatePropertyProjectFilterModel, EstatePropertyProjectModel,
+  AccessModel, ClauseTypeEnum, CoreLocationModel,
+  ErrorExceptionResultBase, EstatePropertyCompanyModel, EstatePropertyProjectFilterModel, EstatePropertyProjectModel,
   EstatePropertyProjectService,
-  FilterDataModel, FilterModel,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
+  FilterDataModel,
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-property-project-edit',
@@ -53,7 +54,7 @@ export class EstatePropertyProjectEditComponent extends EditBaseComponent<Estate
     });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
   dataModel = new EstatePropertyProjectModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
@@ -66,7 +67,7 @@ export class EstatePropertyProjectEditComponent extends EditBaseComponent<Estate
   similarTabledisplayedColumns = ['LinkMainImageIdSrc', 'Id', 'RecordStatus', 'Title', 'Action'];
   similarTabledataSource = new MatTableDataSource<EstatePropertyProjectModel>();
   dataAccessModel: AccessModel;
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -78,7 +79,7 @@ export class EstatePropertyProjectEditComponent extends EditBaseComponent<Estate
   keywordDataModel = [];
   tagIdsData: number[];
   appLanguage = 'fa';
-  
+
   /** map */
   viewMap = false;
   private mapModel: leafletMap;

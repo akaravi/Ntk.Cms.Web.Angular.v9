@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CmsAuthSiteGuard } from 'src/app/core/services/cmsAuthSiteGuard.service';
 import { PageDashboardComponent } from './page-dashboard/page-dashboard.component';
 import { PageMenuComponent } from './page-menu/page-menu.component';
-import { CmsAuthSiteGuard } from 'src/app/core/services/cmsAuthSiteGuard.service';
 import { PanelComponent } from './panel.component';
 
 const routes: Routes = [

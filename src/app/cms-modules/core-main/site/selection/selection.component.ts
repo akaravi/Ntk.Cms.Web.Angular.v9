@@ -13,8 +13,8 @@ import {
 } from 'ntk-cms-api';
 import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
+import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 
 
 @Component({

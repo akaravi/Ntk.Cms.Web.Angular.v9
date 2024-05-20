@@ -61,7 +61,7 @@
         translate}}</p>
     </div>
 
-    <div *ngIf="tableRowSelected.id>0 && this.tokenInfo.userAccessAdminAllowToProfessionalData" class="col-4">
+    <div *ngIf="tableRowSelected?.id>0 && this.tokenInfo.userAccessAdminAllowToProfessionalData" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         (click)="onActionbuttonUploadApp()" target="_blank">
         <i class="fa-solid fa-upload font-22" style="color: #ffffff;"></i>
@@ -70,7 +70,7 @@
       <p class="font-11 text-center opacity-70">{{'ACTION.UPLOAD_THE_INSTALLATION_FILE' |
         translate}}</p>
     </div>
-    <div *ngIf="tableRowSelected.id>0 && this.tokenInfo.userAccessAdminAllowToProfessionalData" class="col-4">
+    <div *ngIf="tableRowSelected?.id>0 && this.tokenInfo.userAccessAdminAllowToProfessionalData" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         (click)="onActionbuttonUploadUpdate()" target="_blank">
         <i class="fa-solid fa-upload font-22" style="color: #ffffff;"></i>
@@ -104,21 +104,21 @@
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.BUILD_AN_APP' | translate}}</p>
     </div>
-    <div *ngIf="tableRowSelected.lastSuccessfullyBuildDate" class="col-4">
+    <div *ngIf="tableRowSelected?.lastSuccessfullyBuildDate" class="col-4">
       <a (click)="onActionbuttonDownloadApp(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
           class="fa-solid fa-circle-down font-22" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.DOWNLOAD_THE_APP' | translate}}</p>
     </div>
-    <div *ngIf="tableRowSelected.lastSuccessfullyBuildDate" class="col-4">
+    <div *ngIf="tableRowSelected?.lastSuccessfullyBuildDate" class="col-4">
       <a (click)="onActionbuttonMemberList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
           class="fa-solid fa-users font-22" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.USERS' | translate}}</p>
     </div>
-    <div *ngIf="tableRowSelected.lastSuccessfullyBuildDate" class="col-4">
+    <div *ngIf="tableRowSelected?.lastSuccessfullyBuildDate" class="col-4">
       <a (click)="onActionbuttonIntroList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
           class="fa-solid fa-circle-info font-22" style="color: #ffffff;"></i><br>
@@ -133,7 +133,7 @@
       <p class="font-11 text-center opacity-70">{{'ACTION.SEND_NOTIFICATIONS' | translate}}</p>
     </div>
 
-    <div *ngIf="tableRowSelected.id>0" type="button" class="col-4">
+    <div *ngIf="tableRowSelected?.id>0" type="button" class="col-4">
       <a (click)="onActionbuttonBuildApp(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
           class="fa-solid fa-laptop-mobile font-22" style="color: #ffffff;"></i><br>

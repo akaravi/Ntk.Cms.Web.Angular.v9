@@ -8,9 +8,9 @@ import {
   TokenInfoModel
 } from 'ntk-cms-api';
 import { Observable, Subscription, firstValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { TranslationService } from '../i18n/translation.service';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',

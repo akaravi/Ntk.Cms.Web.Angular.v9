@@ -147,6 +147,8 @@ import { EstateCustomerCategoryTreeComponent } from './customer-category/tree/tr
 import { EstateCustomerOrderResultListComponent } from './customer-order-result/list/list.component';
 import { EstateCustomerOrderResultViewComponent } from './customer-order-result/view/view.component';
 import { EstateCustomerOrderActionComponent } from './customer-order/action/action.component';
+import { EstateCustomerOrderAddMobileComponent } from './customer-order/add/add.mobile.component';
+import { EstateCustomerOrderEditMobileComponent } from './customer-order/edit/edit.mobile.component';
 import { EstateCustomerOrderHeaderComponent } from './customer-order/header/header.component';
 import { EstateCustomerOrderQuickViewComponent } from './customer-order/quick-view/quick-view.component';
 import { EstateOverviewEventsComponent } from './overview/events/events.component';
@@ -165,6 +167,8 @@ import { EstatePropertyExpertPriceHeaderComponent } from './property-expert-pric
 import { EstatePropertyExpertPriceInquiryCalculateComponent } from './property-expert-price/inquiry-calculate/inquiry-calculate.component';
 import { EstatePropertyExpertPriceInquiryListComponent } from './property-expert-price/inquiry-list/inquiry-list.component';
 import { EstatePropertyExpertPriceListComponent } from './property-expert-price/list/list.component';
+import { EstatePropertyHistoryAddMobileComponent } from './property-history/add/add.mobile.component';
+import { EstatePropertyHistoryEditMobileComponent } from './property-history/edit/edit.mobile.component';
 import { EstatePropertyHistoryQuickViewComponent } from './property-history/quick-view/quick-view.component';
 import { EstatePropertyProjectAddComponent } from './property-project/add/add.component';
 import { EstatePropertyProjectDeleteComponent } from './property-project/delete/delete.component';
@@ -192,10 +196,6 @@ import { EstatePropertyActionComponent } from './property/action/action.componen
 import { EstatePropertyQuickAddComponent } from './property/quick-add/quick-add.component';
 import { EstatePropertyQuickListComponent } from './property/quick-list/quick-list.component';
 import { EstatePropertyQuickViewComponent } from './property/quick-view/quick-view.component';
-import { EstateCustomerOrderAddMobileComponent } from './customer-order/add/add.mobile.component';
-import { EstateCustomerOrderEditMobileComponent } from './customer-order/edit/edit.mobile.component';
-import { EstatePropertyHistoryAddMobileComponent } from './property-history/add/add.mobile.component';
-import { EstatePropertyHistoryEditMobileComponent } from './property-history/edit/edit.mobile.component';
 
 
 @NgModule({

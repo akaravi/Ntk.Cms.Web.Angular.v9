@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ApiTelegramUploadedFileModel,
-  ApiTelegramUploadedFileService, SortTypeEnum,
-  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum} from 'ntk-cms-api';
+  ApiTelegramUploadedFileService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum,
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -33,7 +35,7 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
     public pageInfo: PageInfoService,
     public tokenHelper: TokenHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApiTelegramUploadedFileModel(), publicHelper,tokenHelper);
+    super(contentService, new ApiTelegramUploadedFileModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

@@ -7,11 +7,10 @@ import {
   CoreAuthService,
   FormInfoModel
 } from 'ntk-cms-api';
-import { interval, Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, interval } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
-import { ContentInfoModel } from 'src/app/core/models/contentInfoModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';

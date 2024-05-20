@@ -5,7 +5,7 @@ import { MatStepper } from '@angular/material/stepper';
   selector: 'mat-vertical-stepper',
 })
 export class MatVerticalStepperScrollerDirective {
-  constructor(private stepper: MatStepper) {}
+  constructor(private stepper: MatStepper) { }
 
   @HostListener('animationDone')
   selectionChanged() {

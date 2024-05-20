@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
@@ -18,6 +17,6 @@ export class MenuFooterComponent implements OnInit {
   }
 
   onActionCleanDataMenu(): void {
-      this.themeService.cleanDataMenu();
+    this.themeService.cleanDataMenu();
   }
 }

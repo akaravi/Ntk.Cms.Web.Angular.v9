@@ -3,16 +3,17 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreSiteCategoryModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, WebDesignerMainPageTemplateModel, WebDesignerMainPageTemplateService, WebDesignerMainPageTemplateSiteCategoryModel,
+  CoreEnumService, CoreSiteCategoryModel,
+  FilterDataModel, FilterModel, FormInfoModel,
+  ManageUserAccessDataTypesEnum, WebDesignerMainPageTemplateModel, WebDesignerMainPageTemplateService, WebDesignerMainPageTemplateSiteCategoryModel,
   WebDesignerMainPageTemplateSiteCategoryService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-webdesigner-pagetemplate-edit',
@@ -42,11 +43,11 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  
+
   dataModel: WebDesignerMainPageTemplateModel = new WebDesignerMainPageTemplateModel();
   formInfo: FormInfoModel = new FormInfoModel();
 

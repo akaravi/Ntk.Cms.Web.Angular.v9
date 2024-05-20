@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: ArticleComponent,
-    data:{ title: 'ROUTE.Article' },
+    data: { title: 'ROUTE.Article' },
     children: [
       /* Config */
       {
@@ -24,29 +24,29 @@ const routes: Routes = [
         // resolve: {categoryList: CategoryResolver},
         // loadChildren: () =>    import('./content/content.module').then(m => m.ContentModule)
         component: ArticleContentListComponent,
-        data:{ title: 'ROUTE.Article' },
+        data: { title: 'ROUTE.Article' },
       },
       {
         path: 'content/add/:CategoryId',
         component: ArticleContentAddComponent,
-        data:{ title: 'ROUTE.Article' },
+        data: { title: 'ROUTE.Article' },
       },
       {
         path: 'content/edit/:Id',
         component: ArticleContentEditComponent,
-        data:{ title: 'ROUTE.Article' },
+        data: { title: 'ROUTE.Article' },
 
       },
       {
         path: 'comment',
         component: ArticleCommentListComponent,
-        data:{ title: 'ROUTE.Article' },
+        data: { title: 'ROUTE.Article' },
 
       },
       {
         path: 'comment/:ContentId',
         component: ArticleCommentListComponent,
-        data:{ title: 'ROUTE.Article' },
+        data: { title: 'ROUTE.Article' },
 
       },
     ]

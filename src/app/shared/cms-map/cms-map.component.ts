@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
-import { Map, MapOptions, tileLayer, ZoomAnimEvent } from 'leaflet';
+import { Map, MapOptions, ZoomAnimEvent, tileLayer } from 'leaflet';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';

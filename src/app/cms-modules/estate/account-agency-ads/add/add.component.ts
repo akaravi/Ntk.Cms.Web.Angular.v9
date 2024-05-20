@@ -4,10 +4,11 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyAdsModel, EstateAccountAgencyAdsService, EstateAccountAgencyModel, FormInfoModel, InfoEnumModel, TokenInfoModel
+  CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyAdsModel, EstateAccountAgencyAdsService, EstateAccountAgencyModel, FormInfoModel,
+  TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';

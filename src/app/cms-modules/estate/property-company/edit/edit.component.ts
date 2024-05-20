@@ -11,15 +11,16 @@ import { TranslateService } from '@ngx-translate/core';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
-  AccessModel, ClauseTypeEnum, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstatePropertyCompanyFilterModel, EstatePropertyCompanyModel,
+  AccessModel, ClauseTypeEnum, CoreLocationModel,
+  ErrorExceptionResultBase, EstatePropertyCompanyFilterModel, EstatePropertyCompanyModel,
   EstatePropertyCompanyService,
-  FilterDataModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  FilterDataModel, FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-property-company-edit',
@@ -28,7 +29,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   ]
 })
 export class EstatePropertyCompanyEditComponent extends EditBaseComponent<EstatePropertyCompanyService, EstatePropertyCompanyModel, string>
-implements OnInit, AfterViewInit {
+  implements OnInit, AfterViewInit {
   requestId = '';
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -38,7 +39,8 @@ implements OnInit, AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(contentService, new EstatePropertyCompanyModel(), publicHelper);
+  ) {
+    super(contentService, new EstatePropertyCompanyModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -46,7 +48,7 @@ implements OnInit, AfterViewInit {
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
   dataModel = new EstatePropertyCompanyModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
@@ -59,7 +61,7 @@ implements OnInit, AfterViewInit {
   similarTabledisplayedColumns = ['LinkMainImageIdSrc', 'Id', 'RecordStatus', 'Title', 'Action'];
   similarTabledataSource = new MatTableDataSource<EstatePropertyCompanyModel>();
   dataAccessModel: AccessModel;
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

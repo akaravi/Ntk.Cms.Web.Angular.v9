@@ -19,16 +19,14 @@ import {
   FilterModel,
   FormInfoModel,
   InfoEnumModel,
-  ManageUserAccessDataTypesEnum,
-  TokenInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyHistoryEditComponent } from './edit.component';
-import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-estate-property-history-edit-mobile',
@@ -36,7 +34,7 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
   styleUrls: ['./edit.mobile.component.scss'],
 })
 export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -50,7 +48,8 @@ implements OnInit {
     private cdr: ChangeDetectorRef,
     public tokenHelper: TokenHelper,
     public translate: TranslateService
-  ) {super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper);
+  ) {
+    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant(
@@ -74,8 +73,8 @@ implements OnInit {
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  
-  
+
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstatePropertyHistoryModel = new EstatePropertyHistoryModel();
   dataFileModelFiles = new Map<number, string>();

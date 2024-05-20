@@ -9,7 +9,7 @@ import { Map as leafletMap } from 'leaflet';
 import {
   AccessModel, ApplicationAppModel,
   ApplicationAppService, ApplicationEnumService, ApplicationSourceModel, ApplicationThemeConfigModel, CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult,
+  ErrorExceptionResult,
   ErrorExceptionResultBase,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
@@ -17,7 +17,6 @@ import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsMapComponent } from 'src/app/shared/cms-map/cms-map.component';
 @Component({
@@ -45,10 +44,10 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   @ViewChild(CmsMapComponent) childMap: CmsMapComponent;
-  
+
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
-  
+
   dataModel = new ApplicationAppModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 

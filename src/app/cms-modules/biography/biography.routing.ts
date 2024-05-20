@@ -22,28 +22,28 @@ const routes: Routes = [
         // resolve: {categoryList: CategoryResolver},
         // loadChildren: () =>    import('./content/content.module').then(m => m.ContentModule)
         component: BiographyContentListComponent,
-        data:{ title: 'ROUTE.BIOGRAPHY' },
-        
+        data: { title: 'ROUTE.BIOGRAPHY' },
+
       },
       {
         path: 'content/add/:CategoryId',
         component: BiographyContentAddComponent,
-        data:{ title: 'ROUTE.BIOGRAPHY' },
+        data: { title: 'ROUTE.BIOGRAPHY' },
       },
       {
         path: 'content/edit/:Id',
         component: BiographyContentEditComponent,
-        data:{ title: 'ROUTE.BIOGRAPHY' },
+        data: { title: 'ROUTE.BIOGRAPHY' },
       },
       {
         path: 'comment',
         component: BiographyCommentListComponent,
-        data:{ title: 'ROUTE.BIOGRAPHY' },
+        data: { title: 'ROUTE.BIOGRAPHY' },
       },
       {
         path: 'comment/:ContentId',
         component: BiographyCommentListComponent,
-        data:{ title: 'ROUTE.BIOGRAPHY' },
+        data: { title: 'ROUTE.BIOGRAPHY' },
       },
     ]
   },

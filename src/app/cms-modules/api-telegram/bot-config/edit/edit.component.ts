@@ -4,12 +4,13 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  ApiTelegramBotConfigModel, ApiTelegramBotConfigService, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
+  ApiTelegramBotConfigModel, ApiTelegramBotConfigService, CoreEnumService,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
@@ -48,7 +49,7 @@ export class ApiTelegramBotConfigEditComponent extends EditBaseComponent<ApiTele
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
 

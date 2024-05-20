@@ -17,11 +17,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { CoreAuthService, CoreConfigurationService, CoreEnumService, CoreModuleService } from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing';
+import { ComponentsModule } from './components/components.module';
 import { CmsStoreModule } from './core/reducers/cmsStore.module';
 import { CmsAuthService } from './core/services/cmsAuth.service';
 import { SharedModule } from './shared/shared.module';
-import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
 
 function appInitializer(authService: CmsAuthService) {
   return () => {

@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { NavigationEnd, NavigationError, NavigationStart, Router, Event } from '@angular/router';
+import { Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { IApiCmsServerBase, TokenInfoModel } from 'ntk-cms-api';
 import { Observable, Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -9,7 +9,7 @@ import { ContentInfoModel } from 'src/app/core/models/contentInfoModel';
 import { PageLinkModel } from 'src/app/core/models/pageLinkModel';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ThemeService, ThemeModeType } from 'src/app/core/services/theme.service';
+import { ThemeModeType, ThemeService } from 'src/app/core/services/theme.service';
 import { CmsDataCommentComponent } from 'src/app/shared/cms-data-comment/cms-data-comment.component';
 import { CmsDataMemoComponent } from 'src/app/shared/cms-data-memo/cms-data-memo.component';
 import { CmsDataPinComponent } from 'src/app/shared/cms-data-pin/cms-data-pin.component';

@@ -6,22 +6,23 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreLogErrorModel, CoreLogErrorService, CoreSiteModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  CoreLogErrorModel, CoreLogErrorService, CoreSiteModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CoreLogErrorEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
+import { CoreLogErrorEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-core-log-error-list',
   templateUrl: './list.component.html',
 })
 export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorService, CoreLogErrorModel, string>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
   constructor(
@@ -37,7 +38,7 @@ implements OnInit, OnDestroy {
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogErrorModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreLogErrorModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));

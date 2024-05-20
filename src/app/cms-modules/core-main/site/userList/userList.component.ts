@@ -3,36 +3,34 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AuthRenewTokenModel,
-  CoreAuthService, CoreSiteUserModel, CoreSiteUserService, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreAuthService, CoreSiteUserModel, CoreSiteUserService, CoreUserModel, DataFieldInfoModel,
+  FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
 import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreUserChangePasswordComponent } from '../../user/changePassword/changePassword.component';
 import { CoreSiteUserAddComponent } from '../userAdd/userAdd.component';
 import { CoreSiteUserEditComponent } from '../userEdit/userEdit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-site-user-list',
   templateUrl: './userList.component.html',
   styleUrls: ["./userlist.component.scss"],
 })
 export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserService, CoreSiteUserModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkUserGroupId = 0;
@@ -48,7 +46,8 @@ implements OnInit, OnDestroy {
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
-    public dialog: MatDialog) {super(contentService, new CoreSiteUserModel(), publicHelper,tokenHelper);
+    public dialog: MatDialog) {
+    super(contentService, new CoreSiteUserModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

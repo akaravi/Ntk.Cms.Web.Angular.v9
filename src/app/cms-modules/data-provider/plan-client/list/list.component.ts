@@ -9,24 +9,25 @@ import {
   DataProviderPlanCategoryModel, DataProviderPlanClientModel,
   DataProviderPlanClientService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  FilterModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderPlanClientAddComponent } from '../add/add.component';
 import { DataProviderPlanClientDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanClientEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-plan-client-list',
   templateUrl: './list.component.html',
 })
 export class DataProviderPlanClientListComponent extends ListBaseComponent<DataProviderPlanClientService, DataProviderPlanClientModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkPlanId = 0;
   requestLinkClientId = 0;
   constructor(
@@ -40,7 +41,8 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
-  ) {super(contentService, new DataProviderPlanClientModel(), publicHelper,tokenHelper);
+  ) {
+    super(contentService, new DataProviderPlanClientModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -271,7 +273,8 @@ implements OnInit, OnDestroy {
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
       if (result && result.dialogChangedDate) {

@@ -12,8 +12,8 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsBankpaymentTransactionInfoComponent } from 'src/app/shared/cms-bankpayment-transaction-info/cms-bankpayment-transaction-info.component';
-import { EstatePropertyAdsSalePaymentComponent } from '../sale-payment/sale-payment.component';
 import { environment } from 'src/environments/environment';
+import { EstatePropertyAdsSalePaymentComponent } from '../sale-payment/sale-payment.component';
 
 @Component({
   selector: 'app-estate-property-ads-salelist',

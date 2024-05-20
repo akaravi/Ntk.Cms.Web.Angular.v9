@@ -3,33 +3,26 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  ClauseTypeEnum, DataFieldInfoModel, ErrorExceptionResult,
+  ClauseTypeEnum,
   FilterDataModel,
   FilterModel,
   NewsCategoryModel,
   NewsContentModel,
   NewsContentService, RecordStatusEnum,
-  SortTypeEnum, TokenInfoModel
+  SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { NewsContentDeleteComponent } from '../delete/delete.component';
-import { environment } from 'src/environments/environment';
-import { I } from '@angular/cdk/keycodes';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-news-content-list',
   templateUrl: './list.component.html',
@@ -49,7 +42,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new NewsContentModel(), publicHelper,tokenHelper);
+    super(contentService, new NewsContentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.activatedRoute.params.subscribe((data) => {
@@ -68,7 +61,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
 
   filteModelContent = new FilterModel();
   categoryModelSelected: NewsCategoryModel;
-  
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',

@@ -8,7 +8,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 export class CmsHtmlWidgetComponent implements OnInit {
   static nextId = 0;
   id = ++CmsHtmlWidgetComponent.nextId;
- 
+
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
   get optionLoading(): ProgressSpinnerModel {
     return this.loading;
@@ -22,17 +22,17 @@ export class CmsHtmlWidgetComponent implements OnInit {
   }
   /*
   <app-cms-html-widget [optionLoading]="loading">
-    <ng-container cms-header>
+    <ng-container  cms-header>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </ng-container>
-    <ng-container cms-body>
+    <ng-container  cms-body>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </ng-container>
-    <ng-container cms-footer>
+    <ng-container  cms-footer>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->

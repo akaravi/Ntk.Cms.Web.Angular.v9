@@ -6,7 +6,8 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   AccessModel, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel,
-  FormInfoModel, InfoEnumModel, PollingCategoryModel, PollingContentModel,
+  FormInfoModel,
+  PollingCategoryModel, PollingContentModel,
   PollingContentService, PollingOptionModel,
   PollingOptionService
 } from 'ntk-cms-api';
@@ -19,10 +20,10 @@ import { MatStepper } from '@angular/material/stepper';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreLocationModel } from 'ntk-cms-api';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 
 @Component({
   selector: 'app-polling-content-add',

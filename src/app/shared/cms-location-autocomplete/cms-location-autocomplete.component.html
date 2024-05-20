@@ -1,5 +1,5 @@
 <mat-form-field style="width:100%" appearance="fill">
-  <!-- <app-progress-spinner [options]="loading"> </app-progress-spinner> -->
+  <!-- <app-progress-spinner  [options]="loading"> </app-progress-spinner> -->
   <mat-label>{{optionLabel}}</mat-label>
   <mat-chip-grid #chipList aria-label="tag selection" [disabled]="optionDisabled">
     <mat-chip *ngFor="let item of tagDataModel" (removed)="remove(item)">

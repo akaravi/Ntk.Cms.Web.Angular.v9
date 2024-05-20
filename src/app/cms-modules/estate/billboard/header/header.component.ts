@@ -7,7 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   DataFieldInfoModel, ErrorExceptionResult,
   EstateBillboardModel,
-  EstateBillboardService, InfoEnumModel, RecordStatusEnum
+  EstateBillboardService,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';

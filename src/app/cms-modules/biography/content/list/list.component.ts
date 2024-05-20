@@ -3,32 +3,26 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BiographyCategoryModel,
   BiographyContentModel,
-  BiographyContentService, ClauseTypeEnum, DataFieldInfoModel, RecordStatusEnum,
-  SortTypeEnum,
-  ErrorExceptionResult,
+  BiographyContentService, ClauseTypeEnum,
   FilterDataModel,
-  FilterModel, TokenInfoModel
+  FilterModel,
+  RecordStatusEnum,
+  SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { BiographyContentDeleteComponent } from '../delete/delete.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-biography-content-list',
   templateUrl: './list.component.html',
@@ -46,7 +40,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new BiographyContentModel(), publicHelper,tokenHelper);
+    super(contentService, new BiographyContentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -362,8 +356,8 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

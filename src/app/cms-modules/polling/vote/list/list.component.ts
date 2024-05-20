@@ -8,16 +8,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   FilterDataModel, FilterModel, PollingVoteModel,
-  PollingVoteService, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  PollingVoteService, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { PollingVoteEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
+import { PollingVoteEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-polling-vote-list',
   templateUrl: './list.component.html',
@@ -29,7 +30,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
     ]),
   ],
 })
-export class PollingVoteListComponent extends ListBaseComponent< PollingVoteService, PollingVoteModel, string> implements OnInit, OnDestroy {
+export class PollingVoteListComponent extends ListBaseComponent<PollingVoteService, PollingVoteModel, string> implements OnInit, OnDestroy {
   requestContentId = 0;
   requestOptionId = 0;
   constructor(
@@ -44,7 +45,7 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new PollingVoteModel(), publicHelper,tokenHelper);
+    super(contentService, new PollingVoteModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -195,10 +196,10 @@ export class PollingVoteListComponent extends ListBaseComponent< PollingVoteServ
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(PollingVoteEditComponent, {
       height: '90%',
       panelClass: panelClass,

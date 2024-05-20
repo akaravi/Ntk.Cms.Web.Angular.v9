@@ -5,7 +5,7 @@
       {{ formInfo.formTitle }}
     </p>
     <h4>اطلاعات</h4>
-    
+
     <p>
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
@@ -71,7 +71,7 @@
             {{ item.description }}
           </option>
         </select>
-        <em  >{{
+        <em>{{
           "TITLE.Select_type_of_content" | translate}}
         </em>
         <mat-error *ngIf="AccessStatus.errors?.required">
@@ -89,7 +89,7 @@
             {{ item.description }}
           </option>
         </select>
-        <em  >{{
+        <em>{{
           "TITLE.Select_type_of_content" | translate}}
         </em>
         <mat-error *ngIf="Action.errors?.required">

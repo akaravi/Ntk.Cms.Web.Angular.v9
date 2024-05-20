@@ -3,36 +3,30 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BankPaymentPublicConfigModel,
-  BankPaymentPublicConfigService, CoreCurrencyModel, CoreCurrencyService, DataFieldInfoModel, RecordStatusEnum, SortTypeEnum,
+  BankPaymentPublicConfigService, CoreCurrencyModel, CoreCurrencyService,
   ErrorExceptionResult, FilterDataModel, FilterModel,
-  TokenInfoModel
+  RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { BankPaymentPublicConfigAddComponent } from '../add/add.component';
 import { BankPaymentPublicConfigEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-bankpayment-publicconfig-list',
   templateUrl: './list.component.html',
 })
 export class BankPaymentPublicConfigListComponent extends ListBaseComponent<BankPaymentPublicConfigService, BankPaymentPublicConfigModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: BankPaymentPublicConfigService,
     private cmsToastrService: CmsToastrService,
@@ -45,7 +39,7 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new BankPaymentPublicConfigModel(), publicHelper,tokenHelper);
+    super(contentService, new BankPaymentPublicConfigModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

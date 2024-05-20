@@ -4,17 +4,17 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleSaleHeaderModel, CoreModuleSaleSerialModel, CoreModuleSaleSerialService, DataFieldInfoModel, ErrorExceptionResult,
+  CoreEnumService, CoreModuleSaleHeaderModel, CoreModuleSaleSerialModel, CoreModuleSaleSerialService,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -52,10 +52,10 @@ export class CoreModuleSaleSerialEditComponent extends EditBaseComponent<CoreMod
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreModuleSaleSerialModel = new CoreModuleSaleSerialModel();
-  
+
 
   formInfo: FormInfoModel = new FormInfoModel();
 

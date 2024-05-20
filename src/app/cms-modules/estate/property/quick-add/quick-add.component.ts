@@ -10,23 +10,24 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel, CoreEnumService, CoreLocationModel, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractModel, EstateContractTypeModel, EstateContractTypeService, EstatePropertyCompanyModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyModel, EstatePropertyProjectModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeLanduseService, EstatePropertyTypeModel,
   EstatePropertyTypeService, EstatePropertyTypeUsageModel, FilterDataModel,
-  FilterModel, FormInfoModel, InfoEnumModel, InputDataTypeEnum, TokenInfoModel
+  FilterModel, FormInfoModel,
+  InputDataTypeEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsFormsErrorStateMatcher } from 'src/app/core/pipe/cmsFormsErrorStateMatcher';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
 import { environment } from 'src/environments/environment';
-import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
+import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
 @Component({
   selector: 'app-estate-property-quick-add',
   templateUrl: './quick-add.component.html',
   styleUrls: ["./quick-add.component.scss"],
 })
-export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstatePropertyTypeService, EstatePropertyTypeModel, string>  implements OnInit {
+export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstatePropertyTypeService, EstatePropertyTypeModel, string> implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<EstatePropertyQuickAddComponent>,
     public coreEnumService: CoreEnumService,

@@ -82,8 +82,8 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
       const dialogRef = this.dialog.open(CoreUserClaimContentEditComponent, {
         height: '90%',
         panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+        enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+        exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
         data: { id: model.linkContentId }
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -100,8 +100,8 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
       const dialogRef = this.dialog.open(CoreUserClaimContentAddComponent, {
         height: '90%',
         panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+        enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+        exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
         data: { linkUserClaimTypeId: model.linkTypeId }
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -120,7 +120,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
         if (ret.isSuccess) {
           this.dataModelResult = ret;
           if (this.dataModelResult.listItems.find(x => x.recordStatus !== RecordStatusEnum.Pending && !x.isApproved)) {
-        
+
           }
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);

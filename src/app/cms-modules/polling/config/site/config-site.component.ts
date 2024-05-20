@@ -7,7 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel,
   CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult, FormInfoModel, InfoEnumModel, PollingConfigurationService,
+  DataFieldInfoModel,
+  FormInfoModel,
+  PollingConfigurationService,
   PollingModuleConfigSiteAccessValuesModel,
   PollingModuleConfigSiteValuesModel,
   PollingModuleSiteStorageValuesModel,

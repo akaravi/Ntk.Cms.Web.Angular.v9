@@ -3,34 +3,28 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SmsEnumService, SmsMainApiPathModel, SmsMainApiPathPriceServiceModel,
-  SmsMainApiPathPriceServiceService, SmsMainApiPathService, SortTypeEnum, TokenInfoModel
+  ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SmsEnumService, SmsMainApiPathModel, SmsMainApiPathPriceServiceModel,
+  SmsMainApiPathPriceServiceService, SmsMainApiPathService, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { SmsMainApiPathPriceServiceAddComponent } from '../add/add.component';
 import { SmsMainApiPathPriceServiceEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-sms-apipathpriceservice-list',
   templateUrl: './list.component.html',
 })
-export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< SmsMainApiPathPriceServiceService, SmsMainApiPathPriceServiceModel, string> implements OnInit, OnDestroy {
+export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<SmsMainApiPathPriceServiceService, SmsMainApiPathPriceServiceModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
   constructor(
     public contentService: SmsMainApiPathPriceServiceService,
@@ -46,7 +40,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsMainApiPathPriceServiceModel(), publicHelper,tokenHelper);
+    super(contentService, new SmsMainApiPathPriceServiceModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -71,7 +65,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-  //  'Id',
+    //  'Id',
     'RecordStatus',
     'LinkApiPathId',
     'RegulatorNumber',
@@ -224,10 +218,10 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiPathPriceServiceAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -258,10 +252,10 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent< 
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiPathPriceServiceEditComponent, {
       height: '90%',
       panelClass: panelClass,

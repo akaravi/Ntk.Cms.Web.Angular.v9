@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CmsAuthSiteGuard } from 'src/app/core/services/cmsAuthSiteGuard.service';
 import { CoreSiteAddComponent } from './add/add.component';
 import { CoreSiteAddFirstComponent } from './addFirst/addFirst.component';
 import { CoreSiteEditComponent } from './edit/edit.component';
@@ -11,7 +12,6 @@ import { CoreSiteModuleListComponent } from './moduleList/moduleList.component';
 import { CoreSiteResellerChartComponent } from './reseller-chart/reseller-chart.component';
 import { CoreSiteSelectionComponent } from './selection/selection.component';
 import { CoreSiteUserListComponent } from './userList/userList.component';
-import { CmsAuthSiteGuard } from 'src/app/core/services/cmsAuthSiteGuard.service';
 
 const routes: Routes = [
   {

@@ -10,14 +10,16 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreCurrencyModel, CoreEnumService, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractTypeModel, EstateContractTypeService, EstateCustomerCategoryModel, EstateCustomerOrderModel, EstateCustomerOrderService, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyService, EstatePropertyTypeLanduseModel,
+  CoreCurrencyModel, CoreEnumService, CoreUserModel, DataFieldInfoModel,
+  ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractTypeModel, EstateContractTypeService, EstateCustomerCategoryModel, EstateCustomerOrderModel, EstateCustomerOrderService, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyService, EstatePropertyTypeLanduseModel,
   EstatePropertyTypeUsageModel, FilterDataModel,
-  FilterModel, FormInfoModel, InfoEnumModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, FormInfoModel,
+  InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyListComponent } from '../../account-agency/list/list.component';
@@ -26,7 +28,6 @@ import { EstatePropertyHistoryAddComponent } from '../../property-history/add/ad
 import { EstatePropertyHistoryListComponent } from '../../property-history/list/list.component';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
 import { EstateCustomerOrderActionComponent } from '../action/action.component';
-import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-estate-customer-order-edit',
@@ -34,7 +35,7 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
   styleUrls: ['./edit.component.scss'],
 })
 export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   constructor(
     private router: Router,
@@ -51,7 +52,8 @@ implements OnInit {
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
     public dialog: MatDialog,
-  ) {super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
+  ) {
+    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -70,14 +72,14 @@ implements OnInit {
   @ViewChild(EstatePropertyHistoryListComponent) estatePropertyHistoryListComponent: EstatePropertyHistoryListComponent;
   allowActionSend = false;
 
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   enumInputDataType = InputDataTypeEnum;
   numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  
-  
+
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateCustomerOrderModel = new EstateCustomerOrderModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { EstateCustomerOrderService } from 'ntk-cms-api';
-import { map, Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Pipe({ name: 'estateCustomerOrderInfo' })
 export class estateCustomerOrderInfoPipe implements PipeTransform {
@@ -11,7 +11,7 @@ export class estateCustomerOrderInfoPipe implements PipeTransform {
     if (!value || value.length <= 0) {
       return new Observable<string>();
     }
-    return this.service.ServiceGetOneById(value,1000000)
+    return this.service.ServiceGetOneById(value, 1000000)
       .pipe(
         map((ret) => {
           var retOut = '';

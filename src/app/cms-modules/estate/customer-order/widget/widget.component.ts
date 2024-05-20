@@ -1,7 +1,7 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { EstateCustomerOrderService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
+import { EstateCustomerOrderService, FilterDataModel, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription, forkJoin } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ChartOptionsModel } from 'src/app/core/models/chartOptionsModel';
@@ -25,7 +25,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     /** chart*/
     this.chartOptions = {
       series: [],

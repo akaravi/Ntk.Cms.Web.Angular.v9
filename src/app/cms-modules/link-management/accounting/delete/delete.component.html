@@ -1,35 +1,36 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-          حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      
-      <p>
-          اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-          فقط یک صفحه ساختگی است.
-      </p>
-      <!--Content-->
-      {{ formInfo.formTitle }}
-      <ng-container *ngIf="dataModelResultContent?.item">
-        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-          <label for="dataModelResultContent.item.id" class="color-highlight">{{fieldsInfo['id']?.fieldTitle}}</label>
-          <input matInput [(ngModel)]="dataModelResultContent.item.id" name="dataModelResultContent.item.id" #Writer
-            type="text" placeholder="{{fieldsInfo['id']?.fieldTitle}}" required class="form-control validate-name" id="dataModelResultContent.item.id" readonly />
-        </div>
-      </ng-container>
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-        <button type="button" (click)="onFormDelete()" [disabled]=" !formInfo.buttonSubmittedEnabled"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
-          <i class="fa fa-check-square-o"></i> {{'ACTION.DELETE' | translate}}
-        </button>
-        <button type="button" (click)="onFormCancel()"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-        </button>
-      </div>
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
 
-      <!--Content-->
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    {{ formInfo.formTitle }}
+    <ng-container *ngIf="dataModelResultContent?.item">
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModelResultContent.item.id" class="color-highlight">{{fieldsInfo['id']?.fieldTitle}}</label>
+        <input matInput [(ngModel)]="dataModelResultContent.item.id" name="dataModelResultContent.item.id" #Writer
+          type="text" placeholder="{{fieldsInfo['id']?.fieldTitle}}" required class="form-control validate-name"
+          id="dataModelResultContent.item.id" readonly />
+      </div>
+    </ng-container>
+    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <button type="button" (click)="onFormDelete()" [disabled]=" !formInfo.buttonSubmittedEnabled"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
+        <i class="fa fa-check-square-o"></i> {{'ACTION.DELETE' | translate}}
+      </button>
+      <button type="button" (click)="onFormCancel()"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+      </button>
+    </div>
+
+    <!--Content-->
   </div>
 </div>

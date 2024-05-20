@@ -9,17 +9,18 @@ import {
   DataProviderPlanCategoryModel, DataProviderPlanSourceModel,
   DataProviderPlanSourceService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  FilterModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderPlanSourceAddComponent } from '../add/add.component';
 import { DataProviderPlanSourceDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanSourceEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-plan-source-list',
@@ -41,7 +42,7 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DataProviderPlanSourceModel(), publicHelper,tokenHelper);
+    super(contentService, new DataProviderPlanSourceModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

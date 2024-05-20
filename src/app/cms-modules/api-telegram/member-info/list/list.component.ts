@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ApiTelegramMemberInfoModel,
-  ApiTelegramMemberInfoService, SortTypeEnum,
-  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum} from 'ntk-cms-api';
+  ApiTelegramMemberInfoService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum,
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -33,7 +35,7 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApiTelegramMemberInfoModel(), publicHelper,tokenHelper);
+    super(contentService, new ApiTelegramMemberInfoModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {

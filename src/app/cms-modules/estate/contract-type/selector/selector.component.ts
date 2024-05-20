@@ -6,7 +6,7 @@ import {
   ClauseTypeEnum, CoreEnumService, ErrorExceptionResult, EstateContractTypeModel,
   EstateContractTypeService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel
 } from 'ntk-cms-api';
-import { firstValueFrom, Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';

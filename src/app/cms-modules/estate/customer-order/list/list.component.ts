@@ -3,29 +3,23 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel,
-  DataFieldInfoModel, ErrorExceptionResult, EstateContractTypeModel, EstateCustomerOrderFilterModel, EstateCustomerOrderModel,
+  EstateContractTypeModel, EstateCustomerOrderFilterModel, EstateCustomerOrderModel,
 
   EstateCustomerOrderService, EstatePropertyDetailGroupModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel,
-  FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { CmsLinkToComponent } from "src/app/shared/cms-link-to/cms-link-to.component";
 import { environment } from 'src/environments/environment';
 import { EstatePropertyHistoryAddComponent } from '../../property-history/add/add.component';
@@ -51,8 +45,8 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
-    ) {
-    super(contentService, new EstateCustomerOrderModel(), publicHelper,tokenHelper);
+  ) {
+    super(contentService, new EstateCustomerOrderModel(), publicHelper, tokenHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -84,12 +78,12 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   flag = false;
   tableContentSelected = [];
   filteModelContent = new EstateCustomerOrderFilterModel();
-  
-  
+
+
   dataModelPropertyDetailGroups: EstatePropertyDetailGroupModel[] = [];
   enumInputDataType = InputDataTypeEnum;
-  
- 
+
+
   tabledisplayedColumns: string[] = [];
   categoryModelSelected: EstateCustomerOrderModel;
   step = 0;
@@ -115,7 +109,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     // 'Action',
     "LinkTo",
   ];
-  
+
   expandedElement: EstateCustomerOrderModel | null;
   cmsApiStoreSubscribe: Subscription;
   propertyDetails: Map<string, string> = new Map<string, string>();
@@ -531,13 +525,13 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     );
 
   }
-  
+
   onActionbuttonInResponsible(model: boolean): void {
     this.searchInResponsible = model;
     this.DataGetAll();
   }
 
-  
+
 
   onActionSelectorSelect(model: EstateCustomerOrderModel | null): void {
     /*filter */

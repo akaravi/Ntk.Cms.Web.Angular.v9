@@ -10,10 +10,13 @@ import { TranslateService } from '@ngx-translate/core';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
-  CoreCurrencyModel, CoreEnumService, CoreLocationModel, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractModel, EstateContractTypeModel, EstateContractTypeService, EstatePropertyCompanyModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyModel, EstatePropertyProjectModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel, FilterModel, FormInfoModel, InfoEnumModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, TokenInfoModel
+  CoreCurrencyModel, CoreEnumService, CoreLocationModel, CoreUserModel,
+  ErrorExceptionResult, ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractModel, EstateContractTypeModel, EstateContractTypeService, EstatePropertyCompanyModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyModel, EstatePropertyProjectModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel, FilterModel, FormInfoModel,
+  InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
@@ -31,13 +34,12 @@ import { EstatePropertyHistoryAddComponent } from '../../property-history/add/ad
 import { EstatePropertyHistoryListComponent } from '../../property-history/list/list.component';
 import { EstatePropertyActionComponent } from '../action/action.component';
 import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
-import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 @Component({
   selector: 'app-estate-property-edit',
   templateUrl: './edit.component.html',
 })
 export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropertyService, EstatePropertyModel, string>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestId = '';
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -52,7 +54,8 @@ implements OnInit, OnDestroy {
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
     public dialog: MatDialog,
-  ) {super(estatePropertyService, new EstatePropertyModel(), publicHelper);
+  ) {
+    super(estatePropertyService, new EstatePropertyModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -73,14 +76,14 @@ implements OnInit, OnDestroy {
   @ViewChild(EstateCustomerOrderListComponent) estateCustomerOrderHaveHistoryListComponent: EstateCustomerOrderListComponent;
   @ViewChild(EstatePropertyHistoryListComponent) estatePropertyHistoryListComponent: EstatePropertyHistoryListComponent;
 
-  
+
   enumInputDataType = InputDataTypeEnum;
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  
+
   formMatcher = new CmsFormsErrorStateMatcher();
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModelEstateContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModel: EstatePropertyModel = new EstatePropertyModel();

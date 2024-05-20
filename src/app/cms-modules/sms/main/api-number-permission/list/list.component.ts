@@ -7,22 +7,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   FilterDataModel, FilterModel, RecordStatusEnum, SmsMainApiNumberPermissionModel,
-  SmsMainApiNumberPermissionService, SortTypeEnum} from 'ntk-cms-api';
+  SmsMainApiNumberPermissionService, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { SmsMainApiNumberPermissionAddComponent } from '../add/add.component';
 import { SmsMainApiNumberPermissionEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-sms-api-number-permission-list',
   templateUrl: './list.component.html'
 })
-export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string> implements OnInit, OnDestroy {
+export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string> implements OnInit, OnDestroy {
   requestLinkApiNumberId = '';
   constructor(
     public contentService: SmsMainApiNumberPermissionService,
@@ -36,7 +37,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsMainApiNumberPermissionModel(), publicHelper,tokenHelper);
+    super(contentService, new SmsMainApiNumberPermissionModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -165,10 +166,10 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiNumberPermissionAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -199,10 +200,10 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiNumberPermissionEditComponent, {
       height: '90%',
       panelClass: panelClass,

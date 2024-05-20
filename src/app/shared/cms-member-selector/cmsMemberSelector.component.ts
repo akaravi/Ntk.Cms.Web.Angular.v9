@@ -6,7 +6,7 @@ import {
   CoreLogMemberService, ErrorExceptionResult,
   FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel
 } from 'ntk-cms-api';
-import { firstValueFrom, Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
@@ -39,7 +39,7 @@ export class CmsMemberSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
-  @Input() optionLabel='';
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreLogMemberModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: string | CoreLogMemberModel) {

@@ -1,4 +1,3 @@
-import { I } from '@angular/cdk/keycodes';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -10,7 +9,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { ThemeService, ThemeModeType } from 'src/app/core/services/theme.service';
+import { ThemeModeType, ThemeService } from 'src/app/core/services/theme.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

@@ -8,19 +8,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BlogCommentModel,
-  BlogCommentService, BlogContentService, RecordStatusEnum,
-  SortTypeEnum,
-  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel} from 'ntk-cms-api';
+  BlogCommentService, BlogContentService,
+  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum,
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { BlogCommentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { BlogCommentEditComponent } from '../edit/edit.component';
 
 
 @Component({
@@ -48,7 +50,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(commentService, new BlogCommentModel(), publicHelper,tokenHelper);
+    super(commentService, new BlogCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 

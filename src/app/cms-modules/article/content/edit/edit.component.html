@@ -7,7 +7,7 @@
       {{ formInfo.formTitle }}
     </p>
     <h4>اطلاعات</h4>
-    
+
     <p>
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
@@ -202,12 +202,12 @@
             </video>
           </div>
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <input matInput [(ngModel)]="dataModel.linkFileMovieId" name="dataModel.linkFileMovieId" #LinkFileMovieId
-                type="text" placeholder="{{'TITLE.Video_File_ID' | translate}}" class="form-control validate-name"
-                (click)="fileManagerOpenFormMovie = true" />
-              <mat-icon matSuffix *ngIf="dataModel.linkFileMovieId" matSuffix mat-icon-button aria-label="Clear"
-                (click)="dataModel.linkFileMovieId = null">close</mat-icon>
-              <mat-icon matSuffix (click)="fileManagerOpenFormMovie = true">mode_edit</mat-icon>
+            <input matInput [(ngModel)]="dataModel.linkFileMovieId" name="dataModel.linkFileMovieId" #LinkFileMovieId
+              type="text" placeholder="{{'TITLE.Video_File_ID' | translate}}" class="form-control validate-name"
+              (click)="fileManagerOpenFormMovie = true" />
+            <mat-icon matSuffix *ngIf="dataModel.linkFileMovieId" matSuffix mat-icon-button aria-label="Clear"
+              (click)="dataModel.linkFileMovieId = null">close</mat-icon>
+            <mat-icon matSuffix (click)="fileManagerOpenFormMovie = true">mode_edit</mat-icon>
             <cms-file-manager (itemSelected)="onActionFileSelectedLinkFileMovieId($event)" [language]="appLanguage"
               [isPopup]="true" [(openForm)]="fileManagerOpenFormMovie" [tree]="fileManagerTree"
               [openDirectUploadView]="true" [openFilemanagerButtonLabelKey]="'select'"

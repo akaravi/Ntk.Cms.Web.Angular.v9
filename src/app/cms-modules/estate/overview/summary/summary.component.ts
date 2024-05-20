@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   DataFieldInfoModel, ErrorExceptionResult,
-  EstatePropertyTypeUsageModel, InfoEnumModel
+  EstatePropertyTypeUsageModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';

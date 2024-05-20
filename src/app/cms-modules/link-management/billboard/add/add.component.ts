@@ -5,7 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Map as leafletMap } from 'leaflet';
 import {
   AccessModel, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel, LinkManagementBillboardCategoryModel,
+  FormInfoModel,
+  LinkManagementBillboardCategoryModel,
   LinkManagementBillboardCategoryService, LinkManagementBillboardModel,
   LinkManagementBillboardPatternModel, LinkManagementBillboardService, LinkManagementMemberModel
 } from 'ntk-cms-api';
@@ -16,10 +17,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { MatStepper } from '@angular/material/stepper';
 import { TranslateService } from '@ngx-translate/core';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 
 @Component({
   selector: 'app-linkmanagement-Billboard-add',
@@ -27,7 +28,7 @@ import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
   styleUrls: ['./add.component.scss'
   ]
 })
-export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel ,number> implements OnInit, AfterViewInit {
+export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number> implements OnInit, AfterViewInit {
 
   requestLinkBillboardPatternId = 0;
   constructor(

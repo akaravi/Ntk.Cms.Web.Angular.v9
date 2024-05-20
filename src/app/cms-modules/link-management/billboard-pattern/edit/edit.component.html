@@ -5,7 +5,7 @@
             {{ formInfo.formTitle }}
         </p>
         <h4>اطلاعات</h4>
-        
+
         <p>
             اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
             فقط یک صفحه ساختگی است.
@@ -39,7 +39,7 @@
                     <option *ngFor="let item of dataModelEnumManagementContentSettingTypeResult.listItems; index as i"
                         [value]="item.value">{{ item.description }}</option>
                 </select>
-                <em  >{{'TITLE.Select_type_of_content' | translate}}</em>
+                <em>{{'TITLE.Select_type_of_content' | translate}}</em>
                 <mat-error *ngIf="SettingType.errors?.required">
                     SettingType is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
@@ -51,7 +51,7 @@
                     <option *ngFor="let item of dataModelEnumSharingPriceTypeResult.listItems; index as i"
                         [value]="item.value">{{ item.description }}</option>
                 </select>
-                <em  >{{'TITLE.Select_type_of_content' | translate}}</em>
+                <em>{{'TITLE.Select_type_of_content' | translate}}</em>
                 <mat-error *ngIf="SharingLinkType.errors?.required">
                     SharingLinkType is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>

@@ -9,14 +9,15 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreCurrencyModel, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, EstateBillboardModel, EstateBillboardService, EstatePropertyDetailGroupService, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, SortTypeEnum
+  CoreCurrencyModel, CoreEnumService, DataFieldInfoModel,
+  ErrorExceptionResultBase, EstateBillboardModel, EstateBillboardService, EstatePropertyDetailGroupService, FormInfoModel,
+  ManageUserAccessDataTypesEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
-import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-estate-billboard-edit',
@@ -24,7 +25,7 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
   styleUrls: ['./edit.component.scss'],
 })
 export class EstateBillboardEditComponent extends EditBaseComponent<EstateBillboardService, EstateBillboardModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   constructor(
     private router: Router,
@@ -37,7 +38,8 @@ implements OnInit {
     private activatedRoute: ActivatedRoute,
     public translate: TranslateService,
     public http: HttpClient,
-  ) {super(estateBillboardService, new EstateBillboardModel(), publicHelper);
+  ) {
+    super(estateBillboardService, new EstateBillboardModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -46,11 +48,11 @@ implements OnInit {
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   @ViewChild(EstatePropertyListComponent) estatePropertyList: EstatePropertyListComponent;
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateBillboardModel = new EstateBillboardModel();
   dataModelCorCurrencySelector = new CoreCurrencyModel();

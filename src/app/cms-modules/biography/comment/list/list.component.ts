@@ -8,19 +8,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BiographyCommentModel,
-  BiographyCommentService, BiographyContentService, RecordStatusEnum,
-  SortTypeEnum,
-  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel} from 'ntk-cms-api';
+  BiographyCommentService, BiographyContentService,
+  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum,
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { BiographyCommentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { BiographyCommentEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-biography-comment-list',
   templateUrl: './list.component.html',
@@ -33,7 +35,7 @@ import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
   ],
 })
 export class BiographyCommentListComponent extends ListBaseComponent<BiographyCommentService, BiographyCommentModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: BiographyCommentService,
     private biographyContentService: BiographyContentService,
@@ -47,7 +49,7 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new BiographyCommentModel(), publicHelper,tokenHelper);
+    super(contentService, new BiographyCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
@@ -455,8 +457,8 @@ implements OnInit, OnDestroy {
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

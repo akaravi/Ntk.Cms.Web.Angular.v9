@@ -4,9 +4,9 @@ import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ClauseTypeEnum, CoreEnumService, ErrorExceptionResult, EstatePropertyCompanyFilterModel, EstatePropertyCompanyModel,
-  EstatePropertyCompanyService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel
+  EstatePropertyCompanyService, FilterDataModel, FilterDataModelSearchTypesEnum
 } from 'ntk-cms-api';
-import { firstValueFrom, Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';

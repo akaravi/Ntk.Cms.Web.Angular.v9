@@ -7,7 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   BlogContentModel,
   BlogContentService,
-  DataFieldInfoModel, ErrorExceptionResult, InfoEnumModel, RecordStatusEnum
+  DataFieldInfoModel, ErrorExceptionResult,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';

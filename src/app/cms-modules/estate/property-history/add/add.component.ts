@@ -22,7 +22,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class EstatePropertyHistoryAddComponent  extends AddBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string>  implements OnInit {
+export class EstatePropertyHistoryAddComponent extends AddBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyHistoryAddComponent>,
@@ -60,7 +60,7 @@ export class EstatePropertyHistoryAddComponent  extends AddBaseComponent<EstateP
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
   tokenInfo = new TokenInfoModel();
-  
+
   dataFileModelFiles = new Map<number, string>();
   formInfo: FormInfoModel = new FormInfoModel();
 
@@ -71,7 +71,7 @@ export class EstatePropertyHistoryAddComponent  extends AddBaseComponent<EstateP
 
     this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
 
-    
+
     this.getEstateActivityStatusEnum();
   }
 

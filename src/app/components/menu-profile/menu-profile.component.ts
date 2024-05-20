@@ -1,17 +1,12 @@
-import { I } from '@angular/cdk/keycodes';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthRenewTokenModel, CoreAuthService, CoreCpMainMenuModel, CoreCpMainMenuService, CoreSiteModel, ErrorExceptionResult, TokenInfoModel } from 'ntk-cms-api';
-import { filter, Subscription } from 'rxjs';
+import { AuthRenewTokenModel, CoreAuthService, CoreSiteModel, TokenInfoModel } from 'ntk-cms-api';
+import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { TranslationService } from 'src/app/core/i18n/translation.service';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
-import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-menu-profile',

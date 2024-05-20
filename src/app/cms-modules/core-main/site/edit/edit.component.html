@@ -9,7 +9,7 @@
       {{ formInfo.formTitle }}
     </p>
     <h4>اطلاعات</h4>
-    
+
     <p>
       اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
       فقط یک صفحه ساختگی است.
@@ -38,8 +38,7 @@
           <!-- UserLanguage Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.userLanguage" class="color-highlight"></label>
-            <select  [(ngModel)]="dataModel.userLanguage"
-              name="dataModel.userLanguage" #UserLanguage="ngModel"
+            <select [(ngModel)]="dataModel.userLanguage" name="dataModel.userLanguage" #UserLanguage="ngModel"
               ngClass="UserLanguage-{{ dataModel.userLanguage }}" class="form-control validate-name"
               id="dataModel.userLanguage">
               <option *ngFor="
@@ -501,8 +500,8 @@
               fieldsInfo['currentSiteDomainUrl']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.currentSiteDomainUrl"
               [disabled]="!fieldsInfo['currentSiteDomainUrl']?.accessEditField" name="dataModel.currentSiteDomainUrl"
-              #CurrentSiteDomainUrl type="text" placeholder="https://...." minlength="3"
-              maxlength="100" class="form-control validate-name" id="dataModel.currentSiteDomainUrl" />
+              #CurrentSiteDomainUrl type="text" placeholder="https://...." minlength="3" maxlength="100"
+              class="form-control validate-name" id="dataModel.currentSiteDomainUrl" />
             <em>{{fieldsInfo['currentSiteDomainUrl']?.fieldDescription}}</em>
             <em>{{ CurrentSiteDomainUrl.value.length }} / 100</em>
           </div>
@@ -703,8 +702,8 @@
               fieldsInfo['aboutUsMoreInfoUrl']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsMoreInfoUrl"
               [disabled]="!fieldsInfo['aboutUsMoreInfoUrl']?.accessEditField" name="dataModel.aboutUsMoreInfoUrl"
-              #AboutUsMoreInfoUrl type="text" placeholder="https://...."
-              class="form-control validate-name" id="dataModel.aboutUsMoreInfoUrl" />
+              #AboutUsMoreInfoUrl type="text" placeholder="https://...." class="form-control validate-name"
+              id="dataModel.aboutUsMoreInfoUrl" />
             <em>{{fieldsInfo['aboutUsMoreInfoUrl']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkCompanyAuthorSite Field -->

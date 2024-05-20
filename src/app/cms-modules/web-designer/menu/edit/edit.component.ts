@@ -4,17 +4,17 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatStepper } from '@angular/material/stepper';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  AccessModel, CoreEnumService, CoreUserGroupModel, DataFieldInfoModel, ErrorExceptionResult,
+  AccessModel, CoreEnumService, CoreUserGroupModel,
+  ErrorExceptionResult,
   ErrorExceptionResultBase,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, WebDesignerMainMenuModel, WebDesignerMainMenuService
 } from 'ntk-cms-api';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-webdesigner-menu-edit',
@@ -22,7 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'],
 })
 export class WebDesignerMainMenuEditComponent extends EditBaseComponent<WebDesignerMainMenuService, WebDesignerMainMenuModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -33,7 +33,8 @@ implements OnInit {
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(webDesignerMainMenuService, new WebDesignerMainMenuModel(), publicHelper);
+  ) {
+    super(webDesignerMainMenuService, new WebDesignerMainMenuModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -41,9 +42,9 @@ implements OnInit {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
   appLanguage = 'fa';
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: WebDesignerMainMenuModel = new WebDesignerMainMenuModel();
   formInfo: FormInfoModel = new FormInfoModel();

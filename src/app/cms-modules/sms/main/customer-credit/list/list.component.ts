@@ -3,29 +3,23 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsMainCustomerCreditModel,
-  SmsMainCustomerCreditService, SortTypeEnum, TokenInfoModel
+  FilterDataModel, FilterModel, RecordStatusEnum, SmsMainCustomerCreditModel,
+  SmsMainCustomerCreditService, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 
 import { TranslateService } from '@ngx-translate/core';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { SmsMainCustomerCreditAddComponent } from '../add/add.component';
 import { SmsMainCustomerCreditEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-sms-customercredit-list',
   templateUrl: './list.component.html'
@@ -44,7 +38,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsMainCustomerCreditModel(), publicHelper,tokenHelper);
+    super(contentService, new SmsMainCustomerCreditModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -61,12 +55,12 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
- 
+
   categoryModelSelected: SmsMainCustomerCreditModel;
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-   // 'Id',
+    // 'Id',
     'RecordStatus',
     'Title',
     // 'Action'
@@ -187,10 +181,10 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainCustomerCreditAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -221,10 +215,10 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainCustomerCreditEditComponent, {
       height: '90%',
       panelClass: panelClass,

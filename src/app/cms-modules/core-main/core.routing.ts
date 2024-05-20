@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CoreComponent } from './core.component';
 import { CmsAuthSiteGuard } from 'src/app/core/services/cmsAuthSiteGuard.service';
+import { CoreComponent } from './core.component';
 
 const routes: Routes = [
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
       /* Config */
       {
         path: 'config',
-         canActivate: [CmsAuthSiteGuard],
+        canActivate: [CmsAuthSiteGuard],
         loadChildren: () =>
           import('./config/core-config.module').then((m) => m.CoreConfigModule),
         data: { title: 'ROUTE.CORE' },

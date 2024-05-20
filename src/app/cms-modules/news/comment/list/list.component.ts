@@ -9,17 +9,18 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, NewsCommentModel,
   NewsCommentService, NewsContentService, RecordStatusEnum,
-  SortTypeEnum} from 'ntk-cms-api';
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { NewsCommentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { NewsCommentEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-news-comment-list',
   templateUrl: './list.component.html',
@@ -31,7 +32,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
     ]),
   ],
 })
-export class NewsCommentListComponent extends ListBaseComponent<NewsContentService, NewsCommentModel, number>implements OnInit, OnDestroy {
+export class NewsCommentListComponent extends ListBaseComponent<NewsContentService, NewsCommentModel, number> implements OnInit, OnDestroy {
   requestContentId = 0;
   constructor(
     private commentService: NewsCommentService,
@@ -46,7 +47,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new NewsCommentModel(), publicHelper,tokenHelper);
+    super(contentService, new NewsCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
       this.searchInChecking =
@@ -466,8 +467,8 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

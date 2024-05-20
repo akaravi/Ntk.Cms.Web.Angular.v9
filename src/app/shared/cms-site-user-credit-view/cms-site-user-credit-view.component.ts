@@ -3,13 +3,14 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, CoreModuleModel,
   CoreModuleService, CoreModuleSiteUserCreditModel, CoreModuleSiteUserCreditService, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel, TokenInfoModel
+  FormInfoModel,
+  TokenInfoModel
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';

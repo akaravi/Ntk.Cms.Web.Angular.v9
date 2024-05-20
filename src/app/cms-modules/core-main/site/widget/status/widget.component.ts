@@ -68,21 +68,21 @@ export class CoreSiteWidgetStatusComponent implements OnInit, OnDestroy {
       return;
     }
     this.widgetInfoModel.link = '/core/site/edit/' + this.tokenInfoModel.siteId;
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Id',0,0,'','', this.tokenInfoModel.siteId + ''));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Title',1,0,'','', '...'));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Domain',2,0,'','', '...'));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Sub Domain',3, 0,'','','...'));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Created Date',4,0,'','', '...'));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Expire Date',5,0,'','', '...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Id', 0, 0, '', '', this.tokenInfoModel.siteId + ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Title', 1, 0, '', '', '...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Domain', 2, 0, '', '', '...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Sub Domain', 3, 0, '', '', '...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Created Date', 4, 0, '', '', '...'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Expire Date', 5, 0, '', '', '...'));
     this.service.ServiceGetOneById(this.tokenInfoModel.siteId).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Title',1,0,'','', ret.item.title));
-          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Domain',2,0,'','', ret.item.domain));
-          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Sub Domain',3,0,'','', ret.item.subDomain));
-          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Created Date',4,0,'','', this.persianCalendarService.PersianCalendar(ret.item.createdDate)));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Title', 1, 0, '', '', ret.item.title));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Domain', 2, 0, '', '', ret.item.domain));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Sub Domain', 3, 0, '', '', ret.item.subDomain));
+          this.widgetInfoModel.setItem(new WidgetContentInfoModel('Created Date', 4, 0, '', '', this.persianCalendarService.PersianCalendar(ret.item.createdDate)));
           if (ret.item.expireDate) {
-            this.widgetInfoModel.setItem(new WidgetContentInfoModel('Expire Date',5,0,'','', this.persianCalendarService.PersianCalendar(ret.item.expireDate)));
+            this.widgetInfoModel.setItem(new WidgetContentInfoModel('Expire Date', 5, 0, '', '', this.persianCalendarService.PersianCalendar(ret.item.expireDate)));
           }
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);

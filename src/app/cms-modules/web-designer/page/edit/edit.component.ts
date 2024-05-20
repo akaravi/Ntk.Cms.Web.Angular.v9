@@ -5,17 +5,16 @@ import {
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreSiteCategoryModel, DataFieldInfoModel, ErrorExceptionResult,
-  ErrorExceptionResultBase,
+  CoreSiteCategoryModel,
+  ErrorExceptionResult,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, WebDesignerEnumService, WebDesignerMainPageDependencyModel, WebDesignerMainPageModel, WebDesignerMainPageService, WebDesignerMainPageTemplateModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-webdesigner-page-edit',
@@ -23,7 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'],
 })
 export class WebDesignerMainPageEditComponent extends EditBaseComponent<WebDesignerMainPageService, WebDesignerMainPageModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -34,7 +33,8 @@ implements OnInit {
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
-  ) {super(webDesignerMainPageService, new WebDesignerMainPageModel(), publicHelper);
+  ) {
+    super(webDesignerMainPageService, new WebDesignerMainPageModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -43,13 +43,13 @@ implements OnInit {
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   keywordDataModel = [];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  
-  
+
+
   dataModel: WebDesignerMainPageModel = new WebDesignerMainPageModel();
   formInfo: FormInfoModel = new FormInfoModel();
 

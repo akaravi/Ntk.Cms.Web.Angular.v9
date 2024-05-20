@@ -6,7 +6,7 @@ import {
   ApplicationAppService, ClauseTypeEnum, CoreEnumService, ErrorExceptionResult,
   FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel
 } from 'ntk-cms-api';
-import { firstValueFrom, Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
@@ -39,9 +39,9 @@ export class CmsApplicationSelectorComponent implements OnInit {
   filteredOptions: Observable<ApplicationAppModel[]>;
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
-  @Input() optionRequired=false;
+  @Input() optionRequired = false;
   @Input() optionPlaceholder = '';
-  @Input() optionLabel='';
+  @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ApplicationAppModel>();
   @Input() optionReload = () => this.onActionReload();
   @Input() set optionSelectForce(x: number | ApplicationAppModel) {

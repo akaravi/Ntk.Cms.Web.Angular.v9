@@ -32,7 +32,7 @@ export class ApplicationAppAddComponent extends AddBaseComponent<ApplicationAppS
     public translate: TranslateService,
     private router: Router,
     public publicHelper: PublicHelper,) {
-      super(applicationAppService, new ApplicationAppModel(), publicHelper);
+    super(applicationAppService, new ApplicationAppModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

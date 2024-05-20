@@ -29,7 +29,8 @@ import {
   EstatePropertyProjectFilterModel,
   EstatePropertyProjectModel,
   EstatePropertyProjectService,
-  EstatePropertyService, EstatePropertySupplierFilterModel, EstatePropertySupplierModel, EstatePropertySupplierService, FilterDataModel, InfoEnumModel, RecordStatusEnum
+  EstatePropertyService, EstatePropertySupplierFilterModel, EstatePropertySupplierModel, EstatePropertySupplierService, FilterDataModel,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';

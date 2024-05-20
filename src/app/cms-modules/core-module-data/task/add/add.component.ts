@@ -4,12 +4,12 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, CoreEnumService, CoreModuleDataTaskModel,
   CoreModuleDataTaskService, CoreSiteModel, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
+  FormInfoModel
 } from 'ntk-cms-api';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';

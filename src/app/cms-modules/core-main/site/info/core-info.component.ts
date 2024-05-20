@@ -62,7 +62,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
   DataGetInfo(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
-    
+
     this.coreSiteService.ServiceGetShareInfo().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

@@ -18,7 +18,8 @@
   </mat-autocomplete>
   <i *ngIf="!formControl.valid" class="fa fa-info  invalid color-red-dark"></i>
   <i *ngIf="optionRequired && formControl.valid" class="fa fa-check  valid color-green-dark"></i>
-  <i *ngIf="dataModelSelect?.id?.length>0" class="fa fa-times  action color-red-dark" (click)="onActionSelectClear()"></i>
+  <i *ngIf="dataModelSelect?.id?.length>0" class="fa fa-times  action color-red-dark"
+    (click)="onActionSelectClear()"></i>
   <em
     *ngIf="optionRequired  && (!dataModelSelect || !dataModelSelect.id || dataModelSelect.id.length<=0)">({{'TITLE.Necessary'|
     translate}})</em>
