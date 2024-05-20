@@ -12,8 +12,7 @@ import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.compo
 
 @Component({
   selector: 'app-core-info',
-  templateUrl: './core-info.component.html',
-  styleUrls: ['./core-info.component.scss']
+  templateUrl: './core-info.component.html'
 })
 export class CoreInfoComponent implements OnInit, OnDestroy {
 
@@ -63,7 +62,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
   DataGetInfo(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
-
+    
     this.coreSiteService.ServiceGetShareInfo().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -203,7 +202,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
     //open popup
   }
   onActionbuttonResllerUserCategoryShortLinklinkTo(): void {
-    //open popup 
+    //open popup
     const dialogRef = this.dialog.open(CmsLinkToComponent, {
       // height: "90%",
       data: {
