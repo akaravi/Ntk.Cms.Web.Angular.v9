@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TicketingTaskService } from 'ntk-cms-api';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PagesComponent } from '../pages/pages.component';
@@ -23,6 +24,10 @@ import { PagesRoutingModule } from './pages.routing';
     PagesRoutingModule,
     ComponentsModule,
     SharedModule.forRoot(),
+  ],
+
+  providers: [
+    TicketingTaskService,
   ]
 })
 export class PagesModule { }

@@ -26,7 +26,7 @@ import { NewsContentDeleteComponent } from '../delete/delete.component';
 @Component({
   selector: 'app-news-content-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+  
 })
 export class NewsContentListComponent extends ListBaseComponent<NewsContentService, NewsContentModel, number> implements OnInit, OnDestroy {
   requestLinkCategoryId = 0;

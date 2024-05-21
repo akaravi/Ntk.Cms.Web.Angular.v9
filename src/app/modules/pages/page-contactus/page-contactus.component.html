@@ -1,140 +1,121 @@
-<div class="card card-style bg-1" data-card-height="400">
-  <div class="card-top text-center">
-    <h1 class="color-white text-center font-22 pt-3 mb-0">سلام از طرف</h1>
-    <h1 class="color-white font-40">دیزاینسیا</h1>
-  </div>
-  <div class="card-bottom text-center">
-    <p class="color-white font-15 opacity-70 px-4">
-      این یک نوشته آزمایشی است که به طراحان و برنامه نویسان کمک میکند تا این عزیزان با بهره گیری از این نوشته!
-    </p>
-  </div>
+<div class="page-content pb-3">
 
-  <div class="card-overlay bg-gradient"></div>
-</div>
+  <div class="card card-full rounded-m pb-4">
+    <div class="drag-line"></div>
 
-
-
-<div class="card card-style">
-  <div class="content">
-    <p class="mb-0 font-600 color-highlight">بیوگرافی بسیار کوتاه</p>
-    <h1>ما کی هستیم؟</h1>
-    <p>
-      این یک نوشته آزمایشی است که به طراحان و برنامه نویسان کمک میکند تا این عزیزان با بهره گیری از این نوشته تستی
-      و آزمایشی بتوانند نمونه تکمیل شده از پروژه و طرح خودشان را به کارفرما نمایش دهند، استفاده از این متن تستی.
-    </p>
-  </div>
-</div>
-
-<div class="row mb-0">
-  <div class="col-6 pe-0">
-    <div class="card card-style">
-      <img src="assets/images/pictures/16t.jpg" class="img-fluid">
-      <div class="p-2">
-        <p class="font-600 color-highlight mb-0">توسعه</p>
-        <h4 class="pt-2">آقای کد</h4>
-        <p class="mb-2">
-          یک شوهر و توسعه دهنده فرانت اند در راست چین
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-6 ps-0">
-    <div class="card card-style">
-      <img src="assets/images/pictures/2t.jpg" class="img-fluid">
-      <div class="p-2">
-        <p class="font-600 color-highlight mb-0">فروش</p>
-        <h4 class="pt-2">خانم کد</h4>
-        <p class="mb-2">
-          یک همسر و کارشناس بازاریابی در راست چین
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card card-style">
-  <div class="content">
-    <p class="mb-0 font-600 color-highlight">یک بیوگرافی بسیار کوتاه</p>
-    <h1>ارزش ما</h1>
-    <p>
-      این یک نوشته آزمایشی است که به طراحان و برنامه نویسان کمک میکند تا این عزیزان با بهره گیری از این نوشته تستی
-      و آزمایشی بتوانند نمونه تکمیل شده از پروژه و طرح خودشان را به کارفرما نمایش دهند، استفاده از این متن تستی.
-    </p>
-
-    <div class="d-flex mb-4">
-      <div class="align-self-center"><i class="fad fa-code color-highlight fa-4x icon-70 text-center"></i></div>
-      <div class="me-auto ps-4">
-        <h4>کیفیت کد</h4>
-        <p>
-          ما محصولاتی را ایجاد می کنیم که می خواهیم برای خود استفاده کنیم و باعث افتخار ماست
-        </p>
-      </div>
+    <div class="content">
+      <p class="font-600 mb-0 color-highlight">{{'TITLE.Send_us_your_questions' | translate}}</p>
+      <p>
+        با ما در تماس باشید
+      </p>
     </div>
 
-    <div class="d-flex mb-4">
-      <div class="align-self-center"><i class="fad fa-life-ring color-orange-dark fa-4x icon-70 text-center"></i>
+    <div class="form-sent disabled">
+      <div class="card card-style">
+        <div class="shadow-l rounded-m gradient-green ms-n1 mb-0 ">
+          <h1 class="color-white text-center pt-4"><i
+              class="fa fa-check-circle fa-3x shadow-s scale-box rounded-circle"></i></h1>
+          <h2 class="color-white bold text-center pt-3">پیام ارسال شد</h2>
+          <p class="color-white pb-4 text-center mt-n2 mb-0">ما به زودی با شما تماس خواهیم گرفت.</p>
+        </div>
       </div>
-      <div class="me-auto ps-4">
-        <h4>پشتیبانی</h4>
-        <p>
-          ما با مشتریانمان طوری رفتار می کنیم که دوست داریم با ما رفتار شود. ما همیشه برای شما اینجا هستیم!
-        </p>
+
+      <div class="card card-style">
+        <div class="content text-center">
+          <h2>در ضمن، بیایید اجتماعی شویم!</h2>
+          <p class="boxed-text-xl">
+            در اینجا پلتفرم های رسانه های اجتماعی ما هستند! ما را برای آخرین به روز رسانی ها دنبال کنید یا فقط سلام
+            کنید!
+          </p>
+          <a href="#" class="icon icon-xl shadow-xl rounded-xl bg-facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icon icon-xl shadow-xl rounded-xl bg-instagram ms-3 me-3"><i
+              class="fab fa-instagram"></i></a>
+          <a href="#" class="icon icon-xl shadow-xl rounded-xl bg-twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <app-progress-spinner [options]="loading"> </app-progress-spinner>
+
+
+    <div class="card contact-form">
+      <div class="content" *ngIf="this.formInfo?.formSubmitedStatus != enumFormSubmitedStatus.Success">
+        <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+          <fieldset>
+            <div class="form-field form-name">
+              <label class="contactNameField color-theme" for="contactNameField">{{'AUTH.INPUT.FULLNAME' |
+                translate}}:<span>(ضروری)</span></label>
+              <input type="text" [(ngModel)]="dataModel.fullName" name="dataModel.fullName" class="round-small"
+                style="text-align: center !important;" id="contactNameField" #FullName required
+                placeholder="{{'TITLE.Enter_your_first_and_last_name' | translate}}" />
+              <mat-error *ngIf="FullName.errors?.required">
+                {{'AUTH.INPUT.FULLNAME' |
+                translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+
+            <div class="form-field form-name">
+              <label class="contactNameField color-theme" for="contactPhoneField">{{'AUTH.INPUT.MOBILE' |
+                translate}}:<span>(ضروری)</span></label>
+              <input type="text" [(ngModel)]="dataModel.phoneNo" name="dataModel.phoneNo"
+                class="round-small input-ltr-center" id="contactPhoneField" #phoneNo required
+                placeholder="{{'TITLE.Enter_your_first_and_last_name' | translate}}" />
+              <mat-error *ngIf="phoneNo.errors?.required">
+                {{'AUTH.INPUT.MOBILE' |
+                translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+
+            <div class="form-field form-email">
+              <label class="contactEmailField color-theme" for="contactEmailField">{{'AUTH.INPUT.EMAIL' |
+                translate}}:<span>(ضروری)</span></label>
+              <input type="email" [(ngModel)]="dataModel.email" name="dataModel.email"
+                class="round-small input-ltr-center" placeholder="{{'TITLE.Enter_email' | translate}}"
+                id="contactEmailField" #Email />
+              <mat-error *ngIf="Email.errors?.required">
+                {{'AUTH.INPUT.EMAIL' |
+                translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+  
+            <div class="form-field form-text">
+              <label class="contactMessageTextarea color-theme" for="contactMessageTextarea">{{'AUTH.INPUT.YOURMEESAGE'
+                | translate}}:<span>(ضروری)</span></label>
+              <textarea [(ngModel)]="dataModel.htmlBody" name="dataModel.htmlBody" #HtmlBody class="round-small"
+                id="contactMessageTextarea" rows="3" required></textarea>
+              <mat-error *ngIf="HtmlBody.errors?.required">
+                {{'AUTH.INPUT.YOURMEESAGE'
+                | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+            <div class="form-button">
+              <input type="submit"
+                class="btn bg-highlight font-700 btn-m btn-full rounded-sm  shadow-xl contactSubmitButton" value="ارسال"
+                data-formId="contactForm" />
+            </div>
+          </fieldset>
+        </form>
       </div>
     </div>
 
-    <div class="d-flex">
-      <div class="align-self-center"><i class="fad fa-trophy color-yellow-dark fa-4x icon-70 text-center"></i>
-      </div>
-      <div class="me-auto ps-4">
-        <h4>احترام</h4>
-        <p>
-          ما مشهور شدیم زیرا به مشتریان و محصولات خود اهمیت می دادیم
-        </p>
+    <div class="form-sent" *ngIf="this.formInfo?.formSubmitedStatus === enumFormSubmitedStatus.Success">
+      <div class="card card-style ">
+        <div class="shadow-l rounded-m gradient-green ms-n1 mb-0 ">
+          <h1 class="color-white text-center pt-4"><i
+              class="fa fa-check-circle fa-3x shadow-s scale-box rounded-circle"></i></h1>
+          <h2 class="color-white bold text-center pt-3">{{'TITLE.Your_message_has_been_registered_in_the_system' |
+            translate}}</h2>
+          <p class="color-white pb-4 text-center mt-n2 mb-0">{{'TITLE.Note_the_tracking_code_for_further_tracking' |
+            translate}}</p>
+          <p class="color-white bold text-center pt-3">
+            {{'TITLE.Tracking_Code' | translate}} :
+            {{this.dataModelResult.item.id}}
+          </p>
+          <div [innerHTML]="this.dataModelResult.item?.virtual_Departemen?.DefaultAnswerBody"></div>
+        </div>
       </div>
     </div>
 
   </div>
+
 </div>
-
-
-<div class="card card-style">
-  <div class="content">
-    <p class="mb-0 font-600 color-highlight">در ارتباط باشید</p>
-    <h1>ما خیلی اجتماعی هستیم</h1>
-    <p>
-      ما بسیار اجتماعی هستیم و همیشه دوست داریم با مشتریان خود در ارتباط باشیم. در طول سفر 11 ساله خود، ما دوستان
-      بسیار خوبی پیدا کرده ایم.
-    </p>
-  </div>
-</div>
-
-<div class="row px-3">
-  <div class="col-6 p-0">
-    <a class="card card-style me-1 mb-2 bg-facebook p-3">
-      <i class="fab fa-facebook fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">designesia.labs</p>
-    </a>
-  </div>
-  <div class="col-6 p-0">
-    <a class="card card-style ms-1 mb-2 bg-twitter p-3">
-      <i class="fab fa-twitter fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">@designesia</p>
-    </a>
-  </div>
-  <div class="col-6 p-0">
-    <a class="card card-style me-1 mb-0 bg-instagram p-3">
-      <i class="fab fa-instagram fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">designesia.labs</p>
-    </a>
-  </div>
-  <div class="col-6 p-0">
-    <a class="card card-style ms-1 mb-0 bg-green-dark p-3">
-      <i class="fa fa-envelope fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">name@domain.com</p>
-    </a>
-  </div>
-</div>
-
-
-
 <!-- Page content ends here-->

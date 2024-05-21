@@ -47,7 +47,6 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
-
     /*filter Sort*/
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Ascending;

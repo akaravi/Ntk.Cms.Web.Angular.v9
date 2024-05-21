@@ -39,6 +39,8 @@ export class TicketingTemplateSelectorComponent implements OnInit {
   @Input() set optionSelectForce(x: number | TicketingTemplateModel) {
     this.onActionSelectForce(x);
   }
+  @Output()
+  optionItemCount = new EventEmitter<number>();
 
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
   get optionLoading(): ProgressSpinnerModel {
@@ -112,7 +114,10 @@ export class TicketingTemplateSelectorComponent implements OnInit {
           }
           /*select First Item */
           this.loading.Stop(pName);
-
+          if (response.listItems?.length > 0)
+            this.optionItemCount.emit(response.listItems?.length);
+          else
+            this.optionItemCount.emit(0);
           return response.listItems;
         });
   }

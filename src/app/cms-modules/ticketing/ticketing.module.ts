@@ -104,6 +104,7 @@ import { TicketingTemplateSelectorComponent } from './template/selector/selector
     /** */
 
   ],
+  exports: [TicketingTaskContactUsAddComponent],
   imports: [
     CommonModule,
     TicketingRouting,

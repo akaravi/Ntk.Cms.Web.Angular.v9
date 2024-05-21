@@ -21,6 +21,7 @@ const routes: Routes = [
       {
         path: 'contactus',
         component: PageContactusComponent,
+        data: { title: 'ROUTE.TICKETING.CONTACTUS' },
       },
 
       { path: '', redirectTo: '', pathMatch: 'full' },

@@ -20,7 +20,6 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-ticketing-task-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
 })
 export class TicketingTaskAddComponent extends AddBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit {
   requestLinkDepartemenId = 0;
