@@ -90,7 +90,9 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
     this.DataAddContent();
   }
 
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

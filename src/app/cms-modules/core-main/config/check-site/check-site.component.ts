@@ -65,6 +65,7 @@ export class CoreConfigCheckSiteComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
   }
+  
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }

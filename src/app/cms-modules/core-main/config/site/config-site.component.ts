@@ -81,7 +81,9 @@ export class CoreConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;
@@ -106,6 +108,7 @@ export class CoreConfigSiteComponent implements OnInit {
         this.SetServiceSiteAccessSave(this.requestLinkSiteId);
       }
     }
+    
   }
 
 

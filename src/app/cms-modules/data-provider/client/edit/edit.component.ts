@@ -94,7 +94,9 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
 
   }
 
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   DataGetOneContent(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorEditRowIsNull();
