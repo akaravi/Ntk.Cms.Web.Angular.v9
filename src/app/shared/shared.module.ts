@@ -77,7 +77,7 @@ import { PersianDate } from '../core/pipe/persian-date/persian-date.pipe';
 import { TruncatePipe } from '../core/pipe/truncate.pipe';
 import { CmsExportListComponent } from './cms-export-list/cmsExportList.component';
 import { CmsMapComponent } from './cms-map/cms-map.component';
-import { CmsSearchListComponent } from './cms-search-list/cmsSearchList.component';
+import { CmsSearchListComponent } from './cms-search-list/cms-search-list.component';
 import { CmsStatistListComponent } from './cms-statist-list/cmsStatistList.component';
 
 
