@@ -1,31 +1,94 @@
-<div class="card card-style bg-1" data-card-height="400">
-  <div class="card-top text-center">
-    <h1 class="color-white text-center font-22 pt-3 mb-0">سلام از طرف</h1>
-    <h1 class="color-white font-40">دیزاینسیا</h1>
-  </div>
-  <div class="card-bottom text-center">
-    <p class="color-white font-15 opacity-70 px-4">
-      این یک نوشته آزمایشی است که به طراحان و برنامه نویسان کمک میکند تا این عزیزان با بهره گیری از این نوشته!
-    </p>
-  </div>
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
 
-  <div class="card-overlay bg-gradient"></div>
-</div>
+aboutUsDescription: string;
+aboutUsTel: string;
+aboutUsMobile: string;
+aboutUsFax: string;
+aboutUsEmail: string;
+aboutUsAddress: string;
+aboutUsMoreInfoUrl: string;
+aboutUsLinkImageId?: number;
+aboutUsLinkImageIdSrc: string;
+aboutUsGeolocationlatitude: number;
+aboutUsGeolocationlongitude: number;
+aboutUsLinkFacebook: string;
+aboutUsLinkTwitter: string;
+aboutUsLinkGooglePlus: string;
+aboutUsLinkInstagram: string;
+aboutUsLinkWhatsapp: string;
+aboutUsLinklinkedin: string;
+aboutUsLinkYahoo: string;
+aboutUsLinkYoutube: string;
+aboutUsLinkTelegram: string;
+aboutUsLinkPinterest: string;
+aboutUsLinkRss: string;
+aboutUsLinkCompanyAuthorSite: string;
+aboutUsLinkCompanyPublisherSite: string;
+aboutUsPrivacyPolicyHtmlBody: string;
+aboutUsLicensesHtmlBody: string;
+aboutUsSupportHtmlBody: string;
 
 
-
-<div class="card card-style">
+<div class="card card-style" *ngIf="!this.loading.display">
   <div class="content">
-    <p class="mb-0 font-600 color-highlight">بیوگرافی بسیار کوتاه</p>
-    <h1>ما کی هستیم؟</h1>
-    <p>
-      این یک نوشته آزمایشی است که به طراحان و برنامه نویسان کمک میکند تا این عزیزان با بهره گیری از این نوشته تستی
-      و آزمایشی بتوانند نمونه تکمیل شده از پروژه و طرح خودشان را به کارفرما نمایش دهند، استفاده از این متن تستی.
+    <p class="mb-0 font-600 color-highlight">{{dataModelResult.item.title}}</p>
+    <h1>{{dataModelResult.item.aboutUsTitle}}</h1>
+    <p>{{dataModelResult.item.aboutUsDescription}}
     </p>
   </div>
 </div>
 
-<div class="row mb-0">
+<div class="row mb-0" *ngIf="!this.loading.display">
+  <div class="col-12 pe-0">
+    <div class="card card-style">
+      <div class="divider"></div>
+
+      <h3 class="font-700">اطلاعات پستی</h3>
+      <p class="pb-0 mb-0">{{dataModelResult.item.aboutUsAddress}}</p>
+
+      <div class="divider"></div>
+
+
+      <div class="list-group list-custom-small">
+        <a href="tel:{{dataModelResult.item.aboutUsTel}}" class="external-link">
+          <i class="fa font-14 fa-phone color-phone"></i>
+          <span>
+            <p>{{dataModelResult.item.aboutUsTel}}
+          </span>
+          <span class="badge bg-highlight">تماس</span>
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a href="mailto:{{dataModelResult.item.aboutUsEmail}}" class="external-link">
+          <i class="fa font-14 fa-envelope color-mail"></i>
+          <span>{{dataModelResult.item.aboutUsEmail}}</span>
+          <span class="badge bg-highlight">ارسال ایمیل</span>
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a href="https://www.facebook.com/designesia.labs/" class="external-link">
+          <i class="fab font-14 fa-facebook color-facebook"></i>
+          <span>designesia.labs</span>
+          <i class="fa fa-link"></i>
+        </a>
+        <a href="https://twitter.com/iEnabled" class="external-link">
+          <i class="fab font-14 fa-twitter-square color-twitter"></i>
+          <span>@designesia</span>
+          <i class="fa fa-link"></i>
+        </a>
+        <a href="#" class="border-0">
+          <i class="fab font-14 fa-linkedin color-linkedin"></i>
+          <span>@mddesignesia</span>
+          <i class="fa fa-link"></i>
+        </a>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="row mb-0" *ngIf="!this.loading.display">
   <div class="col-6 pe-0">
     <div class="card card-style">
       <img src="assets/images/pictures/16t.jpg" class="img-fluid">
