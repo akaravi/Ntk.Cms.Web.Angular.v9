@@ -1,34 +1,5 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 
-aboutUsDescription: string;
-aboutUsTel: string;
-aboutUsMobile: string;
-aboutUsFax: string;
-aboutUsEmail: string;
-aboutUsAddress: string;
-aboutUsMoreInfoUrl: string;
-aboutUsLinkImageId?: number;
-aboutUsLinkImageIdSrc: string;
-aboutUsGeolocationlatitude: number;
-aboutUsGeolocationlongitude: number;
-aboutUsLinkFacebook: string;
-aboutUsLinkTwitter: string;
-aboutUsLinkGooglePlus: string;
-aboutUsLinkInstagram: string;
-aboutUsLinkWhatsapp: string;
-aboutUsLinklinkedin: string;
-aboutUsLinkYahoo: string;
-aboutUsLinkYoutube: string;
-aboutUsLinkTelegram: string;
-aboutUsLinkPinterest: string;
-aboutUsLinkRss: string;
-aboutUsLinkCompanyAuthorSite: string;
-aboutUsLinkCompanyPublisherSite: string;
-aboutUsPrivacyPolicyHtmlBody: string;
-aboutUsLicensesHtmlBody: string;
-aboutUsSupportHtmlBody: string;
-
-
 <div class="card card-style" *ngIf="!this.loading.display">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">{{dataModelResult.item.title}}</p>
@@ -41,16 +12,18 @@ aboutUsSupportHtmlBody: string;
 <div class="row mb-0" *ngIf="!this.loading.display">
   <div class="col-12 pe-0">
     <div class="card card-style">
-      <div class="divider"></div>
 
-      <h3 class="font-700">اطلاعات پستی</h3>
-      <p class="pb-0 mb-0">{{dataModelResult.item.aboutUsAddress}}</p>
+      <div class="divider"></div>
+      <h3 *ngIf="dataModelResult.item.aboutUsAddress?.length>0" class="font-700">اطلاعات پستی</h3>
+      <p *ngIf="dataModelResult.item.aboutUsAddress?.length>0" class="pb-0 mb-0">{{dataModelResult.item.aboutUsAddress}}
+      </p>
 
       <div class="divider"></div>
 
 
       <div class="list-group list-custom-small">
-        <a href="tel:{{dataModelResult.item.aboutUsTel}}" class="external-link">
+        <a *ngIf="dataModelResult.item.aboutUsTel?.length>0" href="tel:{{dataModelResult.item.aboutUsTel}}"
+          class="external-link">
           <i class="fa font-14 fa-phone color-phone"></i>
           <span>
             <p>{{dataModelResult.item.aboutUsTel}}
@@ -58,25 +31,37 @@ aboutUsSupportHtmlBody: string;
           <span class="badge bg-highlight">تماس</span>
           <i class="fa fa-angle-left"></i>
         </a>
-        <a href="mailto:{{dataModelResult.item.aboutUsEmail}}" class="external-link">
+        <a *ngIf="dataModelResult.item.aboutUsMobile?.length>0" href="tel:{{dataModelResult.item.aboutUsMobile}}"
+          class="external-link">
+          <i class="fa font-14 fa-phone color-phone"></i>
+          <span>
+            <p>{{dataModelResult.item.aboutUsMobile}}
+          </span>
+          <span class="badge bg-highlight">همراه</span>
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a *ngIf="dataModelResult.item.aboutUsEmail?.length>0" href="mailto:{{dataModelResult.item.aboutUsEmail}}"
+          class="external-link">
           <i class="fa font-14 fa-envelope color-mail"></i>
           <span>{{dataModelResult.item.aboutUsEmail}}</span>
           <span class="badge bg-highlight">ارسال ایمیل</span>
           <i class="fa fa-angle-left"></i>
         </a>
-        <a href="https://www.facebook.com/designesia.labs/" class="external-link">
+        <a *ngIf="dataModelResult.item.aboutUsLinkFacebook?.length>0"
+          href="https://www.facebook.com/{{dataModelResult.item.aboutUsLinkFacebook}}/" class="external-link">
           <i class="fab font-14 fa-facebook color-facebook"></i>
-          <span>designesia.labs</span>
+          <span>{{dataModelResult.item.aboutUsLinkFacebook}}</span>
           <i class="fa fa-link"></i>
         </a>
-        <a href="https://twitter.com/iEnabled" class="external-link">
+        <a *ngIf="dataModelResult.item.aboutUsLinkTwitter?.length>0"
+          href="https://twitter.com/{{dataModelResult.item.aboutUsLinkTwitter}}" class="external-link">
           <i class="fab font-14 fa-twitter-square color-twitter"></i>
-          <span>@designesia</span>
+          <span>@{{dataModelResult.item.aboutUsLinkTwitter}}</span>
           <i class="fa fa-link"></i>
         </a>
-        <a href="#" class="border-0">
+        <a *ngIf="dataModelResult.item.aboutUsLinklinkedin?.length>0" href="#" class="border-0">
           <i class="fab font-14 fa-linkedin color-linkedin"></i>
-          <span>@mddesignesia</span>
+          <span>@{{dataModelResult.item.aboutUsLinklinkedin}}</span>
           <i class="fa fa-link"></i>
         </a>
 
@@ -88,7 +73,7 @@ aboutUsSupportHtmlBody: string;
 </div>
 
 
-<div class="row mb-0" *ngIf="!this.loading.display">
+<div class="row mb-0" *ngIf="loadDemoTheme">
   <div class="col-6 pe-0">
     <div class="card card-style">
       <img src="assets/images/pictures/16t.jpg" class="img-fluid">
@@ -115,7 +100,7 @@ aboutUsSupportHtmlBody: string;
   </div>
 </div>
 
-<div class="card card-style">
+<div class="card card-style" *ngIf="loadDemoTheme">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">یک بیوگرافی بسیار کوتاه</p>
     <h1>ارزش ما</h1>
@@ -160,40 +145,53 @@ aboutUsSupportHtmlBody: string;
 </div>
 
 
-<div class="card card-style">
+<div class="card card-style" *ngIf="dataModelResult.item.aboutUsSupportHtmlBody?.length>0">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">در ارتباط باشید</p>
-    <h1>ما خیلی اجتماعی هستیم</h1>
-    <p>
-      ما بسیار اجتماعی هستیم و همیشه دوست داریم با مشتریان خود در ارتباط باشیم. در طول سفر 11 ساله خود، ما دوستان
-      بسیار خوبی پیدا کرده ایم.
+    <p [innerHTML]="dataModelResult.item.aboutUsSupportHtmlBody">
+    </p>
+  </div>
+</div>
+<div class="card card-style" *ngIf="dataModelResult.item.aboutUsPrivacyPolicyHtmlBody?.length>0">
+  <div class="content">
+    <p class="mb-0 font-600 color-highlight">محرمانگی اطلاعات</p>
+    <p [innerHTML]="dataModelResult.item.aboutUsPrivacyPolicyHtmlBody">
     </p>
   </div>
 </div>
 
+<div class="card card-style" *ngIf="dataModelResult.item.aboutUsLicensesHtmlBody?.length>0">
+  <div class="content">
+    <p class="mb-0 font-600 color-highlight">مجوزات خدمت</p>
+    <p [innerHTML]="dataModelResult.item.aboutUsLicensesHtmlBody">
+    </p>
+  </div>
+</div>
+
+
 <div class="row px-3">
-  <div class="col-6 p-0">
+  <div class="col-6 p-0" *ngIf="dataModelResult.item.aboutUsLinkFacebook?.length>0">
     <a class="card card-style me-1 mb-2 bg-facebook p-3">
       <i class="fab fa-facebook fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">designesia.labs</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item.aboutUsLinkFacebook}}</p>
     </a>
   </div>
-  <div class="col-6 p-0">
+  <div class="col-6 p-0" *ngIf="dataModelResult.item.aboutUsLinkInstagram?.length>0">
     <a class="card card-style ms-1 mb-2 bg-twitter p-3">
       <i class="fab fa-twitter fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">@designesia</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">@{{dataModelResult.item.aboutUsLinkTwitter}}</p>
     </a>
   </div>
-  <div class="col-6 p-0">
+  <div class="col-6 p-0" *ngIf="dataModelResult.item.aboutUsLinkInstagram?.length>0">
     <a class="card card-style me-1 mb-0 bg-instagram p-3">
       <i class="fab fa-instagram fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">designesia.labs</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item.aboutUsLinkInstagram}}</p>
     </a>
   </div>
-  <div class="col-6 p-0">
+  <div class="col-6 p-0" *ngIf="dataModelResult.item.aboutUsEmail?.length>0">
     <a class="card card-style ms-1 mb-0 bg-green-dark p-3">
       <i class="fa fa-envelope fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">name@domain.com</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item.aboutUsEmail}}</p>
     </a>
   </div>
 </div>

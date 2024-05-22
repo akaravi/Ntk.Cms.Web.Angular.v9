@@ -6,6 +6,7 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-page-aboutus',
@@ -40,7 +41,7 @@ export class PageAboutusComponent implements OnInit {
   tokenInfo = new TokenInfoModel();
   loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<CoreSiteModel> = new ErrorExceptionResult<CoreSiteModel>();
-
+  loadDemoTheme=environment.loadDemoTheme;
   ngOnInit(): void {
     this.pageInfo.updateTitle(this.translate.instant('ACTION.ABOUT'));
   }
