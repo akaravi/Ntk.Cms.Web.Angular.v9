@@ -146,7 +146,8 @@
 
 
 
-<div class="card card-style" *ngIf="dataModelResult.item.aboutUsPrivacyPolicyHtmlBody?.length>0">
+<div class="card card-style"
+  *ngIf="!this.loading.display && dataModelResult.item?.aboutUsPrivacyPolicyHtmlBody?.length>0">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">سیاست حریم خصوصی</p>
     <p [innerHTML]="dataModelResult.item.aboutUsPrivacyPolicyHtmlBody">
@@ -154,7 +155,7 @@
   </div>
 </div>
 
-<div class="card card-style" *ngIf="dataModelResult.item.aboutUsLicensesHtmlBody?.length>0">
+<div class="card card-style" *ngIf="!this.loading.display && dataModelResult.item?.aboutUsLicensesHtmlBody?.length>0">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">مجوزات خدمت</p>
     <p [innerHTML]="dataModelResult.item.aboutUsLicensesHtmlBody">
@@ -163,8 +164,8 @@
 </div>
 
 
-<div class="row px-3">
-  <div class="col-6 p-0" *ngIf="dataModelResult.item.aboutUsLinkFacebook?.length>0">
+<div class="row px-3" *ngIf="!this.loading.display">
+  <div class="col-6 p-0" *ngIf=" dataModelResult.item.aboutUsLinkFacebook?.length>0">
     <a class="card card-style me-1 mb-2 bg-facebook p-3">
       <i class="fab fa-facebook fa-3x color-white text-center"></i>
       <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item.aboutUsLinkFacebook}}</p>
