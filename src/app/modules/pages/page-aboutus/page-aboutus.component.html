@@ -2,9 +2,9 @@
 
 <div class="card card-style" *ngIf="!this.loading.display">
   <div class="content">
-    <p class="mb-0 font-600 color-highlight">{{dataModelResult.item.title}}</p>
-    <h1>{{dataModelResult.item.aboutUsTitle}}</h1>
-    <p>{{dataModelResult.item.aboutUsDescription}}
+    <p class="mb-0 font-600 color-highlight">{{dataModelResult.item?.title}}</p>
+    <h1>{{dataModelResult.item?.aboutUsTitle}}</h1>
+    <p>{{dataModelResult.item?.aboutUsDescription}}
     </p>
   </div>
 </div>
@@ -14,54 +14,55 @@
     <div class="card card-style">
 
       <div class="divider"></div>
-      <h3 *ngIf="dataModelResult.item.aboutUsAddress?.length>0" class="font-700">اطلاعات پستی</h3>
-      <p *ngIf="dataModelResult.item.aboutUsAddress?.length>0" class="pb-0 mb-0">{{dataModelResult.item.aboutUsAddress}}
+      <h3 *ngIf="dataModelResult.item?.aboutUsAddress?.length>0" class="font-700">اطلاعات پستی</h3>
+      <p *ngIf="dataModelResult.item?.aboutUsAddress?.length>0" class="pb-0 mb-0">
+        {{dataModelResult.item?.aboutUsAddress}}
       </p>
 
       <div class="divider"></div>
 
 
       <div class="list-group list-custom-small">
-        <a *ngIf="dataModelResult.item.aboutUsTel?.length>0" href="tel:{{dataModelResult.item.aboutUsTel}}"
+        <a *ngIf="dataModelResult.item?.aboutUsTel?.length>0" href="tel:{{dataModelResult.item?.aboutUsTel}}"
           class="external-link">
           <i class="fa font-14 fa-phone color-phone"></i>
           <span>
-            <p class="input-ltr">{{dataModelResult.item.aboutUsTel}}
+            <p class="input-ltr">{{dataModelResult.item?.aboutUsTel}}
           </span>
           <span class="badge bg-highlight">تماس</span>
           <i class="fa fa-angle-left"></i>
         </a>
-        <a *ngIf="dataModelResult.item.aboutUsMobile?.length>0" href="tel:{{dataModelResult.item.aboutUsMobile}}"
+        <a *ngIf="dataModelResult.item?.aboutUsMobile?.length>0" href="tel:{{dataModelResult.item?.aboutUsMobile}}"
           class="external-link">
           <i class="fa font-14 fa-phone color-phone"></i>
           <span>
-            <p class="input-ltr">{{dataModelResult.item.aboutUsMobile}}
+            <p class="input-ltr">{{dataModelResult.item?.aboutUsMobile}}
           </span>
           <span class="badge bg-highlight">همراه</span>
           <i class="fa fa-angle-left"></i>
         </a>
-        <a *ngIf="dataModelResult.item.aboutUsEmail?.length>0" href="mailto:{{dataModelResult.item.aboutUsEmail}}"
+        <a *ngIf="dataModelResult.item?.aboutUsEmail?.length>0" href="mailto:{{dataModelResult.item?.aboutUsEmail}}"
           class="external-link">
           <i class="fa font-14 fa-envelope color-mail"></i>
-          <span class="input-ltr">{{dataModelResult.item.aboutUsEmail}}</span>
+          <span class="input-ltr">{{dataModelResult.item?.aboutUsEmail}}</span>
           <span class="badge bg-highlight">ارسال ایمیل</span>
           <i class="fa fa-angle-left"></i>
         </a>
-        <a *ngIf="dataModelResult.item.aboutUsLinkFacebook?.length>0"
-          href="https://www.facebook.com/{{dataModelResult.item.aboutUsLinkFacebook}}/" class="external-link">
+        <a *ngIf="dataModelResult.item?.aboutUsLinkFacebook?.length>0"
+          href="https://www.facebook.com/{{dataModelResult.item?.aboutUsLinkFacebook}}/" class="external-link">
           <i class="fab font-14 fa-facebook color-facebook"></i>
-          <span>{{dataModelResult.item.aboutUsLinkFacebook}}</span>
+          <span>{{dataModelResult.item?.aboutUsLinkFacebook}}</span>
           <i class="fa fa-link"></i>
         </a>
-        <a *ngIf="dataModelResult.item.aboutUsLinkTwitter?.length>0"
-          href="https://twitter.com/{{dataModelResult.item.aboutUsLinkTwitter}}" class="external-link">
+        <a *ngIf="dataModelResult.item?.aboutUsLinkTwitter?.length>0"
+          href="https://twitter.com/{{dataModelResult.item?.aboutUsLinkTwitter}}" class="external-link">
           <i class="fab font-14 fa-twitter-square color-twitter"></i>
-          <span>@{{dataModelResult.item.aboutUsLinkTwitter}}</span>
+          <span>@{{dataModelResult.item?.aboutUsLinkTwitter}}</span>
           <i class="fa fa-link"></i>
         </a>
-        <a *ngIf="dataModelResult.item.aboutUsLinklinkedin?.length>0" href="#" class="border-0">
+        <a *ngIf="dataModelResult.item?.aboutUsLinklinkedin?.length>0" href="#" class="border-0">
           <i class="fab font-14 fa-linkedin color-linkedin"></i>
-          <span>@{{dataModelResult.item.aboutUsLinklinkedin}}</span>
+          <span>@{{dataModelResult.item?.aboutUsLinklinkedin}}</span>
           <i class="fa fa-link"></i>
         </a>
 
@@ -150,7 +151,7 @@
   *ngIf="!this.loading.display && dataModelResult.item?.aboutUsPrivacyPolicyHtmlBody?.length>0">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">سیاست حریم خصوصی</p>
-    <p [innerHTML]="dataModelResult.item.aboutUsPrivacyPolicyHtmlBody">
+    <p [innerHTML]="dataModelResult.item?.aboutUsPrivacyPolicyHtmlBody">
     </p>
   </div>
 </div>
@@ -158,35 +159,35 @@
 <div class="card card-style" *ngIf="!this.loading.display && dataModelResult.item?.aboutUsLicensesHtmlBody?.length>0">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">مجوزات خدمت</p>
-    <p [innerHTML]="dataModelResult.item.aboutUsLicensesHtmlBody">
+    <p [innerHTML]="dataModelResult.item?.aboutUsLicensesHtmlBody">
     </p>
   </div>
 </div>
 
 
 <div class="row px-3" *ngIf="!this.loading.display">
-  <div class="col-6 p-0" *ngIf=" dataModelResult.item.aboutUsLinkFacebook?.length>0">
+  <div class="col-6 p-0" *ngIf=" dataModelResult.item?.aboutUsLinkFacebook?.length>0">
     <a class="card card-style me-1 mb-2 bg-facebook p-3">
       <i class="fab fa-facebook fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item.aboutUsLinkFacebook}}</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item?.aboutUsLinkFacebook}}</p>
     </a>
   </div>
-  <div class="col-6 p-0" *ngIf="dataModelResult.item.aboutUsLinkInstagram?.length>0">
+  <div class="col-6 p-0" *ngIf="dataModelResult.item?.aboutUsLinkInstagram?.length>0">
     <a class="card card-style ms-1 mb-2 bg-twitter p-3">
       <i class="fab fa-twitter fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">@{{dataModelResult.item.aboutUsLinkTwitter}}</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">@{{dataModelResult.item?.aboutUsLinkTwitter}}</p>
     </a>
   </div>
-  <div class="col-6 p-0" *ngIf="dataModelResult.item.aboutUsLinkInstagram?.length>0">
+  <div class="col-6 p-0" *ngIf="dataModelResult.item?.aboutUsLinkInstagram?.length>0">
     <a class="card card-style me-1 mb-0 bg-instagram p-3">
       <i class="fab fa-instagram fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item.aboutUsLinkInstagram}}</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item?.aboutUsLinkInstagram}}</p>
     </a>
   </div>
-  <div class="col-6 p-0" *ngIf="dataModelResult.item.aboutUsEmail?.length>0">
+  <div class="col-6 p-0" *ngIf="dataModelResult.item?.aboutUsEmail?.length>0">
     <a class="card card-style ms-1 mb-0 bg-green-dark p-3">
       <i class="fa fa-envelope fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item.aboutUsEmail}}</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">{{dataModelResult.item?.aboutUsEmail}}</p>
     </a>
   </div>
 </div>
