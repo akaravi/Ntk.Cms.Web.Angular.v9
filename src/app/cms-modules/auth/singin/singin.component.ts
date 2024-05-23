@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-auth-singin',
   templateUrl: './singin.component.html',
-  styleUrls: ['./singin.component.scss'],
+
 })
 export class AuthSingInComponent implements OnInit {
   constructor(

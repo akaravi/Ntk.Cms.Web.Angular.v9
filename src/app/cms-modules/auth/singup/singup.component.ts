@@ -14,7 +14,6 @@ import { SingupRuleComponent } from '../singupRule/singupRule.Component';
 @Component({
   selector: 'app-auth-singup',
   templateUrl: './singup.component.html',
-  styleUrls: ['./singup.component.scss'],
 })
 export class AuthSingUpComponent implements OnInit, OnDestroy {
   constructor(

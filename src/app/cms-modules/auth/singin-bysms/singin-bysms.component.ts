@@ -27,7 +27,6 @@ export class processModel {
 @Component({
   selector: 'app-auth-singin-bysms',
   templateUrl: './singin-bysms.component.html',
-  styleUrls: ['./singin-bysms.component.scss'],
 })
 export class AuthSingInBySmsComponent implements OnInit {
   constructor(

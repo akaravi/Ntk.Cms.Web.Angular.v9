@@ -109,6 +109,10 @@ export class CmsToastrService {
     // this.toastr.success('ایمیل شما با موفقیت تایید شد', this.now() + 'Success!');
     this.toastr.success(this.translate.instant('ERRORMESSAGE.MESSAGE.typeSuccessEmailConfirm'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeSuccessEmailConfirm'));
   }
+  typeSuccessMobileConfirm(): void {
+    // this.toastr.success('ایمیل شما با موفقیت تایید شد', this.now() + 'Success!');
+    this.toastr.success(this.translate.instant('ERRORMESSAGE.MESSAGE.typeSuccessMobileConfirm'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeSuccessMobileConfirm'));
+  }
   typeSuccessRegistery(): void {
     // this.toastr.success('با موفقیت حساب کاربری شما ساخته شد', this.now() + 'Success!');
     this.toastr.success(this.translate.instant('ERRORMESSAGE.MESSAGE.typeSuccessRegistery'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeSuccessRegistery'));

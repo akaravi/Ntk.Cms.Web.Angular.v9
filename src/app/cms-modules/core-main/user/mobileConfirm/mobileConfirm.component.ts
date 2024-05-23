@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  AuthEmailConfirmDtoModel, CaptchaModel, CoreAuthService, CoreEnumService,
+  AuthMobileConfirmDtoModel, CaptchaModel, CoreAuthService, CoreEnumService,
   CoreUserService, DataFieldInfoModel,
   ErrorExceptionResultBase,
   FormInfoModel
@@ -18,17 +18,16 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-user-email-confirm',
-  templateUrl: './emailConfirm.component.html',
+  selector: 'app-core-user-mobile-confirm',
+  templateUrl: './mobileConfirm.component.html',
 
 })
-export class CoreUserEmailConfirmComponent implements OnInit {
+export class CoreUserMobileConfirmComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CoreUserEmailConfirmComponent>,
+    private dialogRef: MatDialogRef<CoreUserMobileConfirmComponent>,
     public coreEnumService: CoreEnumService,
     public coreUserService: CoreUserService,
-
     private coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,
     private publicHelper: PublicHelper,
@@ -45,12 +44,11 @@ export class CoreUserEmailConfirmComponent implements OnInit {
   aoutoCaptchaOrder = 1;
   loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
-  dataModel: AuthEmailConfirmDtoModel = new AuthEmailConfirmDtoModel();
+  dataModel: AuthMobileConfirmDtoModel = new AuthMobileConfirmDtoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   passwordIsValid = false;
-  captchaModel: CaptchaModel = new CaptchaModel();
-
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
+  captchaModel: CaptchaModel = new CaptchaModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
   onCaptchaOrderInProcess = false;
@@ -72,8 +70,9 @@ export class CoreUserEmailConfirmComponent implements OnInit {
     this.onCaptchaOrder();
     this.formInfo.formTitle = this.translate.instant('ACTION.CONFIRMEMAIL');
     this.tokenHelper.getCurrentToken().then((value) => {
-      this.dataModel.email = value.email;
+      this.dataModel.mobile = value.mobile;
       this.dataModel.linkUserId = value.userId;
+
     });
 
 
@@ -105,12 +104,12 @@ export class CoreUserEmailConfirmComponent implements OnInit {
   }
   stepOne = true;
   stepTwo = false;
-  onEmailConfirm(): void {
+  onMobileConfirm(): void {
     this.dataModel.captchaKey = this.captchaModel.key;
-    this.coreAuthService.ServiceEmailConfirm(this.dataModel).subscribe({
+    this.coreAuthService.ServiceMobileConfirm(this.dataModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.cmsToastrService.typeSuccessEmailConfirm();
+          this.cmsToastrService.typeSuccessMobileConfirm();
           if (this.stepOne) {
             this.stepOne = false;
             this.stepTwo = true;

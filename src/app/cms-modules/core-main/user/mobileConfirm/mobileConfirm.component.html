@@ -4,26 +4,26 @@
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
     </p>
-    <p *ngIf="!dataModel.email || dataModel?.email?.length===0">
-      برای تایید آدرس ایمیل خود را وارد کنید
+    <p *ngIf="!dataModel.mobile || dataModel?.mobile?.length===0">
+      برای تایید شماره همراه خود را وارد کنید
     </p>
-    <p *ngIf="dataModel?.email?.length>0">
-      برای تایید، آدرس ایمیل خود را بررسی کنید که صحیح باشد
+    <p *ngIf="dataModel?.mobile?.length>0">
+      برای تایید ،شماره همراه خود را بررسی کنید که صحیح باشد
     </p>
     <!--Content-->
-    <form (ngSubmit)="onEmailConfirm()" #vform="ngForm">
+    <form (ngSubmit)="onMobileConfirm()" #vform="ngForm">
       <ng-container *ngIf="stepOne">
-        <!-- Email Field -->
+        <!-- Mobile Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-          *ngIf="fieldsInfo['email']?.accessWatchField">
-          <label for="dataModel.email" class="color-highlight">{{fieldsInfo['email']?.fieldTitle}}</label>
-          <input matInput [(ngModel)]="dataModel.email" name="dataModel.email" #Email type="email"
-            [disabled]="!fieldsInfo['email']?.accessAddField" placeholder="{{fieldsInfo['email']?.fieldTitle}}"
-            minlength="3" maxlength="100" class="form-control validate-name input-ltr-center" id="dataModel.email"
+          *ngIf="fieldsInfo['mobile']?.accessWatchField">
+          <label for="dataModel.mobile" class="color-highlight">{{fieldsInfo['mobile']?.fieldTitle}}</label>
+          <input matInput [(ngModel)]="dataModel.mobile" name="dataModel.mobile" #Mobile type="text"
+            [disabled]="!fieldsInfo['mobile']?.accessAddField" placeholder="{{fieldsInfo['mobile']?.fieldTitle}}"
+            minlength="3" maxlength="20" class="form-control validate-name input-ltr-center" id="dataModel.mobile"
             required />
-          <em>{{ Email.value.length }} / 100</em>
-          <mat-error *ngIf="Email.errors?.required">
-            Email is <strong>{{'MESSAGE.required' | translate}}</strong>
+          <em>{{ Mobile.value.length }} / 100</em>
+          <mat-error *ngIf="Mobile.errors?.required">
+            Mobile is <strong>{{'MESSAGE.required' | translate}}</strong>
           </mat-error>
         </div>
       </ng-container>
