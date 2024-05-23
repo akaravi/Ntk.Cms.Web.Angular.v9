@@ -621,6 +621,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
+    this.tableRowSelected = mode;
 
     this.onActionTableRowSelect(mode);
     if (
@@ -644,6 +645,8 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
+    this.tableRowSelected = model;
+
     this.onActionTableRowSelect(model);
     if (
       this.dataModelResult == null ||
@@ -722,6 +725,8 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
+    this.tableRowSelected = model;
+
     this.onActionTableRowSelect(model);
     var panelClass = '';
     if (this.tokenHelper.isMobile)
@@ -906,6 +911,8 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
+    this.tableRowSelected = model;
+
     const pName = this.constructor.name + "main";
     this.loading.Start(pName, this.translate.instant('ACTION.ActionSendSmsToCustomerOrder'));
     // ** */
@@ -934,6 +941,8 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
+    this.tableRowSelected = model;
+
     if (model.linkCmsUserId && model.linkCmsUserId > 0)
       this.requestLinkUserId = model.linkCmsUserId;
     else

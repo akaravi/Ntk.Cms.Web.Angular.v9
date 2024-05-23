@@ -24,13 +24,14 @@
     </div>
   </ng-container>
   <ng-container *ngIf="optionMultipleChoice">
-    <div *ngFor="let item of optionDefaultValue,index as i " (change)="onActionSelect(item)"
-      class="form-check icon-check">
-      <input [disabled]="optionDisabled" [(ngModel)]="itemSelected[item]" class="form-check-input" type="checkbox"
-        id="string-{{id}}-{{i}}">
-      <label class="form-check-label" for="string-{{id}}-{{i}}">{{item}}</label>
-      <i class="icon-check-1 far fa-square color-gray-dark font-16"></i>
-      <i class="icon-check-2 far fa-check-square font-16 color-highlight"></i>
+    <ng-container *ngFor="let item of optionDefaultValue,index as i ">
+      <div   *ngIf="!optionDisplayOnlyValid || itemSelected[item]" (change)="onActionSelect(item)"      class="form-check icon-check">
+        <input [disabled]="optionDisabled" [(ngModel)]="itemSelected[item]" class="form-check-input" type="checkbox"
+          id="string-{{id}}-{{i}}">
+        <label class="form-check-label" for="string-{{id}}-{{i}}">{{item}}</label>
+        <i class="icon-check-1 far fa-square color-gray-dark font-16"></i>
+        <i class="icon-check-2 far fa-check-square font-16 color-highlight"></i>
     </div>
+    </ng-container>
   </ng-container>
 </ng-container>

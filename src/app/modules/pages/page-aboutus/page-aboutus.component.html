@@ -26,8 +26,8 @@
         <a *ngIf="dataModelResult.item?.aboutUsTel?.length>0" href="tel:{{dataModelResult.item?.aboutUsTel}}"
           class="external-link">
           <i class="fa font-14 fa-phone color-phone"></i>
-          <span>
-            <p class="input-ltr">{{dataModelResult.item?.aboutUsTel}}
+          <span class="input-ltr-right">
+            {{dataModelResult.item?.aboutUsTel}}
           </span>
           <span class="badge bg-highlight">تماس</span>
           <i class="fa fa-angle-left"></i>
@@ -35,8 +35,8 @@
         <a *ngIf="dataModelResult.item?.aboutUsMobile?.length>0" href="tel:{{dataModelResult.item?.aboutUsMobile}}"
           class="external-link">
           <i class="fa font-14 fa-phone color-phone"></i>
-          <span>
-            <p class="input-ltr">{{dataModelResult.item?.aboutUsMobile}}
+          <span class="input-ltr-right">
+            {{dataModelResult.item?.aboutUsMobile}}
           </span>
           <span class="badge bg-highlight">همراه</span>
           <i class="fa fa-angle-left"></i>
@@ -44,7 +44,7 @@
         <a *ngIf="dataModelResult.item?.aboutUsEmail?.length>0" href="mailto:{{dataModelResult.item?.aboutUsEmail}}"
           class="external-link">
           <i class="fa font-14 fa-envelope color-mail"></i>
-          <span class="input-ltr">{{dataModelResult.item?.aboutUsEmail}}</span>
+          <span class="input-ltr-right">{{dataModelResult.item?.aboutUsEmail}}</span>
           <span class="badge bg-highlight">ارسال ایمیل</span>
           <i class="fa fa-angle-left"></i>
         </a>
@@ -159,8 +159,8 @@
 <div class="card card-style" *ngIf="!this.loading.display && dataModelResult.item?.aboutUsLicensesHtmlBody?.length>0">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">مجوزات خدمت</p>
-    <p [innerHTML]="dataModelResult.item?.aboutUsLicensesHtmlBody">
-    </p>
+    <div [innerHTML]="dataModelResult.item?.aboutUsLicensesHtmlBody">
+    </div>
   </div>
 </div>
 

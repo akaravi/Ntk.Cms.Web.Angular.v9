@@ -1,3 +1,4 @@
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="ntk-cms-html-card-header">
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
   {{ formInfo.formTitle }}
@@ -15,7 +16,7 @@
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
 </div>
 <div class="ntk-cms-html-card-body" dir="rtl">
-  <app-progress-spinner [options]="loading"> </app-progress-spinner>
+
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
 
@@ -259,7 +260,8 @@
               [optionForceUseDefaultValue]="itemDetail.configValueForceUseDefaultValue"
               [optionMultipleChoice]="itemDetail.configValueMultipleChoice"
               [optionDefaultValue]="itemDetail.configValueDefaultValues" [optionDisabled]="true"
-              [optionLabel]="itemDetail.title" style="color:'{{itemDetail.iconColor}}';">
+              [optionDisplayOnlyValid]="true" [optionLabel]="itemDetail.title"
+              style="color:'{{itemDetail.iconColor}}';">
             </app-input-string>
           </div>
           <!-- ngSwitchCase-->
@@ -271,9 +273,11 @@
           </div>
           <!-- ngSwitchCase-->
           <div *ngSwitchCase="enumInputDataType.Boolean" class="ntk-full-width">
-            <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor" aria-hidden="true"></i>&nbsp;
-            <app-input-boolean [(model)]="propertyDetails[itemDetail.id]" [optionDisabled]="true">{{itemDetail.title}}
-            </app-input-boolean>
+            <ng-container *ngIf="propertyDetails[itemDetail.id]==='true'">
+              <i [ngClass]="itemDetail.iconFont" [style.color]="itemDetail.iconColor" aria-hidden="true"></i>&nbsp;
+              <app-input-boolean [(model)]="propertyDetails[itemDetail.id]" [optionDisabled]="true">{{itemDetail.title}}
+              </app-input-boolean>
+            </ng-container>
           </div>
           <!-- ngSwitchCase-->
           <div *ngSwitchCase="enumInputDataType.Float" class="ntk-full-width">
@@ -342,11 +346,12 @@
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
     </button>
-    <button type="button" (click)="onActionNext()" *ngIf="requestNextItem&& requestNextItem?.id?.length>0"
+    <button type="button" (click)="onActionNext()" (keyup.enter)="onActionNext()"
+      *ngIf="requestNextItem&& requestNextItem?.id?.length>0"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i>
       < </button>
-        <button type="button" (click)="onActionPervious()"
+        <button type="button" (click)="onActionPervious()" (keydown.left)="onActionPervious()"
           *ngIf="requestPerviousItem&& requestPerviousItem?.id?.length>0"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i>
