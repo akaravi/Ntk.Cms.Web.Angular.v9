@@ -149,7 +149,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -164,7 +164,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
     });
   }
 
-  onActionbuttonEditRow(model: LinkManagementMemberModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementMemberModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -197,7 +197,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
       }
     });
   }
-  onActionbuttonDeleteRow(model: LinkManagementMemberModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementMemberModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -231,7 +231,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -281,7 +281,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {

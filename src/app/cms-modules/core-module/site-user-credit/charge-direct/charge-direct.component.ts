@@ -45,7 +45,7 @@ export class CoreModuleSiteUserCreditChargeDirectComponent implements OnInit {
     this.dataModel.linkSiteId = this.requestModel.linkSiteId;
     this.dataModel.linkUserId = this.requestModel.linkUserId;
   }
-  onActionbuttonAdd(): void {
+  onActionButtonAdd(): void {
     const pName = this.constructor.name + 'ServiceChargeDirect';
     this.loading.Start(pName);
     this.service.ServiceChargeDirect(this.dataModel).subscribe({

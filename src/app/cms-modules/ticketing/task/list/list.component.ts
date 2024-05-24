@@ -201,7 +201,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (this.categoryModelSelected == null &&
       (this.categoryModelSelected && this.categoryModelSelected.id === 0) && (
         this.requestDepartemenId == null ||
@@ -236,7 +236,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
       }
     });
   }
-  onActionbuttonViewRow(mode: TicketingTaskModel = this.tableRowSelected): void {
+  onActionButtonViewRow(mode: TicketingTaskModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -277,7 +277,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
 
     this.DataGetAll();
   }
-  onActionbuttonEditRow(mode: TicketingTaskModel = this.tableRowSelected): void {
+  onActionButtonEditRow(mode: TicketingTaskModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -312,7 +312,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
 
 
   }
-  onActionbuttonAnswerList(mode: TicketingTaskModel = this.tableRowSelected): void {
+  onActionButtonAnswerList(mode: TicketingTaskModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -331,7 +331,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
 
 
   }
-  onActionbuttonDeleteRow(mode: TicketingTaskModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: TicketingTaskModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -378,7 +378,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -427,7 +427,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.requestTicketStatus = -1;
     this.DataGetAll();
   }

@@ -92,6 +92,13 @@
         <label class="custom-control-label" for="toggle-dark-menu"></label>
       </div>
     </a>
+
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components"
+      (click)="onActionLogout()" style="cursor: pointer;">
+      <i class="fa fa-cog gradient-blue color-red"></i>
+      <span>خروج</span>
+      <!-- <i class="fa fa-angle-left"></i> -->
+    </a>
   </div>
   <h6 class="menu-divider mt-4" *ngIf="this.env.loadDemoTheme">مخاطبین</h6>
   <div class="list-group list-custom-small list-menu ps-2" *ngIf="this.env.loadDemoTheme">

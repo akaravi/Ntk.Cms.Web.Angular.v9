@@ -156,7 +156,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonViewRow(model: WebDesignerLogMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: WebDesignerLogMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -188,7 +188,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
       }
     });
   }
-  onActionbuttonEditRow(model: WebDesignerLogMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: WebDesignerLogMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -203,7 +203,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
       return;
     }
   }
-  onActionbuttonDeleteRow(model: WebDesignerLogMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: WebDesignerLogMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -252,7 +252,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
       );
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -303,7 +303,7 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -47,7 +47,7 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  onActionbuttonUserAccessAdminAllowToAllData(): void {
+  onActionButtonUserAccessAdminAllowToAllData(): void {
     const authModel: AuthRenewTokenModel = new AuthRenewTokenModel();
     const NewToall = !this.tokenInfo.userAccessAdminAllowToAllData;
     authModel.userAccessAdminAllowToProfessionalData = this.tokenInfo.userAccessAdminAllowToProfessionalData;
@@ -93,7 +93,7 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
     );
   }
 
-  onActionbuttonUserAccessAdminAllowToProfessionalData(): void {
+  onActionButtonUserAccessAdminAllowToProfessionalData(): void {
     const authModel: AuthRenewTokenModel = new AuthRenewTokenModel();
     const NewToPerf = !this.tokenInfo.userAccessAdminAllowToProfessionalData;
     authModel.userAccessAdminAllowToProfessionalData = NewToPerf;
@@ -138,7 +138,7 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
     );
   }
 
-  onActionbuttonSelectUser(): void {
+  onActionButtonSelectUser(): void {
     if (this.inputUserId === this.tokenInfo.userId) {
       const etitle = this.translate.instant('TITLE.Warrning');
       const emessage = this.translate.instant('MESSAGE.The_ID_of_this_website_is_the_same_as_the_website_you_are_on');
@@ -181,7 +181,7 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
     );
   }
 
-  onActionbuttonSelectSite(): void {
+  onActionButtonSelectSite(): void {
     if (this.inputSiteId === this.tokenInfo.siteId) {
       const etitle = this.translate.instant('TITLE.Warrning');
       const emessage = this.translate.instant('MESSAGE.The_ID_of_this_website_is_the_same_as_the_website_you_are_on');
@@ -227,7 +227,7 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
     if (model && model.id > 0) {
       if (model.id !== this.tokenInfo.siteId) {
         this.inputSiteId = model.id;
-        this.onActionbuttonSelectSite();
+        this.onActionButtonSelectSite();
       }
     }
   }

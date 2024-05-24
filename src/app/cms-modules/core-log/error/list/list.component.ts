@@ -183,7 +183,7 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
 
 
 
-  onActionbuttonEditRow(model: CoreLogErrorModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogErrorModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -216,7 +216,7 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLogErrorModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogErrorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -269,7 +269,7 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
       );
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -320,7 +320,7 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
 
   }
 
-  onActionbuttonViewUserRow(model: CoreLogErrorModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogErrorModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -334,7 +334,7 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreLogErrorModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreLogErrorModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -352,7 +352,7 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

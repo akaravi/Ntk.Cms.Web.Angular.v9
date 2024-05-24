@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { CoreCpMainMenuModel, CoreCpMainMenuService, ErrorExceptionResult, TokenInfoModel } from 'ntk-cms-api';
+import { CoreAuthService, CoreCpMainMenuModel, CoreCpMainMenuService, ErrorExceptionResult, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-menu-main',
   templateUrl: './menu-main.component.html',
-  styleUrls: ['./menu-main.component.scss']
+
 })
 export class MenuMainComponent implements OnInit {
   env = environment;
@@ -24,6 +24,7 @@ export class MenuMainComponent implements OnInit {
     public tokenHelper: TokenHelper,
     public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
+    public coreAuthService: CoreAuthService,
     private coreCpMainMenuService: CoreCpMainMenuService,
     private cmsStoreService: CmsStoreService,
     private router: Router,
@@ -88,9 +89,9 @@ export class MenuMainComponent implements OnInit {
     this.themeService.cleanDataMenu();
   }
   onActionClickMenu(item: CoreCpMainMenuModel) {
-    setTimeout(() => {
-      this.themeStore.dataMenu = '';
-    }, 200);
+    // setTimeout(() => {
+    //   this.themeStore.dataMenu = '';
+    // }, 200);
 
     if (!item)
       return;
@@ -111,4 +112,27 @@ export class MenuMainComponent implements OnInit {
     this.themeService.updateMode(themeMode);
   }
 
+  async onActionLogout() {
+    const pName = this.constructor.name + 'main';
+    this.loading.Start(pName, this.translate.instant('MESSAGE.Sign_out_of_user_account'));
+    this.cmsToastrService.typeOrderActionLogout();
+
+    this.coreAuthService.ServiceLogout().subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.cmsToastrService.typeSuccessLogout();
+          document.location.reload();
+        } else {
+          this.cmsToastrService.typeErrorLogout();
+        }
+        this.loading.Stop(pName);
+      },
+      error: (err) => {
+        if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(err);
+        this.loading.Stop(pName);
+      }
+    }
+    );
+
+  }
 }

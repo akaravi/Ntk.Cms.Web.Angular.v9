@@ -160,7 +160,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMai
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -177,7 +177,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMai
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainMessageContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainMessageContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -208,7 +208,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMai
     });
   }
 
-  onActionbuttonDeleteRow(model: SmsMainMessageContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainMessageContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -255,7 +255,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMai
       );
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -309,7 +309,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMai
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

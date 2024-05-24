@@ -203,7 +203,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -240,7 +240,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     });
   }
 
-  onActionbuttonEditRow(model: CoreGuideModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreGuideModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -274,7 +274,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     });
   }
 
-  onActionbuttonDeleteRow(mode: CoreGuideModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: CoreGuideModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -323,7 +323,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -377,7 +377,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.filteModelContent.sortColumn = 'ShowInMenuOrder';
 
     this.DataGetAll();

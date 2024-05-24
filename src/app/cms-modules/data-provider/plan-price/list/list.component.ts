@@ -158,7 +158,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -185,7 +185,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
     });
   }
 
-  onActionbuttonEditRow(model: DataProviderPlanPriceModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DataProviderPlanPriceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -215,7 +215,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
       }
     });
   }
-  onActionbuttonDeleteRow(model: DataProviderPlanPriceModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DataProviderPlanPriceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -249,7 +249,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
       }
     });
   }
-  onActionbuttonTransactionList(model: DataProviderPlanPriceModel = this.tableRowSelected): void {
+  onActionButtonTransactionList(model: DataProviderPlanPriceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -259,7 +259,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
     this.router.navigate(['/data-provider/transaction/LinkPlanPriceId/' + model.id]);
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -313,7 +313,7 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -190,7 +190,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
 
 
-  onActionbuttonViewRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -223,7 +223,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -256,7 +256,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -310,7 +310,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
   }
 
-  onActionbuttonViewContent(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewContent(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -328,7 +328,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -379,7 +379,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
   }
 
-  onActionbuttonViewUserRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -393,7 +393,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -407,7 +407,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  onActionbuttonViewSiteRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -425,7 +425,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -154,7 +154,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '90%';
@@ -173,7 +173,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
 
   }
 
-  onActionbuttonEditRow(model: LinkManagementAccountingDetailModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementAccountingDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -206,7 +206,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
       }
     });
   }
-  onActionbuttonDeleteRow(model: LinkManagementAccountingDetailModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementAccountingDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -239,7 +239,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -293,7 +293,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {

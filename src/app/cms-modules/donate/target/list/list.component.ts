@@ -168,7 +168,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -201,7 +201,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     });
   }
 
-  onActionbuttonEditRow(model: DonateTargetModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -231,7 +231,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
       }
     });
   }
-  onActionbuttonDeleteRow(model: DonateTargetModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -266,7 +266,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     });
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -320,7 +320,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -332,7 +332,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
   }
 
 
-  onActionbuttonTargetPeriodList(model: DonateTargetModel = this.tableRowSelected): void {
+  onActionButtonTargetPeriodList(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -343,7 +343,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     this.router.navigate(['/donate/target-period/LinkTargeId/' + model.id]);
   }
 
-  onActionbuttonViewRow(model: DonateTargetModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

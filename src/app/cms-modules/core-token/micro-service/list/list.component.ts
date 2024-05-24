@@ -202,7 +202,7 @@ export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTo
   }
 
 
-  onActionbuttonViewRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -236,7 +236,7 @@ export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTo
     });
   }
 
-  onActionbuttonEditRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -269,7 +269,7 @@ export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTo
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -322,7 +322,7 @@ export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTo
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -373,7 +373,7 @@ export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTo
 
   }
 
-  onActionbuttonViewUserRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -388,7 +388,7 @@ export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTo
   }
 
 
-  onActionbuttonViewSiteRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreTokenMicroServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -406,7 +406,7 @@ export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTo
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

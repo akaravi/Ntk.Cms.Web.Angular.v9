@@ -145,7 +145,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -172,7 +172,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
       }
     });
   }
-  onActionbuttonEditRow(model: EstatePropertyAdsModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstatePropertyAdsModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -204,7 +204,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstatePropertyAdsModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstatePropertyAdsModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -250,7 +250,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
       }
       );
   }
-  onActionbuttonContentList(model: EstatePropertyAdsModel = this.tableRowSelected): void {
+  onActionButtonContentList(model: EstatePropertyAdsModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -260,10 +260,10 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
 
     this.router.navigate(['/estate/property/LinkPropertyAdsId/', this.tableRowSelected.id]);
   }
-  onActionbuttonBuy(): void {
+  onActionButtonBuy(): void {
     this.router.navigate(['/estate/property-ads/sale/', this.requestLinkPropertyId]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -314,7 +314,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

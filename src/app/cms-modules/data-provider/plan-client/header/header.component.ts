@@ -77,7 +77,7 @@ export class DataProviderPlanClientHeaderComponent implements OnInit, OnDestroy 
     }
     );
   }
-  onActionbuttonLinkTo(model: DataProviderPlanClientModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: DataProviderPlanClientModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

@@ -152,7 +152,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -179,7 +179,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
       }
     });
   }
-  onActionbuttonEditRow(model: BankPaymentPublicConfigModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BankPaymentPublicConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -211,7 +211,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
       }
     });
   }
-  onActionbuttonDeleteRow(model: BankPaymentPublicConfigModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BankPaymentPublicConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -257,7 +257,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
       }
       );
   }
-  onActionbuttonNewRowAuto(): any {
+  onActionButtonNewRowAuto(): any {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
     this.contentService.ServiceAutoAdd().subscribe({
@@ -278,7 +278,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
     }
     );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -326,7 +326,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
     }
     );
   }
-  onActionbuttonPrivateList(model: BankPaymentPublicConfigModel = this.tableRowSelected): void {
+  onActionButtonPrivateList(model: BankPaymentPublicConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -346,7 +346,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

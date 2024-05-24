@@ -92,7 +92,7 @@ export class HeaderBarComponent implements OnInit {
   onActionThemeSwitch(themeMode: ThemeModeType) {
     this.themeService.updateMode(themeMode);
   }
-  onActionbuttonMemo(): void {
+  onActionButtonMemo(): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -117,7 +117,7 @@ export class HeaderBarComponent implements OnInit {
     });
     //open popup
   }
-  onActionbuttonPin(): void {
+  onActionButtonPin(): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -143,7 +143,7 @@ export class HeaderBarComponent implements OnInit {
     });
     //open popup
   }
-  onActionbuttonTask(): void {
+  onActionButtonTask(): void {
 
     //open popup
     var panelClass = '';
@@ -169,7 +169,7 @@ export class HeaderBarComponent implements OnInit {
     });
     //open popup
   }
-  onActionbuttonComment(): void {
+  onActionButtonComment(): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -194,7 +194,7 @@ export class HeaderBarComponent implements OnInit {
     });
     //open popup
   }
-  onActionbuttonShowKey(): void {
+  onActionButtonShowKey(): void {
     if (!this.contentInfo || this.contentInfo.id?.length == 0)
       return;
     //open popup

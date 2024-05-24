@@ -187,7 +187,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -222,7 +222,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       }
     });
   }
-  onActionbuttonEditRow(model: NewsCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: NewsCommentModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -255,7 +255,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       }
     });
   }
-  onActionbuttonDeleteRow(model: NewsCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: NewsCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -301,7 +301,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -351,14 +351,14 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     }
     );
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -369,7 +369,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
   onActionBackToParent(): void {
     this.router.navigate(['/news/content/']);
   }
-  onActionbuttonViewContent(model: NewsCommentModel): void {
+  onActionButtonViewContent(model: NewsCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -417,7 +417,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       }
       );
   }
-  onActionbuttonEditContent(model: NewsCommentModel, event?: MouseEvent): void {
+  onActionButtonEditContent(model: NewsCommentModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -439,7 +439,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       this.router.navigate(['/news/content/edit', this.tableRowSelected.linkContentId]);
     }
   }
-  onActionbuttonLinkTo(model: NewsCommentModel = this.tableRowSelected): void {
+  onActionButtonLinkTo(model: NewsCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

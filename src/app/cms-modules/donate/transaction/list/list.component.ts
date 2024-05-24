@@ -168,7 +168,7 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     this.DataGetAll();
   }
 
-  onActionbuttonViewRow(model: DonateTransactionModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: DonateTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id > 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -199,7 +199,7 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     });
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -253,7 +253,7 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -65,7 +65,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
   }
   rowExist = false;
   ngOnInit() {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Check_registered_properties');
+    this.widgetInfoModel.title = this.translate.instant('TITLE.ESTATE.CUSTOMER_ORDER');
     this.widgetInfoModel.description = this.translate.instant('TITLE.Introduction_of_your_customer_order');
     this.widgetInfoModel.link = '/estate/customer-order';
 
@@ -130,14 +130,9 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       if (ret.isSuccess) {
         this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, ''));
         this.rowExist = true;
-        this.widgetInfoModel.title = this.translate.instant('TITLE.Add_Property');
         this.widgetInfoModel.description = this.translate.instant('TITLE.Number_Registered_Property') + ' : ' + ret.totalRowCount;
-        this.widgetInfoModel.link = '/estate/property/add';
       }
-      else {
-        this.widgetInfoModel.title = this.translate.instant('TITLE.Register_your_first_property');
-        this.widgetInfoModel.link = '/estate/property/add';
-      }
+
       //*results */
       ret = results[1];
       series[1] = ret.totalRowCount;

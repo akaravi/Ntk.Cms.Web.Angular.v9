@@ -185,7 +185,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestLinkTargeId == null ||
       this.requestLinkTargeId === 0
@@ -218,7 +218,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     });
   }
 
-  onActionbuttonEditRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -245,7 +245,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
       }
     });
   }
-  onActionbuttonDeleteRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -279,7 +279,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     });
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -333,7 +333,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
 
 
 
-  onActionbuttonDonateTargetPeriodAccountRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonDonateTargetPeriodAccountRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -344,7 +344,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.router.navigate(['/donate/target-period-charge/', model.id]);
   }
 
-  onActionbuttonTargetPeriodSponserList(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonTargetPeriodSponserList(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -355,7 +355,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.router.navigate(['/donate/target-period-sponser/LinkTargetPeriodId/' + model.id]);
   }
 
-  onActionbuttonTransactionsRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonTransactionsRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -364,7 +364,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.router.navigate(['/donate/transaction/LinkTargetPeriodId/', model.id]);
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

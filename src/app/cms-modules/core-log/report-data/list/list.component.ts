@@ -205,7 +205,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
 
 
 
-  onActionbuttonViewRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -237,7 +237,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
       }
     });
   }
-  onActionbuttonEditRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -270,7 +270,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -327,7 +327,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -378,7 +378,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
 
   }
 
-  onActionbuttonViewUserRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -392,7 +392,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -406,7 +406,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  onActionbuttonViewSiteRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreLogReportDataModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -425,7 +425,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

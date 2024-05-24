@@ -458,7 +458,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     this.dataModel.linkCmsUserId = model.id;
   }
 
-  onActionbuttonQuickHistoryAddRow(): void {
+  onActionButtonQuickHistoryAddRow(): void {
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';

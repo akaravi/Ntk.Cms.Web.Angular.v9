@@ -29,19 +29,19 @@
   <a (click)="themeStore?.dataMenu!=='menu-share' ? themeStore.dataMenu='menu-share':themeStore.dataMenu=''"
     class="header-icon header-icon-3"><i class="fas fa-share-alt"></i></a>
   <ng-container *ngIf="contentService">
-    <a (click)="onActionbuttonMemo()" class="header-icon  header-icon-4" title="{{'ACTION.MEMO' | translate}}">
+    <a (click)="onActionButtonMemo()" class="header-icon  header-icon-4" title="{{'ACTION.MEMO' | translate}}">
       <i class="fas fa-book-open"></i>
     </a>
-    <a (click)="onActionbuttonPin()" class="header-icon header-icon-5" title="{{'ACTION.PIN' | translate}}"><i
+    <a (click)="onActionButtonPin()" class="header-icon header-icon-5" title="{{'ACTION.PIN' | translate}}"><i
         class="fas fa-bookmark"></i>
     </a>
-    <a (click)="onActionbuttonComment()" class="header-icon  header-icon-6" title="{{'ACTION.COMMENT' | translate}}">
+    <a (click)="onActionButtonComment()" class="header-icon  header-icon-6" title="{{'ACTION.COMMENT' | translate}}">
       <i class="fas fa-comment"></i>
     </a>
-    <a (click)="onActionbuttonTask()" class="header-icon  header-icon-7" title="{{'ACTION.TASK' | translate}}">
+    <a (click)="onActionButtonTask()" class="header-icon  header-icon-7" title="{{'ACTION.TASK' | translate}}">
       <i class="fas fa-tasks"></i>
     </a>
-    <a (click)="onActionbuttonShowKey()" *ngIf=" this.contentInfo?.id?.length>0 && this.contentInfo?.contentHidden"
+    <a (click)="onActionButtonShowKey()" *ngIf=" this.contentInfo?.id?.length>0 && this.contentInfo?.contentHidden"
       class="header-icon  header-icon-8" title="{{'ACTION.SHOW_KEY' | translate}}">
       <i class="fas fa-key"></i>
 

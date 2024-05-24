@@ -156,7 +156,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
         this.filteModelContent.rowPerPage = event.pageSize;
         this.DataGetAll();
     }
-    onActionbuttonNewRow(event?: MouseEvent): void {
+    onActionButtonNewRow(event?: MouseEvent): void {
 
         if (this.dataModelResult == null ||
             this.dataModelResult.access == null ||
@@ -172,7 +172,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
             this.router.navigate(['/estate/property-company/add']);
         }
     }
-    onActionbuttonEditRow(model: EstatePropertyCompanyModel = this.tableRowSelected, event?: MouseEvent): void {
+    onActionButtonEditRow(model: EstatePropertyCompanyModel = this.tableRowSelected, event?: MouseEvent): void {
         if (!model || !model.id || model.id.length === 0) {
             this.cmsToastrService.typeErrorSelectedRow();
             return;
@@ -192,7 +192,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
             this.router.navigate(['/estate/property-company/edit', this.tableRowSelected.id]);
         }
     }
-    onActionbuttonProperty(model: EstatePropertyCompanyModel = this.tableRowSelected, event?: MouseEvent): void {
+    onActionButtonProperty(model: EstatePropertyCompanyModel = this.tableRowSelected, event?: MouseEvent): void {
         if (!model || !model.id || model.id.length === 0) {
             this.cmsToastrService.typeErrorSelectedRow();
             return;
@@ -212,7 +212,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
             this.router.navigate(['/estate/property/LinkCompanyId', this.tableRowSelected.id]);
         }
     }
-    onActionbuttonDeleteRow(model: EstatePropertyCompanyModel = this.tableRowSelected): void {
+    onActionButtonDeleteRow(model: EstatePropertyCompanyModel = this.tableRowSelected): void {
         if (!model || !model.id || model.id.length === 0) {
             const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
             this.cmsToastrService.typeErrorSelected(emessage);
@@ -244,7 +244,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
             }
         });
     }
-    onActionbuttonStatist(): void {
+    onActionButtonStatist(): void {
         this.optionsStatist.data.show = !this.optionsStatist.data.show;
         if (!this.optionsStatist.data.show) {
             return;
@@ -296,7 +296,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
     }
 
 
-    onActionbuttonWithHierarchy(): void {
+    onActionButtonWithHierarchy(): void {
         this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
         this.DataGetAll();
     }
@@ -312,7 +312,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
         this.DataGetAll();
     }
 
-    onActionbuttonReload(): void {
+    onActionButtonReload(): void {
         this.DataGetAll();
     }
     onActionCopied(): void {
@@ -328,7 +328,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
 
 
 
-    onActionbuttonLinkTo(
+    onActionButtonLinkTo(
         model: EstatePropertyCompanyModel = this.tableRowSelected
     ): void {
         if (!model || !model.id || model.id.length === 0) {

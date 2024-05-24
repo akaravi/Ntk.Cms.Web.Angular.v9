@@ -172,7 +172,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (this.categoryModelSelected == null &&
       (this.categoryModelSelected && this.categoryModelSelected.code && this.categoryModelSelected.code.length === 0) && (
         this.requestPareintId == null ||
@@ -226,7 +226,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
 
     this.DataGetAll();
   }
-  onActionbuttonViewRow(mode: HyperShopContentModel = this.tableRowSelected): void {
+  onActionButtonViewRow(mode: HyperShopContentModel = this.tableRowSelected): void {
     if (!mode || !mode.code || mode.code.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -258,7 +258,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
       }
     });
   }
-  onActionbuttonEditRow(mode: HyperShopContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(mode: HyperShopContentModel = this.tableRowSelected): void {
     if (!mode || !mode.code || mode.code.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -298,7 +298,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
       }
     });
   }
-  onActionbuttonDeleteRow(mode: HyperShopContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: HyperShopContentModel = this.tableRowSelected): void {
     if (mode == null || !mode.code || mode.code.length === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -344,7 +344,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -397,7 +397,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {

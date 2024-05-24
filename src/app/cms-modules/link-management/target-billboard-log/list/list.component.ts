@@ -188,7 +188,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
 
 
 
-  onActionbuttonEditRow(model: LinkManagementTargetBillboardLogModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementTargetBillboardLogModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -220,7 +220,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
       }
     });
   }
-  onActionbuttonDeleteRow(model: LinkManagementTargetBillboardLogModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementTargetBillboardLogModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -253,7 +253,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
       }
     });
   }
-  onActionbuttonViewRowLinkbillboardId(model: LinkManagementTargetBillboardLogModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonViewRowLinkbillboardId(model: LinkManagementTargetBillboardLogModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -267,7 +267,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
       this.router.navigate(["/linkmanagement/billboard/edit", this.tableRowSelected.linkManagementBillboardId]);
     }
   }
-  onActionbuttonViewRowLinkTargetId(model: LinkManagementTargetBillboardLogModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonViewRowLinkTargetId(model: LinkManagementTargetBillboardLogModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -281,7 +281,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
       this.router.navigate(["/linkmanagement/target/edit", this.tableRowSelected.linkManagementTargetId]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -335,7 +335,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

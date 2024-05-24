@@ -1,16 +1,15 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreUserModel, CoreUserService, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
-import { PersianCalendarService } from 'src/app/core/pipe/persian-date/persian-date.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { CoreUserEmailConfirmComponent } from '../emailConfirm/emailConfirm.component';
-import { MatDialog } from '@angular/material/dialog';
 import { CoreUserMobileConfirmComponent } from '../mobileConfirm/mobileConfirm.component';
 
 @Component({
@@ -111,7 +110,7 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
     );
 
   }
-  onActionbuttonEmailConfirm(): void {
+  onActionButtonEmailConfirm(): void {
 
     var panelClass = '';
     if (this.tokenHelper.isMobile)
@@ -120,7 +119,6 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(CoreUserEmailConfirmComponent, {
       height: '70%',
-      width: '40%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
@@ -132,7 +130,7 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonMobileConfirm(): void {
+  onActionButtonMobileConfirm(): void {
 
     var panelClass = '';
     if (this.tokenHelper.isMobile)
@@ -141,7 +139,6 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(CoreUserMobileConfirmComponent, {
       height: '70%',
-      width: '40%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,

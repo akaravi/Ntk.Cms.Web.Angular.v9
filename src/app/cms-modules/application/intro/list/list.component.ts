@@ -167,7 +167,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     let ApplicationId = 0;
     if (this.requestLinkApplicationId > 0) {
       ApplicationId = this.requestLinkApplicationId;
@@ -191,7 +191,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     this.router.navigate(['/application/intro/add/', ApplicationId]);
 
   }
-  onActionbuttonEditRow(model: ApplicationIntroModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApplicationIntroModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -207,7 +207,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     }
     setTimeout(() => this.router.navigate(['/application/intro/edit/', this.tableRowSelected.id]), 1000);
   }
-  onActionbuttonDeleteRow(model: ApplicationIntroModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApplicationIntroModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.No_row_selected_for_editing');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -264,7 +264,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -315,7 +315,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

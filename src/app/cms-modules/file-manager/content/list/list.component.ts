@@ -160,7 +160,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -180,7 +180,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
     this.router.navigate(['/file/content/add', this.categoryModelSelected.id]);
   }
 
-  onActionbuttonEditRow(model: FileContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: FileContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -196,7 +196,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
     }
     this.router.navigate(['/file/content/edit', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: FileContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: FileContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -230,7 +230,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -284,7 +284,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

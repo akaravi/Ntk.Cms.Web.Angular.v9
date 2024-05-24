@@ -168,7 +168,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
     this.DataGetAll();
   }
 
-  // onActionbuttonNewRow(): void {
+  // onActionButtonNewRow(): void {
 
   //   if (
   //     this.dataModelResult == null ||
@@ -191,7 +191,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
   //   });
   // }
 
-  onActionbuttonViewRow(model: CoreModuleLogShowKeyModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogShowKeyModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -225,7 +225,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleLogShowKeyModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogShowKeyModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -258,7 +258,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogShowKeyModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogShowKeyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -312,7 +312,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -367,7 +367,7 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -172,7 +172,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -201,7 +201,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     });
   }
 
-  onActionbuttonViewRow(model: CoreUserModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreUserModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -234,7 +234,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
       }
     });
   }
-  onActionbuttonEditRow(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditRow(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -258,7 +258,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     }
 
   }
-  onActionbuttonChangePassword(model: CoreUserModel = this.tableRowSelected): void {
+  onActionButtonChangePassword(model: CoreUserModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -285,7 +285,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     });
   }
 
-  onActionbuttonEmailConfirm(): void {
+  onActionButtonEmailConfirm(): void {
 
     if (
       this.dataModelResult == null ||
@@ -302,7 +302,6 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(CoreUserEmailConfirmComponent, {
       height: '70%',
-      width: '40%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
@@ -315,7 +314,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     });
   }
 
-  onActionbuttonDeleteRow(mode: CoreUserModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: CoreUserModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -362,7 +361,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
       }
       );
   }
-  onActionbuttonLoginToRow(model: CoreUserModel = this.tableRowSelected): void {
+  onActionButtonLoginToRow(model: CoreUserModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -391,7 +390,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     );
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -444,7 +443,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -456,7 +455,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
   }
 
 
-  onActionbuttonSiteList(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonSiteList(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -470,7 +469,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
       this.router.navigate(['/core/site/list/LinkUserId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonSiteByGroupList(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonSiteByGroupList(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -485,7 +484,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
       this.router.navigate(['/core/site/userlist/LinkUserId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonResller(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonResller(model: CoreUserModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -504,7 +503,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     this.router.navigate(['/core/site/']);
   }
 
-  onActionbuttonUserSupportList(row: CoreUserModel): void {
+  onActionButtonUserSupportList(row: CoreUserModel): void {
     this.router.navigate(['/core/user-support-access/list/LinkSiteId/', 0, 'LinkUserId', row.id]);
   }
 

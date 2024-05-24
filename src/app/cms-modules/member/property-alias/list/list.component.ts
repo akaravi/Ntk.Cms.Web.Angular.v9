@@ -140,7 +140,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -164,7 +164,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
       }
     });
   }
-  onActionbuttonEditRow(model: MemberPropertyAliasModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: MemberPropertyAliasModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -193,7 +193,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
       }
     });
   }
-  onActionbuttonDeleteRow(model: MemberPropertyAliasModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: MemberPropertyAliasModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -227,7 +227,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -279,12 +279,12 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -169,7 +169,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -202,7 +202,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -248,7 +248,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
 
     this.DataGetAll();
   }
-  onActionbuttonDeleteRow(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -302,7 +302,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
   }
 
 
-  onActionbuttonGoToModuleSaleSerialList(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleSaleSerialList(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -312,7 +312,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
 
     this.router.navigate(['/core/siteModuleSaleSerial/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -362,7 +362,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
     );
 
   }
-  onActionbuttonModuleList(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
+  onActionButtonModuleList(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -383,7 +383,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
 
 
   }
-  onActionbuttonSiteList(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
+  onActionButtonSiteList(model: CoreModuleSaleSerialModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -408,7 +408,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

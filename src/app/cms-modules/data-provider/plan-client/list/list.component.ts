@@ -185,7 +185,7 @@ export class DataProviderPlanClientListComponent extends ListBaseComponent<DataP
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -219,7 +219,7 @@ export class DataProviderPlanClientListComponent extends ListBaseComponent<DataP
     });
   }
 
-  onActionbuttonEditRow(model: DataProviderPlanClientModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DataProviderPlanClientModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -248,7 +248,7 @@ export class DataProviderPlanClientListComponent extends ListBaseComponent<DataP
       }
     });
   }
-  onActionbuttonDeleteRow(model: DataProviderPlanClientModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DataProviderPlanClientModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -283,7 +283,7 @@ export class DataProviderPlanClientListComponent extends ListBaseComponent<DataP
     });
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -337,7 +337,7 @@ export class DataProviderPlanClientListComponent extends ListBaseComponent<DataP
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

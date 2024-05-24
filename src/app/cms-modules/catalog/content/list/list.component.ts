@@ -189,7 +189,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     // if (
     //   this.categoryModelSelected == null ||
     //   this.categoryModelSelected.id?.length === 0
@@ -212,7 +212,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     this.router.navigate(['/catalog/content/add', id]);
   }
 
-  onActionbuttonEditRow(model: CatalogContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CatalogContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -228,7 +228,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     }
     this.router.navigate(['/catalog/content/edit', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: CatalogContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CatalogContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -262,7 +262,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -317,7 +317,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -328,7 +328,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: CatalogContentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {

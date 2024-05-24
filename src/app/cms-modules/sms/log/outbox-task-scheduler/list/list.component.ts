@@ -196,7 +196,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
   }
 
 
-  onActionbuttonEditRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -230,7 +230,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     // this.router.navigate(['/sms/main/api-path/edit', this.tableRowSelected.id]);
 
   }
-  onActionbuttonDeleteRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -282,7 +282,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
 
   }
 
-  onActionbuttonViewRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -326,7 +326,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     this.DataGetAll();
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -376,7 +376,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     );
 
   }
-  onActionbuttonSuperSedersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonSuperSedersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -395,7 +395,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonMustSuperSedersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonMustSuperSedersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -414,7 +414,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonNumbersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonNumbersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -433,7 +433,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonPermitionList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonPermitionList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -452,7 +452,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     }
     this.router.navigate(['/sms/main/api-path-permission/LinkApiPathId', this.tableRowSelected.id]);
   }
-  onActionbuttonPriceServicesList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonPriceServicesList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -475,7 +475,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

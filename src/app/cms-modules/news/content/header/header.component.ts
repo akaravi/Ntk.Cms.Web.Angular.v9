@@ -79,7 +79,7 @@ export class NewsContentHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: NewsContentModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: NewsContentModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

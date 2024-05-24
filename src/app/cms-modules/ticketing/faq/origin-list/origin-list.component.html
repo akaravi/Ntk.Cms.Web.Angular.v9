@@ -39,7 +39,7 @@
                             <ng-container *ngFor="let departemenItem of dataDepartemenModelResult.listItems">
                                 <li class="pointer navi-item mb-{{departemenItem.id}}">
                                     <a [class]="DataDepartemanLinkSelect===departemenItem.id? 'navi-link active':'navi-link'"
-                                        data-toggle="tab" (click)="onActionbuttonDeparteman(departemenItem.id)">
+                                        data-toggle="tab" (click)="onActionButtonDeparteman(departemenItem.id)">
                                         <span
                                             class="navi-text text-dark-50 font-size-h5 font-weight-bold">{{departemenItem.title}}</span>
                                     </a>
@@ -68,7 +68,7 @@
                                                 data-toggle="collapse"
                                                 [attr.aria-expanded]="faqItem.id===DataFaqLinkSelect"
                                                 *ngIf="DataDepartemanLinkSelect===0 || DataDepartemanLinkSelect===faqItem.linkTicketingDepartemenId"
-                                                data-toggle="collapse" (click)="onActionbuttonFaqTitle(faqItem.id)"
+                                                data-toggle="collapse" (click)="onActionButtonFaqTitle(faqItem.id)"
                                                 role="button">
                                                 <span class="svg-icon svg-icon-primary">
                                                     <svg xmlns="http://www.w3.org/2000/svg"

@@ -135,7 +135,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -159,7 +159,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
       }
     });
   }
-  onActionbuttonEditRow(model: MemberGroupModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: MemberGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -189,7 +189,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
       }
     });
   }
-  onActionbuttonDeleteRow(model: MemberGroupModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: MemberGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -223,7 +223,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -275,12 +275,12 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

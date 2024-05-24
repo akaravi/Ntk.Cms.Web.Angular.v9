@@ -678,7 +678,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
       // console.log(`Dialog result: ${result}`);
     });
   }
-  onActionbuttonQuickListSearchTitle(): void {
+  onActionButtonQuickListSearchTitle(): void {
     if (!this.dataModel || !this.dataModel.title || this.dataModel.title.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -698,7 +698,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-  onActionbuttonQuickListSearchCustomerTel(): void {
+  onActionButtonQuickListSearchCustomerTel(): void {
     if (!this.dataModel || !this.dataModel.aboutCustomerTel || this.dataModel.aboutCustomerTel.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -718,7 +718,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-  onActionbuttonQuickListSearchCustomerMobile(): void {
+  onActionButtonQuickListSearchCustomerMobile(): void {
     if (!this.dataModel || !this.dataModel.aboutCustomerMobile || this.dataModel.aboutCustomerMobile.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -738,7 +738,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-  onActionbuttonQuickListSearchCaseCode(): void {
+  onActionButtonQuickListSearchCaseCode(): void {
     if (!this.dataModel || !this.dataModel.caseCode || this.dataModel.caseCode.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -794,7 +794,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     this.estatePropertyHistoryListComponent.DataGetAll();
   }
 
-  onActionbuttonQuickHistoryAddRow(): void {
+  onActionButtonQuickHistoryAddRow(): void {
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';

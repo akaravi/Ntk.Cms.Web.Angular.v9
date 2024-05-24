@@ -183,7 +183,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -213,13 +213,13 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
-        this.onActionbuttonEditRow(result.model);
+        this.onActionButtonEditRow(result.model);
         this.DataGetAll();
       }
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainApiNumberModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainApiNumberModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length == 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -252,7 +252,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
       }
     });
   }
-  onActionbuttonDeleteRow(model: SmsMainApiNumberModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainApiNumberModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -304,7 +304,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -355,7 +355,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
 
   }
 
-  onActionbuttonReceiveList(model: SmsMainApiNumberModel = this.tableRowSelected): void {
+  onActionButtonReceiveList(model: SmsMainApiNumberModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -376,7 +376,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
 
 
   }
-  onActionbuttonSendList(model: SmsMainApiNumberModel = this.tableRowSelected): void {
+  onActionButtonSendList(model: SmsMainApiNumberModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -401,7 +401,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

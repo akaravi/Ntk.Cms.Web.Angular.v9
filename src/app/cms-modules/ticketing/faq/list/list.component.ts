@@ -165,7 +165,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (this.categoryModelSelected == null &&
       (this.categoryModelSelected && this.categoryModelSelected.id === 0) && (
         this.requestDepartemenId == null ||
@@ -220,7 +220,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
 
     this.DataGetAll();
   }
-  onActionbuttonEditRow(mode: TicketingFaqModel = this.tableRowSelected): void {
+  onActionButtonEditRow(mode: TicketingFaqModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -255,7 +255,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
 
 
   }
-  onActionbuttonDeleteRow(mode: TicketingFaqModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: TicketingFaqModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -302,7 +302,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -351,7 +351,7 @@ export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqSer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

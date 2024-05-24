@@ -179,7 +179,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -208,7 +208,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
     });
   }
 
-  onActionbuttonEditRow(model: CoreDeviceModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreDeviceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -241,7 +241,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreDeviceModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreDeviceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -294,7 +294,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
 
   }
 
-  onActionbuttonGoToSiteCategoryList(model: CoreDeviceModel = this.tableRowSelected): void {
+  onActionButtonGoToSiteCategoryList(model: CoreDeviceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -304,7 +304,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
 
     this.router.navigate(['/core/siteSiteCategory/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -358,7 +358,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

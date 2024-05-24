@@ -184,7 +184,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
@@ -204,7 +204,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleEntityReportFileModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleEntityReportFileModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -237,7 +237,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleEntityReportFileModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleEntityReportFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -289,7 +289,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -338,7 +338,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
 
   }
 
-  onActionbuttonModuleEntityDataReportRow(model: CoreModuleEntityReportFileModel = this.tableRowSelected): void {
+  onActionButtonModuleEntityDataReportRow(model: CoreModuleEntityReportFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -350,7 +350,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

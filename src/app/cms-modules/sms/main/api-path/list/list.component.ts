@@ -218,7 +218,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       (!this.requestLinkCompanyId) || (this.requestLinkCompanyId && this.requestLinkCompanyId.length == 0)) {
       if (this.categoryModelSelected == null || this.categoryModelSelected.id.length === 0) {
@@ -260,7 +260,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainApiPathModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -278,7 +278,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     this.router.navigate(['/sms/main/api-path/edit', this.tableRowSelected.id]);
 
   }
-  onActionbuttonDeleteRow(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -343,7 +343,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     this.DataGetAll();
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -394,7 +394,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
 
   }
 
-  onActionbuttonGetBalance(model: SmsMainApiPathModel = this.tableRowSelected): any {
+  onActionButtonGetBalance(model: SmsMainApiPathModel = this.tableRowSelected): any {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -423,7 +423,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     }
     );
   }
-  onActionbuttonSuperSedersList(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonSuperSedersList(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -442,7 +442,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPublicConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonMustSuperSedersList(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonMustSuperSedersList(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -461,7 +461,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPublicConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonNumbersList(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonNumbersList(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -480,7 +480,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     }
     this.router.navigate(['/sms/main/api-number/LinkApiPathId', this.tableRowSelected.id]);
   }
-  onActionbuttonPermitionList(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonPermitionList(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -499,7 +499,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     }
     this.router.navigate(['/sms/main/api-path-permission/LinkApiPathId', this.tableRowSelected.id]);
   }
-  onActionbuttonOutBoxQueue(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonOutBoxQueue(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -518,7 +518,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     }
     this.router.navigate(['/sms/log/outbox-queue/LinkApiPathId', this.tableRowSelected.id]);
   }
-  onActionbuttonCopy(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonCopy(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -550,7 +550,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
       }
     });
   }
-  onActionbuttonPriceServicesList(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonPriceServicesList(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -573,7 +573,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
 
 
 
-  onActionbuttonSendTest(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonSendTest(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -601,7 +601,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
       }
     });
   }
-  onActionbuttonReportsRow(model: SmsMainApiPathModel = this.tableRowSelected): void {
+  onActionButtonReportsRow(model: SmsMainApiPathModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -617,7 +617,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     }
     this.router.navigate(["/sms/log/api-path/LinkApiPathId", this.tableRowSelected.id]);
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -158,14 +158,14 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
   }
 
-  onActionbuttonEditRow(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonDeleteRow(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -216,7 +216,7 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
       );
   }
 
-  onActionbuttonGoToModuleList(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleList(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -226,7 +226,7 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
 
     this.router.navigate(['/core/siteModule/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -277,7 +277,7 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
 
   }
 
-  onActionbuttonSiteList(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
+  onActionButtonSiteList(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -286,7 +286,7 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
     this.onActionTableRowSelect(model);
     this.router.navigate(['core/site/modulelist/LinkModuleId/', model.id]);
   }
-  onActionbuttonSiteCategoryList(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
+  onActionButtonSiteCategoryList(model: ApiTelegramUploadedFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -299,7 +299,7 @@ export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiT
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -77,7 +77,7 @@ export class EstateBillboardHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: EstateBillboardModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: EstateBillboardModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

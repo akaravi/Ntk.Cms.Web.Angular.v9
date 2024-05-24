@@ -162,7 +162,7 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
   }
 
 
-  onActionbuttonEditRow(model: CoreModuleSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleSiteUserCreditModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -189,7 +189,7 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleSiteUserCreditModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -239,7 +239,7 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -293,14 +293,14 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
     this.filteModelContent.filters = model;
     this.DataGetAll();
   }
-  onActionbuttonSiteUserCreditBuyAccountRow(model: CoreModuleSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonSiteUserCreditBuyAccountRow(model: CoreModuleSiteUserCreditModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -310,7 +310,7 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
 
     this.router.navigate(['/coremodule/site-user-credit-charge/', model.linkModuleId]);
   }
-  onActionbuttonSiteUserCreditDirectAccountRow(model: CoreModuleSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonSiteUserCreditDirectAccountRow(model: CoreModuleSiteUserCreditModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);

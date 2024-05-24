@@ -158,7 +158,7 @@ export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencySer
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -187,7 +187,7 @@ export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencySer
     });
   }
 
-  onActionbuttonEditRow(model: CoreCurrencyModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreCurrencyModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -220,7 +220,7 @@ export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencySer
       }
     });
   }
-  onActionbuttonLog(model: CoreCurrencyModel = this.tableRowSelected): void {
+  onActionButtonLog(model: CoreCurrencyModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -229,7 +229,7 @@ export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencySer
     this.onActionTableRowSelect(model);
     this.router.navigate(['/corelog/currency/', model.id]);
   }
-  onActionbuttonDeleteRow(model: CoreCurrencyModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreCurrencyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -283,7 +283,7 @@ export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencySer
   }
 
 
-  onActionbuttonUserList(model: CoreCurrencyModel = this.tableRowSelected): void {
+  onActionButtonUserList(model: CoreCurrencyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -292,7 +292,7 @@ export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencySer
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/site/userlist/LinkCurrencyId/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -346,7 +346,7 @@ export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencySer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

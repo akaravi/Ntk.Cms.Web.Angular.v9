@@ -182,7 +182,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (this.categoryModelSelected == null &&
       (this.categoryModelSelected && this.categoryModelSelected.id === 0) && (
         this.requestLinkTaskId == null ||
@@ -211,7 +211,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
       }
     });
   }
-  onActionbuttonViewRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
+  onActionButtonViewRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -247,7 +247,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
 
     this.DataGetAll();
   }
-  onActionbuttonEditRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
+  onActionButtonEditRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -282,7 +282,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
 
 
   }
-  onActionbuttonDeleteRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -329,7 +329,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -378,7 +378,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

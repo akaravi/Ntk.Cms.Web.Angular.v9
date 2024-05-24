@@ -167,7 +167,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -196,7 +196,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
     });
   }
 
-  onActionbuttonEditRow(model: EstateAccountAgencyAdsModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstateAccountAgencyAdsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -229,7 +229,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstateAccountAgencyAdsModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateAccountAgencyAdsModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -280,7 +280,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
       );
 
   }
-  onActionbuttonContentList(model: EstateAccountAgencyAdsModel = this.tableRowSelected): void {
+  onActionButtonContentList(model: EstateAccountAgencyAdsModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -290,11 +290,11 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
 
     this.router.navigate(['/estate/account-agency/LinkAccountAgencyAdsId/', this.tableRowSelected.id]);
   }
-  onActionbuttonBuy(): void {
+  onActionButtonBuy(): void {
     this.router.navigate(['/estate/account-agency-ads/sale/', this.requestLinkAccountAgencyId]);
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -348,7 +348,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

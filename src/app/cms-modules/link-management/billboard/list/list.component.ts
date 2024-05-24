@@ -189,7 +189,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
 
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryPatternModelSelected == null ||
       this.categoryPatternModelSelected.id === 0
@@ -209,7 +209,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     this.router.navigate(['/linkmanagement/billboard/add', this.categoryPatternModelSelected.id]);
   }
 
-  onActionbuttonEditRow(model: LinkManagementBillboardModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementBillboardModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -225,7 +225,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     }
     this.router.navigate(['/linkmanagement/billboard/edit', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: LinkManagementBillboardModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementBillboardModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -259,7 +259,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -313,7 +313,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -323,7 +323,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
 
 
 
-  onActionbuttonLog(model: LinkManagementBillboardModel = this.tableRowSelected): void {
+  onActionButtonLog(model: LinkManagementBillboardModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

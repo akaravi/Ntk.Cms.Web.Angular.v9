@@ -174,7 +174,7 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
 
 
 
-  onActionbuttonDeleteRow(model: EstateCustomerOrderResultModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateCustomerOrderResultModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -226,7 +226,7 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -280,7 +280,7 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
 
 
 
-  onActionbuttonViewRow(model: EstateCustomerOrderResultModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: EstateCustomerOrderResultModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -311,7 +311,7 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
       }
     });
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

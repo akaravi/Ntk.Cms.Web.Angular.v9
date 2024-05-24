@@ -68,7 +68,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
   }
   rowExist = false;
   ngOnInit() {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Check_registered_properties');
+    this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_property');
     this.widgetInfoModel.description = this.translate.instant('TITLE.Introduction_of_your_property');
     this.widgetInfoModel.link = '/estate/property';
 
@@ -114,14 +114,9 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       labels[0] = 'فعال'
       if (ret.isSuccess) {
         this.rowExist = true;
-        //this.widgetInfoModel.title = this.translate.instant('TITLE.Add_Property');
         this.widgetInfoModel.description = this.translate.instant('TITLE.Number_Registered_Property') + ' : ' + ret.totalRowCount;
-        this.widgetInfoModel.link = '/estate/property/';
       }
-      else {
-        //this.widgetInfoModel.title = this.translate.instant('TITLE.Register_your_first_property');
-        this.widgetInfoModel.link = '/estate/property/';
-      }
+
       if (ret.isSuccess) {
         this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, this.widgetInfoModel.link));
       } else {

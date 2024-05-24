@@ -182,7 +182,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonViewRow(model: ApplicationLogNotificationModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: ApplicationLogNotificationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -212,7 +212,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
       }
     });
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestLinkApplicationId == null ||
       this.requestLinkApplicationId === 0
@@ -230,7 +230,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
       return;
     }
   }
-  onActionbuttonEditRow(model: ApplicationLogNotificationModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApplicationLogNotificationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -245,7 +245,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
       return;
     }
   }
-  onActionbuttonDeleteRow(model: ApplicationLogNotificationModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApplicationLogNotificationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -261,7 +261,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
       return;
     }
   }
-  onActionbuttonNotifictionActionSend(model: ApplicationLogNotificationModel = this.tableRowSelected): void {
+  onActionButtonNotifictionActionSend(model: ApplicationLogNotificationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -303,7 +303,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -354,7 +354,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

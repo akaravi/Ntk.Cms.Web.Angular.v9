@@ -162,7 +162,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -191,7 +191,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainApiPathPublicConfigModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainApiPathPublicConfigModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -224,7 +224,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
       }
     });
   }
-  onActionbuttonDeleteRow(model: SmsMainApiPathPublicConfigModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainApiPathPublicConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -277,7 +277,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
 
   }
 
-  onActionbuttonNewRowAuto(): any {
+  onActionButtonNewRowAuto(): any {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
     this.contentService.ServiceAutoAdd().subscribe({
@@ -300,7 +300,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -350,7 +350,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
     );
 
   }
-  onActionbuttonPrivateList(model: SmsMainApiPathPublicConfigModel = this.tableRowSelected): void {
+  onActionButtonPrivateList(model: SmsMainApiPathPublicConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -374,7 +374,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

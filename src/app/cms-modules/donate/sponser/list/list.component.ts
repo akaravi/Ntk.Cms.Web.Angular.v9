@@ -169,7 +169,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -201,7 +201,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     });
   }
 
-  onActionbuttonEditRow(model: DonateSponsorModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DonateSponsorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -228,7 +228,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
       }
     });
   }
-  onActionbuttonDeleteRow(model: DonateSponsorModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DonateSponsorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -262,7 +262,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     });
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -316,7 +316,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -325,7 +325,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
   }
 
 
-  onActionbuttonTargetPeriodSponserRow(model: DonateSponsorModel = this.tableRowSelected): void {
+  onActionButtonTargetPeriodSponserRow(model: DonateSponsorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -334,7 +334,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     this.router.navigate(['/donate/target-period-sponser/LinkSponserId/', model.id]);
   }
 
-  onActionbuttonTransactionsRow(model: DonateSponsorModel = this.tableRowSelected): void {
+  onActionButtonTransactionsRow(model: DonateSponsorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

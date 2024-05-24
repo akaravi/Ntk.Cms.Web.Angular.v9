@@ -151,7 +151,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -181,7 +181,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
     });
   }
 
-  onActionbuttonEditRow(model: EstateCategoryZoneModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstateCategoryZoneModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -214,7 +214,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstateCategoryZoneModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateCategoryZoneModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -265,7 +265,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
       );
 
   }
-  onActionbuttonContentDetailList(model: EstateCategoryZoneModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentDetailList(model: EstateCategoryZoneModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -280,7 +280,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
       this.router.navigate(['/estate/property-detail/LinkCategoryZoneId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonContentList(model: EstateCategoryZoneModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentList(model: EstateCategoryZoneModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -296,7 +296,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
       this.router.navigate(['/estate/property/LinkCategoryZoneId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -349,7 +349,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

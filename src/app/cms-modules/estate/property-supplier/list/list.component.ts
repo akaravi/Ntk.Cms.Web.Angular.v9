@@ -157,7 +157,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(event?: MouseEvent): void {
+  onActionButtonNewRow(event?: MouseEvent): void {
 
     if (
       this.dataModelResult == null ||
@@ -175,7 +175,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       this.router.navigate(['/estate/property-supplier/add']);
     }
   }
-  onActionbuttonEditRow(model: EstatePropertySupplierModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditRow(model: EstatePropertySupplierModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -197,7 +197,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       this.router.navigate(['/estate/property-supplier/edit', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonProperty(model: EstatePropertySupplierModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonProperty(model: EstatePropertySupplierModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -219,7 +219,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       this.router.navigate(['/estate/property/LinkSupplierId', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonDeleteRow(model: EstatePropertySupplierModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstatePropertySupplierModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -252,7 +252,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -304,7 +304,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
@@ -320,7 +320,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -337,7 +337,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
 
 
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: EstatePropertySupplierModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {

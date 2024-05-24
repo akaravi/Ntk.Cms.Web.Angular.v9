@@ -189,7 +189,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     this.router.navigate(['/ticketing/contactus/']);
 
   }
@@ -206,7 +206,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
 
     this.DataGetAll();
   }
-  onActionbuttonViewRow(mode: TicketingTaskModel = this.tableRowSelected): void {
+  onActionButtonViewRow(mode: TicketingTaskModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -230,7 +230,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
       }
     });
   }
-  onActionbuttonAnswerList(mode: TicketingTaskModel = this.tableRowSelected): void {
+  onActionButtonAnswerList(mode: TicketingTaskModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -249,7 +249,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
 
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -298,7 +298,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -156,7 +156,7 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -185,7 +185,7 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
     });
   }
 
-  onActionbuttonEditRow(model: CoreUserGroupModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreUserGroupModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -218,7 +218,7 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreUserGroupModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreUserGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -272,7 +272,7 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
   }
 
 
-  onActionbuttonUserList(model: CoreUserGroupModel = this.tableRowSelected): void {
+  onActionButtonUserList(model: CoreUserGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -281,7 +281,7 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/site/userlist/LinkUserGroupId/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -335,7 +335,7 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

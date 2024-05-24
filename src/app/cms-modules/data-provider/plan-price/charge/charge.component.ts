@@ -65,7 +65,7 @@ export class DataProviderPlanPriceChargeComponent implements OnInit {
         );
     }
 
-    onActionbuttonBuy(): void {
+    onActionButtonBuy(): void {
         const dialogRef = this.dialog.open(DataProviderPlanPriceChargePaymentComponent, {
             height: '90%',
             data: {

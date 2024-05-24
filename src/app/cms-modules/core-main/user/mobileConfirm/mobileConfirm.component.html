@@ -19,7 +19,7 @@
           <label for="dataModel.mobile" class="color-highlight">{{fieldsInfo['mobile']?.fieldTitle}}</label>
           <input matInput [(ngModel)]="dataModel.mobile" name="dataModel.mobile" #Mobile type="text"
             [disabled]="!fieldsInfo['mobile']?.accessAddField" placeholder="{{fieldsInfo['mobile']?.fieldTitle}}"
-            minlength="3" maxlength="20" class="form-control validate-name input-ltr-center" id="dataModel.mobile"
+            class="form-control validate-name input-ltr-center" id="dataModel.mobile"
             required />
           <em>{{ Mobile.value.length }} / 100</em>
           <mat-error *ngIf="Mobile.errors?.required">

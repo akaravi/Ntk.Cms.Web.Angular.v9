@@ -47,7 +47,7 @@ export class CoreModuleSiteCreditChargeDirectComponent implements OnInit {
   }
 
 
-  onActionbuttonAdd(): void {
+  onActionButtonAdd(): void {
     const pName = this.constructor.name + 'ServiceChargeDirect';
     this.loading.Start(pName);
     this.service.ServiceChargeDirect(this.dataModel).subscribe({

@@ -209,7 +209,7 @@ export class CoreCpMainMenuListComponent extends ListBaseComponent<CoreCpMainMen
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -233,13 +233,13 @@ export class CoreCpMainMenuListComponent extends ListBaseComponent<CoreCpMainMen
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
-        this.onActionbuttonEditRow(result.model);
+        this.onActionButtonEditRow(result.model);
         //this.DataGetAll();
       }
     });
   }
 
-  onActionbuttonEditRow(model: CoreCpMainMenuModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreCpMainMenuModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -273,7 +273,7 @@ export class CoreCpMainMenuListComponent extends ListBaseComponent<CoreCpMainMen
     });
   }
 
-  onActionbuttonDeleteRow(mode: CoreCpMainMenuModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: CoreCpMainMenuModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -321,7 +321,7 @@ export class CoreCpMainMenuListComponent extends ListBaseComponent<CoreCpMainMen
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -375,7 +375,7 @@ export class CoreCpMainMenuListComponent extends ListBaseComponent<CoreCpMainMen
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.filteModelContent.sortColumn = 'ShowInMenuOrder';
 
     this.DataGetAll();

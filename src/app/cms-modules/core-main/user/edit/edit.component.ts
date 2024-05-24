@@ -201,7 +201,7 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
     }
     this.dataModel.linkResellerUserId = model.id;
   }
-  onActionbuttonChangePassword(): void {
+  onActionButtonChangePassword(): void {
     if (this.tokenInfo.userId != this.dataModel.id &&
       (
         this.dataAccessModel == null ||

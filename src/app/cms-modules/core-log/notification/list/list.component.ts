@@ -200,7 +200,7 @@ export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogN
 
 
 
-  onActionbuttonViewRow(model: CoreLogNotificationModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogNotificationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -232,7 +232,7 @@ export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogN
       }
     });
   }
-  onActionbuttonEditRow(model: CoreLogNotificationModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogNotificationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -265,7 +265,7 @@ export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogN
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLogNotificationModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogNotificationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -322,7 +322,7 @@ export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogN
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -375,7 +375,7 @@ export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogN
 
 
 
-  onActionbuttonViewMemberRow(model: CoreLogNotificationModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreLogNotificationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -393,7 +393,7 @@ export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogN
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

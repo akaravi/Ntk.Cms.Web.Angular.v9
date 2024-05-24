@@ -1,13 +1,13 @@
 <span class="ml-3" *ngIf="loadingStatus">Loading ...</span>
 <div>
-  <a (click)="onActionbuttonUserAccessAdminAllowToAllData()"
+  <a (click)="onActionButtonUserAccessAdminAllowToAllData()"
     *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)"
     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
     style="width:95% ;margin: 4px;" [class.disabled]="disabledAllow">
     <i [className]="tokenInfo.userAccessAdminAllowToAllData ? 'fa fa-toggle-on' : 'fa fa-toggle-off'"></i>
     &nbsp;{{'TITLE.Show_all_information'| translate}}
   </a>
-  <a (click)="onActionbuttonUserAccessAdminAllowToProfessionalData()"
+  <a (click)="onActionButtonUserAccessAdminAllowToProfessionalData()"
     *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)"
     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
     style="width:95%;margin: 4px;" [class.disabled]="disabledAllow">
@@ -18,7 +18,7 @@
     *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)"
     style="direction: rtl;width:95%;margin: 4px;">
     <div class="input-group-prepend">
-      <button (click)="onActionbuttonSelectUser()"
+      <button (click)="onActionButtonSelectUser()"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         type="button">{{'ACTION.GO'| translate}}</button>
     </div>
@@ -28,7 +28,7 @@
     *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)"
     style="direction: rtl;width:95%;margin: 4px;">
     <div class="input-group-prepend">
-      <button (click)="onActionbuttonSelectSite()"
+      <button (click)="onActionButtonSelectSite()"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         type="button">{{'ACTION.GO'| translate}}</button>
     </div>

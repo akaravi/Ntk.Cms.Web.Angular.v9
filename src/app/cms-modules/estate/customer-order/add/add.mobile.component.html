@@ -640,7 +640,7 @@
 
 <ng-template let-listItem #estateTemplate>
   <div style="width: 100%;" *ngFor="let item of listItem">
-    <table class="cms-m-table" (click)="onActionbuttonQuickViewRow(item)">
+    <table class="cms-m-table" (click)="onActionButtonQuickViewRow(item)">
       <tr *ngIf="item?.title?.length>0">
         <td colspan="2"> {{item.title}}</td>
       </tr>

@@ -205,7 +205,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -234,7 +234,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     });
   }
 
-  onActionbuttonEditRow(model: CoreUserClaimContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreUserClaimContentModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -280,7 +280,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
 
     this.DataGetAll();
   }
-  onActionbuttonDeleteRow(model: CoreUserClaimContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreUserClaimContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -334,7 +334,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
   }
 
 
-  onActionbuttonGoToUserClaimList(model: CoreUserClaimContentModel = this.tableRowSelected): void {
+  onActionButtonGoToUserClaimList(model: CoreUserClaimContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -344,7 +344,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
 
     this.router.navigate(['/core/siteUserClaim/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -394,7 +394,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     );
 
   }
-  onActionbuttonModuleList(model: CoreUserClaimContentModel = this.tableRowSelected): void {
+  onActionButtonModuleList(model: CoreUserClaimContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -415,7 +415,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
 
 
   }
-  onActionbuttonSiteList(model: CoreUserClaimContentModel = this.tableRowSelected): void {
+  onActionButtonSiteList(model: CoreUserClaimContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -440,7 +440,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

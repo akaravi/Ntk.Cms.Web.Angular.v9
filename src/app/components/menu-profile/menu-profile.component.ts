@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthRenewTokenModel, CoreAuthService, CoreSiteModel, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -11,7 +12,6 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-menu-profile',
   templateUrl: './menu-profile.component.html',
-  styleUrls: ['./menu-profile.component.scss']
 })
 export class MenuProfileComponent implements OnInit {
   static nextId = 0;
@@ -22,15 +22,15 @@ export class MenuProfileComponent implements OnInit {
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
     private publicHelper: PublicHelper,
+    private router: Router
   ) {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
       this.tokenInfo = value;
-
     });
+
   }
   loading = new ProgressSpinnerModel();
 
@@ -46,11 +46,12 @@ export class MenuProfileComponent implements OnInit {
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  onActionbuttonUserAccessAdminAllowToAllData(): void {
+  onActionButtonUserAccessAdminAllowToAllData(): void {
     const authModel: AuthRenewTokenModel = new AuthRenewTokenModel();
     const NewToall = !this.tokenInfo.userAccessAdminAllowToAllData;
     authModel.userAccessAdminAllowToProfessionalData = this.tokenInfo.userAccessAdminAllowToProfessionalData;
@@ -100,7 +101,7 @@ export class MenuProfileComponent implements OnInit {
     );
   }
 
-  onActionbuttonUserAccessAdminAllowToProfessionalData(): void {
+  onActionButtonUserAccessAdminAllowToProfessionalData(): void {
     const authModel: AuthRenewTokenModel = new AuthRenewTokenModel();
     const NewToPerf = !this.tokenInfo.userAccessAdminAllowToProfessionalData;
     authModel.userAccessAdminAllowToProfessionalData = NewToPerf;
@@ -149,7 +150,7 @@ export class MenuProfileComponent implements OnInit {
     );
   }
 
-  onActionbuttonSelectUser(): void {
+  onActionButtonSelectUser(): void {
     if (this.inputUserId === this.tokenInfo.userId) {
       const etitle = this.translate.instant('TITLE.Warrning');
       const emessage = this.translate.instant('MESSAGE.The_ID_of_this_website_is_the_same_as_the_website_you_are_on');
@@ -196,7 +197,7 @@ export class MenuProfileComponent implements OnInit {
     );
   }
 
-  onActionbuttonSelectSite(): void {
+  onActionButtonSelectSite(): void {
     if (this.inputSiteId === this.tokenInfo.siteId) {
       const etitle = this.translate.instant('TITLE.Warrning');
       const emessage = this.translate.instant('MESSAGE.The_ID_of_this_website_is_the_same_as_the_website_you_are_on');
@@ -244,11 +245,11 @@ export class MenuProfileComponent implements OnInit {
     if (model && model.id > 0) {
       if (model.id !== this.tokenInfo.siteId) {
         this.inputSiteId = model.id;
-        this.onActionbuttonSelectSite();
+        this.onActionButtonSelectSite();
       }
     }
   }
-  async logout() {
+  async onActionLogout() {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName, this.translate.instant('MESSAGE.Sign_out_of_user_account'));
     this.cmsToastrService.typeOrderActionLogout();

@@ -151,7 +151,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -180,7 +180,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     });
   }
 
-  onActionbuttonEditRow(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: TicketingDepartemenModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -213,7 +213,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
       }
     });
   }
-  onActionbuttonDeleteRow(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -248,7 +248,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     });
 
   }
-  onActionbuttonFaqList(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonFaqList(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -258,7 +258,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
     this.router.navigate(['/ticketing/faq/', this.tableRowSelected.id]);
   }
-  onActionbuttonTemplateList(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonTemplateList(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -268,7 +268,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
     this.router.navigate(['/ticketing/template/', this.tableRowSelected.id]);
   }
-  onActionbuttonLogList(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonLogList(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -278,7 +278,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
     this.router.navigate(['/ticketing/departemenlog/DepartemenId/', this.tableRowSelected.id]);
   }
-  onActionbuttonTaskList(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonTaskList(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -288,7 +288,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
     this.router.navigate(['/ticketing/task/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -338,7 +338,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

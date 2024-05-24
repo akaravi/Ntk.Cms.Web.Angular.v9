@@ -195,7 +195,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -232,7 +232,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     });
   }
 
-  onActionbuttonEditRow(model: BlogCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BlogCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -264,7 +264,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
       }
     });
   }
-  onActionbuttonDeleteRow(model: BlogCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BlogCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -315,7 +315,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -364,14 +364,14 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     }
     );
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -382,7 +382,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
   onActionBackToParent(): void {
     this.router.navigate(['/blog/content/']);
   }
-  onActionbuttonViewContent(model: BlogCommentModel): void {
+  onActionButtonViewContent(model: BlogCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -431,7 +431,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
       }
       );
   }
-  onActionbuttonEditContent(model: BlogCommentModel): void {
+  onActionButtonEditContent(model: BlogCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -447,7 +447,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     }
     this.router.navigate(['/blog/content/edit', this.tableRowSelected.linkContentId]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: BlogCommentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

@@ -185,7 +185,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -212,7 +212,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
       }
     });
   }
-  onActionbuttonEditRow(model: WebDesignerMainMenuModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: WebDesignerMainMenuModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -244,7 +244,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
       }
     });
   }
-  onActionbuttonDeleteRow(mode: WebDesignerMainMenuModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: WebDesignerMainMenuModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id.length === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -289,7 +289,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -338,7 +338,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.filteModelContent.sortColumn = 'ShowInMenuOrder';
     this.DataGetAll();
   }

@@ -160,7 +160,7 @@ export class EstateAccountAgencyAdsSaleListComponent implements OnInit, OnDestro
     );
   }
 
-  onActionbuttonBuy(model: EstateAdsTypeModel): void {
+  onActionButtonBuy(model: EstateAdsTypeModel): void {
     this.tableRowSelected = model;
     var panelClass = '';
     if (this.tokenHelper.isMobile)

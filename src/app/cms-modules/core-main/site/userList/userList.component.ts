@@ -203,7 +203,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -236,7 +236,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     });
   }
 
-  onActionbuttonEditRow(model: CoreSiteUserModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreSiteUserModel = this.tableRowSelected): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -274,7 +274,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     });
   }
 
-  onActionbuttonDeleteRow(model: CoreSiteUserModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreSiteUserModel = this.tableRowSelected): void {
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -323,7 +323,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
       );
   }
 
-  onActionbuttonEditSiteRow(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditSiteRow(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
@@ -339,7 +339,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     }
   }
 
-  onActionbuttonChangePassword(model: CoreSiteUserModel = this.tableRowSelected): void {
+  onActionButtonChangePassword(model: CoreSiteUserModel = this.tableRowSelected): void {
     if (!model || !model.linkUserId || model.linkUserId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -366,7 +366,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     });
   }
 
-  onActionbuttonEditUserRow(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditUserRow(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
@@ -382,7 +382,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     }
 
   }
-  onActionbuttonResllerUser(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonResllerUser(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
@@ -398,7 +398,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     }
 
   }
-  onActionbuttonResllerSite(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonResllerSite(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
@@ -413,7 +413,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
       this.router.navigate(['/core/site/reseller-chart/LinkSiteId/', model.linkSiteId]);
     }
   }
-  onActionbuttonLoginToRow(model: CoreSiteUserModel = this.tableRowSelected): void {
+  onActionButtonLoginToRow(model: CoreSiteUserModel = this.tableRowSelected): void {
     if (!model || !model.linkUserId || model.linkUserId === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -442,7 +442,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     }
     );
   }
-  onActionbuttonUserSupportList(row: CoreSiteUserModel, event?: MouseEvent): void {
+  onActionButtonUserSupportList(row: CoreSiteUserModel, event?: MouseEvent): void {
     if (event?.ctrlKey) {
       this.link = "/#/core/user-support-access/list/LinkSiteId/" + row.linkSiteId + "/LinkUserId/" + row.linkUserId;
       window.open(this.link, "_blank");
@@ -450,7 +450,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
       this.router.navigate(['/core/user-support-access/list/LinkSiteId/', row.linkSiteId, 'LinkUserId', row.linkUserId]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -504,7 +504,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -512,7 +512,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     this.DataGetAll();
   }
 
-  onActionbuttonSiteList(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonSiteList(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

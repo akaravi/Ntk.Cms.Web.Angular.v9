@@ -151,7 +151,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -180,7 +180,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
     });
   }
 
-  onActionbuttonEditRow(model: EstateCategoryRackModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstateCategoryRackModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -213,7 +213,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstateCategoryRackModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateCategoryRackModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -264,7 +264,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
       );
 
   }
-  onActionbuttonContentDetailList(model: EstateCategoryRackModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentDetailList(model: EstateCategoryRackModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -279,7 +279,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
       this.router.navigate(['/estate/property-detail/LinkCategoryRackId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonContentList(model: EstateCategoryRackModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentList(model: EstateCategoryRackModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -295,7 +295,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
       this.router.navigate(['/estate/property/LinkCategoryRackId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -348,7 +348,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

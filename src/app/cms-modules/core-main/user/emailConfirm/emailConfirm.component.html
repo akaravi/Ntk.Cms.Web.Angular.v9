@@ -19,7 +19,7 @@
           <label for="dataModel.email" class="color-highlight">{{fieldsInfo['email']?.fieldTitle}}</label>
           <input matInput [(ngModel)]="dataModel.email" name="dataModel.email" #Email type="email"
             [disabled]="!fieldsInfo['email']?.accessAddField" placeholder="{{fieldsInfo['email']?.fieldTitle}}"
-            minlength="3" maxlength="100" class="form-control validate-name input-ltr-center" id="dataModel.email"
+            class="form-control validate-name input-ltr-center" id="dataModel.email"
             required />
           <em>{{ Email.value.length }} / 100</em>
           <mat-error *ngIf="Email.errors?.required">

@@ -189,7 +189,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
   //   }
   //   );
   // }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -218,7 +218,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
     });
   }
 
-  onActionbuttonEditRow(model: MemberPropertyDetailGroupModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: MemberPropertyDetailGroupModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -251,7 +251,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
       }
     });
   }
-  onActionbuttonDeleteRow(model: MemberPropertyDetailGroupModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: MemberPropertyDetailGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -302,7 +302,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
       );
 
   }
-  onActionbuttonContentList(model: MemberPropertyDetailGroupModel = this.tableRowSelected): void {
+  onActionButtonContentList(model: MemberPropertyDetailGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -313,7 +313,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
     this.router.navigate(['/hypershop/content/PareintId/', this.tableRowSelected.id]);
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -367,7 +367,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

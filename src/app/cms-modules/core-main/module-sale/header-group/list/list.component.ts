@@ -180,7 +180,7 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -209,7 +209,7 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -242,7 +242,7 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -296,7 +296,7 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
   }
 
 
-  onActionbuttonHeaderList(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
+  onActionButtonHeaderList(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -306,7 +306,7 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
 
     this.router.navigate(['/core/modulesale/header/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -356,7 +356,7 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
     );
 
   }
-  onActionbuttonModuleList(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
+  onActionButtonModuleList(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -377,7 +377,7 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
 
 
   }
-  onActionbuttonSiteList(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
+  onActionButtonSiteList(model: CoreModuleSaleHeaderGroupModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -402,7 +402,7 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

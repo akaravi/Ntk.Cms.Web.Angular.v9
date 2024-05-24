@@ -164,7 +164,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -184,7 +184,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
     this.router.navigate(['/polling/content/add', this.categoryModelSelected.id]);
   }
 
-  onActionbuttonEditRow(model: PollingContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: PollingContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -200,7 +200,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
     }
     this.router.navigate(['/polling/content/edit', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: PollingContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: PollingContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -233,7 +233,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -286,7 +286,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -299,7 +299,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
 
 
 
-  onActionbuttonResults(model: PollingContentModel = this.tableRowSelected): void {
+  onActionButtonResults(model: PollingContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

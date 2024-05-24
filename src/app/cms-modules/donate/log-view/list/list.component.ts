@@ -151,7 +151,7 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
     this.DataGetAll();
   }
 
-  onActionbuttonViewRow(model: DonateLogViewModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: DonateLogViewModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -184,7 +184,7 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -238,7 +238,7 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

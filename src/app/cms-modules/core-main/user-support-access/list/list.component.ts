@@ -183,7 +183,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -217,7 +217,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
     });
   }
 
-  onActionbuttonEditRow(model: CoreUserSupportAccessModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreUserSupportAccessModel = this.tableRowSelected): void {
 
     if (!model || !model.linkSiteId || model.linkSiteId === 0 || !model.linkUserId || model.linkUserId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -255,7 +255,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreUserSupportAccessModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreUserSupportAccessModel = this.tableRowSelected): void {
     if (!model || !model.linkSiteId || model.linkSiteId === 0 || !model.linkUserId || model.linkUserId === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -309,7 +309,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
   }
 
 
-  onActionbuttonUserList(model: CoreUserSupportAccessModel = this.tableRowSelected): void {
+  onActionButtonUserList(model: CoreUserSupportAccessModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -318,7 +318,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/site/userlist/LinkUserSupportAccessId/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -372,7 +372,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

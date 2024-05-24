@@ -190,7 +190,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonViewRow(model: BankPaymentTransactionModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: BankPaymentTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -220,7 +220,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
       }
     });
   }
-  onActionbuttonEditRow(model: BankPaymentTransactionModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BankPaymentTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -252,7 +252,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
       }
     });
   }
-  onActionbuttonDeleteRow(model: BankPaymentTransactionModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BankPaymentTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -298,7 +298,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
       }
       );
   }
-  onActionbuttonLog(model: BankPaymentTransactionModel = this.tableRowSelected): void {
+  onActionButtonLog(model: BankPaymentTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -307,7 +307,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     this.onActionTableRowSelect(model);
     this.router.navigate(['/bankpayment/transactionlog/LinkTransactionId/', this.tableRowSelected.id]);
   }
-  onActionbuttonGotoBank(model: BankPaymentTransactionModel = this.tableRowSelected): void {
+  onActionButtonGotoBank(model: BankPaymentTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -319,7 +319,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.Transferring_to_the_payment_gateway'));
     this.document.location.href = model.paymentTransactionUrl;
   }
-  onActionbuttonNotifictionActionSend(model: BankPaymentTransactionModel = this.tableRowSelected): void {
+  onActionButtonNotifictionActionSend(model: BankPaymentTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -345,7 +345,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -396,7 +396,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

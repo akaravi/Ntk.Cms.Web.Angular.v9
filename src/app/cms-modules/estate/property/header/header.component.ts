@@ -77,7 +77,7 @@ export class EstatePropertyHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: EstatePropertyModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: EstatePropertyModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

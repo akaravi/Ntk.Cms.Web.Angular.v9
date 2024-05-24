@@ -159,7 +159,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -188,7 +188,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     });
   }
 
-  onActionbuttonEditRow(model: EstateAdsTypeModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstateAdsTypeModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -221,7 +221,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstateAdsTypeModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateAdsTypeModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -272,7 +272,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
       );
 
   }
-  onActionbuttonContentList(model: EstateAdsTypeModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentList(model: EstateAdsTypeModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -288,7 +288,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     }
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -341,7 +341,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

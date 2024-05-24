@@ -64,6 +64,7 @@ export class AppComponent implements OnInit {
         //do something on start activity
         // console.log('NavigationStart')
         this.themeService.onNavigationStartAppComponent();
+
       }
       if (event instanceof NavigationError) {
         // Handle error

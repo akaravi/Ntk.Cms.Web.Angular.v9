@@ -155,7 +155,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -184,7 +184,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length == 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -217,7 +217,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
       }
     });
   }
-  onActionbuttonDeleteRow(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -269,7 +269,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -320,7 +320,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
 
   }
 
-  onActionbuttonApiList(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
+  onActionButtonApiList(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -345,7 +345,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

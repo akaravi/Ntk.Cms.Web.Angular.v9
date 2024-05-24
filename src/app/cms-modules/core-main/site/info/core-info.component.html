@@ -19,7 +19,7 @@
             </a>
             <a class="icon icon-xs rounded-sm shadow-l mr-1" [cdkCopyToClipboard]="dataModelResult.item.urlSiteHome"
               (click)="onActionCopied()"><i class="fa fa-clipboard"></i></a>
-            <a class="icon icon-xs rounded-sm shadow-l mr-1" (click)="onActionbuttonlinkToSiteHome()"><i
+            <a class="icon icon-xs rounded-sm shadow-l mr-1" (click)="onActionButtonlinkToSiteHome()"><i
                 class="fa fa-qrcode"></i></a>
           </h4>
           <p>
@@ -42,7 +42,7 @@
             </a>
             <a class="icon icon-xs rounded-sm shadow-l mr-1" [cdkCopyToClipboard]="dataModelResult.item.urlSiteCPanel"
               (click)="onActionCopied()"><i class="fa fa-clipboard"></i></a>
-            <a class="icon icon-xs rounded-sm shadow-l mr-1" (click)="onActionbuttonlinkToSiteCPanel()"><i
+            <a class="icon icon-xs rounded-sm shadow-l mr-1" (click)="onActionButtonlinkToSiteCPanel()"><i
                 class="fa fa-qrcode"></i></a>
           </h4>
           <p>
@@ -69,7 +69,7 @@
             <a class="icon icon-xs rounded-sm shadow-l mr-1"
               [cdkCopyToClipboard]="dataModelResult.item.urlResellerSiteShortLinkUrl" (click)="onActionCopied()"><i
                 class="fa fa-clipboard"></i></a>
-            <a class="icon icon-xs rounded-sm shadow-l mr-1" (click)="onActionbuttonResllerSiteShortLinkTo()"><i
+            <a class="icon icon-xs rounded-sm shadow-l mr-1" (click)="onActionButtonResllerSiteShortLinkTo()"><i
                 class="fa fa-qrcode"></i></a>
           </h4>
           <p>
@@ -101,7 +101,7 @@
             <a class="icon icon-xs rounded-sm shadow-l mr-1"
               [cdkCopyToClipboard]="dataModelResult.item.urlResellerUserShortLinkUrl" (click)="onActionCopied()"><i
                 class="fa fa-clipboard"></i></a>
-            <a class="icon icon-xs rounded-sm shadow-l mr-1" (click)="onActionbuttonResllerUserShortLinkTo()"><i
+            <a class="icon icon-xs rounded-sm shadow-l mr-1" (click)="onActionButtonResllerUserShortLinkTo()"><i
                 class="fa fa-qrcode"></i></a>
           </h4>
           <p>
@@ -136,7 +136,7 @@
               [cdkCopyToClipboard]="dataModelResult.item.urlResellerSiteCategoryShortLinkUrl"
               (click)="onActionCopied()"><i class="fa fa-clipboard"></i></a>
             <a class="icon icon-xs rounded-sm shadow-l mr-1"
-              (click)="onActionbuttonResllerUserCategoryShortLinklinkTo()"><i class="fa fa-qrcode"></i></a>
+              (click)="onActionButtonResllerUserCategoryShortLinklinkTo()"><i class="fa fa-qrcode"></i></a>
           </h4>
           <p>
             {{'TITLE.In_this_section_you_can_view_the_sharing_address_link_with_the_category_of_your_existing_system_and_copy_it_and_share_it_with_others.'
@@ -166,24 +166,24 @@
       </p>
       <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
         *ngIf="dataModelResult.item?.urlResellerUserShortLinkUrl?.length>0"
-        (click)="onActionbuttonResllerUser()">{{'ACTION.VIEW_CHART' | translate}}
+        (click)="onActionButtonResllerUser()">{{'ACTION.VIEW_CHART' | translate}}
         {{'TITLE.Sharing_address_with_your_user_account' | translate}}</a>
       <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
         *ngIf="dataModelResult.item?.urlResellerUserShortLinkUrl?.length>0"
-        (click)="onActionbuttonResllerUserShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
+        (click)="onActionButtonResllerUserShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
         {{'TITLE.Sharing_address_with_your_user_account' | translate}}</a>
       <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
         *ngIf="dataModelResult.item?.urlResellerSiteCategoryShortLinkUrl?.length>0"
-        (click)="onActionbuttonResllerUserCategoryShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
+        (click)="onActionButtonResllerUserCategoryShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
         {{'TITLE.Sharing_address_with_existing_system_category' | translate}}</a>
 
       <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
         *ngIf="dataModelResult.item?.urlResellerSiteShortLinkUrl?.length>0"
-        (click)="onActionbuttonResllerSite()">{{'ACTION.VIEW_CHART' | translate}} {{'TITLE.Website_sharing_address' |
+        (click)="onActionButtonResllerSite()">{{'ACTION.VIEW_CHART' | translate}} {{'TITLE.Website_sharing_address' |
         translate}}</a>
       <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
         *ngIf="dataModelResult.item?.urlResellerSiteShortLinkUrl?.length>0"
-        (click)="onActionbuttonResllerSiteShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
+        (click)="onActionButtonResllerSiteShortLinkStatus()">{{'ACTION.VIEW_VISIT_STATISTICS' | translate}}
         {{'TITLE.Website_sharing_address' | translate}}</a>
 
 

@@ -156,7 +156,7 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
     );
   }
 
-  onActionbuttonGetBalance(): any {
+  onActionButtonGetBalance(): any {
     const pName = this.constructor.name + 'GetBalance';
     this.loading.Start(pName);
     var modelData = new SmsApiGetBalanceDtoModel();

@@ -165,7 +165,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonViewRow(model: BankPaymentTransactionLogModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: BankPaymentTransactionLogModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -195,7 +195,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
       }
     });
   }
-  onActionbuttonDeleteRow(model: BankPaymentTransactionLogModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BankPaymentTransactionLogModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -211,7 +211,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
       return;
     }
   }
-  onActionbuttonNotifictionActionSend(model: BankPaymentTransactionLogModel = this.tableRowSelected): void {
+  onActionButtonNotifictionActionSend(model: BankPaymentTransactionLogModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id <= 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -237,7 +237,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -288,7 +288,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

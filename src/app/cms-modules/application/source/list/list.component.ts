@@ -157,7 +157,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -171,7 +171,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
 
   }
 
-  onActionbuttonEditRow(model: ApplicationSourceModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApplicationSourceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -189,7 +189,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
     }
     this.router.navigate(['/application/source/edit/', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: ApplicationSourceModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApplicationSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -237,7 +237,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
       }
       );
   }
-  onActionbuttonApplicationList(model: ApplicationSourceModel = this.tableRowSelected): void {
+  onActionButtonApplicationList(model: ApplicationSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -246,7 +246,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
 
     this.router.navigate(['/application/app/LinkSourceId', this.tableRowSelected.id]);
   }
-  onActionbuttonThemeList(model: ApplicationSourceModel = this.tableRowSelected): void {
+  onActionButtonThemeList(model: ApplicationSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -255,7 +255,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
 
     this.router.navigate(['/application/themeconfig/LinkSourceId', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -309,7 +309,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
 
 
 
-  onActionbuttonBuildApps(mode: ApplicationSourceModel = this.tableRowSelected): void {
+  onActionButtonBuildApps(mode: ApplicationSourceModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -341,7 +341,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
     );
 
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

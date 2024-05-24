@@ -133,7 +133,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -160,7 +160,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
     });
   }
-  onActionbuttonEditRow(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -192,7 +192,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
     });
   }
-  onActionbuttonDeleteRow(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -237,7 +237,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -280,7 +280,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
     );
   }
-  onActionbuttonPageList(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
+  onActionButtonPageList(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -301,7 +301,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -182,7 +182,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonViewRow(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -214,7 +214,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
       }
     });
   }
-  onActionbuttonEditRow(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -229,7 +229,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
       return;
     }
   }
-  onActionbuttonDeleteRow(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -277,7 +277,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
       }
       );
   }
-  onActionbuttonNotifictionList(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonNotifictionList(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -293,7 +293,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     }
     this.router.navigate(['/application/notification/LinkApplicationMemberId', this.tableRowSelected.id]);
   }
-  onActionbuttonNotifictionActionSend(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonNotifictionActionSend(model: ApplicationMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -340,7 +340,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -391,7 +391,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {

@@ -165,21 +165,21 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
   }
 
-  onActionbuttonEditRow(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonDeleteRow(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }
 
-  onActionbuttonGoToModuleList(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleList(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -231,7 +231,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     );
 
   }
-  onActionbuttonSendMessage(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonSendMessage(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -255,7 +255,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -263,7 +263,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonLinkTo(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }
   onActionBackToParent(): void {

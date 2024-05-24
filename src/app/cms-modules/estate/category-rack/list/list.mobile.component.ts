@@ -181,7 +181,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -210,7 +210,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
     });
   }
 
-  onActionbuttonEditRow(model: EstateCategoryRackModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstateCategoryRackModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -243,7 +243,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstateCategoryRackModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateCategoryRackModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -297,7 +297,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
 
 
   statusFolderClick = false;
-  onActionbuttonEditFolderOrder(model: EstateCategoryRackModel = this.tableRowSelected, folder: EstateCategoryRackFolderOrderModel): void {
+  onActionButtonEditFolderOrder(model: EstateCategoryRackModel = this.tableRowSelected, folder: EstateCategoryRackFolderOrderModel): void {
     this.statusFolderClick = true;
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -330,7 +330,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         model.rackFolderOrders[findRow] = result.folder;
-        const pName = this.constructor.name + 'onActionbuttonEditFolderProperty';
+        const pName = this.constructor.name + 'onActionButtonEditFolderProperty';
         this.loading.Start(pName);
         this.contentService.ServiceEdit(model).subscribe({
           next: (ret) => {
@@ -354,7 +354,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
     }, 1000);
 
   }
-  onActionbuttonEditFolderProperty(model: EstateCategoryRackModel = this.tableRowSelected, folder: EstateCategoryRackFolderPropertyModel): void {
+  onActionButtonEditFolderProperty(model: EstateCategoryRackModel = this.tableRowSelected, folder: EstateCategoryRackFolderPropertyModel): void {
     this.statusFolderClick = true;
 
     if (!model || !model.id || model.id.length === 0) {
@@ -386,7 +386,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         model.rackFolderProperties[findRow] = result.folder;
-        const pName = this.constructor.name + 'onActionbuttonEditFolderProperty';
+        const pName = this.constructor.name + 'onActionButtonEditFolderProperty';
         this.loading.Start(pName);
         this.contentService.ServiceEdit(model).subscribe({
           next: (ret) => {
@@ -412,7 +412,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
   }
 
 
-  onActionbuttonContentDetailList(model: EstateCategoryRackModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentDetailList(model: EstateCategoryRackModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -427,7 +427,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
       this.router.navigate(['/estate/property-detail/LinkCategoryRackId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonContentList(model: EstateCategoryRackModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentList(model: EstateCategoryRackModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -443,7 +443,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
       this.router.navigate(['/estate/property/LinkCategoryRackId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -496,7 +496,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -518,13 +518,13 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
     else
       model['rackOpen'] = true;
   }
-  onActionbuttoncheck: boolean = false;
-  public onActionbuttonmenu() {
-    this.onActionbuttoncheck = true;
+  onActionButtoncheck: boolean = false;
+  public onActionButtonmenu() {
+    this.onActionButtoncheck = true;
   }
 
-  public onActionbuttonclose() {
-    this.onActionbuttoncheck = false;
+  public onActionButtonclose() {
+    this.onActionButtoncheck = false;
   }
 }
 

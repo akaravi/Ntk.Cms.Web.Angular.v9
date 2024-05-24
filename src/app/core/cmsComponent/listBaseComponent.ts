@@ -90,7 +90,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     if (!this.tableRowSelected || this.tableRowSelected.id !== row.id)
       row["expanded"] = false;
   }
-  onActionbuttonMemo(): void {
+  onActionButtonMemo(): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -124,7 +124,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   /////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////
-  onActionbuttonMemoRow(model: TModel = this.tableRowSelected): void {
+  onActionButtonMemoRow(model: TModel = this.tableRowSelected): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -156,7 +156,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
       row['expanded'] = flag;
     });
   }
-  onActionbuttonExport(): void {
+  onActionButtonExport(): void {
     //open popup
     var panelClass = '';
     if (this.tokenHelper.isMobile)
@@ -181,7 +181,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     //open popup
   }
 
-  onActionbuttonPrintRow(model: any = this.tableRowSelected): void {
+  onActionButtonPrintRow(model: any = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.publicHelper.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -229,7 +229,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   /////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////
 
-  onActionbuttonPin(model: TModel = this.tableRowSelected): void {
+  onActionButtonPin(model: TModel = this.tableRowSelected): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -255,7 +255,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-  onActionbuttonTask(model: TModel = this.tableRowSelected): void {
+  onActionButtonTask(model: TModel = this.tableRowSelected): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -282,7 +282,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-  onActionbuttonComment(model: TModel = this.tableRowSelected): void {
+  onActionButtonComment(model: TModel = this.tableRowSelected): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)

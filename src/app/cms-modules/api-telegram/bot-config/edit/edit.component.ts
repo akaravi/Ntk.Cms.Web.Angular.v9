@@ -147,7 +147,7 @@ export class ApiTelegramBotConfigEditComponent extends EditBaseComponent<ApiTele
     }
     );
   }
-  onActionbuttonGetMeAsync(): void {
+  onActionButtonGetMeAsync(): void {
     const pName = this.constructor.name + 'ServiceGetMeAsync';
 
     this.apiTelegramBotConfigService.ServiceGetMeAsync(this.requestId).subscribe({
@@ -177,7 +177,7 @@ export class ApiTelegramBotConfigEditComponent extends EditBaseComponent<ApiTele
     }
     );
   }
-  onActionbuttonSetWebhookAsync(): void {
+  onActionButtonSetWebhookAsync(): void {
     const pName = this.constructor.name + 'ServiceSetWebhookAsync';
 
     this.apiTelegramBotConfigService.ServiceSetWebhookAsync(this.requestId).subscribe({
@@ -196,7 +196,7 @@ export class ApiTelegramBotConfigEditComponent extends EditBaseComponent<ApiTele
     }
     );
   }
-  onActionbuttonSetWebhookAsyncEmpty(): void {
+  onActionButtonSetWebhookAsyncEmpty(): void {
     const pName = this.constructor.name + 'ServiceSetWebhookAsyncEmpty';
 
     this.apiTelegramBotConfigService.ServiceSetWebhookAsyncEmpty(this.requestId).subscribe({

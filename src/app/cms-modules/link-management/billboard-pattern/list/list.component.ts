@@ -157,7 +157,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -182,7 +182,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     });
   }
 
-  onActionbuttonEditRow(model: LinkManagementBillboardPatternModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementBillboardPatternModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -214,7 +214,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
       }
     });
   }
-  onActionbuttonDeleteRow(model: LinkManagementBillboardPatternModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementBillboardPatternModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -274,7 +274,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
       this.router.navigate(["/linkmanagement/billboard/list/LinkBillboardPatternId/", model.id,]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -328,7 +328,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

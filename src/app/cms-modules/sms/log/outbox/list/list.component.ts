@@ -212,7 +212,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
   }
 
 
-  onActionbuttonEditRow(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsLogOutBoxModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -248,7 +248,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
 
   }
 
-  onActionbuttonViewRow(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -280,7 +280,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     });
   }
 
-  onActionbuttonDetailRow(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonDetailRow(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -297,7 +297,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     this.router.navigate(["/sms/log/outbox-detail/LinkOutBoxId", this.tableRowSelected.id]);
   }
 
-  onActionbuttonDeleteRow(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -362,7 +362,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     this.DataGetAll();
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -412,7 +412,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     );
 
   }
-  onActionbuttonSuperSedersList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonSuperSedersList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -431,7 +431,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPublicConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonMustSuperSedersList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonMustSuperSedersList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -450,7 +450,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPublicConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonNumbersList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonNumbersList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -469,7 +469,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPublicConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonPermitionList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonPermitionList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -488,7 +488,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     }
     this.router.navigate(['/sms/main/api-path-permission/LinkApiPathId', this.tableRowSelected.id]);
   }
-  onActionbuttonPriceServicesList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonPriceServicesList(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -511,7 +511,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
 
 
 
-  onActionbuttonSendMessage(model: SmsLogOutBoxModel = this.tableRowSelected): void {
+  onActionButtonSendMessage(model: SmsLogOutBoxModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -540,7 +540,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

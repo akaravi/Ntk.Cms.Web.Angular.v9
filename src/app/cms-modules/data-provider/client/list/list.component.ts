@@ -167,7 +167,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -210,7 +210,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     });
   }
 
-  onActionbuttonEditRow(model: DataProviderClientModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DataProviderClientModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -239,7 +239,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
       }
     });
   }
-  onActionbuttonDeleteRow(model: DataProviderClientModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DataProviderClientModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -271,7 +271,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -324,7 +324,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
 
 
 
-  onActionbuttonClientCreditAccountRow(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonClientCreditAccountRow(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -340,7 +340,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     }
 
   }
-  onActionbuttonClientList(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonClientList(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -354,7 +354,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
       this.router.navigate(['/data-provider/plan-client/LinkClientId/' + model.id]);
     }
   }
-  onActionbuttonDataRow(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonDataRow(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.No_row_selected_for_viewing');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -377,7 +377,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     }
 
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -389,7 +389,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
   }
 
   expandedElement: any;
-  onActionbuttonTransactionList(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonTransactionList(model: DataProviderClientModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage); return;

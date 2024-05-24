@@ -216,7 +216,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -236,7 +236,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     this.router.navigate(['/blog/content/add', this.categoryModelSelected.id]);
   }
 
-  onActionbuttonEditRow(model: BlogContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BlogContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -252,7 +252,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     }
     this.router.navigate(['/blog/content/edit', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: BlogContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BlogContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -286,7 +286,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -338,13 +338,13 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -355,7 +355,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: BlogContentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

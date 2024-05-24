@@ -197,7 +197,7 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
 
 
 
-  onActionbuttonViewRow(model: CoreLogMemberModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogMemberModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -229,7 +229,7 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
       }
     });
   }
-  onActionbuttonEditRow(model: CoreLogMemberModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogMemberModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -262,7 +262,7 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLogMemberModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogMemberModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -319,7 +319,7 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -370,7 +370,7 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
 
   }
 
-  onActionbuttonViewUserRow(model: CoreLogMemberModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogMemberModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -388,7 +388,7 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

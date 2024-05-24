@@ -85,12 +85,12 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
   onActionCopied(): void {
     this.cmsToastrService.typeSuccessCopedToClipboard();
   }
-  onActionbuttonResllerUser(): void {
+  onActionButtonResllerUser(): void {
 
     this.router.navigate(['/core/user/reseller-chart']);
 
   }
-  onActionbuttonResllerUserShortLinkStatus(): void {
+  onActionButtonResllerUserShortLinkStatus(): void {
     if (this.dataModelResult?.item?.urlResellerUserShortLinkUrl?.length > 0) {
 
       const indexLast = this.dataModelResult.item.urlResellerUserShortLinkUrl.lastIndexOf('/');
@@ -104,7 +104,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
       }
     }
   }
-  onActionbuttonResllerUserCategoryShortLinkStatus(): void {
+  onActionButtonResllerUserCategoryShortLinkStatus(): void {
     if (this.dataModelResult?.item?.urlResellerSiteCategoryShortLinkUrl?.length > 0) {
       const indexLast = this.dataModelResult.item.urlResellerSiteCategoryShortLinkUrl.lastIndexOf('/');
       if (indexLast > 0) {
@@ -117,13 +117,13 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
       }
     }
   }
-  onActionbuttonResllerSite(): void {
+  onActionButtonResllerSite(): void {
 
 
     this.router.navigate(['/core/site/reseller-chart']);
 
   }
-  onActionbuttonResllerSiteShortLinkStatus(): void {
+  onActionButtonResllerSiteShortLinkStatus(): void {
     if (this.dataModelResult?.item?.urlResellerSiteShortLinkUrl?.length > 0) {
       const indexLast = this.dataModelResult.item.urlResellerSiteShortLinkUrl.lastIndexOf('/');
       if (indexLast > 0) {
@@ -137,7 +137,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
       }
     }
   }
-  onActionbuttonlinkToSiteHome(): void {
+  onActionButtonlinkToSiteHome(): void {
     //open popup
     const dialogRef = this.dialog.open(CmsLinkToComponent, {
       // height: "90%",
@@ -153,7 +153,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
     });
     //open popup
   }
-  onActionbuttonlinkToSiteCPanel(): void {
+  onActionButtonlinkToSiteCPanel(): void {
     //open popup
     const dialogRef = this.dialog.open(CmsLinkToComponent, {
       // height: "90%",
@@ -169,7 +169,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
     });
     //open popup
   }
-  onActionbuttonResllerSiteShortLinkTo(): void {
+  onActionButtonResllerSiteShortLinkTo(): void {
     //open popup
     const dialogRef = this.dialog.open(CmsLinkToComponent, {
       // height: "90%",
@@ -185,7 +185,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
     });
     //open popup
   }
-  onActionbuttonResllerUserShortLinkTo(): void {
+  onActionButtonResllerUserShortLinkTo(): void {
     //open popup
     const dialogRef = this.dialog.open(CmsLinkToComponent, {
       // height: "90%",
@@ -201,7 +201,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
     });
     //open popup
   }
-  onActionbuttonResllerUserCategoryShortLinklinkTo(): void {
+  onActionButtonResllerUserCategoryShortLinklinkTo(): void {
     //open popup
     const dialogRef = this.dialog.open(CmsLinkToComponent, {
       // height: "90%",

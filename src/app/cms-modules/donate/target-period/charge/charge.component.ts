@@ -68,7 +68,7 @@ export class DonateTargetPeriodChargeComponent implements OnInit {
         );
     }
 
-    onActionbuttonBuy(): void {
+    onActionButtonBuy(): void {
         const dialogRef = this.dialog.open(DonateTargetPeriodChargePaymentComponent, {
             height: '90%',
 

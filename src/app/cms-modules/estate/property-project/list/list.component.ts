@@ -146,7 +146,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(event?: MouseEvent): void {
+  onActionButtonNewRow(event?: MouseEvent): void {
 
     if (
       this.dataModelResult == null ||
@@ -164,7 +164,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
       this.router.navigate(['/estate/property-project/add']);
     }
   }
-  onActionbuttonEditRow(model: EstatePropertyProjectModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditRow(model: EstatePropertyProjectModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -186,7 +186,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
       this.router.navigate(['/estate/property-project/edit', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonProperty(model: EstatePropertyProjectModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonProperty(model: EstatePropertyProjectModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -208,7 +208,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
       this.router.navigate(['/estate/property/LinkProjectId', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonPropertyCompany(model: EstatePropertyProjectModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonPropertyCompany(model: EstatePropertyProjectModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -230,7 +230,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
       this.router.navigate(['/estate/property-company/LinkProjectId', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonDeleteRow(model: EstatePropertyProjectModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstatePropertyProjectModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -263,7 +263,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -315,7 +315,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
@@ -331,7 +331,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -347,7 +347,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
 
 
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: EstatePropertyProjectModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {

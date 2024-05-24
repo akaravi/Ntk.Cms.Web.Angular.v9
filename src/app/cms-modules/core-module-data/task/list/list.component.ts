@@ -167,7 +167,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     this.DataGetAll();
   }
 
-  // onActionbuttonNewRow(): void {
+  // onActionButtonNewRow(): void {
 
   //   if (
   //     this.dataModelResult == null ||
@@ -190,7 +190,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
   //   });
   // }
 
-  onActionbuttonViewRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -224,7 +224,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -257,7 +257,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -311,7 +311,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -366,7 +366,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

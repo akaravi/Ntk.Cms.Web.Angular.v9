@@ -162,7 +162,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -174,17 +174,17 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     }
   }
 
-  onActionbuttonEditRow(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonDeleteRow(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
 
   }
 
-  onActionbuttonGoToModuleList(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleList(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -236,7 +236,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     );
 
   }
-  onActionbuttonSendMessage(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
+  onActionButtonSendMessage(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -262,7 +262,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

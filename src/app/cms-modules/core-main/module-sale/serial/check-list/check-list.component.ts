@@ -165,7 +165,7 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     if (!this.dataModel || !this.dataModel.serialNumber || this.dataModel.serialNumber.length === 0) {
       const message = this.translate.instant('MESSAGE.Serial_value_is_not_entered_correctly');
       this.cmsToastrService.typeErrorSelected(message);
@@ -173,7 +173,7 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
     }
     this.DataCheckUseSerialForSite(this.dataModel.serialNumber);
   }
-  onActionbuttonBuy(): void {
+  onActionButtonBuy(): void {
     if (!this.dataModel || !this.dataModel.serialNumber || this.dataModel.serialNumber.length === 0) {
       const message = this.translate.instant('MESSAGE.Serial_value_is_not_entered_correctly');
       this.cmsToastrService.typeErrorSelected(message);

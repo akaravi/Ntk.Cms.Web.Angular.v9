@@ -195,7 +195,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
 
     this.filteModelContent.linkLocationWorkAreaIds = model;
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -224,7 +224,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
     });
   }
 
-  onActionbuttonEditRow(model: EstateAccountAgencyModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstateAccountAgencyModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -257,7 +257,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstateAccountAgencyModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateAccountAgencyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -307,7 +307,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
       );
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -360,7 +360,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
 
 
 
-  onActionbuttonAgentRow(
+  onActionButtonAgentRow(
     mode: EstateAccountAgencyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -384,7 +384,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
       this.router.navigate(["/estate/account-user/LinkAccountAgencyId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonHistoryRow(
+  onActionButtonHistoryRow(
     mode: EstateAccountAgencyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -408,7 +408,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
       this.router.navigate(["/estate/property-history/LinkEstateAgencyId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonPropertyRow(
+  onActionButtonPropertyRow(
     mode: EstateAccountAgencyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -436,7 +436,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
     this.cmsToastrService.typeSuccessCopedToClipboard();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.optionloadComponent = true;
     this.DataGetAll();
   }

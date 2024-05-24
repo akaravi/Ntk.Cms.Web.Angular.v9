@@ -207,7 +207,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -236,7 +236,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainApiPathPriceServiceModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainApiPathPriceServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length == 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -269,7 +269,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
       }
     });
   }
-  onActionbuttonDeleteRow(model: SmsMainApiPathPriceServiceModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainApiPathPriceServiceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -322,7 +322,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -378,7 +378,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

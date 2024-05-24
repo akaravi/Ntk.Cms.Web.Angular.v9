@@ -149,7 +149,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -178,7 +178,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
     });
   }
 
-  onActionbuttonEditRow(model: EstatePropertyTypeUsageModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstatePropertyTypeUsageModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -211,7 +211,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstatePropertyTypeUsageModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstatePropertyTypeUsageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -264,7 +264,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -318,7 +318,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -326,7 +326,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
     this.DataGetAll();
   }
 
-  onActionbuttonContentDetailList(model: EstatePropertyTypeUsageModel = this.tableRowSelected): void {
+  onActionButtonContentDetailList(model: EstatePropertyTypeUsageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);

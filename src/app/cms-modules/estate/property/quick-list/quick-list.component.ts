@@ -415,7 +415,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null &&
       this.categoryModelSelected &&
@@ -467,7 +467,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     this.DataGetAll();
   }
 
-  onActionbuttonEditRow(
+  onActionButtonEditRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -491,7 +491,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     }
   }
 
-  onActionbuttonQuickViewRow(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonQuickViewRow(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -523,7 +523,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     });
   }
 
-  onActionbuttonAdsRow(
+  onActionButtonAdsRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -547,7 +547,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       this.router.navigate(["/estate/property-ads/LinkPropertyId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonHistoryRow(
+  onActionButtonHistoryRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -572,7 +572,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     }
   }
 
-  onActionbuttonDeleteRow(
+  onActionButtonDeleteRow(
     mode: EstatePropertyModel = this.tableRowSelected
   ): void {
 
@@ -622,7 +622,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
         // console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
       });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -667,7 +667,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     }
     );
   }
-  onActionbuttonActionSendSmsToCustomerOrder(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonActionSendSmsToCustomerOrder(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -694,7 +694,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       );
     // ** */
   }
-  onActionbuttonViewOtherUserAdvertise(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonViewOtherUserAdvertise(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -713,13 +713,13 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
 
 
 
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.optionloadComponent = true;
     this.DataGetAll();
   }
@@ -734,7 +734,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
   onActionBackToParent(): void {
     this.router.navigate(["/ticketing/departemen/"]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: EstatePropertyModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {

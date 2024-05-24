@@ -202,7 +202,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
 
     this.DataGetAll();
   }
-  onActionbuttonEditRow(mode: TicketingDepartemenLogModel = this.tableRowSelected): void {
+  onActionButtonEditRow(mode: TicketingDepartemenLogModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -220,7 +220,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     this.router.navigate(['/application/app/edit/', this.tableRowSelected.id]);
 
   }
-  onActionbuttonDeleteRow(mode: TicketingDepartemenLogModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: TicketingDepartemenLogModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -238,7 +238,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     this.router.navigate(['/application/app/delete/', this.tableRowSelected.id]);
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -287,7 +287,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -48,10 +48,10 @@ export class CmsHtmlListComponent implements OnInit {
   public set optionLoading(v: ProgressSpinnerModel) {
     this.loading = v;
   }
-  @Output() optionOnActionbuttonMemo = new EventEmitter<any>();
-  @Output() optionOnActionbuttonExport = new EventEmitter<any>();
-  @Output() optionOnActionbuttonMemoRow = new EventEmitter<any>();
-  @Output() optionOnActionbuttonPrintRow = new EventEmitter<any>();
+  @Output() optionOnActionButtonMemo = new EventEmitter<any>();
+  @Output() optionOnActionButtonExport = new EventEmitter<any>();
+  @Output() optionOnActionButtonMemoRow = new EventEmitter<any>();
+  @Output() optionOnActionButtonPrintRow = new EventEmitter<any>();
 
   loading = new ProgressSpinnerModel();
 
@@ -100,17 +100,17 @@ export class CmsHtmlListComponent implements OnInit {
     this.viewMenuItemRow = false;
     this.viewTree = false;
   }
-  onActionbuttonMemo(): void {
-    this.optionOnActionbuttonMemo.emit();
+  onActionButtonMemo(): void {
+    this.optionOnActionButtonMemo.emit();
   }
-  onActionbuttonExport(): void {
-    this.optionOnActionbuttonExport.emit();
+  onActionButtonExport(): void {
+    this.optionOnActionButtonExport.emit();
   }
-  onActionbuttonMemoRow(): void {
-    this.optionOnActionbuttonMemoRow.emit();
+  onActionButtonMemoRow(): void {
+    this.optionOnActionButtonMemoRow.emit();
   }
-  onActionbuttonPrintRow(): void {
-    this.optionOnActionbuttonPrintRow.emit();
+  onActionButtonPrintRow(): void {
+    this.optionOnActionButtonPrintRow.emit();
   }
   /*
   <app-cms-html-list  [optionLoading]="loading" [optionTreeDisplay]="true">

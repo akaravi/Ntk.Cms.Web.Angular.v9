@@ -37,7 +37,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class=" ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToAllData"
-              (click)="onActionbuttonUserAccessAdminAllowToAllData()"
+              (click)="onActionButtonUserAccessAdminAllowToAllData()"
               [(ngModel)]="tokenInfo.userAccessAdminAllowToAllData" name="dataModel.userAccessAdminAllowToAllData">
             <label class="custom-control-label" for="dataModel.userAccessAdminAllowToAllData"></label>
           </div>
@@ -52,7 +52,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class=" ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.userAccessAdminAllowToProfessionalData"
-              (click)="onActionbuttonUserAccessAdminAllowToProfessionalData()"
+              (click)="onActionButtonUserAccessAdminAllowToProfessionalData()"
               [(ngModel)]="tokenInfo.userAccessAdminAllowToProfessionalData"
               name="dataModel.userAccessAdminAllowToProfessionalData">
             <label class="custom-control-label" for="dataModel.userAccessAdminAllowToProfessionalData"></label>
@@ -92,7 +92,7 @@
             placeholder="{{this.tokenInfo.siteId}}">
           <label for="inputSiteId" class="color-highlight">{{'TITLE.Site_Id'| translate}}</label>
         </div>
-        <button type="button" (click)="onActionbuttonSelectSite()" [disabled]="!inputSiteId||inputSiteId===0"
+        <button type="button" (click)="onActionButtonSelectSite()" [disabled]="!inputSiteId||inputSiteId===0"
           style="width: 100%;"
           class="close-menu btn btn-full gradient-blue font-13 btn-s font-600 mt-3 rounded-s">{{'ACTION.GO'|
           translate}}</button>
@@ -100,7 +100,7 @@
     </div>
     <br>
 
-    <a (click)="logout()" class="btn btn-s font-14 shadow-l btn-full rounded-s font-600 bg-red-dark text-start">
+    <a (click)="onActionLogout()" class="btn btn-s font-14 shadow-l btn-full rounded-s font-600 bg-red-dark text-start">
       <span class="ms-n2">{{'TITLE.Sign_Out'|translate}}</span>
       <span class="float-end">Exit</span>
     </a>

@@ -191,7 +191,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -220,7 +220,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleSaleItemModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleSaleItemModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -266,7 +266,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
 
     this.DataGetAll();
   }
-  onActionbuttonDeleteRow(model: CoreModuleSaleItemModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleSaleItemModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -320,7 +320,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
   }
 
 
-  onActionbuttonGoToModuleSaleItemList(model: CoreModuleSaleItemModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleSaleItemList(model: CoreModuleSaleItemModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -330,7 +330,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
 
     this.router.navigate(['/core/siteModuleSaleItem/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -382,7 +382,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

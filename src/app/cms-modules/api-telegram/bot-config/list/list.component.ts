@@ -151,7 +151,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -178,7 +178,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       }
     });
   }
-  onActionbuttonEditRow(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -210,7 +210,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       }
     });
   }
-  onActionbuttonDeleteRow(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -257,7 +257,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       }
       );
   }
-  onActionbuttonGoToModuleList(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleList(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -267,7 +267,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
 
     this.router.navigate(['/core/siteModule/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -318,7 +318,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     }
     );
   }
-  onActionbuttonInboxList(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonInboxList(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -327,7 +327,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     this.onActionTableRowSelect(model);
     this.router.navigate(['api-telegram/log-input/LinkBotConfigId/', model.id]);
   }
-  onActionbuttonOutboxList(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonOutboxList(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -336,7 +336,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     this.onActionTableRowSelect(model);
     this.router.navigate(['api-telegram/log-output/LinkBotConfigId/', model.id]);
   }
-  onActionbuttonSendMessage(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonSendMessage(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -357,7 +357,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     });
     //open popup
   }
-  onActionbuttonReceiveMessageAll(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonReceiveMessageAll(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -382,7 +382,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     }
     );
   }
-  onActionbuttonGetMeAsync(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonGetMeAsync(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -419,7 +419,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     }
     );
   }
-  onActionbuttonReceiveMessageLast(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonReceiveMessageLast(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -443,7 +443,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     }
     );
   }
-  onActionbuttonSetAllWebhookUpdate(): void {
+  onActionButtonSetAllWebhookUpdate(): void {
     const pName = this.constructor.name + 'ServiceSetAllWebhookUpdate';
     this.contentService.ServiceSetAllWebhookUpdate().subscribe({
       next: (ret) => {
@@ -464,7 +464,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -472,7 +472,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
+  onActionButtonLinkTo(model: ApiTelegramBotConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

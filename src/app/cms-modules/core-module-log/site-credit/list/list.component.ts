@@ -185,7 +185,7 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
 
 
 
-  onActionbuttonViewRow(model: CoreModuleLogSiteCreditModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogSiteCreditModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -218,7 +218,7 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleLogSiteCreditModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogSiteCreditModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -251,7 +251,7 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogSiteCreditModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogSiteCreditModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -308,7 +308,7 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -360,7 +360,7 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
   }
 
 
-  onActionbuttonViewSiteRow(model: CoreModuleLogSiteCreditModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreModuleLogSiteCreditModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -378,7 +378,7 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

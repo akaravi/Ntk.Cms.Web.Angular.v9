@@ -173,7 +173,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestDepartemenId == null ||
       this.requestDepartemenId === 0
@@ -208,7 +208,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
 
     this.DataGetAll();
   }
-  onActionbuttonEditRow(mode: TicketingDepartemenOperatorModel = this.tableRowSelected): void {
+  onActionButtonEditRow(mode: TicketingDepartemenOperatorModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -227,7 +227,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
     this.router.navigate(['/application/app/edit/', this.tableRowSelected.id]);
 
   }
-  onActionbuttonDeleteRow(mode: TicketingDepartemenOperatorModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: TicketingDepartemenOperatorModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -245,7 +245,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
     this.router.navigate(['/application/app/delete/', this.tableRowSelected.id]);
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -294,7 +294,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

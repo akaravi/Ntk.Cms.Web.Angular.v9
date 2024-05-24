@@ -316,7 +316,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(event?: MouseEvent): void {
+  onActionButtonNewRow(event?: MouseEvent): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -344,7 +344,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       }
     }
   }
-  onActionbuttonCopyNewRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonCopyNewRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -359,7 +359,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       this.router.navigate(['/estate/customer-order/add-copy', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonEditRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -381,7 +381,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       this.router.navigate(['/estate/customer-order/edit', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonDeleteRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -427,7 +427,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       }
       );
   }
-  onActionbuttonHistoryRow(
+  onActionButtonHistoryRow(
     mode: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -451,7 +451,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       this.router.navigate(["/estate/property-history/LinkCustomerOrderId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonOpenCustomerOrder(model: EstateCustomerOrderModel = this.tableRowSelected): void {
+  onActionButtonOpenCustomerOrder(model: EstateCustomerOrderModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -460,7 +460,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.onActionTableRowSelect(model);
     window.open(this.tableRowSelected.urlViewContent, '_blank');
   }
-  onActionbuttonContentList(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentList(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -476,7 +476,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       this.router.navigate(['/estate/property/LinkCustomerOrderId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -526,7 +526,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
 
   }
 
-  onActionbuttonInResponsible(model: boolean): void {
+  onActionButtonInResponsible(model: boolean): void {
     this.searchInResponsible = model;
     this.DataGetAll();
   }
@@ -550,7 +550,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.optionloadComponent = true;
     this.DataGetAll();
   }
@@ -562,7 +562,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: EstateCustomerOrderModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -712,7 +712,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   }
 
 
-  onActionbuttonQuickHistoryAddRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
+  onActionButtonQuickHistoryAddRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

@@ -146,7 +146,7 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -176,7 +176,7 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
   }
 
 
-  onActionbuttonDeleteRow(model: EstateAccountAgencyWorkAreaModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateAccountAgencyWorkAreaModel = this.tableRowSelected): void {
     if (!model || !model.linkEstateAccountAgencyId || model.linkEstateAccountAgencyId.length === 0
       || !model.linkCoreLocationId || model.linkCoreLocationId <= 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
@@ -228,7 +228,7 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
       );
 
   }
-  onActionbuttonContentList(model: EstateAccountAgencyWorkAreaModel = this.tableRowSelected): void {
+  onActionButtonContentList(model: EstateAccountAgencyWorkAreaModel = this.tableRowSelected): void {
     if (!model || !model.linkCoreLocationId || model.linkCoreLocationId <= 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -239,7 +239,7 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
     this.router.navigate(['/hypershop/content/PareintId/', this.tableRowSelected.linkCoreLocationId]);
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -291,7 +291,7 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -150,7 +150,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -166,7 +166,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
       this.router.navigate(['/webdesigner/intro/add/']);
     }
   }
-  onActionbuttonEditRow(model: WebDesignerMainIntroModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: WebDesignerMainIntroModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -182,7 +182,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     }
     this.router.navigate(['/webdesigner/intro/edit/', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: WebDesignerMainIntroModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: WebDesignerMainIntroModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.No_row_selected_for_editing');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -229,7 +229,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -275,7 +275,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

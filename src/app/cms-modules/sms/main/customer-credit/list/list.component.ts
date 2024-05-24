@@ -170,7 +170,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -199,7 +199,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainCustomerCreditModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainCustomerCreditModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length == 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -232,7 +232,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
       }
     });
   }
-  onActionbuttonDeleteRow(model: SmsMainCustomerCreditModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainCustomerCreditModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -285,7 +285,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -340,7 +340,7 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

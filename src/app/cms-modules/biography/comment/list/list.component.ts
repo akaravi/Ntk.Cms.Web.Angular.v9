@@ -184,7 +184,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -219,7 +219,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
       }
     });
   }
-  onActionbuttonEditRow(model: BiographyCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BiographyCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -251,7 +251,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
       }
     });
   }
-  onActionbuttonDeleteRow(model: BiographyCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BiographyCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -296,7 +296,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -344,14 +344,14 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     }
     );
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -362,7 +362,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
   onActionBackToParent(): void {
     this.router.navigate(['/biography/content/']);
   }
-  onActionbuttonViewContent(model: BiographyCommentModel): void {
+  onActionButtonViewContent(model: BiographyCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -411,7 +411,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
       }
       );
   }
-  onActionbuttonEditContent(model: BiographyCommentModel): void {
+  onActionButtonEditContent(model: BiographyCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -427,7 +427,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     }
     this.router.navigate(['/biography/content/edit', this.tableRowSelected.linkContentId]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: BiographyCommentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

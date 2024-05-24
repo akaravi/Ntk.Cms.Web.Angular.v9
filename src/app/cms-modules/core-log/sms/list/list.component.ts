@@ -197,7 +197,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
 
 
 
-  onActionbuttonViewRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogSmsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -229,7 +229,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
       }
     });
   }
-  onActionbuttonEditRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogSmsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -262,7 +262,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogSmsModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -319,7 +319,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -370,7 +370,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
 
   }
 
-  onActionbuttonViewUserRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogSmsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -384,7 +384,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreLogSmsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -402,7 +402,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

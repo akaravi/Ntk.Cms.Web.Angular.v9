@@ -178,7 +178,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
   }
 
 
-  onActionbuttonViewRow(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -213,7 +213,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
   }
 
 
-  onActionbuttonDeleteRow(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -267,7 +267,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
   }
 
 
-  onActionbuttonGoToModuleSaleInvoiceDetailList(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleSaleInvoiceDetailList(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -277,7 +277,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
 
     this.router.navigate(['/core/siteModuleSaleInvoiceDetail/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -327,7 +327,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
     );
 
   }
-  onActionbuttonModuleList(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
+  onActionButtonModuleList(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -348,7 +348,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
 
 
   }
-  onActionbuttonSiteList(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
+  onActionButtonSiteList(model: CoreModuleSaleInvoiceDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -373,7 +373,7 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -152,7 +152,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -181,7 +181,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
     });
   }
 
-  onActionbuttonEditRow(model: EstateContractTypeModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstateContractTypeModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -214,7 +214,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstateContractTypeModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateContractTypeModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -264,7 +264,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
       );
 
   }
-  onActionbuttonContentList(model: EstateContractTypeModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentList(model: EstateContractTypeModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -281,7 +281,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
     }
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -334,7 +334,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

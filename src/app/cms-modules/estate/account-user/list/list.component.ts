@@ -191,7 +191,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
 
     this.filteModelContent.linkLocationWorkAreaIds = model;
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -220,7 +220,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
     });
   }
 
-  onActionbuttonEditRow(model: EstateAccountUserModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstateAccountUserModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -253,7 +253,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstateAccountUserModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateAccountUserModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -303,7 +303,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
       );
 
   }
-  onActionbuttonAgencyRow(
+  onActionButtonAgencyRow(
     mode: EstateAccountUserModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -326,7 +326,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
       this.router.navigate(["/estate/account-agency/LinkAccountUserId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonHistoryRow(
+  onActionButtonHistoryRow(
     mode: EstateAccountUserModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -350,7 +350,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
       this.router.navigate(["/estate/property-history/LinkEstateUserId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonPropertyRow(
+  onActionButtonPropertyRow(
     mode: EstateAccountUserModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -374,7 +374,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
       this.router.navigate(["/estate/property/LinkEstateUserId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -431,7 +431,7 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
     this.cmsToastrService.typeSuccessCopedToClipboard();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.optionloadComponent = true;
     this.DataGetAll();
   }

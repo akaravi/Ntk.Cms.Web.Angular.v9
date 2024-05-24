@@ -169,7 +169,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -201,7 +201,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
     });
   }
 
-  onActionbuttonEditRow(model: CoreSiteCategoryCmsModuleModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreSiteCategoryCmsModuleModel = this.tableRowSelected): void {
     if (!model || !model.linkCmsModuleId || model.linkCmsModuleId === 0 ||
       !model.linkCmsSiteCategoryId || model.linkCmsSiteCategoryId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -237,7 +237,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreSiteCategoryCmsModuleModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreSiteCategoryCmsModuleModel = this.tableRowSelected): void {
     if (!model || !model.linkCmsModuleId || model.linkCmsModuleId === 0 ||
       !model.linkCmsSiteCategoryId || model.linkCmsSiteCategoryId === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
@@ -289,7 +289,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
 
   }
 
-  onActionbuttonGoToSiteCategoryCmsModuleList(model: CoreSiteCategoryCmsModuleModel = this.tableRowSelected): void {
+  onActionButtonGoToSiteCategoryCmsModuleList(model: CoreSiteCategoryCmsModuleModel = this.tableRowSelected): void {
     if (!model || !model.linkCmsModuleId || model.linkCmsModuleId === 0 ||
       !model.linkCmsSiteCategoryId || model.linkCmsSiteCategoryId === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
@@ -300,7 +300,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
 
     this.router.navigate(['/core/siteSiteCategoryCmsModule/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -350,7 +350,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
     );
 
   }
-  onActionbuttonConfigMainAdminRow(model: CoreSiteCategoryCmsModuleModel = this.tableRowSelected): void {
+  onActionButtonConfigMainAdminRow(model: CoreSiteCategoryCmsModuleModel = this.tableRowSelected): void {
     if (!model || !model.linkCmsModuleId || model.linkCmsModuleId === 0
       || !model.linkCmsSiteCategoryId || model.linkCmsSiteCategoryId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -364,7 +364,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

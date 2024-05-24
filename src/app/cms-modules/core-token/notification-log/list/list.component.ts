@@ -201,7 +201,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
   }
 
 
-  onActionbuttonViewRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -235,7 +235,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
     });
   }
 
-  onActionbuttonEditRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -268,7 +268,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -325,7 +325,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -376,7 +376,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
 
   }
 
-  onActionbuttonViewUserRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -391,7 +391,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
   }
 
 
-  onActionbuttonViewSiteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -409,7 +409,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

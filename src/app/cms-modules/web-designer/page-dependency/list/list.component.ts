@@ -166,7 +166,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -193,7 +193,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
       }
     });
   }
-  onActionbuttonNewRowAutoPage(): void {
+  onActionButtonNewRowAutoPage(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -222,7 +222,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
       }
     });
   }
-  onActionbuttonNewRowAutoDependency(): any {
+  onActionButtonNewRowAutoDependency(): any {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -266,7 +266,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
     );
 
   }
-  onActionbuttonEditRow(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -298,7 +298,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
       }
     });
   }
-  onActionbuttonDeleteRow(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -345,7 +345,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
       );
 
   }
-  onActionbuttonPageList(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {
+  onActionButtonPageList(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -359,7 +359,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
       this.router.navigate(['/webdesigner/page/LinkPageDependencyGuId', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -402,7 +402,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
       }
     );
   }
-  onActionbuttonSiteRouteView(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {
+  onActionButtonSiteRouteView(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -435,7 +435,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

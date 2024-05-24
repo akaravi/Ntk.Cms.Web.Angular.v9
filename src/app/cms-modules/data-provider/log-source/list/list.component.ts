@@ -148,7 +148,7 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
     this.DataGetAll();
   }
 
-  onActionbuttonViewRow(model: DataProviderLogSourceModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: DataProviderLogSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -180,7 +180,7 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -233,7 +233,7 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

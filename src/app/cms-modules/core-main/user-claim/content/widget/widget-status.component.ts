@@ -13,9 +13,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
 import { CoreUserClaimContentAddComponent } from '../add/add.component';
 import { CoreUserClaimContentEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-core-userclaimcontent-widget-status',
@@ -68,7 +68,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
 
   }
 
-  onActionbuttonEditRow(model: CoreUserClaimCheckModel): void {
+  onActionButtonEditRow(model: CoreUserClaimCheckModel): void {
     if (!model || !model.linkTypeId || model.linkTypeId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

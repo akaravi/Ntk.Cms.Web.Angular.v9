@@ -191,7 +191,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
 
 
 
-  onActionbuttonViewRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -224,7 +224,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -257,7 +257,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -314,7 +314,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -365,7 +365,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
 
   }
 
-  onActionbuttonViewUserRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -379,7 +379,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -393,7 +393,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  onActionbuttonViewSiteRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreModuleLogScoreModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -411,7 +411,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

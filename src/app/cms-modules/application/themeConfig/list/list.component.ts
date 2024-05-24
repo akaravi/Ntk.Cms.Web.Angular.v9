@@ -174,7 +174,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     let sourceId = 0;
     if (this.requestLinkSourceId > 0) {
       sourceId = this.requestLinkSourceId;
@@ -226,7 +226,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
 
     this.DataGetAll();
   }
-  onActionbuttonEditRow(model: ApplicationThemeConfigModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApplicationThemeConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -258,7 +258,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
       }
     });
   }
-  onActionbuttonDeleteRow(model: ApplicationThemeConfigModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApplicationThemeConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -276,7 +276,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
     }
 
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -326,7 +326,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
     );
 
   }
-  onActionbuttonApplicationList(model: ApplicationThemeConfigModel = this.tableRowSelected): void {
+  onActionButtonApplicationList(model: ApplicationThemeConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -339,7 +339,7 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

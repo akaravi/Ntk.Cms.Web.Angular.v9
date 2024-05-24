@@ -194,7 +194,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
 
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryPatternModelSelected == null ||
       this.categoryPatternModelSelected.id === 0
@@ -214,7 +214,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     this.router.navigate(['/linkmanagement/target/add', this.categoryPatternModelSelected.id]);
   }
 
-  onActionbuttonEditRow(model: LinkManagementTargetModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -231,7 +231,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     this.router.navigate(['/linkmanagement/target/edit', this.tableRowSelected.id]);
   }
 
-  onActionbuttonDeleteRow(model: LinkManagementTargetModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -277,7 +277,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -331,7 +331,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
 
 
 
-  onActionbuttonLinkTo(model: LinkManagementTargetModel = this.tableRowSelected): void {
+  onActionButtonLinkTo(model: LinkManagementTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -390,7 +390,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     this.cmsToastrService.typeSuccessCopedToClipboard();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -401,7 +401,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
   expandedElement: any;
 
 
-  onActionbuttonLog(model: LinkManagementTargetModel = this.tableRowSelected): void {
+  onActionButtonLog(model: LinkManagementTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

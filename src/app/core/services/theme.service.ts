@@ -1,8 +1,8 @@
 
-import { Injectable, Renderer2 } from '@angular/core';
-import { BehaviorSubject } from 'rxjs'
-import { CmsStoreService } from '../reducers/cmsStore.service';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { ThemeStoreModel } from '../models/themeStoreModel';
+import { CmsStoreService } from '../reducers/cmsStore.service';
 
 
 export type ThemeModeType = 'dark' | 'light' | 'system';
@@ -42,8 +42,10 @@ export class ThemeService {
     setTimeout(() => { this.htmlSelectorAddEvent(); }, 200);
   }
   onNavigationStartAppComponent(): void {
-
-
+    //this.themeStore.dataMenu = ''
+    setTimeout(() => {
+      this.themeStore.dataMenu = '';
+    }, 200);
   }
   onNavigationEndAppComponent(): void {
     setTimeout(() => { this.htmlSelectorAddEvent(); }, 200);

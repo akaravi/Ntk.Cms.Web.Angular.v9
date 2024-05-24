@@ -189,7 +189,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -224,7 +224,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       }
     });
   }
-  onActionbuttonEditRow(model: ArticleCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ArticleCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -256,7 +256,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       }
     });
   }
-  onActionbuttonDeleteRow(model: ArticleCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ArticleCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -302,7 +302,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -351,14 +351,14 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     }
     );
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -369,7 +369,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
   onActionBackToParent(): void {
     this.router.navigate(['/article/content/']);
   }
-  onActionbuttonViewContent(model: ArticleCommentModel): void {
+  onActionButtonViewContent(model: ArticleCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -417,7 +417,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       }
       );
   }
-  onActionbuttonEditContent(model: ArticleCommentModel, event?: MouseEvent): void {
+  onActionButtonEditContent(model: ArticleCommentModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -439,7 +439,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       this.router.navigate(['/article/content/edit', this.tableRowSelected.linkContentId]);
     }
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: ArticleCommentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

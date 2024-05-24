@@ -1,40 +1,39 @@
 <app-cms-guide-notice [Key]="'module.modulesale.header'"
-    [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
+  [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
 <div class="row">
-    <app-progress-spinner [options]="loading">
-    </app-progress-spinner>
-    <div *ngFor="let item of dataModelResult.listItems" class="col-sm-2 col-md-2 col-lg-2 col-xl-2"
-        style="padding: 10px;">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <mat-card-title>{{item.title}}</mat-card-title>
-            </mat-card-header>
-            <!-- <button> -->
-            <a class="pointer" (click)="onActionbuttonDetail(item)">
-                <img mat-card-image src="{{item.linkMainImageIdSrc | cmsthumbnail}}" style="width: 95%;padding: 10px;">
-            </a>
-            <!-- </button> -->
-            <mat-card-content>
-                <p>
-                    {{item.description }}
-                </p>
-                <p>
-                    <mat-card-subtitle>{{item.salePrice | currency:' '+currency+' '}}</mat-card-subtitle>
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button type="button"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    (click)="onActionbuttonDetail(item)">{{'ACTION.DETAIL' | translate}}</button>
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-                    (click)="onActionbuttonBuy(item)">{{'ACTION.BUY' | translate}}</button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
+  <app-progress-spinner [options]="loading">
+  </app-progress-spinner>
+  <div *ngFor="let item of dataModelResult.listItems" class="col-sm-2 col-md-2 col-lg-2 col-xl-2"
+    style="padding: 10px;">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{item.title}}</mat-card-title>
+      </mat-card-header>
+      <!-- <button> -->
+      <a class="pointer" (click)="onActionButtonDetail(item)">
+        <img mat-card-image src="{{item.linkMainImageIdSrc | cmsthumbnail}}" style="width: 95%;padding: 10px;">
+      </a>
+      <!-- </button> -->
+      <mat-card-content>
+        <p>
+          {{item.description }}
+        </p>
+        <p>
+          <mat-card-subtitle>{{item.salePrice | currency:' '+currency+' '}}</mat-card-subtitle>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          (click)="onActionButtonDetail(item)">{{'ACTION.DETAIL' | translate}}</button>
+        <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+          (click)="onActionButtonBuy(item)">{{'ACTION.BUY' | translate}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
 <div class="row">
-    <div class="col-12" *ngIf="this.tableRowSelected && this.tableRowSelected.id>0">
-        <app-core-modulesaleitem-listview [optionHeaderId]="this.tableRowSelected.id">
-        </app-core-modulesaleitem-listview>
-    </div>
+  <div class="col-12" *ngIf="this.tableRowSelected && this.tableRowSelected?.id>0">
+    <app-core-modulesaleitem-listview [optionHeaderId]="this.tableRowSelected?.id">
+    </app-core-modulesaleitem-listview>
+  </div>
 </div>

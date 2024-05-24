@@ -260,7 +260,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -289,7 +289,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     });
   }
 
-  onActionbuttonEditRow(model: EstatePropertyExpertPriceModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: EstatePropertyExpertPriceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -323,7 +323,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
       }
     });
   }
-  onActionbuttonDeleteRow(model: EstatePropertyExpertPriceModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstatePropertyExpertPriceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -376,7 +376,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -430,7 +430,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {

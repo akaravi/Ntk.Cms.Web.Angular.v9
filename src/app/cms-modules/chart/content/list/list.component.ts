@@ -213,7 +213,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -233,7 +233,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     this.router.navigate(['/chart/content/add', this.categoryModelSelected.id]);
   }
 
-  onActionbuttonEditRow(model: ChartContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ChartContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -249,7 +249,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     }
     this.router.navigate(['/chart/content/edit', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: ChartContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ChartContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -283,7 +283,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -335,12 +335,12 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -351,7 +351,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: ChartContentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

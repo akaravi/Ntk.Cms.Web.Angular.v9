@@ -202,7 +202,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
 
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -221,7 +221,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     }
     this.router.navigate(['/biography/content/add', this.categoryModelSelected.id]);
   }
-  onActionbuttonEditRow(model: BiographyContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BiographyContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -237,7 +237,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     }
     this.router.navigate(['/biography/content/edit', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: BiographyContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BiographyContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -259,7 +259,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -309,12 +309,12 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -325,7 +325,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: BiographyContentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

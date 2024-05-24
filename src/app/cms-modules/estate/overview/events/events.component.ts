@@ -106,7 +106,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       this.linkCmsUserId = next.userId;
       if (Number.isFinite(lStorlinkCmsUserId) && +lStorlinkCmsUserId >= 0)
         this.linkCmsUserId = +lStorlinkCmsUserId;
-      this.onActionbuttonOnDateSearch();
+      this.onActionButtonOnDateSearch();
       //this.singlarService.login(next.token);
     });
     if (this.tokenHelper?.tokenInfo?.userId > 0) {
@@ -117,7 +117,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       this.linkCmsUserId = +lStorlinkCmsUserId;
 
 
-    this.onActionbuttonOnDateSearch();
+    this.onActionButtonOnDateSearch();
   }
   DataGetAllProperty(): void {
     const pName = this.constructor.name + 'DataGetAllProperty';
@@ -371,7 +371,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  onActionbuttonOnDateSearch() {
+  onActionButtonOnDateSearch() {
 
     this.DataGetAllProperty();
     this.DataGetAllCustomerOrder();
@@ -390,12 +390,12 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       this.linkCmsUserId = model.id;
     }
     this.publicHelper.setComponentLocalStorageMap(this.constructor.name, 'linkCmsUserId', this.linkCmsUserId);
-    this.onActionbuttonOnDateSearch();
+    this.onActionButtonOnDateSearch();
   }
   onActionToDay() {
     this.checkingOnDayRange.controls.start.setValue(new Date());
     this.checkingOnDayRange.controls.end.setValue(new Date());
-    this.onActionbuttonOnDateSearch();
+    this.onActionButtonOnDateSearch();
   }
   onActionNext() {
     if (!this.checkingOnDayRange.controls.start?.value)
@@ -404,7 +404,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       this.checkingOnDayRange.controls.end.setValue(new Date());
     this.checkingOnDayRange.controls.start.setValue(this.addDays(this.checkingOnDayRange.controls.start.value, 1));
     this.checkingOnDayRange.controls.end.setValue(this.addDays(this.checkingOnDayRange.controls.end.value, 1));
-    this.onActionbuttonOnDateSearch();
+    this.onActionButtonOnDateSearch();
   }
   onActionPervious() {
     if (!this.checkingOnDayRange.controls.start?.value)
@@ -413,14 +413,14 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       this.checkingOnDayRange.controls.end.setValue(new Date());
     this.checkingOnDayRange.controls.start.setValue(this.addDays(this.checkingOnDayRange.controls.start.value, -1));
     this.checkingOnDayRange.controls.end.setValue(this.addDays(this.checkingOnDayRange.controls.end.value, -1));
-    this.onActionbuttonOnDateSearch();
+    this.onActionButtonOnDateSearch();
   }
   addDays(date: Date, days: number): Date {
     let result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
   };
-  onActionbuttonProperty(model: EstatePropertyModel, event?: MouseEvent): void {
+  onActionButtonProperty(model: EstatePropertyModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -446,11 +446,11 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonProperty(result.onActionOpenItem)
+        this.onActionButtonProperty(result.onActionOpenItem)
       }
     });
   }
-  onActionbuttonCustomerOrder(model: EstateCustomerOrderModel, event?: MouseEvent): void {
+  onActionButtonCustomerOrder(model: EstateCustomerOrderModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -477,12 +477,12 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonCustomerOrder(result.onActionOpenItem)
+        this.onActionButtonCustomerOrder(result.onActionOpenItem)
       }
     });
   }
 
-  onActionbuttonHistory(model: EstatePropertyHistoryModel, event?: MouseEvent): void {
+  onActionButtonHistory(model: EstatePropertyHistoryModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -509,11 +509,11 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonHistory(result.onActionOpenItem)
+        this.onActionButtonHistory(result.onActionOpenItem)
       }
     });
   }
-  onActionbuttonAccountAgency(model: EstateAccountAgencyModel, event?: MouseEvent): void {
+  onActionButtonAccountAgency(model: EstateAccountAgencyModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -527,7 +527,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       this.router.navigate(['/estate/account-agency/LinkCustomerOrderId/', model.id]);
     }
   }
-  onActionbuttonAccountUser(model: EstateAccountUserModel, event?: MouseEvent): void {
+  onActionButtonAccountUser(model: EstateAccountUserModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -542,7 +542,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     }
   }
 
-  onActionbuttonPropertyProject(model: EstatePropertyProjectModel, event?: MouseEvent): void {
+  onActionButtonPropertyProject(model: EstatePropertyProjectModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -569,11 +569,11 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonPropertyProject(result.onActionOpenItem)
+        this.onActionButtonPropertyProject(result.onActionOpenItem)
       }
     });
   }
-  onActionbuttonPropertySupplier(model: EstatePropertySupplierModel, event?: MouseEvent): void {
+  onActionButtonPropertySupplier(model: EstatePropertySupplierModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -600,11 +600,11 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonPropertySupplier(result.onActionOpenItem)
+        this.onActionButtonPropertySupplier(result.onActionOpenItem)
       }
     });
   }
-  onActionbuttonPropertyCompany(model: EstatePropertyCompanyModel, event?: MouseEvent): void {
+  onActionButtonPropertyCompany(model: EstatePropertyCompanyModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -631,7 +631,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonPropertyCompany(result.onActionOpenItem)
+        this.onActionButtonPropertyCompany(result.onActionOpenItem)
       }
     });
 

@@ -665,7 +665,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
     this.stepContent = step;
 
   }
-  onActionbuttonQuickViewRow(model: EstatePropertyModel): void {
+  onActionButtonQuickViewRow(model: EstatePropertyModel): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -691,7 +691,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonQuickViewRow(result.onActionOpenItem)
+        this.onActionButtonQuickViewRow(result.onActionOpenItem)
       }
     });
   }

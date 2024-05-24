@@ -189,7 +189,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
 
 
-  onActionbuttonViewRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -222,7 +222,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -255,7 +255,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -309,7 +309,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
   }
 
-  onActionbuttonViewContent(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewContent(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -327,7 +327,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -378,7 +378,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
   }
 
-  onActionbuttonViewUserRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -392,7 +392,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -406,7 +406,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  onActionbuttonViewSiteRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -424,7 +424,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

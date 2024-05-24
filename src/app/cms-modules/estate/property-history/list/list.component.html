@@ -8,9 +8,9 @@
 <app-estate-account-user-header *ngIf="this.requestLinkEstateUserId?.length>0"
   [optionId]="this.requestLinkEstateUserId">
 </app-estate-account-user-header>
-<app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"
-  (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"
-  (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()" [optionLoading]="loading"
+<app-cms-html-list (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading"
   [optionTreeDisplay]="true && optionloadByRoute" [optionActionRowId]="tableRowSelected?.id"
   [optionActionRowDisplayMenu]="tableRowSelect3Click" [optionSelectRowItemTitle]="tableRowSelected?.title">
   <ng-container cms-tree>
@@ -29,7 +29,7 @@
     <div class="d-flex justify-content-between flex-wrap">
       <div class=" justify-content-end">
         <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-slide-toggle (click)="onActionbuttonInCheckingOnDate(!searchInCheckingOnDay)"
+          <mat-slide-toggle (click)="onActionButtonInCheckingOnDate(!searchInCheckingOnDay)"
             [checked]="searchInCheckingOnDayChecked">
             {{'ACTION.SearchOnDay' | translate}}
           </mat-slide-toggle>
@@ -38,13 +38,13 @@
           <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
         </a>
         <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-slide-toggle (click)="onActionbuttonStatist()">
+          <mat-slide-toggle (click)="onActionButtonStatist()">
           </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
         </a>
       </div>
       <div class=" justify-content-start">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="onActionbuttonReload()" target="_blank">
+          (click)="onActionButtonReload()" target="_blank">
           <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
         </a>
       </div>
@@ -54,7 +54,7 @@
   <ng-container cms-action>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <div *ngIf="optionloadByRoute && dataModelResult.access.accessAddRow " class="col-4">
-      <a (click)="onActionbuttonNewRow()" type="button"
+      <a (click)="onActionButtonNewRow()" type="button"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal" target="_blank"><i
           class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
         <br></a>
@@ -66,14 +66,14 @@
   <ng-container cms-action-row>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
     <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
-      <a (click)="onActionbuttonEditRow(tableRowSelected)"
+      <a (click)="onActionButtonEditRow(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta"><i
           class=" fa-solid fa-pen font-22" style="color: #FFFFFF;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' |translate}}</p>
     </div>
     <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
-      <a (click)="onActionbuttonDeleteRow(tableRowSelected)"
+      <a (click)="onActionButtonDeleteRow(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red"><i
           class="fa-solid fa-trash font-22" style="color: #ffffff;"></i><br>
       </a>
@@ -111,7 +111,7 @@
         > </button>
 
       <br>
-      <a href="javascript:void(0)" (click)="onActionbuttonInCheckingOnDateSearch()"
+      <a href="javascript:void(0)" (click)="onActionButtonInCheckingOnDateSearch()"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEARCH' |
         translate}}</a>
     </div>
@@ -203,7 +203,7 @@
           translate}}
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button class="text-dark" (click)="onActionbuttonQuickViewRow(row)">
+          <button mat-icon-button class="text-dark" (click)="onActionButtonQuickViewRow(row)">
             <mat-icon>visibility</mat-icon>
           </button>
         </mat-cell>
@@ -227,7 +227,7 @@
                     {{row.linkPropertyId|estatePropertyInfo |async}}
                     &nbsp;
                     <i class="flaticon2-copy brown-color" style="color: brown;"></i></span>
-                  <button mat-icon-button (click)="onActionbuttonPropertyQuickViewRow(row.linkPropertyId)">
+                  <button mat-icon-button (click)="onActionButtonPropertyQuickViewRow(row.linkPropertyId)">
                     <mat-icon>visibility</mat-icon>
                   </button>
                 </td>

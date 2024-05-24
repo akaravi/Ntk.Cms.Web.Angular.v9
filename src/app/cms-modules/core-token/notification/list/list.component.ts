@@ -200,7 +200,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
   }
 
 
-  onActionbuttonViewRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -234,7 +234,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
     });
   }
 
-  onActionbuttonEditRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -267,7 +267,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -320,7 +320,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
 
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -371,7 +371,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
 
   }
 
-  onActionbuttonViewUserRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -386,7 +386,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
   }
 
 
-  onActionbuttonViewSiteRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreTokenNotificationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -404,7 +404,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

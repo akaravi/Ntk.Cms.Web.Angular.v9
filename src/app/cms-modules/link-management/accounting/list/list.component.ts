@@ -149,7 +149,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '90%';
@@ -168,7 +168,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
   }
 
-  onActionbuttonEditRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -201,7 +201,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
       }
     });
   }
-  onActionbuttonDeleteRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -234,7 +234,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -288,7 +288,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -301,7 +301,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
   expandedElement: any;
 
-  onActionbuttonAccountingDetail(model: LinkManagementAccountingModel = this.tableRowSelected): void {
+  onActionButtonAccountingDetail(model: LinkManagementAccountingModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

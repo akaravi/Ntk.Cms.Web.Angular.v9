@@ -165,7 +165,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -182,7 +182,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     });
   }
 
-  onActionbuttonEditRow(model: ContactContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ContactContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -213,7 +213,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     });
   }
 
-  onActionbuttonDeleteRow(model: ContactContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ContactContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -260,7 +260,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
       );
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -314,7 +314,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

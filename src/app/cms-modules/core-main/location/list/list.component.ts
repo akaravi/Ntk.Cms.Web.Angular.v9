@@ -181,7 +181,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -209,7 +209,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
       }
     });
   }
-  onActionbuttonNewRowBulk(): void {
+  onActionButtonNewRowBulk(): void {
 
     if (
       this.dataModelResult == null ||
@@ -237,7 +237,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
       }
     });
   }
-  onActionbuttonEditRow(model: CoreLocationModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLocationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -270,7 +270,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLocationModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLocationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -323,7 +323,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
   }
 
 
-  onActionbuttonGoToSiteCategoryList(model: CoreLocationModel = this.tableRowSelected): void {
+  onActionButtonGoToSiteCategoryList(model: CoreLocationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -333,7 +333,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
 
     this.router.navigate(['/core/siteSiteCategory/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -387,7 +387,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

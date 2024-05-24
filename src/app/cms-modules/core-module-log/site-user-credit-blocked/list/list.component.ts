@@ -187,7 +187,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
 
 
 
-  onActionbuttonViewRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -220,7 +220,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -253,7 +253,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -310,7 +310,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -361,7 +361,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
 
   }
 
-  onActionbuttonViewUserRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -377,7 +377,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
 
 
 
-  onActionbuttonViewSiteRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreModuleLogSiteUserCreditBlockedModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -395,7 +395,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

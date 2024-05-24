@@ -182,7 +182,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
 
 
 
-  onActionbuttonNewRowAuto(): any {
+  onActionButtonNewRowAuto(): any {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
     this.contentService.ServiceAutoAdd().subscribe({
@@ -203,7 +203,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     }
     );
   }
-  onActionbuttonEditRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -237,7 +237,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     });
   }
 
-  onActionbuttonModuleEntityReportFileList(model: CoreModuleEntityModel = this.tableRowSelected): void {
+  onActionButtonModuleEntityReportFileList(model: CoreModuleEntityModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -246,7 +246,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     this.onActionTableRowSelect(model);
     this.router.navigate(['core/module-entity-report-file/LinkModuleEntityReportFileId/', model.id]);
   }
-  onActionbuttonDeleteRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -297,7 +297,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
       }
       );
   }
-  onActionbuttonModuleEntityDataReportRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
+  onActionButtonModuleEntityDataReportRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -318,7 +318,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     this.DataGetAll();
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -371,7 +371,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -61,8 +61,8 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'RecordStatus',
-    'LinkSiteId',
-    'LinkModuleId',
+    'linkSiteId',
+    'linkModuleId',
     'Credit',
     'SumCreditBlocked',
     // 'Action'
@@ -157,7 +157,7 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
   }
 
 
-  onActionbuttonEditRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -184,7 +184,7 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -234,7 +234,7 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -287,7 +287,7 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
 
 
 
-  onActionbuttonSiteCreditBuyAccountRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
+  onActionButtonSiteCreditBuyAccountRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -297,7 +297,7 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
 
     this.router.navigate(['/coremodule/site-credit-charge/', model.linkModuleId]);
   }
-  onActionbuttonSiteCreditDirectAccountRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
+  onActionButtonSiteCreditDirectAccountRow(model: CoreModuleSiteCreditModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -328,7 +328,7 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
     });
     //open popup
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

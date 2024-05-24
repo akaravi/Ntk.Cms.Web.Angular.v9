@@ -177,7 +177,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -189,7 +189,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.router.navigate(['/core/site/add']);
   }
 
-  onActionbuttonEditRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreSiteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -206,7 +206,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     }
     this.router.navigate(['/core/site/edit', model.id]);
   }
-  onActionbuttonDeleteRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -241,7 +241,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     });
 
   }
-  onActionbuttonModuleListRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonModuleListRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -251,7 +251,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/site/modulelist/LinkSiteId/', this.tableRowSelected.id]);
   }
-  onActionbuttonLoginToRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonLoginToRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -280,7 +280,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     }
     );
   }
-  onActionbuttonDomainAliasListRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonDomainAliasListRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -289,7 +289,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/sitedomainalias/', this.tableRowSelected.id]);
   }
-  onActionbuttonUserListRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonUserListRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -298,7 +298,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/site/userlist/LinkSiteId', this.tableRowSelected.id]);
   }
-  onActionbuttonDeviceListRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonDeviceListRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -308,7 +308,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
 
     this.router.navigate(['/core/device', this.tableRowSelected.id]);
   }
-  onActionbuttonResller(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonResller(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -318,7 +318,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
 
     this.router.navigate(['/core/site/reseller-chart/LinkSiteId', this.tableRowSelected.id]);
   }
-  onActionbuttonModuleSiteInfo(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonModuleSiteInfo(model: CoreSiteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -355,7 +355,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
       }
     });
   }
-  onActionbuttonModuleSiteOptimaze(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonModuleSiteOptimaze(model: CoreSiteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -393,7 +393,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     });
   }
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -448,7 +448,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

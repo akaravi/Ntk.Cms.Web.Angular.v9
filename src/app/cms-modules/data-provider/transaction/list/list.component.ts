@@ -181,7 +181,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
     this.DataGetAll();
   }
 
-  onActionbuttonViewRow(model: DataProviderTransactionModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: DataProviderTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id > 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -213,7 +213,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
   }
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -267,7 +267,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

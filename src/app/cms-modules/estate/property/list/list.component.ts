@@ -461,11 +461,11 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
             this.tableSource.data = ret.listItems;
             if (this.requestAction?.length > 0 && this.requestAction === "quick-add") {
               this.requestAction = '';
-              this.onActionbuttonQuickAddRow();
+              this.onActionButtonQuickAddRow();
             }
             if (this.optionsSearch.data.show && this.optionsStatist.data.show) {
               this.optionsStatist.data.show = !this.optionsStatist.data.show
-              this.onActionbuttonStatist();
+              this.onActionButtonStatist();
             }
 
             if (this.optionsSearch.childMethods) {
@@ -555,7 +555,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     setTimeout(() => this.tableInput.nativeElement.scrollIntoView({ behavior: 'smooth', block: "end" }));
   }
 
-  onActionbuttonNewRow(event?: MouseEvent): void {
+  onActionButtonNewRow(event?: MouseEvent): void {
     if (
       this.categoryModelSelected == null &&
       this.categoryModelSelected &&
@@ -614,7 +614,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     this.DataGetAll();
   }
 
-  onActionbuttonEditRow(
+  onActionButtonEditRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -640,7 +640,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     }
   }
 
-  onActionbuttonQuickViewRow(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonQuickViewRow(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -676,13 +676,13 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonQuickViewRow(result.onActionOpenItem)
+        this.onActionButtonQuickViewRow(result.onActionOpenItem)
       }
     });
   }
 
 
-  onActionbuttonQuickAddRow(event?: MouseEvent): void {
+  onActionButtonQuickAddRow(event?: MouseEvent): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -720,7 +720,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   }
 
 
-  onActionbuttonQuickHistoryAddRow(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonQuickHistoryAddRow(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -753,7 +753,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     });
   }
 
-  onActionbuttonAdsRow(
+  onActionButtonAdsRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -777,7 +777,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       this.router.navigate(["/estate/property-ads/LinkPropertyId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonHistoryRow(
+  onActionButtonHistoryRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -804,7 +804,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
 
 
-  onActionbuttonDeleteRow(
+  onActionButtonDeleteRow(
     mode: EstatePropertyModel = this.tableRowSelected
   ): void {
 
@@ -854,7 +854,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
         // console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
       });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -906,7 +906,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     }
     );
   }
-  onActionbuttonActionSendSmsToCustomerOrder(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonActionSendSmsToCustomerOrder(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -936,7 +936,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       );
     // ** */
   }
-  onActionbuttonViewOtherUserAdvertise(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonViewOtherUserAdvertise(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -982,18 +982,18 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   actionbuttonExportOn = false;
 
 
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
-  onActionbuttonInResponsible(model: boolean): void {
+  onActionButtonInResponsible(model: boolean): void {
     this.searchInResponsible = model;
     this.DataGetAll();
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.optionloadComponent = true;
     this.DataGetAll();
   }
@@ -1008,7 +1008,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   onActionBackToParent(): void {
     this.router.navigate(["/ticketing/departemen/"]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: EstatePropertyModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {

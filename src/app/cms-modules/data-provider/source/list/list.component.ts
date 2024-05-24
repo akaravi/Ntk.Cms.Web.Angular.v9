@@ -170,7 +170,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -214,7 +214,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
     });
   }
 
-  onActionbuttonEditRow(model: DataProviderSourceModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DataProviderSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -244,7 +244,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
       }
     });
   }
-  onActionbuttonDeleteRow(model: DataProviderSourceModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DataProviderSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -279,7 +279,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
       }
     });
   }
-  onActionbuttonSourceList(model: DataProviderSourceModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonSourceList(model: DataProviderSourceModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -293,7 +293,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
       this.router.navigate(['/data-provider/plan-source/LinkSourceId/' + model.id]);
     }
   }
-  onActionbuttonDataRow(model: DataProviderSourceModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonDataRow(model: DataProviderSourceModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.No_row_selected_for_viewing');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -315,7 +315,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
       this.router.navigate(['/data-provider/log-source/LinkSourceId/' + model.id]);
     }
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -369,7 +369,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {

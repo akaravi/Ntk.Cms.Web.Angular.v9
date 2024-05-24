@@ -199,10 +199,10 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.DataGetAll();
   }
 
-  onActionbuttonReNewModule(): void {
+  onActionButtonReNewModule(): void {
     this.router.navigate(['core/modulesale/serial/checklist/']);
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -238,7 +238,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
 
     if (!model || !model.linkModuleId || model.linkModuleId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -279,7 +279,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     });
   }
 
-  onActionbuttonDeleteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -334,7 +334,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -403,7 +403,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     }
     );
   }
-  onActionbuttonConfigSiteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonConfigSiteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -412,7 +412,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.onActionTableRowSelect(model);
     this.router.navigate([model.virtual_CmsModule.className.toLowerCase() + '/config/site/', model.linkSiteId]);
   }
-  onActionbuttonConfigMainAdminRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonConfigMainAdminRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -421,7 +421,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.onActionTableRowSelect(model);
     this.router.navigate([model.virtual_CmsModule.className.toLowerCase() + '/config/mainadmin/']);
   }
-  onActionbuttonSiteCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonSiteCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -436,7 +436,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
       }
     });
   }
-  onActionbuttonSiteUserCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonSiteUserCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -455,7 +455,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

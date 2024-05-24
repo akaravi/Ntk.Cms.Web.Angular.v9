@@ -217,7 +217,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(event?: MouseEvent): void {
+  onActionButtonNewRow(event?: MouseEvent): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -242,7 +242,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
       this.router.navigate(['/article/content/add', this.categoryModelSelected.id]);
     }
   }
-  onActionbuttonEditRow(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditRow(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -264,7 +264,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
       this.router.navigate(['/article/content/edit', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonDeleteRow(model: ArticleContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ArticleContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -298,7 +298,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
       }
     });
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -350,12 +350,12 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -366,7 +366,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     this.DataGetAll();
   }
 
-  onActionbuttonComment(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonComment(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
       return;
@@ -379,7 +379,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
       this.router.navigate(['/article/comment/', model.id]);
     }
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: ArticleContentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

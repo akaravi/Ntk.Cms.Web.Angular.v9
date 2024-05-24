@@ -187,7 +187,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -225,7 +225,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
   }
 
 
-  onActionbuttonEditRow(model: ChartCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ChartCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -257,7 +257,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
       }
     });
   }
-  onActionbuttonDeleteRow(model: ChartCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ChartCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -307,7 +307,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
       }
       );
   }
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -357,7 +357,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     );
 
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
@@ -365,7 +365,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -376,7 +376,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
   onActionBackToParent(): void {
     this.router.navigate(['/chart/content/']);
   }
-  onActionbuttonViewContent(model: ChartCommentModel): void {
+  onActionButtonViewContent(model: ChartCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -425,7 +425,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
       }
       );
   }
-  onActionbuttonEditContent(model: ChartCommentModel): void {
+  onActionButtonEditContent(model: ChartCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -441,7 +441,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     }
     this.router.navigate(['/chart/content/edit', this.tableRowSelected.linkContentId]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: ChartCommentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

@@ -168,7 +168,7 @@ export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSite
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -197,7 +197,7 @@ export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSite
     });
   }
 
-  onActionbuttonEditRow(model: CoreSiteDomainAliasModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreSiteDomainAliasModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -230,7 +230,7 @@ export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSite
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreSiteDomainAliasModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreSiteDomainAliasModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -287,7 +287,7 @@ export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSite
 
 
 
-  onActionbuttonStatist(): void {
+  onActionButtonStatist(): void {
     this.optionsStatist.data.show = !this.optionsStatist.data.show;
     if (!this.optionsStatist.data.show) {
       return;
@@ -340,7 +340,7 @@ export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSite
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
