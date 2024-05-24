@@ -42,7 +42,6 @@ import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-vie
 @Component({
   selector: 'app-estate-property-history-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
 })
 export class EstatePropertyHistoryListComponent extends ListBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId = '';

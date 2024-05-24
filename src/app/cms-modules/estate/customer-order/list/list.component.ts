@@ -13,7 +13,7 @@ import {
   FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 
-import { Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
@@ -26,7 +26,6 @@ import { EstatePropertyHistoryAddComponent } from '../../property-history/add/ad
 @Component({
   selector: 'app-estate-customer-order-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId: string;
@@ -482,47 +481,86 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       return;
     }
     const statist = new Map<string, number>();
-    statist.set(this.translate.instant('MESSAGE.Active'), 0);
-    statist.set(this.translate.instant('MESSAGE.All'), 0);
-    const pName = this.constructor.name + '.ServiceStatist';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_the_statist'));
-    this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.All'), ret.totalRowCount);
-          this.optionsStatist.childMethods.setStatistValue(statist);
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(pName);
-      },
-      error: (er) => {
-        this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
-      }
-    }
-    );
+
+
+
+    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
+    this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+    //*filter */
+    const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));
+    const s0 = this.contentService.ServiceGetCount(filterStatist0);
+    //*filter */
     const filterStatist1 = JSON.parse(JSON.stringify(this.filteModelContent));
-    const fastfilter = new FilterDataModel();
-    fastfilter.propertyName = 'RecordStatus';
-    fastfilter.value = RecordStatusEnum.Available;
-    filterStatist1.filters.push(fastfilter);
-    this.contentService.ServiceGetCount(filterStatist1).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.Active'), ret.totalRowCount);
-          this.optionsStatist.childMethods.setStatistValue(statist);
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(pName);
-      },
-      error: (er) => {
-        this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+    const fastfilter1 = new FilterDataModel();
+    fastfilter1.propertyName = 'RecordStatus';
+    fastfilter1.value = RecordStatusEnum.Available;
+    filterStatist1.filters.push(fastfilter1);
+    const s1 = this.contentService.ServiceGetCount(filterStatist1);
+    //*filter */
+    const filterStatist2 = JSON.parse(JSON.stringify(this.filteModelContent));
+    const fastfilter2 = new FilterDataModel();
+    fastfilter2.propertyName = 'RecordStatus';
+    fastfilter2.value = RecordStatusEnum.Archive;
+    filterStatist2.filters.push(fastfilter2);
+    const s2 = this.contentService.ServiceGetCount(filterStatist2);
+    //*filter */
+    const filterStatist3 = JSON.parse(JSON.stringify(this.filteModelContent));
+    const fastfilter3 = new FilterDataModel();
+    fastfilter3.propertyName = 'RecordStatus';
+    fastfilter3.value = RecordStatusEnum.Pending;
+    filterStatist3.filters.push(fastfilter3);
+    const s3 = this.contentService.ServiceGetCount(filterStatist3);
+
+    //*filter */
+    const filterStatist4 = JSON.parse(JSON.stringify(this.filteModelContent));
+    const fastfilter4 = new FilterDataModel();
+    fastfilter4.propertyName = 'RecordStatus';
+    fastfilter4.value = RecordStatusEnum.Disable;
+    filterStatist3.filters.push(fastfilter4);
+    const s4 = this.contentService.ServiceGetCount(filterStatist3);
+
+    forkJoin([s0, s1, s2, s3, s4]).subscribe(results => {
+
+      //*results */
+      var ret = results[0];
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_list'), ret.totalRowCount);
       }
-    }
-    );
+      //*results */
+      var ret = results[1];
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_list_active'), ret.totalRowCount);
+      }
+
+      //*results */
+      ret = results[2];
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_list_close'), ret.totalRowCount);
+      } else {
+        this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+      }
+      //*results */
+      ret = results[3];
+
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_needs_approval'), ret.totalRowCount);
+
+      } else {
+        this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+      }
+      //*results */
+      ret = results[4];
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_list_disable'), ret.totalRowCount);
+      } else {
+        this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+      }
+      this.loading.Stop(this.constructor.name + 'All');
+      this.optionsStatist.childMethods.setStatistValue(statist);
+
+    });
+
+
 
   }
 
