@@ -121,10 +121,12 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
           if (ret.isSuccess) {
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
-
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
+
           }
           else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
@@ -186,9 +188,14 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
             this.tableSource.data = ret.listItems;
 
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
+
+
+
           }
           else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
@@ -325,8 +332,8 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       }
     });
   }
-  onActionButtonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }

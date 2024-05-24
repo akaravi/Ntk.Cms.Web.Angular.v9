@@ -111,6 +111,8 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -289,8 +291,8 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
       }
       );
   }
-  onActionButtonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }

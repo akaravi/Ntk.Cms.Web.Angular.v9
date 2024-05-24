@@ -86,7 +86,6 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-
     RouterModule,
     ComponentsModule,
   ],

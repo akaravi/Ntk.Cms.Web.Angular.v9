@@ -95,6 +95,8 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
           this.dataModelResult = next;
           this.tableSource.data = next.listItems;
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(next.access);
           }
@@ -237,8 +239,8 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
       );
   }
-  onActionButtonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }

@@ -100,6 +100,8 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -239,8 +241,8 @@ export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<
     this.router.navigate(['/hypershop/content/PareintId/', this.tableRowSelected.linkCoreLocationId]);
   }
 
-  onActionButtonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }

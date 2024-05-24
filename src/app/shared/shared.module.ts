@@ -78,7 +78,7 @@ import { TruncatePipe } from '../core/pipe/truncate.pipe';
 import { CmsExportListComponent } from './cms-export-list/cmsExportList.component';
 import { CmsMapComponent } from './cms-map/cms-map.component';
 import { CmsSearchListComponent } from './cms-search-list/cms-search-list.component';
-import { CmsStatistListComponent } from './cms-statist-list/cmsStatistList.component';
+import { CmsStatistListComponent } from './cms-statist-list/cms-statist-list.component';
 
 
 import { CurrencyMaskModule } from 'ng2-currency-mask';

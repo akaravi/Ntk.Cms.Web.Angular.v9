@@ -114,6 +114,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
                     this.dataModelResult = ret;
                     this.tableSource.data = ret.listItems;
 
+
                     if (this.optionsSearch.childMethods) {
                         this.optionsSearch.childMethods.setAccess(ret.access);
                     }

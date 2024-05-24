@@ -31,7 +31,7 @@ export class CmsSearchListComponent implements OnInit {
   }
   allowLoadSearch = false;
   allowSaveSearch = false;
-  submited = false;
+  formSubmited = false;
   showLabel = false;
   filters: Array<FilterDataModel>;
   lang: string;
@@ -45,7 +45,7 @@ export class CmsSearchListComponent implements OnInit {
     this.lang = this.translate.currentLang;
   }
   ngOnInit(): void {
-    this.submited = false;
+    this.formSubmited = false;
 
   }
   setAccess(model: AccessModel): void {
@@ -183,7 +183,7 @@ export class CmsSearchListComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.submited = true;
+    this.formSubmited = true;
     this.allowSaveSearch = true;
     this.getRules();
     if (this.optionsData.parentMethods) {
@@ -191,7 +191,7 @@ export class CmsSearchListComponent implements OnInit {
     }
   }
   onActionCopied(): void {
-    this.showLabel = !this.showLabel;
+    this.showLabel = true;
     setTimeout(() => {
       this.showLabel = false;
     }, 3000);

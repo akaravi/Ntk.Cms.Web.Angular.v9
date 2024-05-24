@@ -404,10 +404,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
           if (ret.isSuccess) {
             this.dataModelEstatePropertyResult = ret;
 
-            // this.tableSource.data = ret.listItems;
-            // if (this.optionsSearch.childMethods) {
-            //   this.optionsSearch.childMethods.setAccess(ret.access);
-            // }
+
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
           }

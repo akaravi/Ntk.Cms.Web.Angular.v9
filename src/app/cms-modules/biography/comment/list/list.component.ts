@@ -142,6 +142,8 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -296,8 +298,8 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
       }
       );
   }
-  onActionButtonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }

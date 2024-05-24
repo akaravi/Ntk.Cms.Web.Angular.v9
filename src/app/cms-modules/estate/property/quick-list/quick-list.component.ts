@@ -310,6 +310,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
             if (ret.isSuccess) {
               this.dataModelResult = ret;
               this.tableSource.data = ret.listItems;
+              if (this.optionsStatist?.data?.show)
+                this.onActionButtonStatist(true);
               if (this.optionsSearch.childMethods) {
                 this.optionsSearch.childMethods.setAccess(ret.access);
               }
@@ -341,6 +343,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
             if (ret.isSuccess) {
               this.dataModelResult = ret;
               this.tableSource.data = ret.listItems;
+              if (this.optionsStatist?.data?.show)
+                this.onActionButtonStatist(true);
               if (this.optionsSearch.childMethods) {
                 this.optionsSearch.childMethods.setAccess(ret.access);
               }
@@ -366,6 +370,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -622,8 +628,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
         // console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
       });
   }
-  onActionButtonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }

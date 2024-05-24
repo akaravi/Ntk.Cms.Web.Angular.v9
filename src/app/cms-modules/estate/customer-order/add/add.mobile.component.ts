@@ -458,20 +458,17 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
           if (ret.isSuccess) {
             this.dataModelEstatePropertyResult = ret;
 
-            // this.tableSource.data = ret.listItems;
-            // if (this.optionsSearch.childMethods) {
-            //   this.optionsSearch.childMethods.setAccess(ret.access);
-            // }
-          } else {
-            this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
+         
+            } else {
+              this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
+            }
+            this.loading.Stop(pName);
+          },
+          error: (er) => {
+            this.cmsToastrService.typeError(er)
+            this.loading.Stop(pName);
           }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeError(er)
-          this.loading.Stop(pName);
         }
-      }
       );
     // **requestLinkCustomerOrderId*/
   }

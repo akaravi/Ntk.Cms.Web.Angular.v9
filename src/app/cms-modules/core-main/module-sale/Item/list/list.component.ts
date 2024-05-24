@@ -145,6 +145,8 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -330,8 +332,8 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
 
     this.router.navigate(['/core/siteModuleSaleItem/', this.tableRowSelected.id]);
   }
-  onActionButtonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
