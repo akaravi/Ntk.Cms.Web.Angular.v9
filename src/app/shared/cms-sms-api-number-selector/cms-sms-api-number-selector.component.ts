@@ -8,7 +8,7 @@ import {
   SmsMainApiNumberModel,
   SmsMainApiNumberService
 } from 'ntk-cms-api';
-import { firstValueFrom, Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -38,7 +38,7 @@ export class CmsSmsMainApiNumberSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
   @Input() optionSelectFirstItemOnChangeApi = false;
-@Input() optionLabel='';
+  @Input() optionLabel = '';
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<SmsMainApiNumberModel>();
   @Input() optionReload = () => this.onActionReload();

@@ -3,32 +3,26 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult,
+  ErrorExceptionResult,
   FilterDataModel,
   FilterModel,
   InfoEnumModel,
   LinkManagementBillboardPatternModel,
-  LinkManagementBillboardPatternService, LinkManagementEnumService, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  LinkManagementBillboardPatternService, LinkManagementEnumService, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { LinkManagementBillboardPatternAddComponent } from '../add/add.component';
 import { LinkManagementBillboardPatternDeleteComponent } from '../delete/delete.component';
 import { LinkManagementBillboardPatternEditComponent } from '../edit/edit.component';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-billboard-pattern-list',
@@ -48,7 +42,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementBillboardPatternModel(), publicHelper,tokenHelper);
+    super(contentService, new LinkManagementBillboardPatternModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -117,6 +111,8 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -163,7 +159,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -188,7 +184,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     });
   }
 
-  onActionbuttonEditRow(model: LinkManagementBillboardPatternModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementBillboardPatternModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -220,7 +216,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
       }
     });
   }
-  onActionbuttonDeleteRow(model: LinkManagementBillboardPatternModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementBillboardPatternModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -280,8 +276,8 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
       this.router.navigate(["/linkmanagement/billboard/list/LinkBillboardPatternId/", model.id,]);
     }
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -334,7 +330,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

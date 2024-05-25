@@ -1,15 +1,11 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  ClauseTypeEnum, InfoEnumModel,
-  CoreCurrencyService, CoreEnumService, ErrorExceptionResult,
-  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum
+  ErrorExceptionResult,
+  InfoEnumModel,
+  RecordStatusEnum
 } from 'ntk-cms-api';
-import { firstValueFrom, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 
 @Component({

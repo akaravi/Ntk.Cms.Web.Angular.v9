@@ -4,11 +4,12 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel, SmsMainApiPathCompanyModel, SmsMainApiPathCompanyService
+  FormInfoModel,
+  SmsMainApiPathCompanyModel, SmsMainApiPathCompanyService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
@@ -39,7 +40,6 @@ export class SmsMainApiPathCompanyAddComponent extends AddBaseComponent<SmsMainA
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
-
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 

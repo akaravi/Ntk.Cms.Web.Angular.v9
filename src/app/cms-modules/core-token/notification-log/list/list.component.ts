@@ -6,24 +6,25 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreSiteModel, CoreTokenNotificationLogModel, CoreTokenNotificationLogService, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  CoreSiteModel, CoreTokenNotificationLogModel, CoreTokenNotificationLogService, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { CoreTokenNotificationLogEditComponent } from '../edit/edit.component';
 import { CoreTokenNotificationLogViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-coretoken-notificationlog-list',
   templateUrl: './list.component.html',
 
 })
 export class CoreTokenNotificationLogListComponent extends ListBaseComponent<CoreTokenNotificationLogService, CoreTokenNotificationLogModel, string>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
@@ -39,7 +40,8 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
-  ) {super(contentService, new CoreTokenNotificationLogModel(), publicHelper,tokenHelper);
+  ) {
+    super(contentService, new CoreTokenNotificationLogModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
@@ -152,6 +154,8 @@ implements OnInit, OnDestroy {
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -199,7 +203,7 @@ implements OnInit, OnDestroy {
   }
 
 
-  onActionbuttonViewRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -233,7 +237,7 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onActionbuttonEditRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -266,7 +270,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -323,8 +327,8 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -374,7 +378,7 @@ implements OnInit, OnDestroy {
 
   }
 
-  onActionbuttonViewUserRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -389,7 +393,7 @@ implements OnInit, OnDestroy {
   }
 
 
-  onActionbuttonViewSiteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -407,7 +411,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

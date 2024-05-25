@@ -7,10 +7,12 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel,
   CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult, EstateConfigurationService,
+  DataFieldInfoModel,
+  EstateConfigurationService,
   EstateModuleConfigSiteAccessValuesModel,
   EstateModuleConfigSiteValuesModel,
-  EstateModuleSiteStorageValuesModel, FormInfoModel, InfoEnumModel, TokenInfoModel
+  EstateModuleSiteStorageValuesModel, FormInfoModel,
+  TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
@@ -79,7 +81,9 @@ export class EstateConfigSiteComponent implements OnInit {
 
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

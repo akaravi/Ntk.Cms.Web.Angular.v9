@@ -12,7 +12,8 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel, NewsCategoryModel, NewsContentModel, NewsContentOtherInfoModel, NewsContentOtherInfoService, NewsContentService, NewsContentSimilarModel, NewsContentSimilarService, NewsContentTagModel, NewsContentTagService
+  FormInfoModel,
+  NewsCategoryModel, NewsContentModel, NewsContentOtherInfoModel, NewsContentOtherInfoService, NewsContentService, NewsContentSimilarModel, NewsContentSimilarService, NewsContentTagModel, NewsContentTagService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { firstValueFrom, of } from 'rxjs';

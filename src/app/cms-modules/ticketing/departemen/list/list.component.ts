@@ -3,28 +3,22 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TicketingDepartemenModel,
-  TicketingDepartemenService, TokenInfoModel
+  FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TicketingDepartemenModel,
+  TicketingDepartemenService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { TicketingDepartemenAddComponent } from '../add/add.component';
 import { TicketingDepartemenDeleteComponent } from '../delete/delete.component';
 import { TicketingDepartemenEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-ticketing-departemen-list',
@@ -41,7 +35,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new TicketingDepartemenModel, publicHelper,tokenHelper);
+    super(contentService, new TicketingDepartemenModel, publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -112,6 +106,8 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
           this.tableSource.data = next.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(next.access);
           }
@@ -157,7 +153,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -168,10 +164,10 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(TicketingDepartemenAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -186,7 +182,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     });
   }
 
-  onActionbuttonEditRow(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: TicketingDepartemenModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -202,10 +198,10 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(TicketingDepartemenEditComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -219,7 +215,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
       }
     });
   }
-  onActionbuttonDeleteRow(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -236,10 +232,10 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(TicketingDepartemenDeleteComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -254,7 +250,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     });
 
   }
-  onActionbuttonFaqList(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonFaqList(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -264,7 +260,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
     this.router.navigate(['/ticketing/faq/', this.tableRowSelected.id]);
   }
-  onActionbuttonTemplateList(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonTemplateList(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -274,7 +270,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
     this.router.navigate(['/ticketing/template/', this.tableRowSelected.id]);
   }
-  onActionbuttonLogList(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonLogList(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -284,7 +280,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
     this.router.navigate(['/ticketing/departemenlog/DepartemenId/', this.tableRowSelected.id]);
   }
-  onActionbuttonTaskList(model: TicketingDepartemenModel = this.tableRowSelected): void {
+  onActionButtonTaskList(model: TicketingDepartemenModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -294,8 +290,8 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
     this.router.navigate(['/ticketing/task/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -344,7 +340,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -13,38 +13,55 @@
 /*
  karavi import
 */
-.tree-parent .tree-child-hidden{
+.tree-parent .tree-child-hidden {
   display: none;
 }
 
 .tree-parent:hover .tree-child-hidden,
 .tree-parent:focus .tree-child-hidden,
-.tree-parent:focus-within .tree-child-hidden{
+.tree-parent:focus-within .tree-child-hidden {
   display: block;
 }
+
 .input-ltr {
   direction: ltr !important;
 }
+
 .input-ltr-center {
   direction: ltr !important;
   text-align: center !important;
 }
-.mat-option{
-  word-wrap:break-word !important;
-  white-space:normal !important;
+
+.input-ltr-left {
+  direction: ltr !important;
+  text-align: left !important;
+  float: left;
+}
+
+.input-ltr-right {
+  direction: ltr !important;
+  text-align: right !important;
+  float: right;
+}
+
+.mat-option {
+  word-wrap: break-word !important;
+  white-space: normal !important;
   font-family: "Times New Roman", Times, serif;
 }
 
-.mat-option-text{
-  line-height:initial !important;
+.mat-option-text {
+  line-height: initial !important;
 }
+
 .mat-mdc-dialog-container {
-  --mdc-dialog-container-color:none !important;
-  }
+  --mdc-dialog-container-color: none !important;
+}
+
 .mat-mdc-dialog-container .mdc-dialog__surface {
-  box-shadow:none !important;
-  }
-  
+  box-shadow: none !important;
+}
+
 /*
  NTK optimaze
 */
@@ -55,17 +72,19 @@
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: transparent !important;
 }
-.ali{
+
+.ali {
 
   font-size: large;
 }
+
 //  .ntk-col-b{
- // @extend .ali;
- //  @extend .col-xl-1;
+// @extend .ali;
+//  @extend .col-xl-1;
 //   @extend .col-lg-2;
 //   @extend .col-md-3;
 //   @extend .col-sm-4;
-  
+
 //  }
 //col-xl-1 col-lg-2 col-md-3 col-sm-4
 

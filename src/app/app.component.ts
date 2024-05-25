@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   HostListener,
@@ -8,10 +7,10 @@ import {
 } from '@angular/core';
 //start change title when route happened
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, NavigationError, NavigationStart, Router, Event } from '@angular/router';
-import { Subscription, filter, map, take } from 'rxjs';
+import { ActivatedRoute, Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { Subscription, filter, map } from 'rxjs';
 //end change title when route happened
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 import { SwPush } from '@angular/service-worker';
 import { TranslateService } from '@ngx-translate/core';
 import { getAnalytics } from "firebase/analytics";
@@ -22,13 +21,13 @@ import { PublicHelper } from './core/helpers/publicHelper';
 import { TokenHelper } from './core/helpers/tokenHelper';
 import { TranslationService } from './core/i18n/translation.service';
 import { ConnectionStatusModel } from './core/models/connectionStatusModel';
+import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
 import { CmsStoreService } from './core/reducers/cmsStore.service';
 import { CmsSignalrService } from './core/services/cmsSignalr.service';
 import { CmsToastrService } from './core/services/cmsToastr.service';
-import { SplashScreenService } from './shared/splash-screen/splash-screen.service';
-import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
-import { ThemeService } from './core/services/theme.service';
 import { PageInfoService } from './core/services/page-info.service';
+import { ThemeService } from './core/services/theme.service';
+import { SplashScreenService } from './shared/splash-screen/splash-screen.service';
 
 
 
@@ -65,6 +64,7 @@ export class AppComponent implements OnInit {
         //do something on start activity
         // console.log('NavigationStart')
         this.themeService.onNavigationStartAppComponent();
+
       }
       if (event instanceof NavigationError) {
         // Handle error

@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleTagCategoryModel, CoreModuleTagCategoryService, DataFieldInfoModel,
+  CoreEnumService, CoreModuleTagCategoryModel, CoreModuleTagCategoryService,
   ErrorExceptionResultBase,
   FormInfoModel,
   ManageUserAccessDataTypesEnum
@@ -16,7 +16,6 @@ import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -54,14 +53,14 @@ export class CoreModuleTagCategoryEditComponent extends EditBaseComponent<CoreMo
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
 
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreModuleTagCategoryModel = new CoreModuleTagCategoryModel();
 

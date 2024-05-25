@@ -24,9 +24,9 @@ import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
 import { WebDesignerMainPageTemplateAddComponent } from '../add/add.component';
 import { WebDesignerMainPageTemplateEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-webdesigner-pagetemplate-tree',
   templateUrl: './tree.component.html',
@@ -103,10 +103,10 @@ export class WebDesignerMainPageTemplateTreeComponent implements OnInit, OnDestr
   }
   onActionAdd(): void {
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(WebDesignerMainPageTemplateAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -131,10 +131,10 @@ export class WebDesignerMainPageTemplateTreeComponent implements OnInit, OnDestr
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(WebDesignerMainPageTemplateEditComponent, {
       height: '90%',
       panelClass: panelClass,

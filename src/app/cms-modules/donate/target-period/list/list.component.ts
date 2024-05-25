@@ -3,31 +3,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel,
   DonateTargetCategoryModel, DonateTargetPeriodModel,
-  DonateTargetPeriodService, ErrorExceptionResult,
+  DonateTargetPeriodService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DonateTargetPeriodAddComponent } from '../add/add.component';
 import { DonateTargetPeriodDeleteComponent } from '../delete/delete.component';
 import { DonateTargetPeriodEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-donate-target-period-list',
@@ -47,7 +40,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DonateTargetPeriodModel(), publicHelper,tokenHelper);
+    super(contentService, new DonateTargetPeriodModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),
@@ -136,6 +129,8 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -192,7 +187,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestLinkTargeId == null ||
       this.requestLinkTargeId === 0
@@ -225,7 +220,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     });
   }
 
-  onActionbuttonEditRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -252,7 +247,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
       }
     });
   }
-  onActionbuttonDeleteRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -273,11 +268,12 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     else
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(DonateTargetPeriodDeleteComponent, {
-       height: '40%',
-       panelClass: panelClass,
+      height: '40%',
+      panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-        data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         this.DataGetAll();
@@ -285,8 +281,8 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     });
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -339,7 +335,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
 
 
 
-  onActionbuttonDonateTargetPeriodAccountRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonDonateTargetPeriodAccountRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -350,7 +346,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.router.navigate(['/donate/target-period-charge/', model.id]);
   }
 
-  onActionbuttonTargetPeriodSponserList(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonTargetPeriodSponserList(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -361,7 +357,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.router.navigate(['/donate/target-period-sponser/LinkTargetPeriodId/' + model.id]);
   }
 
-  onActionbuttonTransactionsRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
+  onActionButtonTransactionsRow(model: DonateTargetPeriodModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -370,7 +366,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     this.router.navigate(['/donate/transaction/LinkTargetPeriodId/', model.id]);
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

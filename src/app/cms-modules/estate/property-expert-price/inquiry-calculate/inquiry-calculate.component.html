@@ -5,7 +5,7 @@
             {{ formInfo.formTitle }}
         </p>
         <h4>اطلاعات</h4>
-        
+
         <p>
             اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
             فقط یک صفحه ساختگی است.
@@ -28,17 +28,17 @@
             <!-- createdYaer Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.createdYaer" class="color-highlight">{{'TITLE.CreatedYaer' | translate}}</label>
-                <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.CreatedYaer" #CreatedYaer type="number"
-                    placeholder="0" class="form-control validate-name" id="dataModel.createdYaer" />
+                <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.CreatedYaer" #CreatedYaer
+                    type="number" placeholder="0" class="form-control validate-name" id="dataModel.createdYaer" />
             </div>
             <br>
             <!-- LinkContractTypeIds Field -->
-            <app-estate-contract-type-selector (optionChange)="onActionSelectorContarctType($event)" [optionTypeView]="1"
-                *ngIf="dataModel.linkCoreCurrencyId && dataModel.linkCoreCurrencyId>0" [optionDisabled]="false"
-                [optionSelectForce]="dataModel.linkContractTypeId" [(optionLoading)]="loading"
+            <app-estate-contract-type-selector (optionChange)="onActionSelectorContarctType($event)"
+                [optionTypeView]="1" *ngIf="dataModel.linkCoreCurrencyId && dataModel.linkCoreCurrencyId>0"
+                [optionDisabled]="false" [optionSelectForce]="dataModel.linkContractTypeId" [(optionLoading)]="loading"
                 [optionPlaceholder]="this.translate.instant('TITLE.Transaction_type')">
-                <mat-icon matSuffix *ngIf="dataModel.linkContractTypeId && dataModel.linkContractTypeId?.length>0" matSuffix
-                    mat-icon-button aria-label="Clear" (click)="dataModel.linkContractTypeId = null;">close
+                <mat-icon matSuffix *ngIf="dataModel.linkContractTypeId && dataModel.linkContractTypeId?.length>0"
+                    matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkContractTypeId = null;">close
                 </mat-icon>
             </app-estate-contract-type-selector>
 
@@ -48,8 +48,9 @@
                 [(optionLoading)]="loading" *ngIf="dataModel.linkCoreCurrencyId && dataModel.linkCoreCurrencyId>0"
                 [optionDisabled]="false" [optionTypeView]="1" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
                 [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
-                <mat-icon matSuffix *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId?.length>0"
-                    matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkPropertyTypeUsageId = null;">close
+                <mat-icon matSuffix
+                    *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId?.length>0" matSuffix
+                    mat-icon-button aria-label="Clear" (click)="dataModel.linkPropertyTypeUsageId = null;">close
                 </mat-icon>
             </app-estate-property-type-usage-selector>
             <br>
@@ -60,8 +61,8 @@
                 [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')">
 
                 <mat-icon matSuffix
-                    *ngIf="dataModel.linkPropertyTypeLanduseId && dataModel.linkPropertyTypeLanduseId?.length>0" matSuffix
-                    mat-icon-button aria-label="Clear" (click)="onActionSelectorSelectLanduse(null)">close
+                    *ngIf="dataModel.linkPropertyTypeLanduseId && dataModel.linkPropertyTypeLanduseId?.length>0"
+                    matSuffix mat-icon-button aria-label="Clear" (click)="onActionSelectorSelectLanduse(null)">close
                 </mat-icon>
             </app-estate-property-type-landuse-selector>
 

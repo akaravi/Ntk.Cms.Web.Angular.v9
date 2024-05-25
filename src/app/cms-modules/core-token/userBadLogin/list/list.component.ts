@@ -3,27 +3,22 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreSiteModel, CoreTokenUserBadLoginModel, CoreTokenUserBadLoginService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreEnumService, CoreSiteModel, CoreTokenUserBadLoginModel, CoreTokenUserBadLoginService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreTokenUserBadLoginEditComponent } from '../edit/edit.component';
 import { CoreTokenUserBadLoginViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-coretoken-user-list',
   templateUrl: './list.component.html',
@@ -48,7 +43,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreTokenUserBadLoginModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreTokenUserBadLoginModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
@@ -148,6 +143,8 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -196,7 +193,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
 
 
 
-  onActionbuttonViewRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -229,7 +226,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
       }
     });
   }
-  onActionbuttonEditRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -262,7 +259,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -319,8 +316,8 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
 
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -370,7 +367,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
 
   }
 
-  onActionbuttonViewUserRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -384,7 +381,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -398,7 +395,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  onActionbuttonViewSiteRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -411,7 +408,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
     }
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
-  onActionbuttonViewDeviceRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
+  onActionButtonViewDeviceRow(model: CoreTokenUserBadLoginModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -427,7 +424,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

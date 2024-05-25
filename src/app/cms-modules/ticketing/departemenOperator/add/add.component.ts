@@ -6,7 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, ApplicationSourceModel, CoreEnumService,
   DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel, TicketingDepartemenOperatorModel,
+  FormInfoModel,
+  TicketingDepartemenOperatorModel,
   TicketingDepartemenOperatorService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';

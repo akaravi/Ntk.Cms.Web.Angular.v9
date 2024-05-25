@@ -7,7 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, CoreConfigurationService, CoreEnumService, CoreModuleConfigSiteAccessValuesModel,
   CoreModuleConfigSiteValuesModel,
-  CoreModuleSiteStorageValuesModel, DataFieldInfoModel, ErrorExceptionResult, FormInfoModel, InfoEnumModel, TokenInfoModel
+  CoreModuleSiteStorageValuesModel, DataFieldInfoModel,
+  FormInfoModel,
+  TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
@@ -79,7 +81,9 @@ export class CoreConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;
@@ -104,6 +108,7 @@ export class CoreConfigSiteComponent implements OnInit {
         this.SetServiceSiteAccessSave(this.requestLinkSiteId);
       }
     }
+    
   }
 
 

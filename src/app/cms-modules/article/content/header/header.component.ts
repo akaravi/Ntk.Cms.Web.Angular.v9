@@ -7,7 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   ArticleContentModel,
   ArticleContentService,
-  DataFieldInfoModel, ErrorExceptionResult, InfoEnumModel, RecordStatusEnum
+  DataFieldInfoModel, ErrorExceptionResult,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -81,7 +82,7 @@ export class ArticletHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: ArticleContentModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: ArticleContentModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

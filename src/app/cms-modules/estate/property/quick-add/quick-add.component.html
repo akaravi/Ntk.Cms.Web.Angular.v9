@@ -4,30 +4,30 @@
 </app-cms-guide-notice>
 <div class="card card-style">
   <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-          حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      
-      <p>
-          اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-          فقط یک صفحه ساختگی است.
-      </p>
-      <!--Content-->
-      <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-        <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
 
-          <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
-    
-            <!-- LinkPropertyTypeUsageId Field -->
-            <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
-              [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageId']?.accessAddField" [optionTypeView]="2"
-              [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
-              [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
-            </app-estate-property-type-usage-selector>
-    
-            <!-- LinkPropertyTypeLanduseId Field -->
-            <p
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+
+        <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">
+
+          <!-- LinkPropertyTypeUsageId Field -->
+          <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
+            [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageId']?.accessAddField" [optionTypeView]="2"
+            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
+            [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+          </app-estate-property-type-usage-selector>
+
+          <!-- LinkPropertyTypeLanduseId Field -->
+          <p
             *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0 && listTypeLanduse && listTypeLanduse.length > 0">
             {{'TITLE.Property_Type' | translate }}</p>
           <!-- LinkPropertyTypeLanduseId Field -->
@@ -52,538 +52,568 @@
             [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')"
             [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId">
           </app-estate-property-type-landuse-selector>
-    
-            <br>
-            <br>
-    
-            <div *ngIf="dataModel.linkPropertyTypeLanduseId&& dataModel.linkPropertyTypeLanduseId.length>0">
-    
-              <!-- Title Field -->
-              close
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['title']?.accessWatchField">
-                <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                  disabled="{{!fieldsInfo['title']?.accessAddField}}" placeholder="{{fieldsInfo['title']?.fieldTitle}}"
-                  minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
-                <em  >{{ Title.value.length }} / 100</em>
-                <mat-error *ngIf="Title.errors?.required">
-                  {{fieldsInfo['title']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-              </div>
-    
-              <!-- CaseCode Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['caseCode']?.accessWatchField">
-                <label for="dataModel.caseCode" class="color-highlight">{{fieldsInfo['caseCode']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode type="text"
-                  disabled="{{!fieldsInfo['caseCode']?.accessAddField}}"
-                  placeholder="{{fieldsInfo['caseCode']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.caseCode" />
-                <em  >{{ CaseCode.value.length }} / 100</em>
-                <mat-error *ngIf="CaseCode.errors?.required">
-                  {{fieldsInfo['caseCode']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-              </div>
-              <!-- ViewConfigHiddenInList Field -->
-              <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataModel.viewConfigHiddenInList" class="font-600 font-14">
-                      {{fieldsInfo['viewConfigHiddenInList']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.viewConfigHiddenInList"
-                            [(ngModel)]="dataModel.viewConfigHiddenInList"
-                            name="dataModel.viewConfigHiddenInList">
-                        <label class="custom-control-label" for="dataModel.viewConfigHiddenInList"></label>
-                    </div>
-                </div>
-              </div> 
-              <!-- CreatedYaer Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-                *ngIf="this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected.titleCreatedYaer.length>1&& PropertyTypeSelected.titleCreatedYaer!=='---'">
-                <label for="dataModel.createdYaer" class="color-highlight">{{PropertyTypeSelected.titleCreatedYaer}}</label>
-                <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer type="number"
-                  placeholder="{{fieldsInfo['createdYaer']?.fieldTitle}}" class="form-control validate-name" id="dataModel.createdYaer" />
-              </div>
-              <!-- Partition Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-                *ngIf="this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected.titlePartition.length>1&& PropertyTypeSelected.titleCreatedYaer!=='---'">
-                <label for="dataModel.partition" class="color-highlight">{{PropertyTypeSelected.titlePartition}}</label>
-                <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"
-                  placeholder="{{PropertyTypeSelected.titlePartition}}" class="form-control validate-name" id="dataModel.partition" />
-              </div>
-              <!-- Area Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['area']?.accessWatchField">
-                <label for="dataModel.area" class="color-highlight">{{fieldsInfo['area']?.fieldTitle}}</label>
-                <input matInput [(ngModel)]="dataModel.area" name="dataModel.area" #Area type="text" currencyMask
-                  class="input-ltr form-control validate-name" disabled="{{!fieldsInfo['area']?.accessAddField}}"
-                  placeholder="{{fieldsInfo['area']?.fieldTitle}}" id="dataModel.area" />
-              </div>
-    
-              <!-- LinkLocationId Field -->
-              <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-                [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField" [(optionLoading)]="loading"
-                [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="this.translate.instant('TITLE.Region')">
-              </app-cms-location-selector>
-    
-    
-              <!-- Address Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['address']?.accessWatchField">
-                <label for="dataModel.address" class="color-highlight">{{fieldsInfo['address']?.fieldTitle}}</label>
-                <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
-                  placeholder="{{fieldsInfo['address']?.fieldTitle}}" minlength="1" maxlength="500" rows=5
-                  [disabled]="!fieldsInfo['address']?.accessAddField" class="form-control validate-name" id="dataModel.address"></textarea>
-                <em  >{{ Address.value.length }} / 500</em>
-              </div>
-    
-              <!-- Description Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.description" class="color-highlight">{{'TITLE.General_Description' | translate}}</label>
-                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                  disabled="{{!fieldsInfo['description']?.accessAddField}}"
-                  placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="2000" rows=5 class="form-control validate-name" id="dataModel.description"
-                  required></textarea>
-                <em  >{{ Description.value.length }} / 2000</em>
-                <mat-error *ngIf="Description.errors?.required">
-                  {{fieldsInfo['description']?.fieldTitle}} <strong>{{'MESSAGE.required' |
-                    translate}}</strong>
-                </mat-error>
-              </div>
-            </div>
-            <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-                (click)="onActionBackToParent()"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-                {{'ACTION.CANCEL' | translate}}
-              </button>
-              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                [disabled]="!vform.form.valid" matStepperNext
-                *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0">
-                {{'ACTION.NEXT' | translate}}
-              </button>
-            </div>
-          </mat-step>
-    
-          <mat-step label="{{'TITLE.Admin_Config' | translate}}" state="main" *ngIf="tokenHelper.isAdminSite">
-            <!-- LinkSiteId Field -->
+
+          <br>
+          <br>
+
+          <div *ngIf="dataModel.linkPropertyTypeLanduseId&& dataModel.linkPropertyTypeLanduseId.length>0">
+
+            <!-- Title Field -->
+            close
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-              *ngIf="fieldsInfo['linkSiteId']?.accessWatchField && this.tokenHelper.isAdminSite">
-              <label for="dataModel.linkSiteId" class="color-highlight">{{fieldsInfo['linkSiteId']?.fieldTitle}}</label>
-              <input matInput [(ngModel)]="dataModel.linkSiteId" name="dataModel.linkSiteId" #LinkSiteId type="text"
-                disabled="{{!fieldsInfo['linkSiteId']?.accessAddField}}"
-                placeholder="{{fieldsInfo['linkSiteId']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.linkSiteId" />
-              <em  >{{ LinkSiteId.value.length }} / 100</em>
-              <mat-error *ngIf="LinkSiteId.errors?.required">
-                {{fieldsInfo['linkSiteId']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+              *ngIf="fieldsInfo['title']?.accessWatchField">
+              <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
+              <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+                disabled="{{!fieldsInfo['title']?.accessAddField}}" placeholder="{{fieldsInfo['title']?.fieldTitle}}"
+                minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
+              <em>{{ Title.value.length }} / 100</em>
+              <mat-error *ngIf="Title.errors?.required">
+                {{fieldsInfo['title']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>
             </div>
-    
-            <!-- viewContentHidden Field -->
+
+            <!-- CaseCode Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="fieldsInfo['caseCode']?.accessWatchField">
+              <label for="dataModel.caseCode" class="color-highlight">{{fieldsInfo['caseCode']?.fieldTitle}}</label>
+              <input matInput [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode type="text"
+                disabled="{{!fieldsInfo['caseCode']?.accessAddField}}"
+                placeholder="{{fieldsInfo['caseCode']?.fieldTitle}}" minlength="3" maxlength="100"
+                class="form-control validate-name" id="dataModel.caseCode" />
+              <em>{{ CaseCode.value.length }} / 100</em>
+              <mat-error *ngIf="CaseCode.errors?.required">
+                {{fieldsInfo['caseCode']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+              </mat-error>
+            </div>
+            <!-- ViewConfigHiddenInList Field -->
             <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataModel.viewContentHidden" class="font-600 font-14">
-                      {{fieldsInfo['viewContentHidden']?.fieldTitle}}</h5>
+              <div class="pt-1">
+                <h5 data-trigger-switch="dataModel.viewConfigHiddenInList" class="font-600 font-14">
+                  {{fieldsInfo['viewConfigHiddenInList']?.fieldTitle}}</h5>
+              </div>
+              <div class="ms-auto me-3 pe-2">
+                <div class="custom-control ios-switch small-switch">
+                  <input type="checkbox" class="ios-input" id="dataModel.viewConfigHiddenInList"
+                    [(ngModel)]="dataModel.viewConfigHiddenInList" name="dataModel.viewConfigHiddenInList">
+                  <label class="custom-control-label" for="dataModel.viewConfigHiddenInList"></label>
                 </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.viewContentHidden"
-                            [(ngModel)]="dataModel.viewContentHidden"
-                            name="dataModel.viewContentHidden">
-                        <label class="custom-control-label" for="dataModel.viewContentHidden"></label>
-                    </div>
-                </div>
-            </div> 
-            <!-- siteAdminViewContentHidden Field -->
-            <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataModel.siteAdminViewContentHidden" class="font-600 font-14">
-                      {{fieldsInfo['siteAdminViewContentHidden']?.fieldTitle}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataModel.siteAdminViewContentHidden"
-                            [(ngModel)]="dataModel.siteAdminViewContentHidden"
-                            name="dataModel.siteAdminViewContentHidden">
-                        <label class="custom-control-label" for="dataModel.siteAdminViewContentHidden"></label>
-                    </div>
-                </div>
-            </div>          
-            <!-- MainAdminRecordStatus Field -->
-    
-            <app-cms-enum-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
-              [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
-              [optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
-              [optionSelectFirstItem]="true">
-            </app-cms-enum-record-status-selector>
-    
-    
-            <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                matStepperPrevious>
-                {{'ACTION.BEFOR' | translate}}
-              </button>
-              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                [disabled]="!vform.form.valid" matStepperNext
-                *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0">
-                {{'ACTION.NEXT' | translate}}
-              </button>
+              </div>
             </div>
-          </mat-step>
-    
-          <mat-step label="{{'TITLE.SECRET_INFORMATION' | translate}}" state="main">
-    
-            <!-- AboutCustomerMobile Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['aboutCustomerMobile']?.accessWatchField">
-              <label for="dataModel.aboutCustomerMobile" class="color-highlight">{{fieldsInfo['aboutCustomerMobile']?.fieldTitle}}</label>
-              <input matInput [(ngModel)]="dataModel.aboutCustomerMobile" name="dataModel.aboutCustomerMobile"
-                class="input-Mobile" #AboutCustomerMobile type="text"
-                disabled="{{!fieldsInfo['aboutCustomerMobile']?.accessAddField}}"
-                placeholder="{{fieldsInfo['aboutCustomerMobile']?.fieldTitle}}" minlength="0" maxlength="100" class="form-control validate-name" id="dataModel.aboutCustomerMobile" />
-              <em  >{{ AboutCustomerMobile.value.length }} / 100</em>
+            <!-- CreatedYaer Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected.titleCreatedYaer.length>1&& PropertyTypeSelected.titleCreatedYaer!=='---'">
+              <label for="dataModel.createdYaer"
+                class="color-highlight">{{PropertyTypeSelected.titleCreatedYaer}}</label>
+              <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer
+                type="number" placeholder="{{fieldsInfo['createdYaer']?.fieldTitle}}" class="form-control validate-name"
+                id="dataModel.createdYaer" />
             </div>
-    
-            <!-- AboutCustomerTel Field -->
-            <div *ngIf="fieldsInfo['aboutCustomerTel']?.accessWatchField" class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.aboutCustomerTel" class="color-highlight">{{fieldsInfo['aboutCustomerTel']?.fieldTitle}}</label>
-              <input matInput [(ngModel)]="dataModel.aboutCustomerTel" name="dataModel.aboutCustomerTel"
-                class="input-Mobile" #AboutCustomerTel type="text"
-                disabled="{{!fieldsInfo['aboutCustomerTel']?.accessAddField}}"
-                placeholder="{{fieldsInfo['aboutCustomerTel']?.fieldTitle}}" minlength="0" maxlength="100" id="dataModel.aboutCustomerTel"/>
-              <em  >{{ AboutCustomerTel.value.length }} / 100</em>
+            <!-- Partition Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="this.dataModel.linkPropertyTypeLanduseId && PropertyTypeSelected.titlePartition.length>1&& PropertyTypeSelected.titleCreatedYaer!=='---'">
+              <label for="dataModel.partition" class="color-highlight">{{PropertyTypeSelected.titlePartition}}</label>
+              <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"
+                placeholder="{{PropertyTypeSelected.titlePartition}}" class="form-control validate-name"
+                id="dataModel.partition" />
             </div>
-    
-            <!-- DescriptionHidden Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['descriptionHidden']?.accessWatchField">
-              <label for="dataModel.descriptionHidden" class="color-highlight">{{'TITLE.Description_Hidden' | translate}}</label>
-              <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
-                #DescriptionHidden type="text" placeholder="{{fieldsInfo['descriptionHidden']?.fieldTitle}}" minlength="1"
-                maxlength="2000" rows=5 class="form-control validate-name" id="dataModel.descriptionHidden"></textarea>
-              <em  >{{ DescriptionHidden.value.length }} / 2000</em>
-              <mat-error *ngIf="DescriptionHidden.errors?.required">
-                {{fieldsInfo['descriptionHidden']?.fieldTitle}} <strong>{{'MESSAGE.required' |
+            <!-- Area Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="fieldsInfo['area']?.accessWatchField">
+              <label for="dataModel.area" class="color-highlight">{{fieldsInfo['area']?.fieldTitle}}</label>
+              <input matInput [(ngModel)]="dataModel.area" name="dataModel.area" #Area type="text" currencyMask
+                class="input-ltr form-control validate-name" disabled="{{!fieldsInfo['area']?.accessAddField}}"
+                placeholder="{{fieldsInfo['area']?.fieldTitle}}" id="dataModel.area" />
+            </div>
+
+            <!-- LinkLocationId Field -->
+            <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
+              [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField" [(optionLoading)]="loading"
+              [optionSelectForce]="dataModel.linkLocationId"
+              [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+            </app-cms-location-selector>
+
+
+            <!-- Address Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+              *ngIf="fieldsInfo['address']?.accessWatchField">
+              <label for="dataModel.address" class="color-highlight">{{fieldsInfo['address']?.fieldTitle}}</label>
+              <textarea matInput [(ngModel)]="dataModel.address" name="dataModel.address" #Address type="text"
+                placeholder="{{fieldsInfo['address']?.fieldTitle}}" minlength="1" maxlength="500" rows=5
+                [disabled]="!fieldsInfo['address']?.accessAddField" class="form-control validate-name"
+                id="dataModel.address"></textarea>
+              <em>{{ Address.value.length }} / 500</em>
+            </div>
+
+            <!-- Description Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+              <label for="dataModel.description" class="color-highlight">{{'TITLE.General_Description' |
+                translate}}</label>
+              <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                type="text" disabled="{{!fieldsInfo['description']?.accessAddField}}"
+                placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="2000" rows=5
+                class="form-control validate-name" id="dataModel.description" required></textarea>
+              <em>{{ Description.value.length }} / 2000</em>
+              <mat-error *ngIf="Description.errors?.required">
+                {{fieldsInfo['description']?.fieldTitle}} <strong>{{'MESSAGE.required' |
                   translate}}</strong>
               </mat-error>
             </div>
-            <!-- AddressHidden Field -->
-            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4" *ngIf="fieldsInfo['addressHidden']?.accessWatchField">
-              <label for="dataModel.addressHidden" class="color-highlight">{{'TITLE.Address_Hidden' | translate}}</label>
-              <textarea matInput [(ngModel)]="dataModel.addressHidden" name="dataModel.addressHidden" #AddressHidden
-                type="text" placeholder="{{fieldsInfo['addressHidden']?.fieldTitle}}" minlength="1" maxlength="2000"
-                rows=5 class="form-control validate-name" id="dataModel.addressHidden"></textarea>
-              <em  >{{ AddressHidden.value.length }} / 2000</em>
-              <mat-error *ngIf="AddressHidden.errors?.required">
-                {{fieldsInfo['addressHidden']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
-              </mat-error>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()"
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+              {{'ACTION.CANCEL' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext
+              *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0">
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+        <mat-step label="{{'TITLE.Admin_Config' | translate}}" state="main" *ngIf="tokenHelper.isAdminSite">
+          <!-- LinkSiteId Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+            *ngIf="fieldsInfo['linkSiteId']?.accessWatchField && this.tokenHelper.isAdminSite">
+            <label for="dataModel.linkSiteId" class="color-highlight">{{fieldsInfo['linkSiteId']?.fieldTitle}}</label>
+            <input matInput [(ngModel)]="dataModel.linkSiteId" name="dataModel.linkSiteId" #LinkSiteId type="text"
+              disabled="{{!fieldsInfo['linkSiteId']?.accessAddField}}"
+              placeholder="{{fieldsInfo['linkSiteId']?.fieldTitle}}" minlength="3" maxlength="100"
+              class="form-control validate-name" id="dataModel.linkSiteId" />
+            <em>{{ LinkSiteId.value.length }} / 100</em>
+            <mat-error *ngIf="LinkSiteId.errors?.required">
+              {{fieldsInfo['linkSiteId']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+
+          <!-- viewContentHidden Field -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.viewContentHidden" class="font-600 font-14">
+                {{fieldsInfo['viewContentHidden']?.fieldTitle}}</h5>
             </div>
-    
-    
-            <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                matStepperPrevious>
-                {{'ACTION.BEFOR' | translate}}
-              </button>
-              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                [disabled]="!vform.form.valid" matStepperNext
-                *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0">
-                {{'ACTION.NEXT' | translate}}
-              </button>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.viewContentHidden"
+                  [(ngModel)]="dataModel.viewContentHidden" name="dataModel.viewContentHidden">
+                <label class="custom-control-label" for="dataModel.viewContentHidden"></label>
+              </div>
             </div>
-          </mat-step>
-    
-    
-          <mat-step label="{{'TITLE.Transaction' | translate}}" state="contract">
-            <p>{{'TITLE.Specify_the_type_of_transaction_for_this_property' | translate}}</p>
-    
-            <app-estate-contract-type-selector (optionChange)="onActionSelectorContractType($event)" [optionTypeView]="2"
-              [optionDisabled]="false" [optionPlaceholder]="this.translate.instant('TITLE.Type_Of_Transaction')"
-              [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
-            </app-estate-contract-type-selector>
-    
-            <div class="container" *ngIf="contractTypeSelected && contractTypeSelected.id.length>0">
-              <br>
-    
-              <br>
-              <app-cms-currency-selector [optionSelectFirstItem]="currencyOptionSelectFirstItem" [(optionLoading)]="loading"
-                [optionSelectForce]="contractDataModel.linkCoreCurrencyId" (optionChange)="onActionSelectCurrency($event)"
-                [optionPlaceholder]="this.translate.instant('TITLE.Specify_the_transaction_currency')">
-              </app-cms-currency-selector>
-    
-              <div *ngIf="contractDataModel.linkCoreCurrencyId>0">
-    
-                <!-- SalePrice Field -->
-                <div class="row" *ngIf="contractTypeSelected.hasSalePrice">
-                  <div class="col-6">
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                      <label for="contractDataModel.salePrice" class="color-highlight">{{contractTypeSelected.titleSalePriceML}}</label>
-                      <input matInput [(ngModel)]="contractDataModel.salePrice" name="contractDataModel.salePrice"
-                        [disabled]="contractDataModel.salePriceByAgreement" type="text" currencyMask
-                        class="input-ltr-center" placeholder="0" class="form-control validate-name" id="contractDataModel.salePrice" />
-                      <label> ({{dataModelCorCurrencySelector.titleML}}
-                        {{dataModelCorCurrencySelector.symbol}} )
-                      </label>
-                    </div>
-                  </div>
-                  <div *ngIf="contractTypeSelected.salePriceAllowAgreement" class="col-3">
-                    <div class="d-flex mb-3">
-                      <div class="pt-1">
-                          <h5 data-trigger-switch="contractDataModel.salePriceByAgreement" class="font-600 font-14">
-                            {{'TITLE.Agreement' | translate}}</h5>
-                      </div>
-                      <div class="ms-auto me-3 pe-2">
-                          <div class="custom-control ios-switch small-switch">
-                              <input type="checkbox" class="ios-input" id="contractDataModel.salePriceByAgreement"
-                                  [(ngModel)]="contractDataModel.salePriceByAgreement"
-                                  name="contractDataModel.salePriceByAgreement">
-                              <label class="custom-control-label" for="contractDataModel.salePriceByAgreement"></label>
-                          </div>
-                      </div>
-                    </div> 
-                  </div>
-                </div>
-    
-                <div class="row" *ngIf="contractTypeSelected.hasDepositPrice">
-                  <div class="col-6">
-                    <!-- DepositPrice Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                      <label for="contractDataModel.depositPrice" class="color-highlight">{{contractTypeSelected.titleDepositPriceML}}</label>
-                      <input matInput [(ngModel)]="contractDataModel.depositPrice" name="contractDataModel.depositPrice"
-                        [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask
-                        class="input-ltr-center" placeholder="0" class="form-control validate-name" id="contractDataModel.depositPrice" />
-                      <label> ({{dataModelCorCurrencySelector.titleML}}
-                        {{dataModelCorCurrencySelector.symbol}} )
-                      </label>
-                    </div>
-                  </div>
-                  <div *ngIf="contractTypeSelected.depositPriceAllowAgreement"class="col-3">
-                    <div  class="d-flex mb-3">
-                      <div class="pt-1">
-                          <h5 data-trigger-switch="contractDataModel.depositPriceByAgreement" class="font-600 font-14">
-                            {{'TITLE.Agreement' | translate}}</h5>
-                      </div>
-                      <div class="ms-auto me-3 pe-2">
-                          <div class="custom-control ios-switch small-switch">
-                              <input type="checkbox" class="ios-input" id="contractDataModel.depositPriceByAgreement"
-                                  [(ngModel)]="contractDataModel.depositPriceByAgreement"
-                                  name="contractDataModel.depositPriceByAgreement">
-                              <label class="custom-control-label" for="contractDataModel.depositPriceByAgreement"></label>
-                          </div>
-                      </div>
-                    </div> 
-                  </div>
-                </div>
-    
-                <div class="row" *ngIf="contractTypeSelected.hasRentPrice">
-                  <div class="col-6">
-                    <!-- RentPrice Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                      <label for="contractDataModel.rentPrice" class="color-highlight">{{contractTypeSelected.titleRentPriceML}}</label>
-                      <input matInput [(ngModel)]="contractDataModel.rentPrice" name="contractDataModel.rentPrice"
-                        [disabled]="contractDataModel.rentPriceByAgreement" type="text" currencyMask
-                        class="input-ltr-center" placeholder="0" class="form-control validate-name" id="contractDataModel.rentPrice" />
-                      <label> ({{dataModelCorCurrencySelector.titleML}}
-                        {{dataModelCorCurrencySelector.symbol}} )
-                      </label>
-                    </div>
-                  </div>
-                  <div *ngIf="contractTypeSelected.rentPriceAllowAgreement" class="col-3">
-                    <div class="d-flex mb-3">
-                      <div class="pt-1">
-                          <h5 data-trigger-switch="contractDataModel.rentPriceAllowAgreement" class="font-600 font-14">
-                            {{'TITLE.Agreement' | translate}}</h5>
-                      </div>
-                      <div class="ms-auto me-3 pe-2">
-                          <div class="custom-control ios-switch small-switch">
-                              <input type="checkbox" class="ios-input" id="contractDataModel.rentPriceAllowAgreement"
-                                  [(ngModel)]="contractDataModel.rentPriceByAgreement"
-                                  name="contractDataModel.rentPriceAllowAgreement">
-                              <label class="custom-control-label" for="contractDataModel.rentPriceAllowAgreement"></label>
-                          </div>
-                      </div>
-                    </div> 
-                  </div>
-                </div>
-    
-                <div class="row" *ngIf="contractTypeSelected.hasPeriodPrice">
-                  <div class="col-6">
-                    <!-- periodPrice Field -->
-                    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                      <label for="contractDataModel.periodPrice" class="color-highlight">{{contractTypeSelected.titlePeriodPriceML}}</label>
-                      <input matInput [(ngModel)]="contractDataModel.periodPrice" name="contractDataModel.periodPrice"
-                        [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask
-                        class="input-ltr-center" placeholder="0" class="form-control validate-name" id="contractDataModel.periodPriceByAgreement" />
-                      <label> ({{dataModelCorCurrencySelector.titleML}}
-                        {{dataModelCorCurrencySelector.symbol}} )
-                      </label>
-                    </div>
-                  </div>
-                  <div *ngIf="contractTypeSelected.hasPeriodPrice && contractTypeSelected.periodPriceAllowAgreement" class="col-3">
-                    <div class="d-flex mb-3">
-                      <div class="pt-1">
-                          <h5 data-trigger-switch="contractDataModel.periodPriceByAgreement" class="font-600 font-14">
-                            {{'TITLE.Agreement' | translate}}</h5>
-                      </div>
-                      <div class="ms-auto me-3 pe-2">
-                          <div class="custom-control ios-switch small-switch">
-                              <input type="checkbox" class="ios-input" id="contractDataModel.periodPriceByAgreement"
-                                  [(ngModel)]="contractDataModel.periodPriceByAgreement"
-                                  name="contractDataModel.periodPriceByAgreement">
-                              <label class="custom-control-label" for="contractDataModel.periodPriceByAgreement"></label>
-                          </div>
-                      </div>
-                    </div> 
+          </div>
+          <!-- siteAdminViewContentHidden Field -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataModel.siteAdminViewContentHidden" class="font-600 font-14">
+                {{fieldsInfo['siteAdminViewContentHidden']?.fieldTitle}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataModel.siteAdminViewContentHidden"
+                  [(ngModel)]="dataModel.siteAdminViewContentHidden" name="dataModel.siteAdminViewContentHidden">
+                <label class="custom-control-label" for="dataModel.siteAdminViewContentHidden"></label>
+              </div>
+            </div>
+          </div>
+          <!-- MainAdminRecordStatus Field -->
+
+          <app-cms-enum-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
+            [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
+            [optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionSelectFirstItem]="true">
+          </app-cms-enum-record-status-selector>
+
+
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext
+              *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0">
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+        <mat-step label="{{'TITLE.SECRET_INFORMATION' | translate}}" state="main">
+
+          <!-- AboutCustomerMobile Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+            *ngIf="fieldsInfo['aboutCustomerMobile']?.accessWatchField">
+            <label for="dataModel.aboutCustomerMobile"
+              class="color-highlight">{{fieldsInfo['aboutCustomerMobile']?.fieldTitle}}</label>
+            <input matInput [(ngModel)]="dataModel.aboutCustomerMobile" name="dataModel.aboutCustomerMobile"
+              class="input-Mobile" #AboutCustomerMobile type="text"
+              disabled="{{!fieldsInfo['aboutCustomerMobile']?.accessAddField}}"
+              placeholder="{{fieldsInfo['aboutCustomerMobile']?.fieldTitle}}" minlength="0" maxlength="100"
+              class="form-control validate-name" id="dataModel.aboutCustomerMobile" />
+            <em>{{ AboutCustomerMobile.value.length }} / 100</em>
+          </div>
+
+          <!-- AboutCustomerTel Field -->
+          <div *ngIf="fieldsInfo['aboutCustomerTel']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.aboutCustomerTel"
+              class="color-highlight">{{fieldsInfo['aboutCustomerTel']?.fieldTitle}}</label>
+            <input matInput [(ngModel)]="dataModel.aboutCustomerTel" name="dataModel.aboutCustomerTel"
+              class="input-Mobile" #AboutCustomerTel type="text"
+              disabled="{{!fieldsInfo['aboutCustomerTel']?.accessAddField}}"
+              placeholder="{{fieldsInfo['aboutCustomerTel']?.fieldTitle}}" minlength="0" maxlength="100"
+              id="dataModel.aboutCustomerTel" />
+            <em>{{ AboutCustomerTel.value.length }} / 100</em>
+          </div>
+
+          <!-- DescriptionHidden Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+            *ngIf="fieldsInfo['descriptionHidden']?.accessWatchField">
+            <label for="dataModel.descriptionHidden" class="color-highlight">{{'TITLE.Description_Hidden' |
+              translate}}</label>
+            <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
+              #DescriptionHidden type="text" placeholder="{{fieldsInfo['descriptionHidden']?.fieldTitle}}" minlength="1"
+              maxlength="2000" rows=5 class="form-control validate-name" id="dataModel.descriptionHidden"></textarea>
+            <em>{{ DescriptionHidden.value.length }} / 2000</em>
+            <mat-error *ngIf="DescriptionHidden.errors?.required">
+              {{fieldsInfo['descriptionHidden']?.fieldTitle}} <strong>{{'MESSAGE.required' |
+                translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- AddressHidden Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+            *ngIf="fieldsInfo['addressHidden']?.accessWatchField">
+            <label for="dataModel.addressHidden" class="color-highlight">{{'TITLE.Address_Hidden' | translate}}</label>
+            <textarea matInput [(ngModel)]="dataModel.addressHidden" name="dataModel.addressHidden" #AddressHidden
+              type="text" placeholder="{{fieldsInfo['addressHidden']?.fieldTitle}}" minlength="1" maxlength="2000"
+              rows=5 class="form-control validate-name" id="dataModel.addressHidden"></textarea>
+            <em>{{ AddressHidden.value.length }} / 2000</em>
+            <mat-error *ngIf="AddressHidden.errors?.required">
+              {{fieldsInfo['addressHidden']?.fieldTitle}} <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+
+
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext
+              *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length>0">
+              {{'ACTION.NEXT' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+
+        <mat-step label="{{'TITLE.Transaction' | translate}}" state="contract">
+          <p>{{'TITLE.Specify_the_type_of_transaction_for_this_property' | translate}}</p>
+
+          <app-estate-contract-type-selector (optionChange)="onActionSelectorContractType($event)" [optionTypeView]="2"
+            [optionDisabled]="false" [optionPlaceholder]="this.translate.instant('TITLE.Type_Of_Transaction')"
+            [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
+          </app-estate-contract-type-selector>
+
+          <div class="container" *ngIf="contractTypeSelected && contractTypeSelected.id.length>0">
+            <br>
+
+            <br>
+            <app-cms-currency-selector [optionSelectFirstItem]="currencyOptionSelectFirstItem"
+              [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkCoreCurrencyId"
+              (optionChange)="onActionSelectCurrency($event)"
+              [optionPlaceholder]="this.translate.instant('TITLE.Specify_the_transaction_currency')">
+            </app-cms-currency-selector>
+
+            <div *ngIf="contractDataModel.linkCoreCurrencyId>0">
+
+              <!-- SalePrice Field -->
+              <div class="row" *ngIf="contractTypeSelected.hasSalePrice">
+                <div class="col-6">
+                  <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="contractDataModel.salePrice"
+                      class="color-highlight">{{contractTypeSelected.titleSalePriceML}}</label>
+                    <input matInput [(ngModel)]="contractDataModel.salePrice" name="contractDataModel.salePrice"
+                      [disabled]="contractDataModel.salePriceByAgreement" type="text" currencyMask
+                      class="input-ltr-center" placeholder="0" class="form-control validate-name"
+                      id="contractDataModel.salePrice" />
+                    <label> ({{dataModelCorCurrencySelector.titleML}}
+                      {{dataModelCorCurrencySelector.symbol}} )
+                    </label>
                   </div>
                 </div>
-                <hr>
-                <!-- contractDataModel.description Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                  <label for="contractDataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                  <textarea matInput [(ngModel)]="contractDataModel.description" name="contractDataModel.description"
-                    #contractDataModel_Description type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}"
-                    minlength="0" maxlength="500" rows=5 class="form-control validate-name" id="contractDataModel.description"></textarea>
-                  <em  >{{ contractDataModel_Description.value.length }} / 500</em>
+                <div *ngIf="contractTypeSelected.salePriceAllowAgreement" class="col-3">
+                  <div class="d-flex mb-3">
+                    <div class="pt-1">
+                      <h5 data-trigger-switch="contractDataModel.salePriceByAgreement" class="font-600 font-14">
+                        {{'TITLE.Agreement' | translate}}</h5>
+                    </div>
+                    <div class="ms-auto me-3 pe-2">
+                      <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="contractDataModel.salePriceByAgreement"
+                          [(ngModel)]="contractDataModel.salePriceByAgreement"
+                          name="contractDataModel.salePriceByAgreement">
+                        <label class="custom-control-label" for="contractDataModel.salePriceByAgreement"></label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <br>
-              <br>
+
+              <div class="row" *ngIf="contractTypeSelected.hasDepositPrice">
+                <div class="col-6">
+                  <!-- DepositPrice Field -->
+                  <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="contractDataModel.depositPrice"
+                      class="color-highlight">{{contractTypeSelected.titleDepositPriceML}}</label>
+                    <input matInput [(ngModel)]="contractDataModel.depositPrice" name="contractDataModel.depositPrice"
+                      [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask
+                      class="input-ltr-center" placeholder="0" class="form-control validate-name"
+                      id="contractDataModel.depositPrice" />
+                    <label> ({{dataModelCorCurrencySelector.titleML}}
+                      {{dataModelCorCurrencySelector.symbol}} )
+                    </label>
+                  </div>
+                </div>
+                <div *ngIf="contractTypeSelected.depositPriceAllowAgreement" class="col-3">
+                  <div class="d-flex mb-3">
+                    <div class="pt-1">
+                      <h5 data-trigger-switch="contractDataModel.depositPriceByAgreement" class="font-600 font-14">
+                        {{'TITLE.Agreement' | translate}}</h5>
+                    </div>
+                    <div class="ms-auto me-3 pe-2">
+                      <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="contractDataModel.depositPriceByAgreement"
+                          [(ngModel)]="contractDataModel.depositPriceByAgreement"
+                          name="contractDataModel.depositPriceByAgreement">
+                        <label class="custom-control-label" for="contractDataModel.depositPriceByAgreement"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" *ngIf="contractTypeSelected.hasRentPrice">
+                <div class="col-6">
+                  <!-- RentPrice Field -->
+                  <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="contractDataModel.rentPrice"
+                      class="color-highlight">{{contractTypeSelected.titleRentPriceML}}</label>
+                    <input matInput [(ngModel)]="contractDataModel.rentPrice" name="contractDataModel.rentPrice"
+                      [disabled]="contractDataModel.rentPriceByAgreement" type="text" currencyMask
+                      class="input-ltr-center" placeholder="0" class="form-control validate-name"
+                      id="contractDataModel.rentPrice" />
+                    <label> ({{dataModelCorCurrencySelector.titleML}}
+                      {{dataModelCorCurrencySelector.symbol}} )
+                    </label>
+                  </div>
+                </div>
+                <div *ngIf="contractTypeSelected.rentPriceAllowAgreement" class="col-3">
+                  <div class="d-flex mb-3">
+                    <div class="pt-1">
+                      <h5 data-trigger-switch="contractDataModel.rentPriceAllowAgreement" class="font-600 font-14">
+                        {{'TITLE.Agreement' | translate}}</h5>
+                    </div>
+                    <div class="ms-auto me-3 pe-2">
+                      <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="contractDataModel.rentPriceAllowAgreement"
+                          [(ngModel)]="contractDataModel.rentPriceByAgreement"
+                          name="contractDataModel.rentPriceAllowAgreement">
+                        <label class="custom-control-label" for="contractDataModel.rentPriceAllowAgreement"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" *ngIf="contractTypeSelected.hasPeriodPrice">
+                <div class="col-6">
+                  <!-- periodPrice Field -->
+                  <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    <label for="contractDataModel.periodPrice"
+                      class="color-highlight">{{contractTypeSelected.titlePeriodPriceML}}</label>
+                    <input matInput [(ngModel)]="contractDataModel.periodPrice" name="contractDataModel.periodPrice"
+                      [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask
+                      class="input-ltr-center" placeholder="0" class="form-control validate-name"
+                      id="contractDataModel.periodPriceByAgreement" />
+                    <label> ({{dataModelCorCurrencySelector.titleML}}
+                      {{dataModelCorCurrencySelector.symbol}} )
+                    </label>
+                  </div>
+                </div>
+                <div *ngIf="contractTypeSelected.hasPeriodPrice && contractTypeSelected.periodPriceAllowAgreement"
+                  class="col-3">
+                  <div class="d-flex mb-3">
+                    <div class="pt-1">
+                      <h5 data-trigger-switch="contractDataModel.periodPriceByAgreement" class="font-600 font-14">
+                        {{'TITLE.Agreement' | translate}}</h5>
+                    </div>
+                    <div class="ms-auto me-3 pe-2">
+                      <div class="custom-control ios-switch small-switch">
+                        <input type="checkbox" class="ios-input" id="contractDataModel.periodPriceByAgreement"
+                          [(ngModel)]="contractDataModel.periodPriceByAgreement"
+                          name="contractDataModel.periodPriceByAgreement">
+                        <label class="custom-control-label" for="contractDataModel.periodPriceByAgreement"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <!-- contractDataModel.description Field -->
+              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="contractDataModel.description"
+                  class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="contractDataModel.description" name="contractDataModel.description"
+                  #contractDataModel_Description type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}"
+                  minlength="0" maxlength="500" rows=5 class="form-control validate-name"
+                  id="contractDataModel.description"></textarea>
+                <em>{{ contractDataModel_Description.value.length }} / 500</em>
+              </div>
             </div>
-    
-    
-            <button (click)="onActionOptionAddToList()" type="button"
-              *ngIf="contractTypeSelected && contractTypeSelected.id.length>0"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-              {{'ACTION.Add_To_List' | translate}} ...
+            <br>
+            <br>
+          </div>
+
+
+          <button (click)="onActionOptionAddToList()" type="button"
+            *ngIf="contractTypeSelected && contractTypeSelected.id.length>0"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            {{'ACTION.Add_To_List' | translate}} ...
+          </button>
+          <hr>
+          <p> {{'TITLE.List_Of_Transaction_Details_Of_This_Property' | translate}} </p>
+          <app-progress-spinner [options]="loadingOption">
+          </app-progress-spinner>
+          <!-- TABLE  -->
+          <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
+            <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>
+              <!-- LinkEstateContractTypeId Column -->
+              <ng-container matColumnDef="LinkEstateContractTypeId">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.Contract' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.linkEstateContractTypeId | cmstitle:
+                  dataModelEstateContractTypeResult.listItems}} </mat-cell>
+              </ng-container>
+              <!-- SalePrice Column -->
+              <ng-container matColumnDef="SalePrice">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.SalePrice' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <ng-container *ngIf="row.salePrice>0">
+                    {{row.salePrice | number}}
+                    <br>
+                    ( {{row.currencyTitle}} {{row.currencySymbol}})
+                  </ng-container>
+                  <ng-container *ngIf="row.salePriceByAgreement">
+                    {{'TITLE.PriceByAgreement' | translate}}
+                  </ng-container>
+                </mat-cell>
+              </ng-container>
+              <!-- DepositPrice Column -->
+              <ng-container matColumnDef="DepositPrice">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.DepositPrice' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <ng-container *ngIf="row.depositPrice>0">
+                    {{row.depositPrice | number}}
+                    <br>
+                    ( {{row.currencyTitle}} {{row.currencySymbol}})
+                  </ng-container>
+                  <ng-container *ngIf="row.depositPriceByAgreement">
+                    {{'TITLE.PriceByAgreement' | translate}}
+                  </ng-container>
+                </mat-cell>
+              </ng-container>
+              <!-- RentPrice Column -->
+              <ng-container matColumnDef="RentPrice">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.RentPrice' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <ng-container *ngIf="row.rentPrice>0">
+                    {{row.rentPrice | number}}
+                    <br>
+                    ( {{row.currencyTitle}} {{row.currencySymbol}})
+                  </ng-container>
+                  <ng-container *ngIf="row.rentPriceByAgreement">
+                    {{'TITLE.PriceByAgreement' | translate}}
+                  </ng-container>
+                </mat-cell>
+              </ng-container>
+              <!-- PeriodPrice Column -->
+              <ng-container matColumnDef="PeriodPrice">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.PeriodPrice' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <ng-container *ngIf="row.periodPrice>0">
+                    {{row.periodPrice | number}}
+                    <br>
+                    ( {{row.currencyTitle}} {{row.currencySymbol}})
+                  </ng-container>
+                  <ng-container *ngIf="row.periodPriceByAgreement">
+                    {{'TITLE.PriceByAgreement' | translate}}
+                  </ng-container>
+                </mat-cell>
+              </ng-container>
+
+              <!-- Action Column -->
+              <ng-container matColumnDef="Action">
+                <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let row; let i = index" class='Action'>
+                  <button type="button" mat-icon-button (click)="onActionOptionRemoveFromList(i)"
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
+                    <small>
+                      <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before"
+                        aria-hidden="false" style="color: red;">delete</mat-icon>
+                    </small>
+                  </button>
+                </mat-cell>
+              </ng-container>
+
+              <!-- description Detail -->
+              <ng-container matColumnDef="descriptionDetail">
+                <mat-cell *matCellDef="let row" colspan="6">
+                  {{'TITLE.DESCRIPTION' | translate}} :
+                  <ng-container *ngIf="row.description">
+                    {{ row.description }}
+                  </ng-container>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="optionTabledisplayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: optionTabledisplayedColumns;">
+              </mat-row>
+              <mat-row *matRowDef="let row; columns: ['descriptionDetail']">
+              </mat-row>
+            </mat-table>
+          </div>
+          <!-- TABLE  -->
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
             </button>
-            <hr>
-            <p> {{'TITLE.List_Of_Transaction_Details_Of_This_Property' | translate}} </p>
-            <app-progress-spinner [options]="loadingOption">
-            </app-progress-spinner>
-            <!-- TABLE  -->
-            <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
-              <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>
-                <!-- LinkEstateContractTypeId Column -->
-                <ng-container matColumnDef="LinkEstateContractTypeId">
-                  <mat-header-cell *matHeaderCellDef> {{'TITLE.Contract' | translate}} </mat-header-cell>
-                  <mat-cell *matCellDef="let row"> {{row.linkEstateContractTypeId | cmstitle:
-                    dataModelEstateContractTypeResult.listItems}} </mat-cell>
-                </ng-container>
-                <!-- SalePrice Column -->
-                <ng-container matColumnDef="SalePrice">
-                  <mat-header-cell *matHeaderCellDef> {{'TITLE.SalePrice' | translate}} </mat-header-cell>
-                  <mat-cell *matCellDef="let row">
-                    <ng-container *ngIf="row.salePrice>0">
-                      {{row.salePrice | number}}
-                      <br>
-                      ( {{row.currencyTitle}} {{row.currencySymbol}})
-                    </ng-container>
-                    <ng-container *ngIf="row.salePriceByAgreement">
-                      {{'TITLE.PriceByAgreement' | translate}}
-                    </ng-container>
-                  </mat-cell>
-                </ng-container>
-                <!-- DepositPrice Column -->
-                <ng-container matColumnDef="DepositPrice">
-                  <mat-header-cell *matHeaderCellDef> {{'TITLE.DepositPrice' | translate}} </mat-header-cell>
-                  <mat-cell *matCellDef="let row">
-                    <ng-container *ngIf="row.depositPrice>0">
-                      {{row.depositPrice | number}}
-                      <br>
-                      ( {{row.currencyTitle}} {{row.currencySymbol}})
-                    </ng-container>
-                    <ng-container *ngIf="row.depositPriceByAgreement">
-                      {{'TITLE.PriceByAgreement' | translate}}
-                    </ng-container>
-                  </mat-cell>
-                </ng-container>
-                <!-- RentPrice Column -->
-                <ng-container matColumnDef="RentPrice">
-                  <mat-header-cell *matHeaderCellDef> {{'TITLE.RentPrice' | translate}} </mat-header-cell>
-                  <mat-cell *matCellDef="let row">
-                    <ng-container *ngIf="row.rentPrice>0">
-                      {{row.rentPrice | number}}
-                      <br>
-                      ( {{row.currencyTitle}} {{row.currencySymbol}})
-                    </ng-container>
-                    <ng-container *ngIf="row.rentPriceByAgreement">
-                      {{'TITLE.PriceByAgreement' | translate}}
-                    </ng-container>
-                  </mat-cell>
-                </ng-container>
-                <!-- PeriodPrice Column -->
-                <ng-container matColumnDef="PeriodPrice">
-                  <mat-header-cell *matHeaderCellDef> {{'TITLE.PeriodPrice' | translate}} </mat-header-cell>
-                  <mat-cell *matCellDef="let row">
-                    <ng-container *ngIf="row.periodPrice>0">
-                      {{row.periodPrice | number}}
-                      <br>
-                      ( {{row.currencyTitle}} {{row.currencySymbol}})
-                    </ng-container>
-                    <ng-container *ngIf="row.periodPriceByAgreement">
-                      {{'TITLE.PriceByAgreement' | translate}}
-                    </ng-container>
-                  </mat-cell>
-                </ng-container>
-    
-                <!-- Action Column -->
-                <ng-container matColumnDef="Action">
-                  <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
-                  <mat-cell *matCellDef="let row; let i = index" class='Action'>
-                    <button type="button" mat-icon-button (click)="onActionOptionRemoveFromList(i)"
-                      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
-                      <small>
-                        <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before"
-                          aria-hidden="false" style="color: red;">delete</mat-icon>
-                      </small>
-                    </button>
-                  </mat-cell>
-                </ng-container>
-    
-                <!-- description Detail -->
-                <ng-container matColumnDef="descriptionDetail">
-                  <mat-cell *matCellDef="let row" colspan="6">
-                    {{'TITLE.DESCRIPTION' | translate}} :
-                    <ng-container *ngIf="row.description">
-                      {{ row.description }}
-                    </ng-container>
-                  </mat-cell>
-                </ng-container>
-    
-                <mat-header-row *matHeaderRowDef="optionTabledisplayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: optionTabledisplayedColumns;">
-                </mat-row>
-                <mat-row *matRowDef="let row; columns: ['descriptionDetail']">
-                </mat-row>
-              </mat-table>
-            </div>
-            <!-- TABLE  -->
-            <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-              <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                matStepperPrevious>
-                {{'ACTION.BEFOR' | translate}}
-              </button>
-              <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                [disabled]="!vform.form.valid" *ngIf="this.dataModel.contracts&& this.dataModel.contracts.length>0">
-                {{'ACTION.SAVE' | translate}}
-              </button>
-            </div>
-          </mat-step>
-    
-    
-    
-          <!-- Icon overrides. -->
-          <ng-template matStepperIcon="main">
-            <mat-icon>call_end</mat-icon>
-          </ng-template>
-          <ng-template matStepperIcon="seo">
-            <mat-icon>call_end</mat-icon>
-          </ng-template>
-          <ng-template matStepperIcon="file">
-            <mat-icon>forum</mat-icon>
-          </ng-template>
-          <ng-template matStepperIcon="loaction">
-            <mat-icon>forum</mat-icon>
-          </ng-template>
-    
-        </mat-vertical-stepper>
-      </form>
-      <!--Content-->
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid" *ngIf="this.dataModel.contracts&& this.dataModel.contracts.length>0">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
+
+
+
+        <!-- Icon overrides. -->
+        <ng-template matStepperIcon="main">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="seo">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="file">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="loaction">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+
+      </mat-vertical-stepper>
+    </form>
+    <!--Content-->
   </div>
 </div>

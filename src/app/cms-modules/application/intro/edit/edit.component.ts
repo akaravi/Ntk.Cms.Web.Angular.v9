@@ -7,14 +7,13 @@ import {
   AccessModel, ApplicationEnumService,
   ApplicationIntroModel,
   ApplicationIntroService, ApplicationSourceModel, CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-aplication-intro-edit',
@@ -43,7 +42,7 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
-  
+
   dataModel = new ApplicationIntroModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 

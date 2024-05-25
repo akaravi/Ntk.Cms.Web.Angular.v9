@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-auth-singin',
   templateUrl: './singin.component.html',
-  styleUrls: ['./singin.component.scss'],
+
 })
 export class AuthSingInComponent implements OnInit {
   constructor(
@@ -35,7 +35,7 @@ export class AuthSingInComponent implements OnInit {
       this.connectionStatus = value.connectionStatus;
     });
   }
-  loadDemoTheme=environment.loadDemoTheme;
+  loadDemoTheme = environment.loadDemoTheme;
   connectionStatus = new ConnectionStatusModel();
   firstRun = true;
   hidePassword = true;

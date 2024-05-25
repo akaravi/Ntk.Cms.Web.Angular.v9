@@ -6,22 +6,23 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreLogErrorModel, CoreLogErrorService, CoreSiteModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  CoreLogErrorModel, CoreLogErrorService, CoreSiteModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CoreLogErrorEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
+import { CoreLogErrorEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-core-log-error-list',
   templateUrl: './list.component.html',
 })
 export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorService, CoreLogErrorModel, string>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
   constructor(
@@ -37,7 +38,7 @@ implements OnInit, OnDestroy {
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogErrorModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreLogErrorModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
@@ -136,6 +137,8 @@ implements OnInit, OnDestroy {
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -182,7 +185,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonEditRow(model: CoreLogErrorModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogErrorModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -215,7 +218,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLogErrorModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogErrorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -268,8 +271,8 @@ implements OnInit, OnDestroy {
       );
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -319,7 +322,7 @@ implements OnInit, OnDestroy {
 
   }
 
-  onActionbuttonViewUserRow(model: CoreLogErrorModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogErrorModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -333,7 +336,7 @@ implements OnInit, OnDestroy {
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreLogErrorModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreLogErrorModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -351,7 +354,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

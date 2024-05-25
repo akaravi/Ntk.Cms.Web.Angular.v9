@@ -2,36 +2,30 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult,
+  ErrorExceptionResult,
   FilterDataModel,
   FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum, TicketingAnswerModel,
-  TicketingAnswerService, TicketingDepartemenModel, TicketingEnumService, TokenInfoModel
+  TicketingAnswerService, TicketingDepartemenModel, TicketingEnumService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { TicketingAnswerAddComponent } from '../add/add.component';
 import { TicketingAnswerEditComponent } from '../edit/edit.component';
 import { TicketingAnswerViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-ticketing-answer-list',
   templateUrl: './list.component.html'
 })
-export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAnswerService, TicketingAnswerModel,number> implements OnInit, OnDestroy {
+export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAnswerService, TicketingAnswerModel, number> implements OnInit, OnDestroy {
   requestLinkTaskId = 0;
   constructor(
     public contentService: TicketingAnswerService,
@@ -46,7 +40,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new TicketingAnswerModel(), publicHelper,tokenHelper);
+    super(contentService, new TicketingAnswerModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -139,6 +133,8 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
           this.dataModelResult = next;
           this.tableSource.data = next.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(next.access);
           }
@@ -188,7 +184,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (this.categoryModelSelected == null &&
       (this.categoryModelSelected && this.categoryModelSelected.id === 0) && (
         this.requestLinkTaskId == null ||
@@ -217,7 +213,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
       }
     });
   }
-  onActionbuttonViewRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
+  onActionButtonViewRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -253,7 +249,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
 
     this.DataGetAll();
   }
-  onActionbuttonEditRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
+  onActionButtonEditRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -288,7 +284,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
 
 
   }
-  onActionbuttonDeleteRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: TicketingAnswerModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -335,8 +331,8 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -384,7 +380,7 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

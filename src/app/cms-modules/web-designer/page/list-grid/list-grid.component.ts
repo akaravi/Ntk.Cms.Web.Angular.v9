@@ -3,27 +3,26 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreSiteCategoryModel,
-  CoreSiteCategoryService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel, WebDesignerMainPageModel,
+  CoreSiteCategoryService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum,
+  WebDesignerMainPageModel,
   WebDesignerMainPageService, WebDesignerMainPageTemplateModel,
   WebDesignerMainPageTemplateService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { environment } from 'src/environments/environment';
 import { WebDesignerMainPageAddComponent } from '../add/add.component';
 import { WebDesignerMainPageEditComponent } from '../edit/edit.component';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-webdesigner-page-list-grid',
   templateUrl: './list-grid.component.html',
@@ -46,7 +45,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new WebDesignerMainPageModel(), publicHelper,tokenHelper);
+    super(contentService, new WebDesignerMainPageModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId')) {
       this.requestLinkPageTemplateGuId = this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId');
@@ -90,7 +89,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
   flag = false;
   tableContentSelected = [];
   filteModelContent = new FilterModel();
- dataModelWebDesignerMainPageTemplateResult: ErrorExceptionResult<WebDesignerMainPageTemplateModel> = new ErrorExceptionResult<WebDesignerMainPageTemplateModel>();
+  dataModelWebDesignerMainPageTemplateResult: ErrorExceptionResult<WebDesignerMainPageTemplateModel> = new ErrorExceptionResult<WebDesignerMainPageTemplateModel>();
   dataModelCoreSiteCategoryResult: ErrorExceptionResult<CoreSiteCategoryModel> = new ErrorExceptionResult<CoreSiteCategoryModel>();
   tabledisplayedColumns: string[] = [
     'ThumbnailImageSrc',
@@ -151,6 +150,8 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
           this.dataModelResult = next;
           this.tableSource.data = next.listItems;
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(next.access);
           }
@@ -190,7 +191,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -217,7 +218,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
       }
     });
   }
-  onActionbuttonEditRow(model: WebDesignerMainPageModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: WebDesignerMainPageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -249,7 +250,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
       }
     });
   }
-  onActionbuttonDeleteRow(model: WebDesignerMainPageModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: WebDesignerMainPageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -295,7 +296,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
       }
       );
   }
-  onActionbuttonGoToSiteCategoryList(model: WebDesignerMainPageModel = this.tableRowSelected): void {
+  onActionButtonGoToSiteCategoryList(model: WebDesignerMainPageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -304,8 +305,8 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/siteSiteCategory/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -348,7 +349,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     );
 
   }
-  onActionbuttonHtmlEditor(model: WebDesignerMainPageModel = this.tableRowSelected): void {
+  onActionButtonHtmlEditor(model: WebDesignerMainPageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -366,7 +367,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     // const urlTemplate = environment.cmsServerConfig.configHtmlBuilderServerPath + 'htmlbuilder/?id=' + model.id + '&token=' + encodeURIComponent(this.tokenInfo.token);
     window.open(model.htmlBuilderUrl, '_blank');
   }
-  onActionbuttonHtmlView(model: WebDesignerMainPageModel = this.tableRowSelected): void {
+  onActionButtonHtmlView(model: WebDesignerMainPageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -383,7 +384,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     }
     window.open(this.dataModelResult.item.htmlPreviewByMasterUrl, '_blank');
   }
-  onActionbuttonSiteRouteView(model: WebDesignerMainPageModel = this.tableRowSelected): void {
+  onActionButtonSiteRouteView(model: WebDesignerMainPageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -413,7 +414,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     );
 
   }
-  onActionbuttonHtmlViewWithOutParent(model: WebDesignerMainPageModel = this.tableRowSelected): void {
+  onActionButtonHtmlViewWithOutParent(model: WebDesignerMainPageModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -433,7 +434,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

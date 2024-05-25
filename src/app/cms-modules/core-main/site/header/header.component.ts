@@ -7,7 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreSiteModel,
   CoreSiteService,
-  DataFieldInfoModel, ErrorExceptionResult, InfoEnumModel, RecordStatusEnum
+  DataFieldInfoModel, ErrorExceptionResult,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -78,7 +79,7 @@ export class CoreSiteHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: CoreSiteModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: CoreSiteModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id > 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

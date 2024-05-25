@@ -3,35 +3,30 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreCurrencyModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsLogOutBoxTaskSchedulerModel,
+  CoreCurrencyModel,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsLogOutBoxTaskSchedulerModel,
   SmsLogOutBoxTaskSchedulerService, SmsMainApiPathModel,
-  SmsMainApiPathService, SortTypeEnum, TokenInfoModel
+  SmsMainApiPathService, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { SmsLogOutBoxTaskSchedulerEditComponent } from '../edit/edit.component';
 import { SmsLogOutBoxTaskSchedulerViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-sms-log-outbox-task-scheduler-list',
   templateUrl: './list.component.html'
 })
-export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< SmsLogOutBoxTaskSchedulerService, SmsLogOutBoxTaskSchedulerModel, string> implements OnInit, OnDestroy {
+export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<SmsLogOutBoxTaskSchedulerService, SmsLogOutBoxTaskSchedulerModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
   constructor(
     public contentService: SmsLogOutBoxTaskSchedulerService,
@@ -46,7 +41,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsLogOutBoxTaskSchedulerModel(), publicHelper,tokenHelper);
+    super(contentService, new SmsLogOutBoxTaskSchedulerModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -156,6 +151,8 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -201,7 +198,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
   }
 
 
-  onActionbuttonEditRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -216,10 +213,10 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsLogOutBoxTaskSchedulerEditComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -235,7 +232,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
     // this.router.navigate(['/sms/main/api-path/edit', this.tableRowSelected.id]);
 
   }
-  onActionbuttonDeleteRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -287,7 +284,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
 
   }
 
-  onActionbuttonViewRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -302,10 +299,10 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsLogOutBoxTaskSchedulerViewComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -331,8 +328,8 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
     this.DataGetAll();
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -381,7 +378,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
     );
 
   }
-  onActionbuttonSuperSedersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonSuperSedersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -400,7 +397,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonMustSuperSedersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonMustSuperSedersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -419,7 +416,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonNumbersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonNumbersList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -438,7 +435,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonPermitionList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonPermitionList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -457,7 +454,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
     }
     this.router.navigate(['/sms/main/api-path-permission/LinkApiPathId', this.tableRowSelected.id]);
   }
-  onActionbuttonPriceServicesList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
+  onActionButtonPriceServicesList(model: SmsLogOutBoxTaskSchedulerModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -480,7 +477,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent< S
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

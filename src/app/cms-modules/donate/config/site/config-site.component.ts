@@ -10,7 +10,9 @@ import {
   DataFieldInfoModel, DonateConfigurationService,
   DonateModuleConfigSiteAccessValuesModel,
   DonateModuleConfigSiteValuesModel,
-  DonateModuleSiteStorageValuesModel, ErrorExceptionResult, FormInfoModel, InfoEnumModel, TokenInfoModel
+  DonateModuleSiteStorageValuesModel,
+  FormInfoModel,
+  TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
@@ -78,7 +80,9 @@ export class DonateConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

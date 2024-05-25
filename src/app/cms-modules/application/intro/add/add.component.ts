@@ -11,7 +11,7 @@ import {
   ApplicationIntroService,
   CoreEnumService,
   DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
+  FormInfoModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
@@ -32,7 +32,7 @@ export class ApplicationIntroAddComponent extends AddBaseComponent<ApplicationIn
     private cdr: ChangeDetectorRef,
     private router: Router,
     public publicHelper: PublicHelper,) {
-      super(applicationIntroService, new ApplicationIntroModel(), publicHelper);
+    super(applicationIntroService, new ApplicationIntroModel(), publicHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

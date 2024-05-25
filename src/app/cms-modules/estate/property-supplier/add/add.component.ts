@@ -11,7 +11,8 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult, EstatePropertySupplierModel,
-  EstatePropertySupplierService, FormInfoModel} from 'ntk-cms-api';
+  EstatePropertySupplierService, FormInfoModel
+} from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';

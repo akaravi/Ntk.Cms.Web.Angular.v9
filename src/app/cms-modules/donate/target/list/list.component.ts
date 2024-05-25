@@ -3,31 +3,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel,
   DonateTargetCategoryModel, DonateTargetModel,
-  DonateTargetService, ErrorExceptionResult,
+  DonateTargetService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DonateTargetAddComponent } from '../add/add.component';
 import { DonateTargetDeleteComponent } from '../delete/delete.component';
 import { DonateTargetEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-donate-target-list',
@@ -47,7 +40,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DonateTargetModel(), publicHelper,tokenHelper);
+    super(contentService, new DonateTargetModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),
@@ -64,7 +57,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
   }
   filteModelContent = new FilterModel();
   categoryModelSelected: DonateTargetCategoryModel;
-  
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
@@ -117,6 +110,8 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -175,7 +170,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -208,7 +203,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     });
   }
 
-  onActionbuttonEditRow(model: DonateTargetModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -238,7 +233,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
       }
     });
   }
-  onActionbuttonDeleteRow(model: DonateTargetModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -259,11 +254,12 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     else
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(DonateTargetDeleteComponent, {
-       height: '40%',
-       panelClass: panelClass,
+      height: '40%',
+      panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-        data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
       if (result && result.dialogChangedDate) {
@@ -272,8 +268,8 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     });
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -326,7 +322,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -338,7 +334,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
   }
 
 
-  onActionbuttonTargetPeriodList(model: DonateTargetModel = this.tableRowSelected): void {
+  onActionButtonTargetPeriodList(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -349,7 +345,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     this.router.navigate(['/donate/target-period/LinkTargeId/' + model.id]);
   }
 
-  onActionbuttonViewRow(model: DonateTargetModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: DonateTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

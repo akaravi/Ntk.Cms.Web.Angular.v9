@@ -3,31 +3,25 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ArticleCategoryModel,
   ArticleContentModel,
-  ArticleContentService, ClauseTypeEnum, DataFieldInfoModel, RecordStatusEnum, SortTypeEnum,
-  ErrorExceptionResult,
+  ArticleContentService, ClauseTypeEnum,
   FilterDataModel,
-  FilterModel, TokenInfoModel
+  FilterModel,
+  RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { ArticleContentDeleteComponent } from '../delete/delete.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-article-content-list',
   templateUrl: './list.component.html',
@@ -46,7 +40,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     public tokenHelper: TokenHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ArticleContentModel(), publicHelper,tokenHelper);
+    super(contentService, new ArticleContentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -124,6 +118,8 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -168,6 +164,8 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -223,7 +221,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(event?: MouseEvent): void {
+  onActionButtonNewRow(event?: MouseEvent): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -248,7 +246,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
       this.router.navigate(['/article/content/add', this.categoryModelSelected.id]);
     }
   }
-  onActionbuttonEditRow(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditRow(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -270,7 +268,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
       this.router.navigate(['/article/content/edit', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonDeleteRow(model: ArticleContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ArticleContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -304,8 +302,8 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
       }
     });
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -356,12 +354,12 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -372,7 +370,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     this.DataGetAll();
   }
 
-  onActionbuttonComment(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonComment(model: ArticleContentModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
       return;
@@ -385,7 +383,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
       this.router.navigate(['/article/comment/', model.id]);
     }
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: ArticleContentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

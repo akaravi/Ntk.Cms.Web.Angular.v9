@@ -5,7 +5,8 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, InfoEnumModel, NewsContentModel,
+  DataFieldInfoModel, ErrorExceptionResult,
+  NewsContentModel,
   NewsContentService, RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -78,7 +79,7 @@ export class NewsContentHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: NewsContentModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: NewsContentModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

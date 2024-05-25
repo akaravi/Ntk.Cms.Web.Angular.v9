@@ -3,35 +3,30 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, CoreLocationModel,
-  CoreLocationService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreLocationService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreLocationAddBulkComponent } from '../add-bulk/add-bulk.component';
 import { CoreLocationAddComponent } from '../add/add.component';
 import { CoreLocationEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-location-list',
   templateUrl: './list.component.html',
 })
 export class CoreLocationListComponent extends ListBaseComponent<CoreLocationService, CoreLocationModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: CoreLocationService,
     private coreEnumService: CoreEnumService,
@@ -44,7 +39,7 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreLocationModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreLocationModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -62,7 +57,7 @@ implements OnInit, OnDestroy {
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
- 
+
   dataModelEnumLocationTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 
@@ -129,6 +124,8 @@ implements OnInit, OnDestroy {
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -186,7 +183,7 @@ implements OnInit, OnDestroy {
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -214,7 +211,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonNewRowBulk(): void {
+  onActionButtonNewRowBulk(): void {
 
     if (
       this.dataModelResult == null ||
@@ -242,7 +239,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonEditRow(model: CoreLocationModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLocationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -275,7 +272,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLocationModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLocationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -328,7 +325,7 @@ implements OnInit, OnDestroy {
   }
 
 
-  onActionbuttonGoToSiteCategoryList(model: CoreLocationModel = this.tableRowSelected): void {
+  onActionButtonGoToSiteCategoryList(model: CoreLocationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -338,8 +335,8 @@ implements OnInit, OnDestroy {
 
     this.router.navigate(['/core/siteSiteCategory/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -392,7 +389,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -9,6 +9,7 @@ import {
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModuleSaleItemAddComponent } from './Item/add/add.component';
 import { CoreModuleSaleItemEditComponent } from './Item/edit/edit.component';
@@ -43,7 +44,6 @@ import { CoreModuleSaleSerialHeaderComponent } from './serial/header/header.comp
 import { CoreModuleSaleSerialListComponent } from './serial/list/list.component';
 import { CoreModuleSaleSerialSelectorComponent } from './serial/selector/selector.component';
 import { CoreModuleSaleSerialTreeComponent } from './serial/tree/tree.component';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 
 @NgModule({
   declarations: [

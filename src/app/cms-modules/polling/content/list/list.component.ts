@@ -2,37 +2,30 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult,
   FilterDataModel,
   FilterModel,
   PollingCategoryModel,
   PollingContentModel,
-  PollingContentService, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  PollingContentService, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { PollingContentDeleteComponent } from '../delete/delete.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-polling-content-list',
   templateUrl: './list.component.html',
   styleUrls: ["./list.component.scss"],
 })
-export class PollingContentListComponent extends ListBaseComponent< PollingContentService, PollingContentModel, number> implements OnInit, OnDestroy {
+export class PollingContentListComponent extends ListBaseComponent<PollingContentService, PollingContentModel, number> implements OnInit, OnDestroy {
 
   constructor(
     public contentService: PollingContentService,
@@ -45,7 +38,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new PollingContentModel(), publicHelper,tokenHelper);
+    super(contentService, new PollingContentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -113,6 +106,8 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -171,7 +166,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -191,7 +186,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
     this.router.navigate(['/polling/content/add', this.categoryModelSelected.id]);
   }
 
-  onActionbuttonEditRow(model: PollingContentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: PollingContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -207,7 +202,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
     }
     this.router.navigate(['/polling/content/edit', this.tableRowSelected.id]);
   }
-  onActionbuttonDeleteRow(model: PollingContentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: PollingContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -223,24 +218,25 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(PollingContentDeleteComponent, {
-       height: '90%',
-       panelClass: panelClass,
+      height: '90%',
+      panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-       data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         this.DataGetAll();
       }
     });
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -292,7 +288,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -305,7 +301,7 @@ export class PollingContentListComponent extends ListBaseComponent< PollingConte
 
 
 
-  onActionbuttonResults(model: PollingContentModel = this.tableRowSelected): void {
+  onActionButtonResults(model: PollingContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

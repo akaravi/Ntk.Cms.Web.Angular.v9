@@ -28,14 +28,16 @@
       *ngIf="dataModel.email?.length>0 &&!dataModel.emailConfirmed">
       <div class="card card-style mx-0 mb-2 p-3">
         <h6 class="font-14">نیاز به تایید ایمیل</h6>
-        <h3 class="color-red-dark mb-0">برای تایید کلیک کنید</h3>
+        <h3 class="color-red-dark mb-0" style="cursor:pointer;" (click)="onActionButtonEmailConfirm()">برای تایید کلیک
+          کنید</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4"
-      *ngIf="dataModel.mobile?.length>0 &&!dataModel.mobileConfirmed">
+      *ngIf="(dataModel.mobile?.length>0 &&!dataModel.mobileConfirmed)">
       <div class="card card-style mx-0 mb-2 p-3">
         <h6 class="font-14">نیاز به تایید شماره همراه</h6>
-        <h3 class="color-red-dark mb-0">برای تایید کلیک کنید</h3>
+        <h3 class="color-red-dark mb-0" style="cursor:pointer;" (click)="onActionButtonMobileConfirm()">برای تایید کلیک
+          کنید</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4" *ngIf="dataModel.expireDate">

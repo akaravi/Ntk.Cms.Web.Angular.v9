@@ -5,114 +5,118 @@
             {{ formInfo.formTitle }}
         </p>
         <h4>اطلاعات</h4>
-        
+
         <p>
             اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
             فقط یک صفحه ساختگی است.
         </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-                <!-- RecordStatus Field -->
-                <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
-                    [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-                    [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
-                    [optionSelectFirstItem]="true">
-                </app-cms-enum-record-status-selector>
-                <!-- Title Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
-                    <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
-                        placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" required />
-                    <em  >{{ Title.value.length }} / 100</em>
-                    <mat-error *ngIf="Title.errors?.required">
-                        {{fieldsInfo['title']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
-                    </mat-error>
-                </div>
+            <!-- RecordStatus Field -->
+            <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
+                [(model)]="dataModel.recordStatus" [optionDisabled]="false"
+                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+                [optionSelectFirstItem]="true">
+            </app-cms-enum-record-status-selector>
+            <!-- Title Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.title" class="color-highlight">{{fieldsInfo['title']?.fieldTitle}}</label>
+                <input matInput [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+                    placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3" maxlength="100"
+                    class="form-control validate-name" id="dataModel.title" required />
+                <em>{{ Title.value.length }} / 100</em>
+                <mat-error *ngIf="Title.errors?.required">
+                    {{fieldsInfo['title']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
 
-                <!-- TitleResourceLanguage Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataModel.titleResourceLanguage" class="color-highlight">{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}</label>
-                    <input matInput [(ngModel)]="dataModel.titleResourceLanguage" name="dataModel.titleResourceLanguage"
-                        #TitleResourceLanguage type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
-                        maxlength="100" required [disabled]="!fieldsInfo['titleResourceLanguage']?.accessAddField" class="form-control validate-name" id="dataModel.titleResourceLanguage" />
-                    <em  >{{ TitleResourceLanguage.value.length }} / 100</em>
-                    <mat-error *ngIf="TitleResourceLanguage.errors?.required">
-                        {{fieldsInfo['titleResourceLanguage']?.fieldTitle}} is <strong>{{'MESSAGE.required' |
-                            translate}}</strong>
-                    </mat-error>
-                </div>
-                <!-- ActionType Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <select [(ngModel)]="dataModel.actionType" id="dataModel.actionType"
-                        name="dataModel.actionType" #ActionType="ngModel" class="form-control validate-name"
-                        required>
-                        <option *ngFor="
+            <!-- TitleResourceLanguage Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.titleResourceLanguage"
+                    class="color-highlight">{{fieldsInfo['titleResourceLanguage']?.fieldTitle}}</label>
+                <input matInput [(ngModel)]="dataModel.titleResourceLanguage" name="dataModel.titleResourceLanguage"
+                    #TitleResourceLanguage type="text" placeholder="{{fieldsInfo['title']?.fieldTitle}}" minlength="3"
+                    maxlength="100" required [disabled]="!fieldsInfo['titleResourceLanguage']?.accessAddField"
+                    class="form-control validate-name" id="dataModel.titleResourceLanguage" />
+                <em>{{ TitleResourceLanguage.value.length }} / 100</em>
+                <mat-error *ngIf="TitleResourceLanguage.errors?.required">
+                    {{fieldsInfo['titleResourceLanguage']?.fieldTitle}} is <strong>{{'MESSAGE.required' |
+                        translate}}</strong>
+                </mat-error>
+            </div>
+            <!-- ActionType Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <select [(ngModel)]="dataModel.actionType" id="dataModel.actionType" name="dataModel.actionType"
+                    #ActionType="ngModel" class="form-control validate-name" required>
+                    <option *ngFor="
                         let item of dataModelEnumUserClaimGroupActionTypeResult.listItems;
                         index as i
                     " [value]="item.value">{{ item.description }}</option>
-                    </select>
-                    <em  >{{'TITLE.Select_type_of_content' | translate}}</em>
-                    <mat-error *ngIf="ActionType.errors?.required">
-                        ActionType is <strong>{{'MESSAGE.required' | translate}}</strong>
-                    </mat-error>
-                </div>
-                <hr>
-                <!-- LinkModuleId Field -->
-                <app-cms-module-selector (optionChange)="onActionSelectModuleId($event)" [(optionLoading)]="loading"
-                    [optionSelectForce]="this.dataModel.linkModuleId"
-                    [optionPlaceholder]="this.translate.instant('TITLE.MODULE')"
-                    [optionDisabled]="!fieldsInfo['linkModuleId']?.accessEditField">
-                </app-cms-module-selector>
+                </select>
+                <em>{{'TITLE.Select_type_of_content' | translate}}</em>
+                <mat-error *ngIf="ActionType.errors?.required">
+                    ActionType is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <hr>
+            <!-- LinkModuleId Field -->
+            <app-cms-module-selector (optionChange)="onActionSelectModuleId($event)" [(optionLoading)]="loading"
+                [optionSelectForce]="this.dataModel.linkModuleId"
+                [optionPlaceholder]="this.translate.instant('TITLE.MODULE')"
+                [optionDisabled]="!fieldsInfo['linkModuleId']?.accessEditField">
+            </app-cms-module-selector>
 
 
-                <!-- LinkSiteCategoryId Field -->
-                <app-cms-sitecategory-selector (optionChange)="onActionSelectSiteCategory($event)" [(optionLoading)]="loading"
-                    [optionSelectForce]="this.dataModel.linkSiteCategoryId"
-                    [optionPlaceholder]="this.translate.instant('TITLE.SITE_CATEGORY')"
-                    [optionDisabled]="!fieldsInfo['linkSiteCategoryId']?.accessEditField">
-                </app-cms-sitecategory-selector>
+            <!-- LinkSiteCategoryId Field -->
+            <app-cms-sitecategory-selector (optionChange)="onActionSelectSiteCategory($event)"
+                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkSiteCategoryId"
+                [optionPlaceholder]="this.translate.instant('TITLE.SITE_CATEGORY')"
+                [optionDisabled]="!fieldsInfo['linkSiteCategoryId']?.accessEditField">
+            </app-cms-sitecategory-selector>
 
-                <!-- LinkUserGroupId Field -->
-                <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)" [(optionLoading)]="loading"
-                    [optionSelectForce]="this.dataModel.linkUserGroupId"
-                    [optionPlaceholder]="this.translate.instant('TITLE.User_Group')"
-                    [optionDisabled]="!fieldsInfo['linkUserGroupId']?.accessEditField">
-                </app-cms-usergroup-selector>
+            <!-- LinkUserGroupId Field -->
+            <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)" [(optionLoading)]="loading"
+                [optionSelectForce]="this.dataModel.linkUserGroupId"
+                [optionPlaceholder]="this.translate.instant('TITLE.User_Group')"
+                [optionDisabled]="!fieldsInfo['linkUserGroupId']?.accessEditField">
+            </app-cms-usergroup-selector>
 
-                <!-- LinkApplicationId Field -->
-                <app-cms-application-selector (optionChange)="onActionSelectApplication($event)" [(optionLoading)]="loading"
-                    [optionSelectForce]="this.dataModel.linkApplicationId"
-                    [optionPlaceholder]="this.translate.instant('TITLE.Application')"
-                    [optionDisabled]="!fieldsInfo['linkApplicationId']?.accessEditField">
-                </app-cms-application-selector>
+            <!-- LinkApplicationId Field -->
+            <app-cms-application-selector (optionChange)="onActionSelectApplication($event)" [(optionLoading)]="loading"
+                [optionSelectForce]="this.dataModel.linkApplicationId"
+                [optionPlaceholder]="this.translate.instant('TITLE.Application')"
+                [optionDisabled]="!fieldsInfo['linkApplicationId']?.accessEditField">
+            </app-cms-application-selector>
 
 
-                <!-- LinkApplicationSourceId Field -->
-                <app-cms-application-selector (optionChange)="onActionSelectApplicationSource($event)"
-                    [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkApplicationSourceId"
-                    [optionPlaceholder]="this.translate.instant('TITLE.Application_Source')"
-                    [optionDisabled]="!fieldsInfo['linkApplicationSourceId']?.accessEditField">
-                </app-cms-application-selector>
-                <!-- Description Field -->
-                <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                    <label for="dataModel.description" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
-                    <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
-                        placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500" rows=5 class="form-control validate-name" id="dataModel.description"></textarea>
-                    <em  >{{ Description.value.length }} / 500</em>
-                    <mat-error *ngIf="Description.errors?.required">
-                        {{fieldsInfo['description']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
-                    </mat-error>
-                </div>
-                <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-                    <button type="button" (click)="onFormCancel()"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-                        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-                    </button>
-                    <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                        (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-                        <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-                    </button>
-                </div>
+            <!-- LinkApplicationSourceId Field -->
+            <app-cms-application-selector (optionChange)="onActionSelectApplicationSource($event)"
+                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkApplicationSourceId"
+                [optionPlaceholder]="this.translate.instant('TITLE.Application_Source')"
+                [optionDisabled]="!fieldsInfo['linkApplicationSourceId']?.accessEditField">
+            </app-cms-application-selector>
+            <!-- Description Field -->
+            <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                <label for="dataModel.description"
+                    class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>
+                <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description
+                    type="text" placeholder="{{fieldsInfo['description']?.fieldTitle}}" minlength="1" maxlength="500"
+                    rows=5 class="form-control validate-name" id="dataModel.description"></textarea>
+                <em>{{ Description.value.length }} / 500</em>
+                <mat-error *ngIf="Description.errors?.required">
+                    {{fieldsInfo['description']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                </mat-error>
+            </div>
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+                <button type="button" (click)="onFormCancel()"
+                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+                    <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+                </button>
+                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+                    (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+                    <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+                </button>
+            </div>
         </form>
         <!--Content-->
     </div>

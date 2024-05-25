@@ -3,32 +3,28 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  ActionGoStepEnum, CoreEnumService, DataFieldInfoModel, EditStepDtoModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel, WebDesignerMainMenuModel,
+  ActionGoStepEnum, CoreEnumService,
+  EditStepDtoModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum,
+  WebDesignerMainMenuModel,
   WebDesignerMainMenuService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { WebDesignerMainMenuAddComponent } from '../add/add.component';
 import { WebDesignerMainMenuEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-webdesigner-menu-list',
   templateUrl: './list.component.html',
 })
-export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesignerMainMenuService, WebDesignerMainMenuModel, string> implements OnInit, OnDestroy {
+export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesignerMainMenuService, WebDesignerMainMenuModel, string> implements OnInit, OnDestroy {
   constructor(
     public contentService: WebDesignerMainMenuService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -40,7 +36,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new WebDesignerMainMenuModel(), publicHelper,tokenHelper);
+    super(contentService, new WebDesignerMainMenuModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -115,6 +111,8 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -189,7 +187,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -199,10 +197,10 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(WebDesignerMainMenuAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -216,7 +214,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
       }
     });
   }
-  onActionbuttonEditRow(model: WebDesignerMainMenuModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: WebDesignerMainMenuModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -231,10 +229,10 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(WebDesignerMainMenuEditComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -248,7 +246,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
       }
     });
   }
-  onActionbuttonDeleteRow(mode: WebDesignerMainMenuModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: WebDesignerMainMenuModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id.length === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -293,8 +291,8 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -342,7 +340,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent< WebDesi
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.filteModelContent.sortColumn = 'ShowInMenuOrder';
     this.DataGetAll();
   }

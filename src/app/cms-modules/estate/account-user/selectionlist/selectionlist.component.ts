@@ -2,7 +2,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { CoreEnumService, ErrorExceptionResult, EstateAccountUserFilterModel, EstateAccountUserModel, EstateAccountUserService, FilterModel } from 'ntk-cms-api';
+import { CoreEnumService, ErrorExceptionResult, EstateAccountUserFilterModel, EstateAccountUserModel, EstateAccountUserService } from 'ntk-cms-api';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 

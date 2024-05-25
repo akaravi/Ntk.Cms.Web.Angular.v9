@@ -11,14 +11,15 @@ import { TranslateService } from '@ngx-translate/core';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
-  AccessModel, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FileCategoryModel, FileContentModel,
-  FileContentService, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  AccessModel, CoreEnumService,
+  ErrorExceptionResultBase, FileCategoryModel, FileContentModel,
+  FileContentService, FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -28,7 +29,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   ]
 })
 export class FileContentEditComponent extends EditBaseComponent<FileContentService, FileContentModel, number>
-implements OnInit, AfterViewInit {
+  implements OnInit, AfterViewInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -39,7 +40,8 @@ implements OnInit, AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(fileContentService, new FileContentModel(), publicHelper);
+  ) {
+    super(fileContentService, new FileContentModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -54,7 +56,7 @@ implements OnInit, AfterViewInit {
   similarTabledisplayedColumns = ['Id', 'RecordStatus', 'Title', 'Action'];
   similarTabledataSource = new MatTableDataSource<FileContentModel>();
 
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -67,7 +69,7 @@ implements OnInit, AfterViewInit {
   keywordDataModel = [];
   tagIdsData: number[];
   dataAccessModel: AccessModel;
-  
+
 
 
   appLanguage = 'fa';

@@ -6,7 +6,8 @@ import {
   AccessModel, ApplicationSourceModel, CaptchaModel, CoreAuthService, CoreEnumService,
   DataFieldInfoModel, ErrorExceptionResult,
   FormInfoModel, FormSubmitedStatusEnum, TicketingTaskDtoModel, TicketingTaskModel,
-  TicketingTaskService, TicketingTemplateModel} from 'ntk-cms-api';
+  TicketingTaskService, TicketingTemplateModel
+} from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
@@ -18,7 +19,6 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-ticketing-task-contactus',
   templateUrl: './contact-us-add.component.html',
-  styleUrls: ['./contact-us-add.component.scss']
 })
 export class TicketingTaskContactUsAddComponent extends AddBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit {
   requestLinkDepartemenId = 0;
@@ -33,7 +33,7 @@ export class TicketingTaskContactUsAddComponent extends AddBaseComponent<Ticketi
     private router: Router,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef) {
-      super(ticketingTaskService, new TicketingTaskModel(), publicHelper);
+    super(ticketingTaskService, new TicketingTaskModel(), publicHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -64,7 +64,7 @@ export class TicketingTaskContactUsAddComponent extends AddBaseComponent<Ticketi
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerOpenForm = false;
   appLanguage = 'fa';
-
+  templateItemCount=0;
   fileManagerTree: TreeModel;
   mapMarker: any;
   mapOptonCenter = new PoinModel();
@@ -91,7 +91,9 @@ export class TicketingTaskContactUsAddComponent extends AddBaseComponent<Ticketi
     this.DataAddContent();
   }
 
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');

@@ -12,7 +12,7 @@ import {
   ApplicationSourceSiteCategoryService,
   CoreEnumService,
   CoreSiteCategoryModel,
-  DataFieldInfoModel, ErrorExceptionResult,
+  ErrorExceptionResult,
   ErrorExceptionResultBase,
   FilterDataModel,
   FilterModel,
@@ -21,7 +21,6 @@ import {
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -43,7 +42,7 @@ export class ApplicationSourceEditComponent extends EditBaseComponent<Applicatio
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private router: Router) {
-      super(contentService, new ApplicationSourceModel(), publicHelper);
+    super(contentService, new ApplicationSourceModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -52,10 +51,10 @@ export class ApplicationSourceEditComponent extends EditBaseComponent<Applicatio
   requestId = 0;
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
-  
+
   dataModel = new ApplicationSourceModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 

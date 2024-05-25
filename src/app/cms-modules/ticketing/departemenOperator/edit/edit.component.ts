@@ -5,16 +5,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, ApplicationSourceModel, CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TicketingDepartemenOperatorModel,
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum, TicketingDepartemenOperatorModel,
   TicketingDepartemenOperatorService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -24,7 +23,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss']
 })
 export class TicketingDepartemenOperatorEditComponent extends EditBaseComponent<TicketingDepartemenOperatorService, TicketingDepartemenOperatorModel, number>
-implements OnInit {
+  implements OnInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -35,15 +34,16 @@ implements OnInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(ticketingDepartemenOperatorService, new TicketingDepartemenOperatorModel(), publicHelper);
+  ) {
+    super(ticketingDepartemenOperatorService, new TicketingDepartemenOperatorModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
 
-  
+
+
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   dataModel = new TicketingDepartemenOperatorModel();

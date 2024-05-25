@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { ApplicationAppService, ApplicationMemberInfoService, ArticleContentService, BiographyContentService, BlogContentService, CatalogContentService, ChartContentService, CoreConfigurationService, CoreCpMainMenuService, CoreModuleLogReportAbuseService, CoreModuleSiteCreditService, CoreSiteService, CoreUserClaimContentService, CoreUserClaimTypeService, CoreUserService, EstateCustomerOrderService, EstatePropertyHistoryService, EstatePropertyService, NewsContentService, TicketingTaskService, WebDesignerLogMemberInfoService } from 'ntk-cms-api';
 import { ApplicationAppWidgetComponent } from 'src/app/cms-modules/application/content/widget/widget.component';
@@ -25,6 +25,7 @@ import { EstatePropertyWidgetComponent } from 'src/app/cms-modules/estate/proper
 import { NewsContentWidgetComponent } from 'src/app/cms-modules/news/content/widget/widget.component';
 import { TicketingTaskWidgetComponent } from 'src/app/cms-modules/ticketing/task/widget/widget.component';
 
+import { WebDesignerLogMemberInfoWidgetComponent } from 'src/app/cms-modules/web-designer/log-member-info/widget/widget.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { CmsHtmlWidgetComponent } from 'src/app/shared/cms-html-widget/cms-html-widget.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -32,7 +33,6 @@ import { PageDashboardComponent } from './page-dashboard/page-dashboard.componen
 import { PageMenuComponent } from './page-menu/page-menu.component';
 import { PanelComponent } from './panel.component';
 import { PagesPanelRoutingModule } from './panel.routing';
-import { WebDesignerLogMemberInfoWidgetComponent } from 'src/app/cms-modules/web-designer/log-member-info/widget/widget.component';
 
 
 @NgModule({

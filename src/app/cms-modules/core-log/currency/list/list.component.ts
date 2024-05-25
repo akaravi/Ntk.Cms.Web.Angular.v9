@@ -3,35 +3,29 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreLogCurrencyModel, CoreLogCurrencyService, CoreSiteModel, DataFieldInfoModel, RecordStatusEnum, SortTypeEnum,
-  ErrorExceptionResult, FilterDataModel, FilterModel,
-  TokenInfoModel
+  CoreLogCurrencyModel, CoreLogCurrencyService, CoreSiteModel,
+  FilterDataModel, FilterModel,
+  RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { CoreLogCurrencyViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
+import { CoreLogCurrencyViewComponent } from '../view/view.component';
 
 @Component({
   selector: 'app-core-log-currency-list',
   templateUrl: './list.component.html',
 })
 export class CoreLogCurrencyListComponent extends ListBaseComponent<CoreLogCurrencyService, CoreLogCurrencyModel, string>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkCurrencyId = 0;
   constructor(
     public contentService: CoreLogCurrencyService,
@@ -46,7 +40,7 @@ implements OnInit, OnDestroy {
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogCurrencyModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreLogCurrencyModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkCurrencyId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCurrencyId'));
@@ -131,6 +125,8 @@ implements OnInit, OnDestroy {
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -177,7 +173,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonViewRow(model: CoreLogCurrencyModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogCurrencyModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -211,7 +207,7 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onActionbuttonDeleteRow(model: CoreLogCurrencyModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogCurrencyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -268,8 +264,8 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -322,7 +318,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -7,8 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel,
   CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel, NewsConfigurationService,
+  DataFieldInfoModel,
+  FormInfoModel,
+  NewsConfigurationService,
   NewsModuleConfigSiteAccessValuesModel,
   NewsModuleConfigSiteValuesModel,
   NewsModuleSiteStorageValuesModel,
@@ -72,7 +73,9 @@ export class NewsConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

@@ -22,9 +22,9 @@ import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
 import { WebDesignerMainMenuAddComponent } from '../add/add.component';
 import { WebDesignerMainMenuEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-webdesigner-menu-tree',
   templateUrl: './tree.component.html',
@@ -130,10 +130,10 @@ export class WebDesignerMainMenuTreeComponent implements OnInit, OnDestroy {
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(WebDesignerMainMenuEditComponent, {
       height: '90%',
       panelClass: panelClass,

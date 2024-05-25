@@ -18,6 +18,8 @@ import { CoreUserListComponent } from './list/list.component';
 import { CoreUserResellerChartComponent } from './reseller-chart/reseller-chart.component';
 import { CoreUserSelectorComponent } from './selector/selector.component';
 import { CoreUserViewComponent } from './view/view.component';
+import { CoreUserMobileConfirmComponent } from './mobileConfirm/mobileConfirm.component';
+import { NgOtpInputModule } from 'src/app/core/cmsComponent/ng-otp-input/ng-otp-input.module';
 
 
 
@@ -32,6 +34,7 @@ import { CoreUserViewComponent } from './view/view.component';
     CoreUserViewComponent,
     CoreUserResellerChartComponent,
     CoreUserEmailConfirmComponent,
+    CoreUserMobileConfirmComponent,
   ],
   exports: [
     CoreUserComponent,
@@ -43,6 +46,7 @@ import { CoreUserViewComponent } from './view/view.component';
     CoreUserViewComponent,
     CoreUserResellerChartComponent,
     CoreUserEmailConfirmComponent,
+    CoreUserMobileConfirmComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +56,7 @@ import { CoreUserViewComponent } from './view/view.component';
 
     SharedModule.forRoot(),
     AngularEditorModule,
-
+    NgOtpInputModule,
     CmsFileManagerModule
   ],
   providers: [

@@ -3,27 +3,21 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreModuleTagCategoryModel, CoreModuleTagModel,
-  CoreModuleTagService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreModuleTagService,
+  FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { CoreModuleTagAddBulkComponent } from '../add-bulk/add-bulk.component';
 import { CoreModuleTagEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-tag-list',
   templateUrl: './list.component.html',
@@ -43,7 +37,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     public publicHelper: PublicHelper,
     public dialog: MatDialog
   ) {
-    super(contentService, new CoreModuleTagModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreModuleTagModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     // this.optionsCategoryTree.parentMethods = {
@@ -112,6 +106,8 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -168,7 +164,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -197,7 +193,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
       }
     });
   }
-  onActionbuttonNewRowBulk(): void {
+  onActionButtonNewRowBulk(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -226,7 +222,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleTagModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleTagModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -252,7 +248,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleTagModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleTagModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -302,8 +298,8 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -355,7 +351,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

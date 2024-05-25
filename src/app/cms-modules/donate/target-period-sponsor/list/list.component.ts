@@ -12,15 +12,15 @@ import {
   FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DonateTargetPeriodSponserAddComponent } from '../add/add.component';
 import { DonateTargetPeriodSponserDeleteComponent } from '../delete/delete.component';
 import { DonateTargetPeriodSponserEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 
 @Component({
@@ -137,6 +137,8 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -194,7 +196,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -227,7 +229,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
     });
   }
 
-  onActionbuttonEditRow(model: DonateTargetPeriodSponsorModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DonateTargetPeriodSponsorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -256,7 +258,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
       }
     });
   }
-  onActionbuttonDeleteRow(model: DonateTargetPeriodSponsorModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DonateTargetPeriodSponsorModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -291,8 +293,8 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
     });
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -345,7 +347,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

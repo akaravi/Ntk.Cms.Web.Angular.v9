@@ -7,12 +7,13 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel,
   CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult,
+  DataFieldInfoModel,
   FormInfoModel,
   HyperShopConfigurationService,
   HyperShopModuleConfigSiteAccessValuesModel,
   HyperShopModuleConfigSiteValuesModel,
-  HyperShopModuleSiteStorageValuesModel, InfoEnumModel, TokenInfoModel
+  HyperShopModuleSiteStorageValuesModel,
+  TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
@@ -81,7 +82,9 @@ export class HyperShopConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

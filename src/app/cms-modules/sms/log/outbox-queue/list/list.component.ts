@@ -3,29 +3,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreCurrencyModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsLogOutBoxQueueModel,
+  CoreCurrencyModel,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsLogOutBoxQueueModel,
   SmsLogOutBoxQueueService, SmsMainApiPathModel,
-  SmsMainApiPathService, SortTypeEnum, TokenInfoModel
+  SmsMainApiPathService, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { SmsLogOutBoxQueueEditComponent } from '../edit/edit.component';
 import { SmsLogOutBoxQueueViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-sms-log-outboxqueue-list',
@@ -46,7 +41,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsLogOutBoxQueueModel(), publicHelper,tokenHelper);
+    super(contentService, new SmsLogOutBoxQueueModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -154,6 +149,8 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -199,7 +196,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
   }
 
 
-  onActionbuttonEditRow(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -214,10 +211,10 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsLogOutBoxQueueEditComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -233,7 +230,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     // this.router.navigate(['/sms/main/api-path/edit', this.tableRowSelected.id]);
 
   }
-  onActionbuttonDeleteRow(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -285,7 +282,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
 
   }
 
-  onActionbuttonViewRow(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -300,10 +297,10 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsLogOutBoxQueueViewComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -329,8 +326,8 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     this.DataGetAll();
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -379,7 +376,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     );
 
   }
-  onActionbuttonSuperSedersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
+  onActionButtonSuperSedersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -398,7 +395,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonMustSuperSedersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
+  onActionButtonMustSuperSedersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -417,7 +414,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonNumbersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
+  onActionButtonNumbersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -436,7 +433,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     }
     this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonPermitionList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
+  onActionButtonPermitionList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -455,7 +452,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     }
     this.router.navigate(['/sms/main/api-path-permission/LinkApiPathId', this.tableRowSelected.id]);
   }
-  onActionbuttonPriceServicesList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
+  onActionButtonPriceServicesList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -478,7 +475,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

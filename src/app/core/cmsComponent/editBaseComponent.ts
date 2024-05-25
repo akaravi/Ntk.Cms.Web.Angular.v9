@@ -17,7 +17,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
   loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
   dataModel: TModel;
-  onActionbuttonMemo(model: TModel = this.dataModel): void {
+  onActionButtonMemo(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -43,7 +43,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-  onActionbuttonPin(model: TModel = this.dataModel): void {
+  onActionButtonPin(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -69,7 +69,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-  onActionbuttonTask(model: TModel = this.dataModel): void {
+  onActionButtonTask(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)
@@ -95,7 +95,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
     });
     //open popup
   }
-  onActionbuttonComment(model: TModel = this.dataModel): void {
+  onActionButtonComment(model: TModel = this.dataModel): void {
     //open popup
     var panelClass = '';
     if (this.publicHelper.isMobile)

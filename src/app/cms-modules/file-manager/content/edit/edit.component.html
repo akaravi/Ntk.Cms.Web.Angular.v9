@@ -5,7 +5,7 @@
             {{ formInfo.formTitle }}
         </p>
         <h4>اطلاعات</h4>
-        
+
         <p>
             اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
             فقط یک صفحه ساختگی است.
@@ -96,7 +96,7 @@
                             type="text" dir="ltr" style="text-align: left;"
                             placeholder="{{'TITLE.Content_reference_website_link' | translate}}" minlength="3"
                             maxlength="500" required class="form-control validate-name" id="dataModel.source" />
-                        <em  >{{ Source.value.length }} / 500</em>
+                        <em>{{ Source.value.length }} / 500</em>
                     </div>
                     <app-cms-tag-autocomplete (optionChange)="onActionTagChange($event)"
                         [optionSelectForce]="tagIdsData" [optionPlaceholder]="' + Tag '">

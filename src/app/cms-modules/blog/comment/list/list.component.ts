@@ -8,19 +8,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BlogCommentModel,
-  BlogCommentService, BlogContentService, RecordStatusEnum,
-  SortTypeEnum,
-  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel} from 'ntk-cms-api';
+  BlogCommentService, BlogContentService,
+  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum,
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { BlogCommentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { BlogCommentEditComponent } from '../edit/edit.component';
 
 
 @Component({
@@ -48,7 +50,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(commentService, new BlogCommentModel(), publicHelper,tokenHelper);
+    super(commentService, new BlogCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
@@ -149,6 +151,8 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -193,7 +197,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -230,7 +234,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     });
   }
 
-  onActionbuttonEditRow(model: BlogCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BlogCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -262,7 +266,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
       }
     });
   }
-  onActionbuttonDeleteRow(model: BlogCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BlogCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -313,8 +317,8 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -362,14 +366,14 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     }
     );
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -380,7 +384,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
   onActionBackToParent(): void {
     this.router.navigate(['/blog/content/']);
   }
-  onActionbuttonViewContent(model: BlogCommentModel): void {
+  onActionButtonViewContent(model: BlogCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -429,7 +433,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
       }
       );
   }
-  onActionbuttonEditContent(model: BlogCommentModel): void {
+  onActionButtonEditContent(model: BlogCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -445,7 +449,7 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     }
     this.router.navigate(['/blog/content/edit', this.tableRowSelected.linkContentId]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: BlogCommentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

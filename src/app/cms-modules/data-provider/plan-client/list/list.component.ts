@@ -9,24 +9,25 @@ import {
   DataProviderPlanCategoryModel, DataProviderPlanClientModel,
   DataProviderPlanClientService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  FilterModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderPlanClientAddComponent } from '../add/add.component';
 import { DataProviderPlanClientDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanClientEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-plan-client-list',
   templateUrl: './list.component.html',
 })
 export class DataProviderPlanClientListComponent extends ListBaseComponent<DataProviderPlanClientService, DataProviderPlanClientModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkPlanId = 0;
   requestLinkClientId = 0;
   constructor(
@@ -40,7 +41,8 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
-  ) {super(contentService, new DataProviderPlanClientModel(), publicHelper,tokenHelper);
+  ) {
+    super(contentService, new DataProviderPlanClientModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -125,6 +127,8 @@ implements OnInit, OnDestroy {
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -183,7 +187,7 @@ implements OnInit, OnDestroy {
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -217,7 +221,7 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onActionbuttonEditRow(model: DataProviderPlanClientModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DataProviderPlanClientModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -246,7 +250,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonDeleteRow(model: DataProviderPlanClientModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DataProviderPlanClientModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -271,7 +275,8 @@ implements OnInit, OnDestroy {
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
       if (result && result.dialogChangedDate) {
@@ -280,8 +285,8 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -334,7 +339,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

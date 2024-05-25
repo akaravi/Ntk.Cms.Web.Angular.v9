@@ -25,6 +25,6 @@ export class ComponentOptionSearchParentMethodsModel {
 export class ComponentOptionSearchDataModel {
   show = false;
   select: any;
-  defaultQuery:string;
+  defaultQuery: string;
   access: AccessModel;
 }

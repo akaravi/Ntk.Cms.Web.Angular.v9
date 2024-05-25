@@ -6,7 +6,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel,
   CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult, FormInfoModel, InfoEnumModel, TokenInfoModel, WebDesignerConfigurationService,
+  DataFieldInfoModel,
+  FormInfoModel,
+  TokenInfoModel, WebDesignerConfigurationService,
   WebDesignerModuleConfigSiteAccessValuesModel,
   WebDesignerModuleConfigSiteValuesModel,
   WebDesignerModuleSiteStorageValuesModel
@@ -68,7 +70,9 @@ export class WebDesignerConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

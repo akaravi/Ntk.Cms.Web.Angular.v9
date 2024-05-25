@@ -187,7 +187,7 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -204,12 +204,12 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/ticketing/departemen/']);
   }
 
-  onActionbuttonDeparteman(id: number): void {
+  onActionButtonDeparteman(id: number): void {
     this.DataDepartemanLinkSelect = id;
     this.DataFaqLinkSelect = 0;
     //console.log('ID:' + id);
   }
-  onActionbuttonFaqTitle(id: number): void {
+  onActionButtonFaqTitle(id: number): void {
     this.DataFaqLinkSelect = id;
     //console.log('ID:' + id);
   }

@@ -9,15 +9,16 @@ import {
   DataProviderLogSourceModel,
   DataProviderLogSourceService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  FilterModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderLogSourceViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-log-source-list',
@@ -38,7 +39,7 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DataProviderLogSourceModel(), publicHelper,tokenHelper);
+    super(contentService, new DataProviderLogSourceModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -103,6 +104,8 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -147,7 +150,7 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
     this.DataGetAll();
   }
 
-  onActionbuttonViewRow(model: DataProviderLogSourceModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: DataProviderLogSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -179,8 +182,8 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
   }
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -232,7 +235,7 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

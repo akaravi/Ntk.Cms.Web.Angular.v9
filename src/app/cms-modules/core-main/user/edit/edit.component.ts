@@ -10,18 +10,18 @@ import { MatStepper } from '@angular/material/stepper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  AccessModel, CoreEnumService, CoreSiteModel, CoreUserModel, CoreUserService, DataFieldInfoModel, ErrorExceptionResult,
+  AccessModel, CoreEnumService, CoreSiteModel, CoreUserModel, CoreUserService,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CoreUserChangePasswordComponent } from '../changePassword/changePassword.component';
-import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-core-user-edit',
@@ -65,7 +65,7 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreUserModel = new CoreUserModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -73,7 +73,7 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
   formInfo: FormInfoModel = new FormInfoModel();
 
   dataAccessModel: AccessModel;
-  
+
 
   fileManagerOpenForm = false;
 
@@ -201,7 +201,7 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
     }
     this.dataModel.linkResellerUserId = model.id;
   }
-  onActionbuttonChangePassword(): void {
+  onActionButtonChangePassword(): void {
     if (this.tokenInfo.userId != this.dataModel.id &&
       (
         this.dataAccessModel == null ||

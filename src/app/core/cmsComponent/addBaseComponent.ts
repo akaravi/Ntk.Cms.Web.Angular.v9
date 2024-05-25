@@ -4,7 +4,7 @@ import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 //IApiCmsServerBase
 export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper) {
-    publicHelper. pageInfo.updateContentService(baseService);
+    publicHelper.pageInfo.updateContentService(baseService);
     this.DataGetAccess();
     this.dataModel = item;
   }

@@ -3,27 +3,21 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ApiTelegramReceivedFileModel,
-  ApiTelegramReceivedFileService, DataFieldInfoModel, SortTypeEnum,
-  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, TokenInfoModel
+  ApiTelegramReceivedFileService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum,
+  SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-apitelegram-bot-config-list',
@@ -42,7 +36,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApiTelegramReceivedFileModel(), publicHelper,tokenHelper);
+    super(contentService, new ApiTelegramReceivedFileModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -117,6 +111,8 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -165,18 +161,18 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
   }
 
-  onActionbuttonEditRow(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonDeleteRow(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
 
   }
 
-  onActionbuttonGoToModuleList(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleList(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -186,8 +182,8 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
 
     this.router.navigate(['/core/siteModule/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -238,7 +234,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
 
   }
 
-  onActionbuttonSiteList(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
+  onActionButtonSiteList(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -247,7 +243,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
     this.onActionTableRowSelect(model);
     this.router.navigate(['core/site/modulelist/LinkModuleId/', model.id]);
   }
-  onActionbuttonSiteCategoryList(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
+  onActionButtonSiteCategoryList(model: ApiTelegramReceivedFileModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -259,7 +255,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

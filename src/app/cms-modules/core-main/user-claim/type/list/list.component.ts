@@ -3,28 +3,23 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService, CoreSiteCategoryModel, CoreUserClaimTypeModel,
-  CoreUserClaimTypeService, CoreUserGroupModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreUserClaimTypeService, CoreUserGroupModel,
+  ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreUserClaimTypeAddComponent } from '../add/add.component';
 import { CoreUserClaimTypeEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-userclaimtype-list',
   templateUrl: './list.component.html',
@@ -44,7 +39,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreUserClaimTypeModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreUserClaimTypeModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -127,6 +122,8 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -173,7 +170,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -202,7 +199,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
     });
   }
 
-  onActionbuttonEditRow(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -235,7 +232,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -287,7 +284,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
 
   }
 
-  onActionbuttonDetailList(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
+  onActionButtonDetailList(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -297,8 +294,8 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
 
     this.router.navigate(['/core/userclaim/groupdetail/LinkUserClaimTypeId', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -347,7 +344,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
     );
 
   }
-  onActionbuttonModuleList(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
+  onActionButtonModuleList(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -368,7 +365,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
 
 
   }
-  onActionbuttonSiteList(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
+  onActionButtonSiteList(model: CoreUserClaimTypeModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -393,7 +390,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -3,36 +3,29 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel,
-  DataFieldInfoModel, ErrorExceptionResult, EstateContractTypeModel, EstateCustomerOrderFilterModel, EstateCustomerOrderModel,
+  EstateContractTypeModel, EstateCustomerOrderFilterModel, EstateCustomerOrderModel,
 
   EstateCustomerOrderService, EstatePropertyDetailGroupModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel,
-  FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 
-import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { Subscription, forkJoin } from 'rxjs';
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { CmsLinkToComponent } from "src/app/shared/cms-link-to/cms-link-to.component";
 import { environment } from 'src/environments/environment';
 import { EstatePropertyHistoryAddComponent } from '../../property-history/add/add.component';
 @Component({
   selector: 'app-estate-customer-order-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId: string;
@@ -51,8 +44,8 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
-    ) {
-    super(contentService, new EstateCustomerOrderModel(), publicHelper,tokenHelper);
+  ) {
+    super(contentService, new EstateCustomerOrderModel(), publicHelper, tokenHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -84,12 +77,12 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   flag = false;
   tableContentSelected = [];
   filteModelContent = new EstateCustomerOrderFilterModel();
-  
-  
+
+
   dataModelPropertyDetailGroups: EstatePropertyDetailGroupModel[] = [];
   enumInputDataType = InputDataTypeEnum;
-  
- 
+
+
   tabledisplayedColumns: string[] = [];
   categoryModelSelected: EstateCustomerOrderModel;
   step = 0;
@@ -115,7 +108,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     // 'Action',
     "LinkTo",
   ];
-  
+
   expandedElement: EstateCustomerOrderModel | null;
   cmsApiStoreSubscribe: Subscription;
   propertyDetails: Map<string, string> = new Map<string, string>();
@@ -193,6 +186,8 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -217,6 +212,8 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -242,6 +239,8 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -279,6 +278,8 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -322,7 +323,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(event?: MouseEvent): void {
+  onActionButtonNewRow(event?: MouseEvent): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -350,7 +351,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       }
     }
   }
-  onActionbuttonCopyNewRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonCopyNewRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -365,7 +366,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       this.router.navigate(['/estate/customer-order/add-copy', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonEditRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -387,7 +388,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       this.router.navigate(['/estate/customer-order/edit', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonDeleteRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -433,7 +434,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       }
       );
   }
-  onActionbuttonHistoryRow(
+  onActionButtonHistoryRow(
     mode: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -457,7 +458,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       this.router.navigate(["/estate/property-history/LinkCustomerOrderId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonOpenCustomerOrder(model: EstateCustomerOrderModel = this.tableRowSelected): void {
+  onActionButtonOpenCustomerOrder(model: EstateCustomerOrderModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -466,7 +467,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.onActionTableRowSelect(model);
     window.open(this.tableRowSelected.urlViewContent, '_blank');
   }
-  onActionbuttonContentList(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonContentList(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -482,62 +483,101 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       this.router.navigate(['/estate/property/LinkCustomerOrderId/', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
     const statist = new Map<string, number>();
-    statist.set(this.translate.instant('MESSAGE.Active'), 0);
-    statist.set(this.translate.instant('MESSAGE.All'), 0);
-    const pName = this.constructor.name + '.ServiceStatist';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_the_statist'));
-    this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.All'), ret.totalRowCount);
-          this.optionsStatist.childMethods.setStatistValue(statist);
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(pName);
-      },
-      error: (er) => {
-        this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
-      }
-    }
-    );
+
+
+
+    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
+    this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+    //*filter */
+    const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));
+    const s0 = this.contentService.ServiceGetCount(filterStatist0);
+    //*filter */
     const filterStatist1 = JSON.parse(JSON.stringify(this.filteModelContent));
-    const fastfilter = new FilterDataModel();
-    fastfilter.propertyName = 'RecordStatus';
-    fastfilter.value = RecordStatusEnum.Available;
-    filterStatist1.filters.push(fastfilter);
-    this.contentService.ServiceGetCount(filterStatist1).subscribe({
-      next: (ret) => {
-        if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.Active'), ret.totalRowCount);
-          this.optionsStatist.childMethods.setStatistValue(statist);
-        } else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(pName);
-      },
-      error: (er) => {
-        this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+    const fastfilter1 = new FilterDataModel();
+    fastfilter1.propertyName = 'RecordStatus';
+    fastfilter1.value = RecordStatusEnum.Available;
+    filterStatist1.filters.push(fastfilter1);
+    const s1 = this.contentService.ServiceGetCount(filterStatist1);
+    //*filter */
+    const filterStatist2 = JSON.parse(JSON.stringify(this.filteModelContent));
+    const fastfilter2 = new FilterDataModel();
+    fastfilter2.propertyName = 'RecordStatus';
+    fastfilter2.value = RecordStatusEnum.Archive;
+    filterStatist2.filters.push(fastfilter2);
+    const s2 = this.contentService.ServiceGetCount(filterStatist2);
+    //*filter */
+    const filterStatist3 = JSON.parse(JSON.stringify(this.filteModelContent));
+    const fastfilter3 = new FilterDataModel();
+    fastfilter3.propertyName = 'RecordStatus';
+    fastfilter3.value = RecordStatusEnum.Pending;
+    filterStatist3.filters.push(fastfilter3);
+    const s3 = this.contentService.ServiceGetCount(filterStatist3);
+
+    //*filter */
+    const filterStatist4 = JSON.parse(JSON.stringify(this.filteModelContent));
+    const fastfilter4 = new FilterDataModel();
+    fastfilter4.propertyName = 'RecordStatus';
+    fastfilter4.value = RecordStatusEnum.Disable;
+    filterStatist3.filters.push(fastfilter4);
+    const s4 = this.contentService.ServiceGetCount(filterStatist3);
+
+    forkJoin([s0, s1, s2, s3, s4]).subscribe(results => {
+
+      //*results */
+      var ret = results[0];
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_list'), ret.totalRowCount);
       }
-    }
-    );
+      //*results */
+      var ret = results[1];
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_list_active'), ret.totalRowCount);
+      }
+
+      //*results */
+      ret = results[2];
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_list_close'), ret.totalRowCount);
+      } else {
+        this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+      }
+      //*results */
+      ret = results[3];
+
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_needs_approval'), ret.totalRowCount);
+
+      } else {
+        this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+      }
+      //*results */
+      ret = results[4];
+      if (ret.isSuccess) {
+        statist.set(this.translate.instant('MESSAGE.customer_order_list_disable'), ret.totalRowCount);
+      } else {
+        this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+      }
+      this.loading.Stop(this.constructor.name + 'All');
+      this.optionsStatist.childMethods.setStatistValue(statist);
+
+    });
+
+
 
   }
-  
-  onActionbuttonInResponsible(model: boolean): void {
+
+  onActionButtonInResponsible(model: boolean): void {
     this.searchInResponsible = model;
     this.DataGetAll();
   }
 
-  
+
 
   onActionSelectorSelect(model: EstateCustomerOrderModel | null): void {
     /*filter */
@@ -556,7 +596,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.optionloadComponent = true;
     this.DataGetAll();
   }
@@ -568,7 +608,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: EstateCustomerOrderModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -718,7 +758,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   }
 
 
-  onActionbuttonQuickHistoryAddRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
+  onActionButtonQuickHistoryAddRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

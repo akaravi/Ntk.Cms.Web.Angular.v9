@@ -56,9 +56,22 @@ npm i -g npm-check-updates
 ncu -u
 npm install --force
 ng serve --open
-
-
 =========================================Update all npm
+
+=========================================formate auto on seve
+edit this file settings.json
+C:\Users\Administrator\AppData\Roaming\Code\User\settings.json
+
+
+
+
+"editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.formatDocument": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+=========================================formate auto on seve
 
 ============================ this only ok
 Press the windows-button on your keyboard.

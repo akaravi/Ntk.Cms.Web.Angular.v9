@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CoreModuleSaleItemListComponent } from './Item/list/list.component';
 import { CoreModuleSaleHeaderGroupListComponent } from './header-group/list/list.component';
 import { CoreModuleSaleHeaderListComponent } from './header/list/list.component';
 import { CoreModuleSaleHeaderSaleListComponent } from './header/sale-list/sale-list.component';
 import { CoreModuleSaleInvoiceDetailListComponent } from './invoice-detail/list/list.component';
 import { CoreModuleSaleInvoiceListComponent } from './invoice/list/list.component';
-import { CoreModuleSaleItemListComponent } from './Item/list/list.component';
 import { CoreModuleSaleSerialCheckListComponent } from './serial/check-list/check-list.component';
 import { CoreModuleSaleSerialListComponent } from './serial/list/list.component';
 

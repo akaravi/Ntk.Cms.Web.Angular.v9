@@ -1,0 +1,10 @@
+<div *ngIf="optionsData.data.show" class="card card-style">
+  <div class="content mb-0">
+    <div class="row mb-0 text-center">
+      <div class="col-4" *ngFor="let folder of modelData| keyvalue">
+        <h1 class="mb-0">{{folder.value}}</h1>
+        <p class="font-10 mb-0 pb-0">{{folder.key}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,17 +9,18 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, NewsCommentModel,
   NewsCommentService, NewsContentService, RecordStatusEnum,
-  SortTypeEnum} from 'ntk-cms-api';
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { NewsCommentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { NewsCommentEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-news-comment-list',
   templateUrl: './list.component.html',
@@ -31,7 +32,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
     ]),
   ],
 })
-export class NewsCommentListComponent extends ListBaseComponent<NewsContentService, NewsCommentModel, number>implements OnInit, OnDestroy {
+export class NewsCommentListComponent extends ListBaseComponent<NewsContentService, NewsCommentModel, number> implements OnInit, OnDestroy {
   requestContentId = 0;
   constructor(
     private commentService: NewsCommentService,
@@ -46,7 +47,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new NewsCommentModel(), publicHelper,tokenHelper);
+    super(contentService, new NewsCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
       this.searchInChecking =
@@ -144,6 +145,8 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -186,7 +189,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -221,7 +224,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       }
     });
   }
-  onActionbuttonEditRow(model: NewsCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: NewsCommentModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -254,7 +257,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       }
     });
   }
-  onActionbuttonDeleteRow(model: NewsCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: NewsCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -300,8 +303,8 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -350,14 +353,14 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     }
     );
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -368,7 +371,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
   onActionBackToParent(): void {
     this.router.navigate(['/news/content/']);
   }
-  onActionbuttonViewContent(model: NewsCommentModel): void {
+  onActionButtonViewContent(model: NewsCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -416,7 +419,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       }
       );
   }
-  onActionbuttonEditContent(model: NewsCommentModel, event?: MouseEvent): void {
+  onActionButtonEditContent(model: NewsCommentModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -438,7 +441,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       this.router.navigate(['/news/content/edit', this.tableRowSelected.linkContentId]);
     }
   }
-  onActionbuttonLinkTo(model: NewsCommentModel = this.tableRowSelected): void {
+  onActionButtonLinkTo(model: NewsCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -466,8 +469,8 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

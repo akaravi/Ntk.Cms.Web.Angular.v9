@@ -12,7 +12,8 @@ import {
   ClauseTypeEnum,
   CoreCurrencyModel, CoreEnumService, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractTypeModel, EstateContractTypeService, EstateCustomerCategoryModel, EstateCustomerOrderActionSendSmsDtoModel, EstateCustomerOrderModel, EstateCustomerOrderService, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyFilterModel, EstatePropertyModel, EstatePropertyService, EstatePropertyTypeLanduseModel,
   EstatePropertyTypeLanduseService,
-  EstatePropertyTypeUsageModel, EstatePropertyTypeUsageService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, InfoEnumModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  EstatePropertyTypeUsageModel, EstatePropertyTypeUsageService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -457,20 +458,17 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
           if (ret.isSuccess) {
             this.dataModelEstatePropertyResult = ret;
 
-            // this.tableSource.data = ret.listItems;
-            // if (this.optionsSearch.childMethods) {
-            //   this.optionsSearch.childMethods.setAccess(ret.access);
-            // }
-          } else {
-            this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
+         
+            } else {
+              this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
+            }
+            this.loading.Stop(pName);
+          },
+          error: (er) => {
+            this.cmsToastrService.typeError(er)
+            this.loading.Stop(pName);
           }
-          this.loading.Stop(pName);
-        },
-        error: (er) => {
-          this.cmsToastrService.typeError(er)
-          this.loading.Stop(pName);
         }
-      }
       );
     // **requestLinkCustomerOrderId*/
   }
@@ -664,7 +662,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
     this.stepContent = step;
 
   }
-  onActionbuttonQuickViewRow(model: EstatePropertyModel): void {
+  onActionButtonQuickViewRow(model: EstatePropertyModel): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -690,7 +688,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonQuickViewRow(result.onActionOpenItem)
+        this.onActionButtonQuickViewRow(result.onActionOpenItem)
       }
     });
   }

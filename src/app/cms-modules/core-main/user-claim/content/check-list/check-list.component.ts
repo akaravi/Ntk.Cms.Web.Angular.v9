@@ -19,9 +19,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { environment } from 'src/environments/environment';
 import { CoreUserClaimContentAddComponent } from '../add/add.component';
 import { CoreUserClaimContentEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-core-userclaimcontent-checklist',
@@ -175,7 +175,7 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
 
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
@@ -195,7 +195,7 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
     });
   }
 
-  onActionbuttonEditRow(model: CoreUserClaimCheckModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreUserClaimCheckModel = this.tableRowSelected): void {
     if (!model || !model.linkTypeId || model.linkTypeId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -210,8 +210,8 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
       const dialogRef = this.dialog.open(CoreUserClaimContentEditComponent, {
         height: '90%',
         panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+        enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+        exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
         data: { id: this.tableRowSelected.linkContentId }
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -228,8 +228,8 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
       const dialogRef = this.dialog.open(CoreUserClaimContentAddComponent, {
         height: '90%',
         panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+        enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+        exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
         data: { linkUserClaimTypeId: this.tableRowSelected.linkTypeId }
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -242,7 +242,7 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
 

@@ -1,26 +1,26 @@
 
-import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import {
   ChangeDetectorRef, Component, Inject, OnInit,
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatStepper } from '@angular/material/stepper';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  AuthEmailConfirmDtoModel, CoreAuthService, CoreEnumService, CoreUserModel, CoreUserService, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
+  AuthEmailConfirmDtoModel, CaptchaModel, CoreAuthService, CoreEnumService,
+  CoreUserService, DataFieldInfoModel,
+  ErrorExceptionResultBase,
+  FormInfoModel
 } from 'ntk-cms-api';
-import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
+import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
   selector: 'app-core-user-email-confirm',
   templateUrl: './emailConfirm.component.html',
-  styleUrls: ['./emailConfirm.component.scss'],
+
 })
 export class CoreUserEmailConfirmComponent implements OnInit {
   constructor(
@@ -28,43 +28,54 @@ export class CoreUserEmailConfirmComponent implements OnInit {
     private dialogRef: MatDialogRef<CoreUserEmailConfirmComponent>,
     public coreEnumService: CoreEnumService,
     public coreUserService: CoreUserService,
-    private authService: CoreAuthService,
+
+    private coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,
     private publicHelper: PublicHelper,
+    private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
-    this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
+
   }
-  selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
-
-  fileManagerTree: TreeModel;
-  appLanguage = 'fa';
-
+  firstRun = true;
+  expireDate: Date;
+  aoutoCaptchaOrder = 1;
   loading = new ProgressSpinnerModel();
-  dataModelResult: ErrorExceptionResult<CoreUserModel> = new ErrorExceptionResult<CoreUserModel>();
-  dataModel: CoreUserModel = new CoreUserModel();
+  dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
+  dataModel: AuthEmailConfirmDtoModel = new AuthEmailConfirmDtoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   passwordIsValid = false;
+  captchaModel: CaptchaModel = new CaptchaModel();
+
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
-
-
-  fileManagerOpenForm = false;
-
-
-  onActionFileSelected(model: NodeInterface): void {
-    this.dataModel.linkMainImageId = model.id;
-    this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
-
+  onCaptchaOrderInProcess = false;
+  otpConfig = {
+    allowNumbersOnly: true,
+    length: 4,
+    isPasswordInput: false,
+    disableAutoFocus: false,
+    placeholder: '',
+    inputStyles: {
+      'width': '50px',
+      'height': '50px',
+      'margin': '5px',
+    }
   }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this.onCaptchaOrder();
     this.formInfo.formTitle = this.translate.instant('ACTION.CONFIRMEMAIL');
+    this.tokenHelper.getCurrentToken().then((value) => {
+      this.dataModel.email = value.email;
+      this.dataModel.linkUserId = value.userId;
+    });
+
 
     this.DataGetAccess();
   }
@@ -92,66 +103,69 @@ export class CoreUserEmailConfirmComponent implements OnInit {
       }
       );
   }
-  DataAddContent(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
-    this.formInfo.formError = '';
-    const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
-
-    this.coreUserService.ServiceAdd(this.dataModel).subscribe({
-      next: (ret) => {
-        this.formInfo.formSubmitAllow = true;
-        this.dataModelResult = ret;
-        if (ret.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
-          this.cmsToastrService.typeSuccessAdd();
-          this.dialogRef.close({ dialogChangedDate: true });
-        } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
-          this.formInfo.formError = ret.errorMessage;
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-        }
-        this.loading.Stop(pName);
-
-      },
-      error: (er) => {
-        this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
-      }
-    }
-    );
-  }
-
+  stepOne = true;
+  stepTwo = false;
   onEmailConfirm(): void {
-    const authModel: AuthEmailConfirmDtoModel = new AuthEmailConfirmDtoModel();
-    // authModel.email = this.dataModel.email;
-
-    this.authService.ServiceEmailConfirm(authModel).subscribe({
+    this.dataModel.captchaKey = this.captchaModel.key;
+    this.coreAuthService.ServiceEmailConfirm(this.dataModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessEmailConfirm();
+          if (this.stepOne) {
+            this.stepOne = false;
+            this.stepTwo = true;
+          } else if (this.stepTwo) {
+            this.dialogRef.close({ dialogChangedDate: true });
+          }
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+          this.firstRun = false;
+          this.formInfo.buttonSubmittedEnabled = true;
+          this.onCaptchaOrder();
         }
       }
     });
   }
-  passwordValid(event): void {
-    this.passwordIsValid = event;
+  onOtpChange(otp) {
+    this.dataModel.code = otp;
   }
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });
   }
-  onStepClick(event: StepperSelectionEvent, stepper: MatStepper): void {
-    if (event.previouslySelectedIndex < event.selectedIndex) {
-      if (!this.formGroup.valid) {
-        this.cmsToastrService.typeErrorFormInvalid();
-        setTimeout(() => {
-          stepper.selectedIndex = event.previouslySelectedIndex;
-          // stepper.previous();
-        }, 10);
+
+  onCaptchaOrder(): void {
+    if (this.onCaptchaOrderInProcess) {
+      return;
+    }
+    this.dataModel.captchaText = '';
+    const pName = this.constructor.name + '.ServiceCaptcha';
+    this.loading.Start(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.coreAuthService.ServiceCaptcha().subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.captchaModel = ret.item;
+          this.expireDate = ret.item.expire;//.split('+')[1];
+          const startDate = new Date();
+          const endDate = new Date(ret.item.expire);
+          const seconds = (endDate.getTime() - startDate.getTime());
+          if (this.aoutoCaptchaOrder < 10) {
+            this.aoutoCaptchaOrder = this.aoutoCaptchaOrder + 1;
+            setTimeout(() => {
+              if (!this.firstRun)
+                this.onCaptchaOrder();
+            }, seconds);
+          }
+        } else {
+          this.cmsToastrService.typeErrorGetCpatcha(ret.errorMessage);
+        }
+        this.onCaptchaOrderInProcess = false;
+        this.loading.Stop(pName);
+      },
+      error: (er) => {
+        this.onCaptchaOrderInProcess = false;
+        this.loading.Stop(pName);
       }
     }
+    );
   }
 }

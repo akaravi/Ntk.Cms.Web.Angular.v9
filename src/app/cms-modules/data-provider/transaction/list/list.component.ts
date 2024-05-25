@@ -9,15 +9,16 @@ import {
   DataProviderTransactionModel,
   DataProviderTransactionService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  FilterModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderTransactionViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-donate-transaction-list',
@@ -41,7 +42,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DataProviderTransactionModel(), publicHelper,tokenHelper);
+    super(contentService, new DataProviderTransactionModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -136,6 +137,8 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -180,7 +183,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
     this.DataGetAll();
   }
 
-  onActionbuttonViewRow(model: DataProviderTransactionModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: DataProviderTransactionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id > 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -212,8 +215,8 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
   }
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -266,7 +269,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

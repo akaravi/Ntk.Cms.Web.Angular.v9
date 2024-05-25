@@ -1,11 +1,11 @@
 
 import {
-  ChangeDetectorRef, Component, Inject,
+  ChangeDetectorRef, Component, HostListener, Inject,
   OnDestroy, OnInit,
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -90,7 +90,17 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    // 37 - left
+    // 38 - up
+    // 39 - right
+    // 40 - down
+    if (event?.key === '39' || event?.key === 'ArrowRight')
+      this.onActionNext();
+    if (event?.key === '37' || event?.key === 'ArrowLeft')
+      this.onActionPervious();
+  }
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
     this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));

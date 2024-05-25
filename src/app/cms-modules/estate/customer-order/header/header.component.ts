@@ -7,7 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   DataFieldInfoModel, ErrorExceptionResult,
   EstateCustomerOrderModel,
-  EstateCustomerOrderService, InfoEnumModel, RecordStatusEnum
+  EstateCustomerOrderService,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -69,7 +70,7 @@ export class EstateCustomerOrderHeaderComponent implements OnInit {
     }
     );
   }
-  onActionbuttonLinkTo(model: EstateCustomerOrderModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: EstateCustomerOrderModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

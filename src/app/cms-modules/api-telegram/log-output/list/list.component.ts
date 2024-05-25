@@ -3,26 +3,20 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ApiTelegramLogOutputModel,
-  ApiTelegramLogOutputService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  ApiTelegramLogOutputService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { ApiTelegramActionSendMessageComponent } from '../../action/send-message/send-message.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { ApiTelegramActionSendMessageComponent } from '../../action/send-message/send-message.component';
 
 
 @Component({
@@ -43,7 +37,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new ApiTelegramLogOutputModel(), publicHelper,tokenHelper);
+    super(contentService, new ApiTelegramLogOutputModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -124,6 +118,8 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -171,22 +167,22 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
   }
 
-  onActionbuttonEditRow(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonDeleteRow(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }
 
-  onActionbuttonGoToModuleList(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleList(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -237,7 +233,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     );
 
   }
-  onActionbuttonSendMessage(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonSendMessage(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -261,7 +257,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -269,7 +265,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     this.DataGetAll();
   }
 
-  onActionbuttonLinkTo(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
+  onActionButtonLinkTo(model: ApiTelegramLogOutputModel = this.tableRowSelected): void {
 
   }
   onActionBackToParent(): void {

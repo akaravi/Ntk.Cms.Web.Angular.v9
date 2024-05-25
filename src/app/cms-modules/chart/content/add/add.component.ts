@@ -12,7 +12,7 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   AccessModel, ChartCategoryModel, ChartContentModel, ChartContentOtherInfoModel, ChartContentOtherInfoService, ChartContentService, ChartContentSimilarModel, ChartContentSimilarService, ChartContentTagModel, ChartContentTagService, CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel
+  FormInfoModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { firstValueFrom, of } from 'rxjs';

@@ -1,17 +1,17 @@
 import { ChangeDetectorRef, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
+  CoreEnumService,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TicketingDepartemenModel, TicketingFaqModel,
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum, TicketingDepartemenModel, TicketingFaqModel,
   TicketingFaqService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsFormsErrorStateMatcher } from 'src/app/core/pipe/cmsFormsErrorStateMatcher';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -21,8 +21,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
-export class TicketingFaqEditComponent  extends EditBaseComponent<TicketingFaqService, TicketingFaqModel, number>
- implements OnInit {
+export class TicketingFaqEditComponent extends EditBaseComponent<TicketingFaqService, TicketingFaqModel, number>
+  implements OnInit {
   requestId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -33,7 +33,8 @@ export class TicketingFaqEditComponent  extends EditBaseComponent<TicketingFaqSe
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(ticketingFaqService, new TicketingFaqModel(), publicHelper);
+  ) {
+    super(ticketingFaqService, new TicketingFaqModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (data) {
@@ -43,7 +44,7 @@ export class TicketingFaqEditComponent  extends EditBaseComponent<TicketingFaqSe
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
 
@@ -51,7 +52,7 @@ export class TicketingFaqEditComponent  extends EditBaseComponent<TicketingFaqSe
   appLanguage = 'fa';
   formMatcher = new CmsFormsErrorStateMatcher();
 
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: TicketingFaqModel = new TicketingFaqModel();
   dataFileModel = new Map<number, string>();

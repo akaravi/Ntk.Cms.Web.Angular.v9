@@ -4,30 +4,25 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ChartCommentModel,
-  ChartCommentService, ChartContentService, DataFieldInfoModel, RecordStatusEnum,
-  SortTypeEnum,
-  ErrorExceptionResult, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, TokenInfoModel
+  ChartCommentService, ChartContentService,
+  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum,
+  SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { ChartCommentEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
+import { environment } from 'src/environments/environment';
+import { ChartCommentEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-chart-comment-list',
   templateUrl: './list.component.html',
@@ -54,7 +49,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(commentService, new ChartCommentModel(), publicHelper,tokenHelper);
+    super(commentService, new ChartCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
@@ -150,6 +145,8 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -192,7 +189,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -230,7 +227,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
   }
 
 
-  onActionbuttonEditRow(model: ChartCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ChartCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -262,7 +259,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
       }
     });
   }
-  onActionbuttonDeleteRow(model: ChartCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ChartCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -312,8 +309,8 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -362,7 +359,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     );
 
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
@@ -370,7 +367,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -381,7 +378,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
   onActionBackToParent(): void {
     this.router.navigate(['/chart/content/']);
   }
-  onActionbuttonViewContent(model: ChartCommentModel): void {
+  onActionButtonViewContent(model: ChartCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -430,7 +427,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
       }
       );
   }
-  onActionbuttonEditContent(model: ChartCommentModel): void {
+  onActionButtonEditContent(model: ChartCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -446,7 +443,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     }
     this.router.navigate(['/chart/content/edit', this.tableRowSelected.linkContentId]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: ChartCommentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

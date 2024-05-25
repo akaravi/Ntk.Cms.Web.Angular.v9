@@ -3,27 +3,22 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleLogFavoriteModel, CoreModuleLogFavoriteService, CoreSiteModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreEnumService, CoreModuleLogFavoriteModel, CoreModuleLogFavoriteService, CoreSiteModel,
+  FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreModuleLogFavoriteEditComponent } from '../edit/edit.component';
 import { CoreModuleLogFavoriteViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-coremodulelog-favorite-list',
@@ -49,7 +44,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogFavoriteModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreModuleLogFavoriteModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -148,6 +143,8 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -195,7 +192,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
 
 
-  onActionbuttonViewRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -228,7 +225,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -261,7 +258,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -315,7 +312,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
   }
 
-  onActionbuttonViewContent(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewContent(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -333,8 +330,8 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
   }
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -384,7 +381,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
   }
 
-  onActionbuttonViewUserRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -398,7 +395,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -412,7 +409,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  onActionbuttonViewSiteRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreModuleLogFavoriteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -430,7 +427,7 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

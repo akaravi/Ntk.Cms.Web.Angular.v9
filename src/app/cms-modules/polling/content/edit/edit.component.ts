@@ -5,8 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
-  AccessModel, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, PollingCategoryModel, PollingContentModel,
+  AccessModel, CoreEnumService,
+  ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel,
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum, PollingCategoryModel, PollingContentModel,
   PollingContentService, PollingOptionModel,
   PollingOptionService
 } from 'ntk-cms-api';
@@ -19,10 +21,10 @@ import { MatStepper } from '@angular/material/stepper';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreLocationModel } from 'ntk-cms-api';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
-import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-polling-content-edit',
@@ -31,7 +33,7 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
   ]
 })
 export class PollingContentEditComponent extends EditBaseComponent<PollingContentService, PollingContentModel, number>
-implements OnInit, AfterViewInit {
+  implements OnInit, AfterViewInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,
@@ -42,7 +44,8 @@ implements OnInit, AfterViewInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(pollingContentService, new PollingContentModel(), publicHelper);
+  ) {
+    super(pollingContentService, new PollingContentModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.loadingOption.cdr = this.cdr;
@@ -53,7 +56,7 @@ implements OnInit, AfterViewInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   dataModel = new PollingContentModel();
   dataAccessModel: AccessModel;
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
 
   optionSelected: PollingOptionModel = new PollingOptionModel();
@@ -65,7 +68,7 @@ implements OnInit, AfterViewInit {
   optionTabledisplayedColumns = ['Id', 'Option', 'OptionAnswer', 'IsCorrectAnswer', 'NumberOfVotes', 'ScoreOfVotes', 'Action'];
 
 
-  
+
   loadingOption = new ProgressSpinnerModel();
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];

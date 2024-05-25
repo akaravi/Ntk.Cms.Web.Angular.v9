@@ -37,7 +37,8 @@
 
     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
       <input type="text" [(ngModel)]="dataDetailModel.linkFileId" name="dataDetailModel.linkFileId" #LinkFileId
-        placeholder="{{'TITLE.View_360_File_ID' | translate}}" (click)="fileManagerOpenFormReport = true" class="form-control validate-name" />
+        placeholder="{{'TITLE.View_360_File_ID' | translate}}" (click)="fileManagerOpenFormReport = true"
+        class="form-control validate-name" />
       <mat-icon matSuffix *ngIf="dataDetailModel.linkFileId" matSuffix mat-icon-button aria-label="Clear"
         (click)="dataDetailModel.linkFileId = null">close</mat-icon>
       <mat-icon matSuffix (click)="fileManagerOpenFormReport = true">mode_edit</mat-icon>
@@ -89,7 +90,8 @@
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <mat-select placeholder="Select" [disabled]="editdisabled" name="type" [(ngModel)]="row.type" class="form-control validate-name">
+                <mat-select placeholder="Select" [disabled]="editdisabled" name="type" [(ngModel)]="row.type"
+                  class="form-control validate-name">
                   <mat-option [value]="'scene'">صحنه</mat-option>
                   <mat-option [value]="'info'">اطلاعات</mat-option>
                 </mat-select>
@@ -120,7 +122,8 @@
             </ng-container>
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid  && row.type==='scene'">
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <mat-select placeholder="Select" [disabled]="editdisabled" name="sceneId" [(ngModel)]="row.sceneId" class="form-control validate-name">
+                <mat-select placeholder="Select" [disabled]="editdisabled" name="sceneId" [(ngModel)]="row.sceneId"
+                  class="form-control validate-name">
                   <mat-option *ngFor="
                   let item of this.scenesList;
                   index as i
@@ -168,7 +171,8 @@
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <input type="text" style="direction: ltr; text-align: left;" placeholder="targetYaw"
-                  [disabled]="editdisabled" name="targetYaw" [(ngModel)]="row.targetYaw" class="form-control validate-name">
+                  [disabled]="editdisabled" name="targetYaw" [(ngModel)]="row.targetYaw"
+                  class="form-control validate-name">
               </div>
             </ng-container>
           </mat-cell>
@@ -182,7 +186,8 @@
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <input type="text" style="direction: ltr; text-align: left;" placeholder="targetPitch"
-                  [disabled]="editdisabled" name="targetPitch" [(ngModel)]="row.targetPitch" class="form-control validate-name">
+                  [disabled]="editdisabled" name="targetPitch" [(ngModel)]="row.targetPitch"
+                  class="form-control validate-name">
               </div>
             </ng-container>
           </mat-cell>
@@ -210,7 +215,7 @@
             <ng-container *ngIf="editHotspot.guid && row.guid && row.guid===editHotspot.guid">
               <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <input type="text" style="direction: ltr; text-align: left;" placeholder="url" [disabled]="editdisabled"
-                class="form-control validate-name"     name="url" [(ngModel)]="row.url">
+                  class="form-control validate-name" name="url" [(ngModel)]="row.url">
               </div>
             </ng-container>
           </mat-cell>

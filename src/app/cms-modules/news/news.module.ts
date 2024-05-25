@@ -31,6 +31,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NewsCategoryAddComponent } from './category/add/add.component';
 import { NewsCategoryDeleteComponent } from './category/delete/delete.component';
 import { NewsCategoryEditComponent } from './category/edit/edit.component';
+import { NewsCategoryMenuComponent } from './category/menu/menu.component';
 import { NewsCategorySelectorComponent } from './category/selector/selector.component';
 import { NewsCategoryTreeSelectorComponent } from './category/tree-selector/tree-selector.component';
 import { NewsCategoryTreeComponent } from './category/tree/tree.component';
@@ -42,7 +43,6 @@ import { NewsContentEditComponent } from './content/edit/edit.component';
 import { NewsContentHeaderComponent } from './content/header/header.component';
 import { NewsContentListComponent } from './content/list/list.component';
 import { NewsContentSelectorComponent } from './content/selector/selector.component';
-import { NewsCategoryMenuComponent } from './category/menu/menu.component';
 @NgModule({
   declarations: [
     NewsComponent,

@@ -7,7 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel,
   CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult, FormInfoModel, InfoEnumModel, PollingConfigurationService,
+  DataFieldInfoModel,
+  FormInfoModel,
+  PollingConfigurationService,
   PollingModuleConfigSiteAccessValuesModel,
   PollingModuleConfigSiteValuesModel,
   PollingModuleSiteStorageValuesModel,
@@ -79,7 +81,9 @@ export class PollingConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

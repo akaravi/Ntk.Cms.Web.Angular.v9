@@ -3,31 +3,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult,
   FilterDataModel,
   FilterModel,
   MemberPropertyAliasModel,
-  MemberPropertyAliasService, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  MemberPropertyAliasService, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { MemberPropertyAliasAddComponent } from '../add/add.component';
 import { MemberPropertyAliasDeleteComponent } from '../delete/delete.component';
 import { MemberPropertyAliasEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-member-propertyalias-list',
   templateUrl: './list.component.html',
@@ -45,7 +38,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new MemberPropertyAliasModel(), publicHelper,tokenHelper);
+    super(contentService, new MemberPropertyAliasModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -105,6 +98,8 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -147,7 +142,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -171,7 +166,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
       }
     });
   }
-  onActionbuttonEditRow(model: MemberPropertyAliasModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: MemberPropertyAliasModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -200,7 +195,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
       }
     });
   }
-  onActionbuttonDeleteRow(model: MemberPropertyAliasModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: MemberPropertyAliasModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -226,15 +221,16 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-       data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         this.DataGetAll();
       }
     });
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -285,12 +281,12 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

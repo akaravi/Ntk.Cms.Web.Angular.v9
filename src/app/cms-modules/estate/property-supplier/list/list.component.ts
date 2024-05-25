@@ -3,28 +3,22 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, EstatePropertySupplierCategoryModel, EstatePropertySupplierModel,
+  EstatePropertySupplierCategoryModel, EstatePropertySupplierModel,
   EstatePropertySupplierService, FilterDataModel,
-  FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { EstatePropertySupplierDeleteComponent } from '../delete/delete.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-estate-property-supplier-list',
   templateUrl: './list.component.html',
@@ -44,7 +38,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertySupplierModel(), publicHelper,tokenHelper);
+    super(contentService, new EstatePropertySupplierModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -67,7 +61,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
   link: string;
 
   filteModelContent = new FilterModel();
-  
+
   categoryModelSelected: EstatePropertySupplierCategoryModel;
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
@@ -121,6 +115,8 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -163,7 +159,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(event?: MouseEvent): void {
+  onActionButtonNewRow(event?: MouseEvent): void {
 
     if (
       this.dataModelResult == null ||
@@ -181,7 +177,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       this.router.navigate(['/estate/property-supplier/add']);
     }
   }
-  onActionbuttonEditRow(model: EstatePropertySupplierModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditRow(model: EstatePropertySupplierModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -203,7 +199,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       this.router.navigate(['/estate/property-supplier/edit', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonProperty(model: EstatePropertySupplierModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonProperty(model: EstatePropertySupplierModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -225,7 +221,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       this.router.navigate(['/estate/property/LinkSupplierId', this.tableRowSelected.id]);
     }
   }
-  onActionbuttonDeleteRow(model: EstatePropertySupplierModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstatePropertySupplierModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -258,8 +254,8 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       }
     });
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -310,7 +306,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
   }
 
 
-  onActionbuttonWithHierarchy(): void {
+  onActionButtonWithHierarchy(): void {
     this.GetAllWithHierarchyCategoryId = !this.GetAllWithHierarchyCategoryId;
     this.DataGetAll();
   }
@@ -326,7 +322,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     this.DataGetAll();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -343,7 +339,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
 
 
 
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: EstatePropertySupplierModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {

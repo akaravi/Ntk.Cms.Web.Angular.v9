@@ -16,8 +16,8 @@ import { CoreUserGroupTreeComponent } from './tree/tree.component';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
-import { CoreUserGroupSelectionlistComponent } from './selectionlist/selectionlist.component';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { CoreUserGroupSelectionlistComponent } from './selectionlist/selectionlist.component';
 
 
 @NgModule({

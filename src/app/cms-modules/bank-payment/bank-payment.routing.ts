@@ -15,53 +15,53 @@ const routes: Routes = [
         path: 'config',
         loadChildren: () =>
           import('./config/bank-payment-config.module').then((m) => m.BankPaymentConfigModule),
-          data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       /* Config */
       {
         path: 'publicconfig',
         component: BankPaymentPublicConfigListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       {
         path: 'privatesiteconfig',
         component: BankPaymentPrivateSiteConfigListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       {
         path: 'privatesiteconfig/LinkPublicConfigId/:LinkPublicConfigId',
         component: BankPaymentPrivateSiteConfigListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       {
         path: 'privatesiteconfig/LinkSiteId/:LinkSiteId',
         component: BankPaymentPrivateSiteConfigListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       {
         path: 'transaction',
         component: BankPaymentTransactionListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       {
         path: 'transaction/LinkPrivateSiteConfigId/:LinkPrivateSiteConfigId',
         component: BankPaymentTransactionListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       {
         path: 'transaction/LinkUserId/:LinkUserId',
         component: BankPaymentTransactionListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       {
         path: 'transactionlog',
         component: BankPaymentTransactionLogListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
       {
         path: 'transactionlog/LinkTransactionId/:LinkTransactionId',
         component: BankPaymentTransactionLogListComponent,
-        data:{ title: 'ROUTE.BANKPAYMENT' },
+        data: { title: 'ROUTE.BANKPAYMENT' },
       },
     ]
   },

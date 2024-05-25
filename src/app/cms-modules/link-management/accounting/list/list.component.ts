@@ -6,21 +6,21 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-
   FilterDataModel,
   FilterModel,
   LinkManagementAccountingModel,
-  LinkManagementAccountingService, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  LinkManagementAccountingService, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { LinkManagementAccountingAddComponent } from '../add/add.component';
 import { LinkManagementAccountingDeleteComponent } from '../delete/delete.component';
 import { LinkManagementAccountingEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-accounting-list',
@@ -40,7 +40,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementAccountingModel(), publicHelper,tokenHelper);
+    super(contentService, new LinkManagementAccountingModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
 
     this.optionsSearch.parentMethods = {
@@ -103,6 +103,8 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -149,7 +151,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '90%';
@@ -168,7 +170,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
   }
 
-  onActionbuttonEditRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -201,7 +203,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
       }
     });
   }
-  onActionbuttonDeleteRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -226,15 +228,16 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: { id: this.tableRowSelected.id } });
+      data: { id: this.tableRowSelected.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
         this.DataGetAll();
       }
     });
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -287,7 +290,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onActionCopied(): void {
@@ -300,7 +303,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
   expandedElement: any;
 
-  onActionbuttonAccountingDetail(model: LinkManagementAccountingModel = this.tableRowSelected): void {
+  onActionButtonAccountingDetail(model: LinkManagementAccountingModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

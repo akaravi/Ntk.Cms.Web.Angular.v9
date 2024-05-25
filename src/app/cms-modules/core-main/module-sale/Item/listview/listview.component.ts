@@ -164,7 +164,7 @@ export class CoreModuleSaleItemListViewComponent implements OnInit, OnDestroy {
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
 

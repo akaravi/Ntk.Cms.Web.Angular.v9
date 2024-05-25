@@ -8,7 +8,7 @@ import {
   SmsMainApiPathCompanyModel,
   SmsMainApiPathCompanyService
 } from 'ntk-cms-api';
-import { firstValueFrom, Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -53,11 +53,10 @@ export class SmsMainApiPathCompanySelectorComponent implements OnInit {
   @Input() set optionLoading(value: ProgressSpinnerModel) {
     this.loading = value;
   }
-
   ngOnInit(): void {
     this.loadOptions();
     if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
-    this.optionLabel = this.optionPlaceholder;
+      this.optionLabel = this.optionPlaceholder;
   }
   loadOptions(): void {
     this.filteredOptions = this.formControl.valueChanges

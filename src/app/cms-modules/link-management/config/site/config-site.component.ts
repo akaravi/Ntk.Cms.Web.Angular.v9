@@ -7,8 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel,
   CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, InfoEnumModel, LinkManagementConfigurationService,
+  DataFieldInfoModel,
+  FormInfoModel,
+  LinkManagementConfigurationService,
   LinkManagementModuleConfigSiteAccessValuesModel,
   LinkManagementModuleConfigSiteValuesModel,
   LinkManagementModuleSiteStorageValuesModel,
@@ -79,7 +80,9 @@ export class LinkManagementConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

@@ -1,13 +1,16 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { CoreUserModel, CoreUserService, FilterModel, TokenInfoModel } from 'ntk-cms-api';
+import { CoreUserModel, CoreUserService, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
-import { PersianCalendarService } from 'src/app/core/pipe/persian-date/persian-date.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
+import { CoreUserEmailConfirmComponent } from '../emailConfirm/emailConfirm.component';
+import { CoreUserMobileConfirmComponent } from '../mobileConfirm/mobileConfirm.component';
 
 @Component({
   selector: 'app-core-user-widget',
@@ -28,7 +31,7 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
   constructor(
     private service: CoreUserService,
     private cmsToastrService: CmsToastrService,
-    private persianCalendarService: PersianCalendarService,
+    public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
@@ -54,7 +57,6 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
     });
 
 
-    this.onActionStatist();
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -108,4 +110,45 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
     );
 
   }
+  onActionButtonEmailConfirm(): void {
+
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(CoreUserEmailConfirmComponent, {
+      height: '70%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.dialogChangedDate) {
+        this.onActionStatist();
+      }
+    });
+  }
+  onActionButtonMobileConfirm(): void {
+
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(CoreUserMobileConfirmComponent, {
+      height: '70%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.dialogChangedDate) {
+        this.onActionStatist();
+      }
+    });
+  }
+
 }

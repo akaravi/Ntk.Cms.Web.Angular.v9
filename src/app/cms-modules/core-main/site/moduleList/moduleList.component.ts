@@ -3,7 +3,6 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -12,18 +11,18 @@ import {
 import { Subscription } from 'rxjs';
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
 import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsSiteCreditViewComponent } from 'src/app/shared/cms-site-credit-view/cms-site-credit-view.component';
 import { CmsSiteUserCreditViewComponent } from 'src/app/shared/cms-site-user-credit-view/cms-site-user-credit-view.component';
+import { environment } from 'src/environments/environment';
 import { CoreSiteModuleAddComponent } from '../moduleAdd/moduleAdd.component';
 import { CoreSiteModuleEditComponent } from '../moduleEdit/moduleEdit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-site-module-list',
   templateUrl: './moduleList.component.html',
@@ -156,6 +155,8 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -200,10 +201,10 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.DataGetAll();
   }
 
-  onActionbuttonReNewModule(): void {
+  onActionButtonReNewModule(): void {
     this.router.navigate(['core/modulesale/serial/checklist/']);
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -239,7 +240,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
 
     if (!model || !model.linkModuleId || model.linkModuleId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -280,7 +281,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     });
   }
 
-  onActionbuttonDeleteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -335,8 +336,8 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
 
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -404,7 +405,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     }
     );
   }
-  onActionbuttonConfigSiteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonConfigSiteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -413,7 +414,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.onActionTableRowSelect(model);
     this.router.navigate([model.virtual_CmsModule.className.toLowerCase() + '/config/site/', model.linkSiteId]);
   }
-  onActionbuttonConfigMainAdminRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonConfigMainAdminRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -422,7 +423,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.onActionTableRowSelect(model);
     this.router.navigate([model.virtual_CmsModule.className.toLowerCase() + '/config/mainadmin/']);
   }
-  onActionbuttonSiteCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonSiteCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -437,7 +438,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
       }
     });
   }
-  onActionbuttonSiteUserCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonSiteUserCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -456,7 +457,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -14,13 +14,13 @@ import {
   EstatePropertyTypeUsageModel, FilterDataModel, FilterModel, FormInfoModel, InputDataTypeEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
 import { EstateCustomerOrderActionComponent } from '../action/action.component';
-import { environment } from 'src/environments/environment';
-import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 
 @Component({
   selector: 'app-estate-customer-order-add',

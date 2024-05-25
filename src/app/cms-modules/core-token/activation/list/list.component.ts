@@ -6,24 +6,25 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreSiteModel, CoreTokenActivationModel, CoreTokenActivationService, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  CoreSiteModel, CoreTokenActivationModel, CoreTokenActivationService, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { CoreTokenActivationEditComponent } from '../edit/edit.component';
 import { CoreTokenActivationViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-coretoken-user-list',
   templateUrl: './list.component.html',
 
 })
 export class CoreTokenActivationListComponent extends ListBaseComponent<CoreTokenActivationService, CoreTokenActivationModel, string>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
@@ -39,7 +40,8 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
-  ) {super(contentService, new CoreTokenActivationModel(), publicHelper,tokenHelper);
+  ) {
+    super(contentService, new CoreTokenActivationModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -153,6 +155,8 @@ implements OnInit, OnDestroy {
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -200,7 +204,7 @@ implements OnInit, OnDestroy {
   }
 
 
-  onActionbuttonViewRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -234,7 +238,7 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onActionbuttonEditRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -267,7 +271,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -324,8 +328,8 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -375,7 +379,7 @@ implements OnInit, OnDestroy {
 
   }
 
-  onActionbuttonViewUserRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -390,7 +394,7 @@ implements OnInit, OnDestroy {
   }
 
 
-  onActionbuttonViewSiteRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreTokenActivationModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -408,7 +412,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

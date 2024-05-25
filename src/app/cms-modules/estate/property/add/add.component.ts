@@ -16,24 +16,24 @@ import {
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
+import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
 import { PoinModel } from 'src/app/core/models/pointModel';
+import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsFormsErrorStateMatcher } from 'src/app/core/pipe/cmsFormsErrorStateMatcher';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsMapComponent } from 'src/app/shared/cms-map/cms-map.component';
+import { environment } from 'src/environments/environment';
 import { EstatePropertyExpertPriceInquiryListComponent } from '../../property-expert-price/inquiry-list/inquiry-list.component';
 import { EstatePropertyActionComponent } from '../action/action.component';
 import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
-import { environment } from 'src/environments/environment';
-import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
-import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
   selector: 'app-estate-property-add',
   templateUrl: './add.component.html',
 })
-export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyService, EstatePropertyModel, string>  implements OnInit {
+export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyService, EstatePropertyModel, string> implements OnInit {
   requestLinkPropertyTypeLanduseId = '';
   requestLinkPropertyTypeUsageId = '';
   constructor(
@@ -653,7 +653,7 @@ export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyS
       }
     });
   }
-  onActionbuttonQuickListSearchTitle(): void {
+  onActionButtonQuickListSearchTitle(): void {
     if (!this.dataModel || !this.dataModel.title || this.dataModel.title.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -675,7 +675,7 @@ export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyS
       }
     });
   }
-  onActionbuttonQuickListSearchCustomerTel(): void {
+  onActionButtonQuickListSearchCustomerTel(): void {
     if (!this.dataModel || !this.dataModel.aboutCustomerTel || this.dataModel.aboutCustomerTel.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -697,7 +697,7 @@ export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyS
       }
     });
   }
-  onActionbuttonQuickListSearchCustomerMobile(): void {
+  onActionButtonQuickListSearchCustomerMobile(): void {
     if (!this.dataModel || !this.dataModel.aboutCustomerMobile || this.dataModel.aboutCustomerMobile.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -719,7 +719,7 @@ export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyS
       }
     });
   }
-  onActionbuttonQuickListSearchCaseCode(): void {
+  onActionButtonQuickListSearchCaseCode(): void {
     if (!this.dataModel || !this.dataModel.caseCode || this.dataModel.caseCode.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

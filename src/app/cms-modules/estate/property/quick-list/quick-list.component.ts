@@ -5,28 +5,26 @@ import {
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { PageEvent } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from '@ngx-translate/core';
 import {
-  ClauseTypeEnum, DataFieldInfoModel, ErrorExceptionResult, EstatePropertyModel,
+  ClauseTypeEnum, DataFieldInfoModel,
+  EstatePropertyModel,
   EstatePropertyService, EstatePropertyTypeLanduseModel, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, FormInfoModel, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
 } from "ntk-cms-api";
 import { Subscription } from "rxjs";
 import { ComponentOptionSearchModel } from "src/app/core/cmsComponent/base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "src/app/core/cmsComponent/base/componentOptionStatistModel";
+import { ListBaseComponent } from "src/app/core/cmsComponent/listBaseComponent";
 import { PublicHelper } from "src/app/core/helpers/publicHelper";
 import { TokenHelper } from "src/app/core/helpers/tokenHelper";
 import { ProgressSpinnerModel } from "src/app/core/models/progressSpinnerModel";
 import { CmsToastrService } from "src/app/core/services/cmsToastr.service";
-import { CmsConfirmationDialogService } from "src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service";
-import { CmsExportEntityComponent } from "src/app/shared/cms-export-entity/cms-export-entity.component";
-import { CmsExportListComponent } from "src/app/shared/cms-export-list/cmsExportList.component";
-import { CmsLinkToComponent } from "src/app/shared/cms-link-to/cms-link-to.component";
-import { EstatePropertyQuickViewComponent } from "../quick-view/quick-view.component";
-import { environment } from "src/environments/environment";
-import { ListBaseComponent } from "src/app/core/cmsComponent/listBaseComponent";
 import { PageInfoService } from "src/app/core/services/page-info.service";
+import { CmsConfirmationDialogService } from "src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service";
+import { CmsLinkToComponent } from "src/app/shared/cms-link-to/cms-link-to.component";
+import { environment } from "src/environments/environment";
+import { EstatePropertyQuickViewComponent } from "../quick-view/quick-view.component";
 
 
 @Component({
@@ -61,7 +59,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyModel(), publicHelper,tokenHelper);
+    super(contentService, new EstatePropertyModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     if (data) {
       if (data.searchTitle)
@@ -312,6 +310,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
             if (ret.isSuccess) {
               this.dataModelResult = ret;
               this.tableSource.data = ret.listItems;
+              if (this.optionsStatist?.data?.show)
+                this.onActionButtonStatist(true);
               if (this.optionsSearch.childMethods) {
                 this.optionsSearch.childMethods.setAccess(ret.access);
               }
@@ -343,6 +343,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
             if (ret.isSuccess) {
               this.dataModelResult = ret;
               this.tableSource.data = ret.listItems;
+              if (this.optionsStatist?.data?.show)
+                this.onActionButtonStatist(true);
               if (this.optionsSearch.childMethods) {
                 this.optionsSearch.childMethods.setAccess(ret.access);
               }
@@ -368,6 +370,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -417,7 +421,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null &&
       this.categoryModelSelected &&
@@ -469,7 +473,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     this.DataGetAll();
   }
 
-  onActionbuttonEditRow(
+  onActionButtonEditRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -493,7 +497,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     }
   }
 
-  onActionbuttonQuickViewRow(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonQuickViewRow(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -525,7 +529,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     });
   }
 
-  onActionbuttonAdsRow(
+  onActionButtonAdsRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -549,7 +553,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       this.router.navigate(["/estate/property-ads/LinkPropertyId", this.tableRowSelected.id]);
     }
   }
-  onActionbuttonHistoryRow(
+  onActionButtonHistoryRow(
     mode: EstatePropertyModel = this.tableRowSelected, event?: MouseEvent
   ): void {
     if (!mode || !mode.id || mode.id.length === 0) {
@@ -574,7 +578,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     }
   }
 
-  onActionbuttonDeleteRow(
+  onActionButtonDeleteRow(
     mode: EstatePropertyModel = this.tableRowSelected
   ): void {
 
@@ -624,8 +628,8 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
         // console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
       });
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -669,7 +673,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     }
     );
   }
-  onActionbuttonActionSendSmsToCustomerOrder(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonActionSendSmsToCustomerOrder(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -696,7 +700,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       );
     // ** */
   }
-  onActionbuttonViewOtherUserAdvertise(model: EstatePropertyModel = this.tableRowSelected): void {
+  onActionButtonViewOtherUserAdvertise(model: EstatePropertyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -715,13 +719,13 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
 
 
 
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.optionloadComponent = true;
     this.DataGetAll();
   }
@@ -736,7 +740,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
   onActionBackToParent(): void {
     this.router.navigate(["/ticketing/departemen/"]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: EstatePropertyModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {

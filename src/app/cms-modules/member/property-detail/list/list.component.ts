@@ -3,28 +3,22 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, MemberPropertyDetailGroupModel, MemberPropertyDetailGroupService, MemberPropertyDetailModel,
-  MemberPropertyDetailService, MemberPropertyTypeModel, MemberPropertyTypeService, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  ErrorExceptionResult, FilterDataModel, FilterModel, MemberPropertyDetailGroupModel, MemberPropertyDetailGroupService, MemberPropertyDetailModel,
+  MemberPropertyDetailService, MemberPropertyTypeModel, MemberPropertyTypeService, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { MemberPropertyDetailAddComponent } from '../add/add.component';
 import { MemberPropertyDetailEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-member-propertydetail-list',
   templateUrl: './list.component.html'
@@ -45,7 +39,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new MemberPropertyDetailModel(), publicHelper,tokenHelper);
+    super(contentService, new MemberPropertyDetailModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkPropertyTypeId = +this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
     this.optionsSearch.parentMethods = {
@@ -150,6 +144,8 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -234,7 +230,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -266,7 +262,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     });
   }
 
-  onActionbuttonEditRow(model: MemberPropertyDetailModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: MemberPropertyDetailModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -299,7 +295,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
       }
     });
   }
-  onActionbuttonDeleteRow(model: MemberPropertyDetailModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: MemberPropertyDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -350,7 +346,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
       );
 
   }
-  onActionbuttonContentList(model: MemberPropertyDetailModel = this.tableRowSelected): void {
+  onActionButtonContentList(model: MemberPropertyDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -361,8 +357,8 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     this.router.navigate(['/hypershop/content/PareintId/', this.tableRowSelected.id]);
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -414,7 +410,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

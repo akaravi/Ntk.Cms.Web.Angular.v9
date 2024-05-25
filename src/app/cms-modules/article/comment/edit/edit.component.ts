@@ -4,17 +4,16 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  ArticleCommentModel, ArticleCommentService, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult,
+  ArticleCommentModel, ArticleCommentService, CoreEnumService,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel
+  FormInfoModel
 } from 'ntk-cms-api';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-article-comment-edit',
@@ -22,7 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'],
 })
 export class ArticleCommentEditComponent extends EditBaseComponent<ArticleCommentService, ArticleCommentModel, number>
-implements OnInit {
+  implements OnInit {
   requestId = 0;
   requestParentId = 0;
   requestContentId = 0;
@@ -35,7 +34,8 @@ implements OnInit {
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(commentService, new ArticleCommentModel(), publicHelper);
+  ) {
+    super(commentService, new ArticleCommentModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');

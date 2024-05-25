@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreSiteCategoryModel, DataFieldInfoModel, ErrorExceptionResult,
@@ -21,7 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
 })
-export class WebDesignerMainPageAddComponent extends AddBaseComponent<WebDesignerMainPageService, WebDesignerMainPageModel, string>  implements OnInit {
+export class WebDesignerMainPageAddComponent extends AddBaseComponent<WebDesignerMainPageService, WebDesignerMainPageModel, string> implements OnInit {
   requestLinkPageDependencyGuId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,

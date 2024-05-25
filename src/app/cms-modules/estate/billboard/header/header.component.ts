@@ -7,7 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   DataFieldInfoModel, ErrorExceptionResult,
   EstateBillboardModel,
-  EstateBillboardService, InfoEnumModel, RecordStatusEnum
+  EstateBillboardService,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -76,7 +77,7 @@ export class EstateBillboardHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: EstateBillboardModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: EstateBillboardModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

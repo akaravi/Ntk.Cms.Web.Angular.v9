@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleSaleHeaderModel, CoreModuleSaleHeaderService, DataFieldInfoModel, ErrorExceptionResult, InfoEnumModel
+  CoreEnumService, CoreModuleSaleHeaderModel, CoreModuleSaleHeaderService, DataFieldInfoModel, ErrorExceptionResult
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';

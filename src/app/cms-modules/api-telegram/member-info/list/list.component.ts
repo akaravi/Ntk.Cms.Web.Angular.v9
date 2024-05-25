@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ApiTelegramMemberInfoModel,
-  ApiTelegramMemberInfoService, SortTypeEnum,
-  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum} from 'ntk-cms-api';
+  ApiTelegramMemberInfoService,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum,
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -33,7 +35,7 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApiTelegramMemberInfoModel(), publicHelper,tokenHelper);
+    super(contentService, new ApiTelegramMemberInfoModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -109,6 +111,8 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -153,14 +157,14 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
   }
 
-  onActionbuttonEditRow(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
 
   }
-  onActionbuttonDeleteRow(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -209,7 +213,7 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
       );
   }
 
-  onActionbuttonGoToModuleList(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonGoToModuleList(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -219,8 +223,8 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
 
     this.router.navigate(['/core/siteModule/', this.tableRowSelected.id]);
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -273,7 +277,7 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
 
   }
 
-  onActionbuttonSiteList(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonSiteList(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -282,7 +286,7 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
     this.onActionTableRowSelect(model);
     this.router.navigate(['core/site/modulelist/LinkModuleId/', model.id]);
   }
-  onActionbuttonSiteCategoryList(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
+  onActionButtonSiteCategoryList(model: ApiTelegramMemberInfoModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -295,7 +299,7 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

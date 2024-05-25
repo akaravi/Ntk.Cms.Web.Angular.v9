@@ -10,7 +10,9 @@ import {
   DataFieldInfoModel, DataProviderConfigurationService,
   DataProviderModuleConfigSiteAccessValuesModel,
   DataProviderModuleConfigSiteValuesModel,
-  DataProviderModuleSiteStorageValuesModel, ErrorExceptionResult, FormInfoModel, InfoEnumModel, TokenInfoModel
+  DataProviderModuleSiteStorageValuesModel,
+  FormInfoModel,
+  TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
@@ -78,7 +80,9 @@ export class DataProviderConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

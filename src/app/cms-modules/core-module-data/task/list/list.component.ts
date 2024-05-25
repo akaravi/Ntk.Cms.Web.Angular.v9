@@ -3,27 +3,22 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleDataTaskModel, CoreModuleDataTaskService, CoreSiteModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreEnumService, CoreModuleDataTaskModel, CoreModuleDataTaskService, CoreSiteModel,
+  FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreModuleDataTaskEditComponent } from '../edit/edit.component';
 import { CoreModuleDataTaskViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-coremodule-data-task-list',
@@ -47,7 +42,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleDataTaskModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreModuleDataTaskModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -73,7 +68,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
-  
+
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
@@ -126,6 +121,8 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -172,7 +169,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     this.DataGetAll();
   }
 
-  // onActionbuttonNewRow(): void {
+  // onActionButtonNewRow(): void {
 
   //   if (
   //     this.dataModelResult == null ||
@@ -195,7 +192,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
   //   });
   // }
 
-  onActionbuttonViewRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -229,7 +226,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     });
   }
 
-  onActionbuttonEditRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -262,7 +259,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleDataTaskModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -316,8 +313,8 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
 
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -371,7 +368,7 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

@@ -3,36 +3,34 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AuthRenewTokenModel,
-  CoreAuthService, CoreSiteUserModel, CoreSiteUserService, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreAuthService, CoreSiteUserModel, CoreSiteUserService, CoreUserModel, DataFieldInfoModel,
+  FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
 import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreUserChangePasswordComponent } from '../../user/changePassword/changePassword.component';
 import { CoreSiteUserAddComponent } from '../userAdd/userAdd.component';
 import { CoreSiteUserEditComponent } from '../userEdit/userEdit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 @Component({
   selector: 'app-core-site-user-list',
   templateUrl: './userList.component.html',
   styleUrls: ["./userlist.component.scss"],
 })
 export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserService, CoreSiteUserModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkUserGroupId = 0;
@@ -48,7 +46,8 @@ implements OnInit, OnDestroy {
     public translate: TranslateService,
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
-    public dialog: MatDialog) {super(contentService, new CoreSiteUserModel(), publicHelper,tokenHelper);
+    public dialog: MatDialog) {
+    super(contentService, new CoreSiteUserModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -157,6 +156,8 @@ implements OnInit, OnDestroy {
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -204,7 +205,7 @@ implements OnInit, OnDestroy {
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -237,7 +238,7 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onActionbuttonEditRow(model: CoreSiteUserModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreSiteUserModel = this.tableRowSelected): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -275,7 +276,7 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onActionbuttonDeleteRow(model: CoreSiteUserModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreSiteUserModel = this.tableRowSelected): void {
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
@@ -324,7 +325,7 @@ implements OnInit, OnDestroy {
       );
   }
 
-  onActionbuttonEditSiteRow(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditSiteRow(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
@@ -340,7 +341,7 @@ implements OnInit, OnDestroy {
     }
   }
 
-  onActionbuttonChangePassword(model: CoreSiteUserModel = this.tableRowSelected): void {
+  onActionButtonChangePassword(model: CoreSiteUserModel = this.tableRowSelected): void {
     if (!model || !model.linkUserId || model.linkUserId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -367,7 +368,7 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onActionbuttonEditUserRow(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonEditUserRow(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
@@ -383,7 +384,7 @@ implements OnInit, OnDestroy {
     }
 
   }
-  onActionbuttonResllerUser(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonResllerUser(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
@@ -399,7 +400,7 @@ implements OnInit, OnDestroy {
     }
 
   }
-  onActionbuttonResllerSite(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonResllerSite(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
 
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
@@ -414,7 +415,7 @@ implements OnInit, OnDestroy {
       this.router.navigate(['/core/site/reseller-chart/LinkSiteId/', model.linkSiteId]);
     }
   }
-  onActionbuttonLoginToRow(model: CoreSiteUserModel = this.tableRowSelected): void {
+  onActionButtonLoginToRow(model: CoreSiteUserModel = this.tableRowSelected): void {
     if (!model || !model.linkUserId || model.linkUserId === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -443,7 +444,7 @@ implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonUserSupportList(row: CoreSiteUserModel, event?: MouseEvent): void {
+  onActionButtonUserSupportList(row: CoreSiteUserModel, event?: MouseEvent): void {
     if (event?.ctrlKey) {
       this.link = "/#/core/user-support-access/list/LinkSiteId/" + row.linkSiteId + "/LinkUserId/" + row.linkUserId;
       window.open(this.link, "_blank");
@@ -451,8 +452,8 @@ implements OnInit, OnDestroy {
       this.router.navigate(['/core/user-support-access/list/LinkSiteId/', row.linkSiteId, 'LinkUserId', row.linkUserId]);
     }
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -505,7 +506,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -513,7 +514,7 @@ implements OnInit, OnDestroy {
     this.DataGetAll();
   }
 
-  onActionbuttonSiteList(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
+  onActionButtonSiteList(model: CoreSiteUserModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.linkUserId || model.linkUserId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

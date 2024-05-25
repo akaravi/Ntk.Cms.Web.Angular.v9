@@ -2,11 +2,10 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult,
+  DataFieldInfoModel,
   FilterDataModel,
   FilterModel, RecordStatusEnum, SortTypeEnum, TicketingDepartemenModel, TicketingTaskModel,
   TicketingTaskService, TokenInfoModel
@@ -14,16 +13,14 @@ import {
 import { Subscription } from 'rxjs';
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
 import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { TicketingTaskViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
+import { TicketingTaskViewComponent } from '../view/view.component';
 
 @Component({
   selector: 'app-ticketing-task-contact-us-list',
@@ -43,7 +40,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new TicketingTaskModel(), publicHelper,tokenHelper)
+    super(contentService, new TicketingTaskModel(), publicHelper, tokenHelper)
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -143,6 +140,8 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
           this.dataModelResult = next;
           this.tableSource.data = next.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(next.access);
           }
@@ -192,7 +191,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     this.router.navigate(['/ticketing/contactus/']);
 
   }
@@ -209,7 +208,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
 
     this.DataGetAll();
   }
-  onActionbuttonViewRow(mode: TicketingTaskModel = this.tableRowSelected): void {
+  onActionButtonViewRow(mode: TicketingTaskModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -233,7 +232,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
       }
     });
   }
-  onActionbuttonAnswerList(mode: TicketingTaskModel = this.tableRowSelected): void {
+  onActionButtonAnswerList(mode: TicketingTaskModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -252,8 +251,8 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
 
 
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -301,7 +300,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

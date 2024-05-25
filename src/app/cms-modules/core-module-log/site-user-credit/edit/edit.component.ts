@@ -5,17 +5,17 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleLogSiteUserCreditModel, CoreModuleLogSiteUserCreditService, DataFieldInfoModel, ErrorExceptionResult,
-  FormInfoModel, ManageUserAccessDataTypesEnum, TokenInfoModel
+  CoreEnumService, CoreModuleLogSiteUserCreditModel, CoreModuleLogSiteUserCreditService,
+  ErrorExceptionResult,
+  FormInfoModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -26,7 +26,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 export class CoreModuleLogSiteUserCreditEditComponent extends EditBaseComponent<CoreModuleLogSiteUserCreditService, CoreModuleLogSiteUserCreditModel, string>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestId = '';
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -38,7 +38,8 @@ implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
     public translate: TranslateService,
-  ) {super(coreModuleLogSiteUserCreditService, new CoreModuleLogSiteUserCreditModel(), publicHelper);
+  ) {
+    super(coreModuleLogSiteUserCreditService, new CoreModuleLogSiteUserCreditModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -46,16 +47,16 @@ implements OnInit, OnDestroy {
       this.requestId = data.id;
     }
   }
-  
 
 
-  
+
+
   dataModelResult: ErrorExceptionResult<CoreModuleLogSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleLogSiteUserCreditModel>();
   dataModel: CoreModuleLogSiteUserCreditModel = new CoreModuleLogSiteUserCreditModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
-  
+
 
 
   fileManagerOpenForm = false;

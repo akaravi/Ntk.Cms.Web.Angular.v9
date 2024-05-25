@@ -151,7 +151,7 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
 

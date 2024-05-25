@@ -27,27 +27,27 @@ const routes: Routes = [
         path: 'content',
         // resolve: {categoryList: CategoryResolver},
         // loadChildren: () =>    import('./content/content.module').then(m => m.ContentModule)
-        component: ChartContentListComponent,    data: { title: 'ROUTE.CHART' },
+        component: ChartContentListComponent, data: { title: 'ROUTE.CHART' },
 
       },
       {
         path: 'content/add/:CategoryId',
-        component: ChartContentAddComponent,    data: { title: 'ROUTE.CHART' },
+        component: ChartContentAddComponent, data: { title: 'ROUTE.CHART' },
 
       },
       {
         path: 'content/edit/:Id',
-        component: ChartContentEditComponent,    data: { title: 'ROUTE.CHART' },
+        component: ChartContentEditComponent, data: { title: 'ROUTE.CHART' },
 
       },
       {
         path: 'comment',
-        component: ChartCommentListComponent,    data: { title: 'ROUTE.CHART' },
+        component: ChartCommentListComponent, data: { title: 'ROUTE.CHART' },
 
       },
       {
         path: 'comment/:ContentId',
-        component: ChartCommentListComponent,    data: { title: 'ROUTE.CHART' },
+        component: ChartCommentListComponent, data: { title: 'ROUTE.CHART' },
 
       },
     ],
@@ -58,4 +58,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ChartRouting {}
+export class ChartRouting { }

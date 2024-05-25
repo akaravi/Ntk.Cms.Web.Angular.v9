@@ -12,22 +12,23 @@ import { Map as leafletMap } from 'leaflet';
 import {
   CoreCurrencyModel, CoreEnumService, CoreLocationModel, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractModel, EstateContractTypeModel, EstateContractTypeService, EstatePropertyCompanyModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyModel, EstatePropertyProjectModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeLanduseService, EstatePropertyTypeModel,
   EstatePropertyTypeService, EstatePropertyTypeUsageModel, FilterDataModel,
-  FilterModel, FormInfoModel, InfoEnumModel, InputDataTypeEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, TokenInfoModel
+  FilterModel, FormInfoModel,
+  InputDataTypeEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsFormsErrorStateMatcher } from 'src/app/core/pipe/cmsFormsErrorStateMatcher';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsMapComponent } from 'src/app/shared/cms-map/cms-map.component';
+import { environment } from 'src/environments/environment';
 import { EstatePropertyExpertPriceInquiryListComponent } from '../../property-expert-price/inquiry-list/inquiry-list.component';
 import { EstatePropertyActionComponent } from '../action/action.component';
 import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
-import { environment } from 'src/environments/environment';
-import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
 @Component({
   selector: 'app-estate-property-add-mobile',
   templateUrl: './add.mobile.component.html',
@@ -674,7 +675,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
       }
     });
   }
-  onActionbuttonQuickListSearchTitle(): void {
+  onActionButtonQuickListSearchTitle(): void {
     if (!this.dataModel || !this.dataModel.title || this.dataModel.title.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -696,7 +697,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
       }
     });
   }
-  onActionbuttonQuickListSearchCustomerTel(): void {
+  onActionButtonQuickListSearchCustomerTel(): void {
     if (!this.dataModel || !this.dataModel.aboutCustomerTel || this.dataModel.aboutCustomerTel.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -718,7 +719,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
       }
     });
   }
-  onActionbuttonQuickListSearchCustomerMobile(): void {
+  onActionButtonQuickListSearchCustomerMobile(): void {
     if (!this.dataModel || !this.dataModel.aboutCustomerMobile || this.dataModel.aboutCustomerMobile.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -740,7 +741,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
       }
     });
   }
-  onActionbuttonQuickListSearchCaseCode(): void {
+  onActionButtonQuickListSearchCaseCode(): void {
     if (!this.dataModel || !this.dataModel.caseCode || this.dataModel.caseCode.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

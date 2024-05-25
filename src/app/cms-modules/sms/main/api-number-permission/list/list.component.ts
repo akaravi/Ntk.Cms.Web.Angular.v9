@@ -7,22 +7,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   FilterDataModel, FilterModel, RecordStatusEnum, SmsMainApiNumberPermissionModel,
-  SmsMainApiNumberPermissionService, SortTypeEnum} from 'ntk-cms-api';
+  SmsMainApiNumberPermissionService, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { SmsMainApiNumberPermissionAddComponent } from '../add/add.component';
 import { SmsMainApiNumberPermissionEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-sms-api-number-permission-list',
   templateUrl: './list.component.html'
 })
-export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string> implements OnInit, OnDestroy {
+export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string> implements OnInit, OnDestroy {
   requestLinkApiNumberId = '';
   constructor(
     public contentService: SmsMainApiNumberPermissionService,
@@ -36,7 +37,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsMainApiNumberPermissionModel(), publicHelper,tokenHelper);
+    super(contentService, new SmsMainApiNumberPermissionModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -111,6 +112,8 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -154,7 +157,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -165,10 +168,10 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiNumberPermissionAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -183,7 +186,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length == 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -199,10 +202,10 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiNumberPermissionEditComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -216,7 +219,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
       }
     });
   }
-  onActionbuttonDeleteRow(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -268,8 +271,8 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
 
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -319,7 +322,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
 
   }
 
-  onActionbuttonApiList(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
+  onActionButtonApiList(model: SmsMainApiNumberPermissionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -344,7 +347,7 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent< 
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

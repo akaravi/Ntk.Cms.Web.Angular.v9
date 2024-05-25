@@ -6,7 +6,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel,
   CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult, FormInfoModel, InfoEnumModel, TicketingConfigurationService,
+  DataFieldInfoModel,
+  FormInfoModel,
+  TicketingConfigurationService,
   TicketingModuleConfigSiteAccessValuesModel,
   TicketingModuleConfigSiteValuesModel,
   TicketingModuleSiteStorageValuesModel, TokenInfoModel
@@ -78,7 +80,9 @@ export class TicketingConfigSiteComponent implements OnInit {
     this.onLoadDate();
 
   }
-
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   onLoadDate(): void {
     if (!this.requestLinkSiteId || this.requestLinkSiteId === 0) {
       this.requestLinkSiteId = this.tokenInfo.siteId;

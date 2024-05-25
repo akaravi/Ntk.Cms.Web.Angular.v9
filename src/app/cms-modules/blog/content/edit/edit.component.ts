@@ -12,15 +12,16 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   AccessModel, BlogCategoryModel, BlogContentCategoryModel,
-  BlogContentCategoryService, BlogContentModel, BlogContentOtherInfoModel, BlogContentOtherInfoService, BlogContentService, BlogContentSimilarModel, BlogContentSimilarService, BlogContentTagModel, BlogContentTagService, ClauseTypeEnum, CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  BlogContentCategoryService, BlogContentModel, BlogContentOtherInfoModel, BlogContentOtherInfoService, BlogContentService, BlogContentSimilarModel, BlogContentSimilarService, BlogContentTagModel, BlogContentTagService, ClauseTypeEnum, CoreEnumService, CoreLocationModel,
+  ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel,
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { map, of } from 'rxjs';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -53,7 +54,7 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
 
   dataModel = new BlogContentModel();
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
@@ -72,7 +73,7 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
   otherInfoTabledataSource = new MatTableDataSource<BlogContentOtherInfoModel>();
   dataAccessModel: AccessModel;
 
-  
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

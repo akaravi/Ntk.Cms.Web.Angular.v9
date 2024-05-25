@@ -1,18 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuMainComponent } from './menu-main/menu-main.component';
-import { MenuShareComponent } from './menu-share/menu-share.component';
-import { MenuColorsComponent } from './menu-colors/menu-colors.component';
-import { MenuFooterComponent } from './menu-footer/menu-footer.component';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CoreCpMainMenuService } from 'ntk-cms-api';
+import { SharedModule } from '../shared/shared.module';
 import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
-import { CoreCpMainMenuService } from 'ntk-cms-api';
-import { RouterModule } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
-import { MenuLanguageComponent } from './menu-language/menu-language.component';
-import { MenuProfileComponent } from './menu-profile/menu-profile.component';
-import { MenuInstallPwaIosComponent } from './menu-install-pwa-ios/menu-install-pwa-ios.component';
+import { MenuColorsComponent } from './menu-colors/menu-colors.component';
+import { MenuFooterComponent } from './menu-footer/menu-footer.component';
 import { MenuInstallPwaAndroidComponent } from './menu-install-pwa-android/menu-install-pwa-android.component';
+import { MenuInstallPwaIosComponent } from './menu-install-pwa-ios/menu-install-pwa-ios.component';
+import { MenuLanguageComponent } from './menu-language/menu-language.component';
+import { MenuMainComponent } from './menu-main/menu-main.component';
+import { MenuProfileComponent } from './menu-profile/menu-profile.component';
+import { MenuShareComponent } from './menu-share/menu-share.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 

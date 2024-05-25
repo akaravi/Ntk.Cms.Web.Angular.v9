@@ -1,7 +1,7 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { EstateCustomerOrderService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
+import { EstateCustomerOrderService, FilterDataModel, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription, forkJoin } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ChartOptionsModel } from 'src/app/core/models/chartOptionsModel';
@@ -25,7 +25,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     /** chart*/
     this.chartOptions = {
       series: [],
@@ -65,7 +65,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
   }
   rowExist = false;
   ngOnInit() {
-    this.widgetInfoModel.title = this.translate.instant('TITLE.Check_registered_properties');
+    this.widgetInfoModel.title = this.translate.instant('TITLE.ESTATE.CUSTOMER_ORDER');
     this.widgetInfoModel.description = this.translate.instant('TITLE.Introduction_of_your_customer_order');
     this.widgetInfoModel.link = '/estate/customer-order';
 
@@ -130,14 +130,9 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       if (ret.isSuccess) {
         this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, ''));
         this.rowExist = true;
-        this.widgetInfoModel.title = this.translate.instant('TITLE.Add_Property');
         this.widgetInfoModel.description = this.translate.instant('TITLE.Number_Registered_Property') + ' : ' + ret.totalRowCount;
-        this.widgetInfoModel.link = '/estate/property/add';
       }
-      else {
-        this.widgetInfoModel.title = this.translate.instant('TITLE.Register_your_first_property');
-        this.widgetInfoModel.link = '/estate/property/add';
-      }
+
       //*results */
       ret = results[1];
       series[1] = ret.totalRowCount;

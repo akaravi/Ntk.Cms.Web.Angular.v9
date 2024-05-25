@@ -42,7 +42,6 @@ import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-vie
 @Component({
   selector: 'app-estate-property-history-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
 })
 export class EstatePropertyHistoryListComponent extends ListBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId = '';
@@ -64,7 +63,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyHistoryModel(), publicHelper,tokenHelper);
+    super(contentService, new EstatePropertyHistoryModel(), publicHelper, tokenHelper);
 
     pageInfo.updateContentService(contentService);
     this.loading.cdr = this.cdr;
@@ -292,6 +291,8 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -300,7 +301,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
           }
           this.loading.Stop(pName);
           if (this.popupAdd) {
-            this.onActionbuttonNewRow();
+            this.onActionButtonNewRow();
           }
         },
         error: (er) => {
@@ -317,6 +318,8 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
             this.dataModelResult = ret;
             this.tableSource.data = ret.listItems;
 
+            if (this.optionsStatist?.data?.show)
+              this.onActionButtonStatist(true);
             if (this.optionsSearch.childMethods) {
               this.optionsSearch.childMethods.setAccess(ret.access);
             }
@@ -325,7 +328,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
           }
           this.loading.Stop(pName);
           if (this.popupAdd) {
-            this.onActionbuttonNewRow();
+            this.onActionButtonNewRow();
           }
         },
         error: (er) => {
@@ -367,7 +370,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     // if (!this.popupAdd && (this.categoryModelSelected == null || this.categoryModelSelected.id.length === 0)) {
     //   const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected');
     //   this.cmsToastrService.typeErrorSelected(message);
@@ -432,7 +435,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     }
   }
 
-  onActionbuttonEditRow(
+  onActionButtonEditRow(
     model: EstatePropertyHistoryModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -485,7 +488,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       });
     }
   }
-  onActionbuttonDeleteRow(
+  onActionButtonDeleteRow(
     model: EstatePropertyHistoryModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -544,8 +547,8 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       });
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -600,7 +603,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
 
 
-  onActionbuttonPropertyQuickViewRow(id: any): void {
+  onActionButtonPropertyQuickViewRow(id: any): void {
     if (!id || id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -629,7 +632,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     });
   }
 
-  onActionbuttonQuickViewRow(
+  onActionButtonQuickViewRow(
     model: EstatePropertyHistoryModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -679,7 +682,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
         result.onActionOpenItem &&
         result.onActionOpenItem.id.length > 0
       ) {
-        this.onActionbuttonQuickViewRow(result.onActionOpenItem);
+        this.onActionButtonQuickViewRow(result.onActionOpenItem);
       }
     });
   }
@@ -695,7 +698,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.optionloadComponent = true;
     this.DataGetAll();
   }
@@ -707,7 +710,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.DataGetAll();
   }
 
-  onActionbuttonInCheckingOnDate(model: boolean): void {
+  onActionButtonInCheckingOnDate(model: boolean): void {
     this.searchInCheckingOnDay = model;
     if (this.searchInCheckingOnDay) {
       if (!this.checkingOnDayRange.controls.start?.value)
@@ -718,7 +721,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.DataGetAll();
     }
   }
-  onActionbuttonInCheckingOnDateSearch() {
+  onActionButtonInCheckingOnDateSearch() {
     if (this.searchInCheckingOnDay) this.DataGetAll();
   }
   onActionNext() {

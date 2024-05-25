@@ -1,325 +1,347 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
-      <p class="mb-0 color-highlight font-600 font-12">
-          حساب کاربری خود را ویرایش کنید
-      </p>
-      <h4>اطلاعات</h4>
-      
-      <p>
-          اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-          فقط یک صفحه ساختگی است.
-      </p>
-      <!--Content-->
-      <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-          {{ formInfo.formTitle }}
-          <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
+    <p class="mb-0 color-highlight font-600 font-12">
+      حساب کاربری خود را ویرایش کنید
+    </p>
+    <h4>اطلاعات</h4>
 
-            <mat-step label="{{'TITLE.Default_module_settings'|translate}}" state="main"
-              *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-              <p>{{'TITLE.Settings_that_are_used_in_the_first_assignment_of_the_module_to_the_site' |translate}}</p>
-              <!-- StatusRenderUser Field -->
-              <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.statusRenderUser" class="font-600 font-14">
-                      StatusRenderUser</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.statusRenderUser"
-                            [(ngModel)]="dataConfigSiteValuesDefaultModel.statusRenderUser"
-                            name="dataConfigSiteValuesDefaultModel.statusRenderUser">
-                        <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.statusRenderUser"></label>
-                    </div>
-                </div>
-              </div>
-              <!-- UseDataDefaulteSite -->
-              <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.useDataDefaulteSite" class="font-600 font-14">
-                      {{'TITLE.Display_the_default_site_information_on_the_site' | translate}}</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"
-                            [(ngModel)]="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"
-                            name="dataConfigSiteValuesDefaultModel.useDataDefaulteSite">
-                        <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"></label>
-                    </div>
-                </div>
-              </div>
-              <!-- DomainsGoogleSitekey Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" class="color-highlight">DomainsGoogleSitekey</label>
-                <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
-                  name="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
-                  #dataConfigSiteValuesDefaultModel_DomainsGoogleSitekey type="text" placeholder="ad....." class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" />
-              </div>
+    <p>
+      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
+      فقط یک صفحه ساختگی است.
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+      {{ formInfo.formTitle }}
+      <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
 
-              <!-- DomainsGoogleSecretkey Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" class="color-highlight">DomainsGoogleSecretkey</label>
-                <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
-                  name="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
-                  #dataConfigSiteValuesDefaultModel_DomainsGoogleSecretkey type="text" placeholder="ad....." class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" />
+        <mat-step label="{{'TITLE.Default_module_settings'|translate}}" state="main"
+          *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+          <p>{{'TITLE.Settings_that_are_used_in_the_first_assignment_of_the_module_to_the_site' |translate}}</p>
+          <!-- StatusRenderUser Field -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.statusRenderUser" class="font-600 font-14">
+                StatusRenderUser</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.statusRenderUser"
+                  [(ngModel)]="dataConfigSiteValuesDefaultModel.statusRenderUser"
+                  name="dataConfigSiteValuesDefaultModel.statusRenderUser">
+                <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.statusRenderUser"></label>
               </div>
-              <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.userRegidteryBool" class="font-600 font-14">
-                      UserRegidteryBool</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.userRegidteryBool"
-                            [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryBool"
-                            name="dataConfigSiteValuesDefaultModel.userRegidteryBool">
-                        <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.userRegidteryBool"></label>
-                    </div>
-                </div>
+            </div>
+          </div>
+          <!-- UseDataDefaulteSite -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.useDataDefaulteSite" class="font-600 font-14">
+                {{'TITLE.Display_the_default_site_information_on_the_site' | translate}}</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"
+                  [(ngModel)]="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"
+                  name="dataConfigSiteValuesDefaultModel.useDataDefaulteSite">
+                <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.useDataDefaulteSite"></label>
               </div>
-              <!-- UserRegidteryRecordStatus Field -->
-              <app-cms-enum-record-status-selector [(model)]="dataConfigSiteValuesDefaultModel.userRegidteryRecordStatus"
-                [optionDisabled]="false" [optionLabel]="this.translate.instant('TITLE.Status')" [optionRequired]="true"
-                [optionSelectFirstItem]="true">
-              </app-cms-enum-record-status-selector>
-              <!-- UserRegidteryExpireDateDay Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" class="color-highlight">UserRegidteryExpireDateDay</label>
-                <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
-                  name="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
-                  #dataConfigSiteValuesDefaultModel_UserRegidteryExpireDateDay type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDaydataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" />
-              </div>
-              <!-- RSSCount Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigSiteValuesDefaultModel.rssCount" class="color-highlight">RSSCount</label>
-                <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.rssCount"
-                  name="dataConfigSiteValuesDefaultModel.rssCount" #dataConfigSiteValuesDefaultModel_RSSCount type="number"
-                  placeholder="0" class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.rssCount" />
-              </div>
-              <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                <div [innerHTML]="dataConfigSiteValuesDefaultModel | prettyjson"></div>
-              </div>
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-                  (click)="onActionBackToParent()">
-                  {{'ACTION.BACK' | translate}}
-                </button>
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  [disabled]="!vform.form.valid" matStepperNext>
-                  {{'ACTION.NEXT' | translate}}
-                </button>
-                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                  [disabled]="!vform.form.valid">
-                  {{'ACTION.SAVE' | translate}}
-                </button>
-              </div>
-            </mat-step>
+            </div>
+          </div>
+          <!-- DomainsGoogleSitekey Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
+              class="color-highlight">DomainsGoogleSitekey</label>
+            <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
+              name="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey"
+              #dataConfigSiteValuesDefaultModel_DomainsGoogleSitekey type="text" placeholder="ad....."
+              class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.domainsGoogleSitekey" />
+          </div>
 
-            <mat-step label="{{'TITLE.Default_access'|translate}}" state="main"
-              *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-              <p>{{'TITLE.Default_website_access_to_this_module'|translate}}</p>
+          <!-- DomainsGoogleSecretkey Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
+              class="color-highlight">DomainsGoogleSecretkey</label>
+            <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
+              name="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey"
+              #dataConfigSiteValuesDefaultModel_DomainsGoogleSecretkey type="text" placeholder="ad....."
+              class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.domainsGoogleSecretkey" />
+          </div>
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataConfigSiteValuesDefaultModel.userRegidteryBool" class="font-600 font-14">
+                UserRegidteryBool</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataConfigSiteValuesDefaultModel.userRegidteryBool"
+                  [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryBool"
+                  name="dataConfigSiteValuesDefaultModel.userRegidteryBool">
+                <label class="custom-control-label" for="dataConfigSiteValuesDefaultModel.userRegidteryBool"></label>
+              </div>
+            </div>
+          </div>
+          <!-- UserRegidteryRecordStatus Field -->
+          <app-cms-enum-record-status-selector [(model)]="dataConfigSiteValuesDefaultModel.userRegidteryRecordStatus"
+            [optionDisabled]="false" [optionLabel]="this.translate.instant('TITLE.Status')" [optionRequired]="true"
+            [optionSelectFirstItem]="true">
+          </app-cms-enum-record-status-selector>
+          <!-- UserRegidteryExpireDateDay Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
+              class="color-highlight">UserRegidteryExpireDateDay</label>
+            <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
+              name="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay"
+              #dataConfigSiteValuesDefaultModel_UserRegidteryExpireDateDay type="number" placeholder="0"
+              class="form-control validate-name"
+              id="dataConfigSiteValuesDefaultModel.userRegidteryExpireDateDaydataConfigSiteValuesDefaultModel.userRegidteryExpireDateDay" />
+          </div>
+          <!-- RSSCount Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteValuesDefaultModel.rssCount" class="color-highlight">RSSCount</label>
+            <input matInput [(ngModel)]="dataConfigSiteValuesDefaultModel.rssCount"
+              name="dataConfigSiteValuesDefaultModel.rssCount" #dataConfigSiteValuesDefaultModel_RSSCount type="number"
+              placeholder="0" class="form-control validate-name" id="dataConfigSiteValuesDefaultModel.rssCount" />
+          </div>
+          <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+            <div [innerHTML]="dataConfigSiteValuesDefaultModel | prettyjson"></div>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-              <!-- MainDataContentRowCount Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" class="color-highlight">MainDataContentRowCount</label>
-                <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
-                  name="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
-                  #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" />
-              </div>
-              <!-- UseDataDefaulteSiteId Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigAdminMainModel.useDataDefaulteSiteId" class="color-highlight">{{'TITLE.Default_information_site_ID' | translate}}</label>
-                <input matInput [(ngModel)]="dataConfigAdminMainModel.useDataDefaulteSiteId"
-                  name="dataConfigAdminMainModel.useDataDefaulteSiteId" #dataConfigAdminMainModel_UseDataDefaulteSiteId
-                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.useDataDefaulteSiteId" />
-              </div>
+        <mat-step label="{{'TITLE.Default_access'|translate}}" state="main"
+          *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+          <p>{{'TITLE.Default_website_access_to_this_module'|translate}}</p>
 
-              <!-- DomainsList Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigSiteAccessValuesDefaultModel.domainsList" class="color-highlight">DomainsList</label>
-                <textarea matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.domainsList"
-                  name="dataConfigSiteAccessValuesDefaultModel.domainsList"
-                  #dataConfigSiteAccessValuesDefaultModel_DomainsList type="text" placeholder="domain.com"
-                  rows="10" class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.domainsList"></textarea>
-              </div>
-              <!-- MaxAdminCpUserCreation Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" class="color-highlight">MaxAdminCpUserCreation</label>
-                <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
-                  name="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
-                  #dataConfigSiteAccessValuesDefaultModel_MaxAdminCpUserCreation type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" />
-              </div>
+          <!-- MainDataContentRowCount Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
+              class="color-highlight">MainDataContentRowCount</label>
+            <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
+              name="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount"
+              #dataConfigSiteAccessValuesDefaultModel_MainDataContentRowCount type="number" placeholder="0"
+              class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.mainDataContentRowCount" />
+          </div>
+          <!-- UseDataDefaulteSiteId Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigAdminMainModel.useDataDefaulteSiteId"
+              class="color-highlight">{{'TITLE.Default_information_site_ID' | translate}}</label>
+            <input matInput [(ngModel)]="dataConfigAdminMainModel.useDataDefaulteSiteId"
+              name="dataConfigAdminMainModel.useDataDefaulteSiteId" #dataConfigAdminMainModel_UseDataDefaulteSiteId
+              type="number" placeholder="0" class="form-control validate-name"
+              id="dataConfigAdminMainModel.useDataDefaulteSiteId" />
+          </div>
 
-              <!-- MaxUserCreation Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" class="color-highlight">MaxUserCreation</label>
-                <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
-                  name="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
-                  #dataConfigSiteAccessValuesDefaultModel_MaxUserCreation type="number" placeholder="0" class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" />
-              </div>
+          <!-- DomainsList Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteAccessValuesDefaultModel.domainsList" class="color-highlight">DomainsList</label>
+            <textarea matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.domainsList"
+              name="dataConfigSiteAccessValuesDefaultModel.domainsList"
+              #dataConfigSiteAccessValuesDefaultModel_DomainsList type="text" placeholder="domain.com" rows="10"
+              class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.domainsList"></textarea>
+          </div>
+          <!-- MaxAdminCpUserCreation Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
+              class="color-highlight">MaxAdminCpUserCreation</label>
+            <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
+              name="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation"
+              #dataConfigSiteAccessValuesDefaultModel_MaxAdminCpUserCreation type="number" placeholder="0"
+              class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.maxAdminCpUserCreation" />
+          </div>
 
-              <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                <div [innerHTML]="dataConfigSiteAccessValuesDefaultModel | prettyjson"></div>
-              </div>
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  matStepperPrevious>
-                  {{'ACTION.BEFOR' | translate}}
-                </button>
+          <!-- MaxUserCreation Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
+              class="color-highlight">MaxUserCreation</label>
+            <input matInput [(ngModel)]="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
+              name="dataConfigSiteAccessValuesDefaultModel.maxUserCreation"
+              #dataConfigSiteAccessValuesDefaultModel_MaxUserCreation type="number" placeholder="0"
+              class="form-control validate-name" id="dataConfigSiteAccessValuesDefaultModel.maxUserCreation" />
+          </div>
 
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  [disabled]="!vform.form.valid" matStepperNext>
-                  {{'ACTION.NEXT' | translate}}
-                </button>
-                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                  [disabled]="!vform.form.valid">
-                  {{'ACTION.SAVE' | translate}}
-                </button>
-              </div>
-            </mat-step>
+          <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+            <div [innerHTML]="dataConfigSiteAccessValuesDefaultModel | prettyjson"></div>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
 
-            <mat-step label="{{'TITLE.System_management_settings'|translate}}" state="main">
-              <p>{{'TITLE.The_whole_system_management_settings_for_this_module'|translate}}</p>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              [disabled]="!vform.form.valid" matStepperNext>
+              {{'ACTION.NEXT' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
 
-              <!-- AccessBuy Field -->
-              <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataConfigAdminMainModel.accessBuy" class="font-600 font-14">
-                      AccessBuy</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.accessBuy"
-                            [(ngModel)]="dataConfigAdminMainModel.accessBuy"
-                            name="dataConfigAdminMainModel.accessBuy">
-                        <label class="custom-control-label" for="dataConfigAdminMainModel.accessBuy"></label>
-                    </div>
-                </div>
-              </div>
-              <!-- ImageMainSizeWidth Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigAdminMainModel.imageMainSizeWidth" class="color-highlight">ImageMainSizeWidth</label>
-                <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeWidth"
-                  name="dataConfigAdminMainModel.imageMainSizeWidth" #dataConfigAdminMainModel_ImageMainSizeWidth
-                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeWidth" required />
-                <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeWidth.errors?.required">
-                  ImageMainSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-              </div>
-              <!-- ImageMainSizeHeight Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigAdminMainModel.imageMainSizeHeight" class="color-highlight">ImageMainSizeHeight</label>
-                <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeHeight"
-                  name="dataConfigAdminMainModel.imageMainSizeHeight" #dataConfigAdminMainModel_ImageMainSizeHeight
-                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageMainSizeHeight" required />
-                <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeHeight.errors?.required">
-                  ImageMainSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-              </div>
+        <mat-step label="{{'TITLE.System_management_settings'|translate}}" state="main">
+          <p>{{'TITLE.The_whole_system_management_settings_for_this_module'|translate}}</p>
 
-              <!-- ImageThumbnailSizeWidth Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigAdminMainModel.imageThumbnailSizeWidth" class="color-highlight">ImageThumbnailSizeWidth</label>
-                <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeWidth"
-                  name="dataConfigAdminMainModel.imageThumbnailSizeWidth" #dataConfigAdminMainModel_ImageThumbnailSizeWidth
-                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageThumbnailSizeWidth" required />
-                <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeWidth.errors?.required">
-                  ImageThumbnailSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
+          <!-- AccessBuy Field -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataConfigAdminMainModel.accessBuy" class="font-600 font-14">
+                AccessBuy</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.accessBuy"
+                  [(ngModel)]="dataConfigAdminMainModel.accessBuy" name="dataConfigAdminMainModel.accessBuy">
+                <label class="custom-control-label" for="dataConfigAdminMainModel.accessBuy"></label>
               </div>
-              <!-- ImageThumbnailSizeHeight Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigAdminMainModel.imageThumbnailSizeHeight" class="color-highlight">ImageThumbnailSizeHeight</label>
-                <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeHeight"
-                  name="dataConfigAdminMainModel.imageThumbnailSizeHeight" #dataConfigAdminMainModel_ImageThumbnailSizeHeight
-                  type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.imageThumbnailSizeHeight" required />
-                <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeHeight.errors?.required">
-                  ImageThumbnailSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
-                </mat-error>
-              </div>
-              <!-- AccessFree Field -->
-              <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataConfigAdminMainModel.accessFree" class="font-600 font-14">
-                      AccessFree</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.accessFree"
-                            [(ngModel)]="dataConfigAdminMainModel.accessFree"
-                            name="dataConfigAdminMainModel.accessFree">
-                        <label class="custom-control-label" for="dataConfigAdminMainModel.accessFree"></label>
-                    </div>
-                </div>
-              </div>
-              <!-- AccessFreeDay Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigAdminMainModel.accessFreeDay" class="color-highlight">AccessFreeDay</label>
-                <input matInput [(ngModel)]="dataConfigAdminMainModel.accessFreeDay"
-                  name="dataConfigAdminMainModel.accessFreeDay" #dataConfigAdminMainModel_AccessFreeDay type="number"
-                  placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.accessFreeDay" />
-              </div>
+            </div>
+          </div>
+          <!-- ImageMainSizeWidth Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigAdminMainModel.imageMainSizeWidth" class="color-highlight">ImageMainSizeWidth</label>
+            <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeWidth"
+              name="dataConfigAdminMainModel.imageMainSizeWidth" #dataConfigAdminMainModel_ImageMainSizeWidth
+              type="number" placeholder="0" class="form-control validate-name"
+              id="dataConfigAdminMainModel.imageMainSizeWidth" required />
+            <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeWidth.errors?.required">
+              ImageMainSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- ImageMainSizeHeight Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigAdminMainModel.imageMainSizeHeight"
+              class="color-highlight">ImageMainSizeHeight</label>
+            <input matInput [(ngModel)]="dataConfigAdminMainModel.imageMainSizeHeight"
+              name="dataConfigAdminMainModel.imageMainSizeHeight" #dataConfigAdminMainModel_ImageMainSizeHeight
+              type="number" placeholder="0" class="form-control validate-name"
+              id="dataConfigAdminMainModel.imageMainSizeHeight" required />
+            <mat-error *ngIf="dataConfigAdminMainModel_ImageMainSizeHeight.errors?.required">
+              ImageMainSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
 
-              <!-- DomainsList Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigAdminMainModel.domainsList" class="color-highlight">DomainsList</label>
-                <textarea matInput [(ngModel)]="dataConfigAdminMainModel.domainsList"
-                  name="dataConfigAdminMainModel.domainsList" #dataConfigAdminMainModel_DomainsList type="number"
-                  rows="5" class="form-control validate-name" id="dataConfigAdminMainModel.domainsList">
+          <!-- ImageThumbnailSizeWidth Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigAdminMainModel.imageThumbnailSizeWidth"
+              class="color-highlight">ImageThumbnailSizeWidth</label>
+            <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeWidth"
+              name="dataConfigAdminMainModel.imageThumbnailSizeWidth" #dataConfigAdminMainModel_ImageThumbnailSizeWidth
+              type="number" placeholder="0" class="form-control validate-name"
+              id="dataConfigAdminMainModel.imageThumbnailSizeWidth" required />
+            <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeWidth.errors?.required">
+              ImageThumbnailSizeWidth is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- ImageThumbnailSizeHeight Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigAdminMainModel.imageThumbnailSizeHeight"
+              class="color-highlight">ImageThumbnailSizeHeight</label>
+            <input matInput [(ngModel)]="dataConfigAdminMainModel.imageThumbnailSizeHeight"
+              name="dataConfigAdminMainModel.imageThumbnailSizeHeight"
+              #dataConfigAdminMainModel_ImageThumbnailSizeHeight type="number" placeholder="0"
+              class="form-control validate-name" id="dataConfigAdminMainModel.imageThumbnailSizeHeight" required />
+            <mat-error *ngIf="dataConfigAdminMainModel_ImageThumbnailSizeHeight.errors?.required">
+              ImageThumbnailSizeHeight is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!-- AccessFree Field -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataConfigAdminMainModel.accessFree" class="font-600 font-14">
+                AccessFree</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.accessFree"
+                  [(ngModel)]="dataConfigAdminMainModel.accessFree" name="dataConfigAdminMainModel.accessFree">
+                <label class="custom-control-label" for="dataConfigAdminMainModel.accessFree"></label>
+              </div>
+            </div>
+          </div>
+          <!-- AccessFreeDay Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigAdminMainModel.accessFreeDay" class="color-highlight">AccessFreeDay</label>
+            <input matInput [(ngModel)]="dataConfigAdminMainModel.accessFreeDay"
+              name="dataConfigAdminMainModel.accessFreeDay" #dataConfigAdminMainModel_AccessFreeDay type="number"
+              placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.accessFreeDay" />
+          </div>
+
+          <!-- DomainsList Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigAdminMainModel.domainsList" class="color-highlight">DomainsList</label>
+            <textarea matInput [(ngModel)]="dataConfigAdminMainModel.domainsList"
+              name="dataConfigAdminMainModel.domainsList" #dataConfigAdminMainModel_DomainsList type="number" rows="5"
+              class="form-control validate-name" id="dataConfigAdminMainModel.domainsList">
                 </textarea>
-              </div>
+          </div>
 
-              <!-- AdminCpUserRegidteryBool Field -->
-              <div class="d-flex mb-3">
-                <div class="pt-1">
-                    <h5 data-trigger-switch="dataConfigAdminMainModel.adminCpUserRegidteryBool" class="font-600 font-14">
-                      AdminCpUserRegidteryBool</h5>
-                </div>
-                <div class="ms-auto me-3 pe-2">
-                    <div class="custom-control ios-switch small-switch">
-                        <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.adminCpUserRegidteryBool"
-                            [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryBool"
-                            name="dataConfigAdminMainModel.adminCpUserRegidteryBool">
-                        <label class="custom-control-label" for="dataConfigAdminMainModel.adminCpUserRegidteryBool"></label>
-                    </div>
-                </div>
+          <!-- AdminCpUserRegidteryBool Field -->
+          <div class="d-flex mb-3">
+            <div class="pt-1">
+              <h5 data-trigger-switch="dataConfigAdminMainModel.adminCpUserRegidteryBool" class="font-600 font-14">
+                AdminCpUserRegidteryBool</h5>
+            </div>
+            <div class="ms-auto me-3 pe-2">
+              <div class="custom-control ios-switch small-switch">
+                <input type="checkbox" class="ios-input" id="dataConfigAdminMainModel.adminCpUserRegidteryBool"
+                  [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryBool"
+                  name="dataConfigAdminMainModel.adminCpUserRegidteryBool">
+                <label class="custom-control-label" for="dataConfigAdminMainModel.adminCpUserRegidteryBool"></label>
               </div>
-              <!-- AdminCpUserRegidteryExpireDateDay Field -->
-              <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" class="color-highlight">AdminCpUserRegidteryExpireDateDay</label>
-                <input matInput [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
-                  name="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
-                  #dataConfigAdminMainModel_AdminCpUserRegidteryExpireDateDay type="number" placeholder="0" class="form-control validate-name" id="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" />
-              </div>
-              <!-- UserMembershipRuleHtmlBody Field -->
-              {{'TITLE.User_Membership_Rules' | translate}} :
-              <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_the_text_of_the_user_membership_ruless')"
-                [config]="publicHelper.editorConfig" id="maineditor"
-                [(ngModel)]="dataConfigAdminMainModel.userMembershipRuleHtmlBody"
-                name="dataConfigAdminMainModel.userMembershipRuleHtmlBody">
-              </angular-editor>
+            </div>
+          </div>
+          <!-- AdminCpUserRegidteryExpireDateDay Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
+              class="color-highlight">AdminCpUserRegidteryExpireDateDay</label>
+            <input matInput [(ngModel)]="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
+              name="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay"
+              #dataConfigAdminMainModel_AdminCpUserRegidteryExpireDateDay type="number" placeholder="0"
+              class="form-control validate-name" id="dataConfigAdminMainModel.adminCpUserRegidteryExpireDateDay" />
+          </div>
+          <!-- UserMembershipRuleHtmlBody Field -->
+          {{'TITLE.User_Membership_Rules' | translate}} :
+          <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_the_text_of_the_user_membership_ruless')"
+            [config]="publicHelper.editorConfig" id="maineditor"
+            [(ngModel)]="dataConfigAdminMainModel.userMembershipRuleHtmlBody"
+            name="dataConfigAdminMainModel.userMembershipRuleHtmlBody">
+          </angular-editor>
 
 
-              <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                <div [innerHTML]="dataConfigAdminMainModel | prettyjson"></div>
-              </div>
-              <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-                  (click)="onActionBackToParent()">
-                  {{'ACTION.BACK' | translate}}
-                </button>
-                <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-                  matStepperPrevious>
-                  {{'ACTION.BEFOR' | translate}}
-                </button>
-                <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                  [disabled]="!vform.form.valid">
-                  {{'ACTION.SAVE' | translate}}
-                </button>
-              </div>
-            </mat-step>
-          </mat-vertical-stepper>
-      </form>
-      <!--Content-->
+          <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+            <div [innerHTML]="dataConfigAdminMainModel | prettyjson"></div>
+          </div>
+          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              matStepperPrevious>
+              {{'ACTION.BEFOR' | translate}}
+            </button>
+            <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+              [disabled]="!vform.form.valid">
+              {{'ACTION.SAVE' | translate}}
+            </button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+    </form>
+    <!--Content-->
   </div>
 </div>

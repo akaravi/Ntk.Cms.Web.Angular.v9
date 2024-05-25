@@ -11,8 +11,10 @@ import { TranslateService } from '@ngx-translate/core';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
-  AccessModel, ClauseTypeEnum, CoreEnumService, CoreLocationModel, DataFieldInfoModel, ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, NewsCategoryModel, NewsContentCategoryModel,
+  AccessModel, ClauseTypeEnum, CoreEnumService, CoreLocationModel,
+  ErrorExceptionResult, ErrorExceptionResultBase, FilterDataModel, FilterModel,
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum, NewsCategoryModel, NewsContentCategoryModel,
   NewsContentCategoryService, NewsContentModel, NewsContentOtherInfoModel, NewsContentOtherInfoService, NewsContentService, NewsContentSimilarModel, NewsContentSimilarService, NewsContentTagModel, NewsContentTagService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
@@ -20,7 +22,6 @@ import { map, of } from 'rxjs';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-news-content-edit',
@@ -29,7 +30,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   ]
 })
 export class NewsContentEditComponent extends EditBaseComponent<NewsContentService, NewsContentModel, number>
-implements OnInit, AfterViewInit {
+  implements OnInit, AfterViewInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -44,7 +45,8 @@ implements OnInit, AfterViewInit {
     private router: Router,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-  ) {super(contentService, new NewsContentModel(), publicHelper);
+  ) {
+    super(contentService, new NewsContentModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -67,8 +69,8 @@ implements OnInit, AfterViewInit {
   similarTabledataSource = new MatTableDataSource<NewsContentModel>();
   otherInfoTabledataSource = new MatTableDataSource<NewsContentOtherInfoModel>();
   dataAccessModel: AccessModel;
-  
-  
+
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

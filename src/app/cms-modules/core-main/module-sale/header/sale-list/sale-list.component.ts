@@ -162,15 +162,13 @@ export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy 
   }
 
 
-  onActionbuttonDetail(model: CoreModuleSaleHeaderModel): void {
+  onActionButtonDetail(model: CoreModuleSaleHeaderModel): void {
     this.tableRowSelected = model;
   }
-  onActionbuttonBuy(model: CoreModuleSaleHeaderModel): void {
+  onActionButtonBuy(model: CoreModuleSaleHeaderModel): void {
     this.tableRowSelected = model;
 
     const dialogRef = this.dialog.open(CoreModuleSaleHeaderSalePaymentComponent, {
-      // height: '90%',
-      // width: '40%',
       data: { linkHeaderId: model.id }
     });
     dialogRef.afterClosed().subscribe(result => {

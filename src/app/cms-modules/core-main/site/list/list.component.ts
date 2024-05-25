@@ -3,28 +3,23 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AuthRenewTokenModel, CoreAuthService, CoreSiteModel,
-  CoreSiteService, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreSiteService,
+  FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { CoreSiteDeleteComponent } from '../delete/delete.component';
 import { CoreSiteModuleSiteInfoComponent } from '../module-site-info/module-site-info.component';
 import { CoreSiteModuleSiteOptimazeComponent } from '../module-site-optimaze/module-site-optimaze.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-core-site-list',
@@ -46,7 +41,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new CoreSiteModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreSiteModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -136,6 +131,8 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -182,7 +179,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -194,7 +191,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.router.navigate(['/core/site/add']);
   }
 
-  onActionbuttonEditRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreSiteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -211,7 +208,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     }
     this.router.navigate(['/core/site/edit', model.id]);
   }
-  onActionbuttonDeleteRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -246,7 +243,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     });
 
   }
-  onActionbuttonModuleListRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonModuleListRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -256,7 +253,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/site/modulelist/LinkSiteId/', this.tableRowSelected.id]);
   }
-  onActionbuttonLoginToRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonLoginToRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -285,7 +282,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     }
     );
   }
-  onActionbuttonDomainAliasListRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonDomainAliasListRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -294,7 +291,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/sitedomainalias/', this.tableRowSelected.id]);
   }
-  onActionbuttonUserListRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonUserListRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -303,7 +300,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     this.onActionTableRowSelect(model);
     this.router.navigate(['/core/site/userlist/LinkSiteId', this.tableRowSelected.id]);
   }
-  onActionbuttonDeviceListRow(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonDeviceListRow(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -313,7 +310,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
 
     this.router.navigate(['/core/device', this.tableRowSelected.id]);
   }
-  onActionbuttonResller(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonResller(model: CoreSiteModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -323,7 +320,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
 
     this.router.navigate(['/core/site/reseller-chart/LinkSiteId', this.tableRowSelected.id]);
   }
-  onActionbuttonModuleSiteInfo(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonModuleSiteInfo(model: CoreSiteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -360,7 +357,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
       }
     });
   }
-  onActionbuttonModuleSiteOptimaze(model: CoreSiteModel = this.tableRowSelected): void {
+  onActionButtonModuleSiteOptimaze(model: CoreSiteModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -398,8 +395,8 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     });
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -453,7 +450,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

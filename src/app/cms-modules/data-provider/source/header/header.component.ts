@@ -6,7 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   DataFieldInfoModel, DataProviderSourceModel,
-  DataProviderSourceService, ErrorExceptionResult, InfoEnumModel, RecordStatusEnum
+  DataProviderSourceService, ErrorExceptionResult,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -74,7 +75,7 @@ export class DataProviderSourceHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: DataProviderSourceModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: DataProviderSourceModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

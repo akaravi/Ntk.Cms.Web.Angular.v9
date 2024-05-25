@@ -3,28 +3,22 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsMainApiPathCompanyModel,
-  SmsMainApiPathCompanyService, SortTypeEnum, TokenInfoModel
+  FilterDataModel, FilterModel, RecordStatusEnum, SmsMainApiPathCompanyModel,
+  SmsMainApiPathCompanyService, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { SmsMainApiPathCompanyAddComponent } from '../add/add.component';
 import { SmsMainApiPathCompanyEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-sms-apipathcompany-list',
   templateUrl: './list.component.html',
@@ -41,7 +35,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsMainApiPathCompanyModel(), publicHelper,tokenHelper);
+    super(contentService, new SmsMainApiPathCompanyModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -58,8 +52,6 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
- 
-
 
 
   tabledisplayedColumns: string[] = [];
@@ -108,6 +100,8 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -152,7 +146,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -163,10 +157,10 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiPathCompanyAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -181,7 +175,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
     });
   }
 
-  onActionbuttonEditRow(model: SmsMainApiPathCompanyModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: SmsMainApiPathCompanyModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length == 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -197,10 +191,10 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiPathCompanyEditComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -214,7 +208,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
       }
     });
   }
-  onActionbuttonDeleteRow(model: SmsMainApiPathCompanyModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsMainApiPathCompanyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -267,8 +261,8 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
 
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -318,7 +312,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
 
   }
 
-  onActionbuttonApiList(model: SmsMainApiPathCompanyModel = this.tableRowSelected): void {
+  onActionButtonApiList(model: SmsMainApiPathCompanyModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -343,7 +337,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

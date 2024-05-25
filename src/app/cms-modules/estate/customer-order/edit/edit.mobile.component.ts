@@ -12,16 +12,16 @@ import {
   ClauseTypeEnum,
   CoreCurrencyModel, CoreEnumService, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractTypeModel, EstateContractTypeService, EstateCustomerCategoryModel, EstateCustomerOrderActionSendSmsDtoModel, EstateCustomerOrderModel, EstateCustomerOrderService, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyFilterModel, EstatePropertyModel, EstatePropertyService, EstatePropertyTypeLanduseModel,
   EstatePropertyTypeLanduseService,
-  EstatePropertyTypeUsageModel, EstatePropertyTypeUsageService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, InfoEnumModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  EstatePropertyTypeUsageModel, EstatePropertyTypeUsageService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
+import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
-import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 
 @Component({
   selector: 'app-estate-customer-order-edit-mobile',
@@ -29,7 +29,7 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
   styleUrls: ['./edit.mobile.component.scss'],
 })
 export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   constructor(
     private router: Router,
@@ -48,7 +48,8 @@ implements OnInit {
     public http: HttpClient,
     public dialog: MatDialog,
     public translate: TranslateService,
-  ) {super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
+  ) {
+    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -403,10 +404,7 @@ implements OnInit {
           if (ret.isSuccess) {
             this.dataModelEstatePropertyResult = ret;
 
-            // this.tableSource.data = ret.listItems;
-            // if (this.optionsSearch.childMethods) {
-            //   this.optionsSearch.childMethods.setAccess(ret.access);
-            // }
+
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
           }
@@ -607,7 +605,7 @@ implements OnInit {
     this.stepContent = step;
 
   }
-  onActionbuttonQuickViewRow(model: EstatePropertyModel): void {
+  onActionButtonQuickViewRow(model: EstatePropertyModel): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -633,7 +631,7 @@ implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionbuttonQuickViewRow(result.onActionOpenItem)
+        this.onActionButtonQuickViewRow(result.onActionOpenItem)
       }
     });
   }

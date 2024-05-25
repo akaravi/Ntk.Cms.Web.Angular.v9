@@ -3,7 +3,7 @@ import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/comp
 
 @Component({
   selector: 'app-cms-statist-list',
-  templateUrl: './cmsStatistList.component.html',
+  templateUrl: './cms-statist-list.component.html',
 })
 export class CmsStatistListComponent implements OnInit {
   static nextId = 0;

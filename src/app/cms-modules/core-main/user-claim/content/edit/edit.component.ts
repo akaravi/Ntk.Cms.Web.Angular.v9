@@ -4,19 +4,19 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreSiteModel, CoreUserClaimContentModel, CoreUserClaimContentService, CoreUserClaimTypeModel, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult,
+  CoreEnumService, CoreSiteModel, CoreUserClaimContentModel, CoreUserClaimContentService, CoreUserClaimTypeModel, CoreUserModel,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, TokenInfoModel
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -25,7 +25,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./edit.component.scss'],
 })
 export class CoreUserClaimContentEditComponent extends EditBaseComponent<CoreUserClaimContentService, CoreUserClaimContentModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestId = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -37,7 +37,8 @@ implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
-  ) {super(coreUserClaimContentService, new CoreUserClaimContentModel(), publicHelper);
+  ) {
+    super(coreUserClaimContentService, new CoreUserClaimContentModel(), publicHelper);
 
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
@@ -70,16 +71,16 @@ implements OnInit, OnDestroy {
     });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
+
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   cmsApiStoreSubscribe: Subscription;
-  
+
   ProfessionalData = false;
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreUserClaimContentModel = new CoreUserClaimContentModel();
 

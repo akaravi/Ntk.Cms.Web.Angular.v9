@@ -1,7 +1,7 @@
 ﻿import { ClipboardModule } from '@angular/cdk/clipboard';
 import { PlatformModule } from '@angular/cdk/platform';
 import { CdkTableModule } from '@angular/cdk/table';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -48,7 +48,7 @@ import { TreeModule } from '@circlon/angular-tree-component';
 import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { InlineSVGModule } from 'ng-inline-svg-2';
-import { NgxNtkQueryBuilderModule } from 'ngx-ntk-query-builder';
+
 import {
   ApplicationAppService,
   BankPaymentEnumService,
@@ -77,8 +77,8 @@ import { PersianDate } from '../core/pipe/persian-date/persian-date.pipe';
 import { TruncatePipe } from '../core/pipe/truncate.pipe';
 import { CmsExportListComponent } from './cms-export-list/cmsExportList.component';
 import { CmsMapComponent } from './cms-map/cms-map.component';
-import { CmsSearchListComponent } from './cms-search-list/cmsSearchList.component';
-import { CmsStatistListComponent } from './cms-statist-list/cmsStatistList.component';
+import { CmsSearchListComponent } from './cms-search-list/cms-search-list.component';
+import { CmsStatistListComponent } from './cms-statist-list/cms-statist-list.component';
 
 
 import { CurrencyMaskModule } from 'ng2-currency-mask';
@@ -140,11 +140,16 @@ import { CmsLocationCompleteComponent } from './cms-location-autocomplete/cms-lo
 import { CmsLocationSelectorComponent } from './cms-location-selector/cms-location-selector.component';
 import { CmsMemberSelectorComponent } from './cms-member-selector/cmsMemberSelector.component';
 
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
+import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
 import { SortTypeIconClassPipe } from '../core/pipe/sortTypeIconClass.pipe';
 import { CmsDataCommentComponent } from './cms-data-comment/cms-data-comment.component';
 import { CmsDataMemoComponent } from './cms-data-memo/cms-data-memo.component';
 import { CmsDataPinComponent } from './cms-data-pin/cms-data-pin.component';
 import { CmsDataTaskComponent } from './cms-data-task/cms-data-task.component';
+import { CmsEnumRecordStatusSelectorComponent } from './cms-enum-record-status-selector/cms-enum-record-status-selector.component';
+import { CmsEnumXSelectorComponent } from './cms-enum-x-selector/cms-enum-x-selector.component';
 import { CmsModuleSelectorComponent } from './cms-module-selector/cms-module-selector.component';
 import { CmsQDocComponent } from './cms-qdoc/cms-qdoc.component';
 import { CmsShowKeyComponent } from './cms-show-key/cms-show-key.component';
@@ -166,11 +171,7 @@ import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './material/mat
 import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
-import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
-import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
-import { CmsEnumRecordStatusSelectorComponent } from './cms-enum-record-status-selector/cms-enum-record-status-selector.component';
-import { CmsEnumXSelectorComponent } from './cms-enum-x-selector/cms-enum-x-selector.component';
-import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-builder.component';
 
 @NgModule({
   imports: [
@@ -219,7 +220,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     MatTreeModule,
     //Material
     TreeModule,
-    NgxNtkQueryBuilderModule,
+    
     LeafletModule,
 
     NgbDropdownModule,
@@ -309,7 +310,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     CmsAccessInfoComponent,
     CmsSmsMainApiPathSelectorComponent,
     CmsSmsMainApiNumberSelectorComponent,
-
+    NgxQueryBuilderComponent,
     /** input */
     StringComponent,
     IntComponent,
@@ -455,6 +456,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     CmsAccessInfoComponent,
     CmsSmsMainApiPathSelectorComponent,
     CmsSmsMainApiNumberSelectorComponent,
+    NgxQueryBuilderComponent,
     /** input */
     StringComponent,
     IntComponent,

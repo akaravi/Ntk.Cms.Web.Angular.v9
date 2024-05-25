@@ -3,35 +3,29 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BankPaymentPrivateSiteConfigModel,
   BankPaymentPrivateSiteConfigService, BankPaymentPublicConfigModel,
-  BankPaymentPublicConfigService, DataFieldInfoModel, RecordStatusEnum, SortTypeEnum,
+  BankPaymentPublicConfigService,
   ErrorExceptionResult,
   FilterDataModel,
   FilterModel,
-  TokenInfoModel
+  RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsBankpaymentTransactionInfoComponent } from 'src/app/shared/cms-bankpayment-transaction-info/cms-bankpayment-transaction-info.component';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { BankPaymentPrivateSiteConfigAddComponent } from '../add/add.component';
 import { BankPaymentPrivateSiteConfigEditComponent } from '../edit/edit.component';
 import { BankPaymentPrivateSiteConfigPaymentTestComponent } from '../paymentTest/paymentTest.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 @Component({
   selector: 'app-bankpayment-privateconfig-list',
   templateUrl: './list.component.html',
@@ -52,7 +46,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new BankPaymentPrivateSiteConfigModel(), publicHelper,tokenHelper);
+    super(contentService, new BankPaymentPrivateSiteConfigModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -162,6 +156,8 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -204,7 +200,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     let ApplicationId = 0;
     if (this.requestLinkPublicConfigId > 0) {
       ApplicationId = this.requestLinkPublicConfigId;
@@ -256,7 +252,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
 
     this.DataGetAll();
   }
-  onActionbuttonEditRow(model: BankPaymentPrivateSiteConfigModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BankPaymentPrivateSiteConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -288,7 +284,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
       }
     });
   }
-  onActionbuttonDeleteRow(model: BankPaymentPrivateSiteConfigModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BankPaymentPrivateSiteConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -336,8 +332,8 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -386,7 +382,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     );
 
   }
-  onActionbuttonTransactionList(model: BankPaymentPrivateSiteConfigModel = this.tableRowSelected): void {
+  onActionButtonTransactionList(model: BankPaymentPrivateSiteConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -395,7 +391,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
 
     this.router.navigate(['/bankpayment/transaction/LinkPrivateSiteConfigId', this.tableRowSelected.id]);
   }
-  onActionbuttonTestPayment(model: BankPaymentPrivateSiteConfigModel = this.tableRowSelected): void {
+  onActionButtonTestPayment(model: BankPaymentPrivateSiteConfigModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -434,7 +430,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

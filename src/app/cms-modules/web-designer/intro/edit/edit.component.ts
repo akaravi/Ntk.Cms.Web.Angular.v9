@@ -5,22 +5,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AccessModel, CoreEnumService,
-  DataFieldInfoModel, ErrorExceptionResult,
-  ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, WebDesignerMainIntroModel,
+  FormInfoModel,
+  ManageUserAccessDataTypesEnum, WebDesignerMainIntroModel,
   WebDesignerMainIntroService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-webdesigner-intro-edit',
   templateUrl: './edit.component.html',
 })
 export class WebDesignerMainIntroEditComponent extends EditBaseComponent<WebDesignerMainIntroService, WebDesignerMainIntroModel, string>
-implements OnInit {
+  implements OnInit {
   requestId = '';
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,7 +29,8 @@ implements OnInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
-  ) {super(webDesignerMainIntroService, new WebDesignerMainIntroModel(), publicHelper);
+  ) {
+    super(webDesignerMainIntroService, new WebDesignerMainIntroModel(), publicHelper);
 
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -40,12 +39,12 @@ implements OnInit {
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  
-  
+
+
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   dataModel = new WebDesignerMainIntroModel();
-  
+
 
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];

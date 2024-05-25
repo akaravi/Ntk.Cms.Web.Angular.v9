@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -10,15 +9,15 @@ import {
   WebDesignerMainPageTemplateService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { WebDesignerMainPageTemplateAddComponent } from '../add/add.component';
 import { WebDesignerMainPageTemplateEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-webdesigner-pagetemplate-list',
@@ -36,7 +35,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new WebDesignerMainPageTemplateModel(), publicHelper,tokenHelper);
+    super(contentService, new WebDesignerMainPageTemplateModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -96,6 +95,8 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
           this.dataModelResult = next;
           this.tableSource.data = next.listItems;
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(next.access);
           }
@@ -134,7 +135,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -144,10 +145,10 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(WebDesignerMainPageTemplateAddComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -161,7 +162,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
     });
   }
-  onActionbuttonEditRow(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -176,10 +177,10 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(WebDesignerMainPageTemplateEditComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -193,7 +194,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
     });
   }
-  onActionbuttonDeleteRow(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -238,8 +239,8 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -281,7 +282,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
       }
     );
   }
-  onActionbuttonPageList(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
+  onActionButtonPageList(model: WebDesignerMainPageTemplateModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
 
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -302,7 +303,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

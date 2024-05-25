@@ -7,16 +7,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsLogOutBoxDetailModel,
-  SmsLogOutBoxDetailService, SmsMainApiPathModel, SmsMainApiPathService, SortTypeEnum} from 'ntk-cms-api';
+  SmsLogOutBoxDetailService, SmsMainApiPathModel, SmsMainApiPathService, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { SmsLogOutBoxDetailViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
+import { SmsLogOutBoxDetailViewComponent } from '../view/view.component';
 @Component({
   selector: 'app-sms-log-outboxdetail-list',
   templateUrl: './list.component.html'
@@ -36,7 +37,7 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new SmsLogOutBoxDetailModel(), publicHelper,tokenHelper);
+    super(contentService, new SmsLogOutBoxDetailModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkOutBoxId = this.activatedRoute.snapshot.paramMap.get('LinkOutBoxId');
@@ -130,6 +131,8 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -176,7 +179,7 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
 
 
 
-  onActionbuttonDeleteRow(model: SmsLogOutBoxDetailModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: SmsLogOutBoxDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -241,8 +244,8 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
     this.DataGetAll();
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -295,7 +298,7 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
 
 
 
-  onActionbuttonViewRow(model: SmsLogOutBoxDetailModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: SmsLogOutBoxDetailModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -310,10 +313,10 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
       return;
     }
     var panelClass = '';
-            if (this.tokenHelper.isMobile)
-              panelClass = 'dialog-fullscreen';
-            else
-              panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsLogOutBoxDetailViewComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -326,7 +329,7 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
       }
     });
   }
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

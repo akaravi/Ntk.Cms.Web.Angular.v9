@@ -3,29 +3,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult,
   FilterDataModel,
-  LinkManagementTargetFilterModel, LinkManagementBillboardPatternModel, LinkManagementCategoryModel, LinkManagementTargetModel,
-  LinkManagementTargetService, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  LinkManagementBillboardPatternModel, LinkManagementCategoryModel,
+  LinkManagementTargetFilterModel,
+  LinkManagementTargetModel,
+  LinkManagementTargetService, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-linkmanagement-target-list',
@@ -69,7 +64,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
   filteModelContent = new LinkManagementTargetFilterModel();
   categoryModelSelected: LinkManagementCategoryModel;
   categoryPatternModelSelected: LinkManagementBillboardPatternModel;
-  
+
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
@@ -133,6 +128,8 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -199,7 +196,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
 
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryPatternModelSelected == null ||
       this.categoryPatternModelSelected.id === 0
@@ -219,7 +216,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     this.router.navigate(['/linkmanagement/target/add', this.categoryPatternModelSelected.id]);
   }
 
-  onActionbuttonEditRow(model: LinkManagementTargetModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: LinkManagementTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -236,7 +233,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     this.router.navigate(['/linkmanagement/target/edit', this.tableRowSelected.id]);
   }
 
-  onActionbuttonDeleteRow(model: LinkManagementTargetModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: LinkManagementTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -282,8 +279,8 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -336,7 +333,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
 
 
 
-  onActionbuttonLinkTo(model: LinkManagementTargetModel = this.tableRowSelected): void {
+  onActionButtonLinkTo(model: LinkManagementTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -395,7 +392,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     this.cmsToastrService.typeSuccessCopedToClipboard();
   }
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -406,7 +403,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
   expandedElement: any;
 
 
-  onActionbuttonLog(model: LinkManagementTargetModel = this.tableRowSelected): void {
+  onActionButtonLog(model: LinkManagementTargetModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

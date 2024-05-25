@@ -48,7 +48,7 @@
         </app-cms-user-selector>
       </div>
       <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-        <a href="javascript:void(0)" (click)="onActionbuttonOnDateSearch()" *ngIf="!loading?.display"
+        <a href="javascript:void(0)" (click)="onActionButtonOnDateSearch()" *ngIf="!loading?.display"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEARCH' |
           translate}}</a>
       </div>
@@ -92,7 +92,7 @@
               <!-- end::Label-->
               <!-- begin::Badge-->
               <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionbuttonProperty(item,$event)"></i>
+                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonProperty(item,$event)"></i>
               </div>
               <!-- end::Badge-->
               <!-- begin::Text-->
@@ -134,7 +134,7 @@
               <!-- end::Label-->
               <!-- begin::Badge-->
               <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionbuttonCustomerOrder(item,$event)"></i>
+                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonCustomerOrder(item,$event)"></i>
               </div>
               <!-- end::Badge-->
               <!-- begin::Text-->
@@ -176,7 +176,7 @@
               <!-- end::Label-->
               <!-- begin::Badge-->
               <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionbuttonHistory(item,$event)"></i>
+                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonHistory(item,$event)"></i>
               </div>
               <!-- end::Badge-->
               <!-- begin::Text-->
@@ -218,7 +218,7 @@
               <!-- end::Label-->
               <!-- begin::Badge-->
               <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionbuttonAccountAgency(item,$event)"></i>
+                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountAgency(item,$event)"></i>
               </div>
               <!-- end::Badge-->
               <!-- begin::Text-->
@@ -260,7 +260,7 @@
               <!-- end::Label-->
               <!-- begin::Badge-->
               <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionbuttonAccountUser(item,$event)"></i>
+                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountUser(item,$event)"></i>
               </div>
               <!-- end::Badge-->
               <!-- begin::Text-->
@@ -304,7 +304,7 @@
               <!-- begin::Badge-->
               <div class="timeline-badge">
                 <i [ngClass]="item.recordStatus|statusIconClass"
-                  (click)="onActionbuttonPropertyCompany(item,$event)"></i>
+                  (click)="onActionButtonPropertyCompany(item,$event)"></i>
               </div>
               <!-- end::Badge-->
               <!-- begin::Text-->
@@ -350,7 +350,7 @@
               <!-- begin::Badge-->
               <div class="timeline-badge">
                 <i [ngClass]="item.recordStatus|statusIconClass"
-                  (click)="onActionbuttonPropertySupplier(item,$event)"></i>
+                  (click)="onActionButtonPropertySupplier(item,$event)"></i>
               </div>
               <!-- end::Badge-->
               <!-- begin::Text-->
@@ -395,7 +395,7 @@
               <!-- begin::Badge-->
               <div class="timeline-badge">
                 <i [ngClass]="item.recordStatus|statusIconClass"
-                  (click)="onActionbuttonPropertyProject(item,$event)"></i>
+                  (click)="onActionButtonPropertyProject(item,$event)"></i>
               </div>
               <!-- end::Badge-->
               <!-- begin::Text-->

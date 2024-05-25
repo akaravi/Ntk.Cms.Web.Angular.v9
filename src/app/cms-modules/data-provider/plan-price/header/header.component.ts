@@ -6,7 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
   DataFieldInfoModel, DataProviderPlanPriceModel,
-  DataProviderPlanPriceService, ErrorExceptionResult, InfoEnumModel, RecordStatusEnum
+  DataProviderPlanPriceService, ErrorExceptionResult,
+  RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
@@ -76,7 +77,7 @@ export class DataProviderPlanPriceHeaderComponent implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonLinkTo(model: DataProviderPlanPriceModel = this.dataModelResult.item): void {
+  onActionButtonLinkTo(model: DataProviderPlanPriceModel = this.dataModelResult.item): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;

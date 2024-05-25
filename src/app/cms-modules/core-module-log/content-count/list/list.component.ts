@@ -3,27 +3,22 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleLogContentCountModel, CoreModuleLogContentCountService, CoreSiteModel, DataFieldInfoModel, ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  CoreEnumService, CoreModuleLogContentCountModel, CoreModuleLogContentCountService, CoreSiteModel,
+  FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { CoreModuleLogContentCountEditComponent } from '../edit/edit.component';
 import { CoreModuleLogContentCountViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-coremodulelog-content-count-list',
@@ -49,7 +44,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogContentCountModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreModuleLogContentCountModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -89,7 +84,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
   tableContentSelected = [];
 
   filteModelContent = new FilterModel();
- 
+
 
 
   tabledisplayedColumns: string[] = [];
@@ -147,6 +142,8 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -194,7 +191,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
 
 
-  onActionbuttonViewRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -227,7 +224,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -260,7 +257,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -314,7 +311,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
   }
 
-  onActionbuttonViewContent(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewContent(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
@@ -332,8 +329,8 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
   }
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -383,7 +380,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
   }
 
-  onActionbuttonViewUserRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -397,7 +394,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -411,7 +408,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  onActionbuttonViewSiteRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreModuleLogContentCountModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -429,7 +426,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

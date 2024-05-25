@@ -6,17 +6,18 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreLogSmsModel, CoreLogSmsService, CoreSiteModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  CoreEnumService, CoreLogSmsModel, CoreLogSmsService, CoreSiteModel, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { CoreLogSmsEditComponent } from '../edit/edit.component';
 import { CoreLogSmsViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-core-log-sms-list',
@@ -24,7 +25,7 @@ import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 })
 export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService, CoreLogSmsModel, string>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
@@ -42,7 +43,7 @@ implements OnInit, OnDestroy {
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogSmsModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreLogSmsModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -149,6 +150,8 @@ implements OnInit, OnDestroy {
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -196,7 +199,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonViewRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogSmsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -228,7 +231,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonEditRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogSmsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -261,7 +264,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogSmsModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -318,8 +321,8 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -369,7 +372,7 @@ implements OnInit, OnDestroy {
 
   }
 
-  onActionbuttonViewUserRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogSmsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -383,7 +386,7 @@ implements OnInit, OnDestroy {
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionbuttonViewMemberRow(model: CoreLogSmsModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreLogSmsModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -401,7 +404,7 @@ implements OnInit, OnDestroy {
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

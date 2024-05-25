@@ -1,19 +1,19 @@
 <!--begin::Card-->
 <!--begin::Header-->
-  <ng-content select="[cms-header]">
-    
-  </ng-content>
+<ng-content select="[cms-header]">
+
+</ng-content>
 <!--end::Header-->
 <!--begin::Form-->
 <!--begin::Body-->
 <mat-dialog-content>
- <app-progress-spinner [options]="loading"> </app-progress-spinner>
-    <ng-content  select="[cms-body]"></ng-content>
+  <app-progress-spinner [options]="loading"> </app-progress-spinner>
+  <ng-content select="[cms-body]"></ng-content>
 </mat-dialog-content>
 <!--end::Body-->
 <!--begin::Footer-->
 <mat-dialog-actions style="text-align: left;">
-    <ng-content  select="[cms-footer]"></ng-content>
+  <ng-content select="[cms-footer]"></ng-content>
 </mat-dialog-actions>
 <!--end::Footer-->
 <!--end::Form-->

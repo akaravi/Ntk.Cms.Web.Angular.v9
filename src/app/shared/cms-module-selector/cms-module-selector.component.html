@@ -6,7 +6,7 @@
     [formControl]="formControl" [matAutocomplete]="matauto" class="form-control validate-name"
     id="app-cms-site-selector-{{id}}">
   <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayFn"
-    (optionSelected)="onActionSelect($event.option.value)" >
+    (optionSelected)="onActionSelect($event.option.value)">
     <mat-option *ngFor="let state of filteredOptions | async" [value]="state" [disabled]="optionDisabled"
       class="color-highlight">
       <span>{{ displayOption(state) }}</span>

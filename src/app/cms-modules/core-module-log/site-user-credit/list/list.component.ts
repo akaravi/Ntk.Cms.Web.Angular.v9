@@ -6,17 +6,18 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreModuleLogSiteUserCreditModel, CoreModuleLogSiteUserCreditService, CoreSiteModel, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  CoreEnumService, CoreModuleLogSiteUserCreditModel, CoreModuleLogSiteUserCreditService, CoreSiteModel, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 import { CoreModuleLogSiteUserCreditEditComponent } from '../edit/edit.component';
 import { CoreModuleLogSiteUserCreditViewComponent } from '../view/view.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-coremodulelog-site-user-credit--list',
@@ -42,7 +43,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogSiteUserCreditModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreModuleLogSiteUserCreditModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -136,6 +137,8 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -184,7 +187,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
 
 
 
-  onActionbuttonViewRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -217,7 +220,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
       }
     });
   }
-  onActionbuttonEditRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -250,7 +253,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
       }
     });
   }
-  onActionbuttonDeleteRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -307,8 +310,8 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
 
 
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -358,7 +361,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
 
   }
 
-  onActionbuttonViewUserRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -374,7 +377,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
 
 
 
-  onActionbuttonViewSiteRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreModuleLogSiteUserCreditModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -392,7 +395,7 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

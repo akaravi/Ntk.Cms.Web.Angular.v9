@@ -9,17 +9,18 @@ import {
   DataProviderPlanCategoryModel, DataProviderPlanSourceModel,
   DataProviderPlanSourceService,
   FilterDataModel,
-  FilterModel, RecordStatusEnum, SortTypeEnum} from 'ntk-cms-api';
+  FilterModel, RecordStatusEnum, SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderPlanSourceAddComponent } from '../add/add.component';
 import { DataProviderPlanSourceDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanSourceEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 
 @Component({
   selector: 'app-data-provider-plan-source-list',
@@ -41,7 +42,7 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DataProviderPlanSourceModel(), publicHelper,tokenHelper);
+    super(contentService, new DataProviderPlanSourceModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -122,6 +123,8 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -180,7 +183,7 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
     this.DataGetAll();
   }
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
@@ -214,7 +217,7 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
     });
   }
 
-  onActionbuttonEditRow(model: DataProviderPlanSourceModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: DataProviderPlanSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -243,7 +246,7 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
       }
     });
   }
-  onActionbuttonDeleteRow(model: DataProviderPlanSourceModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: DataProviderPlanSourceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage); return;
@@ -278,8 +281,8 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
     });
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -332,7 +335,7 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

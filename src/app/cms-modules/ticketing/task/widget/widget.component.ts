@@ -23,7 +23,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
   }
   filteModelContent = new FilterModel();
-  
+
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();

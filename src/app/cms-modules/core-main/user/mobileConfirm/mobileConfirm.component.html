@@ -1,0 +1,72 @@
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{ formInfo.formTitle }}
+    </p>
+    <p *ngIf="!dataModel.mobile || dataModel?.mobile?.length===0">
+      برای تایید شماره همراه خود را وارد کنید
+    </p>
+    <p *ngIf="dataModel?.mobile?.length>0">
+      برای تایید ،شماره همراه خود را بررسی کنید که صحیح باشد
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onMobileConfirm()" #vform="ngForm">
+      <ng-container *ngIf="stepOne">
+        <!-- Mobile Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
+          *ngIf="fieldsInfo['mobile']?.accessWatchField">
+          <label for="dataModel.mobile" class="color-highlight">{{fieldsInfo['mobile']?.fieldTitle}}</label>
+          <input matInput [(ngModel)]="dataModel.mobile" name="dataModel.mobile" #Mobile type="text"
+            [disabled]="!fieldsInfo['mobile']?.accessAddField" placeholder="{{fieldsInfo['mobile']?.fieldTitle}}"
+            class="form-control validate-name input-ltr-center" id="dataModel.mobile"
+            required />
+          <em>{{ Mobile.value.length }} / 100</em>
+          <mat-error *ngIf="Mobile.errors?.required">
+            Mobile is <strong>{{'MESSAGE.required' | translate}}</strong>
+          </mat-error>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="stepTwo">
+        <p>
+          عدد دریافتی را وارد فرمایید
+        </p>
+        <!--code Field-->
+        <div style="text-align: center;">
+          <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="otpConfig"></ng-otp-input>
+        </div>
+      </ng-container>
+      <!--captchaText Field-->
+      <ng-container *ngIf="!firstRun">
+        <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="">
+        <mat-icon matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
+        <div class="input-style no-borders has-icon validate-field mb-4">
+          <i class="fa fa-quote-left"></i>
+          <input [(ngModel)]="dataModel.captchaText" name="dataModel.captchaText" #captchaText
+            id="dataModel.captchaText" [disabled]=" !formInfo.buttonSubmittedEnabled" type="text"
+            class="form-control validate-name input-ltr-center" placeholder="{{'AUTH.INPUT.CAPTCHACODE' | translate}}"
+            minlength="5" maxlength="5" autocomplete="off" required>
+          <label for="dataModel.captchaText" class="color-highlight">{{'AUTH.INPUT.CAPTCHACODE' |
+            translate}}</label>
+          <i class="fa fa-times disabled invalid color-red-dark"></i>
+          <i class="fa fa-check disabled valid color-green-dark"></i>
+
+          <mat-error *ngIf="captchaText.errors?.required">
+            {{'AUTH.INPUT.CAPTCHACODE' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+          </mat-error>
+        </div>
+      </ng-container>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+        <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          [disabled]="!vform.form.valid ||(this.stepTwo&&this.dataModel?.code?.length<4 )">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.CONFIRM' | translate}}
+        </button>
+      </div>
+    </form>
+    <!--Content-->
+  </div>
+</div>

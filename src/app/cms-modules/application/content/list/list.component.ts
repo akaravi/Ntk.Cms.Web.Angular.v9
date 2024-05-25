@@ -3,38 +3,29 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ApplicationAppModel,
   ApplicationAppService,
   ApplicationSourceModel,
-  DataFieldInfoModel,
-  RecordStatusEnum,
-  SortTypeEnum,
-  ErrorExceptionResult,
   FilterDataModel,
   FilterModel,
-  TokenInfoModel
+  RecordStatusEnum,
+  SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
+import { environment } from 'src/environments/environment';
 import { ApplicationLogNotificationActionSendComponent } from '../../notification/action-send/action-send.component';
 import { ApplicationAppDownloadComponent } from '../download/download.component';
 import { ApplicationAppUploadAppComponent } from '../uploadApp/uploadApp.component';
 import { ApplicationAppUploadUpdateComponent } from '../uploadUpdate/uploadUpdate.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
   selector: 'app-application-app-list',
@@ -56,7 +47,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     public tokenHelper: TokenHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ApplicationAppModel(), publicHelper,tokenHelper);
+    super(contentService, new ApplicationAppModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -151,6 +142,8 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -193,7 +186,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     let sourceId = 0;
     if (
       this.requestLinkSourceId &&
@@ -233,7 +226,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     this.categoryModelSelected = model;
     this.DataGetAll();
   }
-  onActionbuttonEditRow(mode: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonEditRow(mode: ApplicationAppModel = this.tableRowSelected): void {
     if (!mode || !mode.id || mode.id === 0) {
       this.cmsToastrService.typeErrorSelected(this.translate.instant('MESSAGE.No_row_selected_for_editing'));
       return;
@@ -249,7 +242,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     }
     setTimeout(() => this.router.navigate(['/application/app/edit/', this.tableRowSelected.id]), 1000);
   }
-  onActionbuttonDeleteRow(mode: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(mode: ApplicationAppModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const emessage = this.translate.instant('MESSAGE.No_row_selected_for_editing');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -297,8 +290,8 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
       );
 
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -351,7 +344,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -365,7 +358,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
   onActionBackToParentTheme(): void {
     this.router.navigate(['/application/themeconfig/']);
   }
-  onActionbuttonUploadApp(mode: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonUploadApp(mode: ApplicationAppModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -390,7 +383,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
       }
     });
   }
-  onActionbuttonUploadUpdate(mode: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonUploadUpdate(mode: ApplicationAppModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -415,7 +408,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
       }
     });
   }
-  onActionbuttonBuildApp(mode: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonBuildApp(mode: ApplicationAppModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -441,7 +434,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     }
     );
   }
-  onActionbuttonDownloadApp(mode: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonDownloadApp(mode: ApplicationAppModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -466,7 +459,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
       }
     });
   }
-  onActionbuttonNotifictionActionSend(model: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonNotifictionActionSend(model: ApplicationAppModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelected();
       return;
@@ -498,7 +491,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
       }
     });
   }
-  onActionbuttonMemberList(mode: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonMemberList(mode: ApplicationAppModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);
@@ -507,7 +500,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     this.onActionTableRowSelect(mode);
     this.router.navigate(['/application/memberinfo/LinkApplicationId/', this.tableRowSelected.id]);
   }
-  onActionbuttonIntroList(mode: ApplicationAppModel = this.tableRowSelected): void {
+  onActionButtonIntroList(mode: ApplicationAppModel = this.tableRowSelected): void {
     if (mode == null || !mode.id || mode.id === 0) {
       const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(message);

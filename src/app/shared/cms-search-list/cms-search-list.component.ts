@@ -1,13 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { QueryBuilderFieldMap, Rule, RuleSet } from 'ngx-ntk-query-builder';
+//import { QueryBuilderFieldMap, Rule, RuleSet } from 'ngx-ntk-query-builder';
 import { AccessModel, ClauseTypeEnum, FilterDataModel } from 'ntk-cms-api';
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
+import { QueryBuilderFieldMap, QueryRule, QueryRuleSet } from 'src/app/core/query-builder/interfaces/ngx-ntk-query-builder.interfaces';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+
 
 @Component({
   selector: 'app-cms-search-list',
-  templateUrl: './cmsSearchList.component.html',
+  templateUrl: './cms-search-list.component.html',
 })
 export class CmsSearchListComponent implements OnInit {
   static nextId = 0;
@@ -31,12 +33,12 @@ export class CmsSearchListComponent implements OnInit {
   }
   allowLoadSearch = false;
   allowSaveSearch = false;
-  submited = false;
+  formSubmited = false;
   showLabel = false;
   filters: Array<FilterDataModel>;
   lang: string;
   model: any;
-  query: RuleSet;
+  query: QueryRuleSet;
   fieldMap: QueryBuilderFieldMap = {};
   constructor(
     public translate: TranslateService,
@@ -45,7 +47,7 @@ export class CmsSearchListComponent implements OnInit {
     this.lang = this.translate.currentLang;
   }
   ngOnInit(): void {
-    this.submited = false;
+    this.formSubmited = false;
 
   }
   setAccess(model: AccessModel): void {
@@ -129,8 +131,8 @@ export class CmsSearchListComponent implements OnInit {
 
     if (this.query.condition === 'or') { clauseType = ClauseTypeEnum.Or; }
     this.query.rules.forEach((column) => {
-      const ruleSet = column as RuleSet;
-      const rule = column as Rule;
+      const ruleSet = column as QueryRuleSet;
+      const rule = column as QueryRule;
       if (
         ruleSet &&
         ruleSet.condition &&
@@ -148,7 +150,7 @@ export class CmsSearchListComponent implements OnInit {
       }
     });
   }
-  getRulesChild(rule: Rule): FilterDataModel {
+  getRulesChild(rule: QueryRule): FilterDataModel {
     const searchType = this.getSearchType(rule.operator);
     const filter = new FilterDataModel();
     filter.propertyName = rule.field;
@@ -156,13 +158,13 @@ export class CmsSearchListComponent implements OnInit {
     filter.searchType = searchType;
     return filter;
   }
-  getRulesSetChild(ruleSetInput: RuleSet): Array<FilterDataModel> {
+  getRulesSetChild(ruleSetInput: QueryRuleSet): Array<FilterDataModel> {
     const Filters = new Array<FilterDataModel>();
     let clauseType: ClauseTypeEnum = ClauseTypeEnum.And;
     if (ruleSetInput.condition === 'or') { clauseType = ClauseTypeEnum.Or; }
     ruleSetInput.rules.forEach((column) => {
-      const ruleSet = column as RuleSet;
-      const rule = column as Rule;
+      const ruleSet = column as QueryRuleSet;
+      const rule = column as QueryRule;
       if (
         ruleSet &&
         ruleSet.condition &&
@@ -183,7 +185,7 @@ export class CmsSearchListComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.submited = true;
+    this.formSubmited = true;
     this.allowSaveSearch = true;
     this.getRules();
     if (this.optionsData.parentMethods) {
@@ -191,7 +193,7 @@ export class CmsSearchListComponent implements OnInit {
     }
   }
   onActionCopied(): void {
-    this.showLabel = !this.showLabel;
+    this.showLabel = true;
     setTimeout(() => {
       this.showLabel = false;
     }, 3000);

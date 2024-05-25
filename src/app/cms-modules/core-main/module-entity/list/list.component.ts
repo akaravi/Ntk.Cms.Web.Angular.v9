@@ -3,30 +3,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreModuleEntityModel,
   CoreModuleEntityService, CoreModuleModel,
-  CoreModuleService, DataFieldInfoModel, RecordStatusEnum, SortTypeEnum,
+  CoreModuleService,
   ErrorExceptionResult, FilterDataModel, FilterModel,
-  TokenInfoModel
+  RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { CoreModuleEntityEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
+import { CoreModuleEntityEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-core-module-entity-list',
   templateUrl: './list.component.html',
@@ -47,7 +41,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreModuleEntityModel(), publicHelper,tokenHelper);
+    super(contentService, new CoreModuleEntityModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
@@ -140,6 +134,8 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -188,7 +184,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
 
 
 
-  onActionbuttonNewRowAuto(): any {
+  onActionButtonNewRowAuto(): any {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
     this.contentService.ServiceAutoAdd().subscribe({
@@ -209,7 +205,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     }
     );
   }
-  onActionbuttonEditRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -243,7 +239,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     });
   }
 
-  onActionbuttonModuleEntityReportFileList(model: CoreModuleEntityModel = this.tableRowSelected): void {
+  onActionButtonModuleEntityReportFileList(model: CoreModuleEntityModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -252,7 +248,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     this.onActionTableRowSelect(model);
     this.router.navigate(['core/module-entity-report-file/LinkModuleEntityReportFileId/', model.id]);
   }
-  onActionbuttonDeleteRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -303,7 +299,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
       }
       );
   }
-  onActionbuttonModuleEntityDataReportRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
+  onActionButtonModuleEntityDataReportRow(model: CoreModuleEntityModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -324,8 +320,8 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     this.DataGetAll();
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -377,7 +373,7 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {

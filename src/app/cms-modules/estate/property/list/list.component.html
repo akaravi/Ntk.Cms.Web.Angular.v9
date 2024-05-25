@@ -28,12 +28,12 @@
 <app-estate-property-company-header *ngIf="this.requestLinkCompanyId?.length>0" [optionId]="this.requestLinkCompanyId">
 </app-estate-property-company-header>
 
-<app-cms-html-list (optionOnActionbuttonMemoRow)="onActionbuttonMemoRow()"
-  (optionOnActionbuttonMemo)="onActionbuttonMemo()" (optionOnActionbuttonExport)="onActionbuttonExport()"
-  (optionOnActionbuttonPrintRow)="onActionbuttonPrintRow()" [optionLoading]="loading"
+<app-cms-html-list (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading"
   [optionTreeDisplay]="requestLinkPropertyTypeLanduseId?.length===0"
-  [optionActionRowDisplay]="tableRowSelected?.id?.length>0?true:false" [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelect3Click"
-  [optionSelectRowItemTitle]="tableRowSelected?.title">
+  [optionActionRowDisplay]="tableRowSelected?.id?.length>0?true:false" [optionActionRowId]="tableRowSelected?.id"
+  [optionActionRowDisplayMenu]="tableRowSelect3Click" [optionSelectRowItemTitle]="tableRowSelected?.title">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-estate-property-type-landuse-tree (optionChange)="onActionSelectorSelect($event)">
@@ -55,16 +55,16 @@
           translate}}
         </a>
         <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-          <mat-slide-toggle (click)="onActionbuttonStatist()">
+          <mat-slide-toggle (click)="onActionButtonStatist()">
           </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
         </a>
         <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-          <mat-slide-toggle (click)="onActionbuttonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
+          <mat-slide-toggle (click)="onActionButtonInChecking(!searchInChecking)" [checked]="searchInCheckingChecked">
           </mat-slide-toggle>
           {{'ACTION.INCHECKING' | translate}}
         </a>
         <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-          <mat-slide-toggle (click)="onActionbuttonInResponsible(!searchInResponsible)"
+          <mat-slide-toggle (click)="onActionButtonInResponsible(!searchInResponsible)"
             [checked]="searchInResponsibleChecked">
           </mat-slide-toggle>
           {{'ACTION.InResponsible' | translate}}
@@ -77,7 +77,7 @@
           <i class="fa-solid fa-arrow-left font-22" style="color: #ffffff;"></i>
         </a>
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="onActionbuttonReload()" target="_blank">
+          (click)="onActionButtonReload()" target="_blank">
           <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
         </a>
         <a (click)=" onActionGridExpandRows(true)" target="_blank"
@@ -99,7 +99,7 @@
 
     <div *ngIf="dataModelResult?.access?.accessAddRow && optionloadByRoute" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
-        (click)="onActionbuttonNewRow($event)" target="_blank">
+        (click)="onActionButtonNewRow($event)" target="_blank">
         <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
         <br>
       </a>
@@ -108,7 +108,7 @@
     </div>
     <div *ngIf="dataModelResult?.access?.accessAddRow && optionloadByRoute" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-        (click)="onActionbuttonQuickAddRow($event)" target="_blank" id="openModalButton" data-toggle="modal"
+        (click)="onActionButtonQuickAddRow($event)" target="_blank" id="openModalButton" data-toggle="modal"
         data-target="#categoryModal">
         <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
         <br>
@@ -125,7 +125,7 @@
       *ngIf="dataModelResult?.access?.accessEditRow && (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
       class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta"
-        (click)="onActionbuttonEditRow(tableRowSelected,$event)" target="_blank"><i class=" fa-solid fa-pen font-22"
+        (click)="onActionButtonEditRow(tableRowSelected,$event)" target="_blank"><i class=" fa-solid fa-pen font-22"
           style="color: #FFFFFF;"></i><br></a>
       <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' |
         translate}}</p>
@@ -134,14 +134,14 @@
       *ngIf="dataModelResult?.access?.accessDeleteRow && optionloadByRoute&& (tableRowSelected?.id?.length>0 || requestLinkPropertyTypeLanduseId?.length>0)"
       class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red"
-        (click)="onActionbuttonDeleteRow(tableRowSelected)" target="_blank"><i class="fa-solid fa-trash font-22"
+        (click)="onActionButtonDeleteRow(tableRowSelected)" target="_blank"><i class="fa-solid fa-trash font-22"
           style="color: #ffffff;"></i><br></a>
       <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' |
         translate}}</p>
     </div>
     <div *ngIf="this.tokenHelper.isAdminSite && optionloadByRoute&& tableRowSelected?.id?.length>0" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-        (click)="onActionbuttonActionSendSmsToCustomerOrder()" target="_blank"><i
+        (click)="onActionButtonActionSendSmsToCustomerOrder()" target="_blank"><i
           class="fa-light fa-message-lines font-22" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.ActionSendSmsToCustomerOrder'|translate}}</p>
@@ -149,7 +149,7 @@
 
     <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-        (click)="onActionbuttonAdsRow(tableRowSelected,$event)" target="_blank"><i
+        (click)="onActionButtonAdsRow(tableRowSelected,$event)" target="_blank"><i
           class="fa-solid fa-bullseye-pointer font-22" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.ADS' |
@@ -157,7 +157,7 @@
     </div>
     <div class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-        (click)="onActionbuttonQuickHistoryAddRow(tableRowSelected)" target="_blank"><i
+        (click)="onActionButtonQuickHistoryAddRow(tableRowSelected)" target="_blank"><i
           class="fa-solid fa-clock-rotate-left font-22" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.HISTORY_ADD' |
@@ -165,7 +165,7 @@
     </div>
     <div class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-        (click)="onActionbuttonHistoryRow(tableRowSelected,$event)" target="_blank"><i
+        (click)="onActionButtonHistoryRow(tableRowSelected,$event)" target="_blank"><i
           class="fa-solid fa-clock-rotate-left font-22" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.HISTORY_LIST' |
@@ -173,7 +173,7 @@
     </div>
     <div class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-        (click)="onActionbuttonQuickViewRow(tableRowSelected)" target="_blank"><i class="fa-solid fa-eye font-22"
+        (click)="onActionButtonQuickViewRow(tableRowSelected)" target="_blank"><i class="fa-solid fa-eye font-22"
           style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.QUICK_VIEW' |
@@ -181,7 +181,7 @@
     </div>
     <div class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-        (click)="onActionbuttonViewOtherUserAdvertise(tableRowSelected)" target="_blank"><i
+        (click)="onActionButtonViewOtherUserAdvertise(tableRowSelected)" target="_blank"><i
           class="fa-solid fa-user font-22" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.VIEW_OTHER_USER_ADVERTISE' |
@@ -300,7 +300,7 @@
         </div>
         <hr>
         <!-- linkCoreCurrencyId Field -->
-        <app-cms-currency-selector [optionSelectFirstItem]="true"
+        <app-cms-currency-selector [optionSelectFirstItem]="false"
           [optionSelectForce]="filteModelContent.linkCoreCurrencyId" (optionChange)="onActionSelectCurrency($event)"
           [(optionLoading)]="loading"
           [optionPlaceholder]="this.translate.instant('TITLE.Specify_the_transaction_currency')">
@@ -624,7 +624,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{'TITLE.LINKTO' | translate}}
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button class="text-dark" (click)="onActionbuttonLinkTo(row)">
+          <button mat-icon-button class="text-dark" (click)="onActionButtonLinkTo(row)">
             <mat-icon>&#8599;</mat-icon>
           </button>
         </mat-cell>
@@ -635,7 +635,7 @@
           translate}}
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button class="text-dark" (click)="onActionbuttonQuickViewRow(row)">
+          <button mat-icon-button class="text-dark" (click)="onActionButtonQuickViewRow(row)">
             <mat-icon>visibility</mat-icon>
           </button>
         </mat-cell>

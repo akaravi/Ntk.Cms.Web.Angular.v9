@@ -8,19 +8,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   BiographyCommentModel,
-  BiographyCommentService, BiographyContentService, RecordStatusEnum,
-  SortTypeEnum,
-  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel} from 'ntk-cms-api';
+  BiographyCommentService, BiographyContentService,
+  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum,
+  SortTypeEnum
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { BiographyCommentEditComponent } from '../edit/edit.component';
 import { environment } from 'src/environments/environment';
-import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { BiographyCommentEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-biography-comment-list',
   templateUrl: './list.component.html',
@@ -33,7 +35,7 @@ import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
   ],
 })
 export class BiographyCommentListComponent extends ListBaseComponent<BiographyCommentService, BiographyCommentModel, number>
-implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy {
   constructor(
     public contentService: BiographyCommentService,
     private biographyContentService: BiographyContentService,
@@ -47,7 +49,7 @@ implements OnInit, OnDestroy {
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new BiographyCommentModel(), publicHelper,tokenHelper);
+    super(contentService, new BiographyCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
@@ -140,6 +142,8 @@ implements OnInit, OnDestroy {
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -182,7 +186,7 @@ implements OnInit, OnDestroy {
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -217,7 +221,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonEditRow(model: BiographyCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: BiographyCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -249,7 +253,7 @@ implements OnInit, OnDestroy {
       }
     });
   }
-  onActionbuttonDeleteRow(model: BiographyCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: BiographyCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -294,8 +298,8 @@ implements OnInit, OnDestroy {
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -342,14 +346,14 @@ implements OnInit, OnDestroy {
     }
     );
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -360,7 +364,7 @@ implements OnInit, OnDestroy {
   onActionBackToParent(): void {
     this.router.navigate(['/biography/content/']);
   }
-  onActionbuttonViewContent(model: BiographyCommentModel): void {
+  onActionButtonViewContent(model: BiographyCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -409,7 +413,7 @@ implements OnInit, OnDestroy {
       }
       );
   }
-  onActionbuttonEditContent(model: BiographyCommentModel): void {
+  onActionButtonEditContent(model: BiographyCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -425,7 +429,7 @@ implements OnInit, OnDestroy {
     }
     this.router.navigate(['/biography/content/edit', this.tableRowSelected.linkContentId]);
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: BiographyCommentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {
@@ -455,8 +459,8 @@ implements OnInit, OnDestroy {
               height: "90%",
               width: "90%",
               panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+              enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+              exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
               data: {
                 title: ret.item.title,
                 urlViewContentQRCodeBase64: ret.item.urlViewContentQRCodeBase64,

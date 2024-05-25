@@ -4,29 +4,24 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   ArticleCommentModel,
-  ArticleCommentService, ArticleContentService, DataFieldInfoModel, RecordStatusEnum, SortTypeEnum,
-  ErrorExceptionResult, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, TokenInfoModel
+  ArticleCommentService, ArticleContentService,
+  FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportEntityComponent } from 'src/app/shared/cms-export-entity/cms-export-entity.component';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
-import { ArticleCommentEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
+import { environment } from 'src/environments/environment';
+import { ArticleCommentEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-article-comment-list',
   templateUrl: './list.component.html',
@@ -53,7 +48,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     public pageInfo: PageInfoService,
     public tokenHelper: TokenHelper,
     public dialog: MatDialog) {
-    super(commentService, new ArticleCommentModel(), publicHelper,tokenHelper);
+    super(commentService, new ArticleCommentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
     this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
@@ -153,6 +148,8 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
           this.tableSource.data = ret.listItems;
 
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -194,7 +191,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
     if (
       this.requestContentId == null ||
       this.requestContentId === 0
@@ -229,7 +226,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       }
     });
   }
-  onActionbuttonEditRow(model: ArticleCommentModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: ArticleCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -261,7 +258,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       }
     });
   }
-  onActionbuttonDeleteRow(model: ArticleCommentModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: ArticleCommentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
       this.cmsToastrService.typeErrorSelected(emessage);
@@ -307,8 +304,8 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       }
       );
   }
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -356,14 +353,14 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     }
     );
   }
-  onActionbuttonInChecking(model: boolean): void {
+  onActionButtonInChecking(model: boolean): void {
     this.searchInChecking = model;
     this.DataGetAll();
   }
 
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
@@ -374,7 +371,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
   onActionBackToParent(): void {
     this.router.navigate(['/article/content/']);
   }
-  onActionbuttonViewContent(model: ArticleCommentModel): void {
+  onActionButtonViewContent(model: ArticleCommentModel): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -422,7 +419,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       }
       );
   }
-  onActionbuttonEditContent(model: ArticleCommentModel, event?: MouseEvent): void {
+  onActionButtonEditContent(model: ArticleCommentModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -444,7 +441,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       this.router.navigate(['/article/content/edit', this.tableRowSelected.linkContentId]);
     }
   }
-  onActionbuttonLinkTo(
+  onActionButtonLinkTo(
     model: ArticleCommentModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id === 0) {

@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { ErrorsRoutingModule } from './errors.routing';
+import { ComponentsModule } from 'src/app/components/components.module';
 import { ErrorsComponent } from '../errors/errors.component';
 import { Error404Component } from './error404/error404.component';
 import { Error500Component } from './error500/error500.component';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { ErrorsRoutingModule } from './errors.routing';
 
 
 @NgModule({

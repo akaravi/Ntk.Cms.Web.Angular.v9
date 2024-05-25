@@ -13,9 +13,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
 import { CoreUserClaimContentAddComponent } from '../add/add.component';
 import { CoreUserClaimContentEditComponent } from '../edit/edit.component';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-core-userclaimcontent-widget-status',
@@ -68,7 +68,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
 
   }
 
-  onActionbuttonEditRow(model: CoreUserClaimCheckModel): void {
+  onActionButtonEditRow(model: CoreUserClaimCheckModel): void {
     if (!model || !model.linkTypeId || model.linkTypeId === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
@@ -82,8 +82,8 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
       const dialogRef = this.dialog.open(CoreUserClaimContentEditComponent, {
         height: '90%',
         panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+        enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+        exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
         data: { id: model.linkContentId }
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -100,8 +100,8 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
       const dialogRef = this.dialog.open(CoreUserClaimContentAddComponent, {
         height: '90%',
         panelClass: panelClass,
-      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
-      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+        enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+        exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
         data: { linkUserClaimTypeId: model.linkTypeId }
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -120,7 +120,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
         if (ret.isSuccess) {
           this.dataModelResult = ret;
           if (this.dataModelResult.listItems.find(x => x.recordStatus !== RecordStatusEnum.Pending && !x.isApproved)) {
-        
+
           }
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);

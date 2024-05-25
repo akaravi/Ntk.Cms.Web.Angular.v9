@@ -3,26 +3,21 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  DataFieldInfoModel, ErrorExceptionResult, EstateAccountUserWorkAreaModel,
-  EstateAccountUserWorkAreaService, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum, TokenInfoModel
+  EstateAccountUserWorkAreaModel,
+  EstateAccountUserWorkAreaService, FilterDataModel, FilterModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
-import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
+import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { CmsExportListComponent } from 'src/app/shared/cms-export-list/cmsExportList.component';
-import { EstateAccountUserWorkAreaAddComponent } from '../add/add.component';
-import { environment } from 'src/environments/environment';
-import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
+import { EstateAccountUserWorkAreaAddComponent } from '../add/add.component';
 @Component({
   selector: 'app-estate-account-user-work-area-list',
   templateUrl: './list.component.html',
@@ -40,7 +35,7 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-      super(contentService, new EstateAccountUserWorkAreaModel(), publicHelper,tokenHelper);
+    super(contentService, new EstateAccountUserWorkAreaModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -105,6 +100,8 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
 
+          if (this.optionsStatist?.data?.show)
+            this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
@@ -151,7 +148,7 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
   }
 
 
-  onActionbuttonNewRow(): void {
+  onActionButtonNewRow(): void {
 
     if (
       this.dataModelResult == null ||
@@ -181,7 +178,7 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
   }
 
 
-  onActionbuttonDeleteRow(model: EstateAccountUserWorkAreaModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: EstateAccountUserWorkAreaModel = this.tableRowSelected): void {
     if (!model || !model.linkCoreLocationId || model.linkCoreLocationId <= 0
       || !model.linkEstateAccountUserId || model.linkEstateAccountUserId.length === 0) {
       const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
@@ -233,7 +230,7 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
       );
 
   }
-  onActionbuttonContentList(model: EstateAccountUserWorkAreaModel = this.tableRowSelected): void {
+  onActionButtonContentList(model: EstateAccountUserWorkAreaModel = this.tableRowSelected): void {
     if (!model || !model.linkEstateAccountUserId || model.linkEstateAccountUserId.length === 0) {
       const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
       this.cmsToastrService.typeErrorSelected(message);
@@ -244,8 +241,8 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
     this.router.navigate(['/hypershop/content/PareintId/', this.tableRowSelected.linkEstateAccountUserId]);
   }
 
-  onActionbuttonStatist(): void {
-    this.optionsStatist.data.show = !this.optionsStatist.data.show;
+  onActionButtonStatist(view = !this.optionsStatist.data.show): void {
+    this.optionsStatist.data.show = view;
     if (!this.optionsStatist.data.show) {
       return;
     }
@@ -296,7 +293,7 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
   }
 
 
-  onActionbuttonReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
   onSubmitOptionsSearch(model: any): void {
