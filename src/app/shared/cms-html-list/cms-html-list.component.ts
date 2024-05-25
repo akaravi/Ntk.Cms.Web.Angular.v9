@@ -9,7 +9,13 @@ export class CmsHtmlListComponent implements OnInit {
   static nextId = 0;
   id = ++CmsHtmlListComponent.nextId;
   @Input() optionHeaderDisplay = true;
-  @Input() optionActionDisplay = true;
+  @Input() optionActionMainDisplay = true;
+  @Output() optionActionGuideNoticeDisplayChange = new EventEmitter<boolean>();
+  @Input() set optionActionGuideNoticeDisplay(view: boolean) {
+    this.viewGuideNotice = view;
+  }
+
+  @Input() optionGuideNoticeKey = '';
   @Input() optionFooterDisplay = true;
   @Input() optionActionRowDisplay = false;
   lastSelectId: number | string;
@@ -61,8 +67,10 @@ export class CmsHtmlListComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  viewMenuItemRow = false;
+
+  viewGuideNotice = false
   viewMenuMain = false;
+  viewMenuItemRow = false;
   viewTree = false;
   actionViewTree(state?: boolean) {
     if (state == true) {
@@ -72,8 +80,41 @@ export class CmsHtmlListComponent implements OnInit {
     } else {
       this.viewTree = !this.viewTree;
     }
+
+    this.viewGuideNotice = false
     this.viewMenuMain = false;
     this.viewMenuItemRow = false;
+    //this.viewTree = false;
+  }
+  actionCloseGuideNotice(): void {
+    this.viewGuideNotice = !this.viewGuideNotice;
+    this.optionActionGuideNoticeDisplayChange.emit(this.viewGuideNotice);
+  }
+  actionViewGuideNotice(state?: boolean) {
+    if (state == true) {
+      this.viewGuideNotice = true;
+    } else if (state == false) {
+      this.viewGuideNotice = false;
+    } else {
+      this.viewGuideNotice = !this.viewGuideNotice;
+    }
+    //this.viewGuideNotice = false
+    this.viewMenuMain = false;
+    this.viewMenuItemRow = false;
+    this.viewTree = false;
+  }
+  actionViewMenuMain(state?: boolean) {
+    if (state == true) {
+      this.viewMenuMain = true;
+    } else if (state == false) {
+      this.viewMenuMain = false;
+    } else {
+      this.viewMenuMain = !this.viewMenuMain;
+    }
+    this.viewGuideNotice = false
+    //this.viewMenuMain = false;
+    this.viewMenuItemRow = false;
+    this.viewTree = false;
   }
   actionViewMenuItemRow(state?: boolean) {
     if (state == true) {
@@ -83,21 +124,9 @@ export class CmsHtmlListComponent implements OnInit {
     } else {
       this.viewMenuItemRow = !this.viewMenuItemRow;
     }
-
+    this.viewGuideNotice = false
     this.viewMenuMain = false;
-    this.viewTree = false;
-  }
-
-  actionViewMenuMain(state?: boolean) {
-    if (state == true) {
-      this.viewMenuMain = true;
-    } else if (state == false) {
-      this.viewMenuMain = false;
-    } else {
-      this.viewMenuMain = !this.viewMenuMain;
-    }
-
-    this.viewMenuItemRow = false;
+    //this.viewMenuItemRow = false;
     this.viewTree = false;
   }
   onActionButtonMemo(): void {
@@ -109,6 +138,7 @@ export class CmsHtmlListComponent implements OnInit {
   onActionButtonMemoRow(): void {
     this.optionOnActionButtonMemoRow.emit();
   }
+
   onActionButtonPrintRow(): void {
     this.optionOnActionButtonPrintRow.emit();
   }
@@ -124,7 +154,7 @@ export class CmsHtmlListComponent implements OnInit {
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </ng-container>
-    <ng-container  cms-action>
+    <ng-container  cms-action-main>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->

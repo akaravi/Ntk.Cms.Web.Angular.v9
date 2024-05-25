@@ -1362,6 +1362,7 @@
   "TITLE.File_ID": "File ID",
   "TITLE.File": "File",
   "TITLE.guide": "guide",
+  "TITLE.guide.close": "guide close",
   "TITLE.Code_of_Knowledge": "Code of Knowledge",
   "TITLE.To_do_this_it_is_enough_to_enter_the_site_on_the_device_that_you_want_your_content_to_be_displayed_on": "To do this it is enough to enter the site on the device that you want your content to be displayed on",
   "TITLE.Enter_the_display_code_in_this_section_so_that_your_content_will_be_displayed_on_the_monitor_of_the_device_in_question": "Enter the display code in this section so that your content will be displayed on the monitor of the device in question",
@@ -1807,8 +1808,8 @@
     "Or": "OR",
     "AddRule": "Add Rule",
     "AddGroup": "Add Group",
-    "Remove":"Remove",
-    "Yes":"Yes",
+    "Remove": "Remove",
+    "Yes": "Yes",
     "equal": "Equals",
     "not_equal": "Does not equal",
     "contains": "Contains",
@@ -1827,6 +1828,5 @@
     "is_not_empty": "Is not empty",
     "in": "In",
     "not_in": "Not in"
-
   }
 }

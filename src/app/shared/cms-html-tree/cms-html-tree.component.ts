@@ -9,7 +9,7 @@ export class CmsHtmlTreeComponent implements OnInit {
   static nextId = 0;
   id = ++CmsHtmlTreeComponent.nextId;
   @Input() optionHeaderDisplay = true;
-  @Input() optionActionDisplay = true;
+  @Input() optionActionMainDisplay = true;
   @Input() optionFooterDisplay = true;
   @Input()
   public set optionLoading(v: ProgressSpinnerModel) {
@@ -21,7 +21,7 @@ export class CmsHtmlTreeComponent implements OnInit {
 
   }
   /*
-  <app-cms-html-tree [optionLoading]="loading" [optionHeaderDisplay]="true" [optionActionDisplay]="true" [optionFooterDisplay]="false">
+  <app-cms-html-tree [optionLoading]="loading" [optionHeaderDisplay]="true" [optionActionMainDisplay]="true" [optionFooterDisplay]="false">
 <ng-container  cms-tree-header>
  </ng-container>
  <ng-container  cms-tree-action>
@@ -29,7 +29,7 @@ export class CmsHtmlTreeComponent implements OnInit {
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
     </ng-container>
-    <ng-container  cms-action>
+    <ng-container  cms-action-main>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
       --------------------------------------
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
