@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { QueryBuilderFieldMap, Rule, RuleSet } from 'ngx-ntk-query-builder';
+//import { QueryBuilderFieldMap, Rule, RuleSet } from 'ngx-ntk-query-builder';
 import { AccessModel, ClauseTypeEnum, FilterDataModel } from 'ntk-cms-api';
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
+import { QueryBuilderFieldMap, QueryRule, QueryRuleSet } from 'src/app/core/query-builder/interfaces/ngx-ntk-query-builder.interfaces';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+
 
 @Component({
   selector: 'app-cms-search-list',
@@ -36,7 +38,7 @@ export class CmsSearchListComponent implements OnInit {
   filters: Array<FilterDataModel>;
   lang: string;
   model: any;
-  query: RuleSet;
+  query: QueryRuleSet;
   fieldMap: QueryBuilderFieldMap = {};
   constructor(
     public translate: TranslateService,
@@ -129,8 +131,8 @@ export class CmsSearchListComponent implements OnInit {
 
     if (this.query.condition === 'or') { clauseType = ClauseTypeEnum.Or; }
     this.query.rules.forEach((column) => {
-      const ruleSet = column as RuleSet;
-      const rule = column as Rule;
+      const ruleSet = column as QueryRuleSet;
+      const rule = column as QueryRule;
       if (
         ruleSet &&
         ruleSet.condition &&
@@ -148,7 +150,7 @@ export class CmsSearchListComponent implements OnInit {
       }
     });
   }
-  getRulesChild(rule: Rule): FilterDataModel {
+  getRulesChild(rule: QueryRule): FilterDataModel {
     const searchType = this.getSearchType(rule.operator);
     const filter = new FilterDataModel();
     filter.propertyName = rule.field;
@@ -156,13 +158,13 @@ export class CmsSearchListComponent implements OnInit {
     filter.searchType = searchType;
     return filter;
   }
-  getRulesSetChild(ruleSetInput: RuleSet): Array<FilterDataModel> {
+  getRulesSetChild(ruleSetInput: QueryRuleSet): Array<FilterDataModel> {
     const Filters = new Array<FilterDataModel>();
     let clauseType: ClauseTypeEnum = ClauseTypeEnum.And;
     if (ruleSetInput.condition === 'or') { clauseType = ClauseTypeEnum.Or; }
     ruleSetInput.rules.forEach((column) => {
-      const ruleSet = column as RuleSet;
-      const rule = column as Rule;
+      const ruleSet = column as QueryRuleSet;
+      const rule = column as QueryRule;
       if (
         ruleSet &&
         ruleSet.condition &&

@@ -48,7 +48,7 @@ import { TreeModule } from '@circlon/angular-tree-component';
 import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { InlineSVGModule } from 'ng-inline-svg-2';
-import { NgxNtkQueryBuilderModule } from 'ngx-ntk-query-builder';
+
 import {
   ApplicationAppService,
   BankPaymentEnumService,
@@ -171,6 +171,7 @@ import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './material/mat
 import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
+import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-builder.component';
 
 @NgModule({
   imports: [
@@ -219,7 +220,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     MatTreeModule,
     //Material
     TreeModule,
-    NgxNtkQueryBuilderModule,
+    
     LeafletModule,
 
     NgbDropdownModule,
@@ -309,7 +310,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     CmsAccessInfoComponent,
     CmsSmsMainApiPathSelectorComponent,
     CmsSmsMainApiNumberSelectorComponent,
-
+    NgxQueryBuilderComponent,
     /** input */
     StringComponent,
     IntComponent,
@@ -455,6 +456,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     CmsAccessInfoComponent,
     CmsSmsMainApiPathSelectorComponent,
     CmsSmsMainApiNumberSelectorComponent,
+    NgxQueryBuilderComponent,
     /** input */
     StringComponent,
     IntComponent,
