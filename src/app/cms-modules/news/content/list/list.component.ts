@@ -80,7 +80,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     // 'Action',
     "LinkTo",
   ];
-  viewGuideNotice = false;
+
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {
