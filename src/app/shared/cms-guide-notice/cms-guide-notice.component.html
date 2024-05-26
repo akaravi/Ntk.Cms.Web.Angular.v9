@@ -1,41 +1,32 @@
-<div class="card card-style">
-  <div class="content mb-0">
-    <div class="row justify-content-center">
-      <div (click)="onActionCopyHeaderKey(keyTemplate,$event)" class="col-2 pe-0">
-        <p class="text-center">
-          <span *ngIf="(svg && svg.length>0)" class="svg-icon svg-icon-primary position-absolute opacity-15"
-            [inlineSVG]="svg" [setSVGAttributes]="{ class: 'h-120px w-120px' }"></span>
-        </p>
-      </div>
-      <div class="col-9">
-        <h4 [innerHTML]="description"></h4>
-        <p class="mt-n1 line-height-m" [innerHTML]="body">
-
-        </p>
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-112">
-            <div *ngIf="podcastSrc && podcastSrc?.length>0 && bodyShow">
-              <audio class="audio" controls>
-                <source src="{{podcastSrc | cmsthumbnail}}" type="audio/mp3">
-                Your browser does not support the audio tag.
-              </audio>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-1">
-        <button type="button" *ngIf="!bodyShow&& (body?.length>0 || podcast>0 || movie>0)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="onActionBottunClick()">
-          {{'TITLE.More' | translate}}
-        </button>
-        <button type="button" *ngIf="bodyShow"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="onActionCloseBottunClick()">
-          {{'TITLE.guide.close' | translate}}
-        </button>
-      </div>
-    </div>
+<!-- <div class="row">
+  <div (click)="onActionCopyHeaderKey(keyTemplate,$event)" class="col-2 pe-0">
+    <p class="text-center">
+      <span *ngIf="(svg && svg.length>0)" class="svg-icon svg-icon-primary position-absolute opacity-15"
+        [inlineSVG]="svg" [setSVGAttributes]="{ class: 'h-120px w-120px' }"></span>
+    </p>
+  </div>
+  <div class="col-9">
+    <h1 [innerHTML]="description"></h1>
+    <p [innerHTML]="body">
+    </p>
+  </div>
+  <div class="col-1">
+    <a (click)=" onActionBottunClick()" *ngIf="!bodyShow&& (body?.length>0 || podcast>0 || movie>0)" target="_blank"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <i class="fa-solid fa-maximize font-22" style="color: #ffffff;"></i>
+    </a>
+    <a (click)="onActionCloseBottunClick()" *ngIf="bodyShow" target="_blank"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <i class="fa-solid fa-minimize font-22" style="color: #ffffff;"></i>
+    </a>
+  </div>
+</div>
+<div class="row" *ngIf="podcastSrc && podcastSrc?.length>0 && bodyShow">
+  <div class="col-md-12 col-sm-12 col-xs-112">
+    <audio class="audio" controls>
+      <source src="{{podcastSrc | cmsthumbnail}}" type="audio/mp3">
+      Your browser does not support the audio tag.
+    </audio>
   </div>
 </div>
 
@@ -45,4 +36,60 @@
     <button (click)="onActionCopied()" [cdkCopyToClipboard]="this.Key"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">Copy</button>
   </div>
-</ng-template>
+</ng-template> -->
+
+
+
+<!-------------->
+<!-------------->
+<!--Menu Video-->
+<!-------------->
+<!-------------->
+<div id="menu-video" class="menu menu-box-bottom rounded-m" [ngClass]="optionView?'menu-active':''"
+  data-menu-height="410" data-menu-effect="menu-over">
+  <div class='responsive-iframe max-iframe'><iframe src='https://www.namasha.com/embed/cSilb1mb' frameborder='0'
+      allowfullscreen></iframe></div>
+  <div class="menu-title">
+    <p class="color-highlight" [innerHTML]="description">ویدیو میزبانیی شده</p>
+    <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+  </div>
+  <div class="content mt-n2">
+    <p [innerHTML]="body">
+      ....
+    </p>
+    <a href="#" class="close-menu btn btn-full btn-m shadow-l rounded-s font-600 bg-green-dark mt-n2">باشه!</a>
+  </div>
+</div>
+
+<!---------------->
+<!---------------->
+<!--Menu Success-->
+<!---------------->
+<!---------------->
+<div id="menu-success-1" [ngClass]="optionView?'menu-active1':''" class="menu menu-box-bottom rounded-m"
+  data-menu-height="185" data-menu-effect="menu-over">
+  <div class="menu-title">
+    <i class="fa fa-check-circle scale-box float-start me-3 ms-3 fa-4x color-green-dark"></i>
+    <p class="color-highlight">تبریک!</p>
+    <h1>اقدام موفق</h1>
+    <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+  </div>
+  <div class="content mt-0 mb-0">
+    <p class="pe-3">
+      با تشکر از شما برای انجام موفقیت آمیز این اقدام. اکنون می توان این پیام را به صورت دستی یا برنامه نویسی نادیده
+      گرفت.
+    </p>
+  </div>
+</div>
+
+<div id="menu-success-2" class="menu menu-box-bottom bg-green-dark rounded-m" data-menu-height="335"
+  data-menu-effect="menu-over">
+  <h1 class="text-center mt-4"><i class="fa fa-3x fa-check-circle scale-box color-white shadow-xl rounded-circle"></i>
+  </h1>
+  <h1 class="text-center mt-3 font-700 color-white">عملیات موفق</h1>
+  <p class="boxed-text-l color-white opacity-70">
+    می توانید به اقدامات قبلی خود ادامه دهید.<br> به راحتی می توان این المان ها را به تماس های موفقیت متصل کرد.
+  </p>
+  <a href="#" class="close-menu btn btn-m btn-center-m button-s shadow-l rounded-s font-600 bg-white color-black">عالی،
+    ممنون!</a>
+</div>

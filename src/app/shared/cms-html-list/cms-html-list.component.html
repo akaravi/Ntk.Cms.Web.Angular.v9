@@ -151,8 +151,7 @@
 </div>
 <!--end:: Show Menu Row-->
 <!--begin::Show Guide Notice-->
-<div class="menu menu-box-modal rounded-m shadow-xl" [ngClass]="viewGuideNotice?'menu-active':''"
-  style="display: block; width: 100%; height: 100%;">
+<!-- <div class="menu menu-box-modal rounded-m shadow-xl" [ngClass]="viewGuideNotice?'menu-active':''"  style="display: block; width: 100%; height: 100%;">
   <div class="menu-title">
     <p class="color-highlight">راهنمایی</p>
     <h1 *ngIf="optionSelectRowItemTitle?.length>0">{{optionSelectRowItemTitle}}</h1>
@@ -162,5 +161,8 @@
   <app-cms-guide-notice *ngIf="viewGuideNotice" [Key]="optionGuideNoticeKey"
     [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
   </app-cms-guide-notice>
-</div>
+</div> -->
 <!--end:: Show Guide Notice--->
+<app-cms-guide-notice [optionView]="viewGuideNotice" [Key]="optionGuideNoticeKey"
+  [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
+</app-cms-guide-notice>

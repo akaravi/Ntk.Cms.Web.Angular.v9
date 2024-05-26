@@ -28,7 +28,7 @@ export class CmsGuideNoticeComponent implements OnInit, OnDestroy {
   @Input() classes: string;
   @Input() icon: string;
   @Input() svg: string;
-
+  @Input() optionView = false;
   constructor(
     private pageInfo: PageInfoService,
     private tokenHelper: TokenHelper,
