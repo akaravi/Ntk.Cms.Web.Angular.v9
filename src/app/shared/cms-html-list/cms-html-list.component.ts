@@ -143,7 +143,7 @@ export class CmsHtmlListComponent implements OnInit {
     this.optionOnActionButtonPrintRow.emit();
   }
   /*
-  <app-cms-html-list  [optionLoading]="loading" [optionTreeDisplay]="true">
+  <app-cms-html-list [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"   [optionLoading]="loading" [optionTreeDisplay]="true">
     <ng-container  cms-tree>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
       --------------------------------------

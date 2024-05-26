@@ -1,6 +1,5 @@
-<app-cms-guide-notice [Key]="'configuresite.site.list'"
-  [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
-<app-cms-html-list (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+<app-cms-html-list [optionGuideNoticeKey]="'configuresite.site.list'"
+  [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
   (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
   [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
@@ -39,6 +38,11 @@
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
           (click)="onActionBackToParentUserList()" target="_blank">
           <i class="fa-solid fa-arrow-left font-22" style="color: #ffffff;"></i>
+        </a>
+
+        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
+          <i class="fa-solid fa-info font-22" style="color: #ffffff;"></i>
         </a>
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionButtonReload()" target="_blank">

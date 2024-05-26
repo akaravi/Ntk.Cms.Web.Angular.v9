@@ -1,9 +1,8 @@
-<app-cms-guide-notice [Key]="'dataprovider.client.list'"
-    [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
-<app-cms-html-list (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
-    (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="true"
-    [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+<app-cms-html-list [optionGuideNoticeKey]="'dataprovider.client.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
+    (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
+    (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
+    [optionLoading]="loading" [optionTreeDisplay]="true" [optionActionRowId]="tableRowSelected?.id"
+    [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
     [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
