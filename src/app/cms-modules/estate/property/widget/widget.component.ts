@@ -118,7 +118,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       }
 
       if (ret.isSuccess) {
-        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, this.widgetInfoModel.link));
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, '/estate/property/recordstatus/Available'));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
@@ -127,7 +127,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       series[1] = ret.totalRowCount;
       labels[1] = 'غیر فعال';
       if (ret.isSuccess) {
-        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 1, ret.totalRowCount, this.widgetInfoModel.link));
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 1, ret.totalRowCount, '/estate/property/recordstatus/Disable'));
 
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
@@ -137,7 +137,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       series[2] = ret.totalRowCount;
       labels[2] = 'نیاز به تایید';
       if (ret.isSuccess) {
-        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, ret.totalRowCount, this.widgetInfoModel.link));
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, ret.totalRowCount, '/estate/property/recordstatus/Pending'));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }

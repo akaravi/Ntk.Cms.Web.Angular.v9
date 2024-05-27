@@ -29,6 +29,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   tableRowsSelected: Array<TModel> = [];
   dataModelResult: ErrorExceptionResult<TModel> = new ErrorExceptionResult<TModel>();
   clickCount = 0;
+  viewGuideNotice = false;
   public tableRowSelectDoubleClick = false;
   public tableRowSelect3Click = false;
   onActionTableRowSelect(row: TModel): void {

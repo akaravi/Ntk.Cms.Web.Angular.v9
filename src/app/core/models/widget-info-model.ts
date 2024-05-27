@@ -24,12 +24,12 @@ export class WidgetInfoModel {
   }
 }
 export class WidgetContentInfoModel {
-  constructor(_key: string, _index: number, _count: number, _lint = '', _color = '', _description: string = '') {
+  constructor(_key: string, _index: number, _count: number, _link = '', _color = '', _description: string = '') {
     this.key = _key;
     this.index = _index;
     this.count = _count;
     this.description = _description;
-    this.link = _lint;
+    this.link = _link;
     this.color = _color;
   }
 

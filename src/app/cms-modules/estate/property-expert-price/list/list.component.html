@@ -1,11 +1,8 @@
-<app-cms-guide-notice [Key]="'estate.propertyexpertprice.list'"
-    [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
-</app-cms-guide-notice>
-<app-cms-html-list (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
-    (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
-    [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelect3Click"
-    [optionSelectRowItemTitle]="tableRowSelected?.id">
+<app-cms-html-list [optionGuideNoticeKey]="'estate.propertyexpertprice.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
+    (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
+    (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
+    [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowId]="tableRowSelected?.id"
+    [optionActionRowDisplayMenu]="tableRowSelect3Click" [optionSelectRowItemTitle]="tableRowSelected?.id">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
 
@@ -34,6 +31,10 @@
             </div>
             <div class=" justify-content-start">
                 <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+                (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
+                <i class="fa-solid fa-info font-22" style="color: #ffffff;"></i>
+              </a>
+                <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
                     (click)="onActionButtonReload()" target="_blank">
                     <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
                 </a>
@@ -49,7 +50,7 @@
         </div>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
     </ng-container>
-    <ng-container cms-action>
+    <ng-container cms-action-main>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
         <div *ngIf="dataModelResult?.access?.accessAddRow" class="col-4">
             <a (click)="onActionButtonNewRow()" type="button"
