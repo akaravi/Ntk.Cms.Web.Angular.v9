@@ -6,14 +6,14 @@
 
     <div class="list-group list-custom-small list-menu ms-0 me-2">
       <app-progress-spinner [options]="loading"> </app-progress-spinner>
-      <a *ngIf="widgetInfoModel?.items?.has('InChecking')"
+      <a 
         routerLink="{{widgetInfoModel?.items?.get('InChecking').link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
         <span>در حال بررسی</span>
         <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("InChecking")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
-      <a *ngIf="widgetInfoModel?.items?.has('Available')" routerLink="{{widgetInfoModel?.items?.get('Available').link}}"
+      <a routerLink="{{widgetInfoModel?.items?.get('Available').link}}"
         class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
         <span>فعال</span>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CoreGuideService } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -28,7 +28,12 @@ export class CmsGuideNoticeComponent implements OnInit, OnDestroy {
   @Input() classes: string;
   @Input() icon: string;
   @Input() svg: string;
-  @Input() optionView = false;
+  @Input() set optionView(view: boolean) {
+    this.privatOptionView = view;
+  }
+  @Output() optionViewChange = new EventEmitter<boolean>();
+
+  privatOptionView = false;
   constructor(
     private pageInfo: PageInfoService,
     private tokenHelper: TokenHelper,
@@ -200,6 +205,7 @@ export class CmsGuideNoticeComponent implements OnInit, OnDestroy {
     }
   }
   onActionCopyHeaderKey(keyTemplate: any, event?: MouseEvent): void {
+
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
@@ -220,6 +226,7 @@ export class CmsGuideNoticeComponent implements OnInit, OnDestroy {
   }
   onActionCopied(): void {
     this.cmsToastrService.typeSuccessCopedToClipboard();
+
   }
   onActionBottunClick() {
     this.bodyShow = true;
@@ -228,5 +235,7 @@ export class CmsGuideNoticeComponent implements OnInit, OnDestroy {
   onActionCloseBottunClick() {
     this.bodyShow = false;
     this.cdr.detectChanges();
+    this.privatOptionView = false;
+    this.optionViewChange.emit(this.privatOptionView);
   }
 }

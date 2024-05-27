@@ -113,10 +113,10 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     var labels = [];
 
 
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, 0, ''));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Archive', 1, 0, ''));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, 0, ''));
-    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 3, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, 0, '/estate/customer-order/recordstatus/Available'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Archive', 1, 0, '/estate/customer-order/recordstatus/Archive'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, 0, '/estate/customer-order/recordstatus/Pending'));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 3, 0, '/estate/customer-order/recordstatus/Disable'));
 
 
 
@@ -128,7 +128,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       series[0] = ret.totalRowCount;
       labels[0] = this.translate.instant('MESSAGE.customer_order_list_active');
       if (ret.isSuccess) {
-        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, ''));
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 0, ret.totalRowCount, '/estate/customer-order/recordstatus/Available'));
         this.rowExist = true;
         this.widgetInfoModel.description = this.translate.instant('TITLE.Number_Registered_Property') + ' : ' + ret.totalRowCount;
       }
@@ -138,7 +138,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       series[1] = ret.totalRowCount;
       labels[1] = this.translate.instant('MESSAGE.customer_order_list_close');
       if (ret.isSuccess) {
-        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Archive', 1, ret.totalRowCount, ''));
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Archive', 1, ret.totalRowCount, '/estate/customer-order/recordstatus/Archive'));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
@@ -147,7 +147,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       series[2] = ret.totalRowCount;
       labels[2] = this.translate.instant('MESSAGE.customer_order_needs_approval');
       if (ret.isSuccess) {
-        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, ret.totalRowCount, ''));
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, ret.totalRowCount, '/estate/customer-order/recordstatus/Pending'));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
@@ -156,7 +156,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       series[3] = ret.totalRowCount;
       labels[3] = this.translate.instant('MESSAGE.customer_order_list_disable');
       if (ret.isSuccess) {
-        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 3, ret.totalRowCount, ''));
+        this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 3, ret.totalRowCount, '/estate/customer-order/recordstatus/Disable'));
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
