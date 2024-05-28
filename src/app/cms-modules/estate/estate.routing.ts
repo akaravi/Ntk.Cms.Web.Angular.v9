@@ -41,7 +41,7 @@ import { EstatePropertyAddComponent } from './property/add/add.component';
 import { EstatePropertyAddMobileComponent } from './property/add/add.mobile.component';
 import { EstatePropertyEditComponent } from './property/edit/edit.component';
 import { EstatePropertyListComponent } from './property/list/list.component';
-
+/**توجه این روت دو بخش داد باید در هر دو بخش روت ها اضفا شود */
 const routesNormal: Routes = [
   {
     path: '',
