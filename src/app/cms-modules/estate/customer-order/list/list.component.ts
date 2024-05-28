@@ -524,8 +524,8 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     const fastfilter4 = new FilterDataModel();
     fastfilter4.propertyName = 'RecordStatus';
     fastfilter4.value = RecordStatusEnum.Disable;
-    filterStatist3.filters.push(fastfilter4);
-    const s4 = this.contentService.ServiceGetCount(filterStatist3);
+    filterStatist4.filters.push(fastfilter4);
+    const s4 = this.contentService.ServiceGetCount(filterStatist4);
 
     forkJoin([s0, s1, s2, s3, s4]).subscribe(results => {
 
