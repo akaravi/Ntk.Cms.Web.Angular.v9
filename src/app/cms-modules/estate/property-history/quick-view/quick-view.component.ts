@@ -5,7 +5,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -18,6 +18,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { environment } from 'src/environments/environment';
+import { EstateCustomerOrderQuickViewComponent } from '../../customer-order/quick-view/quick-view.component';
+import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
 
 @Component({
   selector: 'app-estate-property-history-quick-view',
@@ -30,6 +33,7 @@ export class EstatePropertyHistoryQuickViewComponent implements OnInit, OnDestro
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyHistoryQuickViewComponent>,
+    public dialog: MatDialog,
     public coreEnumService: CoreEnumService,
     public estatePropertyHistoryService: EstatePropertyHistoryService,
     private cmsToastrService: CmsToastrService,
@@ -135,6 +139,51 @@ export class EstatePropertyHistoryQuickViewComponent implements OnInit, OnDestro
     this.step--;
   }
 
+
+  onActionButtonPropertyQuickViewRow(id: any): void {
+
+    if (!id || id.length === 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+ 
+
+    var panelClass = '';
+    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
+    else panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstatePropertyQuickViewComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.dialogChangedDate) {
+      }
+    });
+  }
+  onActionButtonCustomerOrderQuickViewRow(id: any): void {
+    if (!id || id.length === 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+    
+    var panelClass = '';
+    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
+    else panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstateCustomerOrderQuickViewComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.dialogChangedDate) {
+      }
+    });
+  }
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });
   }

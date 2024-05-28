@@ -8,11 +8,10 @@
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
     </p>
-    <h4>اطلاعات</h4>
+
 
     <p>
-      اطلاعات عمومی که در بالای کارت شما در صفحه نمایه شما نشان داده می شود. این
-      فقط یک صفحه ساختگی است.
+      در ورود اطلاعات دقت لازم را داشته باشید
     </p>
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
@@ -511,7 +510,7 @@
             <label for="dataModel.redirect" class="color-highlight">{{ fieldsInfo['redirect']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.redirect" [disabled]="!fieldsInfo['redirect']?.accessEditField"
               name="dataModel.redirect" #Redirect type="text" placeholder="https://...." minlength="3" maxlength="100"
-               class="form-control validate-name input-ltr" id="dataModel.redirect" />
+              class="form-control validate-name input-ltr" id="dataModel.redirect" />
             <em>{{fieldsInfo['redirect']?.fieldDescription}}</em>
             <em>{{ Redirect.value.length }} / 100</em>
           </div>
@@ -572,8 +571,8 @@
               fieldsInfo['seoTwitterCardSite']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.seoTwitterCardSite"
               [disabled]="!fieldsInfo['seoTwitterCardSite']?.accessEditField" name="dataModel.seoTwitterCardSite"
-              #SeoTwitterCardSite type="text" placeholder="@username" 
-              class="form-control validate-name input-ltr" id="dataModel.seoTwitterCardSite" />
+              #SeoTwitterCardSite type="text" placeholder="@username" class="form-control validate-name input-ltr"
+              id="dataModel.seoTwitterCardSite" />
             <em>{{fieldsInfo['seoTwitterCardSite']?.fieldDescription}}</em>
           </div>
           <!-- SeoTwitterCardCreator Field -->
@@ -583,8 +582,8 @@
               fieldsInfo['seoTwitterCardCreator']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.seoTwitterCardCreator"
               [disabled]="!fieldsInfo['seoTwitterCardCreator']?.accessEditField" name="dataModel.seoTwitterCardCreator"
-              #SeoTwitterCardCreator type="text" placeholder="@username" 
-              class="form-control validate-name input-ltr" id="dataModel.seoTwitterCardCreator" />
+              #SeoTwitterCardCreator type="text" placeholder="@username" class="form-control validate-name input-ltr"
+              id="dataModel.seoTwitterCardCreator" />
             <em>{{fieldsInfo['seoTwitterCardCreator']?.fieldDescription}}</em>
           </div>
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
@@ -714,7 +713,7 @@
             <input matInput [(ngModel)]="dataModel.aboutUsLinkCompanyAuthorSite"
               [disabled]="!fieldsInfo['aboutUsLinkCompanyAuthorSite']?.accessEditField"
               name="dataModel.aboutUsLinkCompanyAuthorSite" #AboutUsLinkCompanyAuthorSite type="text"
-              placeholder="https://...."  class="form-control validate-name input-ltr"
+              placeholder="https://...." class="form-control validate-name input-ltr"
               id="dataModel.aboutUsLinkCompanyAuthorSite" />
             <em>{{fieldsInfo['aboutUsLinkCompanyAuthorSite']?.fieldDescription}}</em>
           </div>
@@ -726,7 +725,7 @@
             <input matInput [(ngModel)]="dataModel.aboutUsLinkCompanyPublisherSite"
               [disabled]="!fieldsInfo['aboutUsLinkCompanyPublisherSite']?.accessEditField"
               name="dataModel.aboutUsLinkCompanyPublisherSite" #AboutUsLinkCompanyPublisherSite type="text"
-              placeholder="https://...."  class="form-control validate-name input-ltr"
+              placeholder="https://...." class="form-control validate-name input-ltr"
               id="dataModel.aboutUsLinkCompanyPublisherSite" />
             <em>{{fieldsInfo['aboutUsLinkCompanyPublisherSite']?.fieldDescription}}</em>
           </div>
@@ -737,8 +736,8 @@
               fieldsInfo['aboutUsLinkFacebook']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkFacebook"
               [disabled]="!fieldsInfo['aboutUsLinkFacebook']?.accessEditField" name="dataModel.aboutUsLinkFacebook"
-              #AboutUsLinkFacebook type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkFacebook" />
+              #AboutUsLinkFacebook type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkFacebook" />
             <em>">{{fieldsInfo['aboutUsLinkFacebook']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkTwitter Field -->
@@ -748,8 +747,8 @@
               fieldsInfo['aboutUsLinkTwitter']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkTwitter"
               [disabled]="!fieldsInfo['aboutUsLinkTwitter']?.accessEditField" name="dataModel.aboutUsLinkTwitter"
-              #AboutUsLinkTwitter type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkTwitter" />
+              #AboutUsLinkTwitter type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkTwitter" />
             <em>{{fieldsInfo['aboutUsLinkTwitter']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkGooglePlus Field -->
@@ -759,8 +758,8 @@
               fieldsInfo['aboutUsLinkGooglePlus']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkGooglePlus"
               [disabled]="!fieldsInfo['aboutUsLinkGooglePlus']?.accessEditField" name="dataModel.aboutUsLinkGooglePlus"
-              #AboutUsLinkGooglePlus type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkGooglePlus" />
+              #AboutUsLinkGooglePlus type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkGooglePlus" />
             <em>{{fieldsInfo['aboutUsLinkGooglePlus']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkInstagram Field -->
@@ -770,8 +769,8 @@
               fieldsInfo['aboutUsLinkInstagram']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkInstagram"
               [disabled]="!fieldsInfo['aboutUsLinkInstagram']?.accessEditField" name="dataModel.aboutUsLinkInstagram"
-              #AboutUsLinkInstagram type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkInstagram" />
+              #AboutUsLinkInstagram type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkInstagram" />
             <em>{{fieldsInfo['aboutUsLinkInstagram']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkWhatsapp Field -->
@@ -781,8 +780,8 @@
               fieldsInfo['aboutUsLinkWhatsapp']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkWhatsapp"
               [disabled]="!fieldsInfo['aboutUsLinkWhatsapp']?.accessEditField" name="dataModel.aboutUsLinkWhatsapp"
-              #AboutUsLinkWhatsapp type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkWhatsapp" />
+              #AboutUsLinkWhatsapp type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkWhatsapp" />
             <em>{{fieldsInfo['aboutUsLinkWhatsapp']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinklinkedin Field -->
@@ -792,8 +791,8 @@
               fieldsInfo['aboutUsLinklinkedin']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinklinkedin"
               [disabled]="!fieldsInfo['aboutUsLinklinkedin']?.accessEditField" name="dataModel.aboutUsLinklinkedin"
-              #AboutUsLinklinkedin type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinklinkedin" />
+              #AboutUsLinklinkedin type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinklinkedin" />
             <em>{{fieldsInfo['aboutUsLinklinkedin']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkYahoo Field -->
@@ -803,8 +802,8 @@
               fieldsInfo['aboutUsLinkYahoo']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkYahoo"
               [disabled]="!fieldsInfo['aboutUsLinkYahoo']?.accessEditField" name="dataModel.aboutUsLinkYahoo"
-              #AboutUsLinkYahoo type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkYahoo" />
+              #AboutUsLinkYahoo type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkYahoo" />
             <em>{{fieldsInfo['aboutUsLinkYahoo']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkYoutube Field -->
@@ -814,8 +813,8 @@
               fieldsInfo['aboutUsLinkYoutube']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkYoutube"
               [disabled]="!fieldsInfo['aboutUsLinkYoutube']?.accessEditField" name="dataModel.aboutUsLinkYoutube"
-              #AboutUsLinkYoutube type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkYoutube" />
+              #AboutUsLinkYoutube type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkYoutube" />
             <em>{{fieldsInfo['aboutUsLinkYoutube']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkTelegram Field -->
@@ -825,8 +824,8 @@
               fieldsInfo['aboutUsLinkTelegram']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkTelegram"
               [disabled]="!fieldsInfo['aboutUsLinkTelegram']?.accessEditField" name="dataModel.aboutUsLinkTelegram"
-              #AboutUsLinkTelegram type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkTelegram" />
+              #AboutUsLinkTelegram type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkTelegram" />
             <em>{{fieldsInfo['aboutUsLinkTelegram']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkPinterest Field -->
@@ -836,8 +835,8 @@
               fieldsInfo['aboutUsLinkPinterest']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkPinterest"
               [disabled]="!fieldsInfo['aboutUsLinkPinterest']?.accessEditField" name="dataModel.aboutUsLinkPinterest"
-              #AboutUsLinkPinterest type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkPinterest" />
+              #AboutUsLinkPinterest type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkPinterest" />
             <em>{{fieldsInfo['aboutUsLinkPinterest']?.fieldDescription}}</em>
           </div>
           <!-- AboutUsLinkRss Field -->
@@ -847,8 +846,8 @@
               fieldsInfo['aboutUsLinkRss']?.fieldTitle }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsLinkRss"
               [disabled]="!fieldsInfo['aboutUsLinkRss']?.accessEditField" name="dataModel.aboutUsLinkRss"
-              #AboutUsLinkRss type="text" placeholder="https://...." 
-              class="form-control validate-name input-ltr" id="dataModel.aboutUsLinkRss" />
+              #AboutUsLinkRss type="text" placeholder="https://...." class="form-control validate-name input-ltr"
+              id="dataModel.aboutUsLinkRss" />
             <em>{{fieldsInfo['aboutUsLinkRss']?.fieldDescription}}</em>
           </div>
           <hr>

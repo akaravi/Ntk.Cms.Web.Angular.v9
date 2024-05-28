@@ -39,6 +39,7 @@ import { EstatePropertyHistoryAddMobileComponent } from '../add/add.mobile.compo
 import { EstatePropertyHistoryEditComponent } from '../edit/edit.component';
 import { EstatePropertyHistoryEditMobileComponent } from '../edit/edit.mobile.component';
 import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-view.component';
+import { EstateCustomerOrderQuickViewComponent } from '../../customer-order/quick-view/quick-view.component';
 @Component({
   selector: 'app-estate-property-history-list',
   templateUrl: './list.component.html',
@@ -609,14 +610,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-    if (
-      this.dataModelResult == null ||
-      this.dataModelResult.access == null ||
-      !this.dataModelResult.access.accessWatchRow
-    ) {
-      this.cmsToastrService.typeErrorAccessWatch();
-      return;
-    }
+  
     var panelClass = '';
     if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
     else panelClass = 'dialog-min';
@@ -633,15 +627,16 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     });
   }
 
-  onActionButtonQuickViewRow(
-    model: EstatePropertyHistoryModel = this.tableRowSelected
+
+ 
+  onActionButtonQuickViewRow(model: EstatePropertyHistoryModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
     this.onActionTableRowSelect(model);
-
+    this.tableRowSelected = model;
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -687,7 +682,27 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       }
     });
   }
-
+  onActionButtonCustomerOrderQuickViewRow(id: any): void {
+    if (!id || id.length === 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+   
+    var panelClass = '';
+    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
+    else panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstateCustomerOrderQuickViewComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.dialogChangedDate) {
+      }
+    });
+  }
   onActionSelectorSelect(model: EstateActivityTypeModel | null): void {
     /*filter */
     var sortColumn = this.filteModelContent.sortColumn;
