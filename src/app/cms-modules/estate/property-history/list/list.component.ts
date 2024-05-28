@@ -82,19 +82,20 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.popupAdd =
       this.activatedRoute.snapshot.paramMap.get('Action')?.toLowerCase() ===
       'add';
-
-    this.recordStatus =
+    /**recordStatus */
+    this.requestRecordStatus =
       RecordStatusEnum[
       this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''
       ];
-    if (this.recordStatus) {
+    if (this.requestRecordStatus) {
       this.optionsSearch.data.show = true;
       this.optionsSearch.data.defaultQuery =
         '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' +
-        this.recordStatus +
+        this.requestRecordStatus +
         '"}]}';
-      this.recordStatus = null;
+      this.requestRecordStatus = null;
     }
+    /**recordStatus */
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -118,7 +119,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.requestLinkPropertyId = id;
     }
   }
-  recordStatus: RecordStatusEnum;
+
   popupAdd = false;
   comment: string;
   author: string;

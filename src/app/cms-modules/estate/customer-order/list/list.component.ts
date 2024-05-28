@@ -54,18 +54,18 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     };
 
     this.responsibleUserId = +this.activatedRoute.snapshot.paramMap.get('ResponsibleUserId');
-    this.recordStatus = RecordStatusEnum[this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''];
-    if (this.recordStatus) {
+    this.requestRecordStatus = RecordStatusEnum[this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''];
+    if (this.requestRecordStatus) {
       this.optionsSearch.data.show = true;
-      this.optionsSearch.data.defaultQuery = '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' + this.recordStatus + '"}]}';
-      this.recordStatus = null;
+      this.optionsSearch.data.defaultQuery = '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' + this.requestRecordStatus + '"}]}';
+      this.requestRecordStatus = null;
     }
     /*filter Sort*/
     this.filteModelContent.sortColumn = 'CreatedDate';
     this.filteModelContent.sortType = SortTypeEnum.Descending;
 
   }
-  recordStatus: RecordStatusEnum;
+
   responsibleUserId = 0;
   searchInResponsible = false;
   searchInResponsibleChecked = false;

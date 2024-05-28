@@ -268,9 +268,9 @@ export class PublicHelper {
     return value.length > limit ? value.substring(0, limit) + trail : value;
   }
 
-  RecordStatus(model): string {
-    return this.RecordStatus[model];
-  }
+  // RecordStatus(model): string {
+  //   return this.RecordStatus[model];
+  // }
 
   listAddIfNotExist(listStr: string[], item: string, index: number): string[] {
     if (listStr.indexOf(item) < 0) {

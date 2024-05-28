@@ -134,7 +134,11 @@ const routesNormal: Routes = [
         component: EstatePropertyListComponent,
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },
-
+      {
+        path: 'property/recordstatus/:RecordStatus',
+        component: EstatePropertyListComponent,
+        data: { title: 'ROUTE.ESTATE.PROPERTY' },
+      },
       {
         path: 'property/add',
         component: EstatePropertyAddComponent,
@@ -516,6 +520,11 @@ const routesMobile: Routes = [
       },
       {
         path: 'property/InChecking/:InChecking',
+        component: EstatePropertyListComponent,
+        data: { title: 'ROUTE.ESTATE.PROPERTY' },
+      },
+      {
+        path: 'property/recordstatus/:RecordStatus',
         component: EstatePropertyListComponent,
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },

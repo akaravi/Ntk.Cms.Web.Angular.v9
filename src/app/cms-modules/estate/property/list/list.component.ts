@@ -96,11 +96,11 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
     this.responsibleUserId = +this.activatedRoute.snapshot.paramMap.get('ResponsibleUserId');
-    this.recordStatus = RecordStatusEnum[this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''];
-    if (this.recordStatus) {
+    this.requestRecordStatus = RecordStatusEnum[this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''];
+    if (this.requestRecordStatus) {
       this.optionsSearch.data.show = true;
-      this.optionsSearch.data.defaultQuery = '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' + this.recordStatus + '"}]}';
-      this.recordStatus = null;
+      this.optionsSearch.data.defaultQuery = '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' + this.requestRecordStatus + '"}]}';
+      this.requestRecordStatus = null;
     }
     /*filter Sort*/
     this.filteModelContent.sortColumn = "CreatedDate";
@@ -185,7 +185,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     }
   }
   // SubjectTitle : string
-  recordStatus: RecordStatusEnum;
+
   responsibleUserId = 0;
   link: string;
   comment: string;
