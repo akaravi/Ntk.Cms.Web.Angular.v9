@@ -11,9 +11,7 @@
     </p>
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-      {{formInfo.formTitle}}
-      <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
       <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
         <mat-step label="{{'TITLE.Default_module_settings'|translate}}" state="main"

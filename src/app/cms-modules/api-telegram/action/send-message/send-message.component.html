@@ -1,72 +1,83 @@
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  </div>
-  <div class="ntk-cms-html-card-body">
-    <app-progress-spinner [options]="loading"> </app-progress-spinner>
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <app-api-telegram-bot-config-selector (optionChange)="onActionSelectorSelect($event)"
-      [optionSelectForce]="dataModel.botId" [(optionLoading)]="loading"
-      [optionPlaceholder]="this.translate.instant('TITLE.Telegram_Bot')">
-    </app-api-telegram-bot-config-selector>
-
-    <!-- title Field -->
-    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-      <label for="dataModel.title" class="color-highlight">{{'TITLE.title' | translate}}</label>
-      <input type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #title type="text"
-        placeholder="{{'TITLE.Message_Title' | translate}}" minlength="3" maxlength="100" required
-        class="form-control validate-name" id="dataModel.title" />
-      <i *ngIf="!title.value" class="fa fa-times  invalid color-red-dark"></i>
-      <i *ngIf="title.value" class="fa fa-check  valid color-green-dark"></i>
-      <em>{{ title.value.length }} / 100</em>
-      <mat-error *ngIf="title.errors?.required">
-        {{'TITLE.Message_Title' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-      </mat-error>
-    </div>
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{ formInfo.formTitle }}
+    </p>
 
 
-    <!-- chatId Field -->
-    <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-      <label for="dataModel.chatId" class="color-highlight">{{'MESSAGE.Chat_ID' | translate}}</label>
-      <textarea matInput [(ngModel)]="dataModel.chatId" name="dataModel.chatId" #chatId type="text"
-        placeholder="{{'MESSAGE.Chat_ID' | translate}}" minlength="1" maxlength="1000" rows="5" id="dataModel.chatId"
-        class="form-control validate-name">
+    <p>
+      در ورود اطلاعات دقت لازم را داشته باشید
+    </p>
+    <!--Content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+
+      <div class="ntk-cms-html-card-body">
+        
+        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+        <app-api-telegram-bot-config-selector (optionChange)="onActionSelectorSelect($event)"
+          [optionSelectForce]="dataModel.botId" [(optionLoading)]="loading"
+          [optionPlaceholder]="this.translate.instant('TITLE.Telegram_Bot')">
+        </app-api-telegram-bot-config-selector>
+
+        <!-- title Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.title" class="color-highlight">{{'TITLE.title' | translate}}</label>
+          <input type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #title type="text"
+            placeholder="{{'TITLE.Message_Title' | translate}}" minlength="3" maxlength="100" required
+            class="form-control validate-name" id="dataModel.title" />
+          <i *ngIf="!title.value" class="fa fa-times  invalid color-red-dark"></i>
+          <i *ngIf="title.value" class="fa fa-check  valid color-green-dark"></i>
+          <em>{{ title.value.length }} / 100</em>
+          <mat-error *ngIf="title.errors?.required">
+            {{'TITLE.Message_Title' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+          </mat-error>
+        </div>
+
+
+        <!-- chatId Field -->
+        <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+          <label for="dataModel.chatId" class="color-highlight">{{'MESSAGE.Chat_ID' | translate}}</label>
+          <textarea matInput [(ngModel)]="dataModel.chatId" name="dataModel.chatId" #chatId type="text"
+            placeholder="{{'MESSAGE.Chat_ID' | translate}}" minlength="1" maxlength="1000" rows="5"
+            id="dataModel.chatId" class="form-control validate-name">
       </textarea>
-      <em>{{ chatId.value.length }} / 1000</em>
-      <mat-error *ngIf="chatId.errors?.required">
-        {{'MESSAGE.Chat_ID' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
-      </mat-error>
-    </div>
+          <em>{{ chatId.value.length }} / 1000</em>
+          <mat-error *ngIf="chatId.errors?.required">
+            {{'MESSAGE.Chat_ID' | translate}} <strong>{{'MESSAGE.required' | translate}}</strong>
+          </mat-error>
+        </div>
 
 
 
 
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+      </div>
+      <div class="ntk-cms-html-card-message">
+        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+        <div class="form-actions">
+          <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
+          <small class="form-text text-muted danger">{{ formInfo.formError }}
+          </small>
+        </div>
+        <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
+      </div>
+      <div class="ntk-cms-html-card-footer">
+        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+
+        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+          <button type="button" (click)="onFormCancel()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+            <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+          </button>
+          <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+            (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+            <i class="fa fa-check-square-o"></i> {{'ACTION.Send_Message' | translate}}
+          </button>
+        </div>
+        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+      </div>
+    </form>
+    <!--Content-->
   </div>
-  <div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    <div class="form-actions">
-      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-      <small class="form-text text-muted danger">{{ formInfo.formError }}
-      </small>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-  </div>
-  <div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
-      <button type="button" (click)="onFormCancel()"
-        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-      </button>
-      <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-        (click)="onFormSubmit()" [disabled]="!vform.form.valid">
-        <i class="fa fa-check-square-o"></i> {{'ACTION.Send_Message' | translate}}
-      </button>
-    </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  </div>
-</form>
+</div>
