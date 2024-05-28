@@ -146,11 +146,13 @@ export class EstatePropertyHistoryQuickViewComponent implements OnInit, OnDestro
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
- 
+
 
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(EstatePropertyQuickViewComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -168,10 +170,12 @@ export class EstatePropertyHistoryQuickViewComponent implements OnInit, OnDestro
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-    
+
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(EstateCustomerOrderQuickViewComponent, {
       height: '90%',
       panelClass: panelClass,

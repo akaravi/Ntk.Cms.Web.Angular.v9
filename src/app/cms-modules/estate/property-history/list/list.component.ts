@@ -33,13 +33,13 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { environment } from 'src/environments/environment';
+import { EstateCustomerOrderQuickViewComponent } from '../../customer-order/quick-view/quick-view.component';
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
 import { EstatePropertyHistoryAddComponent } from '../add/add.component';
 import { EstatePropertyHistoryAddMobileComponent } from '../add/add.mobile.component';
 import { EstatePropertyHistoryEditComponent } from '../edit/edit.component';
 import { EstatePropertyHistoryEditMobileComponent } from '../edit/edit.mobile.component';
 import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-view.component';
-import { EstateCustomerOrderQuickViewComponent } from '../../customer-order/quick-view/quick-view.component';
 @Component({
   selector: 'app-estate-property-history-list',
   templateUrl: './list.component.html',
@@ -388,8 +388,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       return;
     }
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     if (this.publicHelper.isMobile) {
       const dialogRef = this.dialog.open(
         EstatePropertyHistoryAddMobileComponent,
@@ -454,8 +456,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       return;
     }
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     if (this.publicHelper.isMobile) {
       const dialogRef = this.dialog.open(
         EstatePropertyHistoryEditMobileComponent,
@@ -610,10 +614,12 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-  
+
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(EstatePropertyQuickViewComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -628,7 +634,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   }
 
 
- 
+
   onActionButtonQuickViewRow(model: EstatePropertyHistoryModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -654,8 +660,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.tableRowSelected
     );
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(
       EstatePropertyHistoryQuickViewComponent,
       {
@@ -687,10 +695,12 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-   
+
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(EstateCustomerOrderQuickViewComponent, {
       height: '90%',
       panelClass: panelClass,
