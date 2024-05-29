@@ -4,14 +4,12 @@
         <p class="mb-0 color-highlight font-600 font-12">
             {{ formInfo.formTitle }}
         </p>
-
-
         <p>
-            در ورود اطلاعات دقت لازم را داشته باشید
-          </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-    
+
             <app-progress-spinner [options]="loading"> </app-progress-spinner>
             <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
             <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
