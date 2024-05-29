@@ -92,22 +92,20 @@
         [optionDisabled]="!fieldsInfo['pageDependencyIsDefaultPageLinkSiteCategoryId']?.accessEditField">
       </app-cms-sitecategory-selector>
       <!-- KeywordModel Field -->
-      <div style="width: 100%;" appearance="fill"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.title" class="color-highlight">{{'TITLE.Choose_keywords_relative_to_the_content' |
-          translate}}</label>
+      <mat-form-field style="width:100%" appearance="fill">
+        <mat-label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</mat-label>
         <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
-          <mat-chip *ngFor="let item of keywordDataModel" (removed)="removeTag(item)">
+          <mat-chip *ngFor="let item of  keywordDataModel" (removed)="removeTag(item)">
             {{item}}
-            <button matChipRemove>
+            <button matChipRemove class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
               <mat-icon>cancel</mat-icon>
             </button>
           </mat-chip>
-          <input placeholder="{{'TITLE.key_word' | translate}}+" [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlurTag"
-            (matChipInputTokenEnd)="addTag($event)" />
+          <input [placeholder]="' + '+this.translate.instant('TITLE.key_word')" #tagInput
+            [matChipInputAddOnBlur]="addOnBlurTag" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addTag($event)">
         </mat-chip-grid>
-      </div>
+      </mat-form-field>
       <!-- SpecialIdendity Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.specialIdendity" class="color-highlight">{{ fieldsInfo["specialIdendity"]?.fieldTitle
