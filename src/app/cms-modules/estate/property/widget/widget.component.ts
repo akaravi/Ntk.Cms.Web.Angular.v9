@@ -103,7 +103,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
     const fastfilter2 = new FilterDataModel();
     fastfilter2.propertyName = 'RecordStatus';
     fastfilter2.value = RecordStatusEnum.Pending;
-    filterStatist2.filters.push(fastfilter1);
+    filterStatist2.filters.push(fastfilter2);
     const s2 = this.service.ServiceGetCount(filterStatist2);
     var series = [];
     var labels = [];

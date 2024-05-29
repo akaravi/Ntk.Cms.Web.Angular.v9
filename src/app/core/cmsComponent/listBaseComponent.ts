@@ -1,5 +1,5 @@
 import { MatTableDataSource } from "@angular/material/table";
-import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, FilterModel, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
+import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, FilterModel, IApiCmsServerBase, RecordStatusEnum, TokenInfoModel } from "ntk-cms-api";
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
 import { CmsDataPinComponent } from "src/app/shared/cms-data-pin/cms-data-pin.component";
@@ -17,6 +17,9 @@ import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel"
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public tokenHelper: TokenHelper) {
     publicHelper.pageInfo.updateContentService(baseService);
+
+
+
   }
   filteModelContent = new FilterModel();
   tableSource: MatTableDataSource<TModel> = new MatTableDataSource<TModel>();
@@ -32,6 +35,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   viewGuideNotice = false;
   public tableRowSelectDoubleClick = false;
   public tableRowSelect3Click = false;
+  requestRecordStatus: RecordStatusEnum;
   onActionTableRowSelect(row: TModel): void {
     this.clickCount++;
     setTimeout(() => {

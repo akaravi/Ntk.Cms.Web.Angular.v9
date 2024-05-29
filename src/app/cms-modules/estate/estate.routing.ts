@@ -41,7 +41,7 @@ import { EstatePropertyAddComponent } from './property/add/add.component';
 import { EstatePropertyAddMobileComponent } from './property/add/add.mobile.component';
 import { EstatePropertyEditComponent } from './property/edit/edit.component';
 import { EstatePropertyListComponent } from './property/list/list.component';
-
+/**توجه این روت دو بخش داد باید در هر دو بخش روت ها اضفا شود */
 const routesNormal: Routes = [
   {
     path: '',
@@ -134,7 +134,11 @@ const routesNormal: Routes = [
         component: EstatePropertyListComponent,
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },
-
+      {
+        path: 'property/recordstatus/:RecordStatus',
+        component: EstatePropertyListComponent,
+        data: { title: 'ROUTE.ESTATE.PROPERTY' },
+      },
       {
         path: 'property/add',
         component: EstatePropertyAddComponent,
@@ -516,6 +520,11 @@ const routesMobile: Routes = [
       },
       {
         path: 'property/InChecking/:InChecking',
+        component: EstatePropertyListComponent,
+        data: { title: 'ROUTE.ESTATE.PROPERTY' },
+      },
+      {
+        path: 'property/recordstatus/:RecordStatus',
         component: EstatePropertyListComponent,
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },

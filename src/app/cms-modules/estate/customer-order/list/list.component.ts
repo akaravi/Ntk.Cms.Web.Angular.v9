@@ -54,18 +54,18 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     };
 
     this.responsibleUserId = +this.activatedRoute.snapshot.paramMap.get('ResponsibleUserId');
-    this.recordStatus = RecordStatusEnum[this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''];
-    if (this.recordStatus) {
+    this.requestRecordStatus = RecordStatusEnum[this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''];
+    if (this.requestRecordStatus) {
       this.optionsSearch.data.show = true;
-      this.optionsSearch.data.defaultQuery = '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' + this.recordStatus + '"}]}';
-      this.recordStatus = null;
+      this.optionsSearch.data.defaultQuery = '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' + this.requestRecordStatus + '"}]}';
+      this.requestRecordStatus = null;
     }
     /*filter Sort*/
     this.filteModelContent.sortColumn = 'CreatedDate';
     this.filteModelContent.sortType = SortTypeEnum.Descending;
 
   }
-  recordStatus: RecordStatusEnum;
+
   responsibleUserId = 0;
   searchInResponsible = false;
   searchInResponsibleChecked = false;
@@ -524,8 +524,8 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     const fastfilter4 = new FilterDataModel();
     fastfilter4.propertyName = 'RecordStatus';
     fastfilter4.value = RecordStatusEnum.Disable;
-    filterStatist3.filters.push(fastfilter4);
-    const s4 = this.contentService.ServiceGetCount(filterStatist3);
+    filterStatist4.filters.push(fastfilter4);
+    const s4 = this.contentService.ServiceGetCount(filterStatist4);
 
     forkJoin([s0, s1, s2, s3, s4]).subscribe(results => {
 

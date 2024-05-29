@@ -33,6 +33,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { environment } from 'src/environments/environment';
+import { EstateCustomerOrderQuickViewComponent } from '../../customer-order/quick-view/quick-view.component';
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
 import { EstatePropertyHistoryAddComponent } from '../add/add.component';
 import { EstatePropertyHistoryAddMobileComponent } from '../add/add.mobile.component';
@@ -82,19 +83,20 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.popupAdd =
       this.activatedRoute.snapshot.paramMap.get('Action')?.toLowerCase() ===
       'add';
-
-    this.recordStatus =
+    /**recordStatus */
+    this.requestRecordStatus =
       RecordStatusEnum[
       this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''
       ];
-    if (this.recordStatus) {
+    if (this.requestRecordStatus) {
       this.optionsSearch.data.show = true;
       this.optionsSearch.data.defaultQuery =
         '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' +
-        this.recordStatus +
+        this.requestRecordStatus +
         '"}]}';
-      this.recordStatus = null;
+      this.requestRecordStatus = null;
     }
+    /**recordStatus */
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -118,7 +120,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.requestLinkPropertyId = id;
     }
   }
-  recordStatus: RecordStatusEnum;
+
   popupAdd = false;
   comment: string;
   author: string;
@@ -386,8 +388,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       return;
     }
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     if (this.publicHelper.isMobile) {
       const dialogRef = this.dialog.open(
         EstatePropertyHistoryAddMobileComponent,
@@ -452,8 +456,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       return;
     }
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     if (this.publicHelper.isMobile) {
       const dialogRef = this.dialog.open(
         EstatePropertyHistoryEditMobileComponent,
@@ -608,17 +614,12 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-    if (
-      this.dataModelResult == null ||
-      this.dataModelResult.access == null ||
-      !this.dataModelResult.access.accessWatchRow
-    ) {
-      this.cmsToastrService.typeErrorAccessWatch();
-      return;
-    }
+
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(EstatePropertyQuickViewComponent, {
       height: '90%',
       panelClass: panelClass,
@@ -632,15 +633,16 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     });
   }
 
-  onActionButtonQuickViewRow(
-    model: EstatePropertyHistoryModel = this.tableRowSelected
+
+
+  onActionButtonQuickViewRow(model: EstatePropertyHistoryModel = this.tableRowSelected
   ): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
     this.onActionTableRowSelect(model);
-
+    this.tableRowSelected = model;
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
@@ -658,8 +660,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.tableRowSelected
     );
     var panelClass = '';
-    if (this.tokenHelper.isMobile) panelClass = 'dialog-fullscreen';
-    else panelClass = 'dialog-min';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(
       EstatePropertyHistoryQuickViewComponent,
       {
@@ -686,7 +690,29 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       }
     });
   }
+  onActionButtonCustomerOrderQuickViewRow(id: any): void {
+    if (!id || id.length === 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
 
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstateCustomerOrderQuickViewComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.dialogChangedDate) {
+      }
+    });
+  }
   onActionSelectorSelect(model: EstateActivityTypeModel | null): void {
     /*filter */
     var sortColumn = this.filteModelContent.sortColumn;
