@@ -31,11 +31,11 @@
       <div class="justify-content-start">
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
-          <i class="fa-solid fa-info font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
         </a>
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionButtonReload()" target="_blank">
-          <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
           <!-- <span class="m-1">{{'ACTION.RELOAD' |translate}}</span> -->
         </a>
       </div>
@@ -47,7 +47,7 @@
     <div *ngIf="dataModelResult?.access?.accessAddRow" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
         (click)="onActionButtonNewRow()" target="_blank">
-        <i class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+        <i class="fa-solid fa-plus font-18" style="color: #FFFFFF;"></i>
         <br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.ADD' |
@@ -57,7 +57,7 @@
     <div *ngIf="tableRowSelected?.id>0" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         (click)="onActionButtonSendMessage()" target="_blank">
-        <i class="fa-solid fa-message font-22" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-message font-18" style="color: #ffffff;"></i>
         <br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.Send_Message' |
@@ -66,7 +66,7 @@
     <div *ngIf="tableRowSelected?.id>0" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         (click)="onActionButtonGetMeAsync()" target="_blank">
-        <i class="fa-solid fa-cloud-arrow-down font-22" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-cloud-arrow-down font-18" style="color: #ffffff;"></i>
         <br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.GetMeAsync' |
@@ -75,7 +75,7 @@
     <div class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         (click)="onActionButtonSetAllWebhookUpdate()" target="_blank">
-        <i class="fa-solid fa-webhook font-22" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-webhook font-18" style="color: #ffffff;"></i>
         <br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.SetAllWebhookUpdate' |
@@ -88,56 +88,56 @@
     <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
       <a (click)="onActionButtonEditRow(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i
-          class=" fa-solid fa-pen font-22" style="color: #FFFFFF;"></i><br>
+          class=" fa-solid fa-pen font-18" style="color: #FFFFFF;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
     </div>
     <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
       <a (click)="onActionButtonDeleteRow(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i
-          class="fa-solid fa-trash font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-trash font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonGetMeAsync(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-        <i class="fa-solid fa-check font-22" style="color: #ffffff;"></i><br>
+        <i class="fa-solid fa-check font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.CHECK_SITUATION' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonInboxList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-receipt font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-receipt font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.LIST_OF_RECEIPTS' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonOutboxList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-        <i class="fa-solid fa-list font-22" style="color: #ffffff;"></i><br>
+        <i class="fa-solid fa-list font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.LIST_OF_SUBMISSIONS' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonSendMessage(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-message font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-message font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.Send_Message' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonReceiveMessageAll(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-        <i class="fa-solid fa-inbox-in font-22" style="color: #ffffff;"></i><br>
+        <i class="fa-solid fa-inbox-in font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.RECEIVE_MESSAGES' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonReceiveMessageLast(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-        <i class="fa-solid fa-message font-22" style="color: #ffffff;"></i><br>
+        <i class="fa-solid fa-message font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.GET_LATEST_MESSAGE' | translate}}</p>
     </div>

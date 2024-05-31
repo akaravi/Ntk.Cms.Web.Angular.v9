@@ -32,15 +32,15 @@
         <a *ngIf="requestLinkCompanyId?.length>0" type="button"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
           (click)="onActionBackToParent()" target="_blank">
-          <i class="fa-solid fa-arrow-left font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
         </a>
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-        (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
-        <i class="fa-solid fa-info font-22" style="color: #ffffff;"></i>
-      </a>
+          (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
+          <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
+        </a>
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionButtonReload()" target="_blank">
-          <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
         </a>
       </div>
     </div>
@@ -51,7 +51,7 @@
     <div *ngIf="dataModelResult?.access?.accessAddRow " class="col-4">
       <a (click)="onActionButtonNewRow()" type="button"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal" target="_blank"><i
-          class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+          class="fa-solid fa-plus font-18" style="color: #FFFFFF;"></i>
         <br></a>
       <p class="font-11 text-center opacity-70">{{'ACTION.ADD' | translate}}</p>
     </div>
@@ -63,14 +63,14 @@
     <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
       <a (click)="onActionButtonEditRow(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i
-          class=" fa-solid fa-pen font-22" style="color: #FFFFFF;"></i><br>
+          class=" fa-solid fa-pen font-18" style="color: #FFFFFF;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
     </div>
     <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
       <a (click)="onActionButtonDeleteRow(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i
-          class="fa-solid fa-trash font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-trash font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
     </div>
@@ -84,69 +84,69 @@
     <div class="col-4">
       <a (click)="onActionButtonGetBalance(tableRowSelected)" type="button"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal" target="_blank"><i
-          class="fa-solid fa-plus font-22" style="color: #FFFFFF;"></i>
+          class="fa-solid fa-plus font-18" style="color: #FFFFFF;"></i>
         <br></a>
       <p class="font-11 text-center opacity-70">{{'ACTION.GET_BALANCE' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonSuperSedersList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-route font-22" style="color:#ffffff ;"></i><br>
+          class="fa-solid fa-route font-18" style="color:#ffffff ;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.BACKUP_ROUTES' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonMustSuperSedersList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-route font-22" style="color:#ffffff ;"></i><br>
+          class="fa-solid fa-route font-18" style="color:#ffffff ;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.SUPPORTED_ROUTES' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonNumbersList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-phone font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-phone font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.SPECIFIC_NUMBERS' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonPriceServicesList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-list font-22" style="color: #FFFFFF;"></i><br>
+          class="fa-solid fa-list font-18" style="color: #FFFFFF;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.PRICE_LIST' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonPermitionList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-universal-access font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-universal-access font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.ACEESS' | translate}}</p>
     </div>
     <div class="col-4">
       <a (click)="onActionButtonOutBoxQueue(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-list-ol font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-list-ol font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.QUEUE' | translate}}</p>
     </div>
     <div *ngIf="categoryModelSelected && categoryModelSelected.id.length > 0" class="col-4">
       <a (click)="onActionButtonCopy(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-copy font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-copy font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.COPY' | translate}}</p>
     </div>
     <div *ngIf="dataModelResult?.access?.accessWatchRow && tableRowSelected?.id?.length>0" class="col-4">
       <a (click)="onActionButtonSendTest(tableRowSelected)" type="button"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-paper-plane-top font-22" style="color: #ffffff;"></i><br></a>
+          class="fa-solid fa-paper-plane-top font-18" style="color: #ffffff;"></i><br></a>
       <p class="font-11 text-center opacity-70">{{'ACTION.SEND_TEST' |translate}}</p>
     </div>
     <div *ngIf="dataModelResult?.access?.accessWatchRow && tableRowSelected?.id?.length>0" class="col-4">
       <a (click)="onActionButtonReportsRow(tableRowSelected)" type="button"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-file-chart-column font-22" style="color: #ffffff;"></i><br></a>
+          class="fa-solid fa-file-chart-column font-18" style="color: #ffffff;"></i><br></a>
       <p class="font-11 text-center opacity-70">{{'ACTION.REPORTS' |translate}}</p>
     </div>
 

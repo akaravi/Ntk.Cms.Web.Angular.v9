@@ -31,15 +31,15 @@
         <a *ngIf="requestLinkApplicationId>0" type="button"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionBackToParent()" target="_blank">
-          <i class="fa-solid fa-arrow-left font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
         </a>
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
-          <i class="fa-solid fa-info font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
         </a>
         <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
           (click)="onActionButtonReload()" target="_blank">
-          <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
           <!-- <span class="m-1">{{'ACTION.RELOAD' |translate}}</span> -->
         </a>
       </div>
@@ -56,28 +56,28 @@
     <div *ngIf="dataModelResult?.access?.accessWatchRow" class="col-4">
       <a (click)="onActionButtonViewRow(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i
-          class="fa-solid fa-eye font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-eye font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.VIEW' | translate}}</p>
     </div>
     <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
       <a (click)="onActionButtonDeleteRow(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i
-          class="fa-solid fa-trash font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-trash font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
     </div>
     <div *ngIf="tableRowSelected?.notificationId && tableRowSelected?.notificationId.length>0" class="col-4">
       <a (click)="onActionButtonNotifictionList(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-        <i class="fa-solid fa-message-exclamation font-22" style="color: #ffffff;"></i><br>
+        <i class="fa-solid fa-message-exclamation font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.NOTIFICATION_REPORT' | translate}}</p>
     </div>
     <div *ngIf="tableRowSelected?.notificationId && tableRowSelected?.notificationId.length>0" class="col-4">
       <a (click)="onActionButtonNotifictionActionSend(tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
-          class="fa-solid fa-message-sms font-22" style="color: #ffffff;"></i><br>
+          class="fa-solid fa-message-sms font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.SEND_NOTIFICATIONS' | translate}}</p>
     </div>

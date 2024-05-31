@@ -31,16 +31,16 @@
                 <a *ngIf="this.requestLinkSiteId>0" type="button"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
                     (click)="onActionBackToParent()" target="_blank">
-                    <i class="fa-solid fa-arrow-left font-22" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
                 </a>
 
                 <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
                     (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
-                    <i class="fa-solid fa-info font-22" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
                 </a>
                 <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
                     (click)="onActionButtonReload()" target="_blank">
-                    <i class="fa-solid fa-rotate-right font-22" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
                     <!-- <span class="m-1">{{'ACTION.RELOAD' |translate}}</span> -->
                 </a>
             </div>
@@ -57,35 +57,35 @@
         <div *ngIf="dataModelResult?.access?.accessWatchRow" class="col-4">
             <a (click)="onActionButtonViewRow(tableRowSelected)"
                 class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-eye font-22" style="color: #ffffff;"></i><br>
+                target="_blank"><i class="fa-solid fa-eye font-18" style="color: #ffffff;"></i><br>
             </a>
             <p class="font-11 text-center opacity-70">{{'ACTION.VIEW' | translate}}</p>
         </div>
         <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
             <a (click)="onActionButtonEditRow(tableRowSelected)"
                 class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i
-                    class=" fa-solid fa-pen font-22" style="color: #FFFFFF;"></i><br>
+                    class=" fa-solid fa-pen font-18" style="color: #FFFFFF;"></i><br>
             </a>
             <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
         </div>
         <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
             <a (click)="onActionButtonDeleteRow(tableRowSelected)"
                 class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i
-                    class="fa-solid fa-trash font-22" style="color: #ffffff;"></i><br>
+                    class="fa-solid fa-trash font-18" style="color: #ffffff;"></i><br>
             </a>
             <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
         </div>
         <div *ngIf="tableRowSelected?.linkUserId > 0" class="col-4">
             <a (click)="onActionButtonViewUserRow(tableRowSelected)"
                 class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-user font-22" style="color: #ffffff;"></i><br>
+                target="_blank"><i class="fa-solid fa-user font-18" style="color: #ffffff;"></i><br>
             </a>
             <p class="font-11 text-center opacity-70">{{'ACTION.USER' | translate}}</p>
         </div>
         <div *ngIf="tableRowSelected?.linkMemberId > 0" class="col-4">
             <a (click)="onActionButtonViewMemberRow(tableRowSelected)"
                 class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-id-card-clip font-22" style="color: #ffffff;"></i><br>
+                target="_blank"><i class="fa-solid fa-id-card-clip font-18" style="color: #ffffff;"></i><br>
             </a>
             <p class="font-11 text-center opacity-70">{{'ACTION.MEMBER' | translate}}</p>
         </div>
