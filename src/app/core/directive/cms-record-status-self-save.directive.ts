@@ -38,10 +38,9 @@ export class CmsRecordStatusSelfSaveDirective {
     @Inject(DOCUMENT) private document: Document,
     // @Optional() @Host() select: SelectControlValueAccessor
   ) {
-
-
+    this.DataEnumRecordStatus();
   }
-  async getEnumRecordStatus(): Promise<void> {
+  async DataEnumRecordStatus(): Promise<void> {
     const dataModelResult = await this.publicHelper.getEnumRecordStatus();
     dataModelResult.listItems.forEach(co => {
       const option = document.createElement('option');
