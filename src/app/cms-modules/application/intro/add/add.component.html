@@ -3,11 +3,10 @@
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
-    </p><app-cms-html-notice [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
-      <h4> {{'TITLE.Add_help' | translate}}</h4>
+    </p>
+    <p>
       {{'TITLE.In_this_section_you_can_create_a_new_guide' | translate}}
-    </app-cms-html-notice>
-    <br>
+    </p>
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->

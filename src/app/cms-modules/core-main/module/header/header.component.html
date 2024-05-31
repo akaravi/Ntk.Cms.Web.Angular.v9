@@ -1,25 +1,34 @@
-<div class="table">
-  <app-progress-spinner [options]="loading"> </app-progress-spinner>
-  <div class="tr">
-    <div class="td"></div>
-    <div class="td align" style="color: darkblue;">
-      <h5> <b>{{'TITLE.Selected_Module'|translate}}</b> </h5>
-    </div>
-    <div class="td" *ngIf="dataModelResult?.item?.id">
-    </div>
-  </div>
-  <div class="tr">
-    <div class="td"><b>{{fieldsInfo['id']?.fieldTitle}} </b>: </div>
-    <div class="td align">{{dataModelResult?.item?.id}}</div>
-    <div class="td"></div>
-    <div style="clear: both;"></div>
-  </div>
-  <div class="tr">
-    <div class="td"><b>{{fieldsInfo['title']?.fieldTitle}}</b> : </div>
-    <div class="td align">{{dataModelResult?.item?.title}}</div>
-    <div class="td" style="text-align: left;">
+<div class="card card-style">
+  <div class="content">
 
+
+    <div class="table">
+      <app-progress-spinner [options]="loading"> </app-progress-spinner>
+      <div class="tr">
+        <div class="td"></div>
+        <div class="td align" style="color: darkblue;">
+          <h5> <b>{{'TITLE.Selected_Module'|translate}}</b> </h5>
+        </div>
+        <div class="td" *ngIf="dataModelResult?.item?.id">
+        </div>
+      </div>
+      <div class="tr">
+        <div class="td"><b>{{fieldsInfo['id']?.fieldTitle}} </b>: </div>
+        <div class="td align">{{dataModelResult?.item?.id}}</div>
+        <div class="td"></div>
+        <div style="clear: both;"></div>
+      </div>
+      <div class="tr">
+        <div class="td"><b>{{fieldsInfo['title']?.fieldTitle}}</b> : </div>
+        <div class="td align">{{dataModelResult?.item?.title}}</div>
+        <div class="td" style="text-align: left;">
+
+        </div>
+        <div style="clear: both;"></div>
+      </div>
     </div>
-    <div style="clear: both;"></div>
+
+
   </div>
 </div>
+<div class="divider divider-margins"></div>

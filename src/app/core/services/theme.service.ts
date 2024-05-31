@@ -115,7 +115,12 @@ export class ThemeService {
     this.themeStore.themeMode = updatedMode;
     this.cmsStoreService.setState({ themeStore: this.themeStore });
   }
-
+  public updateInnerSize() {
+    this.themeStore.innerWidth = window.innerWidth;
+    this.themeStore.innerHeight = window.innerHeight;
+    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    console.log('windows Width :', window.innerWidth, 'windows Height :', window.innerHeight);
+  }
   private updateModeHtmlDom(updatedMode: ThemeModeType) {
     if (updatedMode == 'dark') {
       document.documentElement.querySelectorAll('.theme-light').forEach((element) => {

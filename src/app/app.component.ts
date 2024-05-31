@@ -59,6 +59,8 @@ export class AppComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public pageInfo: PageInfoService,
   ) {
+    this.themeService.updateInnerSize();
+
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         //do something on start activity
@@ -126,7 +128,8 @@ export class AppComponent implements OnInit {
       });
     }
 
-    console.log('windows innerWidth size:', window.innerWidth);
+
+
   }
 
   loading = new ProgressSpinnerModel();
@@ -198,7 +201,10 @@ export class AppComponent implements OnInit {
     this.themeService.afterViewInitAppComponent();
 
   }
-
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.themeService.updateInnerSize();
+  }
   getServiceVer(): void {
     const pName = this.constructor.name + 'ServiceIp';
     this.loading.Start(pName, this.translate.instant('MESSAGE.Receiving_Information_From_The_Server'));

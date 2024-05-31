@@ -1,17 +1,12 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-<app-cms-html-notice [svg]="'assets/media/svg/icons/Design/Edit.svg'">
-  <h4> {{'TITLE.Edit' | translate}}</h4>
-  {{'TITLE.In_this_section_you_can_edit_the_user_profile' | translate}}
-  <br>
-</app-cms-html-notice>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
     </p>
-
-
     <p>
+      {{'TITLE.In_this_section_you_can_edit_the_user_profile' | translate}}
+      <br>
       {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
     </p>
     <!--Content-->

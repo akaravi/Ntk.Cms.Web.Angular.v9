@@ -1,17 +1,11 @@
 <app-progress-spinner [options]="loading"> </app-progress-spinner>
-<app-cms-html-notice [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
-  <h4>{{'TITLE.Create_a_site' | translate}}</h4>
-  {{'TITLE.In_this_section_you_can_create_a_new_site' | translate}}
-</app-cms-html-notice>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
     </p>
-
-
     <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+      {{'TITLE.In_this_section_you_can_create_a_new_site' | translate}}
     </p>
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
@@ -474,21 +468,21 @@
             <em>{{fieldsInfo['seoDescription']?.fieldDescription}}</em>
             <em>{{ SeoDescription.value.length }} / 1000</em>
           </div>
-             <!-- KeywordModel Field -->
-             <mat-form-field style="width:100%" appearance="fill">
-              <mat-label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</mat-label>
-              <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
-                <mat-chip *ngFor="let item of  keywordDataModel" (removed)="removeTag(item)">
-                  {{item}}
-                  <button matChipRemove class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-                    <mat-icon>cancel</mat-icon>
-                  </button>
-                </mat-chip>
-                <input [placeholder]="' + '+this.translate.instant('TITLE.key_word')" #tagInput
-                  [matChipInputAddOnBlur]="addOnBlurTag" [matChipInputFor]="chipList"
-                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addTag($event)">
-              </mat-chip-grid>
-            </mat-form-field>
+          <!-- KeywordModel Field -->
+          <mat-form-field style="width:100%" appearance="fill">
+            <mat-label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</mat-label>
+            <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+              <mat-chip *ngFor="let item of  keywordDataModel" (removed)="removeTag(item)">
+                {{item}}
+                <button matChipRemove class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input [placeholder]="' + '+this.translate.instant('TITLE.key_word')" #tagInput
+                [matChipInputAddOnBlur]="addOnBlurTag" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addTag($event)">
+            </mat-chip-grid>
+          </mat-form-field>
           <!-- CurrentSiteDomainUrl Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
             *ngIf="fieldsInfo['currentSiteDomainUrl']?.accessWatchField">

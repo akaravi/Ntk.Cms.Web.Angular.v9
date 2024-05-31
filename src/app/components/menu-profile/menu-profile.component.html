@@ -1,5 +1,5 @@
 <div [ngClass]="themeStore.dataMenu==='menu-profile'?'menu-active':''" class="menu menu-box-bottom rounded-m bg-theme"
-  data-menu-height="420">
+  [style.height]="this.themeStore.innerHeight>480?'480px':this.themeStore.innerHeight-50+'px'">
   <div class="menu-title">
     <p class="color-highlight">{{'TITLE.User_Profile'| translate}} </p>
     <h1 class="font-800">{{ tokenInfo.name}} {{ tokenInfo.lastName }}</h1>

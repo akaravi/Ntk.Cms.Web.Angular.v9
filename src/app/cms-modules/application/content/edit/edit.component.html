@@ -4,19 +4,11 @@
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
     </p>
-
-
     <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+      {{'TITLE.In_This_Section_You_Can_Edit_Your_Application' | translate}}
     </p>
     <!--Content-->
-    <app-cms-html-notice [svg]="'assets/media/svg/icons/Design/Edit.svg'">
-      <h4> {{'TITLE.Edit' | translate}}</h4>
-      {{'TITLE.In_This_Section_You_Can_Edit_Your_Application' | translate}}
-      <br>
-    </app-cms-html-notice>
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
       <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
         <mat-step label="{{'TITLE.REQUIRED_INFORMATION' | translate}}" state="main">

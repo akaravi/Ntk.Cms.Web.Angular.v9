@@ -25,6 +25,7 @@ export class MenuColorsComponent implements OnInit {
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });
+
   }
   onActionHighLightSwitch(colorStr: string) {
     this.themeService.updateHighLight(colorStr);

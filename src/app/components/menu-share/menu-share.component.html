@@ -1,5 +1,5 @@
 <div [ngClass]="themeStore.dataMenu==='menu-share'?'menu-active':''" class="menu menu-box-bottom rounded-m"
-  data-menu-height="370">
+[style.height]="this.themeStore.innerHeight>370?'370px':this.themeStore.innerHeight-50+'px'">
   <div class="menu-title">
     <p class="color-highlight">اشتراک گذاری در</p>
     <h1>شبکه های اجتماعی</h1>
