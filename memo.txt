@@ -165,6 +165,25 @@ btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue
 btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full
 ====select
 btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full
+##########################################################################################
+#angular ng not found
+##########################################################################################
+#remove from local account
+npm list
+npm uninstall @angular/cli
+
+#remove from global account
+npm list -g
+npm uninstall -g @angular/cli
+
+#reinstall in global account
+npm install -g @angular/cli
+
+#set up environment variable
+npm config get prefix
+add obtained prefix in windows user environment variables>path
+
+
 
 ##########################################################################################
 ##########################################################################################
