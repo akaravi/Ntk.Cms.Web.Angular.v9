@@ -166,7 +166,8 @@
               "optimization": false,
               "sourceMap": true,
               "extractLicenses": false,
-              "vendorChunk": true
+              "vendorChunk": true,
+              "buildOptimizer": false
             }
           },
           "defaultConfiguration": "production"
@@ -191,9 +192,10 @@
       }
     }
   },
-  "defaultProject": "ntk-cms-web",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics",
-    "analytics": "868e044b-5b06-4f74-8ac0-a8b74593b1a5"
+    "analytics": "868e044b-5b06-4f74-8ac0-a8b74593b1a5",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
