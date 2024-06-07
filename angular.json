@@ -103,10 +103,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "ntk-cms-web:build:production"
+              "buildTarget": "ntk-cms-web:build:production"
             },
             "development": {
-              "browserTarget": "ntk-cms-web:build:development"
+              "buildTarget": "ntk-cms-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -114,7 +114,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ntk-cms-web:build"
+            "buildTarget": "ntk-cms-web:build"
           }
         },
         "test": {
