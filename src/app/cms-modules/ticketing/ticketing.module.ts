@@ -24,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { TicketingAnswerAddComponent } from './answer/add/add.component';
@@ -110,12 +110,9 @@ import { TicketingTemplateSelectorComponent } from './template/selector/selector
     TicketingRouting,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-
     SharedModule.forRoot(),
     AngularEditorModule,
-
-    CmsFileManagerModule,
-    InlineSVGModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleService,

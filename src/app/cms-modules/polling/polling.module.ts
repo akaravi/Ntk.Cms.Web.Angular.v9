@@ -58,7 +58,7 @@ import { PollingVoteListComponent } from './vote/list/list.component';
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   providers: [
     CoreModuleService,

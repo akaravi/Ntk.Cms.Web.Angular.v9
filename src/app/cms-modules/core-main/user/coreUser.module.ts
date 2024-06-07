@@ -57,7 +57,7 @@ import { NgOtpInputModule } from 'src/app/core/cmsComponent/ng-otp-input/ng-otp-
     SharedModule.forRoot(),
     AngularEditorModule,
     NgOtpInputModule,
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   providers: [
     CoreModuleService,

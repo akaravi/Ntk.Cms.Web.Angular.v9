@@ -41,7 +41,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
 
   ],
   providers: [

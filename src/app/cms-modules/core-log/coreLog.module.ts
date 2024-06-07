@@ -43,7 +43,7 @@ import { CoreLogSmsViewComponent } from './sms/view/view.component';
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   declarations: [
     CoreLogComponent,

@@ -56,6 +56,7 @@ import { LinkManagementTargetAddComponent } from './target/add/add.component';
 import { LinkManagementTargetDeleteComponent } from './target/delete/delete.component';
 import { LinkManagementTargetEditComponent } from './target/edit/edit.component';
 import { LinkManagementTargetListComponent } from './target/list/list.component';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 
 @NgModule({
   declarations: [
@@ -171,7 +172,7 @@ import { LinkManagementTargetListComponent } from './target/list/list.component'
     MatFormFieldModule,
     MatStepperModule,
     NgxMatColorPickerModule,
-
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleService,

@@ -12,7 +12,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import { IconPickerModule } from 'ngx-icon-picker';
 import {
   CoreAuthService,
@@ -104,6 +104,7 @@ import { DataProviderSourceSelectorComponent } from './source/selector/selector.
 import { DataProviderSourceTreeComponent } from './source/tree/tree.component';
 import { DataProviderTransactionListComponent } from './transaction/list/list.component';
 import { DataProviderTransactionViewComponent } from './transaction/view/view.component';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 @NgModule({
   declarations: [
     DataProviderComponent,
@@ -196,7 +197,7 @@ import { DataProviderTransactionViewComponent } from './transaction/view/view.co
     MatStepperModule,
     IconPickerModule,
     DragDropModule,
-    InlineSVGModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleService,

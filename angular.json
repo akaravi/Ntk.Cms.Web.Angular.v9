@@ -44,6 +44,7 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/ngx-ntk-pannellum/src/css/pannellum.css",
+              "@ali-hm/angular-tree-component/css/angular-tree-component.css",
               "src/styles.scss"
             ],
             "scripts": [],

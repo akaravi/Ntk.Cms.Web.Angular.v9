@@ -48,7 +48,6 @@ import { CoreUserGroupSelectionlistComponent } from './selectionlist/selectionli
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    // CmsFileManagerModule
 
   ],
   providers: [

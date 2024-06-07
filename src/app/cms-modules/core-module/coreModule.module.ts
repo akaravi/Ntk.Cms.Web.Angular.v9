@@ -41,7 +41,7 @@ import { CoreModuleTagCategoryTreeComponent } from './tagCategory/tree/tree.comp
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   declarations: [
     CoreModuleComponent,

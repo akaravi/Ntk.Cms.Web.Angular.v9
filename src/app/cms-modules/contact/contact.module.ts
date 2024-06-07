@@ -55,7 +55,7 @@ import { ContactContentSelectorComponent } from './content/selector/selector.com
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   providers: [
     CoreModuleService,

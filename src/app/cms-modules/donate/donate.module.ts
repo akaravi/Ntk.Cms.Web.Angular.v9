@@ -12,7 +12,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import { IconPickerModule } from 'ngx-icon-picker';
 import {
   CoreAuthService,
@@ -29,6 +29,7 @@ import {
   DonateTargetService,
   DonateTransactionService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { DonateLogViewListComponent } from './log-view/list/list.component';
 import { DonateLogViewComponent } from './log-view/view/view.component';
@@ -135,7 +136,7 @@ import { DonateTransactionViewComponent } from './transaction/view/view.componen
     MatStepperModule,
     IconPickerModule,
     DragDropModule,
-    InlineSVGModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleService,

@@ -44,10 +44,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { TreeModule } from '@circlon/angular-tree-component';
+// import { TreeModule } from '@circlon/angular-tree-component';
+import { TreeModule } from '@ali-hm/angular-tree-component';
 import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
-import { InlineSVGModule } from 'ng-inline-svg-2';
 
 import {
   ApplicationAppService,
@@ -142,8 +142,13 @@ import { CmsMemberSelectorComponent } from './cms-member-selector/cmsMemberSelec
 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
+import { InlineSVGComponent } from '../core/directive/inline-svg.component';
+import { InlineSVGDirective } from '../core/directive/inline-svg.directive';
 import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
+import { ClipboardIfSupportedDirective } from '../core/directive/ngx-clipboard-if-supported.directive';
+import { ClipboardDirective } from '../core/directive/ngx-clipboard.directive';
 import { SortTypeIconClassPipe } from '../core/pipe/sortTypeIconClass.pipe';
+import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-builder.component';
 import { CmsDataCommentComponent } from './cms-data-comment/cms-data-comment.component';
 import { CmsDataMemoComponent } from './cms-data-memo/cms-data-memo.component';
 import { CmsDataPinComponent } from './cms-data-pin/cms-data-pin.component';
@@ -171,7 +176,6 @@ import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './material/mat
 import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
-import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-builder.component';
 
 @NgModule({
   imports: [
@@ -220,18 +224,17 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     MatTreeModule,
     //Material
     TreeModule,
-    
+
     LeafletModule,
 
     NgbDropdownModule,
-    CmsFileManagerModule.forRoot(),
+
     ClipboardModule,
-    InlineSVGModule,
+    //
     //PerfectScrollbarModule,
     NgbNavModule,
-
     NgOtpInputModule,
-
+    CmsFileManagerModule.forRoot(),
   ],
   declarations: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.
@@ -332,6 +335,9 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     MatVerticalStepperScrollerDirective,
     SelfSaveDirective,
     CmsRecordStatusSelfSaveDirective,
+    ClipboardIfSupportedDirective,
+    ClipboardDirective,
+    InlineSVGDirective, InlineSVGComponent
   ],
   exports: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.
@@ -378,7 +384,7 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     PlatformModule,
     MatTreeModule,
     //Material
-    CmsFileManagerModule,
+
     TreeModule,
     ClipboardModule,
     PersianDate,
@@ -478,7 +484,9 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     MatVerticalStepperScrollerDirective,
     SelfSaveDirective,
     CmsRecordStatusSelfSaveDirective,
-
+    ClipboardIfSupportedDirective,
+    ClipboardDirective,
+    InlineSVGDirective,
   ],
   providers: [
     OverlayService,

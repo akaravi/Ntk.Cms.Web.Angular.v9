@@ -45,7 +45,7 @@ import { CoreModuleDataTaskViewComponent } from './task/view/view.component';
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   declarations: [
     CoreModuleDataComponent,

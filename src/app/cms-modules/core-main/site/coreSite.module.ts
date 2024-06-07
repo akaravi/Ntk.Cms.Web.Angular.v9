@@ -43,6 +43,7 @@ import { CoreSiteResellerChartComponent } from './reseller-chart/reseller-chart.
 import { CoreSiteUserAddComponent } from './userAdd/userAdd.component';
 import { CoreSiteUserEditComponent } from './userEdit/userEdit.component';
 import { CoreSiteUserListComponent } from './userList/userList.component';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 
 
 @NgModule({
@@ -103,6 +104,7 @@ import { CoreSiteUserListComponent } from './userList/userList.component';
     CoreUserGroupCmsModule,
     NgxMatColorPickerModule,
     CoreSharedModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreSiteService,

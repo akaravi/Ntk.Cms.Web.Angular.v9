@@ -28,6 +28,7 @@ import { BankPaymentTransactionLogViewComponent } from './transaction-log/view/v
 import { BankPaymentTransactionEditComponent } from './transaction/edit/edit.component';
 import { BankPaymentTransactionListComponent } from './transaction/list/list.component';
 import { BankPaymentTransactionViewComponent } from './transaction/view/view.component';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 @NgModule({
   declarations: [
     BankPaymentComponent,
@@ -60,7 +61,8 @@ import { BankPaymentTransactionViewComponent } from './transaction/view/view.com
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    DynamicFormBuilderModule
+    DynamicFormBuilderModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleService,

@@ -17,6 +17,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CoreLocationAddBulkComponent } from './add-bulk/add-bulk.component';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 
 
 @NgModule({
@@ -45,9 +46,7 @@ import { CoreLocationAddBulkComponent } from './add-bulk/add-bulk.component';
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     SharedModule.forRoot(),
     AngularEditorModule,
-
-    // CmsFileManagerModule
-
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreLocationService,

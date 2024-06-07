@@ -61,6 +61,7 @@ import { WebDesignerMainPageListGridComponent } from './page/list-grid/list-grid
 import { WebDesignerMainPageListComponent } from './page/list/list.component';
 import { WebDesignerMainPageSelectorComponent } from './page/selector/selector.component';
 import { WebDesignerMainPageTreeComponent } from './page/tree/tree.component';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 @NgModule({
   declarations: [
     WebDesignerComponent,
@@ -122,6 +123,7 @@ import { WebDesignerMainPageTreeComponent } from './page/tree/tree.component';
     IconPickerModule,
     DragDropModule,
     CoreModuleModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleService,

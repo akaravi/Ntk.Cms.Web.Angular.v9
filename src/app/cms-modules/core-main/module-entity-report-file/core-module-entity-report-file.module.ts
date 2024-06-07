@@ -14,6 +14,7 @@ import { CoreModuleEntityReportFileComponent } from './core-module-entity-report
 import { CoreModuleEntityReportFileRouting } from './core-module-entity-report-file.routing';
 import { CoreModuleEntityReportFileEditComponent } from './edit/edit.component';
 import { CoreModuleEntityReportFileListComponent } from './list/list.component';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CoreModuleEntityReportFileListComponent } from './list/list.component';
 
     CoreSharedModule,
     CoreModuleEntityModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleEntityReportFileService,

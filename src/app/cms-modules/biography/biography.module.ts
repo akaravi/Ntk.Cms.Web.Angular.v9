@@ -60,7 +60,7 @@ import { BiographyContentSelectorComponent } from './content/selector/selector.c
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   providers: [
     CoreModuleService,

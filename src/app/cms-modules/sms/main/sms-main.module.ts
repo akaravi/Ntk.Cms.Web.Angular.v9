@@ -194,7 +194,7 @@ import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tr
 
     SharedModule.forRoot(),
     AngularEditorModule,
-    CmsFileManagerModule,
+    CmsFileManagerModule.forRoot(),
     DynamicFormBuilderModule,
     NgxMaterialTimepickerModule,
     SmsSharedModule,

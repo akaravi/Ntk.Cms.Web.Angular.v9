@@ -59,7 +59,7 @@ import { CoreModuleLogSiteUserCreditViewComponent } from './site-user-credit/vie
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   declarations: [
     CoreModuleLogComponent,

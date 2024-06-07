@@ -67,7 +67,7 @@ import { ChartContentSelectorComponent } from './content/selector/selector.compo
     SharedModule.forRoot(),
     AngularEditorModule,
 
-    CmsFileManagerModule
+    CmsFileManagerModule.forRoot()
   ],
   providers: [
     CoreModuleService,

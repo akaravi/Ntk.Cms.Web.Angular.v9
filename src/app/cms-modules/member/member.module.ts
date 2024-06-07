@@ -9,7 +9,7 @@ import { MemberRoutes } from './member.routing';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import { IconPickerModule } from 'ngx-icon-picker';
 import {
   ApplicationEnumService, CoreAuthService,
@@ -40,6 +40,7 @@ import { MemberPropertyDetailEditComponent } from './property-detail/edit/edit.c
 import { MemberPropertyDetailListComponent } from './property-detail/list/list.component';
 import { MemberPropertyDetailSelectorComponent } from './property-detail/selector/selector.component';
 import { MemberPropertyDetailTreeComponent } from './property-detail/tree/tree.component';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 @NgModule({
   declarations: [
     MemberComponent,
@@ -85,7 +86,7 @@ import { MemberPropertyDetailTreeComponent } from './property-detail/tree/tree.c
     MatFormFieldModule,
     MatStepperModule,
     IconPickerModule,
-    InlineSVGModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleService,

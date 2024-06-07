@@ -27,7 +27,7 @@ import { BlogContentEditComponent } from './content/edit/edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { BlogCategoryAddComponent } from './category/add/add.component';
@@ -67,9 +67,7 @@ import { BlogContentSelectorComponent } from './content/selector/selector.compon
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     SharedModule.forRoot(),
     AngularEditorModule,
-
-    CmsFileManagerModule,
-    InlineSVGModule,
+    CmsFileManagerModule.forRoot(),
   ],
   providers: [
     CoreModuleService,
