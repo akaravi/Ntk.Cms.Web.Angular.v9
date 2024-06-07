@@ -8,8 +8,8 @@ import {
   SimpleChanges
 } from '@angular/core';
 
-import { InlineSVGDirective } from './inline-svg.directive';
 import { InlineSVGService } from '../services/inline-svg.service';
+import { InlineSVGDirective } from './inline-svg.directive';
 //import { InlineSVGService } from './inline-svg.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class InlineSVGComponent implements AfterViewInit, OnChanges {
   /** @internal */
   _el: ElementRef;
 
-  constructor(private _inlineSVGService: InlineSVGService, el: ElementRef) {
+  constructor(private _inlineSVGService: InlineSVGService, private el: ElementRef) {
     this._el = el;
   }
 
