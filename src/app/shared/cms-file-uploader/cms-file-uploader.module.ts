@@ -1,28 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FilePickerModule } from 'ngx-awesome-uploader';
 import { CmsFileUploaderComponent } from './cms-file-uploader.component';
 
 
-@NgModule({
-  imports: [
-    HttpClientModule,
-    CommonModule,
-    FilePickerModule
-  ],
-  declarations: [
-    CmsFileUploaderComponent,
-
-  ],
-  exports: [
-    CmsFileUploaderComponent
-  ],
-  providers: [
-
-  ]
-
-})
+@NgModule({ declarations: [
+        CmsFileUploaderComponent,
+    ],
+    exports: [
+        CmsFileUploaderComponent
+    ], imports: [CommonModule,
+        FilePickerModule], providers: [
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class CmsFileUploaderModule {
 
 }

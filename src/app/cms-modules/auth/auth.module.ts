@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreAuthService, CoreConfigurationService, CoreModuleService } from 'ntk-cms-api';
@@ -15,30 +15,24 @@ import { AuthSingoutComponent } from './singout/singout.component';
 import { AuthSingUpComponent } from './singup/singup.component';
 import { SingupRuleComponent } from './singupRule/singupRule.Component';
 
-@NgModule({
-  declarations: [
-    AuthSingInComponent,
-    AuthSingInBySmsComponent,
-    AuthSingUpComponent,
-    AuthForgotPasswordComponent,
-    AuthSingoutComponent,
-    AuthComponent,
-    SingupRuleComponent,
-  ],
-  imports: [
-    CommonModule,
-    SharedModule.forRoot(),
-    AuthRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ComponentsModule,
-    NgOtpInputModule,
-  ],
-  providers: [
-    CoreModuleService,
-    CoreConfigurationService,
-    CoreAuthService
-  ]
-})
+@NgModule({ declarations: [
+        AuthSingInComponent,
+        AuthSingInBySmsComponent,
+        AuthSingUpComponent,
+        AuthForgotPasswordComponent,
+        AuthSingoutComponent,
+        AuthComponent,
+        SingupRuleComponent,
+    ], imports: [CommonModule,
+        SharedModule.forRoot(),
+        AuthRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ComponentsModule,
+        NgOtpInputModule], providers: [
+        CoreModuleService,
+        CoreConfigurationService,
+        CoreAuthService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AuthModule { }
