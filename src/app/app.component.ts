@@ -2,7 +2,6 @@ import {
   ChangeDetectorRef,
   Component,
   HostListener,
-  NgZone,
   OnInit
 } from '@angular/core';
 //start change title when route happened
@@ -27,7 +26,7 @@ import { CmsSignalrService } from './core/services/cmsSignalr.service';
 import { CmsToastrService } from './core/services/cmsToastr.service';
 import { PageInfoService } from './core/services/page-info.service';
 import { ThemeService } from './core/services/theme.service';
-import { SplashScreenService } from './shared/splash-screen/splash-screen.service';
+
 
 
 
@@ -49,13 +48,11 @@ export class AppComponent implements OnInit {
     private themeService: ThemeService,
     private publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
-    private splashScreenService: SplashScreenService,
     private translationService: TranslationService,
     private singlarService: CmsSignalrService,
     private swPush: SwPush,
     private cmsToastrService: CmsToastrService,
     private cmsStoreService: CmsStoreService,
-    private ngZone: NgZone,
     private cdr: ChangeDetectorRef,
     public pageInfo: PageInfoService,
   ) {
