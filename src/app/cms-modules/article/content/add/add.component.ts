@@ -191,7 +191,7 @@ export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentS
   }
   DataActionAfterAddContentSuccessfulTag(model: ArticleContentModel): Promise<any> {
     if (!this.tagDataModel || this.tagDataModel.length === 0) {
-      return;
+      return null;
     }
     const dataListAdd = new Array<ArticleContentTagModel>();
     this.tagDataModel.forEach(x => {
@@ -212,7 +212,7 @@ export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentS
   }
   DataActionAfterAddContentSuccessfulOtherInfo(model: ArticleContentModel): Promise<any> {
     if (!this.otherInfoDataModel || this.otherInfoDataModel.length === 0) {
-      return;
+      return null;
     }
     this.otherInfoDataModel.forEach(x => {
       x.linkContentId = model.id;
@@ -238,7 +238,7 @@ export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentS
   }
   DataActionAfterAddContentSuccessfulSimilar(model: ArticleContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
-      return;
+      return null;
     }
     const dataList: ArticleContentSimilarModel[] = [];
     this.similarDataModel.forEach(x => {

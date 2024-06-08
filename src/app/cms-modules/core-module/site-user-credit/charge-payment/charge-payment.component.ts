@@ -6,12 +6,13 @@ import {
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
+  BankPaymentInjectPaymentGotoBankStep1CalculateModel,
   BankPaymentInjectPaymentGotoBankStep2LandingSitePageModel, BankPaymentPrivateSiteConfigModel,
   CoreModuleSiteUserCreditCalculateDtoModel,
   CoreModuleSiteUserCreditPaymentDtoModel, CoreModuleSiteUserCreditService, ErrorExceptionResult,
   FormInfoModel
 } from 'ntk-cms-api';
-import { BankPaymentInjectPaymentGotoBankStep1CalculateModel } from 'ntk-cms-api/lib/models/dto/bankPayment/bankPaymentInjectPaymentGotoBankStep1CalculateModel';
+
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';

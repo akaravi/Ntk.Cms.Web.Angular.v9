@@ -190,7 +190,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
   }
   DataActionAfterAddContentSuccessfulTag(model: BiographyContentModel): Promise<any> {
     if (!this.tagDataModel || this.tagDataModel.length === 0) {
-      return;
+      return null;
     }
     const dataListAdd = new Array<BiographyContentTagModel>();
     this.tagDataModel.forEach(x => {
@@ -212,7 +212,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
   }
   DataActionAfterAddContentSuccessfulOtherInfo(model: BiographyContentModel): Promise<any> {
     if (!this.otherInfoDataModel || this.otherInfoDataModel.length === 0) {
-      return;
+      return null;
     }
     this.otherInfoDataModel.forEach(x => {
       x.linkContentId = model.id;
@@ -239,7 +239,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
   }
   DataActionAfterAddContentSuccessfulSimilar(model: BiographyContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
-      return;
+      return null;
     }
     const dataList: BiographyContentSimilarModel[] = [];
     this.similarDataModel.forEach(x => {

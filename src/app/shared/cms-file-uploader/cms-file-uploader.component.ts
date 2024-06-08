@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FilePreviewModel } from 'ngx-awesome-uploader/lib/file-preview.model';
+
 import { FileUploaderPickerAdapter } from './fileUploaderPickerAdapter';
+import { FilePreviewModel } from 'ngx-ntk-file-picker';
 
 @Component({
   selector: 'app-cms-file-uploader',

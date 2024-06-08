@@ -22,7 +22,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
       this.cmsToastrService.typeErrorInternetConnection();
       // tslint:disable-next-line: deprecation
       // return Observable.throw(new HttpErrorResponse({ error: 'Internet is required.' }));
-      return;
+      return null;
     }
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
@@ -35,16 +35,16 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
         if (error.status === 0) {
           this.cmsToastrService.typeError(error.status, error.message);
-          return;
+          return null;
         }
         if (error.status === 401) {
           //this.cmsToastrService.typeErrorUserToken();
           this.router.navigate(['auth/singin']);
-          return;
+          return null;
         }
         if (error && error.error && error.error.reason) {
           this.cmsToastrService.typeError(error.status, error.error.reason);
-          return;
+          return null;
         }
         this.cmsToastrService.typeError(error.status);
         // let data = {};

@@ -187,7 +187,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
   }
   DataActionAfterAddContentSuccessfulTag(model: NewsContentModel): Promise<any> {
     if (!this.tagDataModel || this.tagDataModel.length === 0) {
-      return;
+      return null;
     }
     const dataListAdd = new Array<NewsContentTagModel>();
     this.tagDataModel.forEach(x => {
@@ -209,7 +209,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
   }
   DataActionAfterAddContentSuccessfulOtherInfo(model: NewsContentModel): Promise<any> {
     if (!this.otherInfoDataModel || this.otherInfoDataModel.length === 0) {
-      return;
+      return null;
     }
     this.otherInfoDataModel.forEach(x => {
       x.linkContentId = model.id;
@@ -235,7 +235,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
   }
   DataActionAfterAddContentSuccessfulSimilar(model: NewsContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
-      return;
+      return null;
     }
     const dataList: NewsContentSimilarModel[] = [];
     this.similarDataModel.forEach(x => {

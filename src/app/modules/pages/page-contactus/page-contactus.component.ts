@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { TicketingTaskService, TicketingTaskModel, CoreAuthService, CoreEnumService, DataFieldInfoModel, FormInfoModel, AccessModel, TicketingTaskDtoModel, ErrorExceptionResult, CaptchaModel, FormSubmitedStatusEnum, TicketingTemplateModel, ApplicationSourceModel } from 'ntk-cms-api';
+import { AccessModel, ApplicationSourceModel, CaptchaModel, CoreAuthService, CoreEnumService, FormInfoModel, FormSubmitedStatusEnum, TicketingTaskDtoModel, TicketingTaskModel, TicketingTaskService, TicketingTemplateModel } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
@@ -52,11 +52,11 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
 
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  //fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   dataModel = new TicketingTaskDtoModel();
-  dataModelResult: ErrorExceptionResult<TicketingTaskModel> = new ErrorExceptionResult<TicketingTaskModel>();
+  //dataModelResult: ErrorExceptionResult<TicketingTaskModel> = new ErrorExceptionResult<TicketingTaskModel>();
 
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];

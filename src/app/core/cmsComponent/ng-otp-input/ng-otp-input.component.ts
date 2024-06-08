@@ -49,20 +49,20 @@ export class NgOtpInputComponent implements OnInit, AfterViewInit {
       }
     }
   }
-  private getControlName(idx) {
+  private getControlName(idx: any) {
     return `ctrl_${idx}`;
   }
 
-  ifLeftArrow(event) {
+  ifLeftArrow(event: any) {
     return this.ifKeyCode(event, 37);
   }
 
 
-  ifRightArrow(event) {
+  ifRightArrow(event: any) {
     return this.ifKeyCode(event, 39);
   }
 
-  ifBackspaceOrDelete(event) {
+  ifBackspaceOrDelete(event: any) {
     return (
       event.key === 'Backspace' ||
       event.key === 'Delete' ||
@@ -71,19 +71,20 @@ export class NgOtpInputComponent implements OnInit, AfterViewInit {
     );
   }
 
-  ifKeyCode(event, targetCode) {
+  ifKeyCode(event: any, targetCode: any) {
     const key = event.keyCode || event.charCode;
     // tslint:disable-next-line: triple-equals
     return key == targetCode ? true : false;
   }
-  onKeyDown($event) {
+  onKeyDown($event: any): boolean {
     var isSpace = this.ifKeyCode($event, 32)
     if (isSpace) {// prevent space
       return false;
     }
+    return true;
   }
 
-  onKeyUp($event, inputIdx) {
+  onKeyUp($event: any, inputIdx: any) {
     const nextInputId = this.appendKey(`otp_${inputIdx + 1}`);
     const prevInputId = this.appendKey(`otp_${inputIdx - 1}`);
     if (this.ifRightArrow($event)) {
@@ -109,11 +110,11 @@ export class NgOtpInputComponent implements OnInit, AfterViewInit {
     this.rebuildValue();
   }
 
-  appendKey(id) {
+  appendKey(id: any) {
     return `${id}_${this.componentKey}`;
   }
 
-  setSelected(eleId) {
+  setSelected(eleId: any) {
     this.focusTo(eleId);
     const ele: any = document.getElementById(eleId);
     if (ele && ele.setSelectionRange) {
@@ -123,7 +124,7 @@ export class NgOtpInputComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ifValidEntry(event) {
+  ifValidEntry(event: any) {
     const inp = String.fromCharCode(event.keyCode);
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     return (
@@ -135,7 +136,7 @@ export class NgOtpInputComponent implements OnInit, AfterViewInit {
     );
   }
 
-  focusTo(eleId) {
+  focusTo(eleId: any) {
     const ele: any = document.getElementById(eleId);
     if (ele) {
       ele.focus();

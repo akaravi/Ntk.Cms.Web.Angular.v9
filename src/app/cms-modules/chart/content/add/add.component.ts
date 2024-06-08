@@ -211,7 +211,7 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
   }
   DataActionAfterAddContentSuccessfulTag(model: ChartContentModel): Promise<any> {
     if (!this.tagDataModel || this.tagDataModel.length === 0) {
-      return;
+      return null;
     }
     const dataListAdd = new Array<ChartContentTagModel>();
     this.tagDataModel.forEach(x => {
@@ -233,7 +233,7 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
   }
   DataActionAfterAddContentSuccessfulOtherInfo(model: ChartContentModel): Promise<any> {
     if (!this.otherInfoDataModel || this.otherInfoDataModel.length === 0) {
-      return;
+      return null;
     }
     this.otherInfoDataModel.forEach(x => {
       x.linkContentId = model.id;
@@ -259,7 +259,7 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
   }
   DataActionAfterAddContentSuccessfulSimilar(model: ChartContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
-      return;
+      return null;
     }
     const dataList: ChartContentSimilarModel[] = [];
     this.similarDataModel.forEach(x => {
