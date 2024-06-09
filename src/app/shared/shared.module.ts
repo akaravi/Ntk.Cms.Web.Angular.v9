@@ -470,6 +470,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     CmsFileManagerModule.forRoot()
   ],
   providers: [
+    provideHttpClient(withInterceptorsFromDi()),
     OverlayService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
     { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
@@ -495,7 +496,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     CoreModuleDataCommentService,
     SmsMainApiPathService,
     SmsMainApiNumberService,
-    provideHttpClient(withInterceptorsFromDi()),
+
   ]
 })
 export class SharedModule {

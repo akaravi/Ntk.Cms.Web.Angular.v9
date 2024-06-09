@@ -5,15 +5,21 @@ import { FilePickerModule } from 'ngx-ntk-file-picker';
 import { CmsFileUploaderComponent } from './cms-file-uploader.component';
 
 
-@NgModule({ declarations: [
-        CmsFileUploaderComponent,
-    ],
-    exports: [
-        CmsFileUploaderComponent
-    ], imports: [CommonModule,
-        FilePickerModule], providers: [
-        provideHttpClient(withInterceptorsFromDi())
-    ] })
+@NgModule({
+  declarations: [
+    CmsFileUploaderComponent,
+  ],
+  exports: [
+    CmsFileUploaderComponent
+  ],
+
+  imports: [CommonModule,
+    FilePickerModule],
+
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
+  ]
+})
 export class CmsFileUploaderModule {
 
 }

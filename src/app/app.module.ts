@@ -95,7 +95,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     RouterModule,
     ComponentsModule],
   providers: [
-    provideHttpClient(),
+    //provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
     CoreAuthService,
     CoreEnumService,
     CoreModuleService,
@@ -115,7 +116,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     },
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
     { provide: MAT_COLOR_FORMATS, useValue: CUSTOM_MAT_COLOR_FORMATS },
-    provideHttpClient(withInterceptorsFromDi()),
+
   ]
 })
 export class AppModule { }
