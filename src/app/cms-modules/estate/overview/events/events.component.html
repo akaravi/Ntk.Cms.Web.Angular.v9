@@ -67,352 +67,332 @@
 
   </div>
 
-  <!-- begin::Row -->
-  <div class="row g-5 g-xl-8">
-    <div class="col-xl-4 ">
-      <div class="card card-xl-stretch mb-xl-8">
-        <!-- begin::Header-->
-        <div class="card-header align-items-center border-0 mt-4">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">{{'TITLE.Property'| translate}}</span>
-            <span class="text-muted fw-bold fs-7">{{dataModelPropertyResult.totalRowCount}} {{'TITLE.Number'|
-              translate}}</span>
-          </h3>
-        </div>
-        <!-- end::Header-->
-        <!-- begin::Body-->
-        <div class="card-body pt-5">
-          <!-- begin::Timeline-->
-          <div class="timeline-label">
-            <!-- begin::Item-->
-            <div *ngFor="let item of dataModelPropertyResult.listItems" class="timeline-item">
-              <!-- begin::Label-->
-              <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ publicHelper.getTime(item.createdDate)}}</div>
-              <!-- end::Label-->
-              <!-- begin::Badge-->
-              <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonProperty(item,$event)"></i>
-              </div>
-              <!-- end::Badge-->
-              <!-- begin::Text-->
-              <div class="fw-mormal timeline-content text-muted ps-3">
-                {{item.title}}
-                <br>
-                <p>
-                  {{item.createdBy| cmsuserinfo |async}}
-                </p>
-              </div>
-              <!-- end::Text-->
-            </div>
-            <!-- end::Item-->
-          </div>
-          <!-- end::Timeline-->
-        </div>
-        <!-- end: Card Body-->
-      </div>
-    </div>
-    <div class="col-xl-4 ">
-      <div class="card card-xl-stretch mb-xl-8">
-        <!-- begin::Header-->
-        <div class="card-header align-items-center border-0 mt-4">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">{{'TITLE.Customer_Order'| translate}}</span>
-            <span class="text-muted fw-bold fs-7">{{dataModelCustomerOrderResult.totalRowCount}} {{'TITLE.Number'|
-              translate}}</span>
-          </h3>
-        </div>
-        <!-- end::Header-->
-        <!-- begin::Body-->
-        <div class="card-body pt-5">
-          <!-- begin::Timeline-->
-          <div class="timeline-label">
-            <!-- begin::Item-->
-            <div *ngFor="let item of dataModelCustomerOrderResult.listItems" class="timeline-item">
-              <!-- begin::Label-->
-              <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ publicHelper.getTime(item.createdDate)}}</div>
-              <!-- end::Label-->
-              <!-- begin::Badge-->
-              <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonCustomerOrder(item,$event)"></i>
-              </div>
-              <!-- end::Badge-->
-              <!-- begin::Text-->
-              <div class="fw-mormal timeline-content text-muted ps-3">
-                {{item.title}}
-                <br>
-                <p>
-                  {{item.createdBy| cmsuserinfo |async}}
-                </p>
-              </div>
-              <!-- end::Text-->
-            </div>
-            <!-- end::Item-->
-          </div>
-          <!-- end::Timeline-->
-        </div>
-        <!-- end: Card Body-->
-      </div>
-    </div>
-    <div class="col-xl-4 ">
-      <div class="card card-xl-stretch mb-xl-8">
-        <!-- begin::Header-->
-        <div class="card-header align-items-center border-0 mt-4">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">{{'TITLE.History'| translate}}</span>
-            <span class="text-muted fw-bold fs-7">{{dataModelHistoryResult.totalRowCount}} {{'TITLE.Number'|
-              translate}}</span>
-          </h3>
-        </div>
-        <!-- end::Header-->
-        <!-- begin::Body-->
-        <div class="card-body pt-5">
-          <!-- begin::Timeline-->
-          <div class="timeline-label">
-            <!-- begin::Item-->
-            <div *ngFor="let item of dataModelHistoryResult.listItems" class="timeline-item">
-              <!-- begin::Label-->
-              <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ publicHelper.getTime(item.createdDate)}}</div>
-              <!-- end::Label-->
-              <!-- begin::Badge-->
-              <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonHistory(item,$event)"></i>
-              </div>
-              <!-- end::Badge-->
-              <!-- begin::Text-->
-              <div class="fw-mormal timeline-content text-muted ps-3">
-                {{item.title}}
-                <br>
-                <p>
-                  {{item.createdBy| cmsuserinfo |async}}
-                </p>
-              </div>
-              <!-- end::Text-->
-            </div>
-            <!-- end::Item-->
-          </div>
-          <!-- end::Timeline-->
-        </div>
-        <!-- end: Card Body-->
-      </div>
-    </div>
-    <div class="col-xl-4 ">
-      <div class="card card-xl-stretch mb-xl-8">
-        <!-- begin::Header-->
-        <div class="card-header align-items-center border-0 mt-4">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">{{'TITLE.Property_agency'| translate}}</span>
-            <span class="text-muted fw-bold fs-7">{{dataModelAccountAgencyResult.totalRowCount}} {{'TITLE.Number'|
-              translate}}</span>
-          </h3>
-        </div>
-        <!-- end::Header-->
-        <!-- begin::Body-->
-        <div class="card-body pt-5">
-          <!-- begin::Timeline-->
-          <div class="timeline-label">
-            <!-- begin::Item-->
-            <div *ngFor="let item of dataModelAccountAgencyResult.listItems" class="timeline-item">
-              <!-- begin::Label-->
-              <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ publicHelper.getTime(item.createdDate)}}</div>
-              <!-- end::Label-->
-              <!-- begin::Badge-->
-              <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountAgency(item,$event)"></i>
-              </div>
-              <!-- end::Badge-->
-              <!-- begin::Text-->
-              <div class="fw-mormal timeline-content text-muted ps-3">
-                {{item.title}}
-                <br>
-                <p>
-                  {{item.createdBy| cmsuserinfo |async}}
-                </p>
-              </div>
-              <!-- end::Text-->
-            </div>
-            <!-- end::Item-->
-          </div>
-          <!-- end::Timeline-->
-        </div>
-        <!-- end: Card Body-->
-      </div>
-    </div>
-    <div class="col-xl-4 ">
-      <div class="card card-xl-stretch mb-xl-8">
-        <!-- begin::Header-->
-        <div class="card-header align-items-center border-0 mt-4">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">{{'TITLE.Property_expert'| translate}}</span>
-            <span class="text-muted fw-bold fs-7">{{dataModelAccountUserResult.totalRowCount}} {{'TITLE.Number'|
-              translate}}</span>
-          </h3>
-        </div>
-        <!-- end::Header-->
-        <!-- begin::Body-->
-        <div class="card-body pt-5">
-          <!-- begin::Timeline-->
-          <div class="timeline-label">
-            <!-- begin::Item-->
-            <div *ngFor="let item of dataModelAccountUserResult.listItems" class="timeline-item">
-              <!-- begin::Label-->
-              <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ publicHelper.getTime(item.createdDate)}}</div>
-              <!-- end::Label-->
-              <!-- begin::Badge-->
-              <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountUser(item,$event)"></i>
-              </div>
-              <!-- end::Badge-->
-              <!-- begin::Text-->
-              <div class="fw-mormal timeline-content text-muted ps-3">
-                {{item.title}}
-                <br>
-                <p>
-                  {{item.createdBy| cmsuserinfo |async}}
-                </p>
-              </div>
-              <!-- end::Text-->
-            </div>
-            <!-- end::Item-->
-          </div>
-          <!-- end::Timeline-->
-        </div>
-        <!-- end: Card Body-->
-      </div>
-    </div>
-
-    <div class="col-xl-4 ">
-      <div class="card card-xl-stretch mb-xl-8">
-        <!-- begin::Header-->
-        <div class="card-header align-items-center border-0 mt-4">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">{{'TITLE.Property_Company'| translate}}</span>
-            <span class="text-muted fw-bold fs-7">{{dataModelPropertyCompanyResult.totalRowCount}} {{'TITLE.Number'|
-              translate}}</span>
-          </h3>
-        </div>
-        <!-- end::Header-->
-        <!-- begin::Body-->
-        <div class="card-body pt-5">
-          <!-- begin::Timeline-->
-          <div class="timeline-label">
-            <!-- begin::Item-->
-            <div *ngFor="let item of dataModelPropertyCompanyResult.listItems" class="timeline-item">
-              <!-- begin::Label-->
-              <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ publicHelper.getTime(item.createdDate)}}</div>
-              <!-- end::Label-->
-              <!-- begin::Badge-->
-              <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass"
-                  (click)="onActionButtonPropertyCompany(item,$event)"></i>
-              </div>
-              <!-- end::Badge-->
-              <!-- begin::Text-->
-              <div class="fw-mormal timeline-content text-muted ps-3">
-                {{item.title}}
-                <br>
-                <p>
-                  {{item.createdBy| cmsuserinfo |async}}
-                </p>
-              </div>
-              <!-- end::Text-->
-            </div>
-            <!-- end::Item-->
-          </div>
-          <!-- end::Timeline-->
-        </div>
-        <!-- end: Card Body-->
-      </div>
-    </div>
+</div>
 
 
-
-    <div class="col-xl-4 ">
-      <div class="card card-xl-stretch mb-xl-8">
-        <!-- begin::Header-->
-        <div class="card-header align-items-center border-0 mt-4">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">{{'TITLE.Property_Supplier'| translate}}</span>
-            <span class="text-muted fw-bold fs-7">{{dataModelPropertySupplierResult.totalRowCount}} {{'TITLE.Number'|
-              translate}}</span>
-          </h3>
-        </div>
-        <!-- end::Header-->
-        <!-- begin::Body-->
-        <div class="card-body pt-5">
-          <!-- begin::Timeline-->
-          <div class="timeline-label">
-            <!-- begin::Item-->
-            <div *ngFor="let item of dataModelPropertySupplierResult.listItems" class="timeline-item">
-              <!-- begin::Label-->
-              <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ publicHelper.getTime(item.createdDate)}}</div>
-              <!-- end::Label-->
-              <!-- begin::Badge-->
-              <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass"
-                  (click)="onActionButtonPropertySupplier(item,$event)"></i>
-              </div>
-              <!-- end::Badge-->
-              <!-- begin::Text-->
-              <div class="fw-mormal timeline-content text-muted ps-3">
-                {{item.title}}
-                <br>
-                <p>
-                  {{item.createdBy| cmsuserinfo |async}}
-                </p>
-              </div>
-              <!-- end::Text-->
-            </div>
-            <!-- end::Item-->
-          </div>
-          <!-- end::Timeline-->
-        </div>
-        <!-- end: Card Body-->
-      </div>
-    </div>
-
-
-    <div class="col-xl-4 ">
-      <div class="card card-xl-stretch mb-xl-8">
-        <!-- begin::Header-->
-        <div class="card-header align-items-center border-0 mt-4">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">{{'TITLE.Property_Project'| translate}}</span>
-            <span class="text-muted fw-bold fs-7">{{dataModelPropertyProjectResult.totalRowCount}} {{'TITLE.Number'|
-              translate}}</span>
-          </h3>
-        </div>
-        <!-- end::Header-->
-        <!-- begin::Body-->
-        <div class="card-body pt-5">
-          <!-- begin::Timeline-->
-          <div class="timeline-label">
-            <!-- begin::Item-->
-            <div *ngFor="let item of dataModelPropertyProjectResult.listItems" class="timeline-item">
-              <!-- begin::Label-->
-              <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ publicHelper.getTime(item.createdDate)}}</div>
-              <!-- end::Label-->
-              <!-- begin::Badge-->
-              <div class="timeline-badge">
-                <i [ngClass]="item.recordStatus|statusIconClass"
-                  (click)="onActionButtonPropertyProject(item,$event)"></i>
-              </div>
-              <!-- end::Badge-->
-              <!-- begin::Text-->
-              <div class="fw-mormal timeline-content text-muted ps-3">
-                {{item.title}}
-                <br>
-                <p>
-                  {{item.createdBy| cmsuserinfo |async}}
-                </p>
-              </div>
-              <!-- end::Text-->
-            </div>
-            <!-- end::Item-->
-          </div>
-          <!-- end::Timeline-->
-        </div>
-        <!-- end: Card Body-->
-      </div>
-    </div>
+<!-- begin::Row -->
+<div class="card card-style">
+  <div class="content">
+    <!-- begin::Header-->
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{'TITLE.Property'| translate}}
+      <span class="text-muted fw-bold fs-7">{{dataModelPropertyResult.totalRowCount}}</span>
+      {{'TITLE.Number'| translate}}
+    </p>
+    <!-- end::Header-->
+    <ng-container *ngFor="let item of dataModelPropertyResult.listItems">
+      <div class="divider divider-margins bg-highlight"></div>
+      <p class="mb-0 color-highlight font-600 font-12"><b
+          *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
+        publicHelper.getTime(item.createdDate)}}</p>
+      <h4 (click)="onActionButtonProperty(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+          [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonProperty(item,$event)"
+          class="float-end"></i></h4>
+      <p>
+        {{item.description}}
+      </p>
+      <p>
+        {{'TITLE.USER'|translate}}:
+        <b dir="ltr">
+          {{item.createdBy| cmsuserinfo |async}}
+        </b>
+      </p>
+      <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+        {{'TITLE.Edit'|translate}}:
+        <b dir="ltr">
+          {{item.updatedBy| cmsuserinfo |async}}
+        </b>
+      </p>
+    </ng-container>
   </div>
-  <!-- end::Row -->
+</div>
+<!-- end::Row -->
+
+
+
+
+<!-- begin::Row -->
+<div class="card card-style">
+  <div class="content">
+    <!-- begin::Header-->
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{'TITLE.Customer_Order'| translate}}
+      <span class="text-muted fw-bold fs-7">{{dataModelCustomerOrderResult.totalRowCount}}</span>
+      {{'TITLE.Number'| translate}}
+    </p>
+    <!-- end::Header-->
+    <ng-container *ngFor="let item of dataModelCustomerOrderResult.listItems">
+      <div class="divider divider-margins bg-highlight"></div>
+      <p class="mb-0 color-highlight font-600 font-12"><b
+          *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
+        publicHelper.getTime(item.createdDate)}}</p>
+      <h4 (click)="onActionButtonCustomerOrder(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+          [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonCustomerOrder(item,$event)"
+          class="float-end"></i></h4>
+      <p>
+        {{item.description}}
+      </p>
+      <p>
+        {{'TITLE.USER'|translate}}:
+        <b dir="ltr">
+          {{item.createdBy| cmsuserinfo |async}}
+        </b>
+      </p>
+      <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+        {{'TITLE.Edit'|translate}}:
+        <b dir="ltr">
+          {{item.updatedBy| cmsuserinfo |async}}
+        </b>
+      </p>
+    </ng-container>
+  </div>
+</div>
+<!-- end::Row -->
+
+
+
+
+
+<!-- begin::Row -->
+<div class="card card-style">
+  <div class="content">
+    <!-- begin::Header-->
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{'TITLE.History'| translate}}
+      <span class="text-muted fw-bold fs-7">{{dataModelHistoryResult.totalRowCount}}</span>
+      {{'TITLE.Number'| translate}}
+    </p>
+    <!-- end::Header-->
+    <ng-container *ngFor="let item of dataModelHistoryResult.listItems">
+      <div class="divider divider-margins bg-highlight"></div>
+      <p class="mb-0 color-highlight font-600 font-12"><b
+          *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
+        publicHelper.getTime(item.createdDate)}}</p>
+      <h4 (click)="onActionButtonHistory(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+          [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonHistory(item,$event)"
+          class="float-end"></i></h4>
+      <p>
+        {{item.description}}
+      </p>
+      <p>
+        {{'TITLE.USER'|translate}}:
+        <b dir="ltr">
+          {{item.createdBy| cmsuserinfo |async}}
+        </b>
+      </p>
+      <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+        {{'TITLE.Edit'|translate}}:
+        <b dir="ltr">
+          {{item.updatedBy| cmsuserinfo |async}}
+        </b>
+      </p>
+    </ng-container>
+  </div>
+</div>
+<!-- end::Row -->
+
+
+
+
+<!-- begin::Row -->
+<div class="card card-style">
+  <div class="content">
+    <!-- begin::Header-->
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{'TITLE.Property_agency'| translate}}
+      <span class="text-muted fw-bold fs-7">{{dataModelAccountAgencyResult.totalRowCount}}</span>
+      {{'TITLE.Number'| translate}}
+    </p>
+    <!-- end::Header-->
+    <ng-container *ngFor="let item of dataModelAccountAgencyResult.listItems">
+      <div class="divider divider-margins bg-highlight"></div>
+      <p class="mb-0 color-highlight font-600 font-12"><b
+          *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
+        publicHelper.getTime(item.createdDate)}}</p>
+      <h4 (click)="onActionButtonAccountAgency(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+          [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountAgency(item,$event)"
+          class="float-end"></i></h4>
+      <p>
+        {{item.description}}
+      </p>
+      <p>
+        {{'TITLE.USER'|translate}}:
+        <b dir="ltr">
+          {{item.createdBy| cmsuserinfo |async}}
+        </b>
+      </p>
+      <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+        {{'TITLE.Edit'|translate}}:
+        <b dir="ltr">
+          {{item.updatedBy| cmsuserinfo |async}}
+        </b>
+      </p>
+    </ng-container>
+  </div>
+</div>
+<!-- end::Row -->
+
+
+
+<!-- begin::Row -->
+<div class="card card-style">
+  <div class="content">
+    <!-- begin::Header-->
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{'TITLE.Property_expert'| translate}}
+      <span class="text-muted fw-bold fs-7">{{dataModelAccountUserResult.totalRowCount}}</span>
+      {{'TITLE.Number'| translate}}
+    </p>
+    <!-- end::Header-->
+    <ng-container *ngFor="let item of dataModelAccountUserResult.listItems">
+      <div class="divider divider-margins bg-highlight"></div>
+      <p class="mb-0 color-highlight font-600 font-12"><b
+          *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
+        publicHelper.getTime(item.createdDate)}}</p>
+      <h4 (click)="onActionButtonAccountUser(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+          [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountUser(item,$event)"
+          class="float-end"></i></h4>
+      <p>
+        {{item.description}}
+      </p>
+      <p>
+        {{'TITLE.USER'|translate}}:
+        <b dir="ltr">
+          {{item.createdBy| cmsuserinfo |async}}
+        </b>
+      </p>
+      <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+        {{'TITLE.Edit'|translate}}:
+        <b dir="ltr">
+          {{item.updatedBy| cmsuserinfo |async}}
+        </b>
+      </p>
+    </ng-container>
+  </div>
+</div>
+<!-- end::Row -->
+
+
+
+
+
+<!-- begin::Row -->
+<div class="card card-style">
+  <div class="content">
+    <!-- begin::Header-->
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{'TITLE.Property_Company'| translate}}
+      <span class="text-muted fw-bold fs-7">{{dataModelPropertyCompanyResult.totalRowCount}}</span>
+      {{'TITLE.Number'| translate}}
+    </p>
+    <!-- end::Header-->
+    <ng-container *ngFor="let item of dataModelPropertyCompanyResult.listItems">
+      <div class="divider divider-margins bg-highlight"></div>
+      <p class="mb-0 color-highlight font-600 font-12"><b
+          *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
+        publicHelper.getTime(item.createdDate)}}</p>
+      <h4 (click)="onActionButtonPropertyCompany(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+          [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertyCompany(item,$event)"
+          class="float-end"></i></h4>
+      <p>
+        {{item.description}}
+      </p>
+      <p>
+        {{'TITLE.USER'|translate}}:
+        <b dir="ltr">
+          {{item.createdBy| cmsuserinfo |async}}
+        </b>
+      </p>
+      <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+        {{'TITLE.Edit'|translate}}:
+        <b dir="ltr">
+          {{item.updatedBy| cmsuserinfo |async}}
+        </b>
+      </p>
+    </ng-container>
+  </div>
+</div>
+<!-- end::Row -->
+
+
+
+
+
+<!-- begin::Row -->
+<div class="card card-style">
+  <div class="content">
+    <!-- begin::Header-->
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{'TITLE.Property_Supplier'| translate}}
+      <span class="text-muted fw-bold fs-7">{{dataModelPropertySupplierResult.totalRowCount}}</span>
+      {{'TITLE.Number'| translate}}
+    </p>
+    <!-- end::Header-->
+    <ng-container *ngFor="let item of dataModelPropertySupplierResult.listItems">
+      <div class="divider divider-margins bg-highlight"></div>
+      <p class="mb-0 color-highlight font-600 font-12"><b
+          *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
+        publicHelper.getTime(item.createdDate)}}</p>
+      <h4 (click)="onActionButtonPropertySupplier(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+          [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertySupplier(item,$event)"
+          class="float-end"></i></h4>
+      <p>
+        {{item.description}}
+      </p>
+      <p>
+        {{'TITLE.USER'|translate}}:
+        <b dir="ltr">
+          {{item.createdBy| cmsuserinfo |async}}
+        </b>
+      </p>
+      <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+        {{'TITLE.Edit'|translate}}:
+        <b dir="ltr">
+          {{item.updatedBy| cmsuserinfo |async}}
+        </b>
+      </p>
+    </ng-container>
+  </div>
+</div>
+<!-- end::Row -->
+
+
+
+
+<!-- begin::Row -->
+<div class="card card-style">
+  <div class="content">
+    <!-- begin::Header-->
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{'TITLE.Property_Project'| translate}}
+      <span class="text-muted fw-bold fs-7">{{dataModelPropertyProjectResult.totalRowCount}}</span>
+      {{'TITLE.Number'| translate}}
+    </p>
+    <!-- end::Header-->
+    <ng-container *ngFor="let item of dataModelPropertyProjectResult.listItems">
+      <div class="divider divider-margins bg-highlight"></div>
+      <p class="mb-0 color-highlight font-600 font-12"><b
+          *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
+        publicHelper.getTime(item.createdDate)}}</p>
+      <h4 (click)="onActionButtonPropertyProject(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+          [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertyProject(item,$event)"
+          class="float-end"></i></h4>
+      <p>
+        {{item.description}}
+      </p>
+      <p>
+        {{'TITLE.USER'|translate}}:
+        <b dir="ltr">
+          {{item.createdBy| cmsuserinfo |async}}
+        </b>
+      </p>
+      <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+        {{'TITLE.Edit'|translate}}:
+        <b dir="ltr">
+          {{item.updatedBy| cmsuserinfo |async}}
+        </b>
+      </p>
+    </ng-container>
+  </div>
+</div>
+<!-- end::Row -->

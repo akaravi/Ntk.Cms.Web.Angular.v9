@@ -371,8 +371,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
+  viewOnlyTime = false;
   onActionButtonOnDateSearch() {
-
+    this.viewOnlyTime = false;
+    if (this.checkingOnDayRange.controls.start?.value &&
+      this.checkingOnDayRange.controls.end?.value &&
+      this.checkingOnDayRange.controls.start.value?.toISOString() === this.checkingOnDayRange.controls.end.value?.toISOString())
+      this.viewOnlyTime = true;
     this.DataGetAllProperty();
     this.DataGetAllCustomerOrder();
     this.DataGetAllPropertyHistory();
