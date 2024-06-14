@@ -1,6 +1,11 @@
 ﻿import { DateAdapter } from '@angular/material/core';
-import * as jalaliMoment from 'jalali-moment';
-//import jalaliMoment from 'jalali-moment';
+//import * as jalaliMoment from 'jalali-moment';
+/*
+/tsconfig.json
+/compilerOptions:{}
+/add "esModuleInterop": true,
+*/
+import jalaliMoment from 'jalali-moment';
 
 export const PERSIAN_DATE_FORMATS = {
   parse: {

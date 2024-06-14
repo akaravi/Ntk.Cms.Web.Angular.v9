@@ -12,16 +12,17 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
     "forceConsistentCasingInFileNames": true,
     "strictPropertyInitialization": false,
+    "esModuleInterop": true,
     /*karavi add*/
     "allowJs": true,
     "checkJs": false,
     "strictFunctionTypes": true,
     /*karavi add*/
     /*Diffirent 15 to 18 */
-    "module": "es2020",
-    "lib": ["ES2022", "dom"],
     "moduleResolution": "node",
     "downlevelIteration": true
     /*Diffirent 15 to 18 */
