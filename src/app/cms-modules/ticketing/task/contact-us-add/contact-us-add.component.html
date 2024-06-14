@@ -38,7 +38,7 @@
 
 
     <div class="card contact-form">
-      <div class="content" *ngIf="this.formInfo?.formSubmitedStatus != enumFormSubmitedStatus.Success">
+      <div class="content" *ngIf="this.formInfo?.formSubmitedStatus !== enumFormSubmitedStatus.Success">
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
           <fieldset>
             <div class="form-field form-name">
