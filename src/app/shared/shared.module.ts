@@ -313,16 +313,16 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
   imports: [
     CommonModule,
     HttpClientModule,
-    // TranslateModule,
-    TranslateModule.forChild({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
-        deps: [HttpClient]
-      },
-      isolate: true, // <-- PLAY WITH IT
-      extend: true // <-- PLAY WITH IT
-    }),
+     TranslateModule,
+    // TranslateModule.forChild({
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
+    //     deps: [HttpClient]
+    //   },
+    //   isolate: true, // <-- PLAY WITH IT
+    //   extend: true // <-- PLAY WITH IT
+    // }),
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     CurrencyMaskModule,
