@@ -29,7 +29,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = +data.id || 0;
     }
@@ -58,7 +58,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
     }
-    this.formInfo.formAlert = this.translate.instant('TITLE.Loading_Information');
+    this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
     this.donateTargetCategoryService.setAccessLoad();
@@ -70,7 +70,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
           this.dataModelResultCategory = ret;
           if (!ret.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+            this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.formInfo.formError = ret.errorMessage;
             this.formInfo.formErrorStatus = true;
             this.cmsToastrService.typeErrorGetOne();
@@ -81,7 +81,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
 
         },
         error: (er) => {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formErrorStatus = true;
           this.cmsToastrService.typeError(er);
           this.loading.Stop(pName);
@@ -91,7 +91,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
 
   }
   DataGetAll(): void {
-    this.formInfo.formAlert = this.translate.instant('TITLE.Loading_Information');
+    this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const filterModel: FilterModel = new FilterModel();
     filterModel.rowPerPage = 100;
     const pName = this.constructor.name + 'main';
@@ -103,7 +103,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
         next: (ret) => {
           this.dataModelResultCategoryAllData = ret;
           if (!ret.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+            this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.formInfo.formError = ret.errorMessage;
             this.formInfo.formErrorStatus = true;
             this.cmsToastrService.typeErrorGetAll();
@@ -114,7 +114,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
 
         },
         error: (er) => {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formErrorStatus = true;
           this.cmsToastrService.typeError(er);
           this.loading.Stop(pName);
@@ -133,7 +133,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
     }
     this.formInfo.formSubmitAllow = true;
     if (this.dataModel.newCatId === this.requestId) {
-      this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
       this.formInfo.formError =
         this.translate.instant('ERRORMESSAGE.MESSAGE.The_delete_category_ID_is_the_same_as_the_alternate_category');
       this.formInfo.buttonSubmittedEnabled = true;
@@ -161,12 +161,12 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
         next: (ret) => {
           this.formInfo.formSubmitAllow = !ret.isSuccess;
           if (!ret.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+            this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.formInfo.formError = ret.errorMessage;
             this.cmsToastrService.typeErrorRemove();
 
           } else {
-            this.formInfo.formAlert = this.translate.instant('MESSAGE.Deletion_Was_Successful');
+            this.translate.get('MESSAGE.Deletion_Was_Successful').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessRemove();
             this.dialogRef.close({ dialogChangedDate: true });
           }
@@ -175,7 +175,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
 
         },
         error: (er) => {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;
@@ -193,7 +193,7 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
     }
     this.dataModel.newCatId = model.id;
     if (this.dataModel.newCatId === this.requestId) {
-      this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
       this.formInfo.formError =
         this.translate.instant('ERRORMESSAGE.MESSAGE.The_delete_category_ID_is_the_same_as_the_alternate_category');
       this.formInfo.buttonSubmittedEnabled = false;

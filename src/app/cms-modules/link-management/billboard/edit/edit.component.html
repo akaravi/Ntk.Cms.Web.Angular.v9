@@ -35,13 +35,13 @@
           <!-- LinkCategoryId Field -->
           <app-linkmanagement-member-selector (optionChange)="onActionSelectorSelectLinkManagementMemberId($event)"
             [optionSelectForce]="dataModel.linkManagementMemberId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.User_Account')">
+            [optionPlaceholder]="'TITLE.User_Account' | translate ">
           </app-linkmanagement-member-selector>
           <!-- LinkBillboardPatternId Field -->
           <app-linkmanagement-billboard-pattern-selector
             (optionChange)="onActionSelectorSelectLinkBillboardPatternId($event)"
             [optionSelectForce]="dataModel.linkBillboardPatternId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Billboard_Pattern')">
+            [optionPlaceholder]="'TITLE.Billboard_Pattern' | translate ">
           </app-linkmanagement-billboard-pattern-selector>
           <!-- bgColor Field -->
           <div *ngIf="fieldsInfo['bgColor']?.accessWatchField"

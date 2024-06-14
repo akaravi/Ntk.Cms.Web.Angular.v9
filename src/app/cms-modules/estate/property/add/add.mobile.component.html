@@ -20,7 +20,7 @@
             [optionDisabled]="
             !fieldsInfo['linkPropertyTypeUsageId']?.accessAddField
           " [optionTypeView]="2" [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+            [optionPlaceholder]="'TITLE.Type_Usage' | translate">
           </app-estate-property-type-usage-selector>
 
           <!-- LinkPropertyTypeLanduseId Field -->
@@ -50,7 +50,7 @@
           " [optionDisabled]="
             !fieldsInfo['linkPropertyTypeLanduseId']?.accessAddField
           " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')"
+            [optionPlaceholder]="'TITLE.Property_Type'  | translate"
             [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId">
           </app-estate-property-type-landuse-selector>
 
@@ -164,8 +164,7 @@
             <!-- LinkLocationId Field -->
             <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
               [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField" [(optionLoading)]="loading"
-              [optionSelectForce]="dataModel.linkLocationId"
-              [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+              [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="'TITLE.Region' | translate">
             </app-cms-location-selector>
 
             <!-- Address Field -->
@@ -333,8 +332,7 @@
           <!-- LinkCmsUserId Field -->
           <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
             [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkCmsUserId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Order_Owner')">
+            [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.Order_Owner'  | translate">
           </app-cms-user-selector>
 
           <!-- linkEstateAgencyId Field -->
@@ -342,16 +340,14 @@
             (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
             [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessAddField"
             [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Property_agency')">
+            [optionPlaceholder]="'TITLE.Property_agency'  | translate">
           </app-estate-account-agency-selector>
 
           <!-- LinkEstateUserId Field -->
           <app-estate-account-user-selector *ngIf="this.tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorEstateUser($event)" [(optionLoading)]="loading"
             [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkEstateUserId" [optionPlaceholder]="
-            this.translate.instant('TITLE.Property_personnel')
-          ">
+            [optionSelectForce]="dataModel.linkEstateUserId" [optionPlaceholder]="'TITLE.Property_personnel' | translate">
           </app-estate-account-user-selector>
 
           <!-- AboutAgentMobile Field -->
@@ -452,12 +448,12 @@
           <!-- LinkPropertyCompanyId Field -->
           <app-estate-property-company-selector *ngIf="this.tokenHelper.isAdminSite" [(optionLoading)]="loading"
             (optionChange)="onActionSelectorCompany($event)" [optionSelectForce]="dataModel.linkPropertyCompanyId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Company')">
+            [optionPlaceholder]="'TITLE.Company' | translate ">
           </app-estate-property-company-selector>
           <!-- LinkPropertyProjectId Field -->
           <app-estate-property-project-selector *ngIf="this.tokenHelper.isAdminSite" [(optionLoading)]="loading"
             (optionChange)="onActionSelectorProject($event)" [optionSelectForce]="dataModel.linkPropertyProjectId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Project')">
+            [optionPlaceholder]="'TITLE.Project' | translate ">
           </app-estate-property-project-selector>
           <hr />
 
@@ -625,9 +621,7 @@
           </p>
 
           <app-estate-contract-type-selector (optionChange)="onActionSelectorContractType($event)" [optionTypeView]="2"
-            [optionDisabled]="false" [optionPlaceholder]="
-            this.translate.instant('TITLE.Type_Of_Transaction')
-          " [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
+            [optionDisabled]="false" [optionPlaceholder]="'TITLE.Type_Of_Transaction' | translate" [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
           </app-estate-contract-type-selector>
 
           <div class="container" *ngIf="contractTypeSelected && contractTypeSelected.id.length > 0">
@@ -636,9 +630,7 @@
             <br />
             <app-cms-currency-selector [optionSelectFirstItem]="currencyOptionSelectFirstItem"
               [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkCoreCurrencyId"
-              (optionChange)="onActionSelectCurrency($event)" [optionPlaceholder]="
-              this.translate.instant('TITLE.Specify_the_transaction_currency')
-            ">
+              (optionChange)="onActionSelectCurrency($event)" [optionPlaceholder]="'TITLE.Specify_the_transaction_currency' | translate ">
             </app-cms-currency-selector>
 
             <div *ngIf="contractDataModel.linkCoreCurrencyId > 0">

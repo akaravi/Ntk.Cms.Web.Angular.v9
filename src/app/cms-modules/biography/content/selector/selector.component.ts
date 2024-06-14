@@ -25,7 +25,7 @@ export class BiographyContentSelectorComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public contentService: BiographyContentService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<BiographyContentModel> = new ErrorExceptionResult<BiographyContentModel>();
   dataModelSelect: BiographyContentModel = new BiographyContentModel();

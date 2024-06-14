@@ -39,7 +39,7 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
     private router: Router) {
     super(contentService, new ApplicationAppModel(), publicHelper);
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -97,10 +97,11 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
   }
   DataGetOne(requestId: number): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceGetOneById';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_from_the_server'));
+
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
     /*َAccess Field*/
     this.applicationAppService.setAccessLoad();
     this.applicationAppService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -138,10 +139,10 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
   }
   DataEditContent(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.sending_information_to_the_server'));
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.applicationAppService
       .ServiceEdit(this.dataModel)
       .subscribe({
@@ -149,7 +150,7 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
           this.formInfo.formSubmitAllow = !ret.isSuccess;
           this.dataModelResult = ret;
           if (ret.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+            this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
             setTimeout(() => this.router.navigate(['/application/app/']), 1000);
           } else {

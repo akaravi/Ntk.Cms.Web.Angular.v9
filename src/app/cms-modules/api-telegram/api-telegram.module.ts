@@ -67,7 +67,7 @@ import { ApiTelegramUploadedFileListComponent } from './uploaded-file/list/list.
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
 

@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -22,13 +22,12 @@
             <app-core-sitecategory-selector (optionChange)="onActionSiteCategorySelect($event)"
                 [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsSiteCategoryId']?.accessEditField"
                 [optionSelectForce]="dataModel.linkCmsSiteCategoryId"
-                [optionPlaceholder]="this.translate.instant('TITLE.SITE_CATEGORY')">
+                [optionPlaceholder]="'TITLE.SITE_CATEGORY' | translate">
             </app-core-sitecategory-selector>
             <!-- LinkModuleId Field -->
             <app-core-module-selector (optionChange)="onActionSelectorModuleSelect($event)" [(optionLoading)]="loading"
                 [optionDisabled]="!fieldsInfo['linkCmsModuleId']?.accessEditField"
-                [optionSelectForce]="dataModel.linkCmsModuleId"
-                [optionPlaceholder]="this.translate.instant('TITLE.MODULE')">
+                [optionSelectForce]="dataModel.linkCmsModuleId" [optionPlaceholder]="'TITLE.MODULE' | translate">
             </app-core-module-selector>
             <!-- ConfigValuesJson Field -->
             <div *ngIf="fieldsInfo['configValuesJson']?.accessWatchField"

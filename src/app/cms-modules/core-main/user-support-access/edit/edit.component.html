@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -20,17 +20,17 @@
             <!-- LinkSiteId Field -->
             <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField"
                 [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkSiteId"
-                [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
+                [optionPlaceholder]="'TITLE.WEBSITE' | translate">
             </app-cms-site-selector>
             <!-- LinkUserId Field -->
             <app-cms-user-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField"
                 [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkUserId"
-                [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+                [optionPlaceholder]="'TITLE.USER' | translate">
             </app-cms-user-selector>
             <!-- module-entity Field -->
             <app-core-module-entity-selector (optionChange)="onActionSelectorModuleEntitySelect($event)"
                 [optionDisabled]="!fieldsInfo['moduleName']?.accessEditField" [(optionLoading)]="loading"
-                [optionPlaceholder]="this.translate.instant('TITLE.MODULE')">
+                [optionPlaceholder]="'TITLE.MODULE' | translate">
             </app-core-module-entity-selector>
             <!-- moduleName Field -->
             <div *ngIf="fieldsInfo['moduleName']?.accessWatchField"

@@ -27,7 +27,7 @@
       <!-- LinkPropertyTypeLanduseId Field -->
       <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelect($event)"
         [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+        [optionPlaceholder]="'TITLE.Category' | translate">
       </app-estate-property-type-landuse-selector>
       <!-- IconFont Field -->
       <div *ngIf="fieldsInfo['iconFont']?.accessWatchField"

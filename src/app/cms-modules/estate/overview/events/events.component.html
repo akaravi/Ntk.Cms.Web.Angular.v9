@@ -43,8 +43,7 @@
       <div class="col-12 col-sm-12 col-md-6 col-lg-6">
         <!-- LinkCmsUserId Field -->
         <app-cms-user-selector (optionChange)="onActionSelectorUser($event)" [optionSelectForce]="linkCmsUserId"
-          *ngIf="tokenHelper.isAdminSite" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+          *ngIf="tokenHelper.isAdminSite" [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.USER' | translate">
         </app-cms-user-selector>
       </div>
       <div class="col-12 col-sm-12 col-md-6 col-lg-6">

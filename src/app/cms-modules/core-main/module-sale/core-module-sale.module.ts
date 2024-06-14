@@ -142,9 +142,9 @@ import { CoreModuleSaleSerialTreeComponent } from './serial/tree/tree.component'
     FormsModule,
     CoreModuleSaleRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
 
   ],
   providers: [

@@ -27,7 +27,7 @@ export class CmsCurrencySelectorComponent implements OnInit {
     private publicHelper: PublicHelper,
     public categoryService: CoreCurrencyService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
   dataModelSelect: CoreCurrencyModel = new CoreCurrencyModel();

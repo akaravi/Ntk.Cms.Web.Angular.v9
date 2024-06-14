@@ -20,8 +20,7 @@
       <!-- LinkManagementAccountingId Field -->
       <app-linkmanagement-accounting-selector (optionChange)="onActionSelectorAccount($event)"
         [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkManagementAccountingId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkManagementAccountingId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Account')">
+        [optionSelectForce]="dataModel.linkManagementAccountingId" [optionPlaceholder]="'TITLE.Account' | translate">
       </app-linkmanagement-accounting-selector>
       <!-- AccountingType Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

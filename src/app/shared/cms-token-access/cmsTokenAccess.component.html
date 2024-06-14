@@ -38,6 +38,6 @@
   <div style="margin: 4px;">
     <app-cms-site-selector (optionChange)="onActionSiteSelect($event)" [optionDisabled]="false"
       [optionSelectForce]="this.tokenInfo.siteId"
-      [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')"></app-cms-site-selector>
+      [optionPlaceholder]="'TITLE.WEBSITE' | translate"></app-cms-site-selector>
   </div>
 </div>

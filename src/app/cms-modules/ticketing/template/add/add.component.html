@@ -21,8 +21,7 @@
 
       <!-- LinkCategoryId Field -->
       <app-ticketing-departemen-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
-        [optionSelectForce]="dataModel.linkTicketingDepartemenId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Department')">
+        [optionSelectForce]="dataModel.linkTicketingDepartemenId" [optionPlaceholder]="'TITLE.Department' | translate">
       </app-ticketing-departemen-selector>
       <!-- Title Field -->
       <div *ngIf="fieldsInfo['title']?.accessWatchField"

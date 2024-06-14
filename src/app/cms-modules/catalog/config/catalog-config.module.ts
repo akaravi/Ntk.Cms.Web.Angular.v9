@@ -38,7 +38,7 @@ import { CatalogConfigSiteComponent } from './site/config-site.component';
     FormsModule,
     CatalogConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

@@ -50,21 +50,19 @@
       <!-- LinkUserId Field -->
       <app-cms-user-selector (optionChange)="onActionSelectUser($event)" [(optionLoading)]="loading"
         [optionSelectForce]="this.dataModel.linkUserId" *ngIf="ProfessionalData"
-        [optionPlaceholder]="this.translate.instant('TITLE.USER')"
-        [optionDisabled]="!fieldsInfo['linkUserId']?.accessAddField">
+        [optionPlaceholder]="'TITLE.USER' | translate" [optionDisabled]="!fieldsInfo['linkUserId']?.accessAddField">
       </app-cms-user-selector>
 
       <!-- LinkSiteId Field -->
       <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [(optionLoading)]="loading"
         [optionSelectForce]="this.dataModel.linkSiteId" *ngIf="ProfessionalData"
-        [optionPlaceholder]="this.translate.instant('TITLE.SITE')"
-        [optionDisabled]="!fieldsInfo['linkSiteId']?.accessAddField">
+        [optionPlaceholder]="'TITLE.SITE' | translate" [optionDisabled]="!fieldsInfo['linkSiteId']?.accessAddField">
       </app-cms-site-selector>
 
       <!-- LinkUserClaimTypeId Field -->
       <app-core-userclaimtype-selector (optionChange)="onActionSelectClaimType($event)"
         [optionSelectForce]="this.dataModel.linkUserClaimTypeId" [(optionLoading)]="loading"
-        [optionPlaceholder]="this.translate.instant('TITLE.DOCUMENT_CATEGORY')"
+        [optionPlaceholder]="'TITLE.DOCUMENT_CATEGORY'  | translate"
         [optionDisabled]="!fieldsInfo['linkUserClaimTypeId']?.accessAddField || (requestLinkUserClaimTypeId && requestLinkUserClaimTypeId>0)">
       </app-core-userclaimtype-selector>
       <!-- LinkFileContentId Field -->

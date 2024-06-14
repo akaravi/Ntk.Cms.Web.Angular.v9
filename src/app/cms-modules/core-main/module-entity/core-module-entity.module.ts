@@ -33,7 +33,7 @@ import { CoreModuleEntitySelectorComponent } from './selector/selector.component
     FormsModule,
     CoreModuleEntityRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
     CoreModuleModule,
 

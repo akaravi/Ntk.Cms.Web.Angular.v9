@@ -24,7 +24,7 @@ export class CmsModuleSelectorComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public categoryService: CoreModuleService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   dataModelSelect: CoreModuleModel = new CoreModuleModel();

@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -21,12 +21,11 @@
             <!-- LinkTargetPeriodId Field -->
             <app-donate-target-period-selector (optionChange)="onActionSelectorSelect($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkTargetPeriodId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+                [optionPlaceholder]="'TITLE.Category' | translate">
             </app-donate-target-period-selector>
             <!-- LinkSponsorId Field -->
             <app-donate-sponser-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
-                [optionSelectForce]="dataModel.linkSponsorId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+                [optionSelectForce]="dataModel.linkSponsorId" [optionPlaceholder]="'TITLE.Category' | translate">
             </app-donate-sponser-selector>
             <!-- payment Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

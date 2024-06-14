@@ -61,7 +61,7 @@ import { WebDesignerBuilderRoutes } from './web-designer-builder.routing';
     WebDesignerBuilderRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     MatIconModule,

@@ -23,7 +23,7 @@ import { PagesRoutingModule } from './pages.routing';
     CommonModule,
     PagesRoutingModule,
     ComponentsModule,
-    SharedModule.forRoot(),
+    SharedModule,
   ],
 
   providers: [

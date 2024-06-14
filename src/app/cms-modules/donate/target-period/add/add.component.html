@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -20,8 +20,7 @@
             </app-cms-enum-record-status-selector>
             <!-- LinkTargeId Field -->
             <app-donate-target-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
-                [optionSelectForce]="dataModel.linkTargeId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+                [optionSelectForce]="dataModel.linkTargeId" [optionPlaceholder]="'TITLE.Category' | translate">
             </app-donate-target-selector>
             <!-- Title Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

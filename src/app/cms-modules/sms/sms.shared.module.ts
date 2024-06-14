@@ -13,7 +13,7 @@ import { SmsMainApiPathTreeComponent } from './main/api-path/tree/tree.component
     CommonModule,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     NgxMaterialTimepickerModule,
   ],
   declarations: [

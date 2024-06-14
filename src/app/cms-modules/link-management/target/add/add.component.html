@@ -52,7 +52,7 @@
           <app-linkmanagement-billboard-pattern-selector *ngIf="dataProfessional"
             (optionChange)="onActionSelectorSelectLinkBillboardPatternId($event)"
             [optionSelectForce]="dataModel.linkBillboardPatternId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Billboard_Pattern')">
+            [optionPlaceholder]="'TITLE.Billboard_Pattern' | translate ">
           </app-linkmanagement-billboard-pattern-selector>
           <!-- SharingLinkType Field -->
           <div *ngIf="dataProfessional"

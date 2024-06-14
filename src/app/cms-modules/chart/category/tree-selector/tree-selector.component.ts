@@ -42,7 +42,7 @@ export class ChartCategoryTreeSelectorComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.checklistSelection.changed.subscribe(x => {
       if (!this.runComplate) {
         return;

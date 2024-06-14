@@ -32,7 +32,7 @@ import { CoreUserSupportAccessListComponent } from './list/list.component';
     FormsModule,
     CoreUserSupportAccessRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     CoreModuleEntityModule,
   ],
   providers: [

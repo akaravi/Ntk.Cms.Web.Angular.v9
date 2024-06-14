@@ -64,10 +64,10 @@ import { ChartContentSelectorComponent } from './content/selector/selector.compo
     ChartRouting,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
-    CmsFileManagerModule.forRoot()
+    CmsFileManagerModule
   ],
   providers: [
     CoreModuleService,

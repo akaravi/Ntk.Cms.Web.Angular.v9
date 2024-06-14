@@ -1,5 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import {
   CoreAuthService,
   ManageUserAccessUserTypesEnum, NtkCmsApiStoreService,
@@ -9,9 +10,8 @@ import {
 } from 'ntk-cms-api';
 import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { TranslationService } from '../i18n/translation.service';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-
+const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,7 +19,7 @@ export class TokenHelper implements OnDestroy {
   constructor(
     public coreAuthService: CoreAuthService,
     private cmsApiStore: NtkCmsApiStoreService,
-    private translationService: TranslationService,
+    public translate: TranslateService,
     private cmsStoreService: CmsStoreService,
     private router: Router,
   ) {
@@ -87,7 +87,7 @@ export class TokenHelper implements OnDestroy {
   directionTheme = '';
   setDirectionThemeBylanguage(language) {
     if (!language || language.length === 0)
-      language = this.translationService.getSelectedLanguage()
+      language = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate.getDefaultLang() || 'fa';// this.cmsTranslationService.getSelectedLanguage()
     if (language === 'ar' || language === 'fa') {
       document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
       document.getElementsByTagName('html')[0].setAttribute('direction', 'rtl');
@@ -142,13 +142,13 @@ export class TokenHelper implements OnDestroy {
   //       appSourceVer: environment.appVersion,
   //       country: '',
   //       deviceBrand: '',
-  //       language: this.translationService.getSelectedLanguage(),
+  //       language: this.cmsTranslationService.getSelectedLanguage(),
   //       locationLat: '',
   //       locationLong: '',
   //       simCard: '',
   //       notificationId: ''
   //     };
-  //     this.translationService.setLanguage(this.translationService.getSelectedLanguage());
+  //     this.cmsTranslationService.setLanguage(this.cmsTranslationService.getSelectedLanguage());
   //     this.coreAuthService.ServiceGetTokenDevice(model).toPromise();
   //   }
   // }

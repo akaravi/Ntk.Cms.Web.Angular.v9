@@ -36,7 +36,7 @@
           <app-linkmanagement-billboard-pattern-selector
             (optionChange)="onActionSelectorSelectLinkBillboardPatternId($event)"
             [optionSelectForce]="dataModel.linkBillboardPatternId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Billboard_Pattern')">
+            [optionPlaceholder]="'TITLE.Billboard_Pattern' | translate ">
           </app-linkmanagement-billboard-pattern-selector>
           <!-- SharingLinkType Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

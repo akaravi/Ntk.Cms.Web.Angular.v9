@@ -43,7 +43,7 @@ export class LinkManagementCategoryTreeSelectorComponent implements OnInit, OnDe
     public translate: TranslateService,
     public dialog: MatDialog,
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.checklistSelection.changed.subscribe(x => {
       if (!this.runComplate) {
         return;

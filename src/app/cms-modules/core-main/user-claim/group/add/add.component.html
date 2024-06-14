@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
             <!-- RecordStatus Field -->
@@ -60,8 +60,7 @@
             <hr>
             <!-- LinkModuleId Field -->
             <app-cms-module-selector (optionChange)="onActionSelectModuleId($event)" [(optionLoading)]="loading"
-                [optionSelectForce]="this.dataModel.linkModuleId"
-                [optionPlaceholder]="this.translate.instant('TITLE.MODULE')"
+                [optionSelectForce]="this.dataModel.linkModuleId" [optionPlaceholder]="'TITLE.MODULE' | translate"
                 [optionDisabled]="!fieldsInfo['linkModuleId']?.accessEditField">
             </app-cms-module-selector>
 
@@ -69,21 +68,21 @@
             <!-- LinkSiteCategoryId Field -->
             <app-cms-sitecategory-selector (optionChange)="onActionSelectSiteCategory($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkSiteCategoryId"
-                [optionPlaceholder]="this.translate.instant('TITLE.SITE_CATEGORY')"
+                [optionPlaceholder]="'TITLE.SITE_CATEGORY' | translate"
                 [optionDisabled]="!fieldsInfo['linkSiteCategoryId']?.accessEditField">
             </app-cms-sitecategory-selector>
 
             <!-- LinkUserGroupId Field -->
             <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)" [(optionLoading)]="loading"
                 [optionSelectForce]="this.dataModel.linkUserGroupId"
-                [optionPlaceholder]="this.translate.instant('TITLE.User_Group')"
+                [optionPlaceholder]="'TITLE.User_Group' | translate"
                 [optionDisabled]="!fieldsInfo['linkUserGroupId']?.accessEditField">
             </app-cms-usergroup-selector>
 
             <!-- LinkApplicationId Field -->
             <app-cms-application-selector (optionChange)="onActionSelectApplication($event)" [(optionLoading)]="loading"
                 [optionSelectForce]="this.dataModel.linkApplicationId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Application')"
+                [optionPlaceholder]="'TITLE.Application' | translate"
                 [optionDisabled]="!fieldsInfo['linkApplicationId']?.accessEditField">
             </app-cms-application-selector>
 
@@ -91,7 +90,7 @@
             <!-- LinkApplicationSourceId Field -->
             <app-cms-application-selector (optionChange)="onActionSelectApplicationSource($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkApplicationSourceId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Application_Source')"
+                [optionPlaceholder]="'TITLE.Application_Source' | translate"
                 [optionDisabled]="!fieldsInfo['linkApplicationSourceId']?.accessEditField">
             </app-cms-application-selector>
             <!-- Description Field -->

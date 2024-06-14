@@ -21,8 +21,7 @@
 
       <!-- LinkCategoryId Field -->
       <app-ticketing-departemen-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
-        [optionSelectForce]="dataModel.linkTicketingDepartemenId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Department')">
+        [optionSelectForce]="dataModel.linkTicketingDepartemenId" [optionPlaceholder]="'TITLE.Department' | translate">
       </app-ticketing-departemen-selector>
       <!-- Question Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -39,8 +38,8 @@
       </div>
       <!-- Answer Field -->
       <p> {{'TITLE.Answer' | translate}} </p>
-      <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')" [config]="publicHelper.editorConfig"
-        id="Answer" [(ngModel)]="dataModel.answer" name="dataModel.answer"></angular-editor>
+      <angular-editor [placeholder]="'TITLE.Enter_Text' | translate" [config]="publicHelper.editorConfig" id="Answer"
+        [(ngModel)]="dataModel.answer" name="dataModel.answer"></angular-editor>
       <br>
 
       <app-cms-files-selector [(dataFileModel)]="dataFileModel" [openDirectUploadView]="true">

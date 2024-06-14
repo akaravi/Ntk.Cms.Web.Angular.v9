@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -21,7 +21,7 @@
                     </app-cms-enum-record-status-selector>
                     <app-file-category-selector (optionChange)="onActionSelectorSelect($event)"
                         [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkCategoryId"
-                        [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+                        [optionPlaceholder]="'TITLE.Category' | translate">
                     </app-file-category-selector>
                     <!-- Title Field -->
                     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -68,9 +68,8 @@
                         <mat-datepicker touchUi #ExpireDate></mat-datepicker>
                     </div>
                     <hr class="pb-5" />
-                    <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')"
-                        [config]="publicHelper.editorConfig" id="main" [(ngModel)]="dataModel.body"
-                        name="dataModel.body">
+                    <angular-editor [placeholder]="'TITLE.Enter_Text' | translate" [config]="publicHelper.editorConfig"
+                        id="main" [(ngModel)]="dataModel.body" name="dataModel.body">
                     </angular-editor>
                     <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
                         <button type="button"
@@ -103,7 +102,7 @@
                     <!-- KeywordModel Field -->
                     <mat-form-field style="width:100%" appearance="fill">
                         <mat-label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</mat-label>
-                        <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+                        <mat-chip-grid #chipList aria-label="'TITLE.key_word'|translate">
                             <mat-chip *ngFor="let item of  keywordDataModel" (removed)="removeTag(item)">
                                 {{item}}
                                 <button matChipRemove
@@ -111,7 +110,7 @@
                                     <mat-icon>cancel</mat-icon>
                                 </button>
                             </mat-chip>
-                            <input [placeholder]="' + '+this.translate.instant('TITLE.key_word')" #tagInput
+                            <input [placeholder]="'TITLE.key_word'|translate" #tagInput
                                 [matChipInputAddOnBlur]="addOnBlurTag" [matChipInputFor]="chipList"
                                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                                 (matChipInputTokenEnd)="addTag($event)">

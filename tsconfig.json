@@ -6,12 +6,12 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strictPropertyInitialization": false,
-    "strict": false,
-    "esModuleInterop": true, //default is true
+    "strict": false, //default is true
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
@@ -42,12 +42,7 @@
     /*karavi add*/
   },
   /*karavi add*/
-  "include": [
-    "**/*.js",
-    "**/*.ts",
-    "node_modules/@open-wc/**/*.js",
-    "src/app/modules/menus/header-bar/header-bar/.component.ts"
-  ],
+  "include": ["**/*.js", "**/*.ts", "node_modules/@open-wc/**/*.js", "src/app/modules/menus/header-bar/header-bar/.component.ts"],
   "exclude": [
     ".git",
     ".app-cache",

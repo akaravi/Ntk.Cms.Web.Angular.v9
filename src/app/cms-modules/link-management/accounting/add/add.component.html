@@ -21,7 +21,7 @@
             <!-- LinkManagementMemberId Field -->
             <app-linkmanagement-member-selector (optionChange)="onActionSelectorSelectLinkManagementMemberId($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkManagementMemberId"
-                [optionPlaceholder]="this.translate.instant('TITLE.User_Account')">
+                [optionPlaceholder]="'TITLE.User_Account' | translate ">
             </app-linkmanagement-member-selector>
             <!-- IsCertainDocument Field -->
             <div *ngIf="fieldsInfo['isCertainDocument']?.accessWatchField" class="d-flex mb-3">

@@ -19,8 +19,7 @@
       </app-cms-enum-record-status-selector>
       <!-- LinkCategoryId Field -->
       <app-contact-category-selector (optionChange)="onActionSelectCategory($event)" [(optionLoading)]="loading"
-        [optionSelectForce]="this.dataModel.linkCategoryId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+        [optionSelectForce]="this.dataModel.linkCategoryId" [optionPlaceholder]="'TITLE.Category' | translate">
       </app-contact-category-selector>
       <!-- Title Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

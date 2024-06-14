@@ -23,7 +23,7 @@
 
           <app-ticketing-departemen-selector (optionChange)="onActionSelectSource($event)" [(optionLoading)]="loading"
             [optionSelectForce]="this.dataModel.linkTicketingDepartemenId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Department')"
+            [optionPlaceholder]="'TITLE.Department' | translate"
             [optionDisabled]="!fieldsInfo['linkTicketingDepartemenId']?.accessEditField">
           </app-ticketing-departemen-selector>
           <!-- FullName Field -->

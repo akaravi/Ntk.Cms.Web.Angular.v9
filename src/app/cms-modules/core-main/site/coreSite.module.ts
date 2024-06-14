@@ -27,6 +27,7 @@ import { CoreSiteTreeComponent } from './tree/tree.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { NgxMatColorPickerModule } from 'ngx-ntk-mat-color-picker';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CoreSharedModule } from '../core.shared.module';
 import { CoreModuleModule } from '../module/coreModule.module';
@@ -43,7 +44,7 @@ import { CoreSiteResellerChartComponent } from './reseller-chart/reseller-chart.
 import { CoreSiteUserAddComponent } from './userAdd/userAdd.component';
 import { CoreSiteUserEditComponent } from './userEdit/userEdit.component';
 import { CoreSiteUserListComponent } from './userList/userList.component';
-import { CmsFileManagerModule } from 'ntk-cms-filemanager';
+import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 
 
 @NgModule({
@@ -68,6 +69,36 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     CoreSiteModuleSiteOptimazeComponent,
 
   ],
+  providers: [
+    CoreSiteService,
+    CoreSiteCategoryCmsModuleService,
+    CoreModuleService,
+    CoreSiteCategoryService,
+    CoreSiteResolver,
+    CoreModuleSiteService,
+    CoreSiteDomainAliasService,
+    CmsConfirmationDialogService,
+    CoreUserService,
+    CoreSiteUserService,
+    CmsTranslationService,
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    CoreSiteRouting,
+    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
+    SharedModule,
+    AngularEditorModule,
+
+    CoreSiteCategoryCmsModule,
+    CoreSiteCategoryCmsModuleModule,
+    CoreModuleModule,
+    CoreUserModule,
+    CoreUserGroupCmsModule,
+    NgxMatColorPickerModule,
+    CoreSharedModule,
+    CmsFileManagerModule,
+  ],
   exports: [
     CoreSiteComponent,
     CoreSiteAddFirstComponent,
@@ -89,35 +120,8 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     CoreSiteModuleSiteOptimazeComponent,
 
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    CoreSiteRouting,
-    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
-    AngularEditorModule,
 
-    CoreSiteCategoryCmsModule,
-    CoreSiteCategoryCmsModuleModule,
-    CoreModuleModule,
-    CoreUserModule,
-    CoreUserGroupCmsModule,
-    NgxMatColorPickerModule,
-    CoreSharedModule,
-    CmsFileManagerModule.forRoot(),
-  ],
-  providers: [
-    CoreSiteService,
-    CoreSiteCategoryCmsModuleService,
-    CoreModuleService,
-    CoreSiteCategoryService,
-    CoreSiteResolver,
-    CoreModuleSiteService,
-    CoreSiteDomainAliasService,
-    CmsConfirmationDialogService,
-    CoreUserService,
-    CoreSiteUserService,
-  ]
+
 })
 export class CoreSiteModule {
 }

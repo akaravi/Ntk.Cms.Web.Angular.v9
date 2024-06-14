@@ -1886,6 +1886,16 @@ body {
   transition: all 300ms ease;
   -webkit-overflow-scrolling: touch;
 }
+.menu-custom {/*karavi*/
+  position: fixed;
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  /*backdrop-filter: saturate(180%) blur(20px);*/
+  /*background-color: rgba(255, 255, 255, 0.8);*/
+  z-index: 101;
+  overflow: scroll;
+  transition: all 300ms ease;
+  -webkit-overflow-scrolling: touch;
+}
 .menu .content {
   margin-bottom: 0px !important;
 }
@@ -1904,6 +1914,16 @@ body {
   right: 0px;
   transform: translateX(100%);
   top: 0px !important;
+  height: 100%;
+  bottom: 0px;
+  width: 250px;
+}
+
+.menu-box-right-custom {
+  display: none;
+  right: 0px;
+  transform: translateX(100%);
+  top: 100px !important;
   height: 100%;
   bottom: 0px;
   width: 250px;
@@ -1952,6 +1972,9 @@ body {
   transform: translate3d(0%, 0, 0) !important;
 }
 
+.menu-box-right-custom.menu-active {
+  transform: translate3d(0%, 0, 0) !important;
+}
 .menu-box-top.menu-active {
   transform: translate3d(0%, 0, 0) !important;
 }
@@ -1993,6 +2016,14 @@ body {
 }
 
 .menu-box-right[data-menu-effect=menu-reveal] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0px) !important;
+  z-index: 96;
+}
+
+
+.menu-box-right-custom[data-menu-effect=menu-reveal] {
   opacity: 0;
   pointer-events: none;
   transform: translate(0px) !important;
@@ -3756,7 +3787,7 @@ button {
   animation: infiniteBG 600s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  background-image: url('images/mountain.jpg');
+  /*background-image: url('images/mountain.jpg');*/
   background-size: cover;
   background-repeat: repeat;
   background-position: left center;

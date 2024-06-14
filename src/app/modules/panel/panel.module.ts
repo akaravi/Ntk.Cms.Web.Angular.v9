@@ -71,7 +71,7 @@ import { PagesPanelRoutingModule } from './panel.routing';
   imports: [
     CommonModule,
     PagesPanelRoutingModule,
-    SharedModule.forRoot(),
+    SharedModule,
     ComponentsModule,
 
     //NgApexchartsModule,

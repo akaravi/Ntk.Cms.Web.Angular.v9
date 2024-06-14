@@ -43,7 +43,7 @@ export class EstatePropertySupplierCategoryTreeComponent implements OnInit, OnDe
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @Input() set optionSelectForce(x: number | EstatePropertySupplierCategoryModel) {
     this.onActionSelectForce(x);
@@ -140,8 +140,7 @@ export class EstatePropertySupplierCategoryTreeComponent implements OnInit, OnDe
       id = this.dataModelSelect.id;
     }
     if (id === '') {
-      const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     var panelClass = '';
@@ -175,8 +174,13 @@ export class EstatePropertySupplierCategoryTreeComponent implements OnInit, OnDe
       return;
     }
 
-    const title = this.translate.instant('MESSAGE.Please_Confirm');
-    const message = this.translate.instant('MESSAGE.Do_you_want_to_delete_this_content') + '?' + '<br> ( ' + this.dataModelSelect.title + ' ) ';
+    var title = "";
+    var message = "";
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?' + '<br> ( ' + this.dataModelSelect.title + ' ) ';
+    });
+
     this.cmsConfirmationDialogService.confirm(title, message)
       .then((confirmed) => {
         if (confirmed) {

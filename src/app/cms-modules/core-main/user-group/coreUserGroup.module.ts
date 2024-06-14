@@ -45,7 +45,7 @@ import { CoreUserGroupSelectionlistComponent } from './selectionlist/selectionli
     CoreUserGroupRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
 

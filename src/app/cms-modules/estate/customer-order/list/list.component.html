@@ -142,13 +142,12 @@
         </P>
         <!-- LinkLocationIds Field -->
         <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+          [optionPlaceholder]="'TITLE.Region' | translate">
         </app-cms-location-autocomplete>
         <hr>
         <!-- LinkPropertyTypeUsageId Field -->
         <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
-          [optionTypeView]="2" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+          [optionTypeView]="2" [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Type_Usage' | translate">
           <mat-icon matSuffix
             *ngIf="filteModelContent.linkPropertyTypeUsageId && filteModelContent.linkPropertyTypeUsageId?.length>0"
             matSuffix mat-icon-button aria-label="Clear" (click)="filteModelContent.linkPropertyTypeUsageId = null;">
@@ -160,8 +159,7 @@
         <br>
         <!-- LinkPropertyTypeLanduseId Field -->
         <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)"
-          [optionTypeView]="2" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')">
+          [optionTypeView]="2" [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Property_Type'  | translate">
           <mat-icon matSuffix
             *ngIf="filteModelContent.linkPropertyTypeLanduseId && filteModelContent.linkPropertyTypeLanduseId?.length>0"
             matSuffix mat-icon-button aria-label="Clear" (click)="onActionSelectorSelectLanduse(null)">
@@ -173,7 +171,7 @@
         <br>
         <!-- LinkContractTypeIds Field -->
         <app-estate-contract-type-selector (optionChange)="onActionSelectorContarctType($event)" [optionTypeView]="2"
-          [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Transaction_type')">
+          [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Transaction_type'  | translate">
           <mat-icon matSuffix
             *ngIf="filteModelContent.linkContractTypeId && filteModelContent.linkContractTypeId?.length>0" matSuffix
             mat-icon-button aria-label="Clear" (click)="filteModelContent.linkContractTypeId = null;"> close
@@ -213,8 +211,7 @@
         <!-- linkCoreCurrencyId Field -->
         <app-cms-currency-selector [optionSelectFirstItem]="true"
           [optionSelectForce]="filteModelContent.linkCoreCurrencyId" (optionChange)="onActionSelectCurrency($event)"
-          [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Specify_the_transaction_currency')">
+          [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Specify_the_transaction_currency'  | translate">
         </app-cms-currency-selector>
         <div class="row" style="direction: rtl;">
           <div class="col-md-6 col-sm-6 col-xs-9">

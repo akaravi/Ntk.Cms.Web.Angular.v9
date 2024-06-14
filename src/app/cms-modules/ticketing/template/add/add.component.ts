@@ -32,7 +32,7 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
     public translate: TranslateService,
   ) {
     super(ticketingTemplateService, new TicketingTemplateModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestParentId = +data.parentId || 0;
     }
@@ -60,7 +60,7 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
   }
 
   DataAddContent(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -70,11 +70,11 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
         this.formInfo.formSubmitAllow = true;
         this.dataModelResult = next;
         if (next.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+          this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessAdd();
           this.dialogRef.close({ dialogChangedDate: true });
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }
@@ -90,7 +90,7 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
     );
   }
   // DataEditContent(): void {
-  //   this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+  //   this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {this.formInfo.formAlert = str;});
   //   this.formInfo.formError = '';
   //   const pName = this.constructor.name + 'main';
   //   this.loading.Start(pName);
@@ -101,12 +101,12 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
   //       this.formInfo.formSubmitAllow = true;
   //       this.dataModelResult = next;
   //       if (next.isSuccess) {
-  //         this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+  //         this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => {this.formInfo.formAlert = str;});
   //         this.cmsToastrService.typeSuccessEdit();
   //         this.dialogRef.close({ dialogChangedDate: true });
 
   //       } else {
-  //         this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+  //         this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => {this.formInfo.formAlert = str;});
   //         this.formInfo.formError = next.errorMessage;
   //         this.cmsToastrService.typeErrorMessage(next.errorMessage);
   //       }

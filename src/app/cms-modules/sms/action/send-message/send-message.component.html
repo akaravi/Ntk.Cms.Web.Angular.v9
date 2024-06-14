@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
             <div class="ntk-cms-html-card-body">
@@ -31,13 +31,12 @@
                                 <!-- LinkPrivateSiteConfigId Field -->
                                 <app-sms-apipath-selector (optionChange)="onActionSelectPrivateSiteConfig($event)"
                                     [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiPathId"
-                                    [optionPlaceholder]="this.translate.instant('TITLE.Direction')"
-                                    [optionSelectFirstItem]="true">
+                                    [optionPlaceholder]="'TITLE.Direction' | translate" [optionSelectFirstItem]="true">
                                 </app-sms-apipath-selector>
                                 <app-sms-api-number-selector *ngIf="dataModel.linkApiPathId?.length>0"
                                     [(optionLoading)]="loading" (optionChange)="onActionSelectApiNumber($event)"
                                     [optionSelectForce]="" [optionLinkApiPathId]="dataModel.linkApiPathId"
-                                    [optionPlaceholder]="this.translate.instant('TITLE.sender_number')"
+                                    [optionPlaceholder]="'TITLE.sender_number' | translate "
                                     [optionSelectFirstItem]="true" [optionSelectFirstItemOnChangeApi]="true">
                                 </app-sms-api-number-selector>
                                 <mat-action-row>

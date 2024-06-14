@@ -24,7 +24,7 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
     public webDesignerMainPageService: WebDesignerMainPageService,
 
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();
@@ -77,7 +77,7 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
   }
   // DataEditContent(): void {
   //   const pName = this.constructor.name + 'main';
-  //   this.loading.Start(pName, this.translate.instant('MESSAGE.sending_information_to_the_server'));
+  //   this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {this.loading.Start(pName, str);});
   //   this.webDesignerMainPageService.ServiceEdit(this.dataModel).subscribe(
   //     (next) => {
 

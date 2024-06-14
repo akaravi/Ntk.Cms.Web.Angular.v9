@@ -7,6 +7,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import {
   CoreGuideService, CoreModuleService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreInfoComponent } from '../site/info/core-info.component';
 import { CoreGuideAddComponent } from './add/add.component';
@@ -16,7 +17,6 @@ import { CoreGuideEditComponent } from './edit/edit.component';
 import { CoreGuideListComponent } from './list/list.component';
 import { CoreGuideSelectorComponent } from './selector/selector.component';
 import { CoreGuideTreeComponent } from './tree/tree.component';
-import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 
 
 @NgModule({
@@ -43,10 +43,10 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     FormsModule,
     CoreGuideRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
     DragDropModule,
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
   ],
   providers: [
     CoreGuideService,

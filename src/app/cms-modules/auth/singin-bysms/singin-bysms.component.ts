@@ -9,7 +9,7 @@ import {
 } from 'ntk-cms-api';
 import { Observable, Subscription, interval } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { TranslationService } from 'src/app/core/i18n/translation.service';
+import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -34,13 +34,13 @@ export class AuthSingInBySmsComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
     private router: Router,
-    private translationService: TranslationService,
+    private cmsTranslationService: CmsTranslationService,
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
     public pageInfo: PageInfoService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.RePasswordModel = '';
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatus;
@@ -108,7 +108,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.formInfo.buttonSubmittedEnabled = false;
     this.errorState = ErrorStates.NotSubmitted;
     this.dataModelAuthUserSignInBySms.captchaKey = this.captchaModel.key;
-    this.dataModelAuthUserSignInBySms.lang = this.translationService.getSelectedLanguage();
+    this.dataModelAuthUserSignInBySms.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUserBySMS';
     this.loading.Start(pName, this.translate.instant('MESSAGE.Send_login_request_with_one_time_password'));
     this.coreAuthService
@@ -161,7 +161,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.formInfo.buttonSubmittedEnabled = false;
     this.errorState = ErrorStates.NotSubmitted;
     this.dataModelAuthUserSignInBySms.captchaKey = this.captchaModel.key;
-    this.dataModelAuthUserSignInBySms.lang = this.translationService.getSelectedLanguage();
+    this.dataModelAuthUserSignInBySms.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUserBySMS';
     this.loading.Start(pName, this.translate.instant('MESSAGE.Send_login_request_with_one_time_password'));
     /** read storage */

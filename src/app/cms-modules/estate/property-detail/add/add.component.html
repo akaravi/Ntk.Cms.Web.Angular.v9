@@ -27,12 +27,12 @@
       <!-- LinkPropertyTypeLanduseId Field -->
       <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelect($event)"
         [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId"
-        [optionPlaceholder]="this.translate.instant('TITLE.user')">
+        [optionPlaceholder]="'TITLE.USER' | translate">
       </app-estate-property-type-landuse-selector>
       <!-- LinkPropertyDetailGroupId Field -->
       <app-estate-property-detail-group-selector (optionChange)="onActionSelectorDetailGroup($event)"
         [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyDetailGroupId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+        [optionPlaceholder]="'TITLE.Category' | translate">
       </app-estate-property-detail-group-selector>
       <!-- IconFont Field -->
       <div *ngIf="fieldsInfo['iconFont']?.accessWatchField"
@@ -256,7 +256,7 @@
       <div style="width: 100%;" appearance="fill"
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label class="color-highlight">{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</label>
-        <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+        <mat-chip-grid #chipList aria-label="'TITLE.key_word'|translate">
           <mat-chip *ngFor="let item of keywordDefaultDataModel" (removed)="removeTagDefault(item)">
             {{item}}
             <button matChipRemove>
@@ -272,7 +272,7 @@
       <div style="width: 100%;" appearance="fill"
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label class="color-highlight">{{'TITLE.Choose_keywords_relative_to_null_content' | translate}}</label>
-        <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+        <mat-chip-grid #chipList aria-label="'TITLE.key_word'|translate">
           <mat-chip *ngFor="let item of keywordNullDataModel" (removed)="removeTagNull(item)">
             {{item}}
             <button matChipRemove>

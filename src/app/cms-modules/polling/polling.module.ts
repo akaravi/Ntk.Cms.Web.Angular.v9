@@ -55,10 +55,10 @@ import { PollingVoteListComponent } from './vote/list/list.component';
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
-    CmsFileManagerModule.forRoot()
+    CmsFileManagerModule
   ],
   providers: [
     CoreModuleService,

@@ -47,7 +47,7 @@
       <!-- LinkSiteId Field -->
       <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [(optionLoading)]="loading"
         [optionDisabled]="false" [optionSelectForce]=" this.dataModel.linkSiteId"
-        [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
+        [optionPlaceholder]="'TITLE.SITE' | translate">
       </app-cms-site-selector>
       <!-- LinkApplicationId Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

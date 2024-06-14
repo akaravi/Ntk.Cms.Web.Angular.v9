@@ -12,10 +12,8 @@ import { CmsFileUploaderComponent } from './cms-file-uploader.component';
   exports: [
     CmsFileUploaderComponent
   ],
-
   imports: [CommonModule,
     FilePickerModule],
-
   providers: [
     provideHttpClient(withInterceptorsFromDi())
   ]

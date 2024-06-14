@@ -44,7 +44,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
   ) {
     super(contentService, new NewsContentModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkCategoryId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCategoryId'));
       this.DataGetAll();
@@ -114,7 +114,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
         selectId = this.requestLinkCategoryId;
       }
       const pName = this.constructor.name + '.ServiceGetAllWithHierarchyCategoryId';
-      this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
+      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
       this.contentService.ServiceGetAllWithHierarchyCategoryId(selectId, filterModel).subscribe({
         next: (ret) => {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
@@ -179,7 +179,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       }
       /** filter Category */
       const pName = this.constructor.name + '.ServiceGetAll';
-      this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
+      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
       this.contentService.ServiceGetAllEditor(filterModel).subscribe({
         next: (ret) => {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
@@ -257,8 +257,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       this.categoryModelSelected == null ||
       this.categoryModelSelected.id === 0
     ) {
-      const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     if (
@@ -301,8 +300,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
   }
   onActionButtonDeleteRow(model: NewsContentModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
-      const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
-      this.cmsToastrService.typeErrorSelected(emessage); return;
+      this.translate.get('MESSAGE.no_row_selected_to_delete').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); }); return;
     }
     this.onActionTableRowSelect(model);
     if (
@@ -338,12 +336,12 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       return;
     }
     const statist = new Map<string, number>();
-    statist.set(this.translate.instant('MESSAGE.Active'), 0);
-    statist.set(this.translate.instant('MESSAGE.All'), 0);
+    this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
+    this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.All'), ret.totalRowCount);
+          this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
         else {
@@ -364,7 +362,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     this.contentService.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.Active'), ret.totalRowCount);
+          this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
         else {

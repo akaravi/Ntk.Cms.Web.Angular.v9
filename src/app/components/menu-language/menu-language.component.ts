@@ -2,10 +2,10 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthRenewTokenModel, CoreAuthService, TokenInfoModel } from 'ntk-cms-api';
-import { Subscription, filter } from 'rxjs';
+import { Subscription, filter, firstValueFrom } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { TranslationService } from 'src/app/core/i18n/translation.service';
+import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 interface LanguageFlag {
@@ -23,7 +23,7 @@ export class MenuLanguageComponent implements OnInit {
   static nextId = 0;
   id = ++MenuLanguageComponent.nextId;
   constructor(
-    private translationService: TranslationService,
+    private cmsTranslationService: CmsTranslationService,
     public coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
@@ -96,7 +96,7 @@ export class MenuLanguageComponent implements OnInit {
       .subscribe((event) => {
         this.setSelectedLanguage();
       });
-    var lastLang = this.translationService.getSelectedLanguage()
+    var lastLang = this.cmsTranslationService.getSelectedLanguage()
     if (lastLang?.length > 0) {
       const indexId = this.languages.findIndex(x => x.lang == lastLang);
       const to = 0;
@@ -121,8 +121,13 @@ export class MenuLanguageComponent implements OnInit {
       authModel.siteId = this.tokenInfo.siteId;
       authModel.lang = lang;
 
-      const title = this.translate.instant('TITLE.Information');
-      const message = this.translate.instant('MESSAGE.Request_to_change_language_was_sent_to_the_server');
+      var title = "";
+      var message = "";
+      this.translate.get(['TITLE.Information', 'MESSAGE.Request_to_change_site_was_sent_to_the_server']).subscribe((str: string) => {
+        title = str[0];
+        message = str[1] + '?';
+      });
+
       this.cmsToastrService.toastr.info(message, title);
       // this.loadingStatus = true;
       this.coreAuthService.ServiceRenewToken(authModel).subscribe(
@@ -133,7 +138,7 @@ export class MenuLanguageComponent implements OnInit {
               this.tokenInfo = ret.item;
               if (ret.item.language === lang) {
                 this.cmsToastrService.toastr.success(this.translate.instant('MESSAGE.New_language_acess_confirmed'), title);
-                this.translate.use(ret.item.language);
+                firstValueFrom(this.translate.use(ret.item.language));
               } else {
                 this.cmsToastrService.toastr.warning(this.translate.instant('ERRORMESSAGE.MESSAGE.New_language_acess_denied'), title);
               }
@@ -164,11 +169,11 @@ export class MenuLanguageComponent implements OnInit {
       }
     });
 
-    this.translationService.setLanguage(lang);
+    this.cmsTranslationService.setLanguage(lang);
   }
 
   setSelectedLanguage(): any {
-    this.setLanguage(this.translationService.getSelectedLanguage());
+    this.setLanguage(this.cmsTranslationService.getSelectedLanguage());
   }
 
 }

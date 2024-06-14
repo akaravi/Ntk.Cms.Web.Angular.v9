@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -21,7 +21,7 @@
             <!-- LinkModuleSaleHeaderGroupId Field -->
             <app-core-modulesaleheadergroup-selector (optionChange)="onActionSelectHeaderGroup($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkModuleSaleHeaderGroupId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Category')"
+                [optionPlaceholder]="'TITLE.Category' | translate"
                 [optionDisabled]="!fieldsInfo['linkModuleSaleHeaderGroupId']?.accessAddField">
             </app-core-modulesaleheadergroup-selector>
             <!-- Title Field -->

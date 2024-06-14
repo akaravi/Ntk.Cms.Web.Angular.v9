@@ -18,7 +18,7 @@
       <!-- LinkLocationId Field -->
       <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
         [optionSelectForce]="dataModel.linkCoreLocationId" [(optionLoading)]="loading"
-        [optionPlaceholder]="this.translate.instant('TITLE.Region')"
+        [optionPlaceholder]="'TITLE.Region' | translate"
         [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField">
       </app-cms-location-selector>
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">

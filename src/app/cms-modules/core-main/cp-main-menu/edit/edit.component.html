@@ -21,7 +21,7 @@
           </app-cms-enum-record-status-selector>
           <app-core-cpmainmenu-selector (optionChange)="onActionSelectorSelect($event)" [optionDisabled]="false"
             [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkParentId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Parent_Menu')">
+            [optionPlaceholder]="'TITLE.Parent_Menu' | translate">
           </app-core-cpmainmenu-selector>
           <!-- Title Field -->
           <div *ngIf="fieldsInfo['title']?.accessWatchField"
@@ -182,7 +182,7 @@
           <!-- LinkModuleId Field -->
           <app-core-module-selector (optionChange)="onActionSelectorModuleSelect($event)" [optionDisabled]="false"
             [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkModuleId"
-            [optionPlaceholder]="this.translate.instant('TITLE.MODULE')">
+            [optionPlaceholder]="'TITLE.MODULE' | translate">
           </app-core-module-selector>
 
           <app-core-usergroup-selectionlist [optionSelectForce]="dataCoreCpMainMenuIds" [optionDisabled]="false"

@@ -25,7 +25,7 @@ export class NewsCategoryMenuComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
       this.loadData();
@@ -76,7 +76,7 @@ export class NewsCategoryMenuComponent implements OnInit {
       this.filterModel.filters.push(filter);
     }
     const pName = this.constructor.name + '.ServiceGetAll';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_categories'));
+    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => {this.loading.Start(pName, str);});
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

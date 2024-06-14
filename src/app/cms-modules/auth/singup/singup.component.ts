@@ -27,7 +27,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
 
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   loading = new ProgressSpinnerModel();
@@ -83,7 +83,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
       return;
     }
     if (!this.dataModel.captchaText || this.dataModel.captchaText.length === 0) {
-      this.formInfo.formError = this.translate.instant('MESSAGE.Receiving_information');
+      this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
       this.formInfo.formErrorStatus = true;
       this.cmsToastrService.typeErrorRegistery(this.formInfo.formError);
       return;

@@ -31,7 +31,7 @@
           class="form-control validate-name" id="dataModelResultCategory.item.descriptiont"></textarea>
       </div>
       <app-article-category-selector
-        [optionPlaceholder]="this.translate.instant('TITLE.Alternative_classification_to_move_information_to_this_branch')"
+        [optionPlaceholder]="'TITLE.Alternative_classification_to_move_information_to_this_branch' | translate "
         [(optionLoading)]="loading">
       </app-article-category-selector>
     </ng-container>

@@ -67,10 +67,10 @@ import { NewsContentSelectorComponent } from './content/selector/selector.compon
     NewsRouting,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
 
   ],
   providers: [

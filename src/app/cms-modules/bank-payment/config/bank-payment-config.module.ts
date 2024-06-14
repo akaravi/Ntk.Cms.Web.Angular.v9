@@ -33,7 +33,7 @@ import { BankPaymentConfigSiteComponent } from './site/config-site.component';
     FormsModule,
     BankPaymentConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

@@ -39,7 +39,7 @@ import { DonateConfigSiteComponent } from './site/config-site.component';
     FormsModule,
     DonateConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

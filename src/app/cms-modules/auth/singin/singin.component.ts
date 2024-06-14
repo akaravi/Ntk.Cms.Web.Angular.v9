@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthUserSignInModel, CaptchaModel, CoreAuthService, FormInfoModel } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { TranslationService } from 'src/app/core/i18n/translation.service';
+import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -21,7 +21,7 @@ export class AuthSingInComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private coreAuthService: CoreAuthService,
-    private translationService: TranslationService,
+    private cmsTranslationService: CmsTranslationService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
@@ -29,7 +29,7 @@ export class AuthSingInComponent implements OnInit {
 
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.firstRun = true;
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatus;
@@ -64,7 +64,7 @@ export class AuthSingInComponent implements OnInit {
     this.formInfo.buttonSubmittedEnabled = false;
     this.hasError = false;
     this.dataModel.captchaKey = this.captchaModel.key;
-    this.dataModel.lang = this.translationService.getSelectedLanguage();
+    this.dataModel.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUser';
     this.loading.Start(pName, this.translate.instant('MESSAGE.login_to_user_account'));
     const siteId = + localStorage.getItem('siteId');

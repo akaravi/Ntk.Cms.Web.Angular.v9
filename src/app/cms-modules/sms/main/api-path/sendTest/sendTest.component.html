@@ -7,14 +7,14 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
             <!-- LinkPrivateSiteConfigId Field -->
             <app-sms-apipath-selector (optionChange)="onActionSelectPrivateSiteConfig($event)"
-                [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Direction')">
+                [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Direction' | translate">
             </app-sms-apipath-selector>
             <!-- FromNumber Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

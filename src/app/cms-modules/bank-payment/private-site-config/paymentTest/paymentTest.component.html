@@ -16,7 +16,7 @@
         <!-- LinkPrivateSiteConfigId Field -->
         <app-bankpayment-privatesiteconfig-selector (optionChange)="onActionSelectPrivateSiteConfig($event)"
           [(optionLoading)]="loading" [optionSelectForce]="dataModel.bankPaymentPrivateId"
-          [optionPlaceholder]="this.translate.instant('TITLE.Account')">
+          [optionPlaceholder]="'TITLE.Account' | translate">
         </app-bankpayment-privatesiteconfig-selector>
         <!-- RecordStatus Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

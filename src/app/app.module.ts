@@ -1,30 +1,30 @@
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { MAT_CHIPS_DEFAULT_OPTIONS } from '@angular/material/chips';
 //import { BrowserModule } from '@angular/platform-browser';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { CURRENCY_MASK_CONFIG, CurrencyMaskConfig } from 'ng2-currency-mask';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MAT_COLOR_FORMATS, MatColorFormats } from 'ngx-ntk-mat-color-picker';
 import { ToastrModule } from 'ngx-toastr';
 import { CoreAuthService, CoreConfigurationService, CoreEnumService, CoreModuleService } from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app.routing';
+import { AppRoutingModule } from './app.routes';
 import { ComponentsModule } from './components/components.module';
+import { appInitializerFactory } from './core/i18n/app.initializer.factory';
 import { CmsStoreModule } from './core/reducers/cmsStore.module';
 import { CmsAuthService } from './core/services/cmsAuth.service';
 import { SharedModule } from './shared/shared.module';
-
 
 declare module "@angular/core" {
   interface ModuleWithProviders<T = any> {
@@ -32,17 +32,8 @@ declare module "@angular/core" {
 
   }
 }
-function appInitializer(authService: CmsAuthService) {
-  return () => {
-    return new Promise((resolve) => {
-      //@ts-ignore
-      authService.getUserByToken().subscribe().add(resolve);
-    });
-  };
-}
-export function CreateTranslateLoader(http: HttpClient): any {
-  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
-}
+
+
 export const CUSTOM_MAT_COLOR_FORMATS: MatColorFormats = {
   display: {
     colorInput: 'hex'
@@ -58,12 +49,43 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   thousands: " "
 };
 @NgModule({
-  declarations: [AppComponent],
   bootstrap: [AppComponent],
+  declarations: [AppComponent],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    CoreAuthService,
+    CoreEnumService,
+    CoreModuleService,
+    CoreConfigurationService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFactory,
+      deps: [TranslateService, Injector, CmsAuthService],
+      multi: true,
+    },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    {
+      provide: MAT_CHIPS_DEFAULT_OPTIONS,
+      useValue: {
+        separatorKeyCodes: [13]
+      }
+    },
+    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
+    { provide: MAT_COLOR_FORMATS, useValue: CUSTOM_MAT_COLOR_FORMATS },
+
+  ],
   imports: [
-    //BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    //BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
+        deps: [HttpClient]
+      },
+    }),
     SharedModule.forRoot(),
     ToastrModule.forRoot({
       // timeOut: 0,
@@ -76,16 +98,11 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
       // extendedTimeOut: 0,
       extendedTimeOut: 1000,
     }),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (CreateTranslateLoader),
-        deps: [HttpClient]
-      }
-    }),
+
     CmsStoreModule.forRoot(),
     AppRoutingModule,
     NgbModule,
+
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
@@ -93,30 +110,12 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
       registrationStrategy: 'registerWhenStable:30000'
     }),
     RouterModule,
-    ComponentsModule],
-  providers: [
-    //provideHttpClient(),
-    provideHttpClient(withInterceptorsFromDi()),
-    CoreAuthService,
-    CoreEnumService,
-    CoreModuleService,
-    CoreConfigurationService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      multi: true,
-      deps: [CmsAuthService],
-    },
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    {
-      provide: MAT_CHIPS_DEFAULT_OPTIONS,
-      useValue: {
-        separatorKeyCodes: [13]
-      }
-    },
-    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
-    { provide: MAT_COLOR_FORMATS, useValue: CUSTOM_MAT_COLOR_FORMATS },
+    ComponentsModule,
 
+  ],
+
+  exports: [
+    //TranslateModule
   ]
 })
 export class AppModule { }

@@ -127,7 +127,7 @@ import { DonateTransactionViewComponent } from './transaction/view/view.componen
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
 
@@ -136,7 +136,7 @@ import { DonateTransactionViewComponent } from './transaction/view/view.componen
     MatStepperModule,
     IconPickerModule,
     DragDropModule,
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

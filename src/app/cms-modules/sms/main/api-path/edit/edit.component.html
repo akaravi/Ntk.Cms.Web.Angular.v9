@@ -39,12 +39,12 @@
           <app-sms-publicconfig-selector (optionChange)="onActionSelectSource($event)" [(optionLoading)]="loading"
             [optionDisabled]="!fieldsInfo['linkPublicConfigId']?.accessEditField"
             [optionSelectForce]="dataModel.linkPublicConfigId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Route_Type')">
+            [optionPlaceholder]="'TITLE.Route_Type' | translate">
           </app-sms-publicconfig-selector>
           <!-- LinkApiPathCompanyId Field -->
           <app-sms-apipathcompany-selector (optionChange)="onActionSelectorSelectLinkApiPathCompanyId($event)"
             [optionSelectForce]="dataModel.linkApiPathCompanyId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Service_Company')">
+            [optionPlaceholder]="'TITLE.Service_Company' | translate">
           </app-sms-apipathcompany-selector>
           <!-- ApiIdentity Field -->
           <div *ngIf="fieldsInfo['apiIdentity']?.accessWatchField"

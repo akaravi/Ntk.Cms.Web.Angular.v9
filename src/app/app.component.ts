@@ -1,3 +1,5 @@
+
+
 import {
   ChangeDetectorRef,
   Component,
@@ -18,7 +20,7 @@ import { CoreAuthService, CoreConfigurationService, CoreSiteService, CoreSiteSup
 import { environment } from 'src/environments/environment';
 import { PublicHelper } from './core/helpers/publicHelper';
 import { TokenHelper } from './core/helpers/tokenHelper';
-import { TranslationService } from './core/i18n/translation.service';
+import { CmsTranslationService } from './core/i18n/translation.service';
 import { ConnectionStatusModel } from './core/models/connectionStatusModel';
 import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
 import { CmsStoreService } from './core/reducers/cmsStore.service';
@@ -32,8 +34,7 @@ import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 
 export class AppComponent implements OnInit {
@@ -48,7 +49,7 @@ export class AppComponent implements OnInit {
     private themeService: ThemeService,
     private publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
-    private translationService: TranslationService,
+    private cmsTranslationService: CmsTranslationService,
     private singlarService: CmsSignalrService,
     private swPush: SwPush,
     private cmsToastrService: CmsToastrService,
@@ -102,8 +103,11 @@ export class AppComponent implements OnInit {
       )
       .subscribe((title: string) => {
         if (title) {
-          this.titleService.setTitle(`${this.translate.instant(title)}`);
-          this.pageInfo.updateTitle(this.translate.instant(title));
+          this.translate.get(title).subscribe((str: string) => {
+            this.titleService.setTitle(str);
+            this.pageInfo.updateTitle(str);
+          });
+
         } //set title that defines in routing's files
       });
     //end change title when route happened
@@ -204,7 +208,8 @@ export class AppComponent implements OnInit {
   }
   getServiceVer(): void {
     const pName = this.constructor.name + 'ServiceIp';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Receiving_Information_From_The_Server'));
+    
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => {this.loading.Start(pName, str);});
     this.configService.ServiceIp().subscribe({
       next: (ret) => {
         this.publicHelper.appServerVersion = ret.appVersion
@@ -230,13 +235,13 @@ export class AppComponent implements OnInit {
         appSourceVer: environment.appVersion,
         country: '',
         deviceBrand: '',
-        language: this.translationService.getSelectedLanguage(),
+        language: this.cmsTranslationService.getSelectedLanguage(),
         locationLat: '',
         locationLong: '',
         simCard: '',
         notificationId: ''
       };
-      this.translationService.setLanguage(this.translationService.getSelectedLanguage());
+      this.cmsTranslationService.setLanguage(this.cmsTranslationService.getSelectedLanguage());
       this.coreAuthService.ServiceGetTokenDevice(model).subscribe({
         next: (ret) => {
           if (ret.isSuccess && ret.item.notificationFCMPublicKey.length > 0)

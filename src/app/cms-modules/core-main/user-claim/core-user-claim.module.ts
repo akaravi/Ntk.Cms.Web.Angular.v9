@@ -111,9 +111,9 @@ import { CoreUserClaimTypeTreeComponent } from './type/tree/tree.component';
     CoreUserClaimRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

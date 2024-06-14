@@ -28,7 +28,7 @@ export class ApplicationConfigCheckUserComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -65,7 +65,7 @@ export class ApplicationConfigCheckUserComponent implements OnInit, OnDestroy {
       return;
     }
     const pName = this.constructor.name + '.ServiceCheckUser';
-    this.loading.Start(pName, this.translate.instant('TITLE.Check_account'));
+    this.translate.get('TITLE.Check_account').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceCheckUser(this.requestLinkUserId)
       .subscribe(

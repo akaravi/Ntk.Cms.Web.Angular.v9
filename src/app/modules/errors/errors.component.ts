@@ -16,13 +16,5 @@ export class ErrorsComponent implements OnInit {
 
   routeToDashboard() {
     this.router.navigate(['dashboard']);
-    // setTimeout(() => {
-    //   ToggleComponent.bootstrap();
-    //   ScrollTopComponent.bootstrap();
-    //   DrawerComponent.bootstrap();
-    //   StickyComponent.bootstrap();
-    //   MenuComponent.bootstrap();
-    //   ScrollComponent.bootstrap();
-    // }, 200);
   }
 }

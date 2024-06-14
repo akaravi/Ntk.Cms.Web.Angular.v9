@@ -70,7 +70,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
         this.requestSearchCaseCode = data.searchCaseCode + '';
     }
 
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkPropertyTypeLanduseId =
       this.activatedRoute.snapshot.paramMap.get("LinkPropertyTypeLanduseId");
     this.requestLinkPropertyTypeUsageId =
@@ -272,7 +272,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstatePropertyModel());
     const pName = this.constructor.name + "main";
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -430,8 +430,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       (this.requestLinkPropertyTypeLanduseId == null ||
         this.requestLinkPropertyTypeLanduseId.length === 0)
     ) {
-      const message = this.translate.instant('MESSAGE.Content_not_selected');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.Content_not_selected').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
 
       return;
     }
@@ -596,9 +595,12 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       return;
     }
 
-    const title = this.translate.instant('MESSAGE.Please_Confirm');
-    var message = this.translate.instant('MESSAGE.Do_you_want_to_delete_this_content');
-    message += "?" + "<br> ( " + this.tableRowSelected.title + " ) ";
+    var title = "";
+    var message = "";
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+    });
     this.cmsConfirmationDialogService
       .confirm(title, message)
       .then((confirmed) => {
@@ -755,7 +757,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_state_information'));
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)

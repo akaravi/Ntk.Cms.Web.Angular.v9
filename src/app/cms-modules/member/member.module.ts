@@ -15,6 +15,7 @@ import {
   ApplicationEnumService, CoreAuthService,
   CoreEnumService, CoreModuleService, CoreModuleTagService, MemberConfigurationService, MemberGroupService, MemberHistoryService, MemberPropertyAliasService, MemberPropertyDetailGroupService, MemberPropertyDetailService, MemberPropertyDetailValueService, MemberPropertyService, MemberPropertySiteService, MemberPropertyTypeService, MemberPropertyTypeSiteService, MemberUserGroupService, MemberUserSearchAliasService, MemberUserService, MemberUserSiteService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { MemberGroupAddComponent } from './group/add/add.component';
 import { MemberGroupDeleteComponent } from './group/delete/delete.component';
@@ -40,7 +41,6 @@ import { MemberPropertyDetailEditComponent } from './property-detail/edit/edit.c
 import { MemberPropertyDetailListComponent } from './property-detail/list/list.component';
 import { MemberPropertyDetailSelectorComponent } from './property-detail/selector/selector.component';
 import { MemberPropertyDetailTreeComponent } from './property-detail/tree/tree.component';
-import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 @NgModule({
   declarations: [
     MemberComponent,
@@ -79,14 +79,14 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     MemberRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     MatIconModule,
     MatFormFieldModule,
     MatStepperModule,
     IconPickerModule,
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

@@ -76,8 +76,7 @@
       <!-- LinkPropertyIds Field -->
       <app-estate-property-autocomplete (optionChange)="onActionSelectorProperty($event)"
         [optionDisabled]="!fieldsInfo['linkPropertyIds']?.accessEditField"
-        [optionPlaceholder]="this.translate.instant('TITLE.Property')"
-        [optionSelectForce]="this.dataModel.linkPropertyIds">
+        [optionPlaceholder]="'TITLE.Property'  | translate" [optionSelectForce]="this.dataModel.linkPropertyIds">
       </app-estate-property-autocomplete>
       <p>{{'MESSAGE.Selecting_specific_property_will_remove_all_search_fields' | translate}}</p>
       <hr>
@@ -103,31 +102,29 @@
       <!-- LinkPropertyTypeUsageIds Field -->
       <app-estate-property-type-usage-autocomplete (optionChange)="onActionSelectorSelectUsage($event)"
         *ngIf="!LinkPropertyIdsInUse" [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageIds']?.accessEditField"
-        [optionSelectForce]="dataModel.linkPropertyTypeUsageIds"
-        [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+        [optionSelectForce]="dataModel.linkPropertyTypeUsageIds" [optionPlaceholder]="'TITLE.Type_Usage' | translate">
       </app-estate-property-type-usage-autocomplete>
       <!-- LinkPropertyTypeLanduseIds Field -->
       <app-estate-property-type-landuse-autocomplete (optionChange)="onActionSelectorSelectLanduse($event)"
         *ngIf="!LinkPropertyIdsInUse" [optionDisabled]="!fieldsInfo['linkPropertyTypeLanduseIds']?.accessEditField"
         [optionSelectForce]="dataModel.linkPropertyTypeLanduseIds"
-        [optionPlaceholder]="this.translate.instant('TITLE.Property_Type')">
+        [optionPlaceholder]="'TITLE.Property_Type'  | translate">
       </app-estate-property-type-landuse-autocomplete>
       <br>
       <!-- LinkContractTypeIds Field -->
       <app-estate-contract-type-autocomplete (optionChange)="onActionSelectorContarctType($event)"
         *ngIf="!LinkPropertyIdsInUse" [optionDisabled]="!fieldsInfo['linkContractTypeIds']?.accessEditField"
-        [optionSelectForce]="dataModel.linkContractTypeIds"
-        [optionPlaceholder]="this.translate.instant('TITLE.Transaction_type')">
+        [optionSelectForce]="dataModel.linkContractTypeIds" [optionPlaceholder]="'TITLE.Transaction_type'  | translate">
       </app-estate-contract-type-autocomplete>
       <!-- linkCoreCurrencyId Field -->
       <app-cms-currency-selector [optionSelectFirstItem]="true" [optionSelectForce]="dataModel.linkCoreCurrencyId"
         *ngIf="!LinkPropertyIdsInUse" (optionChange)="onActionSelectCurrency($event)" [(optionLoading)]="loading"
-        [optionPlaceholder]="this.translate.instant('TITLE.Specify_the_transaction_currency')">
+        [optionPlaceholder]="'TITLE.Specify_the_transaction_currency'  | translate">
       </app-cms-currency-selector>
       <!-- LinkLocationIds Field -->
       <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)" *ngIf="!LinkPropertyIdsInUse"
         [optionDisabled]="!fieldsInfo['linkLocationIds']?.accessEditField" [(optionLoading)]="loading"
-        [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+        [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="'TITLE.Region' | translate">
       </app-cms-location-autocomplete>
       <br>
       {{'ACTION.SEARCH' | translate}}:

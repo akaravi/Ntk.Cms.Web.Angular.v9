@@ -21,29 +21,27 @@
 
       <!-- LinkApiPathId Field -->
       <app-sms-apipath-selector (optionChange)="onActionSelectorSelectLinkApiPathId($event)" [(optionLoading)]="loading"
-        [optionSelectForce]="dataModel.linkApiPathId" [optionPlaceholder]="this.translate.instant('TITLE.Direction')">
+        [optionSelectForce]="dataModel.linkApiPathId" [optionPlaceholder]="'TITLE.Direction' | translate">
       </app-sms-apipath-selector>
       <!-- LinkCoreUserId Field -->
       <app-cms-user-selector (optionChange)="onActionSelectorCmsUser($event)" [(optionLoading)]="loading"
         [optionDisabled]="!fieldsInfo['linkCoreUserId']?.accessAddField" [optionSelectForce]="dataModel.linkCoreUserId"
-        [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+        [optionPlaceholder]="'TITLE.USER' | translate">
       </app-cms-user-selector>
       <!-- LinkCoreSiteId Field -->
       <app-cms-site-selector (optionChange)="onActionSelectorCmsSite($event)" [(optionLoading)]="loading"
         [optionDisabled]="!fieldsInfo['linkCoreSiteId']?.accessAddField" [optionSelectForce]="dataModel.linkCoreSiteId"
-        [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
+        [optionPlaceholder]="'TITLE.SITE' | translate">
       </app-cms-site-selector>
       <!-- LinkCoreUserGroupId Field -->
       <app-cms-usergroup-selector (optionChange)="onActionSelectorCoreUserGroup($event)"
         [optionDisabled]="!fieldsInfo['linkCoreUserGroupId']?.accessAddField" [(optionLoading)]="loading"
-        [optionSelectForce]="dataModel.linkCoreUserGroupId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Type_Usage')">
+        [optionSelectForce]="dataModel.linkCoreUserGroupId" [optionPlaceholder]="'TITLE.Type_Usage' | translate">
       </app-cms-usergroup-selector>
       <!-- LinkCoreSiteCategoryId Field -->
       <app-cms-sitecategory-selector (optionChange)="onActionSelectorCoreSiteCategory($event)"
         [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField" [(optionLoading)]="loading"
-        [optionSelectForce]="dataModel.linkCoreSiteCategoryId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Site_Type')">
+        [optionSelectForce]="dataModel.linkCoreSiteCategoryId" [optionPlaceholder]="'TITLE.Site_Type' | translate">
       </app-cms-sitecategory-selector>
       <!-- RegulatorNumber Field -->
       <div *ngIf="fieldsInfo['regulatorNumber']?.accessWatchField"

@@ -49,7 +49,7 @@ import { CoreSiteCategoryCmsModuleListViewComponent } from './listview/listview.
     FormsModule,
     CoreSiteCategoryCmsModuleRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CoreModuleModule,

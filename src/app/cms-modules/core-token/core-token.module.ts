@@ -49,7 +49,7 @@ import { CoreTokenUserLogViewComponent } from './userLog/view/view.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
   ],
   declarations: [
     CoreTokenComponent,

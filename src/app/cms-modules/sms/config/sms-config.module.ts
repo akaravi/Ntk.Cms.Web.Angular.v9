@@ -39,7 +39,7 @@ import { SmsConfigRouting } from './sms-config.routing';
     FormsModule,
     SmsConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

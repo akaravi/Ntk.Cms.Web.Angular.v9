@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -21,13 +21,13 @@
             <!-- LinkUserGroupId Field -->
             <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)" [(optionLoading)]="loading"
                 [optionSelectForce]="this.dataModel.linkUserGroupId"
-                [optionPlaceholder]="this.translate.instant('TITLE.USER_CATEGORY')"
+                [optionPlaceholder]="'TITLE.USER_CATEGORY' | translate"
                 [optionDisabled]="!fieldsInfo['linkUserGroupId']?.accessEditField">
             </app-cms-usergroup-selector>
             <!-- LinkCmsSiteCategoryId Field -->
             <app-cms-sitecategory-selector (optionChange)="onActionSelectSiteCategory($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkCmsSiteCategoryId"
-                [optionPlaceholder]="this.translate.instant('TITLE.SITE_CATEGORY')"
+                [optionPlaceholder]="'TITLE.SITE_CATEGORY' | translate"
                 [optionDisabled]="!fieldsInfo['linkCmsSiteCategoryId']?.accessEditField">
             </app-cms-sitecategory-selector>
             <!-- Title Field -->

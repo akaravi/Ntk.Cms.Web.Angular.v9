@@ -24,7 +24,7 @@ export class EstatePropertySupplierSelectorComponent implements OnInit {
     public translate: TranslateService,
     public contentService: EstatePropertySupplierService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<EstatePropertySupplierModel> = new ErrorExceptionResult<EstatePropertySupplierModel>();
   dataModelSelect: EstatePropertySupplierModel = new EstatePropertySupplierModel();

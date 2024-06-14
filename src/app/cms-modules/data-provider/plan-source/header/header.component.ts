@@ -31,7 +31,7 @@ export class DataProviderPlanSourceHeaderComponent implements OnInit, OnDestroy 
     public dialog: MatDialog,
     public tokenHelper: TokenHelper
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @Input() optionId = '';
   loading = new ProgressSpinnerModel();

@@ -54,10 +54,10 @@ import { CatalogContentSelectorComponent } from './content/selector/selector.com
     CatalogRouting,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
 
   ],
   providers: [

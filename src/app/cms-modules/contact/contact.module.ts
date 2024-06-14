@@ -52,10 +52,10 @@ import { ContactContentSelectorComponent } from './content/selector/selector.com
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
-    CmsFileManagerModule.forRoot()
+    CmsFileManagerModule
   ],
   providers: [
     CoreModuleService,

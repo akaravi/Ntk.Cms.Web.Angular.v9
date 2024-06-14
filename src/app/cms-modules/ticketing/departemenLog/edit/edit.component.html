@@ -20,7 +20,7 @@
 
     <!-- LinkUserId Field -->
     <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
-      [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.SITE')"></app-cms-site-selector>
+      [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.SITE' | translate"></app-cms-site-selector>
     <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
       <div [innerHTML]="dataModel | prettyjson"></div>
     </div>

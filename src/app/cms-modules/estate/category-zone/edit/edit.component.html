@@ -25,7 +25,7 @@
           #LinkMainImageId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
           (click)="fileManagerOpenForm = true" class="form-control validate-name" id="dataModel.linkMainImageId" />
         <cms-file-manager (itemSelected)="onActionFileSelected($event)" [language]="appLanguage" [isPopup]="true"
-          [openSelectFileDescription]="this.translate.instant('TITLE.The_dimensions_of_the_photo_should_be_600_x_600')"
+          [openSelectFileDescription]="'TITLE.The_dimensions_of_the_photo_should_be_600_x_600'| translate "
           [(openForm)]="fileManagerOpenForm" [tree]="fileManagerTree" [openFilemanagerButtonLabelKey]="'select'"
           [openDirectUploadView]="true" [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
         </cms-file-manager>
@@ -76,8 +76,8 @@
       <!-- LinkLocationIds Field -->
       <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)"
         [optionDisabled]="!fieldsInfo['linkLocationIds']?.accessEditField" [(optionLoading)]="loading"
-        [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="this.translate.instant('TITLE.Region')"
-        [optionLabel]="this.translate.instant('TITLE.Geographical_Areas')">
+        [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="'TITLE.Region' | translate"
+        [optionLabel]="'TITLE.Geographical_Areas'  | translate">
       </app-cms-location-autocomplete>
       <!-- Description Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

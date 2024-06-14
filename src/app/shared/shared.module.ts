@@ -3,8 +3,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { PlatformModule } from '@angular/cdk/platform';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -46,7 +46,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import {
@@ -73,6 +74,7 @@ import {
   SmsMainApiPathService
 } from 'ntk-cms-api';
 import { CmsFileManagerModule } from 'ntk-cms-filemanager';
+import { firstValueFrom } from 'rxjs';
 import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
 import { CmsHtmlTreeActionDirective, CmsHtmlTreeBodyDirective, CmsHtmlTreeFooterDirective, CmsHtmlTreeHeaderDirective } from '../core/directive/cms-html-tree.directive';
 import { CmsRecordStatusSelfSaveDirective } from '../core/directive/cms-record-status-self-save.directive';
@@ -94,6 +96,7 @@ import { FloatComponent } from '../core/dynamic-input-builder/float/float.compon
 import { IntComponent } from '../core/dynamic-input-builder/int/int.component';
 import { StringComponent } from '../core/dynamic-input-builder/string/string.component';
 import { TextAreaComponent } from '../core/dynamic-input-builder/text-area/text-area.component';
+import { CmsTranslationService } from '../core/i18n/translation.service';
 import { HttpConfigInterceptor } from '../core/interceptor/httpConfigInterceptor';
 import { BoolStatusClassPipe } from '../core/pipe/boolStatusClass.pipe';
 import { CmsImageThumbnailPipe } from '../core/pipe/cms-image-thumbnail.pipe';
@@ -169,6 +172,8 @@ import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './material/mat
 import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
+
+
 @NgModule({
   declarations: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.
@@ -272,6 +277,103 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     ClipboardDirective,
     InlineSVGDirective, InlineSVGComponent
   ],
+
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    OverlayService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
+    { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS },
+    TranslateService,
+    MemberUserService,
+    CoreLogMemberService,
+    CoreUserService,
+    CoreUserGroupService,
+    CoreSiteService,
+    CoreSiteCategoryService,
+    CoreGuideService,
+    CoreCurrencyService,
+    CoreLocationService,
+    ApplicationAppService,
+    BankPaymentPrivateSiteConfigService,
+    BankPaymentTransactionService,
+    BankPaymentEnumService,
+    CoreModuleSiteCreditService,
+    CoreModuleSiteUserCreditService,
+    CoreModuleDataMemoService,
+    CoreModuleDataTaskService,
+    CoreModuleDataPinService,
+    CoreModuleDataCommentService,
+    SmsMainApiPathService,
+    SmsMainApiNumberService,
+    // provideHttpClient(withInterceptorsFromDi()),
+
+  ],
+
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    // TranslateModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
+        deps: [HttpClient]
+      },
+      isolate: true, // <-- PLAY WITH IT
+      extend: true // <-- PLAY WITH IT
+    }),
+    FormsModule,
+    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
+    CurrencyMaskModule,
+    NgApexchartsModule,
+    //Material
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatStepperModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    CdkTableModule,
+    PlatformModule,
+    MatTreeModule,
+    //Material
+    TreeModule,
+    LeafletModule,
+    ClipboardModule,
+    NgbDropdownModule,
+    NgbNavModule,
+    NgOtpInputModule,
+    CmsFileManagerModule.forRoot(),
+
+  ],
+
   exports: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.
     CommonModule,
@@ -416,91 +518,45 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     ClipboardIfSupportedDirective,
     ClipboardDirective,
     InlineSVGDirective,
-  ],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    FormsModule,
-    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    CurrencyMaskModule,
-    NgApexchartsModule,
-    //Material
-    MatAutocompleteModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatExpansionModule,
-    MatFormFieldModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatStepperModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    CdkTableModule,
-    PlatformModule,
-    MatTreeModule,
-    //Material
-    TreeModule,
-    LeafletModule,
-    ClipboardModule,
-    NgbDropdownModule,
-    NgbNavModule,
-    NgOtpInputModule,
-    CmsFileManagerModule.forRoot()
-  ],
-  providers: [
-    provideHttpClient(withInterceptorsFromDi()),
-    OverlayService,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
-    { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS },
-    MemberUserService,
-    CoreLogMemberService,
-    CoreUserService,
-    CoreUserGroupService,
-    CoreSiteService,
-    CoreSiteCategoryService,
-    CoreGuideService,
-    CoreCurrencyService,
-    CoreLocationService,
-    ApplicationAppService,
-    BankPaymentPrivateSiteConfigService,
-    BankPaymentTransactionService,
-    BankPaymentEnumService,
-    CoreModuleSiteCreditService,
-    CoreModuleSiteUserCreditService,
-    CoreModuleDataMemoService,
-    CoreModuleDataTaskService,
-    CoreModuleDataPinService,
-    CoreModuleDataCommentService,
-    SmsMainApiPathService,
-    SmsMainApiNumberService,
 
-  ]
+  ],
 })
 export class SharedModule {
-  static forRoot(): any {
+  /**
+ * === README ========================================================================
+ * This block is not needed if you use `isolate: false`. But with `isolate: false` you
+ * cannot read the lazy-specific translations, even if you set `extend: true`.
+ *
+ * PROBLEM: I can't have a configuration that allows reading translations from parent
+ * non-lazy modules at the same time I read the lazy loaded module files.
+ *
+ *   To make a child module extend translations from parent modules use `extend: true`.
+ *   This will cause the service to also use translations from its parent module.
+ *
+ *   You can also isolate the service by using `isolate: true`. In which case the service
+ *   is a completely isolated instance (for translations, current lang, events, ...).
+ *   Otherwise, by default, it will share its data with other instances of the service
+ *   (but you can still use a different loader/compiler/parser/handler even if you don't
+ *   isolate the service).
+ * ====================================================================================
+ * */
+  constructor(public translationService: TranslateService, public cmsTranslationService: CmsTranslationService) {
+    const currentLang = this.translationService.currentLang;
+    this.translationService.currentLang = '';
+    this.translationService.store.onLangChange.subscribe(
+      (lang: LangChangeEvent) => {
+        translationService.setDefaultLang(lang.lang);
+        console.log(' ==> LazyLoadedModule ', lang);
+
+        try {
+          firstValueFrom(translationService.use(lang.lang));
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    );
+  }
+  static forRoot(): ModuleWithProviders {
     // Forcing the whole app to use the returned providers from the AppModule only.
     return {
       ngModule: SharedModule,

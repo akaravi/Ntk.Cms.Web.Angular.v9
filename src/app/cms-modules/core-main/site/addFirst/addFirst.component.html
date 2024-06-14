@@ -39,7 +39,7 @@
           <!-- sitecategory Field -->
           <app-core-sitecategory-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
             [optionSelectFirstItem]="true" [optionSelectForce]="this.dataModel.linkSiteCategoryId"
-            [optionPlaceholder]="this.translate.instant('TITLE.System_Type')" [optionDisabled]="siteTypeId>0">
+            [optionPlaceholder]="'TITLE.System_Type' | translate " [optionDisabled]="siteTypeId>0">
           </app-core-sitecategory-selector>
 
           <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
@@ -111,7 +111,7 @@
               </div>
             </div>
             <input [(ngModel)]="dataModel.subDomain" name="subDomain" placeholder="YourSubDomain" type="text"
-              class="form-control text-left  col-4" aria-label="this.translate.instant('TITLE.Website_subdomain')" />
+              class="form-control text-left  col-4" aria-label="'TITLE.Website_subdomain'| translate " />
             <div class="input-group-prepend  col-4">
               <input type="text" class="form-control text-left" style="direction: ltr;" value="http://"
                 style="text-align: left;" dir="ltr" readonly />

@@ -74,7 +74,7 @@
           <!-- LinkCmsUserId Field -->
           <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorUser($event)"
             [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessEditField"
-            [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+            [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.USER' | translate">
           </app-cms-user-selector>
           <!-- PhoneNumber Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -112,7 +112,7 @@
           <!-- LinkLocationId Field -->
           <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
             [optionSelectForce]="dataModel.linkLocationId" [(optionLoading)]="loading"
-            [optionPlaceholder]="this.translate.instant('TITLE.Geographical_Region')"
+            [optionPlaceholder]="'TITLE.Geographical_Region'  | translate"
             [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField">
           </app-cms-location-selector>
           <br>
@@ -120,7 +120,7 @@
           <!-- linkLocationWorkAreaIds Field -->
           <app-cms-location-autocomplete (optionChange)="onActionSelectorLocationWorkArea($event)"
             [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkLocationWorkAreaIds"
-            [optionPlaceholder]="this.translate.instant('TITLE.Region')">
+            [optionPlaceholder]="'TITLE.Region' | translate">
           </app-cms-location-autocomplete>
           <hr>
           <!-- AccessWatchRowSite Field -->
@@ -236,7 +236,7 @@
           <br>
           <app-estate-account-user-selector (optionChange)="onActionSelectorAccountUser($event)"
             [(optionLoading)]="loading" [optionDisabled]="!this.tokenHelper.isAdminSite"
-            [optionPlaceholder]="this.translate.instant('TITLE.Property_personnel')">
+            [optionPlaceholder]="'TITLE.Property_personnel' | translate ">
           </app-estate-account-user-selector>
           <!-- accessShareAgencyToUser Field -->
           <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">

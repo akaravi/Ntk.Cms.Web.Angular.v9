@@ -19,16 +19,16 @@
     <!-- LinkCmsSiteId Field -->
     <app-core-site-selector (optionChange)="onActionSelectorSiteSelect($event)" [optionDisabled]="false"
       [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkSiteId"
-      [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')"></app-core-site-selector>
+      [optionPlaceholder]="'TITLE.WEBSITE' | translate"></app-core-site-selector>
     <!-- LinkuserId Field -->
     <app-core-user-selector (optionChange)="onActionSelectorUserSelect($event)" [optionDisabled]="false"
       [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkUserId"
-      [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+      [optionPlaceholder]="'TITLE.USER' | translate">
     </app-core-user-selector>
     <!-- LinkUserGroupId Field -->
     <app-core-usercategory-selector (optionChange)="onActionSelectorUserGroupSelect($event)" [optionDisabled]="false"
       [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkUserGroupId"
-      [optionPlaceholder]="this.translate.instant('TITLE.Account_Type')">
+      [optionPlaceholder]="'TITLE.Account_Type' | translate">
     </app-core-usercategory-selector>
 
     <!-- ExpireDate Field -->

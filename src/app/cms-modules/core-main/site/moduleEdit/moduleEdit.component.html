@@ -10,12 +10,12 @@
       <!-- LinkCmsSiteId Field -->
       <app-core-site-selector (optionChange)="onActionSiteSelect($event)" [optionDisabled]="false"
         [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkSiteId"
-        [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
+        [optionPlaceholder]="'TITLE.WEBSITE' | translate">
       </app-core-site-selector>
       <!-- LinkModuleId Field -->
       <app-core-module-selector (optionChange)="onActionSelectorModuleSelect($event)" [optionDisabled]="false"
         [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkModuleId"
-        [optionPlaceholder]="this.translate.instant('TITLE.MODULE')">
+        [optionPlaceholder]="'TITLE.MODULE' | translate">
       </app-core-module-selector>
       <!-- ExpireDate Field -->
       <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"

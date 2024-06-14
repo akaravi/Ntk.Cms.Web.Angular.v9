@@ -41,7 +41,7 @@ export class CoreSiteCategoryCmsModuleTreeComponent implements OnInit, OnDestroy
     private tokenHelper: TokenHelper,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @Input() set optionSelectForce(x: number | CoreSiteCategoryCmsModuleModel) {
     this.onActionSelectForce(x);
@@ -123,8 +123,7 @@ export class CoreSiteCategoryCmsModuleTreeComponent implements OnInit, OnDestroy
       id = this.dataModelSelect.id;
     }
     if (id === 0) {
-      const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 
@@ -142,9 +141,15 @@ export class CoreSiteCategoryCmsModuleTreeComponent implements OnInit, OnDestroy
       return;
     }
 
-    const title = this.translate.instant('MESSAGE.Please_Confirm');
-    const message = this.translate.instant('MESSAGE.Do_you_want_to_delete_this_content') + '?' + '<br> ( '
-      + this.dataModelSelect.virtual_CmsModule.title + '<==>' + this.dataModelSelect.virtual_CmsSiteCategory.title + ' ) ';
+
+    var title = "";
+    var message = "";
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?' + + '<br> ( '
+         + this.dataModelSelect.virtual_CmsModule.title + '<==>' + this.dataModelSelect.virtual_CmsSiteCategory.title + ' ) ';
+    });
+
     this.cmsConfirmationDialogService.confirm(title, message)
       .then((confirmed) => {
         if (confirmed) {

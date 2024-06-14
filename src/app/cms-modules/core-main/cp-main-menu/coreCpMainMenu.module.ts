@@ -44,7 +44,7 @@ import { CoreCpMainMenuTreeComponent } from './tree/tree.component';
     CoreCpMainMenuRouting,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
     CoreModuleModule,
     CoreUserGroupCmsModule,

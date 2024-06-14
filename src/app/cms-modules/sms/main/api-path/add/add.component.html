@@ -34,13 +34,12 @@
       <!-- LinkApiPathCompanyId Field -->
       <app-sms-apipathcompany-selector (optionChange)="onActionSelectorSelectLinkApiPathCompanyId($event)"
         [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiPathCompanyId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Service_Company')">
+        [optionPlaceholder]="'TITLE.Service_Company' | translate">
       </app-sms-apipathcompany-selector>
       <!-- LinkPublicConfigId Field -->
       <app-sms-publicconfig-selector (optionChange)="onActionSelectSource($event)" [(optionLoading)]="loading"
         [optionDisabled]="!fieldsInfo['linkPublicConfigId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkPublicConfigId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Account_Type')">
+        [optionSelectForce]="dataModel.linkPublicConfigId" [optionPlaceholder]="'TITLE.Account_Type' | translate">
       </app-sms-publicconfig-selector>
       <!-- Description Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

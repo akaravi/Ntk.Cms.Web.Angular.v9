@@ -39,7 +39,7 @@ import { TicketingConfigRouting } from './ticketing-config.routing';
     FormsModule,
     TicketingConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

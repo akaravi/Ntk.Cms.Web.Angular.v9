@@ -38,7 +38,7 @@ import { BlogConfigSiteComponent } from './site/config-site.component';
     FormsModule,
     BlogConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

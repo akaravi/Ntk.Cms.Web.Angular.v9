@@ -10,13 +10,13 @@
     <!-- LinkPageTemplateGuId Field -->
     <app-webdesigner-pagetemplate-selector (optionChange)="onActionSelectModule($event)" [(optionLoading)]="loading"
       [optionSelectForce]="this.dataModel.linkPageTemplateGuId"
-      [optionPlaceholder]="this.translate.instant('TITLE.Select_the_template')" [optionDisabled]="false">
+      [optionPlaceholder]="'TITLE.Select_the_template' | translate" [optionDisabled]="false">
     </app-webdesigner-pagetemplate-selector>
     <!-- LinkPageParentGuId Field -->
     <app-webdesigner-page-selector (optionChange)="onActionSelectParent($event)" [(optionLoading)]="loading"
       *ngIf="dataModel.linkPageTemplateGuId && dataModel.linkPageTemplateGuId.length>0" [optionMasterPage]="true"
-      [optionMasterTemplateId]="dataModel.linkPageTemplateGuId"
-      [optionPlaceholder]="this.translate.instant('TITLE.parent_page')" [optionDisabled]="false">
+      [optionMasterTemplateId]="dataModel.linkPageTemplateGuId" [optionPlaceholder]="'TITLE.parent_page' | translate"
+      [optionDisabled]="false">
     </app-webdesigner-page-selector>
     <!-- PageDependencyIsDefaultPage Field -->
     <div class="ntk-full-width">

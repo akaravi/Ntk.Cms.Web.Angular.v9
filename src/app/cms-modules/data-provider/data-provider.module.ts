@@ -43,6 +43,7 @@ import {
 
   DataProviderTransactionService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { DataProviderClientAddComponent } from './client/add/add.component';
 import { DataProviderClientChargePaymentComponent } from './client/charge-payment/charge-payment.component';
@@ -104,7 +105,6 @@ import { DataProviderSourceSelectorComponent } from './source/selector/selector.
 import { DataProviderSourceTreeComponent } from './source/tree/tree.component';
 import { DataProviderTransactionListComponent } from './transaction/list/list.component';
 import { DataProviderTransactionViewComponent } from './transaction/view/view.component';
-import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 @NgModule({
   declarations: [
     DataProviderComponent,
@@ -188,7 +188,7 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
 
@@ -197,7 +197,7 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     MatStepperModule,
     IconPickerModule,
     DragDropModule,
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

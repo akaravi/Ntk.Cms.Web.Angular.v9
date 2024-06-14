@@ -112,6 +112,7 @@ import { EstatePropertyListComponent } from './property/list/list.component';
 import { EstatePropertySelectorComponent } from './property/selector/selector.component';
 
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { estatePropertyProjectInfoPipe } from 'src/app/core/pipe/esate/estate-property-project-info.pipe';
 import { estatePropertySupplierInfoPipe } from 'src/app/core/pipe/esate/estate-property-supplier-info.pipe';
 import { EstateAccountAgencyAdsAddComponent } from './account-agency-ads/add/add.component';
@@ -195,7 +196,6 @@ import { EstatePropertyActionComponent } from './property/action/action.componen
 import { EstatePropertyQuickAddComponent } from './property/quick-add/quick-add.component';
 import { EstatePropertyQuickListComponent } from './property/quick-list/quick-list.component';
 import { EstatePropertyQuickViewComponent } from './property/quick-view/quick-view.component';
-import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 
 
 @NgModule({
@@ -408,7 +408,7 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     EstateRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
     CurrencyMaskModule,
     MatIconModule,
@@ -420,7 +420,7 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 
     NgxMatColorPickerModule,
     NgOptimizedImage,
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

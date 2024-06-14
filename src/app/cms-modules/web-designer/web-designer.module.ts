@@ -28,6 +28,7 @@ import {
   WebDesignerMainPageTemplateService,
   WebDesignerMainPageTemplateSiteCategoryService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CoreModuleModule } from '../core-main/module/coreModule.module';
 import { WebDesignerMainIntroAddComponent } from './intro/add/add.component';
@@ -61,7 +62,6 @@ import { WebDesignerMainPageListGridComponent } from './page/list-grid/list-grid
 import { WebDesignerMainPageListComponent } from './page/list/list.component';
 import { WebDesignerMainPageSelectorComponent } from './page/selector/selector.component';
 import { WebDesignerMainPageTreeComponent } from './page/tree/tree.component';
-import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 @NgModule({
   declarations: [
     WebDesignerComponent,
@@ -113,7 +113,7 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     WebDesignerRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     MatIconModule,
@@ -123,7 +123,7 @@ import { CmsFileManagerModule } from 'ntk-cms-filemanager';
     IconPickerModule,
     DragDropModule,
     CoreModuleModule,
-    CmsFileManagerModule.forRoot(),
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

@@ -29,7 +29,7 @@ export class CatalogContentSelectorComponent implements OnInit {
     public translate: TranslateService,
     public contentService: CatalogContentService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<CatalogContentModel> = new ErrorExceptionResult<CatalogContentModel>();
   dataModelSelect: CatalogContentModel = new CatalogContentModel();

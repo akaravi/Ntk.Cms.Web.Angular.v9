@@ -37,7 +37,7 @@ export class DataProviderClientChargePaymentComponent implements OnInit {
     public publicHelper: PublicHelper,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       if (data.linkPlanPriceId && data.linkPlanPriceId > 0) {
         this.requestLinkPlanPriceId = data.linkPlanPriceId;

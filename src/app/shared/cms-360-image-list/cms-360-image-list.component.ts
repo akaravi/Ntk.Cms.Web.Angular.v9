@@ -79,7 +79,7 @@ export class Cms360ImageListComponent implements OnInit {
   fileManagerOpenFormReport = false;
 
   ngOnInit(): void {
-    this.formInfo.formTitle = this.translate.instant('TITLE.Edit');
+    this.translate.get('TITLE.Edit').subscribe((str: string) => { this.formInfo.formTitle = str; });
 
   }
 

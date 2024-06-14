@@ -34,7 +34,7 @@ export class CoreConfigCheckSiteComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -65,7 +65,7 @@ export class CoreConfigCheckSiteComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
   }
-  
+
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
@@ -77,7 +77,7 @@ export class CoreConfigCheckSiteComponent implements OnInit, OnDestroy {
       return;
     }
     const pName = this.constructor.name + '.ServiceCheckSite';
-    this.loading.Start(pName, this.translate.instant('TITLE.Check_website'));
+    this.translate.get('MESSAGE.Check_website').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceCheckSite(this.requestLinkSiteId)
       .subscribe({

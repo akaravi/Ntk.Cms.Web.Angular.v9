@@ -60,7 +60,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   ) {
     super(contentService, new EstatePropertyModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkPropertyTypeLanduseId =
       this.activatedRoute.snapshot.paramMap.get("LinkPropertyTypeLanduseId");
     this.requestLinkPropertyTypeUsageId =
@@ -291,7 +291,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
     this.onActionTableRowSelect(new EstatePropertyModel());
     const pName = this.constructor.name + "main";
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -573,8 +573,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       (this.requestLinkPropertyTypeLanduseId == null ||
         this.requestLinkPropertyTypeLanduseId.length === 0)
     ) {
-      const message = this.translate.instant('MESSAGE.Content_not_selected');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.Content_not_selected').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
 
       return;
     }
@@ -831,9 +830,12 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       return;
     }
 
-    const title = this.translate.instant('MESSAGE.Please_Confirm');
-    var message = this.translate.instant('MESSAGE.Do_you_want_to_delete_this_content');
-    message += "?" + "<br> ( " + this.tableRowSelected.title + " ) ";
+    var title = "";
+    var message = "";
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+    });
     this.cmsConfirmationDialogService
       .confirm(title, message)
       .then((confirmed) => {
@@ -1051,7 +1053,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_state_information'));
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
@@ -1099,8 +1101,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   }
   onActionSelectorSelectUsage(model: EstatePropertyTypeUsageModel | null): void {
     if (!model || !model.id || model.id.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeWarningSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeWarningSelected(str); });
       return;
     }
     this.filteModelContent.linkPropertyTypeUsageId = model.id;
@@ -1114,8 +1115,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     this.PropertyTypeSelected = null;
     this.filteModelContent.linkPropertyTypeLanduseId = null;
     if (!model || !model.id || model.id.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeWarningSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeWarningSelected(str); });
       return;
     }
     this.DataGetPropertyDetailGroup(model.id);

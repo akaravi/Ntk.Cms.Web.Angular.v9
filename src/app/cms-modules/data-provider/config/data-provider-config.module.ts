@@ -39,7 +39,7 @@ import { DataProviderConfigSiteComponent } from './site/config-site.component';
     FormsModule,
     DataProviderConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [
