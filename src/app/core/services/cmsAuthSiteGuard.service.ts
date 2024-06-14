@@ -1,14 +1,12 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import {
-  ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot
-} from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { CoreAuthService, NtkCmsApiStoreService, SET_TOKEN_INFO, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CmsAuthSiteGuard implements CanActivate, OnDestroy {
+export class CmsAuthSiteGuard  implements OnDestroy {
   constructor(
     private coreAuthService: CoreAuthService,
     private cmsApiStore: NtkCmsApiStoreService,

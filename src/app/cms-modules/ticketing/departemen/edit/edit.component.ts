@@ -36,7 +36,7 @@ export class TicketingDepartemenEditComponent extends EditBaseComponent<Ticketin
   ) {
     super(ticketingDepartemenService, new TicketingDepartemenModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = +data.id || 0;
     }
@@ -56,7 +56,7 @@ export class TicketingDepartemenEditComponent extends EditBaseComponent<Ticketin
   fileManagerOpenForm = false;
 
   ngOnInit(): void {
-    this.formInfo.formTitle = this.translate.instant('TITLE.Edit');
+    this.translate.get('TITLE.Edit').subscribe((str: string) => { this.formInfo.formTitle = str; });
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorComponentAction();
       this.dialogRef.close({ dialogChangedDate: false });
@@ -75,7 +75,7 @@ export class TicketingDepartemenEditComponent extends EditBaseComponent<Ticketin
       this.cmsToastrService.typeErrorEditRowIsNull();
       return;
     }
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -91,7 +91,7 @@ export class TicketingDepartemenEditComponent extends EditBaseComponent<Ticketin
           this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.title;
           this.formInfo.formAlert = '';
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }
@@ -106,20 +106,20 @@ export class TicketingDepartemenEditComponent extends EditBaseComponent<Ticketin
     );
   }
   DataEditContent(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.sending_information_to_the_server'));
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
 
     this.ticketingDepartemenService.ServiceEdit(this.dataModel).subscribe(
       (next) => {
         this.dataModelResult = next;
         if (next.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+          this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           this.dialogRef.close({ dialogChangedDate: true });
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }

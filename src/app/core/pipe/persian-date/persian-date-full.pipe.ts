@@ -39,6 +39,7 @@ export class PersianDateFull {
       }
       return this.persianCalendarService.PersianCalendar(value) + ' ' + value.getHours() + ':' + value.getMinutes();
     }
+    return "";
   }
 
 }

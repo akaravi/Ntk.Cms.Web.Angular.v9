@@ -12,7 +12,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import { IconPickerModule } from 'ngx-icon-picker';
 import {
   CoreAuthService,
@@ -43,6 +43,7 @@ import {
 
   DataProviderTransactionService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { DataProviderClientAddComponent } from './client/add/add.component';
 import { DataProviderClientChargePaymentComponent } from './client/charge-payment/charge-payment.component';
@@ -187,7 +188,7 @@ import { DataProviderTransactionViewComponent } from './transaction/view/view.co
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
 
@@ -196,7 +197,7 @@ import { DataProviderTransactionViewComponent } from './transaction/view/view.co
     MatStepperModule,
     IconPickerModule,
     DragDropModule,
-    InlineSVGModule,
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

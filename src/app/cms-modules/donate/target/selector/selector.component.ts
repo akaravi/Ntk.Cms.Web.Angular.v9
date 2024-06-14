@@ -26,7 +26,7 @@ export class DonateTargetSelectorComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public categoryService: DonateTargetService) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
   }
   dataModelResult: ErrorExceptionResult<DonateTargetModel> = new ErrorExceptionResult<DonateTargetModel>();

@@ -38,7 +38,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     public dialog: MatDialog) {
     super(contentService, new ApiTelegramLogInputModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -105,7 +105,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new ApiTelegramLogInputModel());
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -192,14 +192,14 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
       return;
     }
     const statist = new Map<string, number>();
-    statist.set(this.translate.instant('MESSAGE.Active'), 0);
+    this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     statist.set('All', 0);
     const pName = this.constructor.name + '.ServiceStatist';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_the_statist'));
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.All'), ret.totalRowCount);
+          this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
         else {
@@ -222,7 +222,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     this.contentService.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.Active'), ret.totalRowCount);
+          this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
         else {
@@ -240,8 +240,7 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
   }
   onActionButtonSendMessage(model: ApiTelegramLogInputModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
-      const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
-      this.cmsToastrService.typeErrorSelected(emessage);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);

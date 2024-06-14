@@ -22,7 +22,7 @@
       </div>
 
       <app-linkmanagement-billboard-pattern-selector [(optionLoading)]="loading"
-        [optionPlaceholder]="this.translate.instant('TITLE.Alternative_classification_to_move_information_to_this_branch')">
+        [optionPlaceholder]="'TITLE.Alternative_classification_to_move_information_to_this_branch' | translate ">
       </app-linkmanagement-billboard-pattern-selector>
     </ng-container>
     <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">

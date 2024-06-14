@@ -10,7 +10,7 @@ import { CoreRoutes } from './core.routing';
     CommonModule,
     // FormsModule,
     // ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    // SharedModule.forRoot(),
+    // SharedModule,
     // AngularEditorModule,
   ],
   declarations: [

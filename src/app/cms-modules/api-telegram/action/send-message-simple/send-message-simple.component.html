@@ -11,11 +11,11 @@
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
       <div class="ntk-cms-html-card-body">
-        
+
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
         <app-api-telegram-bot-config-selector (optionChange)="onActionSelectorSelect($event)"
           [optionSelectForce]="dataModel.botId" [(optionLoading)]="loading"
-          [optionPlaceholder]="this.translate.instant('TITLE.Telegram_Bot')">
+          [optionPlaceholder]="'TITLE.Telegram_Bot' | translate">
         </app-api-telegram-bot-config-selector>
         <!-- title Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

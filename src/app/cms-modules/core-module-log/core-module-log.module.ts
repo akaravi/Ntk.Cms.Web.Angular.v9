@@ -56,7 +56,7 @@ import { CoreModuleLogSiteUserCreditViewComponent } from './site-user-credit/vie
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CmsFileManagerModule

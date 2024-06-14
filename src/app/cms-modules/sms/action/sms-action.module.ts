@@ -40,7 +40,7 @@ import { SmsActionSendMessageComponent } from './send-message/send-message.compo
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     //AngularEditorModule,
     NgxMaterialTimepickerModule,
     CronEditorModule,//cron

@@ -40,7 +40,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
   ) {
     super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingOption.cdr = this.cdr;
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -121,7 +121,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
 
   DataGetOne(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -161,10 +161,10 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
     //! for convert color to hex
     this.dataModel.bgColor = this.dataModel.bgColor?.toString();
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.sending_information_to_the_server'));
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
 
 
     this.linkManagementBillboardService
@@ -177,7 +177,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
           this.dataModelResult = ret;
           if (ret.isSuccess) {
 
-            this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+            this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
 
             //setTimeout(() => this.router.navigate(['/linkmanagement/billboard']), 1000);
@@ -253,8 +253,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
   onActionCategorySelectChecked(model: number): void {
 
     if (!model || model <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     const entity = new LinkManagementBillboardCategoryModel();
@@ -263,10 +262,10 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
     this.contentCategoryService.ServiceAdd(entity).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_in_this_group_was_successful');
+          this.translate.get('MESSAGE.registration_in_this_group_was_successful').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -283,8 +282,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
   onActionCategorySelectDisChecked(model: number): void {
 
     if (!model || model <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     const entity = new LinkManagementBillboardCategoryModel();
@@ -293,10 +291,10 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
     this.contentCategoryService.ServiceDeleteEntity(entity).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_in_this_group_was_successful');
+          this.translate.get('MESSAGE.registration_in_this_group_was_successful').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }

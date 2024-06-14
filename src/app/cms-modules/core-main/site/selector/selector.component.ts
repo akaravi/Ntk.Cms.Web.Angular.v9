@@ -27,7 +27,7 @@ export class CoreSiteSelectorComponent implements OnInit {
     public translate: TranslateService,
     public categoryService: CoreSiteService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<CoreSiteModel> = new ErrorExceptionResult<CoreSiteModel>();
   dataModelSelect: CoreSiteModel = new CoreSiteModel();

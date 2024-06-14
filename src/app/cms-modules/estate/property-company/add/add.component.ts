@@ -37,7 +37,7 @@ export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePr
   ) {
     super(contentService, new EstatePropertyCompanyModel(), publicHelper);
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -146,7 +146,7 @@ export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePr
   }
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -173,7 +173,7 @@ export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePr
           this.formInfo.formSubmitAllow = !ret.isSuccess;
           this.dataModelResult = ret;
           if (ret.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+            this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessAdd();
             setTimeout(() => this.router.navigate(['/estate/property-company/']), 1000);
           } else {
@@ -189,16 +189,6 @@ export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePr
 
       });
   }
-
-  // onActionSelectorSelect(model: ArticleCategoryModel | null): void {
-  //   if (!model || model.id <= 0) {
-  //     const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-  //     this.cmsToastrService.typeErrorSelected(message);
-  //     return;
-  //   }
-  //   this.dataModel.linkCategoryId = model.id;
-  // }
-
 
   onActionContentSimilarRemoveFromLIst(model: EstatePropertyCompanyModel | null): void {
     if (!model || model.id.length <= 0) {
@@ -235,8 +225,7 @@ export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePr
 
   onActionSelectorLocation(model: CoreLocationModel | null): void {
     if (!model || !model.id || model.id <= 0) {
-      const message = this.translate.instant('MESSAGE.Information_area_deleted');
-      this.cmsToastrService.typeWarningSelected(message);
+      this.translate.get('MESSAGE.Information_area_deleted').subscribe((str: string) => { this.cmsToastrService.typeWarningSelected(str); });
       this.dataModel.linkLocationId = null;
       return;
     }

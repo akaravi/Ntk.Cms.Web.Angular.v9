@@ -57,12 +57,12 @@
         <a *ngIf="dataModelResult.item?.aboutUsLinkTwitter?.length>0"
           href="https://twitter.com/{{dataModelResult.item?.aboutUsLinkTwitter}}" class="external-link">
           <i class="fab font-14 fa-twitter-square color-twitter"></i>
-          <span>@{{dataModelResult.item?.aboutUsLinkTwitter}}</span>
+          <span>&#64;{{dataModelResult.item?.aboutUsLinkTwitter}}</span>
           <i class="fa fa-link"></i>
         </a>
         <a *ngIf="dataModelResult.item?.aboutUsLinklinkedin?.length>0" href="#" class="border-0">
           <i class="fab font-14 fa-linkedin color-linkedin"></i>
-          <span>@{{dataModelResult.item?.aboutUsLinklinkedin}}</span>
+          <span>&#64;{{dataModelResult.item?.aboutUsLinklinkedin}}</span>
           <i class="fa fa-link"></i>
         </a>
 
@@ -175,7 +175,7 @@
   <div class="col-6 p-0" *ngIf="dataModelResult.item?.aboutUsLinkInstagram?.length>0">
     <a class="card card-style ms-1 mb-2 bg-twitter p-3">
       <i class="fab fa-twitter fa-3x color-white text-center"></i>
-      <p class="font-11 text-center pt-2 mb-0 color-white">@{{dataModelResult.item?.aboutUsLinkTwitter}}</p>
+      <p class="font-11 text-center pt-2 mb-0 color-white">&#64;{{dataModelResult.item?.aboutUsLinkTwitter}}</p>
     </a>
   </div>
   <div class="col-6 p-0" *ngIf="dataModelResult.item?.aboutUsLinkInstagram?.length>0">

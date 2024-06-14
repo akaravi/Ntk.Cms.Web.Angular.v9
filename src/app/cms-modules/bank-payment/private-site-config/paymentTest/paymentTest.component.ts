@@ -30,7 +30,7 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestLinkPrivateSiteConfigId = +data.linkPrivateSiteConfigId || 0;
     }
@@ -92,7 +92,7 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
             this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.Payment_request_was_successfully_registered'));
             this.dataModelResultGotoBank = true;
           } else {
-            this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+            this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.formInfo.formError = next.errorMessage;
             this.cmsToastrService.typeErrorMessage(next.errorMessage);
           }

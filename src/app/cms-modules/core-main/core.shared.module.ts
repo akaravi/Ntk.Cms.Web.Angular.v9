@@ -8,7 +8,7 @@ import { CoreSiteHeaderComponent } from './site/header/header.component';
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule.forRoot(),
+    SharedModule,
   ],
   declarations: [
     CoreSiteHeaderComponent,

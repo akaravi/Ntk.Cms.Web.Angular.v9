@@ -70,7 +70,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
 
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
 
     this.filterChildrecordStatus = new FilterDataModel();
@@ -422,8 +422,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   };
   onActionButtonProperty(model: EstatePropertyModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelPropertyResult.listItems, model);
@@ -452,8 +451,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   }
   onActionButtonCustomerOrder(model: EstateCustomerOrderModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 
@@ -484,8 +482,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
 
   onActionButtonHistory(model: EstatePropertyHistoryModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 
@@ -515,8 +512,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   }
   onActionButtonAccountAgency(model: EstateAccountAgencyModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 
@@ -529,8 +525,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   }
   onActionButtonAccountUser(model: EstateAccountUserModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 
@@ -544,8 +539,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
 
   onActionButtonPropertyProject(model: EstatePropertyProjectModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 
@@ -575,8 +569,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   }
   onActionButtonPropertySupplier(model: EstatePropertySupplierModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 
@@ -606,8 +599,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   }
   onActionButtonPropertyCompany(model: EstatePropertyCompanyModel, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 

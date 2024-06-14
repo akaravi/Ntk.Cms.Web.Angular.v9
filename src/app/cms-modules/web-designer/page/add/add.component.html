@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -37,19 +37,19 @@
             <app-webdesigner-pagedependency-selector (optionChange)="onActionSelectDependency($event)"
                 [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkPageDependencyGuId']?.accessAddField"
                 [optionSelectForce]="dataModel.linkPageDependencyGuId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Show_place')">
+                [optionPlaceholder]="'TITLE.Show_place' | translate">
             </app-webdesigner-pagedependency-selector>
             <app-webdesigner-pagetemplate-selector (optionChange)="onActionSelectTemplate($event)"
                 [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkPageTemplateGuId']?.accessAddField"
                 [optionSelectForce]="dataModel.linkPageTemplateGuId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Page_template')" [optionSelectFirstItem]="true">
+                [optionPlaceholder]="'TITLE.Page_template' | translate" [optionSelectFirstItem]="true">
             </app-webdesigner-pagetemplate-selector>
             <app-webdesigner-page-selector (optionChange)="onActionSelectParent($event)" [(optionLoading)]="loading"
                 *ngIf="dataModel.linkPageTemplateGuId && dataModel.linkPageTemplateGuId.length>0"
                 [optionDisabled]="!fieldsInfo['linkPageParentGuId']?.accessAddField"
                 [optionSelectForce]="dataModel.linkPageParentGuId" [optionMasterPage]="true"
                 [optionMasterTemplateId]="dataModel.linkPageTemplateGuId"
-                [optionPlaceholder]="this.translate.instant('TITLE.parent_page')">
+                [optionPlaceholder]="'TITLE.parent_page' | translate">
             </app-webdesigner-page-selector>
             <!-- PageDependencyIsDefaultPage Field -->
             <div *ngIf="fieldsInfo['pageDependencyIsDefaultPage']?.accessWatchField" class="d-flex mb-3">
@@ -71,13 +71,13 @@
                 *ngIf="dataModel.pageDependencyIsDefaultPage && fieldsInfo['pageDependencyIsDefaultPageLinkSiteCategoryId']?.accessWatchField"
                 (optionChange)="onActionSelectCategory($event)" [(optionLoading)]="loading"
                 [optionSelectForce]="this.dataModel.pageDependencyIsDefaultPageLinkSiteCategoryId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Website_Type')"
+                [optionPlaceholder]="'TITLE.Website_Type' | translate"
                 [optionDisabled]="!fieldsInfo['pageDependencyIsDefaultPageLinkSiteCategoryId']?.accessAddField">
             </app-cms-sitecategory-selector>
             <!-- KeywordModel Field -->
             <mat-form-field style="width:100%" appearance="fill">
                 <mat-label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</mat-label>
-                <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+                <mat-chip-grid #chipList aria-label="'TITLE.key_word'|translate">
                     <mat-chip *ngFor="let item of  keywordDataModel" (removed)="removeTag(item)">
                         {{item}}
                         <button matChipRemove
@@ -85,9 +85,9 @@
                             <mat-icon>cancel</mat-icon>
                         </button>
                     </mat-chip>
-                    <input [placeholder]="' + '+this.translate.instant('TITLE.key_word')" #tagInput
-                        [matChipInputAddOnBlur]="addOnBlurTag" [matChipInputFor]="chipList"
-                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addTag($event)">
+                    <input [placeholder]="'TITLE.key_word'|translate" #tagInput [matChipInputAddOnBlur]="addOnBlurTag"
+                        [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        (matChipInputTokenEnd)="addTag($event)">
                 </mat-chip-grid>
             </mat-form-field>
             <!-- SpecialIdendity Field -->

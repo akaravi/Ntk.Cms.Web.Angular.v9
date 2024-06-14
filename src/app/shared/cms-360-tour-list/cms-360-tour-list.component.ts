@@ -91,7 +91,7 @@ export class Cms360TourListComponent implements OnInit {
   fileManagerOpenFormReport = false;
 
   ngOnInit(): void {
-    this.formInfo.formTitle = this.translate.instant('TITLE.Edit');
+    this.translate.get('TITLE.Edit').subscribe((str: string) => { this.formInfo.formTitle = str; });
   }
 
   @ViewChild('container') container: ElementRef;

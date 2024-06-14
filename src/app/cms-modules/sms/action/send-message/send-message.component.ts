@@ -36,7 +36,7 @@ export class SmsActionSendMessageComponent implements OnInit {
     public translate: TranslateService,
     private router: Router
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingAction.cdr = this.cdr;
     this.requestLinkApiPathId = this.activatedRoute.snapshot.paramMap.get('LinkApiPathId');
     if (this.requestLinkApiPathId?.length > 0) {
@@ -241,7 +241,7 @@ export class SmsActionSendMessageComponent implements OnInit {
           this.formInfo.formAlert = this.translate.instant('MESSAGE.Submit_request_was_successfully_registered');
           this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.Send_request_was_successfully_registered'));
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -263,8 +263,7 @@ export class SmsActionSendMessageComponent implements OnInit {
 
   onActionContactCategorySelectChecked(model: string): void {
     if (!model || model.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     if (!this.dataModel.toContactCategories)
@@ -278,8 +277,7 @@ export class SmsActionSendMessageComponent implements OnInit {
   }
   onActionContactCategorySelectDisChecked(model: string): void {
     if (!model || model.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     if (!this.dataModel.toContactCategories)

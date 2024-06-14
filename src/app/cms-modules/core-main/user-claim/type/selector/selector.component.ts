@@ -27,7 +27,7 @@ export class CoreUserClaimTypeSelectorComponent implements OnInit {
     public translate: TranslateService,
     public categoryService: CoreUserClaimTypeService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();
   dataModelSelect: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();

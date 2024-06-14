@@ -5,7 +5,7 @@ import { NewsRouting } from './news.routing';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import {
   CoreEnumService,
   CoreModuleService,
@@ -67,11 +67,11 @@ import { NewsContentSelectorComponent } from './content/selector/selector.compon
     NewsRouting,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CmsFileManagerModule,
-    InlineSVGModule,
+
   ],
   providers: [
     CoreModuleService,

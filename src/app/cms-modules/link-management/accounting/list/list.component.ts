@@ -41,7 +41,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     public dialog: MatDialog,
   ) {
     super(contentService, new LinkManagementAccountingModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -88,7 +88,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new LinkManagementAccountingModel());
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -205,8 +205,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
   }
   onActionButtonDeleteRow(model: LinkManagementAccountingModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
-      const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
-      this.cmsToastrService.typeErrorSelected(emessage); return;
+      this.translate.get('MESSAGE.no_row_selected_to_delete').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); }); return;
     }
     this.onActionTableRowSelect(model);
 
@@ -242,14 +241,14 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
       return;
     }
     const statist = new Map<string, number>();
-    statist.set(this.translate.instant('MESSAGE.Active'), 0);
-    statist.set(this.translate.instant('MESSAGE.All'), 0);
+    this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
+    this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_the_statist'));
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.All'), ret.totalRowCount);
+          this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
@@ -271,7 +270,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     this.contentService.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.Active'), ret.totalRowCount);
+          this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
@@ -305,8 +304,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
 
   onActionButtonAccountingDetail(model: LinkManagementAccountingModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id === 0) {
-      const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);

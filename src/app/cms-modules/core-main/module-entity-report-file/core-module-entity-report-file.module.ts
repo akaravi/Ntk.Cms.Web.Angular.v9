@@ -5,6 +5,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import {
   CoreModuleEntityReportFileService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreSharedModule } from '../core.shared.module';
@@ -34,11 +35,12 @@ import { CoreModuleEntityReportFileListComponent } from './list/list.component';
     FormsModule,
     CoreModuleEntityReportFileRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CoreSharedModule,
     CoreModuleEntityModule,
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleEntityReportFileService,

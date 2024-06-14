@@ -29,7 +29,7 @@ export class BlogContentSelectorComponent implements OnInit {
     public translate: TranslateService,
     public contentService: BlogContentService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<BlogContentModel> = new ErrorExceptionResult<BlogContentModel>();
   dataModelSelect: BlogContentModel = new BlogContentModel();

@@ -38,7 +38,7 @@ export class EstateAccountAgencyAddComponent extends AddBaseComponent<EstateAcco
     public translate: TranslateService,
   ) {
     super(estateAccountAgencyService, new EstateAccountAgencyModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -65,14 +65,14 @@ export class EstateAccountAgencyAddComponent extends AddBaseComponent<EstateAcco
 
 
   ngOnInit(): void {
-    this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
+    this.translate.get('TITLE.ADD').subscribe((str: string) => { this.formInfo.formTitle = str; });
 
     this.DataGetAccess();
   }
 
 
   DataAddContent(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -81,11 +81,11 @@ export class EstateAccountAgencyAddComponent extends AddBaseComponent<EstateAcco
       next: (ret) => {
         this.dataModelResult = ret;
         if (ret.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+          this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessAdd();
           this.dialogRef.close({ dialogChangedDate: true });
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }

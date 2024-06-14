@@ -11,6 +11,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
+
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {
   ApplicationEnumService, CoreAuthService,
   CoreEnumService, CoreModuleService, CoreModuleTagService, SmsLogApiPathService, SmsLogInBoxService, SmsLogOutBoxDetailService,
@@ -18,11 +20,8 @@ import {
   SmsMainApiPathPublicConfigService,
   SmsMainApiPathService
 } from 'ntk-cms-api';
-import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-
-import { InlineSVGModule } from 'ng-inline-svg-2';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { DynamicFormBuilderModule } from 'src/app/core/dynamic-form-builder/dynamic-form-builder.module';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SmsSharedModule } from '../sms.shared.module';
 import { SmsLogApiPathListComponent } from './api-path/list/list.component';
 import { SmsLogInBoxEditComponent } from './inbox/edit/edit.component';
@@ -68,7 +67,7 @@ import { SmsLogOutBoxViewComponent } from './outbox/view/view.component';
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
 
@@ -78,7 +77,7 @@ import { SmsLogOutBoxViewComponent } from './outbox/view/view.component';
     DynamicFormBuilderModule,
     NgxMaterialTimepickerModule,
     SmsSharedModule,
-    InlineSVGModule,
+
   ],
   providers: [
     CoreModuleService,

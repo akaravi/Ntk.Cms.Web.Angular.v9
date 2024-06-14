@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CoreCpMainMenuService } from 'ntk-cms-api';
+import { CmsTranslationService } from '../core/i18n/translation.service';
 import { SharedModule } from '../shared/shared.module';
 import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
@@ -31,10 +32,14 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     MenuInstallPwaAndroidComponent,
     ScrollTopComponent,
   ],
+  providers: [
+    CoreCpMainMenuService,
+    CmsTranslationService
+  ],
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule.forRoot(),
+    SharedModule,
   ],
   exports: [
     MenuMainComponent,
@@ -49,9 +54,7 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     MenuInstallPwaAndroidComponent,
     ScrollTopComponent,
   ],
-  providers: [
-    CoreCpMainMenuService
-  ]
+
 })
 
 export class ComponentsModule { }

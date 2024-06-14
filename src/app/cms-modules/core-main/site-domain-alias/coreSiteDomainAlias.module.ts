@@ -40,7 +40,7 @@ import { CoreSiteModule } from '../site/coreSite.module';
     CoreSiteDomainAliasRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CoreSiteModule

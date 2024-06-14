@@ -28,15 +28,15 @@
       </div>
       <!-- LinkUserId Field -->
       <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
-        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.SITE')">
+        [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.SITE' | translate">
       </app-cms-site-selector>
       <!-- LinkUserId Field -->
       <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
-        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+        [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.USER' | translate">
       </app-cms-user-selector>
       <!-- LinkMemberId Field -->
       <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
-        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Member')">
+        [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Member' | translate">
       </app-cms-member-selector>
       <!-- ModuleName Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

@@ -39,14 +39,14 @@
     </div>
     <!-- LinkSiteId Field -->
     <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
-      [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')"></app-cms-site-selector>
+      [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.WEBSITE' | translate"></app-cms-site-selector>
 
     <!-- LinkUserId Field -->
     <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
-      [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')"></app-cms-user-selector>
+      [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.USER' | translate"></app-cms-user-selector>
     <!-- LinkMemberId Field -->
     <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
-      [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.Member')">
+      [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Member' | translate">
     </app-cms-member-selector>
     <!-- LinkDeviceId Field -->
     <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

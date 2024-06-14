@@ -32,7 +32,7 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
     public translate: TranslateService,
   ) {
     super(webDesignerMainIntroService, new WebDesignerMainIntroModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -70,7 +70,7 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
 
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -81,7 +81,7 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
           this.formInfo.formSubmitAllow = !next.isSuccess;
           this.dataModelResult = next;
           if (next.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+            this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
             setTimeout(() => this.router.navigate(['/webdesigner/intro/']), 1000);
           } else {

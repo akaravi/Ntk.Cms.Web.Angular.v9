@@ -169,5 +169,6 @@ export class PersianCalendarService {
       }
       this.year = this.gregorianYear - 622;
     }
+    return "";
   }
 }

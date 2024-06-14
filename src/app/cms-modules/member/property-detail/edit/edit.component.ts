@@ -41,7 +41,7 @@ export class MemberPropertyDetailEditComponent extends EditBaseComponent<MemberP
   ) {
     super(memberPropertyDetailService, new MemberPropertyDetailModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = data.id;
     }
@@ -64,7 +64,7 @@ export class MemberPropertyDetailEditComponent extends EditBaseComponent<MemberP
   fileManagerOpenForm = false;
 
   ngOnInit(): void {
-    this.formInfo.formTitle = this.translate.instant('TITLE.Edit');
+    this.translate.get('TITLE.Edit').subscribe((str: string) => { this.formInfo.formTitle = str; });
     if (!this.requestId || this.requestId === 0) {
       this.cmsToastrService.typeErrorComponentAction();
       this.dialogRef.close({ dialogChangedDate: false });
@@ -83,7 +83,7 @@ export class MemberPropertyDetailEditComponent extends EditBaseComponent<MemberP
 
   DataGetOneContent(): void {
 
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -99,7 +99,7 @@ export class MemberPropertyDetailEditComponent extends EditBaseComponent<MemberP
           this.formInfo.formTitle = this.formInfo.formTitle + ' ' + ret.item.title;
           this.formInfo.formAlert = '';
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -113,20 +113,20 @@ export class MemberPropertyDetailEditComponent extends EditBaseComponent<MemberP
     );
   }
   DataEditContent(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.sending_information_to_the_server'));
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
 
     this.memberPropertyDetailService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
         this.dataModelResult = ret;
         if (ret.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+          this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           this.dialogRef.close({ dialogChangedDate: true });
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -144,16 +144,14 @@ export class MemberPropertyDetailEditComponent extends EditBaseComponent<MemberP
   }
   onActionSelectorSelect(model: MemberPropertyTypeModel | null): void {
     if (!model || !model.id || model.id <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.dataModel.linkPropertyTypeId = model.id;
   }
   onActionSelectorDetailGroup(model: MemberPropertyDetailGroupModel | null): void {
     if (!model || !model.id || model.id <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.dataModel.linkPropertyDetailGroupId = model.id;

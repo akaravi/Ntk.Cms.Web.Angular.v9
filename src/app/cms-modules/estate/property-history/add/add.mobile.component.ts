@@ -85,7 +85,7 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
   dataModelEstateActivityStatusEnumResult: ErrorExceptionResult<InfoEnumModel> =
     new ErrorExceptionResult<InfoEnumModel>();
   ngOnInit(): void {
-    this.formInfo.formTitle = this.translate.instant('TITLE.ADD');
+    this.translate.get('TITLE.ADD').subscribe((str: string) => { this.formInfo.formTitle = str; });
 
     this.DataGetAccess();
     this.getEstateActivityStatusEnum();

@@ -81,7 +81,7 @@ export class PageInfoService {
   public calculateTitleInMenu(menuId: string): string | undefined {
     const menu = document.getElementById(menuId);
     if (!menu) {
-      return;
+      return null;
     }
 
     const allActiveMenuLinks = Array.from<HTMLLinkElement>(
@@ -89,14 +89,14 @@ export class PageInfoService {
     ).filter((link) => link.classList.contains('active'));
 
     if (!allActiveMenuLinks || allActiveMenuLinks.length === 0) {
-      return;
+      return null;
     }
 
     const titleSpan = allActiveMenuLinks[0].querySelector(
       'span.menu-title'
     ) as HTMLSpanElement | null;
     if (!titleSpan) {
-      return;
+      return null;
     }
 
     return titleSpan.innerText;
@@ -119,7 +119,7 @@ export class PageInfoService {
     const result: Array<PageLinkModel> = [];
     const menu = document.getElementById(menuId);
     if (!menu) {
-      return;
+      return null;
     }
 
     const allActiveParents = Array.from<HTMLDivElement>(
@@ -127,7 +127,7 @@ export class PageInfoService {
     ).filter((link) => link.classList.contains('here'));
 
     if (!allActiveParents || allActiveParents.length === 0) {
-      return;
+      return null;
     }
 
     allActiveParents.forEach((parent) => {
@@ -135,13 +135,13 @@ export class PageInfoService {
         'span.menu-title'
       ) as HTMLSpanElement | null;
       if (!titleSpan) {
-        return;
+        return null;
       }
 
       const title = titleSpan.innerText;
       const path = titleSpan.getAttribute('data-link');
       if (!path) {
-        return;
+        return null;
       }
 
       result.push({

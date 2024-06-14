@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -21,7 +21,7 @@
             <!-- Title Field -->
             <app-core-guide-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
                 [optionDisabled]="false" [optionSelectForce]="dataModel.linkParentId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Parent_Menu')">
+                [optionPlaceholder]="'TITLE.Parent_Menu' | translate">
             </app-core-guide-selector>
             <!-- Key Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -47,16 +47,14 @@
                 </div>
                 <!-- DescriptionFa Field -->
                 <p> Description Fa </p>
-                <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')"
-                    [config]="publicHelper.editorConfig" id="DescriptionFa" [(ngModel)]="dataModel.descriptionFa"
-                    name="dataModel.descriptionFa">
+                <angular-editor [placeholder]="'TITLE.Enter_Text' | translate" [config]="publicHelper.editorConfig"
+                    id="DescriptionFa" [(ngModel)]="dataModel.descriptionFa" name="dataModel.descriptionFa">
                 </angular-editor>
                 <br>
                 <!-- BodyFa Field -->
                 <p> Body Fa </p>
-                <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text_Body')"
-                    [config]="publicHelper.editorConfig" id="BodyFa" [(ngModel)]="dataModel.bodyFa"
-                    name="dataModel.bodyFa">
+                <angular-editor [placeholder]="'TITLE.Enter_Text_Body' | translate" [config]="publicHelper.editorConfig"
+                    id="BodyFa" [(ngModel)]="dataModel.bodyFa" name="dataModel.bodyFa">
                 </angular-editor>
                 <br>
                 <!-- LinkFilePodcastIdFa Field -->
@@ -114,15 +112,14 @@
             </div>
             <!-- DescriptionEn Field -->
             <p> Description En </p>
-            <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')"
-                [config]="publicHelper.editorConfig" id="DescriptionEn" [(ngModel)]="dataModel.descriptionEn"
-                name="dataModel.descriptionEn">
+            <angular-editor [placeholder]="'TITLE.Enter_Text' | translate" [config]="publicHelper.editorConfig"
+                id="DescriptionEn" [(ngModel)]="dataModel.descriptionEn" name="dataModel.descriptionEn">
             </angular-editor>
             <br>
             <!-- BodyEn Field -->
             <p> Body En </p>
-            <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text_Body')"
-                [config]="publicHelper.editorConfig" id="BodyEn" [(ngModel)]="dataModel.bodyEn" name="dataModel.bodyEn">
+            <angular-editor [placeholder]="'TITLE.Enter_Text_Body' | translate" [config]="publicHelper.editorConfig"
+                id="BodyEn" [(ngModel)]="dataModel.bodyEn" name="dataModel.bodyEn">
             </angular-editor>
             <br>
             <!-- LinkFilePodcastIdEn Field -->
@@ -177,16 +174,14 @@
                 </div>
                 <!-- DescriptionAr Field -->
                 <p> Description Ar </p>
-                <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')"
-                    [config]="publicHelper.editorConfig" id="DescriptionAr" [(ngModel)]="dataModel.descriptionAr"
-                    name="dataModel.descriptionAr">
+                <angular-editor [placeholder]="'TITLE.Enter_Text' | translate" [config]="publicHelper.editorConfig"
+                    id="DescriptionAr" [(ngModel)]="dataModel.descriptionAr" name="dataModel.descriptionAr">
                 </angular-editor>
                 <br>
                 <!-- BodyAr Field -->
                 <p> Body Ar </p>
-                <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text_Body')"
-                    [config]="publicHelper.editorConfig" id="BodyAr" [(ngModel)]="dataModel.bodyAr"
-                    name="dataModel.bodyAr">
+                <angular-editor [placeholder]="'TITLE.Enter_Text_Body' | translate" [config]="publicHelper.editorConfig"
+                    id="BodyAr" [(ngModel)]="dataModel.bodyAr" name="dataModel.bodyAr">
                 </angular-editor>
                 <br>
                 <!-- LinkFilePodcastIdAr Field -->
@@ -244,15 +239,14 @@
             </div>
             <!-- DescriptionDe Field -->
             <p> Description De</p>
-            <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text')"
-                [config]="publicHelper.editorConfig" id="DescriptionDe" [(ngModel)]="dataModel.descriptionDe"
-                name="dataModel.descriptionDe">
+            <angular-editor [placeholder]="'TITLE.Enter_Text' | translate" [config]="publicHelper.editorConfig"
+                id="DescriptionDe" [(ngModel)]="dataModel.descriptionDe" name="dataModel.descriptionDe">
             </angular-editor>
             <br>
             <!-- Body De Field -->
             <p> Body De </p>
-            <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_Text_Body')"
-                [config]="publicHelper.editorConfig" id="BodyDe" [(ngModel)]="dataModel.bodyDe" name="dataModel.bodyDe">
+            <angular-editor [placeholder]="'TITLE.Enter_Text_Body' | translate" [config]="publicHelper.editorConfig"
+                id="BodyDe" [(ngModel)]="dataModel.bodyDe" name="dataModel.bodyDe">
             </angular-editor>
             <br>
             <!-- LinkFilePodcastIdDe Field -->

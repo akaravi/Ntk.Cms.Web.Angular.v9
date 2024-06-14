@@ -20,6 +20,18 @@ import { ArticleConfigSiteComponent } from './site/config-site.component';
     ArticleConfigCheckSiteComponent,
     /*Config*/
   ],
+  providers: [
+    CoreModuleService,
+    ArticleConfigurationService,
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ArticleConfigRouting,
+    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
+    SharedModule,
+    AngularEditorModule,
+  ],
   exports: [
     /*Config*/
     ArticleConfigMainAdminComponent,
@@ -28,18 +40,6 @@ import { ArticleConfigSiteComponent } from './site/config-site.component';
     ArticleConfigCheckSiteComponent,
     /*Config*/
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ArticleConfigRouting,
-    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
-    AngularEditorModule,
-  ],
-  providers: [
-    CoreModuleService,
-    ArticleConfigurationService,
-  ]
 })
 export class ArticleConfigModule {
 }

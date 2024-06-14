@@ -34,7 +34,7 @@ export class ArticleContentDeleteComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = +data.id || 0;
     }
@@ -59,7 +59,7 @@ export class ArticleContentDeleteComponent implements OnInit {
       this.cmsToastrService.typeErrorDeleteRowIsNull();
       return;
     }
-    this.formInfo.formAlert = this.translate.instant('TITLE.Loading_Information');
+    this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'fieldInfoConvertor';
     this.loading.Start(pName);
     this.contentService.setAccessLoad();
@@ -72,7 +72,7 @@ export class ArticleContentDeleteComponent implements OnInit {
 
           this.dataModelResultContent = ret;
           if (!ret.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+            this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.formInfo.formError = ret.errorMessage;
             this.formInfo.formErrorStatus = true;
             this.cmsToastrService.typeErrorGetOne();
@@ -82,7 +82,7 @@ export class ArticleContentDeleteComponent implements OnInit {
           this.loading.Stop(pName);
         },
         error: (er) => {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formErrorStatus = true;
           this.cmsToastrService.typeError(er);
           this.loading.Stop(pName);
@@ -105,18 +105,18 @@ export class ArticleContentDeleteComponent implements OnInit {
         next: (ret) => {
           this.formInfo.formSubmitAllow = !ret.isSuccess;
           if (!ret.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+            this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.formInfo.formError = ret.errorMessage;
             this.cmsToastrService.typeErrorRemove();
           } else {
-            this.formInfo.formAlert = this.translate.instant('MESSAGE.Deletion_Was_Successful');
+            this.translate.get('MESSAGE.Deletion_Was_Successful').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.dialogRef.close({ dialogChangedDate: true });
           }
           this.formInfo.buttonSubmittedEnabled = true;
           this.loading.Stop(pName);
         },
         error: (er) => {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;

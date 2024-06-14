@@ -38,7 +38,7 @@ import { CoreConfigSiteComponent } from './site/config-site.component';
     FormsModule,
     CoreConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

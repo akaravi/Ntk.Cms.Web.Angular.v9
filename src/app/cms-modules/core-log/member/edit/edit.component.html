@@ -13,7 +13,7 @@
     <form #vform="ngForm">
       <!-- LinkCoreUserId Field -->
       <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkCoreUserId"
-        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+        [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.USER' | translate">
       </app-cms-user-selector>
       <!-- Description Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

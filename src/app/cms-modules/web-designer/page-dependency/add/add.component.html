@@ -50,7 +50,7 @@
       </div>
       <!-- LinkModuleId Field -->
       <app-cms-module-selector (optionChange)="onActionSelectModule($event)" [(optionLoading)]="loading"
-        [optionSelectForce]="this.dataModel.linkModuleId" [optionPlaceholder]="this.translate.instant('TITLE.MODULE')"
+        [optionSelectForce]="this.dataModel.linkModuleId" [optionPlaceholder]="'TITLE.MODULE' | translate"
         [optionDisabled]="!fieldsInfo['linkModuleId']?.accessAddField">
       </app-cms-module-selector>
       <!-- CmsModuleClassName Field -->

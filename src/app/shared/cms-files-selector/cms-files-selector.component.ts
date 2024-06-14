@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FilePreviewModel } from 'ngx-awesome-uploader/lib/file-preview.model';
+import { FilePreviewModel } from 'ngx-ntk-file-picker';
+
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';

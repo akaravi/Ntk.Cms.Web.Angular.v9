@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -97,7 +97,7 @@
             </div>
             <!-- RuleHtmlBody Field -->
             {{'TITLE.rules' | translate}}
-            <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_the_text_of_the_rules')"
+            <angular-editor [placeholder]="'TITLE.Enter_the_text_of_the_rules' | translate"
                 [config]="publicHelper.editorConfig" id="main" [(ngModel)]="dataModel.ruleHtmlBody"
                 name="dataModel.ruleHtmlBody">
             </angular-editor>

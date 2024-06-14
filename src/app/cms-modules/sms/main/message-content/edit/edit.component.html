@@ -22,7 +22,7 @@
       <!-- LinkCategoryId Field -->
       <app-sms-main-message-category-selector (optionChange)="onActionSelectCategory($event)"
         [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkCategoryId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+        [optionPlaceholder]="'TITLE.Category' | translate">
       </app-sms-main-message-category-selector>
       <!-- Title Field -->
       <div *ngIf="fieldsInfo['title']?.accessWatchField"

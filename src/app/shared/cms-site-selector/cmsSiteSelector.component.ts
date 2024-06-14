@@ -25,7 +25,7 @@ export class CmsSiteSelectorComponent implements OnInit {
     public translate: TranslateService,
     public categoryService: CoreSiteService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     if (localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY)) {
       this.lastSelectSiteId = localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY).split(',').map(function (item) {

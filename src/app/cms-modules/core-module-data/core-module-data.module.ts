@@ -42,7 +42,7 @@ import { CoreModuleDataTaskViewComponent } from './task/view/view.component';
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CmsFileManagerModule

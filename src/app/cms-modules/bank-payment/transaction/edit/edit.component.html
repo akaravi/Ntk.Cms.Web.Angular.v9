@@ -51,12 +51,11 @@
       </div>
       <!-- LinkPrivateSiteConfigId Field -->
       <app-bankpayment-privatesiteconfig-selector [optionDisabled]="true" [(optionLoading)]="loading"
-        [optionSelectForce]=" this.dataModel.linkPrivateSiteConfigId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Account')">
+        [optionSelectForce]=" this.dataModel.linkPrivateSiteConfigId" [optionPlaceholder]="'TITLE.Account' | translate">
       </app-bankpayment-privatesiteconfig-selector>
       <!-- LinkUserId Field -->
       <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]=" this.dataModel.linkUserId"
-        [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')"></app-cms-user-selector>
+        [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.USER' | translate"></app-cms-user-selector>
       <!-- LinkUserId Field -->
       <app-cms-json-list [dataModel]="dataModel" [optionMethod]="1"></app-cms-json-list>
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">

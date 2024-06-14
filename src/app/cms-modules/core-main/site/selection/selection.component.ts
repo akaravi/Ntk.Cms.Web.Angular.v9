@@ -11,7 +11,7 @@ import {
   FilterModel,
   FormInfoModel
 } from 'ntk-cms-api';
-import { TranslationService } from 'src/app/core/i18n/translation.service';
+import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
@@ -26,7 +26,7 @@ export class CoreSiteSelectionComponent implements OnInit {
 
   constructor(
     private coreAuthService: CoreAuthService,
-    private translationService: TranslationService,
+    private cmsTranslationService: CmsTranslationService,
     private coreSiteUserService: CoreSiteUserService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
@@ -34,7 +34,7 @@ export class CoreSiteSelectionComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loading.cdr = cdr;
     if (localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY)) {
       this.lastSelectSiteId = localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY).split(',').map(function (item) {
@@ -111,7 +111,7 @@ export class CoreSiteSelectionComponent implements OnInit {
     let authModel: AuthRenewTokenModel;
     authModel = new AuthRenewTokenModel();
     authModel.siteId = id;
-    authModel.lang = this.translationService.getSelectedLanguage();
+    authModel.lang = this.cmsTranslationService.getSelectedLanguage();
 
 
     const pName = this.constructor.name + '.ServiceRenewToken';

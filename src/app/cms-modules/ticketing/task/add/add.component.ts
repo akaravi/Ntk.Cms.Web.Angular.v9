@@ -35,7 +35,7 @@ export class TicketingTaskAddComponent extends AddBaseComponent<TicketingTaskSer
     public translate: TranslateService,
   ) {
     super(ticketingTaskService, new TicketingTaskModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -74,7 +74,7 @@ export class TicketingTaskAddComponent extends AddBaseComponent<TicketingTaskSer
 
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -88,7 +88,7 @@ export class TicketingTaskAddComponent extends AddBaseComponent<TicketingTaskSer
           this.formInfo.formSubmitAllow = !next.isSuccess;
           this.dataModelResult = next;
           if (next.isSuccess) {
-            this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+            this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
             setTimeout(() => this.router.navigate(['/ticketing/task/']), 1000);
           } else {

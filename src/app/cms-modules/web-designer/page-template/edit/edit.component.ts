@@ -36,7 +36,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
   ) {
     super(webDesignerMainPageTemplateService, new WebDesignerMainPageTemplateModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = data.id + '';
     }
@@ -57,7 +57,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
   dataWebDesignerMainPageTemplateSiteCategoryModel: WebDesignerMainPageTemplateSiteCategoryModel[];
   ngOnInit(): void {
     if (this.requestId.length > 0) {
-      this.formInfo.formTitle = this.translate.instant('TITLE.Edit');
+      this.translate.get('TITLE.Edit').subscribe((str: string) => { this.formInfo.formTitle = str; });
       this.DataGetOneContent();
     } else {
       this.cmsToastrService.typeErrorComponentAction();
@@ -69,7 +69,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
   }
 
   DataGetOneContent(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -83,7 +83,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
           this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.title;
           this.formInfo.formAlert = '';
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }
@@ -97,7 +97,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     );
   }
   DataEditContent(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -106,11 +106,11 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
         this.formInfo.formSubmitAllow = true;
         this.dataModelResult = next;
         if (next.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+          this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           this.dialogRef.close({ dialogChangedDate: true });
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }
@@ -124,7 +124,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     );
   }
   DataGetAllSourceSiteCategory(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService';
     this.loading.Start(pName);
@@ -144,7 +144,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
         if (next.isSuccess) {
           this.formInfo.formAlert = '';
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }
@@ -168,11 +168,11 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.webDesignerMainPageTemplateSiteCategoryService.ServiceAdd(entity).subscribe(
       (next) => {
         if (next.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_in_this_group_was_successful');
+          this.translate.get('MESSAGE.registration_in_this_group_was_successful').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           // this.dialogRef.close({ dialogChangedDate: true });
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }
@@ -194,11 +194,11 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity(entity).subscribe(
       (next) => {
         if (next.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.Deletion_from_this_group_Was_Successful');
+          this.translate.get('MESSAGE.Deletion_from_this_group_Was_Successful').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           // this.dialogRef.close({ dialogChangedDate: true });
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }

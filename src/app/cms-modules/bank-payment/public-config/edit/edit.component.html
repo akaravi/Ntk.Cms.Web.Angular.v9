@@ -42,7 +42,7 @@
       <!-- LinkCurrencyId Field -->
       <app-cms-currency-selector (optionChange)="onActionSelectCurrency($event)" [(optionLoading)]="loading"
         [optionDisabled]="!fieldsInfo['linkCurrencyId']?.accessEditField" [optionSelectForce]="dataModel.linkCurrencyId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Financial_Unit')">
+        [optionPlaceholder]="'TITLE.Financial_Unit' | translate">
       </app-cms-currency-selector>
       <!-- Memo Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

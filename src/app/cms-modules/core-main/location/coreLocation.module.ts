@@ -15,6 +15,7 @@ import { CoreLocationTreeComponent } from './tree/tree.component';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CoreLocationAddBulkComponent } from './add-bulk/add-bulk.component';
 
@@ -43,11 +44,9 @@ import { CoreLocationAddBulkComponent } from './add-bulk/add-bulk.component';
     FormsModule,
     CoreLocationRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
-
-    // CmsFileManagerModule
-
+    CmsFileManagerModule,
   ],
   providers: [
     CoreLocationService,

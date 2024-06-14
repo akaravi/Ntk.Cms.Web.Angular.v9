@@ -27,13 +27,13 @@
       <!-- LinkAdsTypeId Field -->
       <app-estate-ads-type-selector (optionChange)="onActionSelectorSelectLinkAdsTypeId($event)"
         [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkAdsTypeId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkAdsTypeId" [optionPlaceholder]="this.translate.instant('TITLE.Ad_type_ID')">
+        [optionSelectForce]="dataModel.linkAdsTypeId" [optionPlaceholder]="'TITLE.Ad_type_ID' | translate ">
       </app-estate-ads-type-selector>
       <!-- LinkPropertyId Field -->
       <app-estate-property-selector (optionChange)="onActionSelectorSelectLinkPropertyId($event)"
         [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkPropertyId']?.accessAddField"
         [optionSelectForce]="dataModel.linkPropertyId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Property_ID')">
+        [optionPlaceholder]="'TITLE.Property_ID' | translate ">
       </app-estate-property-selector>
       <!-- StationLevel Field -->
       <div *ngIf="fieldsInfo['stationLevel']?.accessWatchField"

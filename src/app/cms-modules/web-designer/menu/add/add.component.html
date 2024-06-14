@@ -23,7 +23,7 @@
 
           <app-webdesigner-menu-selector (optionChange)="onActionSelectorSelect($event)" [optionDisabled]="false"
             [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkParentId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Parent_Menu')">
+            [optionPlaceholder]="'TITLE.Parent_Menu' | translate">
           </app-webdesigner-menu-selector>
           <!-- Title Field -->
           <div *ngIf="fieldsInfo['title']?.accessWatchField"

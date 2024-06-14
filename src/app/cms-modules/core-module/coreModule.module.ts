@@ -38,7 +38,7 @@ import { CoreModuleTagCategoryTreeComponent } from './tagCategory/tree/tree.comp
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CmsFileManagerModule

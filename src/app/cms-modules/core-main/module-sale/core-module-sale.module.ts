@@ -9,6 +9,7 @@ import {
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModuleSaleItemAddComponent } from './Item/add/add.component';
@@ -141,9 +142,9 @@ import { CoreModuleSaleSerialTreeComponent } from './serial/tree/tree.component'
     FormsModule,
     CoreModuleSaleRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
-
+    CmsFileManagerModule,
 
   ],
   providers: [

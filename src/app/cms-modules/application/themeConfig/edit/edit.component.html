@@ -46,7 +46,7 @@
       <!-- LinkSourceId Field -->
       <app-application-source-selector (optionChange)="onActionSelectSource($event)" [(optionLoading)]="loading"
         [optionDisabled]="!fieldsInfo['linkSourceId']?.accessEditField" [optionSelectForce]="dataModel.linkSourceId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Application_Source')">
+        [optionPlaceholder]="'TITLE.Application_Source' | translate">
       </app-application-source-selector>
       <!-- TypeId Field -->
       <div *ngIf="fieldsInfo['typeId']?.accessWatchField"

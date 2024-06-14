@@ -36,7 +36,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
     public translate: TranslateService,
     private router: Router
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingAction.cdr = this.cdr;
 
   }
@@ -171,7 +171,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
           this.formInfo.formAlert = this.translate.instant('MESSAGE.Submit_request_was_successfully_registered');
           this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.Send_request_was_successfully_registered'));
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }

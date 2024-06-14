@@ -26,7 +26,7 @@ export class EstatePropertyTypeUsageSelectionlistComponent implements OnInit, On
     public translate: TranslateService,
     public tokenHelper: TokenHelper,
     private cmsToastrService: CmsToastrService) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
   dataModelSelect: EstatePropertyTypeUsageModel[] = [];

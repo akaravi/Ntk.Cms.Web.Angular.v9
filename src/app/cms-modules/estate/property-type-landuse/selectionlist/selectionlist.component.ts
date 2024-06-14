@@ -26,7 +26,7 @@ export class EstatePropertyTypeLanduseSelectionlistComponent implements OnInit, 
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
   dataModelSelect: EstatePropertyTypeLanduseModel[] = [];

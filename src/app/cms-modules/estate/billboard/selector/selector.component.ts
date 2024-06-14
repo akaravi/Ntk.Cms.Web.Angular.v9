@@ -26,7 +26,7 @@ export class EstateBillboardSelectorComponent implements OnInit {
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     public categoryService: EstateBillboardService) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<EstateBillboardModel> = new ErrorExceptionResult<EstateBillboardModel>();
   dataModelSelect: EstateBillboardModel = new EstateBillboardModel();

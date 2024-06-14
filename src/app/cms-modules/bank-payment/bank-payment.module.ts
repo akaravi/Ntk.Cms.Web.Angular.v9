@@ -9,6 +9,7 @@ import { BankPaymentRoutes } from './bank-payment.routing';
 import {
   BankPaymentConfigurationService, BankPaymentEnumService, BankPaymentPrivateSiteConfigService, BankPaymentPublicConfigService, BankPaymentTransactionLogService, BankPaymentTransactionService, CoreAuthService, CoreCurrencyService, CoreEnumService, CoreModuleService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { DynamicFormBuilderModule } from 'src/app/core/dynamic-form-builder/dynamic-form-builder.module';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { BankPaymentPrivateSiteConfigAddComponent } from './private-site-config/add/add.component';
@@ -57,10 +58,11 @@ import { BankPaymentTransactionViewComponent } from './transaction/view/view.com
     BankPaymentRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
-    DynamicFormBuilderModule
+    DynamicFormBuilderModule,
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

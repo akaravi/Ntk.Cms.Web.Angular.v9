@@ -193,7 +193,7 @@
         <div class="cms-m-container-body">
           <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
             [(optionLoading)]="loading" *ngIf="fieldsInfo['linkEstateUserId']?.accessWatchField"
-            [optionSelectForce]="dataModel.linkEstateUserId" [optionPlaceholder]="this.translate.instant('TITLE.USER')"
+            [optionSelectForce]="dataModel.linkEstateUserId" [optionPlaceholder]="'TITLE.USER' | translate"
             [style.direction]="this.tokenHelper.directionTheme">
           </app-estate-account-user-selector>
           <br />
@@ -201,22 +201,20 @@
           <app-estate-account-agency-selector *ngIf="fieldsInfo['linkEstateAgencyId']?.accessWatchField"
             (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
             [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
-            [optionPlaceholder]="
-              this.translate.instant('TITLE.Property_agency')
-            " [style.direction]="this.tokenHelper.directionTheme">
+            [optionPlaceholder]="'TITLE.Property_agency' | translate"
+            [style.direction]="this.tokenHelper.directionTheme">
           </app-estate-account-agency-selector>
           <br />
           <!-- LinkPropertyId Field -->
           <app-estate-property-selector (optionChange)="onActionSelectorProperty($event)" [(optionLoading)]="loading"
             *ngIf="fieldsInfo['linkPropertyId']?.accessWatchField" [optionSelectForce]="dataModel.linkPropertyId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Property')"
+            [optionPlaceholder]="'TITLE.Property'  | translate"
             [style.direction]="this.tokenHelper.directionTheme"></app-estate-property-selector>
           <br />
           <!-- linkCustomerOrderId Field -->
           <app-estate-customer-order-selector (optionChange)="onActionSelectorCustomerOrderId($event)"
             [(optionLoading)]="loading" *ngIf="fieldsInfo['linkCustomerOrderId']?.accessWatchField"
-            [optionSelectForce]="dataModel.linkCustomerOrderId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Customer')"
+            [optionSelectForce]="dataModel.linkCustomerOrderId" [optionPlaceholder]="'TITLE.Customer'  | translate"
             [style.direction]="this.tokenHelper.directionTheme"></app-estate-customer-order-selector>
         </div>
         <div class="cms-m-container-footer">

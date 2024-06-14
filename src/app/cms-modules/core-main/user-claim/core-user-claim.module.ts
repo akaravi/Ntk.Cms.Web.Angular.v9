@@ -8,6 +8,7 @@ import {
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreUserClaimContentAddComponent } from './content/add/add.component';
@@ -110,10 +111,9 @@ import { CoreUserClaimTypeTreeComponent } from './type/tree/tree.component';
     CoreUserClaimRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
-
-
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

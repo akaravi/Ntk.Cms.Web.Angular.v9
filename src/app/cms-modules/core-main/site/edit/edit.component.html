@@ -43,12 +43,12 @@
           <!-- LinkSiteCategoryId Field -->
           <app-core-sitecategory-selector (optionChange)="onActionSelectCategory($event)" [(optionLoading)]="loading"
             [optionSelectForce]="this.dataModel.linkSiteCategoryId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Website_Type')"
+            [optionPlaceholder]="'TITLE.Website_Type' | translate"
             [optionDisabled]="!fieldsInfo['linkSiteCategoryId']?.accessEditField"></app-core-sitecategory-selector>
           <!-- linkCreatedBySiteId Field -->
           <app-core-site-selector (optionChange)="onActionSelectCreatedBy($event)" [(optionLoading)]="loading"
             [optionSelectForce]="this.dataModel.linkCreatedBySiteId"
-            [optionPlaceholder]="this.translate.instant('TITLE.Parent_Site')"
+            [optionPlaceholder]="'TITLE.Parent_Site' | translate"
             [optionDisabled]="!fieldsInfo['linkCreatedBySiteId']?.accessEditField"></app-core-site-selector>
           <!-- Title Field -->
           <div *ngIf="fieldsInfo['title']?.accessWatchField"
@@ -471,16 +471,16 @@
           <!-- KeywordModel Field -->
           <mat-form-field style="width:100%" appearance="fill">
             <mat-label>{{'TITLE.Choose_keywords_relative_to_the_content' | translate}}</mat-label>
-            <mat-chip-grid #chipList aria-label="this.translate.instant('TITLE.key_word')">
+            <mat-chip-grid #chipList aria-label="'TITLE.key_word'|translate">
               <mat-chip *ngFor="let item of  keywordDataModel" (removed)="removeTag(item)">
                 {{item}}
                 <button matChipRemove class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                   <mat-icon>cancel</mat-icon>
                 </button>
               </mat-chip>
-              <input [placeholder]="' + '+this.translate.instant('TITLE.key_word')" #tagInput
-                [matChipInputAddOnBlur]="addOnBlurTag" [matChipInputFor]="chipList"
-                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addTag($event)">
+              <input [placeholder]="'TITLE.key_word'|translate" #tagInput [matChipInputAddOnBlur]="addOnBlurTag"
+                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addTag($event)">
             </mat-chip-grid>
           </mat-form-field>
           <!-- CurrentSiteDomainUrl Field -->
@@ -894,7 +894,7 @@
             </div>
           </div>
           <div class="mb-12">
-            <angular-editor [placeholder]="this.translate.instant('TITLE.Enter_the_user_privacy_text')"
+            <angular-editor [placeholder]="'TITLE.Enter_the_user_privacy_text' | translate"
               [config]="publicHelper.editorConfigFull" id="main"
               *ngIf="fieldsInfo['aboutUsPrivacyPolicyHtmlBody']?.accessWatchField"
               [disabled]="!fieldsInfo['aboutUsPrivacyPolicyHtmlBody']?.accessEditField"
@@ -959,13 +959,13 @@
           <app-cms-user-selector [optionDisabled]="!fieldsInfo['linkResellerUserId']?.accessEditField"
             [optionSelectForce]="dataModel.linkResellerUserId" [(optionLoading)]="loading"
             (optionChange)="onActionSelectorLinkResellerUserIdSelect($event)"
-            [optionPlaceholder]="this.translate.instant('TITLE.Representative_User')">
+            [optionPlaceholder]="'TITLE.Representative_User' | translate ">
           </app-cms-user-selector>
           <!-- LinkResellerSiteId Field -->
           <app-cms-site-selector [optionDisabled]="!fieldsInfo['linkResellerSiteId']?.accessEditField"
             [optionSelectForce]="dataModel.linkResellerSiteId" [(optionLoading)]="loading"
             (optionChange)="onActionSelectorLinkResellerSiteIdSelect($event)"
-            [optionPlaceholder]="this.translate.instant('TITLE.Representative_Site')">
+            [optionPlaceholder]="'TITLE.Representative_Site' | translate ">
           </app-cms-site-selector>
           <!-- HasAccountingForm Field -->
           <div class="d-flex mb-3">
@@ -1016,7 +1016,7 @@
             <mat-datepicker touchUi #AccountingFormUpdatedDate></mat-datepicker>
           </div>
           <div class="mb-12">
-            <angular-editor [placeholder]="this.translate.instant('TITLE.Memory_Accounting')"
+            <angular-editor [placeholder]="'TITLE.Memory_Accounting'| translate "
               [config]="publicHelper.editorConfigFull" id="main" *ngIf="fieldsInfo['accountingMemo']?.accessWatchField"
               [disabled]="!fieldsInfo['accountingMemo']?.accessEditField" [(ngModel)]="dataModel.accountingMemo"
               name="dataModel.accountingMemo">

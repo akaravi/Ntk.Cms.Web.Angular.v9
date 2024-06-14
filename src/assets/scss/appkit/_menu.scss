@@ -29,7 +29,7 @@ $theme-light-menu-hider: rgba(0,0,0,0.35);
     }
 }
 .menu-bg {
-	background-color: $theme-light-background; 
+	background-color: $theme-light-background;
 }
 .menu-hider {
 	position: fixed;
@@ -56,6 +56,19 @@ $theme-light-menu-hider: rgba(0,0,0,0.35);
 		margin-bottom: 0px !important;
 	}
 }
+.menu-custom {/*karavi*/
+	position: fixed;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    /*backdrop-filter: saturate(180%) blur(20px);*/
+    /*background-color: $translucentMenuLight;*/
+	z-index: 101;
+	overflow: scroll;
+	transition: $globalTransitions;
+	-webkit-overflow-scrolling: touch;
+	.content {
+		margin-bottom: 0px !important;
+	}
+}
 .menu-box-left {
 	left: 0px;
 	top: 0px !important;
@@ -73,6 +86,16 @@ $theme-light-menu-hider: rgba(0,0,0,0.35);
 	bottom: 0px;
 	width: 250px;
 }
+.menu-box-right-custom {
+  display:none;
+right: 0px;
+transform: translateX(100%);
+top: 100px !important;
+height: 100%;
+bottom: 0px;
+width: 250px;
+}
+
 //.menu-header .card-top{
 //    padding-top: calc(4px + (constant(safe-area-inset-top))) !important;
 //    padding-top: calc(4px + (env(safe-area-inset-top))) !important;
@@ -111,6 +134,7 @@ $theme-light-menu-hider: rgba(0,0,0,0.35);
 }
 .menu-box-left.menu-active {transform: translate3d(0%, 0, 0) !important;}
 .menu-box-right.menu-active {transform: translate3d(0%, 0, 0) !important;}
+.menu-box-right-custom.menu-active {transform: translate3d(0%, 0, 0) !important;}
 .menu-box-top.menu-active {transform: translate3d(0%, 0, 0) !important;}
 .is-on-homescreen {
 	.menu-box-top.menu-active {
@@ -144,6 +168,12 @@ $theme-light-menu-hider: rgba(0,0,0,0.35);
 	z-index: 96;
 }
 .menu-box-right[data-menu-effect="menu-reveal"] {
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(0px) !important;
+	z-index: 96;
+}
+.menu-box-right-custom[data-menu-effect="menu-reveal"] {
 	opacity: 0;
 	pointer-events: none;
 	transform: translate(0px) !important;
@@ -335,7 +365,7 @@ $theme-light-menu-hider: rgba(0,0,0,0.35);
     padding:6px 9px!important;
     font-size:10px!important;
     font-weight:500!important;
-    margin-right:2px; 
+    margin-right:2px;
     transform:translateY(-2px);
     border:0px!important;
     border-radius:8px;

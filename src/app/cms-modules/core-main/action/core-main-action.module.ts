@@ -32,7 +32,7 @@ import { CoreMainActionSendNotificationComponent } from './send-notification/sen
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     //AngularEditorModule,
     NgxMaterialTimepickerModule,
     CronEditorModule,//cron

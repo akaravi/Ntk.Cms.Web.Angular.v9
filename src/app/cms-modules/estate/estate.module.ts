@@ -21,8 +21,14 @@ import { EstateComponent } from './estate.component';
 import { EstateRoutes } from './estate.routing';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+
 import { IconPickerModule } from 'ngx-icon-picker';
 import { NgxMatColorPickerModule } from 'ngx-ntk-mat-color-picker';
+import { estateAccountAgencyInfoPipe } from 'src/app/core/pipe/esate/estate-account-agency-info.pipe';
+import { estateAccountUserInfoPipe } from 'src/app/core/pipe/esate/estate-account-user-info.pipe';
+import { estateCustomerOrderInfoPipe } from 'src/app/core/pipe/esate/estate-customer-order-info.pipe';
+import { estatePropertyCompanyInfoPipe } from 'src/app/core/pipe/esate/estate-property-company-info.pipe';
+import { estatePropertyInfoPipe } from 'src/app/core/pipe/esate/estate-property-info.pipe';
 import { EstateAccountAgencyUserAddComponent } from './account-agency-user/add/add.component';
 import { EstateAccountAgencyUserListComponent } from './account-agency-user/list/list.component';
 import { EstateAccountAgencyAddComponent } from './account-agency/add/add.component';
@@ -105,14 +111,8 @@ import { EstatePropertyHeaderComponent } from './property/header/header.componen
 import { EstatePropertyListComponent } from './property/list/list.component';
 import { EstatePropertySelectorComponent } from './property/selector/selector.component';
 
-import { InlineSVGModule } from 'ng-inline-svg-2';
-import { estateAccountAgencyInfoPipe } from 'src/app/core/pipe/esate/estate-account-agency-info.pipe';
-import { estateAccountUserInfoPipe } from 'src/app/core/pipe/esate/estate-account-user-info.pipe';
-import { estateCustomerOrderInfoPipe } from 'src/app/core/pipe/esate/estate-customer-order-info.pipe';
-import { estatePropertyCompanyInfoPipe } from 'src/app/core/pipe/esate/estate-property-company-info.pipe';
-import { estatePropertyInfoPipe } from 'src/app/core/pipe/esate/estate-property-info.pipe';
-
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { estatePropertyProjectInfoPipe } from 'src/app/core/pipe/esate/estate-property-project-info.pipe';
 import { estatePropertySupplierInfoPipe } from 'src/app/core/pipe/esate/estate-property-supplier-info.pipe';
 import { EstateAccountAgencyAdsAddComponent } from './account-agency-ads/add/add.component';
@@ -408,7 +408,7 @@ import { EstatePropertyQuickViewComponent } from './property/quick-view/quick-vi
     EstateRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
     CurrencyMaskModule,
     MatIconModule,
@@ -417,9 +417,10 @@ import { EstatePropertyQuickViewComponent } from './property/quick-view/quick-vi
     IconPickerModule,
     DragDropModule,
     NgxMatColorPickerModule,
-    InlineSVGModule,
+
     NgxMatColorPickerModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

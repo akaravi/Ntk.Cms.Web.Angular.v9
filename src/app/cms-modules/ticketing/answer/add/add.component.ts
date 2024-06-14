@@ -37,7 +37,7 @@ export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswe
     public translate: TranslateService,
   ) {
     super(ticketingAnswerService, new TicketingAnswerModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {
       this.requestLinkTaskId = +data.linkTaskId || 0;
@@ -85,7 +85,7 @@ export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswe
 
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -95,7 +95,7 @@ export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswe
       this.formInfo.formSubmitAllow = !next.isSuccess;
       this.dataModelResult = next;
       if (next.isSuccess) {
-        this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+        this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
         this.cmsToastrService.typeSuccessAdd();
         setTimeout(() => { this.dialogRef.close({ dialogChangedDate: true }); }, 1000);
       } else {

@@ -47,7 +47,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
   ) {
     super(contentService, new CoreModuleSiteModel(), publicHelper, tokenHelper);
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkModuleId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkModuleId'));
     if (this.requestLinkSiteId > 0) {
@@ -283,8 +283,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
 
   onActionButtonDeleteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
-      const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
-      this.cmsToastrService.typeErrorSelected(emessage);
+      this.translate.get('MESSAGE.no_row_selected_to_delete').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
@@ -299,8 +298,12 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     }
 
 
-    const title = this.translate.instant('MESSAGE.Please_Confirm');
-    const message = this.translate.instant('MESSAGE.Do_you_want_to_delete_this_content') + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+    var title = "";
+    var message = "";
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+    });
     this.cmsConfirmationDialogService.confirm(title, message)
       .then((confirmed) => {
         if (confirmed) {
@@ -342,15 +345,15 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
       return;
     }
     const statist = new Map<string, number>();
-    statist.set(this.translate.instant('MESSAGE.Active'), 0);
+    this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     statist.set('Expired Date', 0);
-    statist.set(this.translate.instant('MESSAGE.All'), 0);
+    this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_the_statist'));
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.All'), ret.totalRowCount);
+          this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
@@ -372,7 +375,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.contentService.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.Active'), ret.totalRowCount);
+          this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
@@ -407,8 +410,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
   }
   onActionButtonConfigSiteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
-      const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
-      this.cmsToastrService.typeErrorSelected(emessage);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
@@ -416,8 +418,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
   }
   onActionButtonConfigMainAdminRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
-      const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
-      this.cmsToastrService.typeErrorSelected(emessage);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
@@ -425,8 +426,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
   }
   onActionButtonSiteCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
-      const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
-      this.cmsToastrService.typeErrorSelected(emessage);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
@@ -440,8 +440,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
   }
   onActionButtonSiteUserCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
-      const emessage = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
-      this.cmsToastrService.typeErrorSelected(emessage);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);

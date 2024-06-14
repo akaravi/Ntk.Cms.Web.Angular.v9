@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { CoreGuideService } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -21,9 +21,7 @@ export class CmsGuideinfoComponent implements OnInit, OnDestroy {
   @Input() btnOkText: string;
   show = true;
   constructor(
-    // private activeModal: NgbActiveModal,
     private tokenHelper: TokenHelper,
-    private modalService: NgbModal,
     private coreGuideService: CoreGuideService,
     private cmsToastrService: CmsToastrService,
   ) { }
@@ -81,7 +79,7 @@ export class CmsGuideinfoComponent implements OnInit, OnDestroy {
                   break;
                 }
               }
-              this.open(content);
+              this.openModal(content);
             } else {
               this.cmsToastrService.typeErrorMessage(next.errorMessage);
             }
@@ -127,7 +125,7 @@ export class CmsGuideinfoComponent implements OnInit, OnDestroy {
                   break;
                 }
               }
-              this.open(content);
+              this.openModal(content);
             } else {
               this.cmsToastrService.typeErrorMessage(next.errorMessage);
             }
@@ -138,24 +136,27 @@ export class CmsGuideinfoComponent implements OnInit, OnDestroy {
       ).toPromise();
 
     } else if (this.description && this.description.length > 0) {
-      this.open(content);
+      this.openModal(content);
     }
   }
-  open(content): void {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+  openModal(content): void {
+    //karavi error on angular 18//
+    // this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    //   this.closeResult = `Closed with: ${result}`;
+    // }, (reason) => {
+    //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    // });
   }
   private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+    //karavi error on angular 18//
+    // if (reason === ModalDismissReasons.ESC) {
+    //   return 'by pressing ESC';
+    // } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+    //   return 'by clicking on a backdrop';
+    // } else {
+    //   return `with: ${reason}`;
+    // }
+    return "";
   }
 
 }

@@ -37,7 +37,7 @@ import { LinkManagementConfigSiteComponent } from './site/config-site.component'
     FormsModule,
     LinkManagementConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

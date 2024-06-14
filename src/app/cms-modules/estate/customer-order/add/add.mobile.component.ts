@@ -50,7 +50,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
     this.linkParentId = this.activatedRoute.snapshot.paramMap.get('LinkParentId');
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -193,7 +193,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   DataEditContent(actionSubmit = false): void {
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.sending_information_to_the_server'));
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.estateCustomerOrderService.setAccessLoad
     this.estateCustomerOrderService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -458,17 +458,17 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
           if (ret.isSuccess) {
             this.dataModelEstatePropertyResult = ret;
 
-         
-            } else {
-              this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
-            }
-            this.loading.Stop(pName);
-          },
-          error: (er) => {
-            this.cmsToastrService.typeError(er)
-            this.loading.Stop(pName);
+
+          } else {
+            this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
           }
+          this.loading.Stop(pName);
+        },
+        error: (er) => {
+          this.cmsToastrService.typeError(er)
+          this.loading.Stop(pName);
         }
+      }
       );
     // **requestLinkCustomerOrderId*/
   }
@@ -495,8 +495,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   }
   onActionSelectorSelectUsage(model: EstatePropertyTypeUsageModel | null): void {
     if (!model || !model.id || model.id.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeWarningSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeWarningSelected(str); });
       return;
     }
     this.dataModel.linkPropertyTypeUsageId = model.id;
@@ -512,8 +511,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
     this.PropertyTypeSelected = null;
     this.dataModel.linkPropertyTypeLanduseId = null;
     if (!model || !model.id || model.id.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeWarningSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeWarningSelected(str); });
       return;
     }
     this.PropertyTypeSelected = model;
@@ -596,8 +594,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
 
   onActionSelectorSelect(model: EstateCustomerCategoryModel | null): void {
     if (!model || model.id.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.dataModel.linkEstateCustomerCategoryId = model.id;

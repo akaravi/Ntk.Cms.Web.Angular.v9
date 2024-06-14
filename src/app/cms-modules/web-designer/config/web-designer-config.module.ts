@@ -34,7 +34,7 @@ import { WebDesignerConfigRouting } from './web-designer-config.routing';
     FormsModule,
     WebDesignerConfigRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
   ],
   providers: [

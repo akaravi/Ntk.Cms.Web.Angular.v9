@@ -38,7 +38,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
     FormsModule,
     CoreCurrencyRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CmsFileManagerModule

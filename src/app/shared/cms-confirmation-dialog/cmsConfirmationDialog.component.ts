@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ConfirmDialogModel } from './cmsConfirmationDialog.service';
+
 
 @Component({
   selector: 'app-confirmation-dialog',
@@ -13,21 +15,18 @@ export class ConfirmationDialogComponent implements OnInit {
   @Input() btnOkText: string;
   @Input() btnCancelText: string;
 
-  constructor(private activeModal: NgbActiveModal) { }
-
+  //constructor(private activeModal: NgbActiveModal) { }
+  constructor(public dialogRef: MatDialogRef<ConfirmationDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogModel) { }
   ngOnInit(): void {
   }
 
-  public decline(): void {
-    this.activeModal.close(false);
+  public onDismiss(): void {
+    this.dialogRef.close(false);
   }
 
-  public accept(): void {
-    this.activeModal.close(true);
+  public onConfirm(): void {
+    this.dialogRef.close(true);
   }
 
-  public dismiss(): void {
-    this.activeModal.dismiss();
-  }
 
 }

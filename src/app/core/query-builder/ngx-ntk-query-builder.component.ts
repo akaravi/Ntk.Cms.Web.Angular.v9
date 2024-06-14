@@ -22,17 +22,14 @@ export class NgxQueryBuilderComponent implements OnInit, ControlValueAccessor {
   @Input() parent: QueryRuleSet;
   @Input() index: number;
   @Input() set language(value: string) {
-    // if (value && value.length > 0) {
-    //   this.translate.use(value);
-    // }
+
   }
 
   constructor(
     public translate: TranslateService,
     public operatorsService: OperatorsService
   ) {
-    // translate.setDefaultLang('en');
-    // translate.use('en');
+
   }
   ngOnInit(): void {
     if (typeof this.fieldMap !== 'object') {

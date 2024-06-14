@@ -1,9 +1,10 @@
-﻿import { ClipboardModule } from '@angular/cdk/clipboard';
+﻿import { TreeModule } from '@ali-hm/angular-tree-component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { PlatformModule } from '@angular/cdk/platform';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -44,11 +45,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { TreeModule } from '@circlon/angular-tree-component';
 import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { InlineSVGModule } from 'ng-inline-svg-2';
-
+import { LangChangeEvent, TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 import {
   ApplicationAppService,
   BankPaymentEnumService,
@@ -73,19 +74,17 @@ import {
   SmsMainApiPathService
 } from 'ntk-cms-api';
 import { CmsFileManagerModule } from 'ntk-cms-filemanager';
-import { PersianDate } from '../core/pipe/persian-date/persian-date.pipe';
-import { TruncatePipe } from '../core/pipe/truncate.pipe';
-import { CmsExportListComponent } from './cms-export-list/cmsExportList.component';
-import { CmsMapComponent } from './cms-map/cms-map.component';
-import { CmsSearchListComponent } from './cms-search-list/cms-search-list.component';
-import { CmsStatistListComponent } from './cms-statist-list/cms-statist-list.component';
-
-
-import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { firstValueFrom } from 'rxjs';
+import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
 import { CmsHtmlTreeActionDirective, CmsHtmlTreeBodyDirective, CmsHtmlTreeFooterDirective, CmsHtmlTreeHeaderDirective } from '../core/directive/cms-html-tree.directive';
 import { CmsRecordStatusSelfSaveDirective } from '../core/directive/cms-record-status-self-save.directive';
 import { DirDirective } from '../core/directive/dir.directive';
+import { InlineSVGComponent } from '../core/directive/inline-svg.component';
+import { InlineSVGDirective } from '../core/directive/inline-svg.directive';
 import { MatInputCommifiedDirective } from '../core/directive/mat-input-commified.directive';
+import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
+import { ClipboardIfSupportedDirective } from '../core/directive/ngx-clipboard-if-supported.directive';
+import { ClipboardDirective } from '../core/directive/ngx-clipboard.directive';
 import { PhoneDirective } from '../core/directive/phone.directive';
 import { RunScriptsDirective } from '../core/directive/runScripts.directive';
 import { SelfSaveDirective } from '../core/directive/self-save.directive';
@@ -97,6 +96,7 @@ import { FloatComponent } from '../core/dynamic-input-builder/float/float.compon
 import { IntComponent } from '../core/dynamic-input-builder/int/int.component';
 import { StringComponent } from '../core/dynamic-input-builder/string/string.component';
 import { TextAreaComponent } from '../core/dynamic-input-builder/text-area/text-area.component';
+import { CmsTranslationService } from '../core/i18n/translation.service';
 import { HttpConfigInterceptor } from '../core/interceptor/httpConfigInterceptor';
 import { BoolStatusClassPipe } from '../core/pipe/boolStatusClass.pipe';
 import { CmsImageThumbnailPipe } from '../core/pipe/cms-image-thumbnail.pipe';
@@ -108,13 +108,17 @@ import { EnumsPipe } from '../core/pipe/enums.pipe';
 import { FirstLetterPipe } from '../core/pipe/first-letter.pipe';
 import { ListKeysPipe } from '../core/pipe/list-keys.pipe';
 import { PersianDateFull } from '../core/pipe/persian-date/persian-date-full.pipe';
+import { PersianDate } from '../core/pipe/persian-date/persian-date.pipe';
 import { PrettyjsonPipe } from '../core/pipe/prettyjson.pipe';
 import { RecordStatusCellClassPipe } from '../core/pipe/recordStatusCellClass.pipe';
 import { RecordStatusIconClassPipe } from '../core/pipe/recordStatusIconClass.pipe';
 import { ReplaceTextPipe } from '../core/pipe/repalaceTest.pip';
 import { SafePipe } from '../core/pipe/safe.pipe';
 import { SafeHtmlPipe } from '../core/pipe/safeHtml.pipe';
+import { SortTypeIconClassPipe } from '../core/pipe/sortTypeIconClass.pipe';
+import { TruncatePipe } from '../core/pipe/truncate.pipe';
 import { ValueArrayPipe } from '../core/pipe/valueArray.pipe';
+import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-builder.component';
 import { Cms360ImageListComponent } from './cms-360-image-list/cms-360-image-list.component';
 import { Cms360TourListComponent } from './cms-360-tour-list/cms-360-tour-list.component';
 import { CmsAccessInfoComponent } from './cms-access-info/cms-access-info.component';
@@ -124,7 +128,14 @@ import { CmsBankpaymentTransactionInfoComponent } from './cms-bankpayment-transa
 import { CmsContactCategoryTreeSelectorComponent } from './cms-contact-category-tree-selector/cms-contact-category-tree-selector.component';
 import { CmsContactContentSelectionListComponent } from './cms-contact-content-selection-list/cms-contact-content-selection-list.component';
 import { CmsCurrencySelectorComponent } from './cms-currency-selector/cms-currency-selector.component';
+import { CmsDataCommentComponent } from './cms-data-comment/cms-data-comment.component';
+import { CmsDataMemoComponent } from './cms-data-memo/cms-data-memo.component';
+import { CmsDataPinComponent } from './cms-data-pin/cms-data-pin.component';
+import { CmsDataTaskComponent } from './cms-data-task/cms-data-task.component';
+import { CmsEnumRecordStatusSelectorComponent } from './cms-enum-record-status-selector/cms-enum-record-status-selector.component';
+import { CmsEnumXSelectorComponent } from './cms-enum-x-selector/cms-enum-x-selector.component';
 import { CmsExportEntityComponent } from './cms-export-entity/cms-export-entity.component';
+import { CmsExportListComponent } from './cms-export-list/cmsExportList.component';
 import { CmsFilesSelectorComponent } from './cms-files-selector/cms-files-selector.component';
 import { CmsFormBuilderPropertiesComponent } from './cms-form-builder-properties/cms-form-builder-properties.component';
 import { CmsGuideinfoComponent } from './cms-guide-info/cms-guide-info.component';
@@ -138,20 +149,11 @@ import { CmsJsonListComponent } from './cms-json-list/cmsJsonList.component';
 import { CmsLinkToComponent } from './cms-link-to/cms-link-to.component';
 import { CmsLocationCompleteComponent } from './cms-location-autocomplete/cms-location-autocomplete.component';
 import { CmsLocationSelectorComponent } from './cms-location-selector/cms-location-selector.component';
+import { CmsMapComponent } from './cms-map/cms-map.component';
 import { CmsMemberSelectorComponent } from './cms-member-selector/cmsMemberSelector.component';
-
-import { NgApexchartsModule } from 'ng-apexcharts';
-import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
-import { MatVerticalStepperScrollerDirective } from '../core/directive/mat-vertical-stepper.directive';
-import { SortTypeIconClassPipe } from '../core/pipe/sortTypeIconClass.pipe';
-import { CmsDataCommentComponent } from './cms-data-comment/cms-data-comment.component';
-import { CmsDataMemoComponent } from './cms-data-memo/cms-data-memo.component';
-import { CmsDataPinComponent } from './cms-data-pin/cms-data-pin.component';
-import { CmsDataTaskComponent } from './cms-data-task/cms-data-task.component';
-import { CmsEnumRecordStatusSelectorComponent } from './cms-enum-record-status-selector/cms-enum-record-status-selector.component';
-import { CmsEnumXSelectorComponent } from './cms-enum-x-selector/cms-enum-x-selector.component';
 import { CmsModuleSelectorComponent } from './cms-module-selector/cms-module-selector.component';
 import { CmsQDocComponent } from './cms-qdoc/cms-qdoc.component';
+import { CmsSearchListComponent } from './cms-search-list/cms-search-list.component';
 import { CmsShowKeyComponent } from './cms-show-key/cms-show-key.component';
 import { CmsSiteCategorySelectionListComponent } from './cms-site-category-selection-list/cmsSiteCategorySelectionList.component';
 import { CmsSiteCategorySelectorComponent } from './cms-site-category-selector/cmsSiteCategorySelector.component';
@@ -160,26 +162,169 @@ import { CmsSiteSelectorComponent } from './cms-site-selector/cmsSiteSelector.co
 import { CmsSiteUserCreditViewComponent } from './cms-site-user-credit-view/cms-site-user-credit-view.component';
 import { CmsSmsMainApiNumberSelectorComponent } from './cms-sms-api-number-selector/cms-sms-api-number-selector.component';
 import { CmsSmsMainApiPathSelectorComponent } from './cms-sms-apipath-selector/cms-sms-apipath-selector.component';
+import { CmsStatistListComponent } from './cms-statist-list/cms-statist-list.component';
 import { CmsTagAutocompleteComponent } from './cms-tag-autocomplete/cms-tag-autocomplete.component';
 import { CmsTokenAccessComponent } from './cms-token-access/cmsTokenAccess.component';
 import { CmsUserGroupSelectorComponent } from './cms-user-group-selector/cmsUserGroupSelector.component';
 import { CmsUserSelectorComponent } from './cms-user-selector/cmsUserSelector.component';
 import { CmsViewComponent } from './cms-view/cms-view.component';
-import { CodePreviewComponent } from './code-preview/code-preview.component';
-import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './material/material.persian-date.adapter';
 import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
-import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-builder.component';
+
 
 @NgModule({
+  declarations: [
+    // common and shared components/directives/pipes between more than one module and components will be listed here.
+    PersianDate,
+    PersianDateFull,
+    /** pipe */
+    TruncatePipe,
+    ListKeysPipe,
+    SafeHtmlPipe,
+    EnumsPipe,
+    CmsTitlePipe,
+    CmsUserInfoPipe,
+    CmsSiteInfoPipe,
+    CmsModuleInfoPipe,
+    CmsImageThumbnailPipe,
+    PrettyjsonPipe,
+    RecordStatusIconClassPipe,
+    RecordStatusCellClassPipe,
+    SortTypeIconClassPipe,
+    ReplaceTextPipe,
+    BoolStatusClassPipe,
+    ValueArrayPipe,
+    FirstLetterPipe,
+    SafePipe,
+    /** Component */
+
+    CmsSearchListComponent,
+    CmsStatistListComponent,
+    CmsExportListComponent,
+    CmsSiteSelectorComponent,
+    CmsCurrencySelectorComponent,
+    CmsEnumRecordStatusSelectorComponent,
+    CmsEnumXSelectorComponent,
+    CmsLocationSelectorComponent,
+    CmsLocationCompleteComponent,
+    CmsApplicationSelectorComponent,
+    CmsSiteCategorySelectorComponent,
+    CmsSiteCategorySelectionListComponent,
+    CmsUserSelectorComponent,
+    CmsUserGroupSelectorComponent,
+    CmsMemberSelectorComponent,
+    CmsModuleSelectorComponent,
+    CmsExportEntityComponent,
+    Cms360ImageListComponent,
+    Cms360TourListComponent,
+    CmsQDocComponent,
+    CmsViewComponent,
+    CmsLinkToComponent,
+    CmsDataMemoComponent,
+    CmsDataPinComponent,
+    CmsDataTaskComponent,
+    CmsDataCommentComponent,
+    CmsShowKeyComponent,
+    CmsMapComponent,
+    CmsTagAutocompleteComponent,
+    ProgressSpinnerComponent,
+    PasswordStrengthComponent,
+    CmsJsonListComponent,
+    CmsGuideinfoComponent,
+    CmsGuideNoticeComponent,
+    CmsFormBuilderPropertiesComponent,
+    CmsBankpaymentGridComponent,
+    CmsBankpaymentTransactionInfoComponent,
+    CmsFilesSelectorComponent,
+    CmsTokenAccessComponent,
+    CmsHtmlNoticeComponent,
+    CmsHtmlCardComponent,
+    CmsHtmlModalComponent,
+    CmsHtmlListComponent,
+    CmsHtmlTreeComponent,
+    CmsSiteCreditViewComponent,
+    CmsSiteUserCreditViewComponent,
+    CmsContactCategoryTreeSelectorComponent,
+    CmsContactContentSelectionListComponent,
+    CmsAccessInfoComponent,
+    CmsSmsMainApiPathSelectorComponent,
+    CmsSmsMainApiNumberSelectorComponent,
+    NgxQueryBuilderComponent,
+    /** input */
+    StringComponent,
+    IntComponent,
+    BooleanComponent,
+    FloatComponent,
+    DateComponent,
+    TextAreaComponent,
+    /** Directive */
+    TooltipGuideDirective,
+    TooltipDirective,
+    DirDirective,
+    PhoneDirective,
+    RunScriptsDirective,
+    CmsHtmlTreeHeaderDirective,
+    CmsHtmlTreeActionDirective,
+    CmsHtmlTreeBodyDirective,
+    CmsHtmlTreeFooterDirective,
+    MatInputCommifiedDirective,
+    MatVerticalStepperScrollerDirective,
+    SelfSaveDirective,
+    CmsRecordStatusSelfSaveDirective,
+    ClipboardIfSupportedDirective,
+    ClipboardDirective,
+    InlineSVGDirective, InlineSVGComponent
+  ],
+
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    OverlayService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
+    { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS },
+    TranslateService,
+    MemberUserService,
+    CoreLogMemberService,
+    CoreUserService,
+    CoreUserGroupService,
+    CoreSiteService,
+    CoreSiteCategoryService,
+    CoreGuideService,
+    CoreCurrencyService,
+    CoreLocationService,
+    ApplicationAppService,
+    BankPaymentPrivateSiteConfigService,
+    BankPaymentTransactionService,
+    BankPaymentEnumService,
+    CoreModuleSiteCreditService,
+    CoreModuleSiteUserCreditService,
+    CoreModuleDataMemoService,
+    CoreModuleDataTaskService,
+    CoreModuleDataPinService,
+    CoreModuleDataCommentService,
+    SmsMainApiPathService,
+    SmsMainApiNumberService,
+    // provideHttpClient(withInterceptorsFromDi()),
+
+  ],
+
   imports: [
     CommonModule,
-    TranslateModule,
+    HttpClientModule,
+    // TranslateModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
+        deps: [HttpClient]
+      },
+      isolate: true, // <-- PLAY WITH IT
+      extend: true // <-- PLAY WITH IT
+    }),
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    HttpClientModule,
     CurrencyMaskModule,
     NgApexchartsModule,
     //Material
@@ -220,125 +365,20 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     MatTreeModule,
     //Material
     TreeModule,
-    
     LeafletModule,
-
-    NgbDropdownModule,
-    CmsFileManagerModule.forRoot(),
     ClipboardModule,
-    InlineSVGModule,
-    //PerfectScrollbarModule,
+    NgbDropdownModule,
     NgbNavModule,
-
     NgOtpInputModule,
+    CmsFileManagerModule.forRoot(),
 
   ],
-  declarations: [
-    // common and shared components/directives/pipes between more than one module and components will be listed here.
-    PersianDate,
-    PersianDateFull,
-    /** pipe */
-    TruncatePipe,
-    ListKeysPipe,
-    SafeHtmlPipe,
-    EnumsPipe,
-    CmsTitlePipe,
-    CmsUserInfoPipe,
-    CmsSiteInfoPipe,
-    CmsModuleInfoPipe,
-    CmsImageThumbnailPipe,
-    PrettyjsonPipe,
-    RecordStatusIconClassPipe,
-    RecordStatusCellClassPipe,
-    SortTypeIconClassPipe,
-    ReplaceTextPipe,
-    BoolStatusClassPipe,
-    ValueArrayPipe,
-    FirstLetterPipe,
-    SafePipe,
-    /** Component */
-    LanguageSelectorComponent,
-    CmsSearchListComponent,
-    CmsStatistListComponent,
-    CmsExportListComponent,
-    CmsSiteSelectorComponent,
-    CmsCurrencySelectorComponent,
-    CmsEnumRecordStatusSelectorComponent,
-    CmsEnumXSelectorComponent,
-    CmsLocationSelectorComponent,
-    CmsLocationCompleteComponent,
-    CmsApplicationSelectorComponent,
-    CmsSiteCategorySelectorComponent,
-    CmsSiteCategorySelectionListComponent,
-    CmsUserSelectorComponent,
-    CmsUserGroupSelectorComponent,
-    CmsMemberSelectorComponent,
-    CmsModuleSelectorComponent,
-    CmsExportEntityComponent,
-    Cms360ImageListComponent,
-    Cms360TourListComponent,
-    CmsQDocComponent,
-    CmsViewComponent,
-    CmsLinkToComponent,
-    CmsDataMemoComponent,
-    CmsDataPinComponent,
-    CmsDataTaskComponent,
-    CmsDataCommentComponent,
-    CmsShowKeyComponent,
-    CmsMapComponent,
-    CmsTagAutocompleteComponent,
-    ProgressSpinnerComponent,
-    PasswordStrengthComponent,
-    CmsJsonListComponent,
-    CmsGuideinfoComponent,
-    CmsGuideNoticeComponent,
-    CmsFormBuilderPropertiesComponent,
-    CmsBankpaymentGridComponent,
-    CmsBankpaymentTransactionInfoComponent,
-    CmsFilesSelectorComponent,
-    CmsTokenAccessComponent,
-    CmsHtmlNoticeComponent,
-    CmsHtmlCardComponent,
-    CmsHtmlModalComponent,
-    CmsHtmlListComponent,
-    CmsHtmlTreeComponent,
-    CodePreviewComponent,
-    CmsSiteCreditViewComponent,
-    CmsSiteUserCreditViewComponent,
-    CmsContactCategoryTreeSelectorComponent,
-    CmsContactContentSelectionListComponent,
-    CmsAccessInfoComponent,
-    CmsSmsMainApiPathSelectorComponent,
-    CmsSmsMainApiNumberSelectorComponent,
-    NgxQueryBuilderComponent,
-    /** input */
-    StringComponent,
-    IntComponent,
-    BooleanComponent,
-    FloatComponent,
-    DateComponent,
-    TextAreaComponent,
-    /** Directive */
-    TooltipGuideDirective,
-    TooltipDirective,
-    DirDirective,
-    PhoneDirective,
-    RunScriptsDirective,
-    CmsHtmlTreeHeaderDirective,
-    CmsHtmlTreeActionDirective,
-    CmsHtmlTreeBodyDirective,
-    CmsHtmlTreeFooterDirective,
-    MatInputCommifiedDirective,
-    MatVerticalStepperScrollerDirective,
-    SelfSaveDirective,
-    CmsRecordStatusSelfSaveDirective,
-  ],
+
   exports: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.
     CommonModule,
     TranslateModule,
     FormsModule,
-    HttpClientModule,
     NgApexchartsModule,
     //Material
     MatAutocompleteModule,
@@ -348,7 +388,6 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     MatCheckboxModule,
     MatChipsModule,
     MatDatepickerModule,
-
     MatDialogModule,
     MatExpansionModule,
     MatFormFieldModule,
@@ -378,7 +417,6 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     PlatformModule,
     MatTreeModule,
     //Material
-    CmsFileManagerModule,
     TreeModule,
     ClipboardModule,
     PersianDate,
@@ -403,7 +441,7 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     BoolStatusClassPipe,
     ValueArrayPipe,
     /** Component */
-    LanguageSelectorComponent,
+
     CmsSearchListComponent,
     CmsStatistListComponent,
     CmsExportListComponent,
@@ -448,7 +486,6 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     CmsHtmlModalComponent,
     CmsHtmlListComponent,
     CmsHtmlTreeComponent,
-    CodePreviewComponent,
     CmsSiteCreditViewComponent,
     CmsSiteUserCreditViewComponent,
     CmsContactCategoryTreeSelectorComponent,
@@ -478,39 +515,48 @@ import { NgxQueryBuilderComponent } from '../core/query-builder/ngx-ntk-query-bu
     MatVerticalStepperScrollerDirective,
     SelfSaveDirective,
     CmsRecordStatusSelfSaveDirective,
+    ClipboardIfSupportedDirective,
+    ClipboardDirective,
+    InlineSVGDirective,
 
   ],
-  providers: [
-    OverlayService,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
-    { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS },
-    MemberUserService,
-    CoreLogMemberService,
-    CoreUserService,
-    CoreUserGroupService,
-    CoreSiteService,
-    CoreSiteCategoryService,
-    CoreGuideService,
-    CoreCurrencyService,
-    CoreLocationService,
-    ApplicationAppService,
-    BankPaymentPrivateSiteConfigService,
-    BankPaymentTransactionService,
-    BankPaymentEnumService,
-    CoreModuleSiteCreditService,
-    CoreModuleSiteUserCreditService,
-    CoreModuleDataMemoService,
-    CoreModuleDataTaskService,
-    CoreModuleDataPinService,
-    CoreModuleDataCommentService,
-    SmsMainApiPathService,
-    SmsMainApiNumberService,
-  ]
-  /* No providers here! Since they’ll be already provided in AppModule. */
 })
 export class SharedModule {
-  static forRoot(): any {
+  /**
+ * === README ========================================================================
+ * This block is not needed if you use `isolate: false`. But with `isolate: false` you
+ * cannot read the lazy-specific translations, even if you set `extend: true`.
+ *
+ * PROBLEM: I can't have a configuration that allows reading translations from parent
+ * non-lazy modules at the same time I read the lazy loaded module files.
+ *
+ *   To make a child module extend translations from parent modules use `extend: true`.
+ *   This will cause the service to also use translations from its parent module.
+ *
+ *   You can also isolate the service by using `isolate: true`. In which case the service
+ *   is a completely isolated instance (for translations, current lang, events, ...).
+ *   Otherwise, by default, it will share its data with other instances of the service
+ *   (but you can still use a different loader/compiler/parser/handler even if you don't
+ *   isolate the service).
+ * ====================================================================================
+ * */
+  constructor(public translationService: TranslateService, public cmsTranslationService: CmsTranslationService) {
+    const currentLang = this.translationService.currentLang;
+    this.translationService.currentLang = '';
+    this.translationService.store.onLangChange.subscribe(
+      (lang: LangChangeEvent) => {
+        translationService.setDefaultLang(lang.lang);
+        console.log(' ==> LazyLoadedModule ', lang);
+
+        try {
+          firstValueFrom(translationService.use(lang.lang));
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    );
+  }
+  static forRoot(): ModuleWithProviders {
     // Forcing the whole app to use the returned providers from the AppModule only.
     return {
       ngModule: SharedModule,

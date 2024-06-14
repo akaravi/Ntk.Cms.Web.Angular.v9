@@ -152,8 +152,14 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
     authModel.userId = this.inputUserId;
     authModel.lang = this.tokenInfo.language;
 
-    const title = this.translate.instant('TITLE.Information');
-    const message = this.translate.instant('MESSAGE.Request_to_change_user_was_sent_to_the_server');
+
+    var title = "";
+    var message = "";
+    this.translate.get(['TITLE.Information', 'MESSAGE.Request_to_change_site_was_sent_to_the_server']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?';
+    });
+
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     this.loadingStatus = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe(
@@ -195,8 +201,14 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
     authModel.siteId = this.inputSiteId;
     authModel.lang = this.tokenInfo.language;
 
-    const title = this.translate.instant('TITLE.Information');
-    const message = this.translate.instant('MESSAGE.Request_to_change_site_was_sent_to_the_server');
+
+    var title = "";
+    var message = "";
+    this.translate.get(['TITLE.Information', 'MESSAGE.Request_to_change_site_was_sent_to_the_server']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?';
+    });
+
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     this.loadingStatus = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({

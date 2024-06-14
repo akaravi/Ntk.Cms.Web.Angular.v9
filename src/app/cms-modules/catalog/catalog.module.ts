@@ -19,7 +19,7 @@ import { CatalogContentEditComponent } from './content/edit/edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CatalogCategoryAddComponent } from './category/add/add.component';
@@ -54,11 +54,11 @@ import { CatalogContentSelectorComponent } from './content/selector/selector.com
     CatalogRouting,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CmsFileManagerModule,
-    InlineSVGModule,
+
   ],
   providers: [
     CoreModuleService,

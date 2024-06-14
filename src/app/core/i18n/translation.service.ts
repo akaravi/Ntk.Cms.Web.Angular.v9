@@ -3,6 +3,7 @@
 
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable, firstValueFrom } from 'rxjs';
 
 export interface Locale {
   lang: string;
@@ -11,20 +12,40 @@ export interface Locale {
 
 const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class TranslationService {
+// @Injectable({
+//   providedIn: 'root',
+// })
+@Injectable()
+export class CmsTranslationService {
+  /*
+//
+//this.translate.get('ACTION.ABOUT').subscribe((translation: string) => {
+//      console.log('Translated subscribe:', translation);
+//    });
+//
+//
+*/
   // Private properties
   private langIds: any = [];
 
   constructor(public translate: TranslateService) {
-    // add new langIds to the list
-    this.translate.addLangs(['fa']);
+    const langToSet = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate.getDefaultLang()
+    translate.addLangs([langToSet]);
+    translate.setDefaultLang(langToSet);
 
-    // this language will be used as a fallback when a translation isn't found in the current language
-    this.translate.setDefaultLang('fa');
   }
+  instantDefault(key: string | Array<string>, interpolateParams?: Object): string | any {
+    return this.translate.instant(key);
+  }
+
+  instant(key: string | Array<string>, interpolateParams?: Object): string | any {
+    return this.translate.instant(key);
+  }
+
+  get(key: string | Array<string>, interpolateParams?: Object): Observable<string | any> {
+    return this.translate.get(key);
+  }
+
 
   loadTranslations(...args: Locale[]): void {
     const locales = [...args];
@@ -43,8 +64,10 @@ export class TranslationService {
 
   setLanguage(lang: string): void {
     if (lang && lang.length > 0) {
-      this.translate.use(this.translate.getDefaultLang());
-      this.translate.use(lang);
+      const langToSet = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate?.getDefaultLang() || 'fa';
+      firstValueFrom(this.translate.use(langToSet));
+      if (langToSet !== lang)
+        firstValueFrom(this.translate.use(lang));
       localStorage.setItem(LOCALIZATION_LOCAL_STORAGE_KEY, lang);
     }
   }
@@ -52,10 +75,14 @@ export class TranslationService {
   /**
    * Returns selected language
    */
-  getSelectedLanguage(): any {
+  getSelectedLanguage(): string {
     return (
       localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) ||
       this.translate.getDefaultLang()
     );
   }
 }
+function resolve(text: string): void {
+  throw new Error('Function not implemented.');
+}
+

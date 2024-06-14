@@ -44,6 +44,7 @@ import { LinkManagementCategorySelectorComponent } from './category/selector/sel
 import { LinkManagementCategoryTreeSelectorComponent } from './category/tree-selector/tree-selector.component';
 import { LinkManagementCategoryTreeComponent } from './category/tree/tree.component';
 
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { LinkManagementMemberAddComponent } from './member/add/add.component';
 import { LinkManagementMemberDeleteComponent } from './member/delete/delete.component';
 import { LinkManagementMemberEditComponent } from './member/edit/edit.component';
@@ -163,7 +164,7 @@ import { LinkManagementTargetListComponent } from './target/list/list.component'
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
 
@@ -171,7 +172,7 @@ import { LinkManagementTargetListComponent } from './target/list/list.component'
     MatFormFieldModule,
     MatStepperModule,
     NgxMatColorPickerModule,
-
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

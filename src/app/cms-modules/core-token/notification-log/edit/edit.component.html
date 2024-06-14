@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <!-- RecordStatus Field -->
 
@@ -22,12 +22,12 @@
 
         <!-- LinkSiteId Field -->
         <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
-            [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.WEBSITE')">
+            [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.WEBSITE' | translate">
         </app-cms-site-selector>
 
         <!-- LinkUserId Field -->
         <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
-            [(optionLoading)]="loading" [optionPlaceholder]="this.translate.instant('TITLE.USER')">
+            [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.USER' | translate">
         </app-cms-user-selector>
         <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
             <button type="button" (click)="onFormCancel()"

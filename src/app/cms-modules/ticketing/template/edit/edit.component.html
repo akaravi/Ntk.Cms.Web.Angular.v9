@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -23,7 +23,7 @@
             <!-- LinkCategoryId Field -->
             <app-ticketing-departemen-selector (optionChange)="onActionSelectorSelect($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkTicketingDepartemenId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Department')">
+                [optionPlaceholder]="'TITLE.Department' | translate">
             </app-ticketing-departemen-selector>
             <!-- Title Field -->
             <div *ngIf="fieldsInfo['title']?.accessWatchField"

@@ -41,7 +41,7 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
     private tokenHelper: TokenHelper,
     private translate: TranslateService,
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @Input() set optionSelectForce(x: number | TicketingDepartemenOperatorModel) {
     this.onActionSelectForce(x);
@@ -122,8 +122,7 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
       id = this.dataModelSelect.id;
     }
     if (id === 0) {
-      const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.router.navigate(['/application/app/edit/', id]);
@@ -136,8 +135,7 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
       id = this.dataModelSelect.id;
     }
     if (id === 0) {
-      const message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorCategoryNotSelected').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.router.navigate(['/application/app/delete/', id]);

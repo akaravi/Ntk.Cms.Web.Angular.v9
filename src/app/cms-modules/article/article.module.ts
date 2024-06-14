@@ -5,7 +5,7 @@ import { ArticleRouting } from './article.routing';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import {
   ArticleCategoryService,
   ArticleCommentService,
@@ -60,11 +60,10 @@ import { ArticleContentSelectorComponent } from './content/selector/selector.com
     CommonModule,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CmsFileManagerModule,
-    InlineSVGModule,
   ],
   providers: [
     CoreModuleService,

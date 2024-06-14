@@ -111,8 +111,13 @@ export class CoreSiteWidgetStatusComponent implements OnInit, OnDestroy {
         authModel.siteId = model.id;
         authModel.lang = this.tokenInfoModel.language;
 
-        const title = this.translate.instant('TITLE.Information');
-        const message = this.translate.instant('MESSAGE.Request_to_change_site_was_sent_to_the_server');
+        var title = "";
+        var message = "";
+        this.translate.get(['TITLE.Information', 'MESSAGE.Request_to_change_site_was_sent_to_the_server']).subscribe((str: string) => {
+          title = str[0];
+          message = str[1] + '?';
+        });
+
         this.cmsToastrService.toastr.info(message, title);
         this.coreAuthService.ServiceRenewToken(authModel).subscribe({
           next: (ret) => {

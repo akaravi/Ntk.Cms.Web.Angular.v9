@@ -40,7 +40,7 @@ export class DonateConfigSiteComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   dataSiteStorageModel = new DonateModuleSiteStorageValuesModel();
@@ -129,10 +129,10 @@ export class DonateConfigSiteComponent implements OnInit {
 
   GetServiceSiteStorage(SiteId: number): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceSiteStorage';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_saved_module_values'));
+    this.translate.get('MESSAGE.get_saved_module_values').subscribe((str: string) => { this.loading.Start(pName, str); });
 
     this.configService
       .ServiceSiteStorage(SiteId)
@@ -157,11 +157,11 @@ export class DonateConfigSiteComponent implements OnInit {
   }
   SetServiceSiteStorageSave(SiteId: number): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Saving_Information_On_The_Server');
+    this.translate.get('MESSAGE.Saving_Information_On_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteStorageSave';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Save_the_stored_values_​​of_the_module'));
+    this.translate.get('MESSAGE.Save_the_stored_values_of_the_module').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteStorageSave(SiteId, this.dataSiteStorageModel)
       .subscribe({
@@ -185,11 +185,11 @@ export class DonateConfigSiteComponent implements OnInit {
   }
   GetServiceSiteConfig(SiteId: number): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteConfig';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_module_setting'));
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteConfig(SiteId)
       .subscribe({
@@ -212,10 +212,10 @@ export class DonateConfigSiteComponent implements OnInit {
   }
   SetServiceSiteConfigSave(SiteId: number): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Saving_Information_On_The_Server');
+    this.translate.get('MESSAGE.Saving_Information_On_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceSiteConfigSave';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Save_module_setting'));
+    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
 
     this.configService
       .ServiceSiteConfigSave(SiteId, this.dataConfigSiteValuesModel)
@@ -239,11 +239,11 @@ export class DonateConfigSiteComponent implements OnInit {
   }
   GetServiceSiteAccess(SiteId: number): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccess';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_module_access'));
+    this.translate.get('MESSAGE.get_module_access').subscribe((str: string) => { this.loading.Start(pName, str); });
 
     this.configService
       .ServiceSiteAccess(SiteId)
@@ -267,13 +267,13 @@ export class DonateConfigSiteComponent implements OnInit {
   }
   SetServiceSiteAccessSave(SiteId: number): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Saving_Information_On_The_Server');
+    this.translate.get('MESSAGE.Saving_Information_On_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
 
 
     const pName = this.constructor.name + 'ServiceSiteAccessSave';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Save_module_access'));
+    this.translate.get('MESSAGE.Save_module_access').subscribe((str: string) => { this.loading.Start(pName, str); });
 
     this.configService
       .ServiceSiteAccessSave(SiteId, this.dataConfigSiteAccessValuesModel)

@@ -27,7 +27,7 @@ export class ChartCategorySelectorComponent implements OnInit {
     public translate: TranslateService,
     public categoryService: ChartCategoryService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<ChartCategoryModel> = new ErrorExceptionResult<ChartCategoryModel>();
   dataModelSelect: ChartCategoryModel = new ChartCategoryModel();

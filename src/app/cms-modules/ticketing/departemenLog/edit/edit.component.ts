@@ -37,7 +37,7 @@ export class TicketingDepartemenLogEditComponent extends EditBaseComponent<Ticke
   ) {
     super(ticketingDepartemenLogService, new TicketingDepartemenLogModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = data.id;
     }
@@ -56,7 +56,7 @@ export class TicketingDepartemenLogEditComponent extends EditBaseComponent<Ticke
   cmsApiStoreSubscribe: Subscription;
 
   ngOnInit(): void {
-    this.formInfo.formTitle = this.translate.instant('TITLE.Edit');
+    this.translate.get('TITLE.Edit').subscribe((str: string) => { this.formInfo.formTitle = str; });
     if (!this.requestId || this.requestId <= 0) {
       this.cmsToastrService.typeErrorComponentAction();
       this.dialogRef.close({ dialogChangedDate: false });
@@ -78,7 +78,7 @@ export class TicketingDepartemenLogEditComponent extends EditBaseComponent<Ticke
   }
 
   DataGetOneContent(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Information_From_The_Server');
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -93,7 +93,7 @@ export class TicketingDepartemenLogEditComponent extends EditBaseComponent<Ticke
           this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.id;
           this.formInfo.formAlert = '';
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = next.errorMessage;
           this.cmsToastrService.typeErrorMessage(next.errorMessage);
         }

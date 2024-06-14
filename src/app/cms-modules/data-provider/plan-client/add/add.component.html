@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -21,12 +21,12 @@
             <!-- LinkPlanId Field -->
             <app-data-provider-plan-category-selector (optionChange)="onActionSelectorSelect($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPlanId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+                [optionPlaceholder]="'TITLE.Category' | translate">
             </app-data-provider-plan-category-selector>
             <!-- LinkClientId Field -->
             <app-data-provider-plan-category-selector (optionChange)="onActionSelectorSelect($event)"
                 [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkClientId"
-                [optionPlaceholder]="this.translate.instant('TITLE.Category')">
+                [optionPlaceholder]="'TITLE.Category' | translate">
             </app-data-provider-plan-category-selector>
 
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">

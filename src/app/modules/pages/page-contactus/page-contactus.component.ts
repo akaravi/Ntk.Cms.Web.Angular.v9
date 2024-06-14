@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { TicketingTaskService, TicketingTaskModel, CoreAuthService, CoreEnumService, DataFieldInfoModel, FormInfoModel, AccessModel, TicketingTaskDtoModel, ErrorExceptionResult, CaptchaModel, FormSubmitedStatusEnum, TicketingTemplateModel, ApplicationSourceModel } from 'ntk-cms-api';
+import { AccessModel, ApplicationSourceModel, CaptchaModel, CoreAuthService, CoreEnumService, FormInfoModel, FormSubmitedStatusEnum, TicketingTaskDtoModel, TicketingTaskModel, TicketingTaskService, TicketingTemplateModel } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { Subscription } from 'rxjs';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
@@ -32,7 +32,7 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
     public pageInfo: PageInfoService,
     private cdr: ChangeDetectorRef) {
     super(ticketingTaskService, new TicketingTaskModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -52,11 +52,11 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
 
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
+  //fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   dataModel = new TicketingTaskDtoModel();
-  dataModelResult: ErrorExceptionResult<TicketingTaskModel> = new ErrorExceptionResult<TicketingTaskModel>();
+  //dataModelResult: ErrorExceptionResult<TicketingTaskModel> = new ErrorExceptionResult<TicketingTaskModel>();
 
 
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
@@ -95,7 +95,7 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
   }
   DataAddContent(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -110,7 +110,7 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
           this.dataModelResult = next;
           if (next.isSuccess) {
             this.formInfo.formSubmitedStatus = FormSubmitedStatusEnum.Success;
-            this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+            this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessAdd();
           } else {
             this.formInfo.formSubmitedStatus = FormSubmitedStatusEnum.Error;

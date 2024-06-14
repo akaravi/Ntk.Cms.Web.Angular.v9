@@ -32,7 +32,7 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.dataModel.linkLocationId = +data.linkLocationId | 0;
       this.dataModel.linkCoreCurrencyId = +data.linkCoreCurrencyId | 0;
@@ -76,7 +76,7 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
 
 
   DataGetAll(): void {
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.sending_information_to_the_server');
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
@@ -87,11 +87,11 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
         this.formInfo.formSubmitAllow = true;
         this.dataModelResult = ret;
         if (ret.isSuccess) {
-          this.formInfo.formAlert = this.translate.instant('MESSAGE.registration_completed_successfully');
+          this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessAdd();
           //this.dialogRef.close({ dialogChangedDate: true });
         } else {
-          this.formInfo.formAlert = this.translate.instant('ERRORMESSAGE.MESSAGE.typeError');
+          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
@@ -108,8 +108,7 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
   }
   onActionSelectorSelectUsage(model: EstatePropertyTypeUsageModel | null): void {
     if (!model || !model.id || model.id.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeWarningSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeWarningSelected(str); });
       return;
     }
     this.dataModel.linkPropertyTypeUsageId = model.id;
@@ -119,8 +118,7 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
     this.PropertyTypeSelected = null;
     this.dataModel.linkPropertyTypeLanduseId = null;
     if (!model || !model.id || model.id.length <= 0) {
-      const message = this.translate.instant('MESSAGE.category_of_information_is_not_clear');
-      this.cmsToastrService.typeWarningSelected(message);
+      this.translate.get('MESSAGE.category_of_information_is_not_clear').subscribe((str: string) => { this.cmsToastrService.typeWarningSelected(str); });
       return;
     }
     this.PropertyTypeSelected = model;

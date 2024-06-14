@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { InlineSVGModule } from 'ng-inline-svg-2';
+
 import { ApplicationAppService, ApplicationMemberInfoService, ArticleContentService, BiographyContentService, BlogContentService, CatalogContentService, ChartContentService, CoreConfigurationService, CoreCpMainMenuService, CoreModuleLogReportAbuseService, CoreModuleSiteCreditService, CoreSiteService, CoreUserClaimContentService, CoreUserClaimTypeService, CoreUserService, EstateCustomerOrderService, EstatePropertyHistoryService, EstatePropertyService, NewsContentService, TicketingTaskService, WebDesignerLogMemberInfoService } from 'ntk-cms-api';
 import { ApplicationAppWidgetComponent } from 'src/app/cms-modules/application/content/widget/widget.component';
 import { ApplicationMemberInfoWidgetComponent } from 'src/app/cms-modules/application/memberInfo/widget/widget.component';
@@ -71,9 +71,9 @@ import { PagesPanelRoutingModule } from './panel.routing';
   imports: [
     CommonModule,
     PagesPanelRoutingModule,
-    SharedModule.forRoot(),
+    SharedModule,
     ComponentsModule,
-    InlineSVGModule,
+
     //NgApexchartsModule,
   ],
   exports: [RouterModule],

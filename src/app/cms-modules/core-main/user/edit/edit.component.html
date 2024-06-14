@@ -217,13 +217,13 @@
           <app-cms-user-selector [optionDisabled]="!fieldsInfo['linkResellerUserId']?.accessEditField"
             [optionSelectForce]="dataModel.linkResellerUserId" [(optionLoading)]="loading"
             (optionChange)="onActionSelectorLinkResellerUserIdSelect($event)"
-            [optionPlaceholder]="this.translate.instant('TITLE.Representative_User')">
+            [optionPlaceholder]="'TITLE.Representative_User' | translate ">
           </app-cms-user-selector>
           <!-- LinkResellerSiteId Field -->
           <app-cms-site-selector [optionDisabled]="!fieldsInfo['linkResellerSiteId']?.accessEditField"
             [optionSelectForce]="dataModel.linkResellerSiteId" [(optionLoading)]="loading"
             (optionChange)="onActionSelectorLinkResellerSiteIdSelect($event)"
-            [optionPlaceholder]="this.translate.instant('TITLE.Representative_Site')">
+            [optionPlaceholder]="'TITLE.Representative_Site' | translate ">
           </app-cms-site-selector>
           <!-- ExpireLockAccount Field -->
           <div *ngIf="fieldsInfo['expireLockAccount']?.accessWatchField"

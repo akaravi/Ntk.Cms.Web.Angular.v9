@@ -39,7 +39,7 @@ export class CatalogConfigMainAdminComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   dataConfigSiteValuesDefaultModel = new CatalogModuleConfigSiteValuesModel();
@@ -120,11 +120,11 @@ export class CatalogConfigMainAdminComponent implements OnInit, OnDestroy {
 
   GetServiceSiteConfigDefault(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteConfigDefault';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_the_module_default_settings'));
+    this.translate.get('MESSAGE.get_the_module_default_settings').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteConfigDefault()
       .subscribe({
@@ -147,12 +147,12 @@ export class CatalogConfigMainAdminComponent implements OnInit, OnDestroy {
   }
   SetServiceSiteConfigDefaultSave(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Saving_Information_On_The_Server');
+    this.translate.get('MESSAGE.Saving_Information_On_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
 
     const pName = this.constructor.name + 'ServiceSiteConfigDefault';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Save_module_default_setting'));
+    this.translate.get('MESSAGE.Save_module_default_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteConfigDefaultSave(this.dataConfigSiteValuesDefaultModel)
       .subscribe({
@@ -176,11 +176,11 @@ export class CatalogConfigMainAdminComponent implements OnInit, OnDestroy {
 
   GetServiceSiteAccessDefault(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccessDefault';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_the_module_default_access'));
+    this.translate.get('MESSAGE.get_the_module_default_access').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteAccessDefault()
       .subscribe({
@@ -203,11 +203,11 @@ export class CatalogConfigMainAdminComponent implements OnInit, OnDestroy {
   }
   SetServiceSiteAccessDefaultSave(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Saving_Information_On_The_Server');
+    this.translate.get('MESSAGE.Saving_Information_On_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccessDefaultSave';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Save_the_module_default_access'));
+    this.translate.get('MESSAGE.Save_the_module_default_access').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteAccessDefaultSave(this.dataConfigSiteAccessValuesDefaultModel)
       .subscribe({
@@ -230,11 +230,11 @@ export class CatalogConfigMainAdminComponent implements OnInit, OnDestroy {
   }
   GetServiceAdminMain(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_from_the_server');
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceAdminMain';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_module_setting'));
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceAdminMain()
       .subscribe({
@@ -257,11 +257,11 @@ export class CatalogConfigMainAdminComponent implements OnInit, OnDestroy {
   }
   SetServiceAdminMainSave(): void {
     this.formInfo.formSubmitAllow = false;
-    this.formInfo.formAlert = this.translate.instant('MESSAGE.Saving_Information_On_The_Server');
+    this.translate.get('MESSAGE.Saving_Information_On_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceAdminMain';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Save_module_setting'));
+    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceAdminMainSave(this.dataConfigAdminMainModel)
       .subscribe({

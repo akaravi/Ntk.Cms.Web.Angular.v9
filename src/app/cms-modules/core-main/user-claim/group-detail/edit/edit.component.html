@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
 
         <!--Content-->
@@ -32,14 +32,14 @@
         <!-- LinkUserClaimGroupId Field -->
         <app-core-userclaimgroup-selector (optionChange)="onActionSelectClaimGroup($event)" [(optionLoading)]="loading"
             [optionSelectForce]="this.dataModel.linkUserClaimGroupId"
-            [optionPlaceholder]="this.translate.instant('TITLE.DOCUMENT_GROUP')"
+            [optionPlaceholder]="'TITLE.DOCUMENT_GROUP'  | translate"
             [optionDisabled]="!fieldsInfo['linkUserClaimGroupId']?.accessEditField">
         </app-core-userclaimgroup-selector>
 
         <!-- LinkUserClaimTypeId Field -->
         <app-core-userclaimtype-selector (optionChange)="onActionSelectClaimType($event)" [(optionLoading)]="loading"
             [optionSelectForce]="this.dataModel.linkUserClaimTypeId"
-            [optionPlaceholder]="this.translate.instant('TITLE.DOCUMENT_CATEGORY')"
+            [optionPlaceholder]="'TITLE.DOCUMENT_CATEGORY'  | translate"
             [optionDisabled]="!fieldsInfo['linkUserClaimTypeId']?.accessEditField">
         </app-core-userclaimtype-selector>
 

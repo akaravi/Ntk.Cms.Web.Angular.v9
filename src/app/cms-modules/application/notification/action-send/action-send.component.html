@@ -15,11 +15,11 @@
       <!-- AppId Field -->
       <app-application-app-selector (optionChange)="onActionSelectApp($event)" *ngIf="LinkMemberId.length===0"
         [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.appId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Application')"></app-application-app-selector>
+        [optionPlaceholder]="'TITLE.Application' | translate"></app-application-app-selector>
       <!-- AppId Field -->
       <app-application-memberinfo-selector (optionChange)="onActionSelectMemberInfo($event)" [(optionLoading)]="loading"
         [optionSelectForce]="LinkMemberId"
-        [optionPlaceholder]="this.translate.instant('TITLE.Member')"></app-application-memberinfo-selector>
+        [optionPlaceholder]="'TITLE.Member' | translate"></app-application-memberinfo-selector>
       <!-- Title Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.title" class="color-highlight">Title</label>

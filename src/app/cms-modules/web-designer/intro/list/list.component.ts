@@ -36,7 +36,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     super(contentService, new WebDesignerMainIntroModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -99,7 +99,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new WebDesignerMainIntroModel());
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -199,8 +199,12 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
       this.cmsToastrService.typeErrorAccessDelete();
       return;
     }
-    const title = this.translate.instant('MESSAGE.Please_Confirm');
-    const message = this.translate.instant('MESSAGE.Do_you_want_to_delete_this_content') + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+    var title = "";
+    var message = "";
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+    });
     this.cmsConfirmationDialogService.confirm(title, message)
       .then((confirmed) => {
         if (confirmed) {
@@ -237,10 +241,10 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
       return;
     }
     const statist = new Map<string, number>();
-    statist.set(this.translate.instant('MESSAGE.Active'), 0);
-    statist.set(this.translate.instant('MESSAGE.All'), 0);
+    this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
+    this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_the_statist'));
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe(
       (next) => {
         if (next.isSuccess) {

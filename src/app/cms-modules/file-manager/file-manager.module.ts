@@ -13,6 +13,7 @@ import {
   FileCategoryService,
   FileContentService
 } from 'ntk-cms-api';
+import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FileCategoryDeleteComponent } from './category/delete/delete.component';
 import { FileCategoryEditComponent } from './category/edit/edit.component';
@@ -44,11 +45,9 @@ import { FileContentSelectorComponent } from './content/selector/selector.compon
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
-
-
-
+    CmsFileManagerModule,
   ],
   providers: [
     CoreModuleService,

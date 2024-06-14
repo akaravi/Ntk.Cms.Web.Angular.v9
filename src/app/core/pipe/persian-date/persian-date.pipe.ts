@@ -39,5 +39,6 @@ export class PersianDate {
       }
       return this.persianCalendarService.PersianCalendar(value);
     }
+    return "";
   }
 }

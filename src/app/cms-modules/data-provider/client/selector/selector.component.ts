@@ -23,7 +23,7 @@ export class DataProviderClientSelectorComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     public categoryService: DataProviderClientService) {
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
   }
   dataModelResult: ErrorExceptionResult<DataProviderClientModel> = new ErrorExceptionResult<DataProviderClientModel>();

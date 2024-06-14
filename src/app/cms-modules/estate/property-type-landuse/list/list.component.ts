@@ -36,7 +36,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     super(contentService, new EstatePropertyTypeLanduseModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr; this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -91,7 +91,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstatePropertyTypeLanduseModel());
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_information_list'));
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -216,8 +216,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
   }
   onActionButtonDeleteRow(model: EstatePropertyTypeLanduseModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
-      const emessage = this.translate.instant('MESSAGE.no_row_selected_to_delete');
-      this.cmsToastrService.typeErrorSelected(emessage);
+      this.translate.get('MESSAGE.no_row_selected_to_delete').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
@@ -231,8 +230,12 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
       return;
     }
 
-    const title = this.translate.instant('MESSAGE.Please_Confirm');
-    const message = this.translate.instant('MESSAGE.Do_you_want_to_delete_this_content') + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+    var title = "";
+    var message = "";
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+      title = str[0];
+      message = str[1] + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+    });
     this.cmsConfirmationDialogService.confirm(title, message)
       .then((confirmed) => {
         if (confirmed) {
@@ -267,8 +270,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
   }
   onActionButtonContentDetailList(model: EstatePropertyTypeLanduseModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
@@ -277,8 +279,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
   }
   onActionButtonContentList(model: EstatePropertyTypeLanduseModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
-      const message = this.translate.instant('MESSAGE.no_row_selected_to_display');
-      this.cmsToastrService.typeErrorSelected(message);
+      this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
@@ -291,14 +292,14 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
       return;
     }
     const statist = new Map<string, number>();
-    statist.set(this.translate.instant('MESSAGE.Active'), 0);
-    statist.set(this.translate.instant('MESSAGE.All'), 0);
+    this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
+    this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_the_statist'));
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.All'), ret.totalRowCount);
+          this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
@@ -320,7 +321,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
     this.contentService.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          statist.set(this.translate.instant('MESSAGE.Active'), ret.totalRowCount);
+          this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, ret.totalRowCount) });
           this.optionsStatist.childMethods.setStatistValue(statist);
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);

@@ -30,7 +30,7 @@
           class="form-control validate-name" id="dataModelResultCategory.item.description" required rows=5></textarea>
       </div>
       <app-news-category-selector [(optionLoading)]="loading"
-        [optionPlaceholder]="this.translate.instant('TITLE.Alternative_classification_to_move_information_to_this_branch')">
+        [optionPlaceholder]="'TITLE.Alternative_classification_to_move_information_to_this_branch'| translate">
       </app-news-category-selector>
     </ng-container>
     <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">

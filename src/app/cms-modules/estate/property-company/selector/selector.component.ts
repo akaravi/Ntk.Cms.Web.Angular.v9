@@ -24,7 +24,7 @@ export class EstatePropertyCompanySelectorComponent implements OnInit {
     public translate: TranslateService,
     public contentService: EstatePropertyCompanyService) {
     this.loading.cdr = this.cdr;
-    this.loading.message = this.translate.instant('MESSAGE.Receiving_information');
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<EstatePropertyCompanyModel> = new ErrorExceptionResult<EstatePropertyCompanyModel>();
   dataModelSelect: EstatePropertyCompanyModel = new EstatePropertyCompanyModel();

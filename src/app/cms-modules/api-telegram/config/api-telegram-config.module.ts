@@ -20,6 +20,18 @@ import { ApiTelegramConfigSiteComponent } from './site/config-site.component';
     ApiTelegramConfigCheckSiteComponent,
     /*Config*/
   ],
+  providers: [
+    CoreModuleService,
+    ApiTelegramConfigurationService,
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ApiTelegramConfigRouting,
+    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
+    SharedModule,
+    AngularEditorModule,
+  ],
   exports: [
     /*Config*/
     ApiTelegramConfigMainAdminComponent,
@@ -28,18 +40,6 @@ import { ApiTelegramConfigSiteComponent } from './site/config-site.component';
     ApiTelegramConfigCheckSiteComponent,
     /*Config*/
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ApiTelegramConfigRouting,
-    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
-    AngularEditorModule,
-  ],
-  providers: [
-    CoreModuleService,
-    ApiTelegramConfigurationService,
-  ]
 })
 export class ApiTelegramConfigModule {
 }

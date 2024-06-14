@@ -45,7 +45,7 @@ import { CoreModuleModule } from '../module/coreModule.module';
     FormsModule,
     CoreSiteCategoryRouting,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule.forRoot(),
+    SharedModule,
     AngularEditorModule,
 
     CoreModuleModule,
