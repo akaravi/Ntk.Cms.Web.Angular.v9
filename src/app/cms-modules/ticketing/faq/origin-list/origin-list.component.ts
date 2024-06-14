@@ -21,7 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-ticketing-faq-originlist',
   templateUrl: './origin-list.component.html',
-  styleUrls: ['./origin-list.component.scss']
+
 })
 export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
   constructor(
