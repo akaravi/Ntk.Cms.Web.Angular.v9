@@ -73,343 +73,492 @@
     <!-- begin::Row -->
     <div class="card card-style">
       <div class="content">
-        <!-- begin::Header-->
-        <p class="mb-0 color-highlight font-600 font-12">
-          {{'TITLE.Property'| translate}}
-          <span class="text-muted fw-bold fs-7">{{dataModelPropertyResult.totalRowCount}}</span>
-          {{'TITLE.Number'| translate}}
-        </p>
-        <!-- end::Header-->
-        <ng-container *ngFor="let item of dataModelPropertyResult.listItems">
-          <div class="divider divider-margins bg-highlight"></div>
-          <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-            {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
-            publicHelper.getTime(item.createdDate)}}</p>
-          <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-              *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
-            publicHelper.getTime(item.updatedDate)}}</p>
-          <h4 (click)="onActionButtonProperty(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-              [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonProperty(item,$event)"
-              class="float-end"></i></h4>
-          <p>
-            {{item.description}}
-          </p>
-          <p>
-            {{'TITLE.USER'|translate}}:
-            <b dir="ltr">
-              {{item.createdBy| cmsuserinfo |async}}
-            </b>
-          </p>
-          <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
-            {{'TITLE.Edit'|translate}}:
-            <b dir="ltr">
-              {{item.updatedBy| cmsuserinfo |async}}
-            </b>
-          </p>
-        </ng-container>
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-1">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse1">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Property'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelPropertyResult.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse1" class="collapse" data-bs-parent="#accordion-1">
+              <ng-container *ngFor="let item of dataModelPropertyResult.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
+                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
+                <h4 (click)="onActionButtonProperty(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonProperty(item,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
       </div>
     </div>
     <!-- end::Row -->
   </div>
+
+
+
   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
     <!-- begin::Row -->
     <div class="card card-style">
       <div class="content">
-        <!-- begin::Header-->
-        <p class="mb-0 color-highlight font-600 font-12">
-          {{'TITLE.Customer_Order'| translate}}
-          <span class="text-muted fw-bold fs-7">{{dataModelCustomerOrderResult.totalRowCount}}</span>
-          {{'TITLE.Number'| translate}}
-        </p>
-        <!-- end::Header-->
-        <ng-container *ngFor="let item of dataModelCustomerOrderResult.listItems">
-          <div class="divider divider-margins bg-highlight"></div>
-          <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-            {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
-            publicHelper.getTime(item.createdDate)}}</p>
-          <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-              *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
-            publicHelper.getTime(item.updatedDate)}}</p>
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-2">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse2">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Customer_Order'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelCustomerOrderResult.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse2" class="collapse" data-bs-parent="#accordion-2">
+              <ng-container *ngFor="let item of dataModelCustomerOrderResult.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
+                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
 
-          <h4 (click)="onActionButtonCustomerOrder(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-              [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonCustomerOrder(item,$event)"
-              class="float-end"></i></h4>
-          <p>
-            {{item.description}}
-          </p>
-          <p>
-            {{'TITLE.USER'|translate}}:
-            <b dir="ltr">
-              {{item.createdBy| cmsuserinfo |async}}
-            </b>
-          </p>
-          <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
-            {{'TITLE.Edit'|translate}}:
-            <b dir="ltr">
-              {{item.updatedBy| cmsuserinfo |async}}
-            </b>
-          </p>
-        </ng-container>
+                <h4 (click)="onActionButtonCustomerOrder(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonCustomerOrder(item,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
       </div>
     </div>
     <!-- end::Row -->
   </div>
+
+
+
+
   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
     <!-- begin::Row -->
     <div class="card card-style">
       <div class="content">
-        <!-- begin::Header-->
-        <p class="mb-0 color-highlight font-600 font-12">
-          {{'TITLE.History'| translate}}
-          <span class="text-muted fw-bold fs-7">{{dataModelHistoryResult.totalRowCount}}</span>
-          {{'TITLE.Number'| translate}}
-        </p>
-        <!-- end::Header-->
-        <ng-container *ngFor="let item of dataModelHistoryResult.listItems">
-          <div class="divider divider-margins bg-highlight"></div>
-          <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-            {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
-            publicHelper.getTime(item.createdDate)}}</p>
-          <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-              *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
-            publicHelper.getTime(item.updatedDate)}}</p>
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-3">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse3">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.History'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelHistoryResult.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse3" class="collapse" data-bs-parent="#accordion-3">
+              <ng-container *ngFor="let item of dataModelHistoryResult.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
+                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
 
-          <h4 (click)="onActionButtonHistory(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-              [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonHistory(item,$event)"
-              class="float-end"></i></h4>
-          <p>
-            {{item.description}}
-          </p>
-          <p>
-            {{'TITLE.USER'|translate}}:
-            <b dir="ltr">
-              {{item.createdBy| cmsuserinfo |async}}
-            </b>
-          </p>
-          <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
-            {{'TITLE.Edit'|translate}}:
-            <b dir="ltr">
-              {{item.updatedBy| cmsuserinfo |async}}
-            </b>
-          </p>
-        </ng-container>
+                <h4 (click)="onActionButtonHistory(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonHistory(item,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
       </div>
     </div>
     <!-- end::Row -->
   </div>
+
+
+
+
+
+
   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
     <!-- begin::Row -->
     <div class="card card-style">
       <div class="content">
-        <!-- begin::Header-->
-        <p class="mb-0 color-highlight font-600 font-12">
-          {{'TITLE.Property_agency'| translate}}
-          <span class="text-muted fw-bold fs-7">{{dataModelAccountAgencyResult.totalRowCount}}</span>
-          {{'TITLE.Number'| translate}}
-        </p>
-        <!-- end::Header-->
-        <ng-container *ngFor="let item of dataModelAccountAgencyResult.listItems">
-          <div class="divider divider-margins bg-highlight"></div>
-          <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-            {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
-            publicHelper.getTime(item.createdDate)}}</p>
-          <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-              *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
-            publicHelper.getTime(item.updatedDate)}}</p>
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-4">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse4">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Property_agency'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelAccountAgencyResult.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse4" class="collapse" data-bs-parent="#accordion-4">
+              <ng-container *ngFor="let item of dataModelAccountAgencyResult.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
+                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
 
-          <h4 (click)="onActionButtonAccountAgency(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-              [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountAgency(item,$event)"
-              class="float-end"></i></h4>
-          <p>
-            {{item.description}}
-          </p>
-          <p>
-            {{'TITLE.USER'|translate}}:
-            <b dir="ltr">
-              {{item.createdBy| cmsuserinfo |async}}
-            </b>
-          </p>
-          <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
-            {{'TITLE.Edit'|translate}}:
-            <b dir="ltr">
-              {{item.updatedBy| cmsuserinfo |async}}
-            </b>
-          </p>
-        </ng-container>
+                <h4 (click)="onActionButtonAccountAgency(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountAgency(item,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
       </div>
     </div>
     <!-- end::Row -->
   </div>
+
+
+
+
   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
     <!-- begin::Row -->
     <div class="card card-style">
       <div class="content">
-        <!-- begin::Header-->
-        <p class="mb-0 color-highlight font-600 font-12">
-          {{'TITLE.Property_expert'| translate}}
-          <span class="text-muted fw-bold fs-7">{{dataModelAccountUserResult.totalRowCount}}</span>
-          {{'TITLE.Number'| translate}}
-        </p>
-        <!-- end::Header-->
-        <ng-container *ngFor="let item of dataModelAccountUserResult.listItems">
-          <div class="divider divider-margins bg-highlight"></div>
-          <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-            {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
-            publicHelper.getTime(item.createdDate)}}</p>
-          <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-              *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
-            publicHelper.getTime(item.updatedDate)}}</p>
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-5">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse5">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Property_expert'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelAccountUserResult.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse5" class="collapse" data-bs-parent="#accordion-5">
+              <ng-container *ngFor="let item of dataModelAccountUserResult.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
+                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
 
-          <h4 (click)="onActionButtonAccountUser(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-              [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountUser(item,$event)"
-              class="float-end"></i></h4>
-          <p>
-            {{item.description}}
-          </p>
-          <p>
-            {{'TITLE.USER'|translate}}:
-            <b dir="ltr">
-              {{item.createdBy| cmsuserinfo |async}}
-            </b>
-          </p>
-          <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
-            {{'TITLE.Edit'|translate}}:
-            <b dir="ltr">
-              {{item.updatedBy| cmsuserinfo |async}}
-            </b>
-          </p>
-        </ng-container>
+                <h4 (click)="onActionButtonAccountUser(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonAccountUser(item,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
       </div>
     </div>
     <!-- end::Row -->
   </div>
+
+
+
+
+
+
+
+
   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
     <!-- begin::Row -->
     <div class="card card-style">
       <div class="content">
-        <!-- begin::Header-->
-        <p class="mb-0 color-highlight font-600 font-12">
-          {{'TITLE.Property_Company'| translate}}
-          <span class="text-muted fw-bold fs-7">{{dataModelPropertyCompanyResult.totalRowCount}}</span>
-          {{'TITLE.Number'| translate}}
-        </p>
-        <!-- end::Header-->
-        <ng-container *ngFor="let item of dataModelPropertyCompanyResult.listItems">
-          <div class="divider divider-margins bg-highlight"></div>
-          <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-            {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
-            publicHelper.getTime(item.createdDate)}}</p>
-          <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-              *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
-            publicHelper.getTime(item.updatedDate)}}</p>
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-6">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse6">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Property_Company'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelPropertyCompanyResult.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse6" class="collapse" data-bs-parent="#accordion-6">
+              <ng-container *ngFor="let item of dataModelPropertyCompanyResult.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
+                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
 
-          <h4 (click)="onActionButtonPropertyCompany(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-              [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertyCompany(item,$event)"
-              class="float-end"></i></h4>
-          <p>
-            {{item.description}}
-          </p>
-          <p>
-            {{'TITLE.USER'|translate}}:
-            <b dir="ltr">
-              {{item.createdBy| cmsuserinfo |async}}
-            </b>
-          </p>
-          <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
-            {{'TITLE.Edit'|translate}}:
-            <b dir="ltr">
-              {{item.updatedBy| cmsuserinfo |async}}
-            </b>
-          </p>
-        </ng-container>
+                <h4 (click)="onActionButtonPropertyCompany(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertyCompany(item,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
       </div>
     </div>
     <!-- end::Row -->
   </div>
+
+
+
+
+
+
+
   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
     <!-- begin::Row -->
     <div class="card card-style">
       <div class="content">
-        <!-- begin::Header-->
-        <p class="mb-0 color-highlight font-600 font-12">
-          {{'TITLE.Property_Supplier'| translate}}
-          <span class="text-muted fw-bold fs-7">{{dataModelPropertySupplierResult.totalRowCount}}</span>
-          {{'TITLE.Number'| translate}}
-        </p>
-        <!-- end::Header-->
-        <ng-container *ngFor="let item of dataModelPropertySupplierResult.listItems">
-          <div class="divider divider-margins bg-highlight"></div>
-          <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-            {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
-            publicHelper.getTime(item.createdDate)}}</p>
-          <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-              *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
-            publicHelper.getTime(item.updatedDate)}}</p>
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-7">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse7">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Property_Supplier'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelPropertySupplierResult.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse7" class="collapse" data-bs-parent="#accordion-7">
+              <ng-container *ngFor="let item of dataModelPropertySupplierResult.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
+                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
 
-          <h4 (click)="onActionButtonPropertySupplier(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-              [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertySupplier(item,$event)"
-              class="float-end"></i></h4>
-          <p>
-            {{item.description}}
-          </p>
-          <p>
-            {{'TITLE.USER'|translate}}:
-            <b dir="ltr">
-              {{item.createdBy| cmsuserinfo |async}}
-            </b>
-          </p>
-          <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
-            {{'TITLE.Edit'|translate}}:
-            <b dir="ltr">
-              {{item.updatedBy| cmsuserinfo |async}}
-            </b>
-          </p>
-        </ng-container>
+                <h4 (click)="onActionButtonPropertySupplier(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertySupplier(item,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
       </div>
     </div>
     <!-- end::Row -->
   </div>
+
+
+
+
+
+
   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
     <!-- begin::Row -->
     <div class="card card-style">
       <div class="content">
-        <!-- begin::Header-->
-        <p class="mb-0 color-highlight font-600 font-12">
-          {{'TITLE.Property_Project'| translate}}
-          <span class="text-muted fw-bold fs-7">{{dataModelPropertyProjectResult.totalRowCount}}</span>
-          {{'TITLE.Number'| translate}}
-        </p>
-        <!-- end::Header-->
-        <ng-container *ngFor="let item of dataModelPropertyProjectResult.listItems">
-          <div class="divider divider-margins bg-highlight"></div>
-          <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-            {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b> {{
-            publicHelper.getTime(item.createdDate)}}</p>
-          <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-              *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
-            publicHelper.getTime(item.updatedDate)}}</p>
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-8">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse8">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Property_Project'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelPropertyProjectResult.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse8" class="collapse" data-bs-parent="#accordion-8">
+              <ng-container *ngFor="let item of dataModelPropertyProjectResult.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
+                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
 
-          <h4 (click)="onActionButtonPropertyProject(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-              [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertyProject(item,$event)"
-              class="float-end"></i></h4>
-          <p>
-            {{item.description}}
-          </p>
-          <p>
-            {{'TITLE.USER'|translate}}:
-            <b dir="ltr">
-              {{item.createdBy| cmsuserinfo |async}}
-            </b>
-          </p>
-          <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
-            {{'TITLE.Edit'|translate}}:
-            <b dir="ltr">
-              {{item.updatedBy| cmsuserinfo |async}}
-            </b>
-          </p>
-        </ng-container>
+                <h4 (click)="onActionButtonPropertyProject(item,$event)" style="cursor: pointer;"> {{item.title}}<i
+                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonPropertyProject(item,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
       </div>
     </div>
     <!-- end::Row -->
   </div>
-</div>
