@@ -95,11 +95,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
+   todayStart = new Date(new Date().setHours(0, 0, 0, 0))
+ todayEnd = new Date(new Date().setHours(23, 59, 59, 999))
   ngOnInit(): void {
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
 
     var lStorlinkCmsUserId = this.publicHelper.getComponentLocalStorageMap(this.constructor.name, 'linkCmsUserId');
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
@@ -125,12 +127,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     let filterModelOnDay = new EstatePropertyFilterModel();
     // filterModelOnDay = filterModel;
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
     filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
     filterModelOnDay.countLoad = true;
+    if(this.linkCmsUserId>0)
     filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
     this.loading.Start(pName);
@@ -155,12 +158,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     let filterModelOnDay = new EstateCustomerOrderFilterModel();
     // filterModelOnDay = filterModel;
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
     filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
     filterModelOnDay.countLoad = true;
+    if(this.linkCmsUserId>0)
     filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
     this.loading.Start(pName);
@@ -186,12 +190,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     let filterModelOnDay = new EstatePropertyHistoryFilterModel();
     // filterModelOnDay = filterModel;
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
     filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
     filterModelOnDay.countLoad = true;
+    if(this.linkCmsUserId>0)
     filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
     this.loading.Start(pName);
@@ -217,12 +222,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     let filterModelOnDay = new EstatePropertyCompanyFilterModel();
     // filterModelOnDay = filterModel;
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
     filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
     filterModelOnDay.countLoad = true;
+    if(this.linkCmsUserId>0)
     filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
     this.loading.Start(pName);
@@ -248,12 +254,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     let filterModelOnDay = new EstatePropertySupplierFilterModel();
     // filterModelOnDay = filterModel;
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
     filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
     filterModelOnDay.countLoad = true;
+    if(this.linkCmsUserId>0)
     filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
     this.loading.Start(pName);
@@ -279,12 +286,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     let filterModelOnDay = new EstatePropertyProjectFilterModel();
     // filterModelOnDay = filterModel;
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
     filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
     filterModelOnDay.countLoad = true;
+    if(this.linkCmsUserId>0)
     filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
     this.loading.Start(pName);
@@ -310,12 +318,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     let filterModelOnDay = new EstateAccountUserFilterModel();
     // filterModelOnDay = filterModel;
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
     filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
     filterModelOnDay.countLoad = true;
+    if(this.linkCmsUserId>0)
     filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
     this.loading.Start(pName);
@@ -342,12 +351,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     let filterModelOnDay = new EstateAccountAgencyFilterModel();
     // filterModelOnDay = filterModel;
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
     filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
     filterModelOnDay.countLoad = true;
+    if(this.linkCmsUserId>0)
     filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
     this.loading.Start(pName);
@@ -398,24 +408,24 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     this.onActionButtonOnDateSearch();
   }
   onActionToDay() {
-    this.checkingOnDayRange.controls.start.setValue(new Date());
-    this.checkingOnDayRange.controls.end.setValue(new Date());
+    this.checkingOnDayRange.controls.start.setValue(this.todayStart);
+    this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     this.onActionButtonOnDateSearch();
   }
   onActionNext() {
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     this.checkingOnDayRange.controls.start.setValue(this.addDays(this.checkingOnDayRange.controls.start.value, 1));
     this.checkingOnDayRange.controls.end.setValue(this.addDays(this.checkingOnDayRange.controls.end.value, 1));
     this.onActionButtonOnDateSearch();
   }
   onActionPervious() {
     if (!this.checkingOnDayRange.controls.start?.value)
-      this.checkingOnDayRange.controls.start.setValue(new Date());
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
     if (!this.checkingOnDayRange.controls.end?.value)
-      this.checkingOnDayRange.controls.end.setValue(new Date());
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
     this.checkingOnDayRange.controls.start.setValue(this.addDays(this.checkingOnDayRange.controls.start.value, -1));
     this.checkingOnDayRange.controls.end.setValue(this.addDays(this.checkingOnDayRange.controls.end.value, -1));
     this.onActionButtonOnDateSearch();
