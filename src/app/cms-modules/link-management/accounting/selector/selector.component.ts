@@ -39,7 +39,7 @@ export class LinkManagementAccountingSelectorComponent implements OnInit {
   @Input() optionLabel = '';
   @Input() optionSelectFirstItem = false;
   @Output() optionChange = new EventEmitter<LinkManagementAccountingModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | LinkManagementAccountingModel) {
     this.onActionSelectForce(x);
   }
@@ -174,7 +174,7 @@ export class LinkManagementAccountingSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new LinkManagementAccountingModel();
     this.loadOptions();
   }

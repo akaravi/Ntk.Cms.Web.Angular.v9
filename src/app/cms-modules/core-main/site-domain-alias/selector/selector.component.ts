@@ -38,7 +38,7 @@ export class CoreSiteDomainAliasSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreSiteDomainAliasModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreSiteDomainAliasModel) {
     this.onActionSelectForce(x);
   }
@@ -173,7 +173,7 @@ export class CoreSiteDomainAliasSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

@@ -37,7 +37,7 @@ export class MemberPropertyAliasSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<MemberPropertyAliasModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | MemberPropertyAliasModel) {
     this.onActionSelectForce(x);
   }
@@ -155,7 +155,7 @@ export class MemberPropertyAliasSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new MemberPropertyAliasModel();
     this.loadOptions();
   }

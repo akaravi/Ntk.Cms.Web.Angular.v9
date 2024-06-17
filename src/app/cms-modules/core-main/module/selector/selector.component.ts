@@ -38,7 +38,7 @@ export class CoreModuleSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreModuleModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreModuleModel) {
     this.onActionSelectForce(x);
   }
@@ -182,7 +182,7 @@ export class CoreModuleSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

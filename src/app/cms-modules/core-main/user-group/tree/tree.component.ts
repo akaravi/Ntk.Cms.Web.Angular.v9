@@ -63,7 +63,7 @@ export class CoreUserGroupTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<CoreUserGroupModel>();
   @Output() optionChange = new EventEmitter<CoreUserGroupModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: CoreUserGroupModel) => false;
 
@@ -105,7 +105,7 @@ export class CoreUserGroupTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new CoreUserGroupModel();

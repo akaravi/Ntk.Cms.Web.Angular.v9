@@ -36,7 +36,7 @@ export class CoreUserClaimTypeSelectionlistComponent implements OnInit {
   @Output() optionChange = new EventEmitter<CoreUserClaimTypeModel[]>();
   @Output() optionSelectAdded = new EventEmitter();
   @Output() optionSelectRemoved = new EventEmitter();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number[] | CoreUserClaimTypeModel[]) {
     this.onActionSelectForce(x);
   }
@@ -106,7 +106,7 @@ export class CoreUserClaimTypeSelectionlistComponent implements OnInit {
     this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // this.dataModelSelect = new CoreUserClaimTypeModel();
     this.DataGetAll();
   }

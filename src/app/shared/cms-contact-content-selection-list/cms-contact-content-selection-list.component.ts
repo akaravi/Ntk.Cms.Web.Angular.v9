@@ -36,7 +36,7 @@ export class CmsContactContentSelectionListComponent implements OnInit {
   @Output() optionChange = new EventEmitter<ContactContentModel[]>();
   @Output() optionSelectAdded = new EventEmitter();
   @Output() optionSelectRemoved = new EventEmitter();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string[] | ContactContentModel[]) {
     this.onActionSelectForce(x);
   }
@@ -107,7 +107,7 @@ export class CmsContactContentSelectionListComponent implements OnInit {
     this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // this.dataModelSelect = new ContactContentModel();
     this.DataGetAll();
   }

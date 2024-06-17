@@ -38,7 +38,7 @@ export class CoreModuleSaleSerialSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreModuleSaleSerialModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreModuleSaleSerialModel) {
     this.onActionSelectForce(x);
   }
@@ -177,7 +177,7 @@ export class CoreModuleSaleSerialSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new CoreModuleSaleSerialModel();
     this.loadOptions();
   }

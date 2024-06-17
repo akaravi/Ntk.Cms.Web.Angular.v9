@@ -61,7 +61,7 @@ export class BankPaymentPrivateSiteConfigTreeComponent implements OnInit, OnDest
   dataSource = new MatTreeNestedDataSource<BankPaymentPrivateSiteConfigModel>();
   @Output() optionChange = new EventEmitter<BankPaymentPrivateSiteConfigModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: BankPaymentPrivateSiteConfigModel) => false;
   ngOnInit(): void {
     this.DataGetAll();
@@ -96,7 +96,7 @@ export class BankPaymentPrivateSiteConfigTreeComponent implements OnInit, OnDest
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new BankPaymentPrivateSiteConfigModel();

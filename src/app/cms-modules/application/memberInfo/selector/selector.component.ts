@@ -34,7 +34,7 @@ export class ApplicationMemberInfoSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ApplicationMemberInfoModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | ApplicationMemberInfoModel) {
     this.onActionSelectForce(x);
   }
@@ -204,7 +204,7 @@ export class ApplicationMemberInfoSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new ApplicationMemberInfoModel();
     this.loadOptions();
   }

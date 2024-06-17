@@ -74,7 +74,7 @@ export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy
       this.filterModel.filters.push(filter);
     }
   }
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: EstatePropertyDetailGroupModel) => false;
 
 
@@ -115,7 +115,7 @@ export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new EstatePropertyDetailGroupModel();

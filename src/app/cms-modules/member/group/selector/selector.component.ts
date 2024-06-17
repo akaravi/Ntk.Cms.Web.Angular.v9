@@ -37,7 +37,7 @@ export class MemberGroupSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<MemberGroupModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | MemberGroupModel) {
     this.onActionSelectForce(x);
   }
@@ -156,7 +156,7 @@ export class MemberGroupSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new MemberGroupModel();
     this.loadOptions();
   }

@@ -63,7 +63,7 @@ export class CoreUserClaimTypeTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<CoreUserClaimTypeModel>();
   @Output() optionChange = new EventEmitter<CoreUserClaimTypeModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: CoreUserClaimTypeModel) => false;
 
@@ -105,7 +105,7 @@ export class CoreUserClaimTypeTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new CoreUserClaimTypeModel();

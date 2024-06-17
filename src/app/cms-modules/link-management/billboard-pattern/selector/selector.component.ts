@@ -50,7 +50,7 @@ export class LinkManagementBillboardPatternSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<LinkManagementBillboardPatternModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | LinkManagementBillboardPatternModel) {
     this.onActionSelectForce(x);
   }
@@ -195,7 +195,7 @@ export class LinkManagementBillboardPatternSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new LinkManagementBillboardPatternModel();
     this.loadOptions();
   }

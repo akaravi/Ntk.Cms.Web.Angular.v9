@@ -62,7 +62,7 @@ export class EstateAccountAgencyTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<EstateAccountAgencyModel>();
   @Output() optionChange = new EventEmitter<EstateAccountAgencyModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: EstateAccountAgencyModel) => false;
   ngOnInit(): void {
     this.DataGetAll();
@@ -97,7 +97,7 @@ export class EstateAccountAgencyTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new EstateAccountAgencyModel();
     this.DataGetAll();

@@ -38,7 +38,7 @@ export class ContactContentSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<ContactContentModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | ContactContentModel) {
     this.onActionSelectForce(x);
   }
@@ -171,7 +171,7 @@ export class ContactContentSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new ContactContentModel();
     this.loadOptions();
   }

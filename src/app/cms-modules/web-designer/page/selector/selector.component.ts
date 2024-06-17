@@ -41,7 +41,7 @@ export class WebDesignerMainPageSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<WebDesignerMainPageModel>();
   masterTemplateId = '';
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
   get optionLoading(): ProgressSpinnerModel {
@@ -188,7 +188,7 @@ export class WebDesignerMainPageSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

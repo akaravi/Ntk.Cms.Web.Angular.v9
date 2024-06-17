@@ -65,7 +65,7 @@ export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<NewsCategoryModel>();
   @Output() optionChange = new EventEmitter<NewsCategoryModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: NewsCategoryModel) => !!node.children && node.children.length > 0;
   ngOnInit(): void {
     this.DataGetAll();
@@ -103,7 +103,7 @@ export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new NewsCategoryModel();

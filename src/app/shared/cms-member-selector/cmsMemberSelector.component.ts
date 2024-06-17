@@ -41,7 +41,7 @@ export class CmsMemberSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreLogMemberModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | CoreLogMemberModel) {
     this.onActionSelectForce(x);
   }
@@ -187,7 +187,7 @@ export class CmsMemberSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

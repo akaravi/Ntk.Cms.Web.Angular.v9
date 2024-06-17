@@ -62,7 +62,7 @@ export class EstatePropertyProjectTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<EstatePropertyProjectModel>();
   @Output() optionChange = new EventEmitter<EstatePropertyProjectModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: EstatePropertyProjectModel) => false;
 
@@ -104,7 +104,7 @@ export class EstatePropertyProjectTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new EstatePropertyProjectModel();

@@ -37,7 +37,7 @@ export class FileContentSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<FileContentModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | FileContentModel) {
     this.onActionSelectForce(x);
   }
@@ -160,7 +160,7 @@ export class FileContentSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new FileContentModel();
     this.loadOptions();
   }

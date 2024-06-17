@@ -38,7 +38,7 @@ export class EstateAccountAgencySelectorComponent implements OnInit {
   @Input() optionLabel = '';
   @Input() optionRequired = false;
   @Output() optionChange = new EventEmitter<EstateAccountAgencyModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | EstateAccountAgencyModel) {
     this.forceSelect = x
     this.onActionSelectForce(x);
@@ -196,7 +196,7 @@ export class EstateAccountAgencySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

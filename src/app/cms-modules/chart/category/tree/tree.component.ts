@@ -64,7 +64,7 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<ChartCategoryModel>();
   @Output() optionChange = new EventEmitter<ChartCategoryModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: ChartCategoryModel) => !!node.children && node.children.length > 0;
 
@@ -107,7 +107,7 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new ChartCategoryModel();

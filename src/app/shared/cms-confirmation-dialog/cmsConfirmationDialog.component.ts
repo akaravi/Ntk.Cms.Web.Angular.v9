@@ -10,13 +10,14 @@ import { ConfirmDialogModel } from './cmsConfirmationDialog.service';
 export class ConfirmationDialogComponent implements OnInit {
   static nextId = 0;
   id = ++ConfirmationDialogComponent.nextId;
-  @Input() title: string;
-  @Input() message: string;
-  @Input() btnOkText: string;
-  @Input() btnCancelText: string;
+
 
   //constructor(private activeModal: NgbActiveModal) { }
-  constructor(public dialogRef: MatDialogRef<ConfirmationDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogModel) { }
+  constructor(public dialogRef: MatDialogRef<ConfirmationDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogModel) {
+    if (!data)
+      this.dialogRef.close(false);
+
+  }
   ngOnInit(): void {
   }
 

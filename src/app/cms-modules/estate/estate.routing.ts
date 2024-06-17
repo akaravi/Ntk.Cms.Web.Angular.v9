@@ -12,7 +12,7 @@ import { EstateCategoryRackListMobileComponent } from './category-rack/list/list
 import { EstateCategoryZoneListComponent } from './category-zone/list/list.component';
 import { EstateContractTypeListComponent } from './contract-type/list/list.component';
 import { EstateCustomerOrderResultListComponent } from './customer-order-result/list/list.component';
-import { EstateCustomerOrderAddComponent } from './customer-order/add/add.component';
+
 import { EstateCustomerOrderAddMobileComponent } from './customer-order/add/add.mobile.component';
 import { EstateCustomerOrderEditComponent } from './customer-order/edit/edit.component';
 import { EstateCustomerOrderEditMobileComponent } from './customer-order/edit/edit.mobile.component';
@@ -378,21 +378,7 @@ const routesNormal: Routes = [
         component: EstateCustomerOrderListComponent,
         data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
       },
-      {
-        path: 'customer-order/add',
-        component: EstateCustomerOrderAddComponent,
-        data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
-      },
-      {
-        path: 'customer-order/add-copy/:id',
-        component: EstateCustomerOrderAddComponent,
-        data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
-      },
-      {
-        path: 'customer-order/add/LinkParentId/:LinkParentId',
-        component: EstateCustomerOrderAddComponent,
-        data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
-      },
+
       {
         path: 'customer-order/edit/:id',
         component: EstateCustomerOrderEditComponent,
@@ -778,11 +764,7 @@ const routesMobile: Routes = [
         component: EstateCustomerOrderAddMobileComponent,
         data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
       },
-      {
-        path: 'customer-order/add/LinkParentId/:LinkParentId',
-        component: EstateCustomerOrderAddComponent,
-        data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
-      },
+
       {
         path: 'customer-order/edit/:id',
         component: EstateCustomerOrderEditMobileComponent,

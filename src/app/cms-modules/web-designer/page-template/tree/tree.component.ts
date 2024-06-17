@@ -60,7 +60,7 @@ export class WebDesignerMainPageTemplateTreeComponent implements OnInit, OnDestr
   dataSource = new MatTreeNestedDataSource<WebDesignerMainPageTemplateModel>();
   @Output() optionChange = new EventEmitter<WebDesignerMainPageTemplateModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: WebDesignerMainPageTemplateModel) => false;
   ngOnInit(): void {
     this.DataGetAll();
@@ -94,7 +94,7 @@ export class WebDesignerMainPageTemplateTreeComponent implements OnInit, OnDestr
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new WebDesignerMainPageTemplateModel();
     this.DataGetAll();

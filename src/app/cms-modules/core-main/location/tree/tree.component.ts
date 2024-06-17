@@ -61,7 +61,7 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<CoreLocationModel>();
   @Output() optionChange = new EventEmitter<CoreLocationModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: CoreLocationModel) => !!node.children && node.children.length > 0;
 
@@ -142,7 +142,7 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
       this.DataGetAllChild(this.dataModelSelect)
     }
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new CoreLocationModel();

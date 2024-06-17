@@ -35,7 +35,7 @@ export class EstatePropertyProjectSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<EstatePropertyProjectModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | EstatePropertyProjectModel) {
     this.onActionSelectForce(x);
   }
@@ -152,7 +152,7 @@ export class EstatePropertyProjectSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new EstatePropertyProjectModel();
     this.loadOptions();
   }

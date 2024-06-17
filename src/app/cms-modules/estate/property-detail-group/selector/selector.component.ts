@@ -36,7 +36,7 @@ export class EstatePropertyDetailGroupSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<EstatePropertyDetailGroupModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | EstatePropertyDetailGroupModel) {
     this.onActionSelectForce(x);
   }
@@ -182,7 +182,7 @@ export class EstatePropertyDetailGroupSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

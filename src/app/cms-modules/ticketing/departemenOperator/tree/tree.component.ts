@@ -60,7 +60,7 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
   dataSource = new MatTreeNestedDataSource<TicketingDepartemenOperatorModel>();
   @Output() optionChange = new EventEmitter<TicketingDepartemenOperatorModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: TicketingDepartemenOperatorModel) => false;
 
@@ -101,7 +101,7 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new TicketingDepartemenOperatorModel();

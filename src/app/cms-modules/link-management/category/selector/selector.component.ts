@@ -40,7 +40,7 @@ export class LinkManagementCategorySelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<LinkManagementCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | LinkManagementCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -175,7 +175,7 @@ export class LinkManagementCategorySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new LinkManagementCategoryModel();
     this.loadOptions();
   }

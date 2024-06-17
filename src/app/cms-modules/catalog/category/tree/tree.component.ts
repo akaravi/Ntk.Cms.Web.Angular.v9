@@ -64,7 +64,7 @@ export class CatalogCategoryTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<CatalogCategoryModel>();
   @Output() optionChange = new EventEmitter<CatalogCategoryModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: CatalogCategoryModel) => !!node.children && node.children.length > 0;
 
@@ -106,7 +106,7 @@ export class CatalogCategoryTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new CatalogCategoryModel();
     this.DataGetAll();

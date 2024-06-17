@@ -62,7 +62,7 @@ export class EstateCategoryRackTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<EstateCategoryRackModel>();
   @Output() optionChange = new EventEmitter<EstateCategoryRackModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: EstateCategoryRackModel) => false;
 
@@ -104,7 +104,7 @@ export class EstateCategoryRackTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new EstateCategoryRackModel();
     this.DataGetAll();

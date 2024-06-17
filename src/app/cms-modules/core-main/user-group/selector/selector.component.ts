@@ -39,7 +39,7 @@ export class CoreUserGroupSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreUserGroupModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreUserGroupModel) {
     this.onActionSelectForce(x);
   }
@@ -174,7 +174,7 @@ export class CoreUserGroupSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new CoreUserGroupModel();
     this.loadOptions();
   }

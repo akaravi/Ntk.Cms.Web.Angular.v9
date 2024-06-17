@@ -40,7 +40,7 @@ export class SmsMainMessageCategorySelectorComponent implements OnInit {
   @Input() optionLabel = '';
   @Input() optionSelectFirstItem = false;
   @Output() optionChange = new EventEmitter<SmsMainMessageCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | SmsMainMessageCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -173,7 +173,7 @@ export class SmsMainMessageCategorySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new SmsMainMessageCategoryModel();
     this.loadOptions();
   }

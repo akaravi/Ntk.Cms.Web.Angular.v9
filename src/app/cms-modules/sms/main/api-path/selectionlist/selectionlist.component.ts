@@ -35,7 +35,7 @@ export class SmsMainApiPathSelectionlistComponent implements OnInit {
   @Output() optionChange = new EventEmitter<SmsMainApiPathModel[]>();
   @Output() optionSelectAdded = new EventEmitter();
   @Output() optionSelectRemoved = new EventEmitter();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string[] | SmsMainApiPathModel[]) {
     this.onActionSelectForce(x);
   }
@@ -106,7 +106,7 @@ export class SmsMainApiPathSelectionlistComponent implements OnInit {
     this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // this.dataModelSelect = new SmsMainApiPathModel();
     this.DataGetAll();
   }

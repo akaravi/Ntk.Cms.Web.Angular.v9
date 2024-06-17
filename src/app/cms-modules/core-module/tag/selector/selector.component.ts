@@ -42,7 +42,7 @@ export class CoreModuleTagSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreModuleTagModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreModuleTagModel) {
     this.onActionSelectForce(x);
   }
@@ -166,7 +166,7 @@ export class CoreModuleTagSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new CoreModuleTagModel();
     this.loadOptions();
   }

@@ -66,7 +66,7 @@ export class SmsMainMessageCategoryTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<SmsMainMessageCategoryModel>();
   @Output() optionChange = new EventEmitter<SmsMainMessageCategoryModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: string, node: SmsMainMessageCategoryModel) => !!node.children && node.children.length > 0;
 
@@ -108,7 +108,7 @@ export class SmsMainMessageCategoryTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new SmsMainMessageCategoryModel();
     this.DataGetAll();

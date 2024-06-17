@@ -60,7 +60,7 @@ export class CoreSiteCategoryCmsModuleTreeComponent implements OnInit, OnDestroy
   dataSource = new MatTreeNestedDataSource<CoreSiteCategoryCmsModuleModel>();
   @Output() optionChange = new EventEmitter<CoreSiteCategoryCmsModuleModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: CoreSiteCategoryCmsModuleModel) => false;
 
@@ -103,7 +103,7 @@ export class CoreSiteCategoryCmsModuleTreeComponent implements OnInit, OnDestroy
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new CoreSiteCategoryCmsModuleModel();
@@ -147,7 +147,7 @@ export class CoreSiteCategoryCmsModuleTreeComponent implements OnInit, OnDestroy
     this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
       title = str[0];
       message = str[1] + '?' + + '<br> ( '
-         + this.dataModelSelect.virtual_CmsModule.title + '<==>' + this.dataModelSelect.virtual_CmsSiteCategory.title + ' ) ';
+        + this.dataModelSelect.virtual_CmsModule.title + '<==>' + this.dataModelSelect.virtual_CmsSiteCategory.title + ' ) ';
     });
 
     this.cmsConfirmationDialogService.confirm(title, message)

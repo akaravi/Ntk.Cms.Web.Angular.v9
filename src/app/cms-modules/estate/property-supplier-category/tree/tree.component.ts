@@ -62,7 +62,7 @@ export class EstatePropertySupplierCategoryTreeComponent implements OnInit, OnDe
   dataSource = new MatTreeNestedDataSource<EstatePropertySupplierCategoryModel>();
   @Output() optionChange = new EventEmitter<EstatePropertySupplierCategoryModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: EstatePropertySupplierCategoryModel) => false;
 
@@ -104,7 +104,7 @@ export class EstatePropertySupplierCategoryTreeComponent implements OnInit, OnDe
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new EstatePropertySupplierCategoryModel();

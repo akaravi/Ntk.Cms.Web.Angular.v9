@@ -37,7 +37,7 @@ export class CoreUserClaimGroupSelectionlistComponent implements OnInit {
   @Output() optionChange = new EventEmitter<CoreUserClaimGroupModel[]>();
   @Output() optionSelectAdded = new EventEmitter();
   @Output() optionSelectRemoved = new EventEmitter();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number[] | CoreUserClaimGroupModel[]) {
     this.onActionSelectForce(x);
   }
@@ -108,7 +108,7 @@ export class CoreUserClaimGroupSelectionlistComponent implements OnInit {
 
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // this.dataModelSelect = new CoreUserClaimGroupModel();
     this.DataGetAll();
   }

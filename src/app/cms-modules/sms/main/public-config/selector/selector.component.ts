@@ -40,7 +40,7 @@ export class SmsMainApiPathPublicConfigSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<SmsMainApiPathPublicConfigModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | SmsMainApiPathPublicConfigModel) {
     this.onActionSelectForce(x);
   }
@@ -181,7 +181,7 @@ export class SmsMainApiPathPublicConfigSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new SmsMainApiPathPublicConfigModel();
     this.loadOptions();
   }

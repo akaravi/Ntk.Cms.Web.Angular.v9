@@ -41,7 +41,7 @@ export class SmsMainApiPathSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<SmsMainApiPathModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | SmsMainApiPathModel) {
     this.onActionSelectForce(x);
   }
@@ -177,7 +177,7 @@ export class SmsMainApiPathSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new SmsMainApiPathModel();
     //this.loadOptions();
   }

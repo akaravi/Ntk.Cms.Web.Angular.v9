@@ -38,7 +38,7 @@ export class EstateCustomerOrderSelectorComponent implements OnInit {
   @Input() optionLabel = '';
 
   @Output() optionChange = new EventEmitter<EstateCustomerOrderModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | EstateCustomerOrderModel) {
     this.onActionSelectForce(x);
   }
@@ -179,7 +179,7 @@ export class EstateCustomerOrderSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new EstateCustomerOrderModel();
     this.loadOptions();
   }

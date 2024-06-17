@@ -23,6 +23,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { CmsLinkToComponent } from "src/app/shared/cms-link-to/cms-link-to.component";
 import { environment } from 'src/environments/environment';
 import { EstatePropertyHistoryAddComponent } from '../../property-history/add/add.component';
+import { EstateCustomerOrderAddToEditComponent } from '../add/add-to-edit.component';
 @Component({
   selector: 'app-estate-customer-order-list',
   templateUrl: './list.component.html',
@@ -333,23 +334,30 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       return;
     }
 
-    if (this.categoryModelSelected && this.categoryModelSelected.id && this.categoryModelSelected.id.length > 0) {
-      this.router.navigate(['/estate/customer-order/add/LinkParentId', this.categoryModelSelected.id]);
-      if (event?.ctrlKey) {
-        this.link = "/#/estate/customer-order/add/LinkParentId/" + this.tableRowSelected.id;
-        window.open(this.link, "_blank");
-      } else {
-        this.router.navigate(['/estate/customer-order/add/LinkParentId', this.categoryModelSelected.id]);
+
+    //open poup
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';// matdialogStyle
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstateCustomerOrderAddToEditComponent, {
+      height: "90%",
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {
+        linkEstateCustomerCategoryId: this.categoryModelSelected?.id
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.dialogChangedDate) {
+        this.router.navigate(['/estate/customer-order/edit/', result.id]);
       }
-    }
-    else {
-      if (event?.ctrlKey) {
-        this.link = "/#/estate/customer-order/add/";
-        window.open(this.link, "_blank");
-      } else {
-        this.router.navigate(['/estate/customer-order/add']);
-      }
-    }
+    });
+    //open poup
+
+
   }
   onActionButtonCopyNewRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
@@ -358,13 +366,30 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     }
     this.onActionTableRowSelect(model);
 
+    //open poup
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';// matdialogStyle
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstateCustomerOrderAddToEditComponent, {
+      height: "90%",
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {
+        copyId: model.id,
+        linkEstateCustomerCategoryId: this.categoryModelSelected?.id
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.dialogChangedDate) {
+        this.router.navigate(['/estate/customer-order/edit/', result.id]);
+      }
+    });
+    //open poup
 
-    if (event?.ctrlKey) {
-      this.link = "/#/estate/customer-order/add-copy/" + this.tableRowSelected.id;
-      window.open(this.link, "_blank");
-    } else {
-      this.router.navigate(['/estate/customer-order/add-copy', this.tableRowSelected.id]);
-    }
+
   }
   onActionButtonEditRow(model: EstateCustomerOrderModel = this.tableRowSelected, event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {

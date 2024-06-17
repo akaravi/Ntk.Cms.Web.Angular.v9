@@ -65,11 +65,10 @@ import { EstateContractTypeEditComponent } from './contract-type/edit/edit.compo
 import { EstateContractTypeListComponent } from './contract-type/list/list.component';
 import { EstateContractTypeSelectorComponent } from './contract-type/selector/selector.component';
 import { EstateContractTypeTreeComponent } from './contract-type/tree/tree.component';
-import { EstateCustomerOrderAddComponent } from './customer-order/add/add.component';
 import { EstateCustomerOrderEditComponent } from './customer-order/edit/edit.component';
 import { EstateCustomerOrderListComponent } from './customer-order/list/list.component';
 import { EstateCustomerOrderSelectorComponent } from './customer-order/selector/selector.component';
-import { EstateCustomerOrderTreeComponent } from './customer-order/tree/tree.component';
+
 import { EstatePropertyAdsAddComponent } from './property-ads/add/add.component';
 import { EstatePropertyAdsEditComponent } from './property-ads/edit/edit.component';
 import { EstatePropertyAdsListComponent } from './property-ads/list/list.component';
@@ -147,6 +146,7 @@ import { EstateCustomerCategoryTreeComponent } from './customer-category/tree/tr
 import { EstateCustomerOrderResultListComponent } from './customer-order-result/list/list.component';
 import { EstateCustomerOrderResultViewComponent } from './customer-order-result/view/view.component';
 import { EstateCustomerOrderActionComponent } from './customer-order/action/action.component';
+import { EstateCustomerOrderAddToEditComponent } from './customer-order/add/add-to-edit.component';
 import { EstateCustomerOrderAddMobileComponent } from './customer-order/add/add.mobile.component';
 import { EstateCustomerOrderEditMobileComponent } from './customer-order/edit/edit.mobile.component';
 import { EstateCustomerOrderHeaderComponent } from './customer-order/header/header.component';
@@ -319,13 +319,12 @@ import { EstatePropertyQuickViewComponent } from './property/quick-view/quick-vi
     EstateBillboardTreeComponent,
     EstateBillboardHeaderComponent,
     /* */
-    EstateCustomerOrderAddComponent,
+    EstateCustomerOrderAddToEditComponent,
     EstateCustomerOrderAddMobileComponent,
     EstateCustomerOrderEditComponent,
     EstateCustomerOrderEditMobileComponent,
     EstateCustomerOrderListComponent,
     EstateCustomerOrderSelectorComponent,
-    EstateCustomerOrderTreeComponent,
     EstateCustomerOrderHeaderComponent,
     EstateCustomerOrderActionComponent,
     EstateCustomerOrderQuickViewComponent,

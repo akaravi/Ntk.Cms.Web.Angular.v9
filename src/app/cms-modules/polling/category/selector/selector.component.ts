@@ -41,7 +41,7 @@ export class PollingCategorySelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<PollingCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | PollingCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -174,7 +174,7 @@ export class PollingCategorySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new PollingCategoryModel();
     this.loadOptions();
   }

@@ -63,7 +63,7 @@ export class MemberGroupTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<MemberGroupModel>();
   @Output() optionChange = new EventEmitter<MemberGroupModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: MemberGroupModel) => false;
 
@@ -105,7 +105,7 @@ export class MemberGroupTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new MemberGroupModel();
     this.DataGetAll();

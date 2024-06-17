@@ -37,7 +37,7 @@ export class ApplicationSourceSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ApplicationSourceModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | ApplicationSourceModel) {
     this.onActionSelectForce(x);
   }
@@ -178,7 +178,7 @@ export class ApplicationSourceSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new ApplicationSourceModel();
     this.loadOptions();
   }

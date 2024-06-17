@@ -36,7 +36,7 @@ export class EstatePropertyDetailSelectorComponent implements OnInit {
   @Input() optionLabel = '';
 
   @Output() optionChange = new EventEmitter<EstatePropertyDetailModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | EstatePropertyDetailModel) {
     this.onActionSelectForce(x);
   }
@@ -175,7 +175,7 @@ export class EstatePropertyDetailSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

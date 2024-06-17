@@ -35,7 +35,7 @@ export class EstatePropertySupplierSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<EstatePropertySupplierModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | EstatePropertySupplierModel) {
     this.onActionSelectForce(x);
   }
@@ -152,7 +152,7 @@ export class EstatePropertySupplierSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new EstatePropertySupplierModel();
     this.loadOptions();
   }

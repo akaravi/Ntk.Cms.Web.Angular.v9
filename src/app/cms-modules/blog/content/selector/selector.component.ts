@@ -41,7 +41,7 @@ export class BlogContentSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<BlogContentModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | BlogContentModel) {
     this.onActionSelectForce(x);
   }
@@ -165,7 +165,7 @@ export class BlogContentSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new BlogContentModel();
     this.loadOptions();
   }

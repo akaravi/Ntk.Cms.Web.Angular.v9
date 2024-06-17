@@ -40,7 +40,7 @@ export class EstatePropertyTypeUsageSelectorComponent implements OnInit, OnDestr
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<EstatePropertyTypeUsageModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | EstatePropertyTypeUsageModel) {
     if (x && ((typeof x === 'string' && x.length > 0) || typeof x === typeof EstatePropertyTypeUsageModel))
       this.onActionSelectForce(x);
@@ -192,7 +192,7 @@ export class EstatePropertyTypeUsageSelectorComponent implements OnInit, OnDestr
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

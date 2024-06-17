@@ -41,7 +41,7 @@ export class CatalogContentSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CatalogContentModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | CatalogContentModel) {
     this.onActionSelectForce(x);
   }
@@ -165,7 +165,7 @@ export class CatalogContentSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new CatalogContentModel();
     this.loadOptions();
   }

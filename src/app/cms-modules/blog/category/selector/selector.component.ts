@@ -40,7 +40,7 @@ export class BlogCategorySelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<BlogCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | BlogCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -174,7 +174,7 @@ export class BlogCategorySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new BlogCategoryModel();
     this.loadOptions();
   }

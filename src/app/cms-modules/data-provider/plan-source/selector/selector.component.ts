@@ -33,7 +33,7 @@ export class DataProviderPlanSourceSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
   @Output() optionChange = new EventEmitter<DataProviderPlanSourceModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | DataProviderPlanSourceModel) {
     this.onActionSelectForce(x);
   }
@@ -158,7 +158,7 @@ export class DataProviderPlanSourceSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new DataProviderPlanSourceModel();
     this.loadOptions();
   }

@@ -39,7 +39,7 @@ export class CmsCurrencySelectorComponent implements OnInit {
   @Input() optionLabel = '';
   @Input() optionRequired = false;
   @Output() optionChange = new EventEmitter<CoreCurrencyModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreCurrencyModel) {
     this.onActionSelectForce(x);
   }
@@ -212,7 +212,7 @@ export class CmsCurrencySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

@@ -64,7 +64,7 @@ export class SmsMainApiPathTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<SmsMainApiPathModel>();
   @Output() optionChange = new EventEmitter<SmsMainApiPathModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: SmsMainApiPathModel) => false;
 
@@ -104,7 +104,7 @@ export class SmsMainApiPathTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new SmsMainApiPathModel();
     this.DataGetAll();

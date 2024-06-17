@@ -38,7 +38,7 @@ export class CoreSiteCategoryCmsModuleSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreSiteCategoryCmsModuleModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreSiteCategoryCmsModuleModel) {
     this.onActionSelectForce(x);
   }
@@ -179,7 +179,7 @@ export class CoreSiteCategoryCmsModuleSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

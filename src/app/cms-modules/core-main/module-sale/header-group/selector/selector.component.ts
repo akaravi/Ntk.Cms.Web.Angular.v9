@@ -39,7 +39,7 @@ export class CoreModuleSaleHeaderGroupSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreModuleSaleHeaderGroupModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreModuleSaleHeaderGroupModel) {
     this.onActionSelectForce(x);
   }
@@ -180,7 +180,7 @@ export class CoreModuleSaleHeaderGroupSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

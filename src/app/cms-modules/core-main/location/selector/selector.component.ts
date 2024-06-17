@@ -38,7 +38,7 @@ export class CoreLocationSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreLocationModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreLocationModel) {
     this.onActionSelectForce(x);
   }
@@ -173,7 +173,7 @@ export class CoreLocationSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new CoreLocationModel();
     this.loadOptions();
   }

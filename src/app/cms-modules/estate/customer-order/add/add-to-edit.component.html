@@ -1,0 +1,156 @@
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{ formInfo.formTitle }}
+    </p>
+
+
+    <p>
+      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+    </p>
+    <!--content-->
+    <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+
+      <!-- LinkCategoryId Field -->
+      <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+        [optionSelectForce]="dataModel.linkEstateCustomerCategoryId" [optionPlaceholder]="'TITLE.Category' | translate">
+      </app-estate-customer-category-selector>
+
+      <!-- Title Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{
+          fieldsInfo["title"]?.fieldTitle
+          }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+          placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
+          class="form-control validate-name" id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em></em>
+        <mat-error *ngIf="Title.errors?.required">
+          {{ fieldsInfo["title"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
+        </mat-error>
+      </div>
+
+
+
+      <!-- Description Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.description" class="color-highlight">{{
+          fieldsInfo["description"]?.fieldTitle
+          }}</label>
+        <textarea matInput [(ngModel)]="dataModel.description" name="dataModel.description" #Description type="text"
+          placeholder="{{ fieldsInfo['description']?.fieldTitle }}" minlength="0" maxlength="500" rows="5"
+          id="dataModel.description" class="form-control validate-name"></textarea>
+        <em>{{ Description.value.length }} / 500</em>
+      </div>
+
+      <!-- DescriptionHidden Field -->
+      <div *ngIf="fieldsInfo['descriptionHidden']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.descriptionHidden" class="color-highlight">{{
+          "TITLE.Description_Hidden" | translate
+          }}</label>
+        <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
+          #DescriptionHidden type="text" placeholder="{{ fieldsInfo['descriptionHidden']?.fieldTitle }}" minlength="0"
+          maxlength="500" rows="5" id="dataModel.descriptionHidden" class="form-control validate-name"></textarea>
+        <em>{{ DescriptionHidden.value.length }} / 500</em>
+      </div>
+
+      <hr>
+      <!-- LinkCmsUserId Field -->
+      <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
+        [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.Order_Owner'  | translate">
+      </app-cms-user-selector>
+
+      <!-- linkEstateAgencyId Field -->
+      <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
+        (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
+        [optionPlaceholder]="'TITLE.Property_agency'  | translate">
+      </app-estate-account-agency-selector>
+
+      <!-- LinkEstateUserId Field -->
+      <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
+        [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkEstateUserId" [(optionLoading)]="loading"
+        [optionPlaceholder]="'TITLE.Real_estate_customer_personnel'  | translate">
+      </app-estate-account-user-selector>
+
+      <!-- ContactMobiles Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.contactMobiles" class="color-highlight">{{
+          "TITLE.Mobile_customer" | translate
+          }}</label>
+        <textarea matInput [(ngModel)]="dataModel.contactMobiles" name="dataModel.contactMobiles" #ContactMobiles
+          type="text" placeholder="{{ 'TITLE.Mobile_customer' | translate }}" minlength="0" maxlength="100" rows="5"
+          id="dataModel.contactMobiles" class="form-control validate-name"></textarea>
+        <em>{{ ContactMobiles.value.length }} / 100</em>
+        <mat-error *ngIf="ContactMobiles.errors?.required">
+          ContactMobiles is
+          <strong>{{ "MESSAGE.required" | translate }}</strong>
+        </mat-error>
+      </div>
+
+      <!-- actionCreateCmsUserId Field -->
+      <div class="d-flex mb-3" *ngIf="
+      fieldsInfo['linkCmsUserId']?.accessWatchField &&
+      dataModel.contactMobiles &&
+      dataModel.contactMobiles.length > 0 &&
+      (this.dataModel.linkCmsUserId === null ||
+        this.dataModel.linkCmsUserId <= 0)">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.actionCreateCmsUserId" class="font-600 font-14">{{
+            "TITLE.Create_New_Account" | translate }}</h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.actionCreateCmsUserId"
+              [(ngModel)]="this.dataModel.actionCreateCmsUserId" name="dataModel.actionCreateCmsUserId">
+            <label class="custom-control-label" for="dataModel.actionCreateCmsUserId"></label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
+        </button>
+        <button type="submit" (click)="onFormSubmit()" [disabled]="!vform.form.valid"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
+          <i class="fa fa-check-square-o"></i>
+          {{ "ACTION.SAVE" | translate }}
+        </button>
+      </div>
+    </form>
+    <!--content-->
+  </div>
+</div>
+<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
+  <div class="ntk-cms-html-card-header">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  </div>
+  <div class="ntk-cms-html-card-body">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+  </div>
+  <div class="ntk-cms-html-card-message">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+    <div class="form-actions">
+      <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
+      <small class="form-text text-muted danger">{{ formInfo.formError }}
+      </small>
+    </div>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
+  </div>
+  <div class="ntk-cms-html-card-footer">
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+  </div>
+</form>

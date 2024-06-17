@@ -36,7 +36,7 @@ export class BankPaymentPublicConfigSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<BankPaymentPublicConfigModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | BankPaymentPublicConfigModel) {
     this.onActionSelectForce(x);
   }
@@ -169,7 +169,7 @@ export class BankPaymentPublicConfigSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new BankPaymentPublicConfigModel();
     this.loadOptions();
   }

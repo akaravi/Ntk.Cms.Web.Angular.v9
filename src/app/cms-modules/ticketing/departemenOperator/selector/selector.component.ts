@@ -38,7 +38,7 @@ export class TicketingDepartemenOperatorSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<TicketingDepartemenOperatorModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | TicketingDepartemenOperatorModel) {
     this.onActionSelectForce(x);
   }
@@ -167,7 +167,7 @@ export class TicketingDepartemenOperatorSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new TicketingDepartemenOperatorModel();
     this.loadOptions();
   }

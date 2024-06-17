@@ -61,7 +61,7 @@ export class BankPaymentPublicConfigTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<BankPaymentPublicConfigModel>();
   @Output() optionChange = new EventEmitter<BankPaymentPublicConfigModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: BankPaymentPublicConfigModel) => false;
   ngOnInit(): void {
     this.DataGetAll();
@@ -98,7 +98,7 @@ export class BankPaymentPublicConfigTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new BankPaymentPublicConfigModel();

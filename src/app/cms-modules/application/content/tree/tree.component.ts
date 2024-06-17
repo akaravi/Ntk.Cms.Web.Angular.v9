@@ -60,7 +60,7 @@ export class ApplicationAppTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<ApplicationAppModel>();
   @Output() optionChange = new EventEmitter<ApplicationAppModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: ApplicationAppModel) => false;
   ngOnInit(): void {
     this.DataGetAll();
@@ -97,7 +97,7 @@ export class ApplicationAppTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new ApplicationAppModel();
     this.DataGetAll();

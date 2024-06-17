@@ -37,7 +37,7 @@ export class NewsCategorySelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<NewsCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | NewsCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -166,7 +166,7 @@ export class NewsCategorySelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new NewsCategoryModel();
     this.loadOptions();
   }

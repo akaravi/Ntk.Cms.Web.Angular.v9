@@ -61,7 +61,7 @@ export class DataProviderSourceTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<DataProviderSourceModel>();
   @Output() optionChange = new EventEmitter<DataProviderSourceModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: DataProviderSourceModel) => null;
 
@@ -101,7 +101,7 @@ export class DataProviderSourceTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new DataProviderSourceModel();

@@ -63,7 +63,7 @@ export class CoreModuleSaleHeaderGroupTreeComponent implements OnInit, OnDestroy
   dataSource = new MatTreeNestedDataSource<CoreModuleSaleHeaderGroupModel>();
   @Output() optionChange = new EventEmitter<CoreModuleSaleHeaderGroupModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: CoreModuleSaleHeaderGroupModel) => false;
 
@@ -104,7 +104,7 @@ export class CoreModuleSaleHeaderGroupTreeComponent implements OnInit, OnDestroy
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new CoreModuleSaleHeaderGroupModel();

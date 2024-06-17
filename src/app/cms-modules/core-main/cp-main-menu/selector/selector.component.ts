@@ -38,7 +38,7 @@ export class CoreCpMainMenuSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreCpMainMenuModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreCpMainMenuModel) {
     this.onActionSelectForce(x);
   }
@@ -173,7 +173,7 @@ export class CoreCpMainMenuSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new CoreCpMainMenuModel();
     this.loadOptions();
   }

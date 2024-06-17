@@ -36,7 +36,7 @@ export class CoreModuleSaleHeaderSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<CoreModuleSaleHeaderModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreModuleSaleHeaderModel) {
     this.onActionSelectForce(x);
   }
@@ -175,7 +175,7 @@ export class CoreModuleSaleHeaderSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

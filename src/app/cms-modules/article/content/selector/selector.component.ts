@@ -37,7 +37,7 @@ export class ArticleContentSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ArticleContentModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | ArticleContentModel) {
     this.onActionSelectForce(x);
   }
@@ -155,7 +155,7 @@ export class ArticleContentSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new ArticleContentModel();
     this.loadOptions();
   }

@@ -66,7 +66,7 @@ export class ContactCategoryTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<ContactCategoryModel>();
   @Output() optionChange = new EventEmitter<ContactCategoryModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: string, node: ContactCategoryModel) => !!node.children && node.children.length > 0;
 
@@ -108,7 +108,7 @@ export class ContactCategoryTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new ContactCategoryModel();
     this.DataGetAll();

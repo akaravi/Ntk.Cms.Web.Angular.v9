@@ -41,7 +41,7 @@ export class CmsSmsMainApiNumberSelectorComponent implements OnInit {
   @Input() optionLabel = '';
   @Input() optionPlaceholder = '';
   @Output() optionChange = new EventEmitter<SmsMainApiNumberModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | SmsMainApiNumberModel) {
     this.onActionSelectForce(x);
   }
@@ -196,7 +196,7 @@ export class CmsSmsMainApiNumberSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new SmsMainApiNumberModel();
     this.loadOptions();
   }

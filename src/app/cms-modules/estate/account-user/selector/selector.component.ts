@@ -38,7 +38,7 @@ export class EstateAccountUserSelectorComponent implements OnInit {
   @Input() optionLabel = '';
   @Input() optionRequired = false;
   @Output() optionChange = new EventEmitter<EstateAccountUserModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | number | EstateAccountUserModel) {
     this.onActionSelectForce(x);
   }
@@ -223,7 +223,7 @@ export class EstateAccountUserSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new EstateAccountUserModel();
     this.loadOptions();
   }

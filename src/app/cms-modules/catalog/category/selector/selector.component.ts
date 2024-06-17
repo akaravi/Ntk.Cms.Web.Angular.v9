@@ -40,7 +40,7 @@ export class CatalogCategorySelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CatalogCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CatalogCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -174,7 +174,7 @@ export class CatalogCategorySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new CatalogCategoryModel();
     this.loadOptions();
   }

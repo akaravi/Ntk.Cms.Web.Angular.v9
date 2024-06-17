@@ -37,7 +37,7 @@ export class BiographyCategorySelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<BiographyCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | BiographyCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -165,7 +165,7 @@ export class BiographyCategorySelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new BiographyCategoryModel();
     this.loadOptions();
   }

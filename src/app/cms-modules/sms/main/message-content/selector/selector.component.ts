@@ -38,7 +38,7 @@ export class SmsMainMessageContentSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<SmsMainMessageContentModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | SmsMainMessageContentModel) {
     this.onActionSelectForce(x);
   }
@@ -191,7 +191,7 @@ export class SmsMainMessageContentSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new SmsMainMessageContentModel();
     this.loadOptions();
   }

@@ -44,7 +44,7 @@ export class BankPaymentPrivateSiteConfigSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<BankPaymentPrivateSiteConfigModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
   get optionLoading(): ProgressSpinnerModel {
@@ -205,7 +205,7 @@ export class BankPaymentPrivateSiteConfigSelectorComponent implements OnInit {
     }
     this.loadOptions();
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new BankPaymentPrivateSiteConfigModel();
     this.loadOptions();
   }

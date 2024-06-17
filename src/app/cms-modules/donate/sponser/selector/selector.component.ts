@@ -38,7 +38,7 @@ export class DonateSponserSelectorComponent implements OnInit {
   @Input() optionDisabled = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<DonateSponsorModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | DonateSponsorModel) {
     this.onActionSelectForce(x);
   }
@@ -173,7 +173,7 @@ export class DonateSponserSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new DonateSponsorModel();
     this.loadOptions();
   }

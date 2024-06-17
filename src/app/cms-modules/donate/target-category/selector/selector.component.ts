@@ -39,7 +39,7 @@ export class DonateTargetCategorySelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<DonateTargetCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | DonateTargetCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -174,7 +174,7 @@ export class DonateTargetCategorySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new DonateTargetCategoryModel();
     this.loadOptions();
   }

@@ -38,7 +38,7 @@ export class HyperShopCategorySelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<HyperShopCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | HyperShopCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -178,7 +178,7 @@ export class HyperShopCategorySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new HyperShopCategoryModel();
     this.loadOptions();
   }

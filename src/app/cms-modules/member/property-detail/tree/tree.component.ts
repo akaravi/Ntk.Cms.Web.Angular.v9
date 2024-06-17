@@ -64,7 +64,7 @@ export class MemberPropertyDetailTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<MemberPropertyDetailModel>();
   @Output() optionChange = new EventEmitter<MemberPropertyDetailModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: number, node: MemberPropertyDetailModel) => false;
 
@@ -107,7 +107,7 @@ export class MemberPropertyDetailTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new MemberPropertyDetailModel();
     this.DataGetAll();

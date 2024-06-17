@@ -48,7 +48,7 @@ export class ApplicationThemeConfigSelectorComponent implements OnInit {
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ApplicationThemeConfigModel>();
 
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   ngOnInit(): void {
     this.loadOptions();
     if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
@@ -214,7 +214,7 @@ export class ApplicationThemeConfigSelectorComponent implements OnInit {
     this.loadOptions();
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new ApplicationThemeConfigModel();
     this.loadOptions();
   }

@@ -35,7 +35,7 @@ export class ApplicationAppSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ApplicationAppModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | ApplicationAppModel) {
     this.onActionSelectForce(x);
   }
@@ -167,7 +167,7 @@ export class ApplicationAppSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new ApplicationAppModel();
     this.loadOptions();
   }

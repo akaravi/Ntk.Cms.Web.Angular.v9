@@ -38,7 +38,7 @@ export class ApiTelegramBotConfigSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<ApiTelegramBotConfigModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | ApiTelegramBotConfigModel) {
     this.onActionSelectForce(x);
   }
@@ -170,7 +170,7 @@ export class ApiTelegramBotConfigSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
 
     this.dataModelSelect = new ApiTelegramBotConfigModel();
     // this.optionsData.Select = new ApiTelegramBotConfigModel();

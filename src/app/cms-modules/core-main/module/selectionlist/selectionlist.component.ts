@@ -35,7 +35,7 @@ export class CoreModuleSelectionlistComponent implements OnInit {
   @Output() optionChange = new EventEmitter<CoreModuleModel[]>();
   @Output() optionSelectAdded = new EventEmitter();
   @Output() optionSelectRemoved = new EventEmitter();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number[] | CoreModuleModel[]) {
     this.onActionSelectForce(x);
   }
@@ -107,7 +107,7 @@ export class CoreModuleSelectionlistComponent implements OnInit {
     this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // this.dataModelSelect = new CoreModuleModel();
     this.DataGetAll();
   }

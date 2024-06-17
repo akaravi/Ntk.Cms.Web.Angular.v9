@@ -41,7 +41,7 @@ export class EstateActivityTypeSelectionlistComponent implements OnInit, OnDestr
   @Output() optionChange = new EventEmitter<EstateActivityTypeModel[]>();
   @Output() optionSelectAdded = new EventEmitter();
   @Output() optionSelectRemoved = new EventEmitter();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string[] | EstateActivityTypeModel[]) {
     this.onActionSelectForce(x);
   }
@@ -115,7 +115,7 @@ export class EstateActivityTypeSelectionlistComponent implements OnInit, OnDestr
     this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.DataGetAll();
   }
 }

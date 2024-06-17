@@ -64,7 +64,7 @@ export class SmsMainApiPathPublicConfigTreeComponent implements OnInit, OnDestro
   dataSource = new MatTreeNestedDataSource<SmsMainApiPathPublicConfigModel>();
   @Output() optionChange = new EventEmitter<SmsMainApiPathPublicConfigModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   hasChild = (_: string, node: SmsMainApiPathPublicConfigModel) => false;
 
@@ -105,7 +105,7 @@ export class SmsMainApiPathPublicConfigTreeComponent implements OnInit, OnDestro
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
     this.dataModelSelect = new SmsMainApiPathPublicConfigModel();
     this.DataGetAll();

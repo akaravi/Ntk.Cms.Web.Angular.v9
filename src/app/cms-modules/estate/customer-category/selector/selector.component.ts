@@ -48,7 +48,7 @@ export class EstateCustomerCategorySelectorComponent implements OnInit, OnDestro
   @Input() optionTypeView = 1;
 
   typeUsageId = '';
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   cmsApiStoreSubscribe: Subscription;
 
   loading: ProgressSpinnerModel = new ProgressSpinnerModel();
@@ -209,7 +209,7 @@ export class EstateCustomerCategorySelectorComponent implements OnInit, OnDestro
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // if (this.dataModelSelect && this.dataModelSelect.id > 0) {
     //   this.onActionSelect(null);
     // }

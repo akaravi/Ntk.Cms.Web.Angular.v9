@@ -37,7 +37,7 @@ export class DataProviderPlanPriceSelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<DataProviderPlanPriceModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | DataProviderPlanPriceModel) {
     this.onActionSelectForce(x);
   }
@@ -168,7 +168,7 @@ export class DataProviderPlanPriceSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new DataProviderPlanPriceModel();
     this.loadOptions();
   }

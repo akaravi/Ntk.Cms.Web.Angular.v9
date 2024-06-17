@@ -41,7 +41,7 @@ export class EstatePropertyTypeUsageSelectionlistComponent implements OnInit, On
   @Output() optionChange = new EventEmitter<EstatePropertyTypeUsageModel[]>();
   @Output() optionSelectAdded = new EventEmitter();
   @Output() optionSelectRemoved = new EventEmitter();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string[] | EstatePropertyTypeUsageModel[]) {
     this.onActionSelectForce(x);
   }
@@ -116,7 +116,7 @@ export class EstatePropertyTypeUsageSelectionlistComponent implements OnInit, On
     this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // this.dataModelSelect = new EstatePropertyTypeUsageModel();
     this.DataGetAll();
   }

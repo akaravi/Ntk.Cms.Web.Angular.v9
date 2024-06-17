@@ -53,7 +53,7 @@ export class SmsActionSendMessageApiComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Output() optionPathChange = new EventEmitter<SmsMainApiPathModel>();
   @Output() optionNumberChange = new EventEmitter<SmsMainApiNumberModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectPathForce(x: string | SmsMainApiPathModel) {
     this.onActionSelectPathForce(x);
   }
@@ -289,7 +289,7 @@ export class SmsActionSendMessageApiComponent implements OnInit {
     }
     this.formNumberControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataPathModelSelect = new SmsMainApiPathModel();
     this.dataNumberModelSelect = new SmsMainApiNumberModel();
     this.DataPathGetAll(null);

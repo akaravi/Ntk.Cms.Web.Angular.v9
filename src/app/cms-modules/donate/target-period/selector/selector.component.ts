@@ -39,7 +39,7 @@ export class DonateTargetPeriodSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<DonateTargetPeriodModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | DonateTargetPeriodModel) {
     this.onActionSelectForce(x);
   }
@@ -173,7 +173,7 @@ export class DonateTargetPeriodSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new DonateTargetPeriodModel();
     this.loadOptions();
   }

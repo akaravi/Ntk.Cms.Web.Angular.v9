@@ -34,7 +34,7 @@ export class DataProviderPlanSelectionlistComponent implements OnInit {
   @Output() optionChange = new EventEmitter<DataProviderPlanModel[]>();
   @Output() optionSelectAdded = new EventEmitter();
   @Output() optionSelectRemoved = new EventEmitter();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number[] | DataProviderPlanModel[]) {
     this.onActionSelectForce(x);
     this.onActionReSelect();
@@ -109,7 +109,7 @@ export class DataProviderPlanSelectionlistComponent implements OnInit {
     this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     // this.dataModelSelect = new DataProviderPlanModel();
     this.DataGetAll();
   }

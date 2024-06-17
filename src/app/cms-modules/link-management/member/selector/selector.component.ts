@@ -40,7 +40,7 @@ export class LinkManagementMemberSelectorComponent implements OnInit {
   @Input() optionSelectFirstItem = false;
   @Input() optionDisabled = false;
   @Output() optionChange = new EventEmitter<LinkManagementMemberModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | LinkManagementMemberModel) {
     this.onActionSelectForce(x);
   }
@@ -175,7 +175,7 @@ export class LinkManagementMemberSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new LinkManagementMemberModel();
     this.loadOptions();
   }

@@ -64,7 +64,7 @@ export class CoreUserResellerChartComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<RessellerChartModel>();
   @Output() optionChange = new EventEmitter<RessellerChartModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
 
   // hasChild = (_: number, node: RessellerChartModel) => false;
   hasChild(_: number, node: RessellerChartModel): boolean {
@@ -114,7 +114,7 @@ export class CoreUserResellerChartComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     if (this.dataModelSelect) {
       this.onActionSelect(this.dataModelSelect);
     }

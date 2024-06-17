@@ -35,7 +35,7 @@ export class WebDesignerLogMemberInfoSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<WebDesignerLogMemberInfoModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | WebDesignerLogMemberInfoModel) {
     this.onActionSelectForce(x);
   }
@@ -198,7 +198,7 @@ export class WebDesignerLogMemberInfoSelectorComponent implements OnInit {
     }
     this.formControl.setValue(null);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new WebDesignerLogMemberInfoModel();
     this.loadOptions();
   }

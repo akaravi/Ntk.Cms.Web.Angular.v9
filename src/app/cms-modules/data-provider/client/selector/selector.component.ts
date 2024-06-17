@@ -33,7 +33,7 @@ export class DataProviderClientSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionSelectFirstItem = false;
   @Output() optionChange = new EventEmitter<DataProviderClientModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | DataProviderClientModel) {
     this.onActionSelectForce(x);
   }
@@ -165,7 +165,7 @@ export class DataProviderClientSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new DataProviderClientModel();
     this.loadOptions();
   }

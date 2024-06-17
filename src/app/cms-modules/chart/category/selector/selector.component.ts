@@ -39,7 +39,7 @@ export class ChartCategorySelectorComponent implements OnInit {
   @Input() optionRequired = false;
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<ChartCategoryModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | ChartCategoryModel) {
     this.onActionSelectForce(x);
   }
@@ -174,7 +174,7 @@ export class ChartCategorySelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new ChartCategoryModel();
     this.loadOptions();
   }

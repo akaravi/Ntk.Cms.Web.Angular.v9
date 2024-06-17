@@ -38,7 +38,7 @@ export class CoreUserClaimGroupDetailSelectorComponent implements OnInit {
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<CoreUserClaimGroupDetailModel>();
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: number | CoreUserClaimGroupDetailModel) {
     this.onActionSelectForce(x);
   }
@@ -179,7 +179,7 @@ export class CoreUserClaimGroupDetailSelectorComponent implements OnInit {
     this.formControl.setValue(null);
   }
 
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.dataModelSelect = new CoreUserClaimGroupDetailModel();
     this.loadOptions();
   }

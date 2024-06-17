@@ -62,7 +62,7 @@ export class BiographyCategoryTreeComponent implements OnInit, OnDestroy {
   dataSource = new MatTreeNestedDataSource<BiographyCategoryModel>();
   @Output() optionChange = new EventEmitter<BiographyCategoryModel>();
   cmsApiStoreSubscribe: Subscription;
-  @Input() optionReload = () => this.onActionReload();
+  @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: BiographyCategoryModel) => !!node.children && node.children.length > 0;
   ngOnInit(): void {
     this.DataGetAll();
@@ -99,7 +99,7 @@ export class BiographyCategoryTreeComponent implements OnInit, OnDestroy {
     this.dataModelSelect = model;
     this.optionChange.emit(this.dataModelSelect);
   }
-  onActionReload(): void {
+  onActionButtonReload(): void {
     this.onActionSelect(null);
 
     this.dataModelSelect = new BiographyCategoryModel();
