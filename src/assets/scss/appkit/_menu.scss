@@ -73,6 +73,7 @@ $theme-light-menu-hider: rgba(0,0,0,0.35);
 	left: 0px;
 	top: 0px !important;
 	width: min-content;
+  min-width: 250px;
 	height: 100%;
 	bottom: 0px;
 	transform: translate3d(-100%,0,0);
@@ -85,6 +86,7 @@ $theme-light-menu-hider: rgba(0,0,0,0.35);
 	height: 100%;
 	bottom: 0px;
 	width: min-content;
+  min-width: 250px;
 }
 .menu-box-right-custom {
   display:none;
@@ -94,6 +96,7 @@ top: 100px !important;
 height: 100%;
 bottom: 0px;
 width: min-content;
+min-width: 250px;
 }
 
 //.menu-header .card-top{

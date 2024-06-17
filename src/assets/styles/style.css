@@ -1904,6 +1904,7 @@ body {
   left: 0px;
   top: 0px !important;
   width: min-content;
+  min-width: 250px;
   height: 100%;
   bottom: 0px;
   transform: translate3d(-100%, 0, 0);
@@ -1917,6 +1918,7 @@ body {
   height: 100%;
   bottom: 0px;
   width: min-content;
+  min-width: 250px;
 }
 
 .menu-box-right-custom {
@@ -1927,6 +1929,7 @@ body {
   height: 100%;
   bottom: 0px;
   width: min-content;
+  min-width: 250px;
 }
 
 .menu-box-top {
