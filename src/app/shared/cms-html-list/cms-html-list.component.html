@@ -39,6 +39,7 @@
   </div>
 </div>
 <!--begin::button-menu-->
+
 <!--begin::cms-tree-button-->
 <div *ngIf="optionTreeDisplay &&  this.tokenHelper.isMobile" class="content"
   style="position: fixed;bottom: 80px; left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;">
@@ -57,6 +58,7 @@
   </div>
 </div>
 <!--end::cms-tree-button-->
+
 <!--begin::cms-action-main-->
 <div *ngIf="optionActionMainDisplay" class="content"
   style="position: fixed;left: 1px; z-index: 99; min-width: 30px!important;height:30px;margin:0px;"
@@ -97,8 +99,8 @@
   </div>
 </div>
 <!--end::cms-action-row-button-->
-<!--end::button-menu-->
-<!--begin::Show Menu Main-->
+
+<!--begin::Show Menu Main content-->
 <div class="menu menu-box-modal rounded-m shadow-xl" [ngClass]="viewMenuMain?'menu-active':''"
   style="display: block; width: 350px; height: 320px;">
   <div class="menu-title">
@@ -130,8 +132,8 @@
   </div>
   <!--end::cms-action-main-->
 </div>
-<!--end:: Show Menu Main-->
-<!--begin::Show Menu Row-->
+<!--end:: Show Menu Main content-->
+<!--begin::Show Menu Row content-->
 <div class="menu menu-box-modal rounded-m shadow-xl" [ngClass]="viewMenuItemRow?'menu-active':''"
   style="display: block; width: 350px; height: 320px;">
   <div class="menu-title">
@@ -164,7 +166,7 @@
   </div>
   <!--end::cms-action-row-->
 </div>
-<!--end:: Show Menu Row-->
+<!--end:: Show Menu Row content-->
 
 <app-cms-guide-notice [(optionView)]="viewGuideNotice" [Key]="optionGuideNoticeKey"
   [svg]="'assets/media/svg/icons/General/Notifications1.svg'">

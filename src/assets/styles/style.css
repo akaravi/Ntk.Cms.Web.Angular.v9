@@ -1903,7 +1903,7 @@ body {
 .menu-box-left {
   left: 0px;
   top: 0px !important;
-  width: 250px;
+  width: min-content;
   height: 100%;
   bottom: 0px;
   transform: translate3d(-100%, 0, 0);
@@ -1916,7 +1916,7 @@ body {
   top: 0px !important;
   height: 100%;
   bottom: 0px;
-  width: 250px;
+  width: min-content;
 }
 
 .menu-box-right-custom {
@@ -1926,7 +1926,7 @@ body {
   top: 100px !important;
   height: 100%;
   bottom: 0px;
-  width: 250px;
+  width: min-content;
 }
 
 .menu-box-top {

@@ -10,7 +10,8 @@
  karavi import
 */
 .tree-parent .tree-child-hidden {
-  display: none;
+  /*display: none;*/
+  display: block;
 }
 
 .tree-parent:hover .tree-child-hidden,

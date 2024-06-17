@@ -217,7 +217,7 @@
         </div>
         <hr>
         <!-- linkCoreCurrencyId Field -->
-        <app-cms-currency-selector [optionSelectFirstItem]="true"
+        <app-cms-currency-selector [optionSelectFirstItem]="false"
           [optionSelectForce]="filteModelContent.linkCoreCurrencyId" (optionChange)="onActionSelectCurrency($event)"
           [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Specify_the_transaction_currency'  | translate">
         </app-cms-currency-selector>
