@@ -193,7 +193,7 @@
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
         </button>
-        <button type="submit" (click)="onFormSubmit()" [disabled]="!vform.form.valid">
+        <button type="submit" [disabled]="!vform.form.valid">
           <i class="fa fa-check-square-o"
             class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"></i>
           {{ "ACTION.SAVE" | translate }}
@@ -213,30 +213,6 @@
   </div>
 </div>
 
-<form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-  <div class="row alert alert-custom alert-shadow gutter-b">
-    <div class="col-md-6 col-sm-6 col-xs-9">
-      <div class="ntk-full-width"></div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-18">
-      </div>
-    </div>
-  </div>
-
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-</form>
 
 <div class="row alert alert-custom alert-white alert-shadow gutter-b" *ngIf="this.loadResult==='estatePropertyList'">
   <div class="col-md-12 col-sm-12 col-xs-18">
