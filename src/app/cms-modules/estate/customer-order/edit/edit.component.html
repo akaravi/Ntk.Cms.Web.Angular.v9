@@ -7,7 +7,6 @@
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
     </p>
-
     <p>
       {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
     </p>
@@ -155,6 +154,7 @@
             <em></em>
           </div>
         </div>
+
         <!-- LinkCmsUserId Field -->
         <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
           [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
@@ -192,12 +192,9 @@
         </div>
 
         <!-- actionCreateCmsUserId Field -->
-        <div class="d-flex mb-3" *ngIf="
-      fieldsInfo['linkCmsUserId']?.accessWatchField &&
-      dataModel.contactMobiles &&
-      dataModel.contactMobiles.length > 0 &&
-      (this.dataModel.linkCmsUserId === null ||
-        this.dataModel.linkCmsUserId <= 0)">
+        <div class="d-flex mb-3" *ngIf="fieldsInfo['linkCmsUserId']?.accessWatchField &&
+      dataModel.contactMobiles && dataModel.contactMobiles.length > 0 &&
+      (this.dataModel.linkCmsUserId === null || this.dataModel.linkCmsUserId <= 0)">
           <div class="pt-1">
             <h5 data-trigger-switch="dataModel.actionCreateCmsUserId" class="font-600 font-14">{{
               "TITLE.Create_New_Account" | translate }}</h5>
@@ -239,6 +236,8 @@
             id="dataModel.areaAddress" class="form-control validate-name"></textarea>
           <em>{{ areaAddress.value.length }} / 500</em>
         </div>
+
+
         <br />
         <p>{{ "TITLE.specific_property_list" | translate }}</p>
         <p>
@@ -259,8 +258,11 @@
           [optionDisabled]="!fieldsInfo['linkPropertyIds']?.accessEditField"
           [optionPlaceholder]="'TITLE.Property'  | translate" [optionSelectForce]="this.dataModel.linkPropertyIds">
         </app-estate-property-autocomplete>
+
         <br />
-        <div *ngIf="!LinkPropertyIdsInUse">
+
+        <!--begin:LinkPropertyIdsInUse -->
+        <ng-container *ngIf="!LinkPropertyIdsInUse">
           <p>{{ "MESSAGE.Content_of_your_choice_to_display" | translate }}</p>
           <P>{{
             "MESSAGE.Selecting_any_of_the_following_will_make_the_search_results_range_smaller"
@@ -470,6 +472,7 @@
             [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="'TITLE.Region' | translate"
             [optionLabel]="'TITLE.Geographical_Areas'  | translate">
           </app-cms-location-autocomplete>
+
           <!-- propertyDetailGroups Field -->
           <mat-accordion class="example-headers-align">
             <mat-expansion-panel *ngFor="let itemGroup of dataModel.propertyDetailGroups; index as i"
@@ -622,181 +625,175 @@
             </div>
           </div>
 
-
-          <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-
-          <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-
-          <div class="ntk-cms-html-card-body">
-            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-            <div class="row alert alert-custom alert-shadow gutter-b">
-              <!-- <div class="col-md-6 col-sm-6 col-xs-9"></div> -->
-              <div>
+        </ng-container>
+        <!--end:LinkPropertyIdsInUse -->
+        <div class="ntk-cms-html-card-body">
+          <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+          <div class="row alert alert-custom alert-shadow gutter-b">
+            <!-- <div class="col-md-6 col-sm-6 col-xs-9"></div> -->
+            <div>
 
 
 
 
 
-                <div class="row">
-                  <div class="col-md-10 col-sm-10 col-xs-16">
+              <div class="row">
+                <div class="col-md-10 col-sm-10 col-xs-16">
 
 
 
-
-                  </div>
 
                 </div>
+
               </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-9" style="text-align: center" *ngIf="
-                dataModel?.urlViewContentQRCodeBase64?.length > 0 &&
-                dataModel?.urlViewContent?.length > 0
-              ">
-            <a href="{{ dataModel.urlViewContent }}" target="_blank">
-              <img [src]="dataModel.urlViewContentQRCodeBase64" alt="{{ 'TITLE.Scan_the_barcode' | translate }}"
-                height="300px" width="300px" />
-            </a>
-            <span class="navi-icon" [cdkCopyToClipboard]="dataModel.urlViewContent" (click)="onActionCopied()">
-              <i class="flaticon2-copy"></i></span>
-            <h5 style="text-align: right">
-              {{ "TITLE.DESCRIPTION" | translate }}:
-            </h5>
-            <p dir="rtl" style="text-align: right" style="font-size: 17px">
-              {{
-              "TITLE.You_can_view_the_output_of_your_billboard" | translate
-              }}
-            </p>
-            <p dir="rtl" style="text-align: right" style="font-size: 17px">
-              {{
-              "TITLE.In_the_title_section_you_can_edit_the_title_of_your_screen_and_write_the_address_and_description_for_that_staff"
-              | translate
-              }}
-              <br />
-              {{
-              "TITLE.In_the_next_section_you_can_see_your_display_content_for_the_billboard"
-              | translate
-              }}
-              <br />
-              {{
-              "TITLE.You_can_narrow_your_search_by_filling_in_any_of_the_fields"
-              | translate
-              }}
-              <br />
-              {{
-              "TITLE.Finally_by_clicking_on_the_view_option_you_can_see_the_advertisements_you_want_and_by_clicking_on_the_save_option_you_can_create_your_own_billboard"
-              | translate
-              }}
-            </p>
-            <hr />
-            <app-cms-qdoc [optionUrl]="dataModel.urlViewContent"></app-cms-qdoc>
-          </div>
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-18">
-              <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
-                <button type="button" (click)="onFormCancel()"
-                  class="btn font-13 btn-s font-600 m-1 rounded-s border-0 shadow-xl gradient-gray">
-                  <i class="ft-x"></i> {{ "ACTION.BACK" | translate }}
-                </button>
-                <button type="submit" [disabled]="!vform.form.valid"
-                  class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
-                  <i class="fa fa-angle-left"></i>
-                  {{ "ACTION.SAVE" | translate }}
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- </div> -->
-
-          <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-
-          <div class="ntk-cms-html-card-message">
-            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-
-            <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-          </div>
-          <div class="ntk-cms-html-card-footer">
-            <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-            <button type="button" (click)="onFormLoadEstateResult()"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-              *ngIf="dataModel?.id?.length > 0">
-              <i class="ft-x"></i> {{ "ACTION.VIEW_Estates" | translate }}
-            </button>
-            <button type="button" (click)="onFormLoadEstateHaveHistoryResult()"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-              *ngIf="dataModel?.id?.length > 0">
-              <i class="ft-x"></i>
-              {{ "ACTION.VIEW_Estate_Have_Histories" | translate }}
-            </button>
-            <button type="button" (click)="onFormLoadEstateHistoryResult()"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-              *ngIf="dataModel?.id?.length > 0">
-              <i class="ft-x"></i>
-              {{ "ACTION.VIEW_Estate_Histories" | translate }}
-            </button>
-            <button type="button" (click)="onFormLoadEstateAgencyResult()"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" *ngIf="
-                dataModel?.id?.length > 0 &&
-                this.dataModel?.linkLocationIds &&
-                this.dataModel?.linkLocationIds.length > 0
-              ">
-              <i class="ft-x"></i>
-              {{ "ACTION.VIEW_Estate_Agencys" | translate }}
-            </button>
-            <button type="button" (click)="onFormLoadEstateUserResult()"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" *ngIf="
-                dataModel?.id?.length > 0 &&
-                this.dataModel?.linkLocationIds &&
-                this.dataModel?.linkLocationIds.length > 0
-              ">
-              <i class="ft-x"></i> {{ "ACTION.VIEW_Estate_Users" | translate }}
-            </button>
-
-            <button type="button" (click)="onFormSendMessage()"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-              *ngIf="dataModel?.id?.length > 0 && this.tokenHelper.isAdminSite">
-              <i class="ft-x"></i> {{ "ACTION.Send_Message" | translate }}
-            </button>
-
-            <button type="button" (click)="onActionButtonQuickHistoryAddRow()"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-              *ngIf="dataModel?.id?.length > 0">
-              <i class="ft-x"></i> {{ "ACTION.HISTORY_ADD" | translate }}
-            </button>
-
-            <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-          </div>
-
-          <div class="row alert alert-custom alert-white alert-shadow gutter-b">
-            <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estatePropertyList'">
-              <app-estate-property-list [optionLinkCustomerOrderId]="dataModel.id"
-                [optionloadComponent]="optionloadComponent" [optionsortType]="dataModel.resultSortType"
-                [optionloadByRoute]="false" #estatePropertyListComponent></app-estate-property-list>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estatePropertyHaveHistoryList'">
-              <app-estate-property-list [optionLinkCustomerOrderIdHaveHistory]="dataModel.id"
-                [optionloadComponent]="optionloadComponent" [optionsortType]="dataModel.resultSortType"
-                [optionloadByRoute]="false" #estatePropertyHaveHistoryListComponent></app-estate-property-list>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateAccountAgencyList'">
-              <app-estate-account-agency-list [optionLinkLocationWorkAreaIds]="dataModel.linkLocationIds"
-                [optionloadComponent]="optionloadComponent" [optionloadByRoute]="false"
-                #estateAccountAgencyListComponent></app-estate-account-agency-list>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateAccountUserList'">
-              <app-estate-account-user-list [optionLinkLocationWorkAreaIds]="dataModel.linkLocationIds"
-                [optionloadComponent]="optionloadComponent" [optionloadByRoute]="false"
-                #estateAccountUserListComponent></app-estate-account-user-list>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateHistoryList'">
-              <app-estate-property-history-list [optionLinkCustomerOrderId]="dataModel.id" [optionloadComponent]="false"
-                [optionloadByRoute]="false" #estatePropertyHistoryListComponent></app-estate-property-history-list>
             </div>
           </div>
         </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-9" style="text-align: center" *ngIf="
+                dataModel?.urlViewContentQRCodeBase64?.length > 0 &&
+                dataModel?.urlViewContent?.length > 0
+              ">
+          <a href="{{ dataModel.urlViewContent }}" target="_blank">
+            <img [src]="dataModel.urlViewContentQRCodeBase64" alt="{{ 'TITLE.Scan_the_barcode' | translate }}"
+              height="300px" width="300px" />
+          </a>
+          <span class="navi-icon" [cdkCopyToClipboard]="dataModel.urlViewContent" (click)="onActionCopied()">
+            <i class="flaticon2-copy"></i></span>
+          <h5 style="text-align: right">
+            {{ "TITLE.DESCRIPTION" | translate }}:
+          </h5>
+          <p dir="rtl" style="text-align: right" style="font-size: 17px">
+            {{
+            "TITLE.You_can_view_the_output_of_your_billboard" | translate
+            }}
+          </p>
+          <p dir="rtl" style="text-align: right" style="font-size: 17px">
+            {{
+            "TITLE.In_the_title_section_you_can_edit_the_title_of_your_screen_and_write_the_address_and_description_for_that_staff"
+            | translate
+            }}
+            <br />
+            {{
+            "TITLE.In_the_next_section_you_can_see_your_display_content_for_the_billboard"
+            | translate
+            }}
+            <br />
+            {{
+            "TITLE.You_can_narrow_your_search_by_filling_in_any_of_the_fields"
+            | translate
+            }}
+            <br />
+            {{
+            "TITLE.Finally_by_clicking_on_the_view_option_you_can_see_the_advertisements_you_want_and_by_clicking_on_the_save_option_you_can_create_your_own_billboard"
+            | translate
+            }}
+          </p>
+          <hr />
+          <app-cms-qdoc [optionUrl]="dataModel.urlViewContent"></app-cms-qdoc>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-18">
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+              <button type="button" (click)="onFormCancel()"
+                class="btn font-13 btn-s font-600 m-1 rounded-s border-0 shadow-xl gradient-gray">
+                <i class="ft-x"></i> {{ "ACTION.BACK" | translate }}
+              </button>
+              <button type="submit" [disabled]="!vform.form.valid"
+                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
+                <i class="fa fa-angle-left"></i>
+                {{ "ACTION.SAVE" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+
+        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+
+        <div class="ntk-cms-html-card-footer">
+          <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+          <button type="button" (click)="onFormLoadEstateResult()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+            *ngIf="dataModel?.id?.length > 0">
+            <i class="ft-x"></i> {{ "ACTION.VIEW_Estates" | translate }}
+          </button>
+          <button type="button" (click)="onFormLoadEstateHaveHistoryResult()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+            *ngIf="dataModel?.id?.length > 0">
+            <i class="ft-x"></i>
+            {{ "ACTION.VIEW_Estate_Have_Histories" | translate }}
+          </button>
+          <button type="button" (click)="onFormLoadEstateHistoryResult()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+            *ngIf="dataModel?.id?.length > 0">
+            <i class="ft-x"></i>
+            {{ "ACTION.VIEW_Estate_Histories" | translate }}
+          </button>
+          <button type="button" (click)="onFormLoadEstateAgencyResult()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" *ngIf="
+                dataModel?.id?.length > 0 &&
+                this.dataModel?.linkLocationIds &&
+                this.dataModel?.linkLocationIds.length > 0
+              ">
+            <i class="ft-x"></i>
+            {{ "ACTION.VIEW_Estate_Agencys" | translate }}
+          </button>
+          <button type="button" (click)="onFormLoadEstateUserResult()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" *ngIf="
+                dataModel?.id?.length > 0 &&
+                this.dataModel?.linkLocationIds &&
+                this.dataModel?.linkLocationIds.length > 0
+              ">
+            <i class="ft-x"></i> {{ "ACTION.VIEW_Estate_Users" | translate }}
+          </button>
+
+          <button type="button" (click)="onFormSendMessage()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+            *ngIf="dataModel?.id?.length > 0 && this.tokenHelper.isAdminSite">
+            <i class="ft-x"></i> {{ "ACTION.Send_Message" | translate }}
+          </button>
+
+          <button type="button" (click)="onActionButtonQuickHistoryAddRow()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+            *ngIf="dataModel?.id?.length > 0">
+            <i class="ft-x"></i> {{ "ACTION.HISTORY_ADD" | translate }}
+          </button>
+
+          <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+        </div>
+
       </div>
       <!-- form  -->
     </form>
     <!-- form  -->
+  </div>
+</div>
+
+<div class="row alert alert-custom alert-white alert-shadow gutter-b">
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estatePropertyList'">
+    <app-estate-property-list [optionLinkCustomerOrderId]="dataModel.id" [optionloadComponent]="optionloadComponent"
+      [optionsortType]="dataModel.resultSortType" [optionloadByRoute]="false"
+      #estatePropertyListComponent></app-estate-property-list>
+  </div>
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estatePropertyHaveHistoryList'">
+    <app-estate-property-list [optionLinkCustomerOrderIdHaveHistory]="dataModel.id"
+      [optionloadComponent]="optionloadComponent" [optionsortType]="dataModel.resultSortType"
+      [optionloadByRoute]="false" #estatePropertyHaveHistoryListComponent></app-estate-property-list>
+  </div>
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateAccountAgencyList'">
+    <app-estate-account-agency-list [optionLinkLocationWorkAreaIds]="dataModel.linkLocationIds"
+      [optionloadComponent]="optionloadComponent" [optionloadByRoute]="false"
+      #estateAccountAgencyListComponent></app-estate-account-agency-list>
+  </div>
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateAccountUserList'">
+    <app-estate-account-user-list [optionLinkLocationWorkAreaIds]="dataModel.linkLocationIds"
+      [optionloadComponent]="optionloadComponent" [optionloadByRoute]="false"
+      #estateAccountUserListComponent></app-estate-account-user-list>
+  </div>
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateHistoryList'">
+    <app-estate-property-history-list [optionLinkCustomerOrderId]="dataModel.id" [optionloadComponent]="false"
+      [optionloadByRoute]="false" #estatePropertyHistoryListComponent></app-estate-property-history-list>
   </div>
 </div>

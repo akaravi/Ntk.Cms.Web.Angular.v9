@@ -1,11 +1,24 @@
+
+
+
+<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<div class="card card-style">
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{ formInfo.formTitle }}
+    </p>
+
+
+    <p>
+      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+    </p>
+    <!--Content-->
 <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
   <div class="ntk-cms-html-card-header">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    {{ formInfo.formTitle }}
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+
   </div>
   <div class="ntk-cms-html-card-body">
-    <app-progress-spinner [options]="loading"> </app-progress-spinner>
+
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
     <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
@@ -71,3 +84,6 @@
   </div>
 
 </form>
+ <!--Content-->
+</div>
+</div>
