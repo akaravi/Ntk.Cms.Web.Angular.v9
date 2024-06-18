@@ -263,8 +263,8 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
     var title = "";
     var message = "";
     this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
-      title = str[0];
-      message = str[1] + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
+      title = str['MESSAGE.Please_Confirm'];
+      message = str['MESSAGE.Do_you_want_to_delete_this_content'] + '?' + '<br> ( ' + this.tableRowSelected.title + ' ) ';
     });
     this.cmsConfirmationDialogService.confirm(title, message)
       .then((confirmed) => {

@@ -280,8 +280,8 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     var title = "";
     var message = "";
     this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
-      title = str[0];
-      message = str[1] + '?' + '<br> ( ' + this.tableRowSelected.writer + ' ) ' + '<br> ( ' + this.tableRowSelected.comment + ' ) ';
+      title = str['MESSAGE.Please_Confirm'];
+      message = str['MESSAGE.Do_you_want_to_delete_this_content'] + '?' + '<br> ( ' + this.tableRowSelected.writer + ' ) ' + '<br> ( ' + this.tableRowSelected.comment + ' ) ';
     });
 
     this.cmsConfirmationDialogService.confirm(title, message)

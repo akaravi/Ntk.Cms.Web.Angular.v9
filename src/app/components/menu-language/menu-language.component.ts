@@ -124,8 +124,8 @@ export class MenuLanguageComponent implements OnInit {
       var title = "";
       var message = "";
       this.translate.get(['TITLE.Information', 'MESSAGE.Request_to_change_site_was_sent_to_the_server']).subscribe((str: string) => {
-        title = str[0];
-        message = str[1] + '?';
+        title = str['TITLE.Information'];
+        message = str['MESSAGE.Request_to_change_site_was_sent_to_the_server'] + '?';
       });
 
       this.cmsToastrService.toastr.info(message, title);

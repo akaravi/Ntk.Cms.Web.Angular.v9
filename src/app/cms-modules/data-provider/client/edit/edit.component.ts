@@ -241,8 +241,8 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
       var title = "";
       var message = "";
       this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Would_you_like_to_buy_this_content']).subscribe((str: string) => {
-        title = str[0];
-        message = str[1] + '?' ;
+        title = str['MESSAGE.Please_Confirm'];
+        message = str['MESSAGE.Would_you_like_to_buy_this_content'] + '?' ;
       });
       this.cmsConfirmationDialogService.confirm(title, message)
         .then((confirmed) => {
