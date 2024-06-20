@@ -147,6 +147,8 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
         this.lastRecordStatus = ret.item.recordStatus;
         this.dataModel = ret.item;
         if (ret.isSuccess) {
+          if (!this.dataModel.caseCode || this.dataModel.caseCode.length <= 0)
+            this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
           this.formInfo.formTitle = this.formInfo.formTitle + ' ' + ret.item.title;
           if (this.dataModel.linkPropertyIds && this.dataModel.linkPropertyIds.length > 0)
             this.LinkPropertyIdsInUse = true;

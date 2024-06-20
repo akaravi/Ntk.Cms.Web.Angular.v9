@@ -211,8 +211,8 @@
           *ngIf="fieldsInfo['area']?.accessWatchField">
           <label for="filteModelContent.area" class="color-highlight">{{fieldsInfo['area']?.fieldTitle}}</label>
           <input matInput [(ngModel)]="filteModelContent.area" name="filteModelContent.area" #Area type="text"
-            currencyMask class="input-ltr" pattern="(d{3})" placeholder="{{fieldsInfo['area']?.fieldTitle}}" step="10"
-            class="form-control validate-name" id="filteModelContent.area" />
+            currencyMask pattern="(d{3})" placeholder="{{fieldsInfo['area']?.fieldTitle}}" step="10"
+            class="form-control validate-name input-ltr" id="filteModelContent.area" />
           <em>{{fieldsInfo['area']?.fieldDescription}}</em>
         </div>
         <hr>
@@ -229,8 +229,8 @@
               <label for="filteModelContent.salePriceMin" class="color-highlight">{{'TITLE.SalePriceMin' | translate}}
               </label>
               <input matInput [(ngModel)]="filteModelContent.salePriceMin" name="filteModelContent.salePriceMin"
-                #SalePriceMin type="text" currencyMask class="input-ltr-center" step="1000000"
-                class="form-control validate-name" id="filteModelContent.salePriceMin" />
+                #SalePriceMin type="text" currencyMask step="1000000"
+                class="form-control validate-name input-ltr-center" id="filteModelContent.salePriceMin" />
             </div>
             <!-- RentPriceMin Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
@@ -238,16 +238,16 @@
               <label for="filteModelContent.rentPriceMin" class="color-highlight">{{'TITLE.RentPriceMin' |
                 translate}}</label>
               <input matInput [(ngModel)]="filteModelContent.rentPriceMin" name="filteModelContent.rentPriceMin"
-                #RentPriceMin type="text" currencyMask class="input-ltr-center" step="1000000"
-                class="form-control validate-name" id="filteModelContent.rentPriceMin" />
+                #RentPriceMin type="text" currencyMask step="1000000"
+                class="form-control validate-name input-ltr-center" id="filteModelContent.rentPriceMin" />
             </div>
             <!-- DepositPriceMin Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
               *ngIf=" contractTypeSelected?.hasDepositPrice">
               <label for="filteModelContent.depositPriceMin" class="color-highlight">ImageThumbnailSizeHeight</label>
               <input matInput [(ngModel)]="filteModelContent.depositPriceMin" name="filteModelContent.depositPriceMin"
-                #DepositPriceMin type="text" currencyMask class="input-ltr-center" step="1000000"
-                class="form-control validate-name" id="filteModelContent.depositPriceMin" />
+                #DepositPriceMin type="text" currencyMask step="1000000"
+                class="form-control validate-name input-ltr-center" id="filteModelContent.depositPriceMin" />
             </div>
             <!-- PeriodPriceMin Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
@@ -255,8 +255,8 @@
               <label for="filteModelContent.periodPriceMin" class="color-highlight">{{'TITLE.PeriodPriceMin' |
                 translate}} </label>
               <input matInput [(ngModel)]="filteModelContent.periodPriceMin" name="filteModelContent.periodPriceMin"
-                #PeriodPriceMin type="text" currencyMask class="input-ltr-center" step="1000000"
-                class="form-control validate-name" id="filteModelContent.periodPriceMin" />
+                #PeriodPriceMin type="text" currencyMask step="1000000"
+                class="form-control validate-name input-ltr-center" id="filteModelContent.periodPriceMin" />
             </div>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-9">
@@ -266,8 +266,8 @@
               <label for="filteModelContent.salePriceMax" class="color-highlight">
                 {{'TITLE.SalePriceMax' | translate}}</label>
               <input matInput [(ngModel)]="filteModelContent.salePriceMax" name="filteModelContent.salePriceMax"
-                #SalePriceMax type="text" currencyMask class="input-ltr-center" step="1000000"
-                class="form-control validate-name" id="filteModelContent.salePriceMax" />
+                #SalePriceMax type="text" currencyMask step="1000000"
+                class="form-control validate-name input-ltr-center" id="filteModelContent.salePriceMax" />
             </div>
             <!-- RentPriceMax Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
@@ -275,8 +275,8 @@
               <label for="filteModelContent.rentPriceMax" class="color-highlight">{{'TITLE.RentPriceMax' | translate}}
               </label>
               <input matInput [(ngModel)]="filteModelContent.rentPriceMax" name="filteModelContent.rentPriceMax"
-                #RentPriceMax type="text" currencyMask class="input-ltr-center" step="1000000"
-                class="form-control validate-name" id="filteModelContent.rentPriceMax" />
+                #RentPriceMax type="text" currencyMask step="1000000"
+                class="form-control validate-name input-ltr-center" id="filteModelContent.rentPriceMax" />
             </div>
             <!-- DepositPriceMax Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
@@ -284,8 +284,8 @@
               <label for="filteModelContent.depositPriceMax" class="color-highlight">{{'TITLE.DepositPriceMax' |
                 translate}}</label>
               <input matInput [(ngModel)]="filteModelContent.depositPriceMax" name="filteModelContent.depositPriceMax"
-                #DepositPriceMax type="text" currencyMask class="input-ltr-center" step="1000000"
-                class="form-control validate-name" id="filteModelContent.depositPriceMax" />
+                #DepositPriceMax type="text" currencyMask  step="1000000"
+                class="form-control validate-name input-ltr-center" id="filteModelContent.depositPriceMax" />
             </div>
             <!-- PeriodPriceMax Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
@@ -293,8 +293,8 @@
               <label for="filteModelContent.periodPriceMax" class="color-highlight">{{'TITLE.PeriodPriceMax' |
                 translate}} </label>
               <input matInput [(ngModel)]="filteModelContent.periodPriceMax" name="filteModelContent.periodPriceMax"
-                #PeriodPriceMax type="text" currencyMask class="input-ltr-center" step="1000000"
-                class="form-control validate-name" id="filteModelContent.periodPriceMax" />
+                #PeriodPriceMax type="text" currencyMask step="1000000"
+                class="form-control validate-name input-ltr-center" id="filteModelContent.periodPriceMax" />
             </div>
           </div>
           <mat-accordion class="example-headers-align">

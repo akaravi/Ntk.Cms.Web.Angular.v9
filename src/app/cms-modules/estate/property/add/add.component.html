@@ -124,7 +124,7 @@
                 {{ PropertyTypeSelected.titleCreatedYaer }}</label>
               <input matInput [(ngModel)]="dataModel.createdYaer" name="dataModel.createdYaer" #CreatedYaer
                 type="number" placeholder="{{ fieldsInfo['createdYaer']?.fieldTitle }}"
-                class="input-ltr-center form-control validate-name" id="dataModel.createdYaer" />
+                class="form-control validate-name input-ltr-center" id="dataModel.createdYaer" />
             </div>
             <!-- Partition Field -->
             <div *ngIf="
@@ -137,7 +137,7 @@
               </label>
               <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"
                 placeholder="{{ PropertyTypeSelected.titlePartition }}"
-                class="input-ltr-center form-control validate-name" id="dataModel.partition" />
+                class="form-control validate-name input-ltr-center" id="dataModel.partition" />
             </div>
             <!-- Area Field -->
             <div *ngIf="fieldsInfo['area']?.accessWatchField"
@@ -145,9 +145,9 @@
               <label for="dataModel.area" class="color-highlight">{{
                 fieldsInfo["area"]?.fieldTitle}}
               </label>
-              <input matInput [(ngModel)]="dataModel.area" name="dataModel.partition" #Area type="text" currencyMask
+              <input matInput [(ngModel)]="dataModel.area" name="dataModel.area" #Area type="text" currencyMask
                 disabled="{{ !fieldsInfo['area']?.accessAddField }}" placeholder="{{ fieldsInfo['area']?.fieldTitle }}"
-                class="input-ltr-center form-control validate-name" id="dataModel.area" />
+                class="form-control validate-name input-ltr-center" id="dataModel.area" />
             </div>
             <!-- LinkLocationId Field -->
             <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
@@ -186,7 +186,7 @@
                 class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                 {{ "ACTION.CANCEL" | translate }}
               </button>
-              <button  class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+              <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
                 *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0"
                 [disabled]="!vform.form.valid" matStepperNext>
                 {{ "ACTION.NEXT" | translate }}
@@ -392,7 +392,7 @@
               class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button  class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId.length > 0"
               [disabled]="!vform.form.valid" matStepperNext>
               {{ "ACTION.NEXT" | translate }}
@@ -555,7 +555,7 @@
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button  class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
+            <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               [disabled]="!vform.form.valid" matStepperNext>
               {{ "ACTION.NEXT" | translate }}
             </button>
@@ -835,8 +835,7 @@
               class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
             </button>
-            <button  class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-              *ngIf="
+            <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue" *ngIf="
                   this.dataModel.contracts && this.dataModel.contracts.length > 0" [disabled]="!vform.form.valid"
               matStepperNext>
               {{ "ACTION.NEXT" | translate }}

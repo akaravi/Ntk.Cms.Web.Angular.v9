@@ -164,6 +164,9 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
         this.lastRecordStatus = ret.item.recordStatus;
         this.dataModel = ret.item;
         if (ret.isSuccess) {
+          if (!this.dataModel.caseCode || this.dataModel.caseCode.length <= 0)
+            this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
+
           this.optionTabledataSource.data = this.dataModel.contracts;
           this.DataGetPropertyDetailGroup(this.dataModel.linkPropertyTypeLanduseId);
 

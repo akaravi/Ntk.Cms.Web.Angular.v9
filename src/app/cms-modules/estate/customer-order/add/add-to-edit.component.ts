@@ -49,6 +49,8 @@ export class EstateCustomerOrderAddToEditComponent extends AddBaseComponent<Esta
     if (data && data.copyId?.length > 0) {
       this.DataGetOneContent(data.copyId);
     }
+
+    this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   dataModelResult: ErrorExceptionResult<EstateCustomerOrderModel> = new ErrorExceptionResult<EstateCustomerOrderModel>();

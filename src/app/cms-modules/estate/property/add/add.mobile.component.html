@@ -156,8 +156,8 @@
               *ngIf="fieldsInfo['area']?.accessWatchField">
               <label for="dataModel.area" class="color-highlight">{{ fieldsInfo["area"]?.fieldTitle }}</label>
               <input matInput [(ngModel)]="dataModel.area" name="dataModel.area" #Area type="text" currencyMask
-                class="input-ltr" disabled="{{ !fieldsInfo['area']?.accessAddField }}"
-                placeholder="{{ fieldsInfo['area']?.fieldTitle }}" class="form-control validate-name"
+                 disabled="{{ !fieldsInfo['area']?.accessAddField }}"
+                placeholder="{{ fieldsInfo['area']?.fieldTitle }}" class="form-control validate-name input-ltr"
                 id="dataModel.area" />
             </div>
 
@@ -347,7 +347,8 @@
           <app-estate-account-user-selector *ngIf="this.tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorEstateUser($event)" [(optionLoading)]="loading"
             [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkEstateUserId" [optionPlaceholder]="'TITLE.Property_personnel' | translate">
+            [optionSelectForce]="dataModel.linkEstateUserId"
+            [optionPlaceholder]="'TITLE.Property_personnel' | translate">
           </app-estate-account-user-selector>
 
           <!-- AboutAgentMobile Field -->
@@ -621,7 +622,8 @@
           </p>
 
           <app-estate-contract-type-selector (optionChange)="onActionSelectorContractType($event)" [optionTypeView]="2"
-            [optionDisabled]="false" [optionPlaceholder]="'TITLE.Type_Of_Transaction' | translate" [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
+            [optionDisabled]="false" [optionPlaceholder]="'TITLE.Type_Of_Transaction' | translate"
+            [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
           </app-estate-contract-type-selector>
 
           <div class="container" *ngIf="contractTypeSelected && contractTypeSelected.id.length > 0">
@@ -630,7 +632,8 @@
             <br />
             <app-cms-currency-selector [optionSelectFirstItem]="currencyOptionSelectFirstItem"
               [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkCoreCurrencyId"
-              (optionChange)="onActionSelectCurrency($event)" [optionPlaceholder]="'TITLE.Specify_the_transaction_currency' | translate ">
+              (optionChange)="onActionSelectCurrency($event)"
+              [optionPlaceholder]="'TITLE.Specify_the_transaction_currency' | translate ">
             </app-cms-currency-selector>
 
             <div *ngIf="contractDataModel.linkCoreCurrencyId > 0">
@@ -642,9 +645,8 @@
                       contractTypeSelected.titleSalePriceML
                       }}</label>
                     <input matInput [(ngModel)]="contractDataModel.salePrice" name="contractDataModel.salePrice"
-                      [disabled]="contractDataModel.salePriceByAgreement" type="text" currencyMask
-                      class="input-ltr-center" placeholder="0" class="form-control validate-name"
-                      id="contractDataModel.salePrice" />
+                      [disabled]="contractDataModel.salePriceByAgreement" type="text" currencyMask placeholder="0"
+                      class="form-control validate-name input-ltr-center" id="contractDataModel.salePrice" />
                     <label>
                       ({{ dataModelCorCurrencySelector.titleML }}
                       {{ dataModelCorCurrencySelector.symbol }} )
@@ -678,9 +680,9 @@
                       contractTypeSelected.titleDepositPriceML
                       }}</label>
                     <input matInput [(ngModel)]="contractDataModel.depositPrice" name="contractDataModel.depositPrice"
-                      [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask
-                      class="input-ltr-center" urrencyMask class="input-ltr-center form-control validate-name"
-                      placeholder="0" id="contractDataModel.depositPrice" />
+                      [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask 
+                      class=" form-control validate-name input-ltr-center" placeholder="0"
+                      id="contractDataModel.depositPrice" />
                     <label>
                       ({{ dataModelCorCurrencySelector.titleML }}
                       {{ dataModelCorCurrencySelector.symbol }} )
@@ -696,9 +698,8 @@
                         contractTypeSelected.titleDepositPriceML
                         }}</label>
                       <input matInput [(ngModel)]="contractDataModel.depositPrice" name="contractDataModel.depositPrice"
-                        [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask
-                        class="input-ltr-center" urrencyMask class="input-ltr-center" placeholder="0"
-                        id="contractDataModel.depositPrice" />
+                        [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask 
+                        class="input-ltr-center" placeholder="0" id="contractDataModel.depositPrice" />
                       <label>
                         ({{ dataModelCorCurrencySelector.titleML }}
                         {{ dataModelCorCurrencySelector.symbol }} )
@@ -733,7 +734,7 @@
                       }}</label>
                     <input matInput [(ngModel)]="contractDataModel.rentPrice" name="contractDataModel.rentPrice"
                       [disabled]="contractDataModel.rentPriceByAgreement" type="text" currencyMask
-                      class="input-ltr-center form-control validate-name" placeholder="0"
+                      class="form-control validate-name input-ltr-center" placeholder="0"
                       id="contractDataModel.rentPrice" />
                     <label>
                       ({{ dataModelCorCurrencySelector.titleML }}
@@ -786,7 +787,7 @@
                       }}</label>
                     <input matInput [(ngModel)]="contractDataModel.periodPrice" name="contractDataModel.periodPrice"
                       [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask
-                      class="input-ltr-center" urrencyMask class="input-ltr-center form-control validate-name"
+                      class="form-control validate-name input-ltr-center"
                       placeholder="0" id="contractDataModel.periodPrice" />
                     <label>
                       ({{ dataModelCorCurrencySelector.titleML }}
@@ -804,7 +805,7 @@
                         }}</label>
                       <input matInput [(ngModel)]="contractDataModel.periodPrice" name="contractDataModel.periodPrice"
                         [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask
-                        class="input-ltr-center" urrencyMask class="input-ltr-center" placeholder="0"
+                         class="input-ltr-center" placeholder="0"
                         id="contractDataModel.periodPrice" />
                       <label>
                         ({{ dataModelCorCurrencySelector.titleML }}
