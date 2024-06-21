@@ -105,8 +105,10 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
   getPrivateConfig(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.smsMainApiPathService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelPrivateResult = next;
+    this.smsMainApiPathService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelPrivateResult = ret;
+      }
     });
   }
 

@@ -94,8 +94,10 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
   getEstateActivityStatusEnum(): void {
     this.estateEnumService
       .ServiceEstateActivityStatusEnum()
-      .subscribe((next) => {
-        this.dataModelEstateActivityStatusEnumResult = next;
+      .subscribe({
+        next: (ret) => {
+          this.dataModelEstateActivityStatusEnumResult = ret;
+        }
       });
   }
 

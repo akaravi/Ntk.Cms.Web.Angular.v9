@@ -64,8 +64,10 @@ export class EstateAccountUserWorkAreaAddComponent extends AddBaseComponent<Esta
 
   }
   getEstateUserTypeEnum(): void {
-    this.estateEnumService.ServiceEstateUserTypeEnum().subscribe((next) => {
-      this.dataModelEnumEstateUserTypeResult = next;
+    this.estateEnumService.ServiceEstateUserTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumEstateUserTypeResult = ret;
+      }
     });
   }
 

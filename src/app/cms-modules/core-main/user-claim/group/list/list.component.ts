@@ -101,15 +101,19 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
   getModule(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe((next) => {
-      this.dataModelCoreModuleResult = next;
+    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreModuleResult = ret;
+      }
     });
   }
   getSiteCategory(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreSiteCategoryService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreSiteCategoryResult = next;
+    this.coreSiteCategoryService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreSiteCategoryResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

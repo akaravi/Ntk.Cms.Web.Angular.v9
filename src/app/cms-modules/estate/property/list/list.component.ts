@@ -250,14 +250,16 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     this.tokenInfo.direction
     this.cmsApiStoreSubscribe = this.tokenHelper
       .getCurrentTokenOnChange()
-      .subscribe((next) => {
-        this.tokenInfo = next;
-        this.DataGetAll();
-        this.tokenHelper.CheckIsAdmin();
-        if (!this.tokenHelper.isAdminSite && !this.tokenHelper.isSupportSite) {
-          this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreEstateLocation');
-          this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreEstateBuild');
-          this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreEstatePrice');
+      .subscribe({
+        next: (ret) => {
+          this.tokenInfo = ret;
+          this.DataGetAll();
+          this.tokenHelper.CheckIsAdmin();
+          if (!this.tokenHelper.isAdminSite && !this.tokenHelper.isSupportSite) {
+            this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreEstateLocation');
+            this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreEstateBuild');
+            this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreEstatePrice');
+          }
         }
       });
 

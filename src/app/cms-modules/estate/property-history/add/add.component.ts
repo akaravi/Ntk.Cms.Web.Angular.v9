@@ -76,8 +76,10 @@ export class EstatePropertyHistoryAddComponent extends AddBaseComponent<EstatePr
   }
 
   getEstateActivityStatusEnum(): void {
-    this.estateEnumService.ServiceEstateActivityStatusEnum().subscribe((next) => {
-      this.dataModelEstateActivityStatusEnumResult = next;
+    this.estateEnumService.ServiceEstateActivityStatusEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEstateActivityStatusEnumResult = ret;
+      }
     });
   }
 

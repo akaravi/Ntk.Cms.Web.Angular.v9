@@ -73,9 +73,10 @@ export class EstateAccountAgencyAdsSaleListComponent implements OnInit, OnDestro
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-
-      this.tokenInfo = next;
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+      }
     });
     // this.getEnumCmsModuleSaleItemType();
 
@@ -123,8 +124,10 @@ export class EstateAccountAgencyAdsSaleListComponent implements OnInit, OnDestro
   }
 
   getEnumCmsModuleSaleItemType(): void {
-    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe((next) => {
-      this.dataModelEnumCmsModuleSaleItemTypeResult = next;
+    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumCmsModuleSaleItemTypeResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

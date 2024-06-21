@@ -115,15 +115,19 @@ export class CoreUserClaimGroupDetailListComponent extends ListBaseComponent<Cor
   getUserClaimType(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreUserClaimTypeService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreUserClaimTypeResult = next;
+    this.coreUserClaimTypeService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreUserClaimTypeResult = ret;
+      }
     });
   }
   getUserClaimGroup(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreUserClaimGroupService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreUserClaimGroupResult = next;
+    this.coreUserClaimGroupService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreUserClaimGroupResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

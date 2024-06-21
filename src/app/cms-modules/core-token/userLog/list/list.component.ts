@@ -120,21 +120,10 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
         this.DataGetAll();
       }
     });
-    this.getEnumManageUserAccessAreaTypes();
-    this.getEnumManageUserAccessUserTypes();
+
   }
 
-  getEnumManageUserAccessAreaTypes(): void {
-    // this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe((next) => {
-    //   this.dataModelEnumManageUserAccessAreaTypesResult = next;
-    // });
-  }
-  // {{row.userAccessAreaType | enums : dataModelEnumManageUserAccessAreaTypesResult.listItems}}
-  getEnumManageUserAccessUserTypes(): void {
-    // this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe((next) => {
-    //   this.dataModelEnumManageUserAccessUserTypesResult = next;
-    // });
-  }
+
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }

@@ -85,10 +85,12 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.getEnumAnswerStatus();
-      this.tokenInfo = next;
-      this.DataGetAll();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.getEnumAnswerStatus();
+        this.tokenInfo = ret;
+        this.DataGetAll();
+      }
     });
     this.getEnumAnswerStatus();
   }
@@ -96,8 +98,10 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   getEnumAnswerStatus(): void {
-    this.ticketingEnumService.ServiceTicketStatusEnum().subscribe((next) => {
-      this.dataModelEnumAnswerStatusResult = next;
+    this.ticketingEnumService.ServiceTicketStatusEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumAnswerStatusResult = ret;
+      }
     });
   }
   DataGetAll(): void {

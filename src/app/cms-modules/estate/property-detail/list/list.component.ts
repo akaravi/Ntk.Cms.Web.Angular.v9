@@ -110,15 +110,15 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
   getPropertyType(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.estatePropertyTypeLanduseService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelEstatePropertyTypeLanduseResult = next;
+    this.estatePropertyTypeLanduseService.ServiceGetAll(filter).subscribe({next: (ret) => {
+      this.dataModelEstatePropertyTypeLanduseResult = ret;}
     });
   }
   getPropertyDetailGroup(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.estatePropertyDetailGroupService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelEstatePropertyDetailGroupResult = next;
+    this.estatePropertyDetailGroupService.ServiceGetAll(filter).subscribe({next: (ret) => {
+      this.dataModelEstatePropertyDetailGroupResult = ret;}
     });
   }
   ngOnDestroy(): void {

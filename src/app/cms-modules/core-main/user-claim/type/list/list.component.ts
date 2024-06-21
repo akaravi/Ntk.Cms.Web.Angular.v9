@@ -97,8 +97,10 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
     this.getEnumUserClaimKinds();
   }
   getEnumUserClaimKinds(): void {
-    this.coreEnumService.ServiceUserClaimKindsEnum().subscribe((next) => {
-      this.dataModelEnumUserClaimKindsResult = next;
+    this.coreEnumService.ServiceUserClaimKindsEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumUserClaimKindsResult = ret;
+      }
     });
   }
 

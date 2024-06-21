@@ -40,11 +40,13 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
       this.dataModel.email = this.tokenInfo.email;
       this.dataModel.phoneNo = this.tokenInfo.mobile;
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      this.dataModel.fullName = this.tokenInfo.fullName;
-      this.dataModel.email = this.tokenInfo.email;
-      this.dataModel.phoneNo = this.tokenInfo.mobile;
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        this.dataModel.fullName = this.tokenInfo.fullName;
+        this.dataModel.email = this.tokenInfo.email;
+        this.dataModel.phoneNo = this.tokenInfo.mobile;
+      }
     });
   }
   cmsApiStoreSubscribe: Subscription;

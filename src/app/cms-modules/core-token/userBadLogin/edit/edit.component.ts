@@ -86,8 +86,10 @@ export class CoreTokenUserBadLoginEditComponent extends EditBaseComponent<CoreTo
   }
 
   getEnumManageUserAccessAreaTypes(): void {
-    this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe((next) => {
-      this.dataModelEnumManageUserAccessAreaTypesResult = next;
+    this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumManageUserAccessAreaTypesResult = ret;
+      }
     });
   }
 

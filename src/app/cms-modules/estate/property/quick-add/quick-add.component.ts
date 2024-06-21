@@ -94,14 +94,16 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
     this.getEstatePropertyType();
     this.getEstatePropertyTypeLanduse();
     this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
 
-      this.DataGetAccess();
-      this.getEstateContractType();
-      this.getEstatePropertyType();
-      this.getEstatePropertyTypeLanduse();
-      this.optionActionTitle = this.translate.instant('ACTION.Add_To_List');
-      this.tokenInfo = next;
+        this.DataGetAccess();
+        this.getEstateContractType();
+        this.getEstatePropertyType();
+        this.getEstatePropertyTypeLanduse();
+        this.optionActionTitle = this.translate.instant('ACTION.Add_To_List');
+        this.tokenInfo = ret;
+      }
     });
   }
   ngOnDestroy(): void {
@@ -110,31 +112,37 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
     this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));
-    this.estateContractTypeService.ServiceGetAll(null).subscribe((next) => {
-      this.dataModelEstateContractTypeResult = next;
-      this.loading.Stop(pName);
-    }, () => {
-      this.loading.Stop(pName);
+    this.estateContractTypeService.ServiceGetAll(null).subscribe({
+      next: (ret) => {
+        this.dataModelEstateContractTypeResult = ret;
+        this.loading.Stop(pName);
+      }, error: (er) => {
+        this.loading.Stop(pName);
+      }
     });
   }
   getEstatePropertyType(): void {
     const pName = this.constructor.name + 'getEstatePropertyType';
     this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_property_Type'));
-    this.estatePropertyTypeService.ServiceGetAll(null).subscribe((next) => {
-      this.dataModelEstatePropertyTypeResult = next;
-      this.loading.Stop(pName);
-    }, () => {
-      this.loading.Stop(pName);
+    this.estatePropertyTypeService.ServiceGetAll(null).subscribe({
+      next: (ret) => {
+        this.dataModelEstatePropertyTypeResult = ret;
+        this.loading.Stop(pName);
+      }, error: (er) => {
+        this.loading.Stop(pName);
+      }
     });
   }
   getEstatePropertyTypeLanduse(): void {
     const pName = this.constructor.name + 'getEstatePropertyType';
     this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_user_Type'));
-    this.estatePropertyTypeLanduseService.ServiceGetAll(null).subscribe((next) => {
-      this.dataModelEstatePropertyTypeLanduseResult = next;
-      this.loading.Stop(pName);
-    }, () => {
-      this.loading.Stop(pName);
+    this.estatePropertyTypeLanduseService.ServiceGetAll(null).subscribe({
+      next: (ret) => {
+        this.dataModelEstatePropertyTypeLanduseResult = ret;
+        this.loading.Stop(pName);
+      }, error: (er) => {
+        this.loading.Stop(pName);
+      }
     });
   }
 

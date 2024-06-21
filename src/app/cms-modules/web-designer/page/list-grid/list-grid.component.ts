@@ -123,15 +123,19 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
   getModuleList(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.webDesignerMainPageTemplateService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelWebDesignerMainPageTemplateResult = next;
+    this.webDesignerMainPageTemplateService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelWebDesignerMainPageTemplateResult = ret;
+      }
     });
   }
   getSiteCategory(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreSiteCategoryService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreSiteCategoryResult = next;
+    this.coreSiteCategoryService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreSiteCategoryResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

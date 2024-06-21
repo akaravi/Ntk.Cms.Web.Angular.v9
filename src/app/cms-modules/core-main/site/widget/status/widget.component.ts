@@ -51,9 +51,11 @@ export class CoreSiteWidgetStatusComponent implements OnInit, OnDestroy {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfoModel = value;
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfoModel = next;
-      this.onActionStatist();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfoModel = ret;
+        this.onActionStatist();
+      }
     });
     this.onActionStatist();
 

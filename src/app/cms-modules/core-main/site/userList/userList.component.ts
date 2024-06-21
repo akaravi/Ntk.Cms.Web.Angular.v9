@@ -127,10 +127,12 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
       this.tokenHelper.CheckIsAdmin();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      this.DataGetAll();
-      this.tokenHelper.CheckIsAdmin();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        this.DataGetAll();
+        this.tokenHelper.CheckIsAdmin();
+      }
     });
   }
   ngOnDestroy(): void {

@@ -65,8 +65,10 @@ export class CoreUserClaimGroupAddComponent extends AddBaseComponent<CoreUserCla
     this.getEnumUserClaimGroupActionType();
   }
   getEnumUserClaimGroupActionType(): void {
-    this.coreEnumService.ServiceUserClaimGroupActionTypeEnum().subscribe((next) => {
-      this.dataModelEnumUserClaimGroupActionTypeResult = next;
+    this.coreEnumService.ServiceUserClaimGroupActionTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumUserClaimGroupActionTypeResult = ret;
+      }
     });
   }
 

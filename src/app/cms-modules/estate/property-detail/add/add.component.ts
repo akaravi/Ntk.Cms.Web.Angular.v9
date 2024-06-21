@@ -74,9 +74,9 @@ export class EstatePropertyDetailAddComponent extends AddBaseComponent<EstatePro
     this.getInputDataTypeEnum();
   }
   getInputDataTypeEnum(): void {
-    this.coreEnumService.ServiceInputDataTypeEnum().subscribe((next) => {
-      this.dataModelInputDataTypeEnumResult = next;
-    });
+    this.coreEnumService.ServiceInputDataTypeEnum().subscribe({next: (ret) => {
+      this.dataModelInputDataTypeEnumResult = ret;
+    }});
   }
 
   DataAddContent(): void {

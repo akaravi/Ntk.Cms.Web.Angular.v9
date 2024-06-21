@@ -61,12 +61,12 @@ export class CoreModuleSiteCreditWidgetPriceComponent implements OnInit, OnDestr
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/core-module/site-credit/';
 
-    // this.onActionStatist();
+
     this.DataGetAll();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.widgetInfoModel.title = this.translate.instant('TITLE.Evidence_Identity');
-      this.DataGetAll();
-      // this.onActionStatist();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.DataGetAll();
+      }
     });
 
 
@@ -75,8 +75,10 @@ export class CoreModuleSiteCreditWidgetPriceComponent implements OnInit, OnDestr
   getModuleList(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe((next) => {
-      this.dataModelCoreModuleResult = next;
+    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreModuleResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

@@ -170,12 +170,14 @@ export class WebDesignerMainPageSelectorComponent implements OnInit {
         this.formControl.setValue(item);
         return;
       }
-      this.categoryService.ServiceGetOneById(id).subscribe((next) => {
-        if (next.isSuccess) {
-          this.filteredOptions = this.push(next.item);
-          this.dataModelSelect = next.item;
-          this.formControl.setValue(next.item);
-          this.optionChange.emit(next.item);
+      this.categoryService.ServiceGetOneById(id).subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
+            this.filteredOptions = this.push(ret.item);
+            this.dataModelSelect = ret.item;
+            this.formControl.setValue(ret.item);
+            this.optionChange.emit(ret.item);
+          }
         }
       });
       return;

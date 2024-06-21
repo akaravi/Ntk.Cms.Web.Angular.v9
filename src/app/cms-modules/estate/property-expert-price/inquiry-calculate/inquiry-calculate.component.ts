@@ -69,8 +69,10 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
   }
 
   getEstatePropertyExpertPriceTypeEnum(): void {
-    this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe((next) => {
-      this.dataModelEstatePropertyExpertPriceTypeEnumResult = next;
+    this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEstatePropertyExpertPriceTypeEnumResult = ret;
+      }
     });
   }
 

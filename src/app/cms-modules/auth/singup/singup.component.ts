@@ -114,62 +114,64 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
       this.dataModel.resellerUserId = ResellerUserId;
     }
     /** read storage */
-    this.coreAuthService.ServiceSignupUser(this.dataModel).subscribe((next) => {
-      if (next.isSuccess) {
-        this.cmsToastrService.typeSuccessRegistery();
-        this.formInfo.formErrorStatus = false;
-        if (!this.loginAuto) {
-          setTimeout(() => this.router.navigate(['/']), 1000);
-        }
-        /** Login */
-        if (this.loginAuto) {
-          const dataLoginModel = new AuthUserSignInModel();
-          dataLoginModel.captchaKey = this.dataModel.captchaKey;
-          dataLoginModel.captchaText = this.dataModel.captchaText;
-          dataLoginModel.email = this.dataModel.email;
-          dataLoginModel.password = this.dataModel.password;
-          dataLoginModel.siteId = this.dataModel.siteId;
-          dataLoginModel.mobile = this.dataModel.mobile;
-          const pName2 = this.constructor.name + 'ServiceSigninUser';
-          this.loading.Start(pName2, this.translate.instant('MESSAGE.login_to_user_account'));
-          this.coreAuthService.ServiceSigninUser(dataLoginModel).subscribe(
-            (res) => {
-              if (res.isSuccess) {
-                this.cmsToastrService.typeSuccessLogin();
-                if (res.item.siteId > 0) {
-                  setTimeout(() => this.router.navigate(['/dashboard']), 1000);
+    this.coreAuthService.ServiceSignupUser(this.dataModel).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.cmsToastrService.typeSuccessRegistery();
+          this.formInfo.formErrorStatus = false;
+          if (!this.loginAuto) {
+            setTimeout(() => this.router.navigate(['/']), 1000);
+          }
+          /** Login */
+          if (this.loginAuto) {
+            const dataLoginModel = new AuthUserSignInModel();
+            dataLoginModel.captchaKey = this.dataModel.captchaKey;
+            dataLoginModel.captchaText = this.dataModel.captchaText;
+            dataLoginModel.email = this.dataModel.email;
+            dataLoginModel.password = this.dataModel.password;
+            dataLoginModel.siteId = this.dataModel.siteId;
+            dataLoginModel.mobile = this.dataModel.mobile;
+            const pName2 = this.constructor.name + 'ServiceSigninUser';
+            this.loading.Start(pName2, this.translate.instant('MESSAGE.login_to_user_account'));
+            this.coreAuthService.ServiceSigninUser(dataLoginModel).subscribe(
+              (res) => {
+                if (res.isSuccess) {
+                  this.cmsToastrService.typeSuccessLogin();
+                  if (res.item.siteId > 0) {
+                    setTimeout(() => this.router.navigate(['/dashboard']), 1000);
+                  }
+                  else {
+                    setTimeout(() => this.router.navigate(['/core/site/selection']), 1000);
+                  }
+                } else {
+                  this.formInfo.buttonSubmittedEnabled = true;
+                  this.cmsToastrService.typeErrorLogin(res.errorMessage);
+                  setTimeout(() => this.router.navigate(['/']), 1000);
                 }
-                else {
-                  setTimeout(() => this.router.navigate(['/core/site/selection']), 1000);
-                }
-              } else {
+                this.loading.Stop(pName2);
+              },
+              (error) => {
                 this.formInfo.buttonSubmittedEnabled = true;
-                this.cmsToastrService.typeErrorLogin(res.errorMessage);
-                setTimeout(() => this.router.navigate(['/']), 1000);
+                this.cmsToastrService.typeError(error);
+                this.loading.Stop(pName2);
               }
-              this.loading.Stop(pName2);
-            },
-            (error) => {
-              this.formInfo.buttonSubmittedEnabled = true;
-              this.cmsToastrService.typeError(error);
-              this.loading.Stop(pName2);
-            }
-          );
+            );
+          }
+          /** Login */
+        } else {
+          this.cmsToastrService.typeErrorRegistery(ret.errorMessage);
+          this.formInfo.buttonSubmittedEnabled = true;
+          this.formInfo.formErrorStatus = true;
+          this.onCaptchaOrder();
         }
-        /** Login */
-      } else {
-        this.cmsToastrService.typeErrorRegistery(next.errorMessage);
-        this.formInfo.buttonSubmittedEnabled = true;
+        this.loading.Stop(pName);
+      }, error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.formInfo.formErrorStatus = true;
+        this.formInfo.buttonSubmittedEnabled = true;
         this.onCaptchaOrder();
+        this.loading.Stop(pName);
       }
-      this.loading.Stop(pName);
-    }, (error) => {
-      this.cmsToastrService.typeError(error);
-      this.formInfo.formErrorStatus = true;
-      this.formInfo.buttonSubmittedEnabled = true;
-      this.onCaptchaOrder();
-      this.loading.Stop(pName);
     });
   }
   onRoulaccespt(): void {
@@ -193,29 +195,31 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
     this.loading.Start(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
-    this.coreAuthService.ServiceCaptcha().subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          this.captchaModel = next.item;
-          this.expireDate = next.item.expire;//.split('+')[1];
-          const startDate = new Date();
-          const endDate = new Date(next.item.expire);
-          const seconds = (endDate.getTime() - startDate.getTime());
-          if (this.aoutoCaptchaOrder < 10) {
-            this.aoutoCaptchaOrder = this.aoutoCaptchaOrder + 1;
-            setTimeout(() => { this.onCaptchaOrder(); }, seconds);
+    this.coreAuthService.ServiceCaptcha()
+      .subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
+            this.captchaModel = ret.item;
+            this.expireDate = ret.item.expire;//.split('+')[1];
+            const startDate = new Date();
+            const endDate = new Date(ret.item.expire);
+            const seconds = (endDate.getTime() - startDate.getTime());
+            if (this.aoutoCaptchaOrder < 10) {
+              this.aoutoCaptchaOrder = this.aoutoCaptchaOrder + 1;
+              setTimeout(() => { this.onCaptchaOrder(); }, seconds);
+            }
+          } else {
+            this.cmsToastrService.typeErrorGetCpatcha(ret.errorMessage);
           }
-        } else {
-          this.cmsToastrService.typeErrorGetCpatcha(next.errorMessage);
+          this.onCaptchaOrderInProcess = false;
+          this.loading.Stop(pName);
         }
-        this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
+        , error: (err) => {
+          this.onCaptchaOrderInProcess = false;
+          this.loading.Stop(pName);
+        }
       }
-      , (error) => {
-        this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
-      }
-    );
+      );
   }
   ActionPasswordGenerator(): void {
     // const chars = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ';

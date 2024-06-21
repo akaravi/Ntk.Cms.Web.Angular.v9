@@ -89,8 +89,10 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   getManagementContentSettingTypeEnum(): void {
-    this.linkManagementEnumService.ServiceManagementContentSettingTypeEnum().subscribe((next) => {
-      this.dataModelManagementContentSettingTypeEnumResult = next;
+    this.linkManagementEnumService.ServiceManagementContentSettingTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelManagementContentSettingTypeEnumResult = ret;
+      }
     });
   }
   DataGetAll(): void {

@@ -116,8 +116,10 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   getEstatePropertyExpertPriceTypeEnum(): void {
-    this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe((next) => {
-      this.dataModelEstatePropertyExpertPriceTypeEnumResult = next;
+    this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEstatePropertyExpertPriceTypeEnumResult = ret;
+      }
     });
   }
   getEstatePropertyTypeUsages(): void {

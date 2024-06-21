@@ -42,10 +42,12 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
     });
 
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      this.DataGetOneContent();
-      this.tokenHelper.CheckIsAdmin();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        this.DataGetOneContent();
+        this.tokenHelper.CheckIsAdmin();
+      }
     });
   }
 

@@ -57,14 +57,16 @@ export class CoreUserClaimContentAddComponent extends AddBaseComponent<CoreUserC
         this.ProfessionalData = false;
       }
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      if (!this.tokenInfo.userAccessAdminAllowToProfessionalData && this.tokenInfo.userAccessAdminAllowToAllData) {
-        this.dataModel.linkUserId = this.tokenInfo.userId;
-        this.dataModel.linkSiteId = this.tokenInfo.siteId;
-        this.ProfessionalData = true;
-      } else {
-        this.ProfessionalData = false;
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        if (!this.tokenInfo.userAccessAdminAllowToProfessionalData && this.tokenInfo.userAccessAdminAllowToAllData) {
+          this.dataModel.linkUserId = this.tokenInfo.userId;
+          this.dataModel.linkSiteId = this.tokenInfo.siteId;
+          this.ProfessionalData = true;
+        } else {
+          this.ProfessionalData = false;
+        }
       }
     });
   }

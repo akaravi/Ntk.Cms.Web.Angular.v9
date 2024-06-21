@@ -89,13 +89,17 @@ export class CoreTokenUserEditComponent extends EditBaseComponent<CoreTokenUserS
   }
 
   getEnumManageUserAccessAreaTypes(): void {
-    this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe((next) => {
-      this.dataModelEnumManageUserAccessAreaTypesResult = next;
+    this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumManageUserAccessAreaTypesResult = ret;
+      }
     });
   }
   getEnumManageUserAccessUserTypes(): void {
-    this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe((next) => {
-      this.dataModelEnumManageUserAccessUserTypesResult = next;
+    this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumManageUserAccessUserTypesResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

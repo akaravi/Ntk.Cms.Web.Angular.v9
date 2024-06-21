@@ -40,8 +40,10 @@ export class LinkManagementBillboardPatternSelectorComponent implements OnInit {
   filteredOptions: Observable<LinkManagementBillboardPatternModel[]>;
   dataModelManagementContentSettingTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   getManagementContentSettingTypeEnum(): void {
-    this.linkManagementEnumService.ServiceManagementContentSettingTypeEnum().subscribe((next) => {
-      this.dataModelManagementContentSettingTypeEnumResult = next;
+    this.linkManagementEnumService.ServiceManagementContentSettingTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelManagementContentSettingTypeEnumResult = ret;
+      }
     });
   }
   @Input() optionPlaceholder = '';

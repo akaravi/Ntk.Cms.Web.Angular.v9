@@ -58,8 +58,10 @@ export class EstateCategoryZoneSelectorComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.loadOptions();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.loadOptions();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.loadOptions();
+      }
     });
   }
   ngOnDestroy(): void {

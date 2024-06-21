@@ -77,8 +77,10 @@ export class EstatePropertyExpertPriceAddComponent extends AddBaseComponent<Esta
   }
 
   getEstatePropertyExpertPriceTypeEnum(): void {
-    this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe((next) => {
-      this.dataModelEstatePropertyExpertPriceTypeEnumResult = next;
+    this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEstatePropertyExpertPriceTypeEnumResult = ret;
+      }
     });
   }
 

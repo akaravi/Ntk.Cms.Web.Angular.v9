@@ -55,8 +55,10 @@ export class CmsBankpaymentTransactionInfoComponent implements OnInit {
     this.getEnumTransactionRecordStatus();
   }
   getEnumTransactionRecordStatus(): void {
-    this.bankPaymentEnumService.ServiceTransactionRecordStatusEnum().subscribe((next) => {
-      this.dataModelEnumTransactionRecordStatusResult = next;
+    this.bankPaymentEnumService.ServiceTransactionRecordStatusEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumTransactionRecordStatusResult = ret;
+      }
     });
   }
   TransactionSuccessful = TransactionRecordStatusEnum.TransactionSuccessful;

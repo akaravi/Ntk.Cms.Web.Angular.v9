@@ -96,8 +96,10 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
   getPropertyType(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.memberPropertyTypeService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelMemberPropertyTypeResult = next;
+    this.memberPropertyTypeService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelMemberPropertyTypeResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

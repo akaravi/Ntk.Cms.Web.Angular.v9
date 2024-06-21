@@ -103,8 +103,10 @@ export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<
   getEstateActivityStatusEnum(): void {
     this.estateEnumService
       .ServiceEstateActivityStatusEnum()
-      .subscribe((next) => {
-        this.dataModelEstateActivityStatusEnumResult = next;
+      .subscribe({
+        next: (ret) => {
+          this.dataModelEstateActivityStatusEnumResult = ret;
+        }
       });
   }
   DataGetOneContent(): void {

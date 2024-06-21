@@ -56,8 +56,10 @@ export class EstatePropertyTypeUsageSelectorComponent implements OnInit, OnDestr
   }
   ngOnInit(): void {
     this.loadOptions();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.loadOptions();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.loadOptions();
+      }
     });
   }
   ngOnDestroy(): void {

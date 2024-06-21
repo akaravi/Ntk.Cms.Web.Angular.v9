@@ -168,9 +168,11 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
     this.cmsApiStoreSubscribe = this.tokenHelper
       .getCurrentTokenOnChange()
-      .subscribe((next) => {
-        this.tokenInfo = next;
-        this.DataGetAll();
+      .subscribe({
+        next: (ret) => {
+          this.tokenInfo = ret;
+          this.DataGetAll();
+        }
       });
     this.getEstateActivityStatusEnum();
     this.getActivityTypeList();
@@ -186,8 +188,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   getEstateActivityStatusEnum(): void {
     this.estateEnumService
       .ServiceEstateActivityStatusEnum()
-      .subscribe((next) => {
-        this.dataModelEstateActivityStatusEnumResult = next;
+      .subscribe({
+        next: (ret) => {
+          this.dataModelEstateActivityStatusEnumResult = ret;
+        }
       });
   }
   getActivityTypeList(): void {
@@ -195,8 +199,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     filter.rowPerPage = 100;
     this.estateActivityTypeService
       .ServiceGetAllEditor(filter)
-      .subscribe((next) => {
-        this.dataModelActivityTypeResult = next;
+      .subscribe({
+        next: (ret) => {
+          this.dataModelActivityTypeResult = ret;
+        }
       });
   }
   checkingOnDayRange = new FormGroup({

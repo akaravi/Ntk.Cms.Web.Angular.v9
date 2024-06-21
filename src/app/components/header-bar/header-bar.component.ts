@@ -76,13 +76,17 @@ export class HeaderBarComponent implements OnInit {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-    this.pageInfoService.contentService.asObservable().subscribe((next) => {
-      this.contentService = next;
-      this.cdr.detectChanges();
+    this.pageInfoService.contentService.asObservable().subscribe({
+      next: (ret) => {
+        this.contentService = ret;
+        this.cdr.detectChanges();
+      }
     });
-    this.pageInfoService.contentInfo.asObservable().subscribe((next) => {
-      this.contentInfo = next;
-      this.cdr.detectChanges();
+    this.pageInfoService.contentInfo.asObservable().subscribe({
+      next: (ret) => {
+        this.contentInfo = ret;
+        this.cdr.detectChanges();
+      }
     });
   }
   ngOnDestroy() {

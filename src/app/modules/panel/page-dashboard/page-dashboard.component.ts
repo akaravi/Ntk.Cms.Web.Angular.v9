@@ -40,10 +40,12 @@ export class PageDashboardComponent implements OnInit {
     });
     this.cmsApiStoreSubscribe = this.tokenHelper
       .getCurrentTokenOnChange()
-      .subscribe((next) => {
-        this.tokenInfo = next;
-        this.getCurrentSiteModule();
-        this.cdr.detectChanges();
+      .subscribe({
+        next: (ret) => {
+          this.tokenInfo = ret;
+          this.getCurrentSiteModule();
+          this.cdr.detectChanges();
+        }
       });
     localStorage.removeItem('siteId');
     this.pageInfo.updateTitle(this.translate.instant('ROUTE.DASHBOARD'));

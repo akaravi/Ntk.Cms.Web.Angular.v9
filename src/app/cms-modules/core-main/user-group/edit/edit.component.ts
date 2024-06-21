@@ -77,8 +77,10 @@ export class CoreUserGroupEditComponent extends EditBaseComponent<CoreUserGroupS
   }
 
   getEnumManageUserAccessUserTypes(): void {
-    this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe((next) => {
-      this.dataModelEnumManageUserAccessUserTypesResult = next;
+    this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumManageUserAccessUserTypesResult = ret;
+      }
     });
   }
   DataGetOneContent(): void {

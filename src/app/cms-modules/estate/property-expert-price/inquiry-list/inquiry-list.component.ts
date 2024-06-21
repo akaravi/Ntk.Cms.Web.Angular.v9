@@ -73,8 +73,10 @@ export class EstatePropertyExpertPriceInquiryListComponent implements OnInit {
 
 
   getEstatePropertyExpertPriceTypeEnum(): void {
-    this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe((next) => {
-      this.dataModelEstatePropertyExpertPriceTypeEnumResult = next;
+    this.estateEnumService.ServiceEstatePropertyExpertPriceTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEstatePropertyExpertPriceTypeEnumResult = ret;
+      }
     });
   }
 

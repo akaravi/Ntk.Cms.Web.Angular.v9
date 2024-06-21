@@ -68,8 +68,10 @@ export class WebDesignerMainPageEditComponent extends EditBaseComponent<WebDesig
     this.getEnumPageAbilityType();
   }
   getEnumPageAbilityType(): void {
-    this.webDesignerEnumService.ServicePageAbilityTypeEnum().subscribe((next) => {
-      this.dataModelEnumPageAbilityTypeResult = next;
+    this.webDesignerEnumService.ServicePageAbilityTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumPageAbilityTypeResult = ret;
+      }
     });
   }
 

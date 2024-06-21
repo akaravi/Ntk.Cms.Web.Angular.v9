@@ -62,8 +62,10 @@ export class WebDesignerMainPageAddComponent extends AddBaseComponent<WebDesigne
     this.getEnumPageAbilityType();
   }
   getEnumPageAbilityType(): void {
-    this.webDesignerEnumService.ServicePageAbilityTypeEnum().subscribe((next) => {
-      this.dataModelEnumPageAbilityTypeResult = next;
+    this.webDesignerEnumService.ServicePageAbilityTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumPageAbilityTypeResult = ret;
+      }
     });
   }
 

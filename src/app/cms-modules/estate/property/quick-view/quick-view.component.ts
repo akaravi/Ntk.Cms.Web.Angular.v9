@@ -81,9 +81,11 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      this.getEstateContractType();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        this.getEstateContractType();
+      }
     });
   }
 
@@ -104,11 +106,13 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
     this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));
-    this.estateContractTypeService.ServiceGetAll(null).subscribe((next) => {
-      this.dataModelEstateContractTypeResult = next;
-      this.loading.Stop(pName);
-    }, () => {
-      this.loading.Stop(pName);
+    this.estateContractTypeService.ServiceGetAll(null).subscribe({
+      next: (ret) => {
+        this.dataModelEstateContractTypeResult = ret;
+        this.loading.Stop(pName);
+      }, error: (er) => {
+        this.loading.Stop(pName);
+      }
     });
 
   }

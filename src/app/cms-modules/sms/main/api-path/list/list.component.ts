@@ -133,15 +133,19 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
   getPublicConfig(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.smsMainApiPathPublicConfigService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelPublicResult = next;
+    this.smsMainApiPathPublicConfigService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelPublicResult = ret;
+      }
     });
   }
   getApiCopmanyList(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.smsMainApiPathCompanyService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCompanyResult = next;
+    this.smsMainApiPathCompanyService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCompanyResult = ret;
+      }
     });
   }
 

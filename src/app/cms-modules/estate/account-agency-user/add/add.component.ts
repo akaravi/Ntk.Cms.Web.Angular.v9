@@ -64,8 +64,10 @@ export class EstateAccountAgencyUserAddComponent extends AddBaseComponent<Estate
 
   }
   getEstateUserTypeEnum(): void {
-    this.estateEnumService.ServiceEstateUserTypeEnum().subscribe((next) => {
-      this.dataModelEnumEstateUserTypeResult = next;
+    this.estateEnumService.ServiceEstateUserTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumEstateUserTypeResult = ret;
+      }
     });
   }
 

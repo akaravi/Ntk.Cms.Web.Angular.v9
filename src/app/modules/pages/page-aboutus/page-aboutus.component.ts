@@ -26,14 +26,16 @@ export class PageAboutusComponent implements OnInit {
       if (this.tokenInfo.siteId > 0)
         this.SiteInfo(this.tokenInfo.siteId);
       else
-      this.SiteInfo(0);
+        this.SiteInfo(0);
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      if (this.tokenInfo.siteId > 0)
-        this.SiteInfo(this.tokenInfo.siteId);
-      else
-      this.SiteInfo(0);
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        if (this.tokenInfo.siteId > 0)
+          this.SiteInfo(this.tokenInfo.siteId);
+        else
+          this.SiteInfo(0);
+      }
     });
 
   }
@@ -41,7 +43,7 @@ export class PageAboutusComponent implements OnInit {
   tokenInfo = new TokenInfoModel();
   loading = new ProgressSpinnerModel();
   dataModelResult: ErrorExceptionResult<CoreSiteModel> = new ErrorExceptionResult<CoreSiteModel>();
-  loadDemoTheme=environment.loadDemoTheme;
+  loadDemoTheme = environment.loadDemoTheme;
   ngOnInit(): void {
     this.pageInfo.updateTitle(this.translate.instant('ACTION.ABOUT'));
   }

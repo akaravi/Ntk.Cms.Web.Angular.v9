@@ -99,8 +99,10 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
   getUserClaimType(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreUserClaimTypeService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreUserClaimTypeResult = next;
+    this.coreUserClaimTypeService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreUserClaimTypeResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

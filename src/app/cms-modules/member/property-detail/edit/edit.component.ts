@@ -71,14 +71,7 @@ export class MemberPropertyDetailEditComponent extends EditBaseComponent<MemberP
       return;
     }
     this.DataGetOneContent();
-
-    // this.getEnumInputDataType();
   }
-  // getEnumInputDataType(): void {
-  //   this.estateEnumService.ServiceInputDataTypeEnum().subscribe((next) => {
-  //     this.dataModelEnumInputDataTypeResult = next;
-  //   });
-  // }
 
 
   DataGetOneContent(): void {
