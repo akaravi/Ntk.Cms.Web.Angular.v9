@@ -45,7 +45,6 @@ export class BlogContentWidgetComponent implements OnInit, OnDestroy {
 
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Blog');
       this.onActionStatist();
     });
 

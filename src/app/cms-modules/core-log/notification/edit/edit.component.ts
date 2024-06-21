@@ -75,8 +75,10 @@ export class CoreLogNotificationEditComponent extends EditBaseComponent<CoreLogN
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+      }
     });
     this.getEnumSendNotificationStatusType();
   }

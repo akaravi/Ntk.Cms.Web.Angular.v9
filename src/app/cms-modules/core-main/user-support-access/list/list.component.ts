@@ -111,9 +111,11 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      this.DataGetAll();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        this.DataGetAll();
+      }
     });
   }
   ngOnDestroy(): void {

@@ -73,8 +73,10 @@ export class ApplicationLogNotificationActionSendComponent implements OnInit {
     this.getEnumContentType();
   }
   getEnumContentType(): void {
-    this.applicationEnumService.ServiceNotificationTypeEnum().subscribe((next) => {
-      this.dataModelEnumContentTypeResult = next;
+    this.applicationEnumService.ServiceNotificationTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumContentTypeResult = ret;
+      }
     });
   }
   DataAddContent(): void {

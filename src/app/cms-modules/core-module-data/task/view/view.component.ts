@@ -63,15 +63,19 @@ export class CoreModuleDataTaskViewComponent implements OnInit, OnDestroy {
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+      }
     });
     this.getEnumSendSmsStatusType();
   }
 
   getEnumSendSmsStatusType(): void {
-    this.coreEnumService.ServiceSendSmsStatusTypeEnum().subscribe((next) => {
-      this.dataModelEnumSendSmsStatusTypeResult = next;
+    this.coreEnumService.ServiceSendSmsStatusTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumSendSmsStatusTypeResult = ret;
+      }
     });
   }
 

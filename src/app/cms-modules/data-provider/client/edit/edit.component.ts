@@ -58,8 +58,10 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+      }
     });
   }
   cmsApiStoreSubscribe: Subscription;
@@ -242,7 +244,7 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
       var message = "";
       this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Would_you_like_to_buy_this_content']).subscribe((str: string) => {
         title = str['MESSAGE.Please_Confirm'];
-        message = str['MESSAGE.Would_you_like_to_buy_this_content'] + '?' ;
+        message = str['MESSAGE.Would_you_like_to_buy_this_content'] + '?';
       });
       this.cmsConfirmationDialogService.confirm(title, message)
         .then((confirmed) => {

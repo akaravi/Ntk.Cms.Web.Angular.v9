@@ -37,9 +37,11 @@ export class SmsConfigCheckUserComponent implements OnInit, OnDestroy {
       this.onLoadDate();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      this.onLoadDate();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        this.onLoadDate();
+      }
     });
 
     this.onLoadDate();

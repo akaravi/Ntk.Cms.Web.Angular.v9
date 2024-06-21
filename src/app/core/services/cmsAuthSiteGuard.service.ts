@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CmsAuthSiteGuard  implements OnDestroy {
+export class CmsAuthSiteGuard implements OnDestroy {
   constructor(
     private coreAuthService: CoreAuthService,
     private cmsApiStore: NtkCmsApiStoreService,
@@ -29,16 +29,17 @@ export class CmsAuthSiteGuard  implements OnDestroy {
         return true;
       }
     }
-    this.subscriptions = this.coreAuthService.ServiceCurrentToken().subscribe(
-      (next) => {
-        this.cmsApiStore.setState({ type: SET_TOKEN_INFO, payload: next.item });
-        tokenInfo = next.item;
+    this.subscriptions = this.coreAuthService.ServiceCurrentToken().subscribe({
+      next: (ret) => {
+        this.cmsApiStore.setState({ type: SET_TOKEN_INFO, payload: ret.item });
+        tokenInfo = ret.item;
         this.runSubscribe = true;
         return;
       },
-      (error) => {
+      error: (er) => {
         this.runSubscribe = true;
       }
+    }
     );
     while (!this.runSubscribe) {
       await this.delay(1000);

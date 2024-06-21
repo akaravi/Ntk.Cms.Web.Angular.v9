@@ -81,9 +81,11 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      this.DataGetAll();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        this.DataGetAll();
+      }
     });
     this.getEnumMenuPlaceType();
   }
