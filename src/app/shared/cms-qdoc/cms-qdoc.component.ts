@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { map } from 'rxjs/operators';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 
@@ -43,14 +42,17 @@ export class CmsQDocComponent implements OnInit {
     this.http.post(environment.cmsServerConfig.configQDocServerPath, this.QDocModel, {
       headers: {},
     })
-      .pipe(
-        map((ret: any) => {
+      .subscribe({
+        next: (ret: any) => {
           this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.The_order_was_sent_to_the_website'));
-        })
-        //
-        //   this.cmsToastrService.typeErrorMessage('برروز خطا در ارسال دستور');
-        //
-      ).toPromise();
+        },
+        error: (err) => {
+          //
+          this.cmsToastrService.typeErrorMessage('برروز خطا در ارسال دستور', err);
+          //
+        }
+      });
+    //).toPromise();
   }
   onOtpChange(otp) {
     this.QDocModel.username = otp;

@@ -129,30 +129,6 @@ export class TokenHelper implements OnDestroy {
     this.isSupportSite = false;
     return false;
   }
-  // getDeviceToken(): void {
-  //   const DeviceToken = this.coreAuthService.getDeviceToken();
-  //   if (!DeviceToken || DeviceToken.length === 0) {
-  //     const model: TokenDeviceClientInfoDtoModel = {
-  //       securityKey: environment.cmsTokenConfig.SecurityKey,
-  //       clientMACAddress: '',
-  //       osType: OperatingSystemTypeEnum.none,
-  //       deviceType: DeviceTypeEnum.WebSite,
-  //       packageName: environment.appName,
-  //       appBuildVer: 0,
-  //       appSourceVer: environment.appVersion,
-  //       country: '',
-  //       deviceBrand: '',
-  //       language: this.cmsTranslationService.getSelectedLanguage(),
-  //       locationLat: '',
-  //       locationLong: '',
-  //       simCard: '',
-  //       notificationId: ''
-  //     };
-  //     this.cmsTranslationService.setLanguage(this.cmsTranslationService.getSelectedLanguage());
-  //     this.coreAuthService.ServiceGetTokenDevice(model).toPromise();
-  //   }
-  // }
-
   CheckRouteByToken(): void {
     const storeSnapshot = this.cmsApiStore.getStateSnapshot();
     if (storeSnapshot?.ntkCmsAPiState?.tokenInfo) {

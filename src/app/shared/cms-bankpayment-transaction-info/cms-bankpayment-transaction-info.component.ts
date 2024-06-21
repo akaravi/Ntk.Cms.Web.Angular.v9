@@ -65,21 +65,22 @@ export class CmsBankpaymentTransactionInfoComponent implements OnInit {
   DataGeOne(): void {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
-    this.bankPaymentTransactionService.ServiceGetOneById(this.requestId).subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          this.dataModelResult = next;
+    this.bankPaymentTransactionService.ServiceGetOneById(this.requestId).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.dataModelResult = ret;
 
         }
         else {
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   onFormCancel(): void {

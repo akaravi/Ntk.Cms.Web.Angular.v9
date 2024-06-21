@@ -18,7 +18,7 @@ import {
   NewsContentCategoryService, NewsContentModel, NewsContentOtherInfoModel, NewsContentOtherInfoService, NewsContentService, NewsContentSimilarModel, NewsContentSimilarService, NewsContentTagModel, NewsContentTagService
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
-import { map, of } from 'rxjs';
+import { firstValueFrom, of } from 'rxjs';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
@@ -400,29 +400,29 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
       });
     }
     if (dataListAdd && dataListAdd.length > 0) {
-      this.contentTagService.ServiceAddBatch(dataListAdd).pipe(
-        map(response => {
-          if (response.isSuccess) {
+      firstValueFrom(this.contentTagService.ServiceAddBatch(dataListAdd)).then(
+        (ret) => {
+          if (ret.isSuccess) {
             this.cmsToastrService.typeSuccessAddTag();
           } else {
             this.cmsToastrService.typeErrorAddTag();
           }
 
-          return of(response);
-        })).toPromise();
+          return of(ret);
+        });//).toPromise();
     }
     if (dataListDelete && dataListDelete.length > 0) {
 
-      this.contentTagService.ServiceDeleteBatch(dataListDelete).pipe(
-        map(response => {
-          if (response.isSuccess) {
+      firstValueFrom(this.contentTagService.ServiceDeleteBatch(dataListDelete)).then(
+        (ret) => {
+          if (ret.isSuccess) {
             this.cmsToastrService.typeSuccessRemoveTag();
           } else {
             this.cmsToastrService.typeErrorRemoveTag();
           }
 
-          return of(response);
-        })).toPromise();
+          return of(ret);
+        });//).toPromise();
     }
   }
   async DataActionAfterAddContentSuccessfulOtherInfo(model: NewsContentModel): Promise<any> {

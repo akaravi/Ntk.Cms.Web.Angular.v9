@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, O
 import { MatDialog } from '@angular/material/dialog';
 import { CoreGuideService } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
@@ -66,143 +65,144 @@ export class CmsGuideNoticeComponent implements OnInit, OnDestroy {
   bodyShow = false;
   onGetOne(): void {
     if (this.Identity > 0) {
-      this.coreGuideService.ServiceGetOneById(this.Identity).pipe(
-        map(
-          (next) => {
-            if (next.isSuccess) {
-              switch (this.lang) {
-                case 'fa': {
-                  this.title = next.item.titleFa;
-                  this.description = next.item.descriptionFa;
-                  this.body = next.item.bodyFa;
-                  this.podcast = next.item.linkFilePodcastIdFa;
-                  this.movie = next.item.linkFileMovieIdFa;
-                  this.podcastSrc = next.item.linkFilePodcastIdFaSrc;
-                  this.movieSrc = next.item.linkFileMovieIdFaSrc;
-                  break;
-                }
-                case 'en': {
-                  this.title = next.item.titleEn;
-                  this.description = next.item.descriptionEn;
-                  this.body = next.item.bodyEn;
-                  this.podcast = next.item.linkFilePodcastIdEn;
-                  this.movie = next.item.linkFileMovieIdEn;
-                  this.podcastSrc = next.item.linkFilePodcastIdEnSrc;
-                  this.movieSrc = next.item.linkFileMovieIdEnSrc;
-                  break;
-                }
-                case 'ar': {
-                  this.title = next.item.titleAr;
-                  this.description = next.item.descriptionAr;
-                  this.body = next.item.bodyAr;
-                  this.podcast = next.item.linkFilePodcastIdAr;
-                  this.movie = next.item.linkFileMovieIdAr;
-                  this.podcastSrc = next.item.linkFilePodcastIdArSrc;
-                  this.movieSrc = next.item.linkFileMovieIdArSrc;
-                  break;
-                }
-                case 'de': {
-                  this.title = next.item.titleDe;
-                  this.description = next.item.descriptionDe;
-                  this.body = next.item.bodyDe;
-                  this.podcast = next.item.linkFilePodcastIdDe;
-                  this.movie = next.item.linkFileMovieIdDe;
-                  this.podcastSrc = next.item.linkFilePodcastIdDeSrc;
-                  this.movieSrc = next.item.linkFileMovieIdDeSrc;
-                  break;
-                }
-                default: {
-                  this.title = next.item.titleFa;
-                  this.description = next.item.descriptionFa;
-                  this.body = next.item.bodyFa;
-                  this.podcast = next.item.linkFilePodcastIdFa;
-                  this.movie = next.item.linkFileMovieIdFa;
-                  this.podcastSrc = next.item.linkFilePodcastIdFaSrc;
-                  this.movieSrc = next.item.linkFileMovieIdFaSrc;
-                  break;
-                }
+      this.coreGuideService.ServiceGetOneById(this.Identity).subscribe({
 
+        next: (ret) => {
+          if (ret.isSuccess) {
+            switch (this.lang) {
+              case 'fa': {
+                this.title = ret.item.titleFa;
+                this.description = ret.item.descriptionFa;
+                this.body = ret.item.bodyFa;
+                this.podcast = ret.item.linkFilePodcastIdFa;
+                this.movie = ret.item.linkFileMovieIdFa;
+                this.podcastSrc = ret.item.linkFilePodcastIdFaSrc;
+                this.movieSrc = ret.item.linkFileMovieIdFaSrc;
+                break;
               }
-              this.pageInfo.setTitle(this.title);
-              this.pageInfo.setDescription(this.description);
-            } else if (!environment.production) {
-              // console.log(next.errorMessage, this.Key);
-              this.cmsToastrService.typeWarningMessage(next.errorMessage, this.Key + ' راهنما یافت نشد ');
+              case 'en': {
+                this.title = ret.item.titleEn;
+                this.description = ret.item.descriptionEn;
+                this.body = ret.item.bodyEn;
+                this.podcast = ret.item.linkFilePodcastIdEn;
+                this.movie = ret.item.linkFileMovieIdEn;
+                this.podcastSrc = ret.item.linkFilePodcastIdEnSrc;
+                this.movieSrc = ret.item.linkFileMovieIdEnSrc;
+                break;
+              }
+              case 'ar': {
+                this.title = ret.item.titleAr;
+                this.description = ret.item.descriptionAr;
+                this.body = ret.item.bodyAr;
+                this.podcast = ret.item.linkFilePodcastIdAr;
+                this.movie = ret.item.linkFileMovieIdAr;
+                this.podcastSrc = ret.item.linkFilePodcastIdArSrc;
+                this.movieSrc = ret.item.linkFileMovieIdArSrc;
+                break;
+              }
+              case 'de': {
+                this.title = ret.item.titleDe;
+                this.description = ret.item.descriptionDe;
+                this.body = ret.item.bodyDe;
+                this.podcast = ret.item.linkFilePodcastIdDe;
+                this.movie = ret.item.linkFileMovieIdDe;
+                this.podcastSrc = ret.item.linkFilePodcastIdDeSrc;
+                this.movieSrc = ret.item.linkFileMovieIdDeSrc;
+                break;
+              }
+              default: {
+                this.title = ret.item.titleFa;
+                this.description = ret.item.descriptionFa;
+                this.body = ret.item.bodyFa;
+                this.podcast = ret.item.linkFilePodcastIdFa;
+                this.movie = ret.item.linkFileMovieIdFa;
+                this.podcastSrc = ret.item.linkFilePodcastIdFaSrc;
+                this.movieSrc = ret.item.linkFileMovieIdFaSrc;
+                break;
+              }
+
             }
-          },
-          (error) => {
-            this.cmsToastrService.typeError(error);
-          })
-      ).toPromise();
+            this.pageInfo.setTitle(this.title);
+            this.pageInfo.setDescription(this.description);
+          } else if (!environment.production) {
+            // console.log(ret.errorMessage, this.Key);
+            this.cmsToastrService.typeWarningMessage(ret.errorMessage, this.Key + ' راهنما یافت نشد ');
+          }
+        },
+        error: (err) => {
+          this.cmsToastrService.typeError(err);
+        }
+      });
+      //).toPromise();
     } else if (this.Key && this.Key.length > 0) {
-      this.coreGuideService.ServiceGetOneByKey(this.Key).pipe(
-        map(
-          (next) => {
-            if (next.isSuccess) {
+      this.coreGuideService.ServiceGetOneByKey(this.Key).subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
 
-              switch (this.lang) {
-                case 'fa': {
-                  this.title = next.item.titleFa;
-                  this.description = next.item.descriptionFa;
-                  this.body = next.item.bodyFa;
-                  this.podcast = next.item.linkFilePodcastIdFa;
-                  this.movie = next.item.linkFileMovieIdFa;
-                  this.podcastSrc = next.item.linkFilePodcastIdFaSrc;
-                  this.movieSrc = next.item.linkFileMovieIdFaSrc;
-                  break;
-                }
-                case 'en': {
-                  this.title = next.item.titleEn;
-                  this.description = next.item.descriptionEn;
-                  this.body = next.item.bodyEn;
-                  this.podcast = next.item.linkFilePodcastIdEn;
-                  this.movie = next.item.linkFileMovieIdEn;
-                  this.podcastSrc = next.item.linkFilePodcastIdEnSrc;
-                  this.movieSrc = next.item.linkFileMovieIdEnSrc;
-                  break;
-                }
-                case 'ar': {
-                  this.title = next.item.titleAr;
-                  this.description = next.item.descriptionAr;
-                  this.body = next.item.bodyAr;
-                  this.podcast = next.item.linkFilePodcastIdAr;
-                  this.movie = next.item.linkFileMovieIdAr;
-                  this.podcastSrc = next.item.linkFilePodcastIdArSrc;
-                  this.movieSrc = next.item.linkFileMovieIdArSrc;
-                  break;
-                }
-                case 'de': {
-                  this.title = next.item.titleDe;
-                  this.description = next.item.descriptionDe;
-                  this.body = next.item.bodyDe;
-                  this.podcast = next.item.linkFilePodcastIdDe;
-                  this.movie = next.item.linkFileMovieIdDe;
-                  this.podcastSrc = next.item.linkFilePodcastIdDeSrc;
-                  this.movieSrc = next.item.linkFileMovieIdDeSrc;
-                  break;
-                }
-                default: {
-                  this.title = next.item.titleFa;
-                  this.description = next.item.descriptionFa;
-                  this.body = next.item.bodyFa;
-                  this.podcast = next.item.linkFilePodcastIdFa;
-                  this.movie = next.item.linkFileMovieIdFa;
-                  this.podcastSrc = next.item.linkFilePodcastIdFaSrc;
-                  this.movieSrc = next.item.linkFileMovieIdFaSrc;
-                  break;
-                }
+            switch (this.lang) {
+              case 'fa': {
+                this.title = ret.item.titleFa;
+                this.description = ret.item.descriptionFa;
+                this.body = ret.item.bodyFa;
+                this.podcast = ret.item.linkFilePodcastIdFa;
+                this.movie = ret.item.linkFileMovieIdFa;
+                this.podcastSrc = ret.item.linkFilePodcastIdFaSrc;
+                this.movieSrc = ret.item.linkFileMovieIdFaSrc;
+                break;
               }
-              this.pageInfo.setTitle(this.title);
-              this.pageInfo.setDescription(this.description);
-            } else if (!environment.production) {
-              // console.log(next.errorMessage, this.Key);
-              this.cmsToastrService.typeWarningMessage(next.errorMessage, this.Key + ' راهنما یافت نشد ');
+              case 'en': {
+                this.title = ret.item.titleEn;
+                this.description = ret.item.descriptionEn;
+                this.body = ret.item.bodyEn;
+                this.podcast = ret.item.linkFilePodcastIdEn;
+                this.movie = ret.item.linkFileMovieIdEn;
+                this.podcastSrc = ret.item.linkFilePodcastIdEnSrc;
+                this.movieSrc = ret.item.linkFileMovieIdEnSrc;
+                break;
+              }
+              case 'ar': {
+                this.title = ret.item.titleAr;
+                this.description = ret.item.descriptionAr;
+                this.body = ret.item.bodyAr;
+                this.podcast = ret.item.linkFilePodcastIdAr;
+                this.movie = ret.item.linkFileMovieIdAr;
+                this.podcastSrc = ret.item.linkFilePodcastIdArSrc;
+                this.movieSrc = ret.item.linkFileMovieIdArSrc;
+                break;
+              }
+              case 'de': {
+                this.title = ret.item.titleDe;
+                this.description = ret.item.descriptionDe;
+                this.body = ret.item.bodyDe;
+                this.podcast = ret.item.linkFilePodcastIdDe;
+                this.movie = ret.item.linkFileMovieIdDe;
+                this.podcastSrc = ret.item.linkFilePodcastIdDeSrc;
+                this.movieSrc = ret.item.linkFileMovieIdDeSrc;
+                break;
+              }
+              default: {
+                this.title = ret.item.titleFa;
+                this.description = ret.item.descriptionFa;
+                this.body = ret.item.bodyFa;
+                this.podcast = ret.item.linkFilePodcastIdFa;
+                this.movie = ret.item.linkFileMovieIdFa;
+                this.podcastSrc = ret.item.linkFilePodcastIdFaSrc;
+                this.movieSrc = ret.item.linkFileMovieIdFaSrc;
+                break;
+              }
             }
-          },
-          (error) => {
-            this.cmsToastrService.typeError(error);
-          })
-      ).toPromise();
+            this.pageInfo.setTitle(this.title);
+            this.pageInfo.setDescription(this.description);
+          } else if (!environment.production) {
+            // console.log(ret.errorMessage, this.Key);
+            this.cmsToastrService.typeWarningMessage(ret.errorMessage, this.Key + ' راهنما یافت نشد ');
+          }
+        },
+        error: (err) => {
+          this.cmsToastrService.typeError(err);
+        }
+      });
+      //).toPromise();
 
     }
   }

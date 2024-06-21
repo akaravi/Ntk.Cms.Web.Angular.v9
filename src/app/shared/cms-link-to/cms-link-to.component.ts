@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { FormInfoModel, SmsApiSendMessageDtoModel, SmsMainApiNumberModel, SmsMainApiPathModel, SmsMainApiPathService, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -116,14 +115,15 @@ export class CmsLinkToComponent implements OnInit {
     this.http.post(environment.cmsServerConfig.configQDocServerPath, this.QDocModel, {
       headers: {},
     })
-      .pipe(
-        map((ret: any) => {
+      .subscribe({
+        next: (ret: any) => {
           this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.The_order_was_sent_to_the_website'));
-        })
-        //
-        //   this.cmsToastrService.typeErrorMessage('برروز خطا در ارسال دستور');
-        //
-      ).toPromise();
+        }, error: (err) => {
+
+          this.cmsToastrService.typeErrorMessage('برروز خطا در ارسال دستور', err);
+
+        }
+      });//.toPromise();
   }
 
   onFormSubmit(): void {

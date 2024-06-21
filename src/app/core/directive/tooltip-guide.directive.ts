@@ -1,6 +1,5 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 import { CoreGuideService } from 'ntk-cms-api';
-import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../helpers/publicHelper';
 import { TokenHelper } from '../helpers/tokenHelper';
@@ -54,113 +53,115 @@ export class TooltipGuideDirective {
   show(): void {
     if (this.cmsTooltipGuide && this.cmsTooltipGuide > 0) {
       this.statusIsRun = true;
-      this.coreGuideService.ServiceGetOneById(this.cmsTooltipGuide).pipe(
-        map(
-          (next) => {
-            if (this.statusIsRun == false) {
-              if (this.tooltip) { this.hide(); }
-              return;
-            }
-            if (next.isSuccess) {
-              /*run */
-              switch (this.lang) {
-                case 'fa': {
-                  this.create(next.item.descriptionFa);
-                  break;
-                }
-                case 'en': {
-                  this.create(next.item.descriptionEn);
-                  break;
-                }
-                case 'ar': {
-                  this.create(next.item.descriptionAr);
-                  break;
-                }
-                case 'de': {
-                  this.create(next.item.descriptionDe);
-                  break;
-                }
-                default: {
-                  this.create(next.item.descriptionFa);
-                  break;
-                }
-              }
+      this.coreGuideService.ServiceGetOneById(this.cmsTooltipGuide).subscribe({
 
-              this.setPosition();
-              this.renderer.addClass(this.tooltip, 'ng-tooltip-show');
-              /*run */
-            } else {
-              if (!environment.production) {
-                //console.log('tooltip',next.errorMessage);
-                this.cmsToastrService.typeErrorMessage("kay:" + this.cmsTooltipGuide + "-" + next.errorMessage);
+        next: (ret) => {
+          if (this.statusIsRun == false) {
+            if (this.tooltip) { this.hide(); }
+            return;
+          }
+          if (ret.isSuccess) {
+            /*run */
+            switch (this.lang) {
+              case 'fa': {
+                this.create(ret.item.descriptionFa);
+                break;
               }
-              /*run */
-              this.create('Identity :' + this.cmsTooltipGuide);
-              this.setPosition();
-              this.renderer.addClass(this.tooltip, 'ng-tooltip-show');
-              /*run */
+              case 'en': {
+                this.create(ret.item.descriptionEn);
+                break;
+              }
+              case 'ar': {
+                this.create(ret.item.descriptionAr);
+                break;
+              }
+              case 'de': {
+                this.create(ret.item.descriptionDe);
+                break;
+              }
+              default: {
+                this.create(ret.item.descriptionFa);
+                break;
+              }
             }
-          },
-          (error) => {
+
+            this.setPosition();
+            this.renderer.addClass(this.tooltip, 'ng-tooltip-show');
+            /*run */
+          } else {
             if (!environment.production) {
-              this.cmsToastrService.typeError("kay:" + this.cmsTooltipGuide + "-" + error);
+              //console.log('tooltip',next.errorMessage);
+              this.cmsToastrService.typeErrorMessage("kay:" + this.cmsTooltipGuide + "-" + ret.errorMessage);
             }
-          })
-      ).toPromise();
+            /*run */
+            this.create('Identity :' + this.cmsTooltipGuide);
+            this.setPosition();
+            this.renderer.addClass(this.tooltip, 'ng-tooltip-show');
+            /*run */
+          }
+        },
+        error: (err) => {
+          if (!environment.production) {
+            this.cmsToastrService.typeError("kay:" + this.cmsTooltipGuide + "-" + err);
+          }
+        }
+      });
+      //).toPromise();
     } else if (this.tooltipGuide && this.tooltipGuide.length > 0) {
       this.statusIsRun = true;
-      this.coreGuideService.ServiceGetOneByKey(this.tooltipGuide).pipe(
-        map(
-          (next) => {
-            if (this.statusIsRun == false) {
-              if (this.tooltip) { this.hide(); }
-              return;
-            }
-            if (next.isSuccess) {
-              /*run */
-              switch (this.lang) {
-                case 'fa': {
-                  this.create(next.item.descriptionFa);
-                  break;
-                }
-                case 'en': {
-                  this.create(next.item.descriptionEn);
-                  break;
-                }
-                case 'ar': {
-                  this.create(next.item.descriptionAr);
-                  break;
-                }
-                case 'de': {
-                  this.create(next.item.descriptionDe);
-                  break;
-                }
-                default: {
-                  this.create(next.item.descriptionFa);
-                  break;
-                }
+      this.coreGuideService.ServiceGetOneByKey(this.tooltipGuide).subscribe({
+
+        next: (ret) => {
+          if (this.statusIsRun == false) {
+            if (this.tooltip) { this.hide(); }
+            return;
+          }
+          if (ret.isSuccess) {
+            /*run */
+            switch (this.lang) {
+              case 'fa': {
+                this.create(ret.item.descriptionFa);
+                break;
               }
-              this.setPosition();
-              this.renderer.addClass(this.tooltip, 'ng-tooltip-show');
-              /*run */
-            } else {
-              if (!environment.production) {
-                // console.log('tooltip',next.errorMessage);
-                this.cmsToastrService.typeErrorMessage("kay:" + this.cmsTooltipGuide + "-" + next.errorMessage);
+              case 'en': {
+                this.create(ret.item.descriptionEn);
+                break;
               }
-              /*run */
-              this.create('Key :' + this.tooltipGuide);
-              this.setPosition();
-              this.renderer.addClass(this.tooltip, 'ng-tooltip-show');
-              /*run */
+              case 'ar': {
+                this.create(ret.item.descriptionAr);
+                break;
+              }
+              case 'de': {
+                this.create(ret.item.descriptionDe);
+                break;
+              }
+              default: {
+                this.create(ret.item.descriptionFa);
+                break;
+              }
             }
-          },
-          (error) => {
+            this.setPosition();
+            this.renderer.addClass(this.tooltip, 'ng-tooltip-show');
+            /*run */
+          } else {
             if (!environment.production) {
-              this.cmsToastrService.typeError("kay:" + this.cmsTooltipGuide + "-" + error);
+              // console.log('tooltip',next.errorMessage);
+              this.cmsToastrService.typeErrorMessage("kay:" + this.cmsTooltipGuide + "-" + ret.errorMessage);
             }
-          })
-      ).toPromise();
+            /*run */
+            this.create('Key :' + this.tooltipGuide);
+            this.setPosition();
+            this.renderer.addClass(this.tooltip, 'ng-tooltip-show');
+            /*run */
+          }
+        },
+        error: (err) => {
+          if (!environment.production) {
+            this.cmsToastrService.typeError("kay:" + this.cmsTooltipGuide + "-" + err);
+          }
+        }
+      });
+      //).toPromise();
     }
   }
 

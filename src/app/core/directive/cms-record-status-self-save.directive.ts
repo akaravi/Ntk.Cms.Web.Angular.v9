@@ -60,25 +60,26 @@ export class CmsRecordStatusSelfSaveDirective {
     const recordStatus = element['value'] as RecordStatusEnum;
     this.addLoader(element);
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.contentService.ServiceSetStatus(this.row.id, recordStatus).subscribe(
-      (next) => {
-        if (next.isSuccess) {
+    this.contentService.ServiceSetStatus(this.row.id, recordStatus).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
           this.handleSuccessCase(element);
-          this.cmsToastrService.typeSuccessSetStatus(next.errorMessage);
+          this.cmsToastrService.typeSuccessSetStatus(ret.errorMessage);
           this.row.recordStatus = recordStatus | 0;
           this.cdr.markForCheck();
         }
         else {
           this.renderer.setProperty(this.elRef.nativeElement, 'value', this.row.recordStatus);
-          this.cmsToastrService.typeErrorSetStatus(next.errorMessage);
+          this.cmsToastrService.typeErrorSetStatus(ret.errorMessage);
           this.handleErrorCase(element);
         }
       },
-      (error) => {
+      error: (err) => {
         this.renderer.setProperty(this.elRef.nativeElement, 'value', this.row.recordStatus);
-        this.cmsToastrService.typeError(error);
+        this.cmsToastrService.typeError(err);
         this.handleErrorCase(element);
       }
+    }
 
     );
   }

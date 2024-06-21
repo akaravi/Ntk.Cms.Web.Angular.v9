@@ -61,11 +61,11 @@ export class CmsSiteCategorySelectionListComponent implements OnInit {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
 
-    this.categoryService.ServiceGetAll(filterModel).subscribe(
-      (next) => {
+    this.categoryService.ServiceGetAll(filterModel).subscribe({
+      next: (ret) => {
         // this.fieldsStatus = new Map<number, boolean>();
-        if (next.isSuccess) {
-          this.dataModelResult = next;
+        if (ret.isSuccess) {
+          this.dataModelResult = ret;
           this.dataModelResult.listItems.forEach((el) => this.fieldsStatus.set(el.id, false));
           this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
           this.dataModelResult.listItems.forEach((el) => {
@@ -78,11 +78,11 @@ export class CmsSiteCategorySelectionListComponent implements OnInit {
         this.loading.Stop(pName);
 
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-
       }
+    }
     );
   }
   onActionSelect(value: CoreSiteCategoryModel): void {
