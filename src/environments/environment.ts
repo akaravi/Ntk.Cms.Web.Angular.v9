@@ -8,6 +8,7 @@ declare var require: any;
 export const environment = {
   production: false,
   checkAccess: false,
+  consoleLog: false,
   appVersion: require('../../package.json').version,
   appName: require('../../package.json').name,
   authKey: 'authf649fc9a5f55',

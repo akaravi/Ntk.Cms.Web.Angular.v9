@@ -34,7 +34,8 @@ export class CmsSignalrService {
     this.hubConnection
       .start()
       .then(() => {
-        console.log('signalR Connection started');
+        if (environment.consoleLog)
+          console.log('signalR Connection started');
         this.connected = true;
         //if (onActionConnected)
         // onActionConnected;

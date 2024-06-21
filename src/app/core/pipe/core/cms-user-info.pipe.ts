@@ -7,10 +7,16 @@ export class CmsUserInfoPipe implements PipeTransform {
   constructor(public service: CoreUserService) {
 
   }
-  transform(value: number): Observable<string> {
+  async transform(value: number): Promise<Observable<string>> {
     if (!value || value <= 0) {
       return new Observable<string>();
     }
+    const prtfix = "CmsUserInfoPipe_";
+    //to
+    // while (this.service.cmsApiStore.processInRun(prtfix + value)) {
+    //   await delay(10000);
+    // }
+    this.service.cmsApiStore.processStart(prtfix + value);
     return this.service.ServiceGetOneById(value, 1000000)
       .pipe(
         map((ret) => {
@@ -45,9 +51,12 @@ export class CmsUserInfoPipe implements PipeTransform {
           }
           if (retOut.length === 0)
             retOut = value.toString();
+
+          this.service.cmsApiStore.processStop(prtfix + value)
           return retOut;
         },
           (er) => {
+            this.service.cmsApiStore.processStop(prtfix + value)
             return value.toString();
           })  // needed only if you need projection
       );

@@ -26,6 +26,7 @@ import { CmsStoreService } from '../reducers/cmsStore.service';
 import { ReducerCmsStore } from '../reducers/reducer.factory';
 import { CmsToastrService } from '../services/cmsToastr.service';
 import { PageInfoService } from '../services/page-info.service';
+import { ThemeService } from '../services/theme.service';
 // import { ProviderAst } from '@angular/compiler';
 
 @Injectable({
@@ -41,6 +42,7 @@ export class PublicHelper {
     private coreSiteService: CoreSiteService,
     private coreModuleService: CoreModuleService,
     private cmsStoreService: CmsStoreService,
+    public themeService: ThemeService,
     public dialog: MatDialog,
     public pageInfo: PageInfoService
   ) {

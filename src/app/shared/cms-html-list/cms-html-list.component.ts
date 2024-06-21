@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
@@ -14,7 +15,6 @@ export class CmsHtmlListComponent implements OnInit {
   @Input() set optionActionGuideNoticeDisplay(view: boolean) {
     this.viewGuideNotice = view;
   }
-
   @Input() optionGuideNoticeKey = '';
   @Input() optionFooterDisplay = true;
   @Input() optionActionRowDisplay = false;
@@ -54,6 +54,8 @@ export class CmsHtmlListComponent implements OnInit {
   public set optionLoading(v: ProgressSpinnerModel) {
     this.loading = v;
   }
+
+
   @Output() optionOnActionButtonMemo = new EventEmitter<any>();
   @Output() optionOnActionButtonExport = new EventEmitter<any>();
   @Output() optionOnActionButtonMemoRow = new EventEmitter<any>();
@@ -62,16 +64,30 @@ export class CmsHtmlListComponent implements OnInit {
   loading = new ProgressSpinnerModel();
 
   constructor(
+    public publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
-  ) { }
+
+  ) {
+
+    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+      if (value.themeStore.actionScrollTopList && this.topList && this.topList.nativeElement) {
+        this.topList.nativeElement.scrollIntoView({ behavior: 'smooth', block: "start" })
+        this.publicHelper.themeService.onActionScrollTopList(false);
+      };
+    });
+  }
+  @ViewChild("topList") topList: ElementRef;
   ngOnInit(): void {
 
   }
-
+  actionScrollIntoViewRun = false;
   viewGuideNotice = false
   viewMenuMain = false;
   viewMenuItemRow = false;
   viewTree = false;
+
+
+
   actionViewTree(state?: boolean) {
     if (state == true) {
       this.viewTree = false;

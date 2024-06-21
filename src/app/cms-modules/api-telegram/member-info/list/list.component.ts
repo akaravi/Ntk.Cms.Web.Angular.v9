@@ -18,6 +18,7 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-apitelegram-bot-config-list',
   templateUrl: './list.component.html',
@@ -213,7 +214,8 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
       }
       )
       .catch(() => {
-        // console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
+        if (environment.consoleLog)
+          console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
       }
       );
   }

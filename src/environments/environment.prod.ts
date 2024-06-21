@@ -8,6 +8,7 @@ declare var require: any;
 export const environment = {
   production: true,
   checkAccess: false,
+  consoleLog: false,
   appVersion: require('../../package.json').version,
   appName: require('../../package.json').name,
   authKey: 'authf649fc9a5f55',
@@ -32,7 +33,7 @@ export const environment = {
     PackageName: '',
   },
   cmsViewConfig: {
-    mobileWindowInnerWidth:1000,
+    mobileWindowInnerWidth: 1000,
     tableRowMouseEnter: false,
     enterAnimationDuration: '1500ms',
     exitAnimationDuration: '1000ms'

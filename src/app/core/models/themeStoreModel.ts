@@ -6,6 +6,7 @@ export class ThemeStoreModel {
   highlight: string = '';
   innerWidth: number = 0;
   innerHeight: number = 0;
-
+  actionScrollTopPage: boolean = false;
+  actionScrollTopList: boolean = false;
 }
 

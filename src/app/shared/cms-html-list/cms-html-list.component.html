@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" #topList>
   <div *ngIf="optionTreeDisplay"
     [ngClass]="this.tokenHelper.isMobile? viewTree? 'menu-active menu-custom menu-box-right-custom rounded-0':'menu menu-box-right-custom rounded-0':'col-xl-3'">
     <!--begin::tree-->
@@ -18,7 +18,7 @@
           <!--end::Header-->
           <hr *ngIf="optionHeaderDisplay||optionActionMainDisplay">
           <!--begin::Body-->
-          <div class="col-12 pe-0" [ngClass]="optionClassBody" #topbody>
+          <div class="col-12 pe-0" [ngClass]="optionClassBody">
             <p class="text-center">
               <app-progress-spinner [options]="loading"> </app-progress-spinner>
               <ng-content select="[cms-body]"></ng-content>

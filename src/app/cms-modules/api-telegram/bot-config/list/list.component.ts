@@ -260,7 +260,8 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       }
       )
       .catch(() => {
-        // console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
+        if (environment.consoleLog)
+          console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
       }
       );
   }

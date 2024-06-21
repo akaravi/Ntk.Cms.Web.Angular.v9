@@ -33,6 +33,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   dataModelResult: ErrorExceptionResult<TModel> = new ErrorExceptionResult<TModel>();
   clickCount = 0;
   viewGuideNotice = false;
+  actionScrollIntoViewRun = false;
   public tableRowSelectDoubleClick = false;
   public tableRowSelect3Click = false;
   requestRecordStatus: RecordStatusEnum;
@@ -74,6 +75,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
 
 
   }
+
   onActionTableRowMouseClick(row: TModel): void {
     if (this.tableRowSelected.id === row.id) {
       row["expanded"] = false;

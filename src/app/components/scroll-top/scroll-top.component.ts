@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 @Component({
   selector: 'app-scroll-top',
@@ -6,8 +7,13 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./scroll-top.component.scss']
 })
 export class ScrollTopComponent implements OnInit {
-  constructor(
-  ) { }
+  constructor(public publicHelper: PublicHelper,
+  ) {
+    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+      if (value.themeStore.actionScrollTopPage)
+        this.onScroll(null);
+    });
+  }
   viewScrollTop = false;
   verticalOffset = 0;
   ngOnInit(): void {
@@ -23,6 +29,8 @@ export class ScrollTopComponent implements OnInit {
       this.viewScrollTop = true;
     else
       this.viewScrollTop = false;
+
+    this.publicHelper.themeService.onActionScrollTopPage(false);
   }
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: `smooth` });

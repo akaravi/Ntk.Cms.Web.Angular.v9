@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
 
@@ -119,7 +120,8 @@ export class ThemeService {
     this.themeStore.innerWidth = window.innerWidth;
     this.themeStore.innerHeight = window.innerHeight;
     this.cmsStoreService.setState({ themeStore: this.themeStore });
-    console.log('windows Width :', window.innerWidth, 'windows Height :', window.innerHeight);
+    if (environment.consoleLog)
+      console.log('windows Width :', window.innerWidth, 'windows Height :', window.innerHeight);
   }
   private updateModeHtmlDom(updatedMode: ThemeModeType) {
     if (updatedMode == 'dark') {
@@ -133,6 +135,55 @@ export class ThemeService {
         element.classList.add('theme-light');
       });
     }
+  }
+  public onActionScrollTopPage(v: boolean, d = 0) {
+    if (v == false) {
+      this.themeStore.actionScrollTopPage = v;
+      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      if (environment.consoleLog)
+        console.log('windows actionGoTop :', this.themeStore.actionScrollTopPage);
+      return;
+    }
+    if (d > 0) {
+      setTimeout(() => {
+        this.themeStore.actionScrollTopPage = v;
+        this.cmsStoreService.setState({ themeStore: this.themeStore });
+        if (environment.consoleLog)
+          console.log('windows actionGoTop :', this.themeStore.actionScrollTopPage);
+      }, 1000);
+    }
+    else {
+      this.themeStore.actionScrollTopPage = v;
+      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      if (environment.consoleLog)
+        console.log('windows actionGoTop :', this.themeStore.actionScrollTopPage);
+    }
+
+  }
+
+  public onActionScrollTopList(v: boolean, d = 0) {
+    if (v == false) {
+      this.themeStore.actionScrollTopList = v;
+      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      if (environment.consoleLog)
+        console.log('windows actionGoTop :', this.themeStore.actionScrollTopList);
+      return;
+    }
+    if (d > 0) {
+      setTimeout(() => {
+        this.themeStore.actionScrollTopList = v;
+        this.cmsStoreService.setState({ themeStore: this.themeStore });
+        if (environment.consoleLog)
+          console.log('windows actionGoTop :', this.themeStore.actionScrollTopList);
+      }, 1000);
+    }
+    else {
+      this.themeStore.actionScrollTopList = v;
+      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      if (environment.consoleLog)
+        console.log('windows actionGoTop :', this.themeStore.actionScrollTopList);
+    }
+
   }
   public updateHighLight(colorStr: string) {
     if (!colorStr || colorStr.length == 0)

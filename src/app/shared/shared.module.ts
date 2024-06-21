@@ -3,7 +3,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { PlatformModule } from '@angular/cdk/platform';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -46,8 +46,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { LangChangeEvent, TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import {
@@ -75,6 +74,7 @@ import {
 } from 'ntk-cms-api';
 import { CmsFileManagerModule } from 'ntk-cms-filemanager';
 import { firstValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { NgOtpInputModule } from '../core/cmsComponent/ng-otp-input/ng-otp-input.module';
 import { CmsHtmlTreeActionDirective, CmsHtmlTreeBodyDirective, CmsHtmlTreeFooterDirective, CmsHtmlTreeHeaderDirective } from '../core/directive/cms-html-tree.directive';
 import { CmsRecordStatusSelfSaveDirective } from '../core/directive/cms-record-status-self-save.directive';
@@ -313,7 +313,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
   imports: [
     CommonModule,
     HttpClientModule,
-     TranslateModule,
+    TranslateModule,
     // TranslateModule.forChild({
     //   loader: {
     //     provide: TranslateLoader,
@@ -546,12 +546,13 @@ export class SharedModule {
     this.translationService.store.onLangChange.subscribe(
       (lang: LangChangeEvent) => {
         translationService.setDefaultLang(lang.lang);
-        console.log(' ==> LazyLoadedModule ', lang);
-
+        if (environment.consoleLog)
+          console.log(' ==> LazyLoadedModule ', lang);
         try {
           firstValueFrom(translationService.use(lang.lang));
         } catch (err) {
-          console.log(err);
+          if (environment.consoleLog)
+            console.log(err);
         }
       }
     );

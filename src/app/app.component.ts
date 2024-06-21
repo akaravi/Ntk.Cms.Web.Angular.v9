@@ -62,7 +62,8 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         //do something on start activity
-        // console.log('NavigationStart')
+        if (environment.consoleLog)
+          console.log('NavigationStart')
         this.themeService.onNavigationStartAppComponent();
 
       }
@@ -73,7 +74,8 @@ export class AppComponent implements OnInit {
 
       if (event instanceof NavigationEnd) {
         //do something on end activity
-        // console.log('NavigationEnd')
+        if (environment.consoleLog)
+          console.log('NavigationEnd')
         this.themeService.onNavigationEndAppComponent();
       }
     });
