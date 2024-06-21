@@ -71,18 +71,20 @@ export class ApiTelegramConfigCheckSiteComponent implements OnInit, OnDestroy {
     this.configService
       .ServiceCheckSite(this.requestLinkSiteId)
       .subscribe(
-        async (next) => {
-          this.loading.Stop(pName);
-          this.dataModelResult = next;
-          this.tableSource.data = next.listItems;
-          if (!next.isSuccess) {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
-          }
-        },
-        (error) => {
-          this.loading.Stop(pName);
+        {
+          next: (ret) => {
+            this.loading.Stop(pName);
+            this.dataModelResult = ret;
+            this.tableSource.data = ret.listItems;
+            if (!ret.isSuccess) {
+              this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
+            }
+          },
+          error: (err) => {
+            this.loading.Stop(pName);
 
-          this.cmsToastrService.typeErrorGetOne(error);
+            this.cmsToastrService.typeErrorGetOne(err);
+          }
         }
       );
   }

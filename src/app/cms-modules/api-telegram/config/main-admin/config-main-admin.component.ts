@@ -175,19 +175,21 @@ export class ApiTelegramConfigMainAdminComponent implements OnInit, OnDestroy {
     this.configService
       .ServiceSiteAccessDefault()
       .subscribe(
-        async (next) => {
-          this.formInfo.formSubmitAllow = true;
-          if (next.isSuccess) {
-            this.dataConfigSiteAccessValuesDefaultModel = next.item;
-          } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+        {
+          next: (ret) => {
+            this.formInfo.formSubmitAllow = true;
+            if (ret.isSuccess) {
+              this.dataConfigSiteAccessValuesDefaultModel = ret.item;
+            } else {
+              this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
+            }
+            this.loading.Stop(pName);
+          },
+          error: (err) => {
+            this.formInfo.formSubmitAllow = true;
+            this.cmsToastrService.typeErrorGetOne(err);
+            this.loading.Stop(pName);
           }
-          this.loading.Stop(pName);
-        },
-        (error) => {
-          this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
-          this.loading.Stop(pName);
         }
       );
   }

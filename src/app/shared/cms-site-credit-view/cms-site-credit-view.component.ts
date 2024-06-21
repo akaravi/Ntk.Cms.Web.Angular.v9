@@ -84,25 +84,27 @@ export class CmsSiteCreditViewComponent implements OnInit {
 
     this.coreModuleSiteCreditService.setAccessLoad();
     this.coreModuleSiteCreditService.ServiceGetCredit(this.requestLinkModuleId).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+      {
+        next: (ret) => {
+          this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
-        this.dataModelResult = next;
-        if (next.isSuccess) {
-          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.linkSiteId;
-          this.formInfo.formAlert = '';
-        } else {
-          this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
+            this.formInfo.formTitle = this.formInfo.formTitle + ' ' + ret.item.linkSiteId;
+            this.formInfo.formAlert = '';
+          } else {
+            this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
+            this.formInfo.formError = ret.errorMessage;
+            this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+          }
+          this.loading.Stop(pName);
+
+        },
+        error: (err) => {
+          this.cmsToastrService.typeError(err);
+          this.loading.Stop(pName);
+
         }
-        this.loading.Stop(pName);
-
-      },
-      (error) => {
-        this.cmsToastrService.typeError(error);
-        this.loading.Stop(pName);
-
       }
     );
   }
