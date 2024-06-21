@@ -73,10 +73,12 @@ export class CoreModuleSaleItemListViewComponent implements OnInit, OnDestroy {
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.getEnumCmsModuleSaleItemType();
-      this.tokenInfo = next;
-      this.DataGetAll();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.getEnumCmsModuleSaleItemType();
+        this.tokenInfo = ret;
+        this.DataGetAll();
+      }
     });
     this.getModuleList();
     this.getEnumCmsModuleSaleItemType();
@@ -84,13 +86,17 @@ export class CoreModuleSaleItemListViewComponent implements OnInit, OnDestroy {
   getModuleList(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe((next) => {
-      this.dataModelCoreModuleResult = next;
+    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreModuleResult = ret;
+      }
     });
   }
   getEnumCmsModuleSaleItemType(): void {
-    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe((next) => {
-      this.dataModelEnumCmsModuleSaleItemTypeResult = next;
+    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumCmsModuleSaleItemTypeResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

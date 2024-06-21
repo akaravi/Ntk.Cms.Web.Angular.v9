@@ -107,8 +107,10 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
   getModuleList(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe((next) => {
-      this.dataModelCoreModuleResult = next;
+    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreModuleResult = ret;
+      }
     });
   }
   DataGetAll(): void {

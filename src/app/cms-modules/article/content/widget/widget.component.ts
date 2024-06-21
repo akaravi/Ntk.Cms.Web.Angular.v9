@@ -42,10 +42,11 @@ export class ArticleContentWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.link = '/article/content';
 
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Atricle');
-
-      this.onActionStatist();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Atricle');
+        this.onActionStatist();
+      }
     });
 
   }

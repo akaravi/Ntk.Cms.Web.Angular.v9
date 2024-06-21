@@ -71,11 +71,6 @@ export class CoreLogMemberViewComponent implements OnInit, OnDestroy {
     // this.getEnumSendMemberStatusType();
   }
 
-  // getEnumSendMemberStatusType(): void {
-  //   this.coreEnumService.ServiceSendMemberStatusTypeEnum().subscribe((next) => {
-  //     this.dataModelEnumSendMemberStatusTypeResult = next;
-  //   });
-  // }
 
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

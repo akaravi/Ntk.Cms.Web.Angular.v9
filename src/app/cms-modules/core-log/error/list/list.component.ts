@@ -107,15 +107,15 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
   }
 
   getEnumManageUserAccessAreaTypes(): void {
-    // this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe((next) => {
+    // this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe({next: (ret) => {
     //   this.dataModelEnumManageUserAccessAreaTypesResult = next;
-    // });
+    //} });
   }
   // {{row.userAccessAreaType | enums : dataModelEnumManageUserAccessAreaTypesResult.listItems}}
   getEnumManageUserAccessUserTypes(): void {
-    // this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe((next) => {
+    // this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe({next: (ret) => {
     //   this.dataModelEnumManageUserAccessUserTypesResult = next;
-    // });
+    // }});
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

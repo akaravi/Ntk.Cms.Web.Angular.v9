@@ -77,11 +77,13 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      if (this.requestSerial && this.requestSerial.length > 0) {
-        this.DataCheckUseSerialForSite(this.requestSerial);
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        if (this.requestSerial && this.requestSerial.length > 0) {
+          this.DataCheckUseSerialForSite(this.requestSerial);
+        }
+        this.tokenInfo = ret;
       }
-      this.tokenInfo = next;
     });
     this.getEnumCmsModuleSaleItemType();
 
@@ -90,13 +92,17 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
   getModuleList(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe((next) => {
-      this.dataModelCoreModuleResult = next;
+    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreModuleResult = ret;
+      }
     });
   }
   getEnumCmsModuleSaleItemType(): void {
-    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe((next) => {
-      this.dataModelEnumCmsModuleSaleItemTypeResult = next;
+    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumCmsModuleSaleItemTypeResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

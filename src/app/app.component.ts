@@ -118,13 +118,15 @@ export class AppComponent implements OnInit {
       this.coreAuthService.setConfig(
         environment.cmsServerConfig.configApiServerPath
       );
-      this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-        if (next.siteId > 0 && next.userId > 0 && environment.production)
-          this.getSupport();
-        if (next.userId > 0) {
-          this.singlarService.login(next.token);
-        } else {
-          this.singlarService.logout();
+      this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+        next: (ret) => {
+          if (ret.siteId > 0 && ret.userId > 0 && environment.production)
+            this.getSupport();
+          if (ret.userId > 0) {
+            this.singlarService.login(ret.token);
+          } else {
+            this.singlarService.logout();
+          }
         }
       });
     }
@@ -208,8 +210,8 @@ export class AppComponent implements OnInit {
   }
   getServiceVer(): void {
     const pName = this.constructor.name + 'ServiceIp';
-    
-    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => {this.loading.Start(pName, str);});
+
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService.ServiceIp().subscribe({
       next: (ret) => {
         this.publicHelper.appServerVersion = ret.appVersion

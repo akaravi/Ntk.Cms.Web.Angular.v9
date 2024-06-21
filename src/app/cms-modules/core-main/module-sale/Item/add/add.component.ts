@@ -72,8 +72,10 @@ export class CoreModuleSaleItemAddComponent extends AddBaseComponent<CoreModuleS
     this.getEnumCmsModuleSaleItemType();
   }
   getEnumCmsModuleSaleItemType(): void {
-    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe((next) => {
-      this.dataModelEnumCmsModuleSaleItemTypeResult = next;
+    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumCmsModuleSaleItemTypeResult = ret;
+      }
     });
   }
 

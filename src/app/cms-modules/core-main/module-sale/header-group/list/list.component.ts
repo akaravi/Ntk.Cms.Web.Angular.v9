@@ -104,15 +104,19 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
   getUserGroup(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreUserGroupService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreUserGroupResult = next;
+    this.coreUserGroupService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreUserGroupResult = ret;
+      }
     });
   }
   getSiteCategory(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreSiteCategoryService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreSiteCategoryResult = next;
+    this.coreSiteCategoryService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreSiteCategoryResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

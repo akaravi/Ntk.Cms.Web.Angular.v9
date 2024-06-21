@@ -77,9 +77,10 @@ export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy 
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-
-      this.tokenInfo = next;
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+      }
     });
     // this.getEnumCmsModuleSaleItemType();
 
@@ -119,13 +120,17 @@ export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy 
   getModuleList(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe((next) => {
-      this.dataModelCoreModuleResult = next;
+    this.coreModuleService.ServiceGetAllModuleName(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreModuleResult = ret;
+      }
     });
   }
   getEnumCmsModuleSaleItemType(): void {
-    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe((next) => {
-      this.dataModelEnumCmsModuleSaleItemTypeResult = next;
+    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumCmsModuleSaleItemTypeResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

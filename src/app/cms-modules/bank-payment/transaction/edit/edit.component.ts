@@ -70,13 +70,17 @@ export class BankPaymentTransactionEditComponent extends EditBaseComponent<BankP
     this.getEnumTransactionBankStatus();
   }
   getEnumTransactionRecordStatus(): void {
-    this.bankPaymentEnumService.ServiceTransactionRecordStatusEnum().subscribe((next) => {
-      this.dataModelEnumTransactionRecordStatusResult = next;
+    this.bankPaymentEnumService.ServiceTransactionRecordStatusEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumTransactionRecordStatusResult = ret;
+      }
     });
   }
   getEnumTransactionBankStatus(): void {
-    this.bankPaymentEnumService.ServiceTransactionBankStatusEnum().subscribe((next) => {
-      this.dataModelEnumTransactionBankStatusResult = next;
+    this.bankPaymentEnumService.ServiceTransactionBankStatusEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumTransactionBankStatusResult = ret;
+      }
     });
   }
 

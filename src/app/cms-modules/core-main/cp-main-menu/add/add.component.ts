@@ -66,8 +66,10 @@ export class CoreCpMainMenuAddComponent extends AddBaseComponent<CoreCpMainMenuS
 
   }
   getEnumMenuPlaceType(): void {
-    this.coreEnumService.ServiceMenuPlaceTypeEnum().subscribe((next) => {
-      this.dataModelEnumMenuPlaceTypeResult = next;
+    this.coreEnumService.ServiceMenuPlaceTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumMenuPlaceTypeResult = ret;
+      }
     });
   }
 

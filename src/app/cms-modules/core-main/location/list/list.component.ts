@@ -94,8 +94,10 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
     this.getEnumLocationType();
   }
   getEnumLocationType(): void {
-    this.coreEnumService.ServiceLocationTypeEnum().subscribe((next) => {
-      this.dataModelEnumLocationTypeResult = next;
+    this.coreEnumService.ServiceLocationTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumLocationTypeResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

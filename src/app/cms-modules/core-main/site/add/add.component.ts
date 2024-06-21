@@ -80,13 +80,17 @@ export class CoreSiteAddComponent extends AddBaseComponent<CoreSiteService, Core
     this.getEnumLanguage();
   }
   getEnumSiteStatus(): void {
-    this.coreEnumService.ServiceSiteStatusEnum().subscribe((next) => {
-      this.dataModelEnumSiteStatusResult = next;
+    this.coreEnumService.ServiceSiteStatusEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumSiteStatusResult = ret;
+      }
     });
   }
   getEnumLanguage(): void {
-    this.coreEnumService.ServiceLanguageEnum().subscribe((next) => {
-      this.dataModelEnumLanguageResult = next;
+    this.coreEnumService.ServiceLanguageEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumLanguageResult = ret;
+      }
     });
   }
 

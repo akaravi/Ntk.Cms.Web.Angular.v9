@@ -122,8 +122,10 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
   getPublicConfig(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.bankPaymentPublicConfigService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelPublicResult = next;
+    this.bankPaymentPublicConfigService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelPublicResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

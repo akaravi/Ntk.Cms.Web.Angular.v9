@@ -48,9 +48,10 @@ export class CoreSiteHeaderComponent implements OnInit, OnDestroy {
       this.DataGetOneContent();
     }
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
       this.DataGetOneContent();
-    });
+    }});
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

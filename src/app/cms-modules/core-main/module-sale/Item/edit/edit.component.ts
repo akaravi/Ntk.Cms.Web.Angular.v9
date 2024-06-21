@@ -78,8 +78,10 @@ export class CoreModuleSaleItemEditComponent extends EditBaseComponent<CoreModul
     this.getEnumCmsModuleSaleItemType();
   }
   getEnumCmsModuleSaleItemType(): void {
-    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe((next) => {
-      this.dataModelEnumCmsModuleSaleItemTypeResult = next;
+    this.coreEnumService.ServiceCmsModuleSaleItemTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumCmsModuleSaleItemTypeResult = ret;
+      }
     });
   }
 

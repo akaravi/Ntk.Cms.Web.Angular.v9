@@ -90,8 +90,10 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     this.getEnumMenuPlaceType();
   }
   getEnumMenuPlaceType(): void {
-    this.coreEnumService.ServiceMenuPlaceTypeEnum().subscribe((next) => {
-      this.dataModelEnumMenuPlaceTypeResult = next;
+    this.coreEnumService.ServiceMenuPlaceTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumMenuPlaceTypeResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

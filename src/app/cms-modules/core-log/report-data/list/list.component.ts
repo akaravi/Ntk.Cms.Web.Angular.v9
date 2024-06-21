@@ -133,11 +133,6 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
     // this.getEnumSendReportDataStatusType();
   }
 
-  // getEnumSendReportDataStatusType(): void {
-  //   this.coreEnumService.ServiceSendReportDataStatusTypeEnum().subscribe((next) => {
-  //     this.dataModelEnumSendReportDataStatusTypeResult = next;
-  //   });
-  // }
 
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

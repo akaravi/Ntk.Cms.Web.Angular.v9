@@ -56,12 +56,14 @@ export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, Co
         this.DataGetOne(this.tokenInfo.siteId);
       }
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.tokenInfo = next;
-      if (this.requestId > 0) {
-        this.DataGetOne(this.requestId);
-      } else {
-        this.DataGetOne(this.tokenInfo.siteId);
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.tokenInfo = ret;
+        if (this.requestId > 0) {
+          this.DataGetOne(this.requestId);
+        } else {
+          this.DataGetOne(this.tokenInfo.siteId);
+        }
       }
     });
   }
@@ -103,13 +105,17 @@ export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, Co
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   getEnumSiteStatus(): void {
-    this.coreEnumService.ServiceSiteStatusEnum().subscribe((next) => {
-      this.dataModelEnumSiteStatusResult = next;
+    this.coreEnumService.ServiceSiteStatusEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumSiteStatusResult = ret;
+      }
     });
   }
   getEnumLanguage(): void {
-    this.coreEnumService.ServiceLanguageEnum().subscribe((next) => {
-      this.dataModelEnumLanguageResult = next;
+    this.coreEnumService.ServiceLanguageEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumLanguageResult = ret;
+      }
     });
   }
 

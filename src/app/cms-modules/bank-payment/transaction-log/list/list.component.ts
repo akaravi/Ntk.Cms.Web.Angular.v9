@@ -99,8 +99,10 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     this.getEnumTransactionRecordStatus();
   }
   getEnumTransactionRecordStatus(): void {
-    this.bankPaymentEnumService.ServiceTransactionRecordStatusEnum().subscribe((next) => {
-      this.dataModelEnumTransactionRecordStatusResult = next;
+    this.bankPaymentEnumService.ServiceTransactionRecordStatusEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumTransactionRecordStatusResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

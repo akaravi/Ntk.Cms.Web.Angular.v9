@@ -80,13 +80,17 @@ export class CoreDeviceEditComponent extends EditBaseComponent<CoreDeviceService
     this.getServiceOperatingSystemTypeEnum();
   }
   getServiceDeviceTypeEnum(): void {
-    this.coreEnumService.ServiceDeviceTypeEnum().subscribe((next) => {
-      this.dataModelEnumDeviceTypeResult = next;
+    this.coreEnumService.ServiceDeviceTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumDeviceTypeResult = ret;
+      }
     });
   }
   getServiceOperatingSystemTypeEnum(): void {
-    this.coreEnumService.ServiceOperatingSystemTypeEnum().subscribe((next) => {
-      this.dataModelEnumOperatingSystemTypeResult = next;
+    this.coreEnumService.ServiceOperatingSystemTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumOperatingSystemTypeResult = ret;
+      }
     });
   }
 

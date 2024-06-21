@@ -49,8 +49,10 @@ export class NewsContentHeaderComponent implements OnInit, OnDestroy {
       this.DataGetOneContent();
     }
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-      this.DataGetOneContent();
+    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      next: (ret) => {
+        this.DataGetOneContent();
+      }
     });
   }
   ngOnDestroy(): void {

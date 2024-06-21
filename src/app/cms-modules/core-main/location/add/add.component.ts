@@ -73,8 +73,10 @@ export class CoreLocationAddComponent extends AddBaseComponent<CoreLocationServi
 
   }
   getEnumLocationType(): void {
-    this.coreEnumService.ServiceLocationTypeEnum().subscribe((next) => {
-      this.dataModelEnumLocationTypeResult = next;
+    this.coreEnumService.ServiceLocationTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumLocationTypeResult = ret;
+      }
     });
   }
 

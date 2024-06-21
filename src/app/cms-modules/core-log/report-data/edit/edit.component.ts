@@ -84,11 +84,7 @@ export class CoreLogReportDataEditComponent extends EditBaseComponent<CoreLogRep
     // this.getEnumSendReportDataStatusType();
   }
 
-  // getEnumSendReportDataStatusType(): void {
-  //   this.coreEnumService.ServiceSendReportDataStatusTypeEnum().subscribe((next) => {
-  //     this.dataModelEnumSendReportDataStatusTypeResult = next;
-  //   });
-  // }
+
 
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

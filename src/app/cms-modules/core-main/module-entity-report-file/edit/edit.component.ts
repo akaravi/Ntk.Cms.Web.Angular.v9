@@ -82,8 +82,10 @@ export class CoreModuleEntityReportFileEditComponent extends EditBaseComponent<C
   }
 
   getReportFileTypeEnum(): void {
-    this.coreEnumService.ServiceReportFileTypeEnum().subscribe((next) => {
-      this.dataModelReportFileTypeEnumResult = next;
+    this.coreEnumService.ServiceReportFileTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelReportFileTypeEnumResult = ret;
+      }
     });
   }
 

@@ -124,11 +124,6 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
     // this.getEnumSendMemberStatusType();
   }
 
-  // getEnumSendMemberStatusType(): void {
-  //   this.coreEnumService.ServiceSendMemberStatusTypeEnum().subscribe((next) => {
-  //     this.dataModelEnumSendMemberStatusTypeResult = next;
-  //   });
-  // }
 
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

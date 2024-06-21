@@ -107,8 +107,10 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   getEnumReportFileType(): void {
-    this.coreEnumService.ServiceReportFileTypeEnum().subscribe((next) => {
-      this.dataModelEnumReportFileTypeResult = next;
+    this.coreEnumService.ServiceReportFileTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumReportFileTypeResult = ret;
+      }
     });
   }
 
@@ -117,8 +119,10 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
   getModuleList(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreModuleEntityService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreModuleEntityResult = next;
+    this.coreModuleEntityService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreModuleEntityResult = ret;
+      }
     });
   }
   DataGetAll(): void {

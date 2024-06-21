@@ -89,8 +89,10 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
   getCurrency(): void {
     const filter = new FilterModel();
     filter.rowPerPage = 100;
-    this.coreCurrencyService.ServiceGetAll(filter).subscribe((next) => {
-      this.dataModelCoreCurrencyResult = next;
+    this.coreCurrencyService.ServiceGetAll(filter).subscribe({
+      next: (ret) => {
+        this.dataModelCoreCurrencyResult = ret;
+      }
     });
   }
   ngOnDestroy(): void {

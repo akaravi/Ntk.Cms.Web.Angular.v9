@@ -45,8 +45,10 @@ export class MemberPropertyAliasHeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (this.optionId > 0) {
       this.DataGetOneContent();
-      this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((next) => {
-        this.DataGetOneContent();
+      this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+        next: (ret) => {
+          this.DataGetOneContent();
+        }
       });
     }
 

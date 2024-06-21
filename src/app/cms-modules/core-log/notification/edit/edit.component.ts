@@ -84,8 +84,10 @@ export class CoreLogNotificationEditComponent extends EditBaseComponent<CoreLogN
   }
 
   getEnumSendNotificationStatusType(): void {
-    this.coreEnumService.ServiceSendNotificationStatusTypeEnum().subscribe((next) => {
-      this.dataModelEnumSendNotificationStatusTypeResult = next;
+    this.coreEnumService.ServiceSendNotificationStatusTypeEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumSendNotificationStatusTypeResult = ret;
+      }
     });
   }
 
