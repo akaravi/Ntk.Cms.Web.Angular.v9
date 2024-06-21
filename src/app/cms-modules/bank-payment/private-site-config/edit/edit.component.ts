@@ -77,7 +77,7 @@ export class BankPaymentPrivateSiteConfigEditComponent extends EditBaseComponent
       next: (ret) => {
         /*َAccess Field*/
         this.dataAccessModel = ret.access;
-        // next.item.privateConfigJsonFormatter
+        // ret.item.privateConfigJsonFormatter
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModel = ret.item;

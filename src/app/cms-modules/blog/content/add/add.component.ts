@@ -16,7 +16,6 @@ import {
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { firstValueFrom, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
@@ -185,13 +184,13 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
 
     this.contentService
       .ServiceAdd(this.dataModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: async (ret) => {
           this.loading.Stop(pName);
 
-          this.formInfo.formSubmitAllow = !next.isSuccess;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+          this.formInfo.formSubmitAllow = !ret.isSuccess;
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessAdd();
             await this.DataActionAfterAddContentSuccessfulTag(this.dataModelResult.item);
@@ -200,17 +199,18 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
 
             setTimeout(() => this.router.navigate(['/blog/content/']), 1000);
           } else {
-            this.cmsToastrService.typeErrorAdd(next.errorMessage);
+            this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
           this.loading.Stop(pName);
 
         },
-        (error) => {
+        error: (err) => {
           this.loading.Stop(pName);
 
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorAdd(error);
+          this.cmsToastrService.typeErrorAdd(err);
         }
+      }
       );
   }
   DataActionAfterAddContentSuccessfulTag(model: BlogContentModel): Promise<any> {
@@ -245,19 +245,19 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
     const pName = this.constructor.name + 'contentOtherInfoService.ServiceAddBatch';
     this.loading.Start(pName);
     return firstValueFrom(this.contentOtherInfoService.ServiceAddBatch(this.otherInfoDataModel)).then(
-      (response) => {
-        if (response.isSuccess) {
+      (ret) => {
+        if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessAddOtherInfo();
         } else {
           this.cmsToastrService.typeErrorAddOtherInfo();
         }
-        return of(response);
+        return of(ret);
       },
-      (error) => {
+      (err) => {
         this.loading.Stop(pName);
 
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeErrorAdd(error);
+        this.cmsToastrService.typeErrorAdd(err);
       }
     );
   }
@@ -274,22 +274,24 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
     });
     const pName = this.constructor.name + 'contentSimilarService.ServiceAddBatch';
     this.loading.Start(pName);
-    return this.contentSimilarService.ServiceAddBatch(dataList).pipe(
-      map(response => {
-        if (response.isSuccess) {
+    this.contentSimilarService.ServiceAddBatch(dataList).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessAddSimilar();
         } else {
           this.cmsToastrService.typeErrorAddSimilar();
         }
-        return of(response);
+        return of(ret);
       },
-        (error) => {
-          this.loading.Stop(pName);
+      error: (err) => {
+        this.loading.Stop(pName);
 
-          this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorAdd(error);
-        }
-      )).toPromise();
+        this.formInfo.formSubmitAllow = true;
+        this.cmsToastrService.typeErrorAdd(err);
+      }
+    }
+    )
+      ;//).toPromise();
   }
   onActionSelectorSelect(model: BlogCategoryModel | null): void {
     if (!model || model.id <= 0) {
@@ -395,8 +397,8 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
   }
 
   /**
-* tag
-*/
+  * tag
+  */
   addOnBlurTag = true;
   readonly separatorKeysCodes = [ENTER] as const;
   addTag(event: MatChipInputEvent): void {

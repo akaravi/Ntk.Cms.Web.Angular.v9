@@ -61,22 +61,22 @@ export class TicketingTaskHeaderComponent implements OnInit, OnDestroy {
     this.loading.Start(pName);
 
     this.headerService.setAccessLoad();
-    this.headerService.ServiceGetOneById(this.optionId).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-        if (next.isSuccess) {
-          this.dataModelResult = next;
+    this.headerService.ServiceGetOneById(this.optionId).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        if (ret.isSuccess) {
+          this.dataModelResult = ret;
         } else {
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-
       }
+    }
     );
   }
 

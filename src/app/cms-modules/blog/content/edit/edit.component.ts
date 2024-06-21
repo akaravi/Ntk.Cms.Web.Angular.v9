@@ -383,13 +383,13 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
 
     this.contentService
       .ServiceEdit(this.dataModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: async (ret) => {
           this.loading.Stop(pName);
 
           this.formInfo.formSubmitAllow = true;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
 
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
@@ -398,17 +398,18 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
             await this.DataActionAfterAddContentSuccessfulOtherInfo(this.dataModel);
             setTimeout(() => this.router.navigate(['/blog/content']), 1000);
           } else {
-            this.cmsToastrService.typeErrorEdit(next.errorMessage);
+            this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
           this.loading.Stop(pName);
 
         },
-        (error) => {
+        error: (err) => {
           this.loading.Stop(pName);
 
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorEdit(error);
+          this.cmsToastrService.typeErrorEdit(err);
         }
+      }
       );
   }
   async DataActionAfterAddContentSuccessfulTag(model: BlogContentModel): Promise<any> {

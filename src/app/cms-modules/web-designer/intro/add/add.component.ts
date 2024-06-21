@@ -76,24 +76,25 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
     this.loading.Start(pName);
     this.webDesignerMainIntroService
       .ServiceAdd(this.dataModel)
-      .subscribe(
-        async (next) => {
-          this.formInfo.formSubmitAllow = !next.isSuccess;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+      .subscribe({
+        next: (ret) => {
+          this.formInfo.formSubmitAllow = !ret.isSuccess;
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
             setTimeout(() => this.router.navigate(['/webdesigner/intro/']), 1000);
           } else {
-            this.cmsToastrService.typeErrorEdit(next.errorMessage);
+            this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.loading.Stop(pName);
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorEdit(error);
+          this.cmsToastrService.typeErrorEdit(err);
         }
+      }
       );
   }
   onStepClick(event: StepperSelectionEvent, stepper: MatStepper): void {

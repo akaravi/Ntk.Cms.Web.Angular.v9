@@ -91,25 +91,27 @@ export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswe
     this.loading.Start(pName);
 
 
-    this.ticketingAnswerService.ServiceAdd(this.dataModel).subscribe(async (next) => {
-      this.formInfo.formSubmitAllow = !next.isSuccess;
-      this.dataModelResult = next;
-      if (next.isSuccess) {
-        this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
-        this.cmsToastrService.typeSuccessAdd();
-        setTimeout(() => { this.dialogRef.close({ dialogChangedDate: true }); }, 1000);
-      } else {
-        this.cmsToastrService.typeErrorAdd(next.errorMessage);
-      }
-      this.loading.Stop(pName);
+    this.ticketingAnswerService.ServiceAdd(this.dataModel).subscribe({
+      next: (ret) => {
+        this.formInfo.formSubmitAllow = !ret.isSuccess;
+        this.dataModelResult = ret;
+        if (ret.isSuccess) {
+          this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
+          this.cmsToastrService.typeSuccessAdd();
+          setTimeout(() => { this.dialogRef.close({ dialogChangedDate: true }); }, 1000);
+        } else {
+          this.cmsToastrService.typeErrorAdd(ret.errorMessage);
+        }
+        this.loading.Stop(pName);
 
-    },
-      (error) => {
+      },
+      error: (err) => {
         this.loading.Stop(pName);
 
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeErrorAdd(error);
+        this.cmsToastrService.typeErrorAdd(err);
       }
+    }
     );
   }
 

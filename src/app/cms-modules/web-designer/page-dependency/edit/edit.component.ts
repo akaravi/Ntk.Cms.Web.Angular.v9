@@ -71,24 +71,25 @@ export class WebDesignerMainPageDependencyEditComponent extends EditBaseComponen
     this.loading.Start(pName);
     this.webDesignerMainPageDependencyService.setAccessLoad();
     this.webDesignerMainPageDependencyService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.webDesignerMainPageDependencyService.ServiceGetOneById(this.requestId).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-        this.dataModel = next.item;
-        if (next.isSuccess) {
-          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.title;
+    this.webDesignerMainPageDependencyService.ServiceGetOneById(this.requestId).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        this.dataModel = ret.item;
+        if (ret.isSuccess) {
+          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + ret.item.title;
           this.formInfo.formAlert = '';
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   DataEditContent(): void {
@@ -96,26 +97,27 @@ export class WebDesignerMainPageDependencyEditComponent extends EditBaseComponen
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
-    this.webDesignerMainPageDependencyService.ServiceEdit(this.dataModel).subscribe(
-      (next) => {
+    this.webDesignerMainPageDependencyService.ServiceEdit(this.dataModel).subscribe({
+      next: (ret) => {
         this.formInfo.formSubmitAllow = true;
-        this.dataModelResult = next;
-        if (next.isSuccess) {
+        this.dataModelResult = ret;
+        if (ret.isSuccess) {
           this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           this.dialogRef.close({ dialogChangedDate: true });
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
+      error: (err) => {
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeError(error);
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   onActionSelectModule(model: CoreModuleModel | null): void {

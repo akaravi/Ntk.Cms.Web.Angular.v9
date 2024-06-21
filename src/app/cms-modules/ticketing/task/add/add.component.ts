@@ -82,27 +82,28 @@ export class TicketingTaskAddComponent extends AddBaseComponent<TicketingTaskSer
 
     this.ticketingTaskService
       .ServiceAdd(this.dataModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
 
-          this.formInfo.formSubmitAllow = !next.isSuccess;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+          this.formInfo.formSubmitAllow = !ret.isSuccess;
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
             setTimeout(() => this.router.navigate(['/ticketing/task/']), 1000);
           } else {
-            this.cmsToastrService.typeErrorEdit(next.errorMessage);
+            this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
           this.loading.Stop(pName);
 
         },
-        (error) => {
+        error: (err) => {
           this.loading.Stop(pName);
 
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorEdit(error);
+          this.cmsToastrService.typeErrorEdit(err);
         }
+      }
       );
   }
 

@@ -82,27 +82,27 @@ export class TicketingDepartemenEditComponent extends EditBaseComponent<Ticketin
 
     this.ticketingDepartemenService.setAccessLoad();
     this.ticketingDepartemenService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.ticketingDepartemenService.ServiceGetOneById(this.requestId).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+    this.ticketingDepartemenService.ServiceGetOneById(this.requestId).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
-        this.dataModel = next.item;
-        if (next.isSuccess) {
-          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.title;
+        this.dataModel = ret.item;
+        if (ret.isSuccess) {
+          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + ret.item.title;
           this.formInfo.formAlert = '';
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-
       }
+    }
     );
   }
   DataEditContent(): void {
@@ -111,28 +111,29 @@ export class TicketingDepartemenEditComponent extends EditBaseComponent<Ticketin
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
 
-    this.ticketingDepartemenService.ServiceEdit(this.dataModel).subscribe(
-      (next) => {
-        this.dataModelResult = next;
-        if (next.isSuccess) {
+    this.ticketingDepartemenService.ServiceEdit(this.dataModel).subscribe({
+      next: (ret) => {
+        this.dataModelResult = ret;
+        if (ret.isSuccess) {
           this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           this.dialogRef.close({ dialogChangedDate: true });
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
         this.formInfo.formSubmitAllow = true;
       },
-      (error) => {
+      error: (err) => {
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeError(error);
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
 
       }
+    }
     );
   }
   onFormSubmit(): void {

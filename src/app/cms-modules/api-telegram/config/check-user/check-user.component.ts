@@ -70,19 +70,20 @@ export class ApiTelegramConfigCheckUserComponent implements OnInit, OnDestroy {
     this.translate.get('TITLE.Check_account').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceCheckUser(this.requestLinkUserId)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           this.loading.Stop(pName);
-          this.dataModelResult = next;
-          this.tableSource.data = next.listItems;
-          if (!next.isSuccess) {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+          this.dataModelResult = ret;
+          this.tableSource.data = ret.listItems;
+          if (!ret.isSuccess) {
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
         },
-        (error) => {
-          this.cmsToastrService.typeErrorGetOne(error);
+        error: (err) => {
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
 }

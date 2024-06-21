@@ -76,18 +76,18 @@ export class WebDesignerMainPageTreeComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
-    this.categoryService.ServiceGetAll(this.filterModel).subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          this.dataModelResult = next;
+    this.categoryService.ServiceGetAll(this.filterModel).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.dataModelResult = ret;
           this.dataSource.data = this.dataModelResult.listItems;
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-      }
+      }}
     );
   }
   onActionSelect(model: WebDesignerMainPageModel): void {

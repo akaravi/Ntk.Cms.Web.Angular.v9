@@ -124,25 +124,26 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
       filter.value = this.categoryModelSelected.id;
       filterModel.filters.push(filter);
     }
-    this.contentService.ServiceGetAllEditor(filterModel).subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-          this.dataModelResult = next;
-          this.tableSource.data = next.listItems;
+    this.contentService.ServiceGetAllEditor(filterModel).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+          this.dataModelResult = ret;
+          this.tableSource.data = ret.listItems;
           if (this.optionsStatist?.data?.show)
             this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
-            this.optionsSearch.childMethods.setAccess(next.access);
+            this.optionsSearch.childMethods.setAccess(ret.access);
           }
 
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   onTableSortData(sort: MatSort): void {
@@ -237,38 +238,24 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
       this.cmsToastrService.typeErrorAccessAdd();
       return;
     }
-    //   return firstValueFrom(this.http.get(environment.cmsServerConfig.configMvcServerPath + 'api/v1/HtmlBuilder/AutoAdd', {
-    //     headers: this.contentService.getHeaders(),
-    //   }))
-    //     .then(
-    //       (ret: any) => {
-    //         // tslint:disable-next-line: max-line-length
-    //         const retOut = this.contentService.errorExceptionResultCheck<WebDesignerMainPageDependencyAddComponent>(ret);
-    //         if (retOut.isSuccess) {
-    //           this.cmsToastrService.typeSuccessAdd();
-    //           this.DataGetAll();
-    //         }
-    //         else {
-    //           this.cmsToastrService.typeErrorAccessAdd();
-    //         }
-    //         return retOut;
-    //       });
+
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.filteModelContent.accessLoad = true;
     const filter = new FilterDataModel();
-    this.contentService.ServiceAutoAdd().subscribe(
-      (next) => {
-        if (next.isSuccess) {
+    this.contentService.ServiceAutoAdd().subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessAdd();
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
 
   }
@@ -330,9 +317,9 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
         if (confirmed) {
           const pName = this.constructor.name + 'contentService.ServiceDelete';
           this.loading.Start(pName);
-          this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe(
-            (next) => {
-              if (next.isSuccess) {
+          this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
+            next: (ret) => {
+              if (ret.isSuccess) {
                 this.cmsToastrService.typeSuccessRemove();
                 this.DataGetAll();
               } else {
@@ -340,10 +327,11 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
               }
               this.loading.Stop(pName);
             },
-            (error) => {
-              this.cmsToastrService.typeError(error);
+            error: (err) => {
+              this.cmsToastrService.typeError(err);
               this.loading.Stop(pName);
             }
+          }
           );
         }
       }
@@ -377,37 +365,39 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
     this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
-    this.contentService.ServiceGetCount(this.filteModelContent).subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          statist.set('All', next.totalRowCount);
+    this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          statist.set('All', ret.totalRowCount);
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
     const filterStatist1 = JSON.parse(JSON.stringify(this.filteModelContent));
     const fastfilter = new FilterDataModel();
     fastfilter.propertyName = 'RecordStatus';
     fastfilter.value = RecordStatusEnum.Available;
     filterStatist1.filters.push(fastfilter);
-    this.contentService.ServiceGetCount(filterStatist1).subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          statist.set('Active', next.totalRowCount);
+    this.contentService.ServiceGetCount(filterStatist1).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          statist.set('Active', ret.totalRowCount);
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
         this.loading.Stop(pName);
       }
       ,
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   onActionButtonSiteRouteView(model: WebDesignerMainPageDependencyModel = this.tableRowSelected): void {

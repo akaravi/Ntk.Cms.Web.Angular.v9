@@ -95,7 +95,6 @@ export class DataProviderPlanSourceEditComponent extends EditBaseComponent<DataP
 
         this.dataModel = ret.item;
         if (ret.isSuccess) {
-          // this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.title;
           this.formInfo.formAlert = '';
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });

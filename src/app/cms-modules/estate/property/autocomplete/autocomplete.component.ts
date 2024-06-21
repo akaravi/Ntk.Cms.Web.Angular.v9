@@ -170,10 +170,10 @@ export class EstatePropertyCompleteComponent implements OnInit {
       }
     });
 
-    this.service.ServiceGetAll(filterModel).pipe(
-      map((next) => {
-        if (next.isSuccess) {
-          next.listItems.forEach(val => {
+    this.service.ServiceGetAll(filterModel).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          ret.listItems.forEach(val => {
             if (this.tagDataModel.findIndex(y => y.value == val.id) < 0)
               this.tagDataModel.push({
                 value: val.id,
@@ -181,15 +181,14 @@ export class EstatePropertyCompleteComponent implements OnInit {
               });
           });
         } else {
-          this.cmsToastrService.typeErrorGetAll(next.errorMessage);
+          this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
         }
         return;
       },
-        (error) => {
-
-
-          this.cmsToastrService.typeErrorGetAll(error);
-        })).toPromise();
+      error: (err) => {
+        this.cmsToastrService.typeErrorGetAll(err);
+      }
+    });//).toPromise();
   }
 
 

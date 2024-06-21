@@ -103,47 +103,49 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
       filterModel.filters.push(filter);
     }
 
-    this.ticketingFaqService.ServiceGetAllOrigin(filterModel).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-        if (next.isSuccess) {
-          this.dataModelResult = next;
-          this.tableSource.data = next.listItems;
+    this.ticketingFaqService.ServiceGetAllOrigin(filterModel).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        if (ret.isSuccess) {
+          this.dataModelResult = ret;
+          this.tableSource.data = ret.listItems;
         }
         else {
-          this.cmsToastrService.typeErrorGetAll(next.errorMessage);
+          this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   DataDepartemenGetAll(): void {
     this.loadingCat.Start('main');
 
-    this.ticketingDepartemenService.ServiceGetAllOrigin(null).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+    this.ticketingDepartemenService.ServiceGetAllOrigin(null).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
 
-        if (next.isSuccess) {
-          this.dataDepartemenModelResult = next;
+        if (ret.isSuccess) {
+          this.dataDepartemenModelResult = ret;
         }
         else {
-          this.cmsToastrService.typeErrorGetAll(next.errorMessage);
+          this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
 
         }
         this.loadingCat.Stop('main');
         this.cdr.detectChanges();
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
 
         this.loadingCat.Stop('main');
       }
+    }
     );
   }
 

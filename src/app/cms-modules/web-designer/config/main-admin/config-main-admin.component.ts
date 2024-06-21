@@ -121,21 +121,22 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.translate.get('MESSAGE.get_the_module_default_settings').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteConfigDefault()
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           this.formInfo.formSubmitAllow = true;
-          if (next.isSuccess) {
-            this.dataConfigSiteValuesDefaultModel = next.item;
+          if (ret.isSuccess) {
+            this.dataConfigSiteValuesDefaultModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   SetServiceSiteConfigDefaultSave(): void {
@@ -149,21 +150,22 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.translate.get('MESSAGE.Save_module_default_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteConfigDefaultSave(this.dataConfigSiteValuesDefaultModel)
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            this.dataConfigSiteValuesDefaultModel = next.item;
+      .subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
+            this.dataConfigSiteValuesDefaultModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
 
@@ -176,21 +178,22 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.translate.get('MESSAGE.get_the_module_default_access').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteAccessDefault()
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           this.formInfo.formSubmitAllow = true;
-          if (next.isSuccess) {
-            this.dataConfigSiteAccessValuesDefaultModel = next.item;
+          if (ret.isSuccess) {
+            this.dataConfigSiteAccessValuesDefaultModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   SetServiceSiteAccessDefaultSave(): void {
@@ -202,21 +205,22 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.translate.get('MESSAGE.Save_the_module_default_access').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteAccessDefaultSave(this.dataConfigSiteAccessValuesDefaultModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           this.formInfo.formSubmitAllow = true;
-          if (next.isSuccess) {
-            this.dataConfigSiteAccessValuesDefaultModel = next.item;
+          if (ret.isSuccess) {
+            this.dataConfigSiteAccessValuesDefaultModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   GetServiceAdminMain(): void {
@@ -228,21 +232,22 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceAdminMain()
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           this.formInfo.formSubmitAllow = true;
-          if (next.isSuccess) {
-            this.dataConfigAdminMainModel = next.item;
+          if (ret.isSuccess) {
+            this.dataConfigAdminMainModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   SetServiceAdminMainSave(): void {
@@ -254,21 +259,22 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceAdminMainSave(this.dataConfigAdminMainModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           this.formInfo.formSubmitAllow = true;
-          if (next.isSuccess) {
-            this.dataConfigAdminMainModel = next.item;
+          if (ret.isSuccess) {
+            this.dataConfigAdminMainModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
 }

@@ -79,29 +79,29 @@ export class TicketingFaqAddComponent extends AddBaseComponent<TicketingFaqServi
         this.dataModel.linkFileIds = keys.join(',');
       }
     }
-    this.ticketingFaqService.ServiceAdd(this.dataModel).subscribe(
-      (next) => {
+    this.ticketingFaqService.ServiceAdd(this.dataModel).subscribe({
+      next: (ret) => {
         this.formInfo.formSubmitAllow = true;
-        this.dataModelResult = next;
-        if (next.isSuccess) {
+        this.dataModelResult = ret;
+        if (ret.isSuccess) {
           this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessAdd();
           this.dialogRef.close({ dialogChangedDate: true });
 
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
+      error: (err) => {
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeError(error);
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-
       }
+    }
     );
   }
   onActionSelectorSelect(model: TicketingDepartemenModel | null): void {

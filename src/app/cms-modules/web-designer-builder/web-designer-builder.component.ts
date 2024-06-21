@@ -59,41 +59,42 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
     this.loading.Start(pName);
     this.webDesignerMainPageService.setAccessLoad();
     this.webDesignerMainPageService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.webDesignerMainPageService.ServiceGetOneById(this.requestId).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-        this.dataPageModel = next.item;
-        if (next.isSuccess) {
+    this.webDesignerMainPageService.ServiceGetOneById(this.requestId).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        this.dataPageModel = ret.item;
+        if (ret.isSuccess) {
 
         } else {
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   // DataEditContent(): void {
   //   const pName = this.constructor.name + 'main';
   //   this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {this.loading.Start(pName, str);});
   //   this.webDesignerMainPageService.ServiceEdit(this.dataModel).subscribe(
-  //     (next) => {
+  //     next:(ret) => {
 
-  //       this.dataModelResult = next;
-  //       if (next.isSuccess) {
+  //       this.dataModelResult = ret;
+  //       if (ret.isSuccess) {
   //         this.cmsToastrService.typeSuccessEdit();
   //       } else {
-  //         this.cmsToastrService.typeErrorMessage(next.errorMessage);
+  //         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
   //       }
   //       this.loading.Stop(pName);
   //     },
-  //     (error) => {
+  //     error:(err) => {
 
-  //       this.cmsToastrService.typeError(error);
+  //       this.cmsToastrService.typeError(err);
   //       this.loading.Stop(pName);
   //     }
   //   );

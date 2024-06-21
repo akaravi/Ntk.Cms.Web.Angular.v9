@@ -133,8 +133,8 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
             dataLoginModel.mobile = this.dataModel.mobile;
             const pName2 = this.constructor.name + 'ServiceSigninUser';
             this.loading.Start(pName2, this.translate.instant('MESSAGE.login_to_user_account'));
-            this.coreAuthService.ServiceSigninUser(dataLoginModel).subscribe(
-              (res) => {
+            this.coreAuthService.ServiceSigninUser(dataLoginModel).subscribe({
+              next: (res) => {
                 if (res.isSuccess) {
                   this.cmsToastrService.typeSuccessLogin();
                   if (res.item.siteId > 0) {
@@ -150,11 +150,12 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
                 }
                 this.loading.Stop(pName2);
               },
-              (error) => {
+              error: (err) => {
                 this.formInfo.buttonSubmittedEnabled = true;
-                this.cmsToastrService.typeError(error);
+                this.cmsToastrService.typeError(err);
                 this.loading.Stop(pName2);
               }
+            }
             );
           }
           /** Login */

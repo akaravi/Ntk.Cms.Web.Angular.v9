@@ -94,29 +94,30 @@ export class TicketingDepartemenOperatorEditComponent extends EditBaseComponent<
     this.ticketingDepartemenOperatorService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.ticketingDepartemenOperatorService
       .ServiceGetOneById(requestId)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           /*َAccess Field*/
-          this.dataAccessModel = next.access;
-          this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+          this.dataAccessModel = ret.access;
+          this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
           this.loading.Stop(pName);
 
-          this.dataModelResult = next;
+          this.dataModelResult = ret;
           this.formInfo.formSubmitAllow = true;
 
-          if (next.isSuccess) {
+          if (ret.isSuccess) {
 
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
         },
-        (error) => {
+        error: (err) => {
           this.loading.Stop(pName);
 
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
         }
+      }
       );
   }
   DataEditContent(): void {
@@ -129,27 +130,28 @@ export class TicketingDepartemenOperatorEditComponent extends EditBaseComponent<
 
     this.ticketingDepartemenOperatorService
       .ServiceEdit(this.dataModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
 
-          this.formInfo.formSubmitAllow = !next.isSuccess;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+          this.formInfo.formSubmitAllow = !ret.isSuccess;
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
             setTimeout(() => this.router.navigate(['/application/app/']), 1000);
           } else {
-            this.cmsToastrService.typeErrorEdit(next.errorMessage);
+            this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
           this.loading.Stop(pName);
 
         },
-        (error) => {
+        error: (err) => {
           this.loading.Stop(pName);
 
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorEdit(error);
+          this.cmsToastrService.typeErrorEdit(err);
         }
+      }
       );
   }
 

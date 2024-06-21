@@ -10,7 +10,6 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   BankPaymentInjectOnlineTransactionDtoModel, BankPaymentInjectPaymentGotoBankStep2LandingSitePageModel, BankPaymentPrivateSiteConfigModel, BankPaymentPrivateSiteConfigService, CoreEnumService, ErrorExceptionResult, FormInfoModel
 } from 'ntk-cms-api';
-import { map } from 'rxjs/operators';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
@@ -81,30 +80,31 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
 
-    this.bankPaymentPrivateSiteConfigService.ServiceTestPay(this.dataModel).pipe(
-      map(
-        (next) => {
+    this.bankPaymentPrivateSiteConfigService.ServiceTestPay(this.dataModel).subscribe(
+      {
+        next: (ret) => {
           this.formInfo.formSubmitAllow = true;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
-            localStorage.setItem('TransactionId', next.item.transactionId.toString());
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
+            localStorage.setItem('TransactionId', ret.item.transactionId.toString());
             this.formInfo.formAlert = this.translate.instant('MESSAGE.Payment_request_was_successfully_registered');
             this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.Payment_request_was_successfully_registered'));
             this.dataModelResultGotoBank = true;
           } else {
             this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-            this.formInfo.formError = next.errorMessage;
-            this.cmsToastrService.typeErrorMessage(next.errorMessage);
+            this.formInfo.formError = ret.errorMessage;
+            this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
           this.loading.Stop(pName);
 
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeError(error);
+          this.cmsToastrService.typeError(err);
           this.loading.Stop(pName);
         }
-      )).toPromise();
+      }
+    );//).toPromise();
   }
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });

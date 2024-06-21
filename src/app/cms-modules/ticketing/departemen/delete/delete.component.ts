@@ -65,14 +65,14 @@ export class TicketingDepartemenDeleteComponent implements OnInit {
     this.ticketingDepartemenService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.ticketingDepartemenService
       .ServiceGetOneById(this.requestId)
-      .subscribe(
-        (next) => {
-          this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+      .subscribe({
+        next: (ret) => {
+          this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
-          this.dataModelResultCategory = next;
-          if (!next.isSuccess) {
+          this.dataModelResultCategory = ret;
+          if (!ret.isSuccess) {
             this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-            this.formInfo.formError = next.errorMessage;
+            this.formInfo.formError = ret.errorMessage;
             this.cmsToastrService.typeErrorGetOne();
           } else {
             this.formInfo.formAlert = '';
@@ -81,13 +81,13 @@ export class TicketingDepartemenDeleteComponent implements OnInit {
           this.loading.Stop(pName);
 
         },
-        (error) => {
+        error: (err) => {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formErrorStatus = true;
-          this.cmsToastrService.typeError(error);
+          this.cmsToastrService.typeError(err);
           this.loading.Stop(pName);
-
         }
+      }
       );
   }
   DataGetAll(): void {
@@ -99,12 +99,12 @@ export class TicketingDepartemenDeleteComponent implements OnInit {
 
     this.ticketingDepartemenService
       .ServiceGetAll(filterModel)
-      .subscribe(
-        (next) => {
-          this.dataModelResultCategoryAllData = next;
-          if (!next.isSuccess) {
+      .subscribe({
+        next: (ret) => {
+          this.dataModelResultCategoryAllData = ret;
+          if (!ret.isSuccess) {
             this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-            this.formInfo.formError = next.errorMessage;
+            this.formInfo.formError = ret.errorMessage;
             this.formInfo.formErrorStatus = true;
             this.cmsToastrService.typeErrorGetAll();
           } else {
@@ -113,13 +113,13 @@ export class TicketingDepartemenDeleteComponent implements OnInit {
           this.loading.Stop(pName);
 
         },
-        (error) => {
+        error: (err) => {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formErrorStatus = true;
-          this.cmsToastrService.typeError(error);
+          this.cmsToastrService.typeError(err);
           this.loading.Stop(pName);
-
         }
+      }
       );
 
   }
@@ -136,12 +136,12 @@ export class TicketingDepartemenDeleteComponent implements OnInit {
 
     this.ticketingDepartemenService
       .ServiceDelete(this.requestId)
-      .subscribe(
-        (next) => {
-          this.formInfo.formSubmitAllow = !next.isSuccess;
-          if (!next.isSuccess) {
+      .subscribe({
+        next: (ret) => {
+          this.formInfo.formSubmitAllow = !ret.isSuccess;
+          if (!ret.isSuccess) {
             this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-            this.formInfo.formError = next.errorMessage;
+            this.formInfo.formError = ret.errorMessage;
             this.cmsToastrService.typeErrorRemove();
 
           } else {
@@ -153,14 +153,15 @@ export class TicketingDepartemenDeleteComponent implements OnInit {
           this.loading.Stop(pName);
 
         },
-        (error) => {
+        error: (err) => {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeError(error);
+          this.cmsToastrService.typeError(err);
           this.formInfo.buttonSubmittedEnabled = true;
           this.loading.Stop(pName);
 
         }
+      }
       );
 
   }

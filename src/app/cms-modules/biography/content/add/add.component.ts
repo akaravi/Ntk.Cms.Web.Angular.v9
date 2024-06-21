@@ -16,7 +16,6 @@ import {
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { firstValueFrom, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
@@ -163,12 +162,12 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
     this.loading.Start(pName);
     this.biographyContentService
       .ServiceAdd(this.dataModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: async (ret) => {
           this.loading.Stop(pName);
-          this.formInfo.formSubmitAllow = !next.isSuccess;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+          this.formInfo.formSubmitAllow = !ret.isSuccess;
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessAdd();
             await this.DataActionAfterAddContentSuccessfulTag(this.dataModelResult.item);
@@ -177,15 +176,16 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
             this.loading.Stop(pName);
             setTimeout(() => this.router.navigate(['/biography/content/']), 1000);
           } else {
-            this.cmsToastrService.typeErrorAdd(next.errorMessage);
+            this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
         },
-        (error) => {
+        error: (err) => {
           this.loading.Stop(pName);
 
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorAdd(error);
+          this.cmsToastrService.typeErrorAdd(err);
         }
+      }
       );
   }
   DataActionAfterAddContentSuccessfulTag(model: BiographyContentModel): Promise<any> {
@@ -221,19 +221,19 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
     this.loading.Start(pName);
 
     return firstValueFrom(this.biographyContentOtherInfoService.ServiceAddBatch(this.otherInfoDataModel)).then(
-      (response) => {
-        if (response.isSuccess) {
+      (ret) => {
+        if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessAddOtherInfo();
         } else {
           this.cmsToastrService.typeErrorAddOtherInfo();
         }
-        return of(response);
+        return of(ret);
       },
-      (error) => {
+      (err) => {
         this.loading.Stop(pName);
 
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeErrorAdd(error);
+        this.cmsToastrService.typeErrorAdd(err);
       }
     );
   }
@@ -250,22 +250,22 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
     });
     const pName = this.constructor.name + 'biographyContentSimilarService.ServiceAddBatch';
     this.loading.Start(pName);
-    return this.biographyContentSimilarService.ServiceAddBatch(dataList).pipe(
-      map(response => {
-        if (response.isSuccess) {
+    return firstValueFrom(this.biographyContentSimilarService.ServiceAddBatch(dataList)).then(
+      (ret) => {
+        if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessAddSimilar();
         } else {
           this.cmsToastrService.typeErrorAddSimilar();
         }
-        return of(response);
+        return of(ret);
       },
-        (error) => {
-          this.loading.Stop(pName);
+      (err) => {
+        this.loading.Stop(pName);
 
-          this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorAdd(error);
-        }
-      )).toPromise();
+        this.formInfo.formSubmitAllow = true;
+        this.cmsToastrService.typeErrorAdd(err);
+      }
+    );//).toPromise();
   }
   onActionSelectorSelect(model: BiographyCategoryModel | null): void {
     if (!model || model.id <= 0) {

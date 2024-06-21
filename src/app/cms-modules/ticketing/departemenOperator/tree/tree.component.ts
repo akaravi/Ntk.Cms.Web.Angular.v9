@@ -82,16 +82,16 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
     this.loading.Start(pName);
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          this.dataModelResult = next;
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.dataModelResult = ret;
           this.dataSource.data = this.dataModelResult.listItems;
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
 
       }

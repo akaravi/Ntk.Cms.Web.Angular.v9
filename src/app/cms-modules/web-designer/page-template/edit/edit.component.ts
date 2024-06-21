@@ -75,25 +75,26 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.loading.Start(pName);
     this.webDesignerMainPageTemplateService.setAccessLoad();
     this.webDesignerMainPageTemplateService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.webDesignerMainPageTemplateService.ServiceGetOneById(this.requestId).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-        this.dataModel = next.item;
-        if (next.isSuccess) {
-          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.title;
+    this.webDesignerMainPageTemplateService.ServiceGetOneById(this.requestId).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        this.dataModel = ret.item;
+        if (ret.isSuccess) {
+          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + ret.item.title;
           this.formInfo.formAlert = '';
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   DataEditContent(): void {
@@ -101,26 +102,27 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
-    this.webDesignerMainPageTemplateService.ServiceEdit(this.dataModel).subscribe(
-      (next) => {
+    this.webDesignerMainPageTemplateService.ServiceEdit(this.dataModel).subscribe({
+      next: (ret) => {
         this.formInfo.formSubmitAllow = true;
-        this.dataModelResult = next;
-        if (next.isSuccess) {
+        this.dataModelResult = ret;
+        if (ret.isSuccess) {
           this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           this.dialogRef.close({ dialogChangedDate: true });
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
+      error: (err) => {
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeError(error);
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   DataGetAllSourceSiteCategory(): void {
@@ -133,27 +135,28 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     filter.propertyName = 'LinkPageTemplateId';
     filter.value = this.requestId;
     filteModelContent.filters.push(filter);
-    this.webDesignerMainPageTemplateSiteCategoryService.ServiceGetAll(filteModelContent).subscribe(
-      (next) => {
-        this.dataWebDesignerMainPageTemplateSiteCategoryModel = next.listItems;
+    this.webDesignerMainPageTemplateSiteCategoryService.ServiceGetAll(filteModelContent).subscribe({
+      next: (ret) => {
+        this.dataWebDesignerMainPageTemplateSiteCategoryModel = ret.listItems;
         const listG: number[] = [];
         this.dataWebDesignerMainPageTemplateSiteCategoryModel.forEach(element => {
           listG.push(element.linkSiteCagegoryId);
         });
         this.dataCoreSiteCategoryIds = listG;
-        if (next.isSuccess) {
+        if (ret.isSuccess) {
           this.formInfo.formAlert = '';
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   onActionSelectorUserCategorySelect(model: CoreSiteCategoryModel[]): void {
@@ -165,24 +168,25 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     entity.linkPageTemplateId = this.dataModel.id;
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService.ServiceAdd';
     this.loading.Start(pName);
-    this.webDesignerMainPageTemplateSiteCategoryService.ServiceAdd(entity).subscribe(
-      (next) => {
-        if (next.isSuccess) {
+    this.webDesignerMainPageTemplateSiteCategoryService.ServiceAdd(entity).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
           this.translate.get('MESSAGE.registration_in_this_group_was_successful').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           // this.dialogRef.close({ dialogChangedDate: true });
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
+      error: (err) => {
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeError(error);
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   onActionSelectorUserCategorySelectRemoved(model: CoreSiteCategoryModel): void {
@@ -191,24 +195,25 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     entity.linkPageTemplateId = this.dataModel.id;
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity';
     this.loading.Start(pName);
-    this.webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity(entity).subscribe(
-      (next) => {
-        if (next.isSuccess) {
+    this.webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity(entity).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
           this.translate.get('MESSAGE.Deletion_from_this_group_Was_Successful').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           // this.dialogRef.close({ dialogChangedDate: true });
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
+      error: (err) => {
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeError(error);
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
   }
   onFormSubmit(): void {

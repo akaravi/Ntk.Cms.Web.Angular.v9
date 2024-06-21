@@ -351,12 +351,12 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.contentService
       .ServiceEdit(this.dataModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: async (ret) => {
           this.loading.Stop(pName);
           this.formInfo.formSubmitAllow = true;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessEdit();
             await this.DataActionAfterAddContentSuccessfulTag(this.dataModel);
@@ -364,16 +364,17 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
             await this.DataActionAfterAddContentSuccessfulOtherInfo(this.dataModel);
             setTimeout(() => this.router.navigate(['/article/content']), 1000);
           } else {
-            this.cmsToastrService.typeErrorEdit(next.errorMessage);
+            this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
 
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorEdit(error);
+          this.cmsToastrService.typeErrorEdit(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   async DataActionAfterAddContentSuccessfulTag(model: ArticleContentModel): Promise<any> {

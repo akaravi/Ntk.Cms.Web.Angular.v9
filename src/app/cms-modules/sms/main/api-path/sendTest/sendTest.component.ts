@@ -12,7 +12,6 @@ import {
   CoreEnumService, ErrorExceptionResult, FormInfoModel, SmsApiSendMessageTestDtoModel,
   SmsApiSendResultModel, SmsMainApiPathModel, SmsMainApiPathService
 } from 'ntk-cms-api';
-import { map } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -91,28 +90,29 @@ export class SmsMainApiPathSendTestComponent implements OnInit {
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
 
-    this.smsMainApiPathService.ServiceSendMessageTest(this.dataModel).pipe(
-      map((next) => {
+    this.smsMainApiPathService.ServiceSendMessageTest(this.dataModel).subscribe({
+      next: (ret) => {
         this.formInfo.formSubmitAllow = true;
-        this.dataModelResult = next;
-        if (next.isSuccess) {
+        this.dataModelResult = ret;
+        if (ret.isSuccess) {
           this.formInfo.formAlert = this.translate.instant('MESSAGE.Submit_request_was_successfully_registered');
           this.cmsToastrService.typeSuccessMessage(this.translate.instant('MESSAGE.Send_request_was_successfully_registered'));
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
       },
-        (error) => {
-          this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeError(error);
-          this.loading.Stop(pName);
+      error: (err) => {
+        this.formInfo.formSubmitAllow = true;
+        this.cmsToastrService.typeError(err);
+        this.loading.Stop(pName);
 
-        }
-      )).toPromise();
+      }
+    }
+    );//).toPromise();
   }
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });

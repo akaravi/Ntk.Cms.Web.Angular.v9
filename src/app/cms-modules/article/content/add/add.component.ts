@@ -164,12 +164,12 @@ export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentS
     this.loading.Start(pName);
     this.contentService
       .ServiceAdd(this.dataModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: async (ret) => {
           this.loading.Stop(pName);
-          this.formInfo.formSubmitAllow = !next.isSuccess;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+          this.formInfo.formSubmitAllow = !ret.isSuccess;
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessAdd();
             await this.DataActionAfterAddContentSuccessfulTag(this.dataModelResult.item);
@@ -177,15 +177,16 @@ export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentS
             await this.DataActionAfterAddContentSuccessfulOtherInfo(this.dataModelResult.item);
             setTimeout(() => this.router.navigate(['/article/content/']), 1000);
           } else {
-            this.cmsToastrService.typeErrorAdd(next.errorMessage);
+            this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorAdd(error);
+          this.cmsToastrService.typeErrorAdd(err);
           this.loading.Stop(pName);
         }
+      }
 
       );
   }
@@ -220,18 +221,18 @@ export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentS
     const pName = this.constructor.name + 'contentOtherInfoService.ServiceAddBatch';
     this.loading.Start(pName);
     return firstValueFrom(this.contentOtherInfoService.ServiceAddBatch(this.otherInfoDataModel)).then(
-      (response) => {
-        if (response.isSuccess) {
+      (ret) => {
+        if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessAddOtherInfo();
         } else {
           this.cmsToastrService.typeErrorAddOtherInfo();
         }
-        return of(response);
+        return of(ret);
       },
-      (error) => {
+      (err) => {
 
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeErrorAdd(error);
+        this.cmsToastrService.typeErrorAdd(err);
         this.loading.Stop(pName);
       }
     );
@@ -250,18 +251,18 @@ export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentS
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
     return firstValueFrom(this.contentSimilarService.ServiceAddBatch(dataList)).then(
-      (response) => {
-        if (response.isSuccess) {
+      (ret) => {
+        if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessAddSimilar();
         } else {
           this.cmsToastrService.typeErrorAddSimilar();
         }
-        return of(response);
+        return of(ret);
       },
-      (error) => {
+      (err) => {
 
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeErrorAdd(error);
+        this.cmsToastrService.typeErrorAdd(err);
         this.loading.Stop(pName);
       }
     );

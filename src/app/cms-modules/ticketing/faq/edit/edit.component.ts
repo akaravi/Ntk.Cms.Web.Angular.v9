@@ -90,13 +90,13 @@ export class TicketingFaqEditComponent extends EditBaseComponent<TicketingFaqSer
 
     this.ticketingFaqService.setAccessLoad();
     this.ticketingFaqService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.ticketingFaqService.ServiceGetOneById(this.requestId).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
+    this.ticketingFaqService.ServiceGetOneById(this.requestId).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
-        this.dataModel = next.item;
-        if (next.isSuccess) {
-          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + next.item.question;
+        this.dataModel = ret.item;
+        if (ret.isSuccess) {
+          this.formInfo.formTitle = this.formInfo.formTitle + ' ' + ret.item.question;
           this.formInfo.formAlert = '';
           /**
            * check file attach list
@@ -112,17 +112,17 @@ export class TicketingFaqEditComponent extends EditBaseComponent<TicketingFaqSer
           }
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-
       }
+    }
     );
   }
 
@@ -139,29 +139,30 @@ export class TicketingFaqEditComponent extends EditBaseComponent<TicketingFaqSer
         this.dataModel.linkFileIds = keys.join(',');
       }
     }
-    this.ticketingFaqService.ServiceEdit(this.dataModel).subscribe(
-      (next) => {
+    this.ticketingFaqService.ServiceEdit(this.dataModel).subscribe({
+      next: (ret) => {
         this.formInfo.formSubmitAllow = true;
-        this.dataModelResult = next;
-        if (next.isSuccess) {
+        this.dataModelResult = ret;
+        if (ret.isSuccess) {
           this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           this.dialogRef.close({ dialogChangedDate: true });
 
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
-          this.formInfo.formError = next.errorMessage;
-          this.cmsToastrService.typeErrorMessage(next.errorMessage);
+          this.formInfo.formError = ret.errorMessage;
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
+      error: (err) => {
         this.formInfo.formSubmitAllow = true;
-        this.cmsToastrService.typeError(error);
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
 
       }
+    }
     );
   }
   onActionSelectorSelect(model: TicketingDepartemenModel | null): void {

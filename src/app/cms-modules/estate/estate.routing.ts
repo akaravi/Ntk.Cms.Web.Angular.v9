@@ -24,7 +24,7 @@ import { EstatePropertyAdsListComponent } from './property-ads/list/list.compone
 import { EstatePropertyAdsSaleListComponent } from './property-ads/sale-list/sale-list.component';
 import { EstatePropertyCompanyAddComponent } from './property-company/add/add.component';
 import { EstatePropertyCompanyEditComponent } from './property-company/edit/edit.component';
-import { EstatePropertyCompanyListComponent } from './property-company/list/estate-property-company-list-component';
+
 import { EstatePropertyDetailGroupListComponent } from './property-detail-group/list/list.component';
 import { EstatePropertyDetailListComponent } from './property-detail/list/list.component';
 import { EstatePropertyExpertPriceListComponent } from './property-expert-price/list/list.component';
@@ -41,6 +41,7 @@ import { EstatePropertyAddComponent } from './property/add/add.component';
 import { EstatePropertyAddMobileComponent } from './property/add/add.mobile.component';
 import { EstatePropertyEditComponent } from './property/edit/edit.component';
 import { EstatePropertyListComponent } from './property/list/list.component';
+import { EstatePropertyCompanyListComponent } from './property-company/list/list.component';
 /**توجه این روت دو بخش داد باید در هر دو بخش روت ها اضفا شود */
 const routesNormal: Routes = [
   {

@@ -138,22 +138,23 @@ export class TicketingConfigSiteComponent implements OnInit {
 
     this.configService
       .ServiceSiteStorage(SiteId)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           this.formInfo.formSubmitAllow = true;
-          if (next.isSuccess) {
-            this.dataSiteStorageModel = next.item;
+          if (ret.isSuccess) {
+            this.dataSiteStorageModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         },
-        (error) => {
-          this.cmsToastrService.typeErrorGetOne(error);
+        error: (err) => {
+          this.cmsToastrService.typeErrorGetOne(err);
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         }
+      }
       );
   }
   SetServiceSiteStorageSave(SiteId: number): void {
@@ -165,22 +166,23 @@ export class TicketingConfigSiteComponent implements OnInit {
     this.translate.get('MESSAGE.Save_the_stored_values_of_the_module').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteStorageSave(SiteId, this.dataSiteStorageModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
           this.formInfo.formSubmitAllow = true;
-          if (next.isSuccess) {
-            this.dataSiteStorageModel = next.item;
+          if (ret.isSuccess) {
+            this.dataSiteStorageModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   GetServiceSiteConfig(SiteId: number): void {
@@ -192,21 +194,22 @@ export class TicketingConfigSiteComponent implements OnInit {
     this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
     this.configService
       .ServiceSiteConfig(SiteId)
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            this.dataConfigSiteValuesModel = next.item;
+      .subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
+            this.dataConfigSiteValuesModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   SetServiceSiteConfigSave(SiteId: number): void {
@@ -218,21 +221,22 @@ export class TicketingConfigSiteComponent implements OnInit {
 
     this.configService
       .ServiceSiteConfigSave(SiteId, this.dataConfigSiteValuesModel)
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            this.dataConfigSiteValuesModel = next.item;
+      .subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
+            this.dataConfigSiteValuesModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   GetServiceSiteAccess(SiteId: number): void {
@@ -245,21 +249,22 @@ export class TicketingConfigSiteComponent implements OnInit {
 
     this.configService
       .ServiceSiteAccess(SiteId)
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            this.dataConfigSiteAccessValuesModel = next.item;
+      .subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
+            this.dataConfigSiteAccessValuesModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         },
-        (error) => {
+        error: (err) => {
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorGetOne(error);
+          this.cmsToastrService.typeErrorGetOne(err);
           this.loading.Stop(pName);
         }
+      }
       );
   }
   SetServiceSiteAccessSave(SiteId: number): void {
@@ -274,21 +279,22 @@ export class TicketingConfigSiteComponent implements OnInit {
 
     this.configService
       .ServiceSiteAccessSave(SiteId, this.dataConfigSiteAccessValuesModel)
-      .subscribe(
-        async (next) => {
-          if (next.isSuccess) {
-            this.dataConfigSiteAccessValuesModel = next.item;
+      .subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
+            this.dataConfigSiteAccessValuesModel = ret.item;
           } else {
-            this.cmsToastrService.typeErrorGetOne(next.errorMessage);
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         },
-        (error) => {
-          this.cmsToastrService.typeErrorGetOne(error);
+        error: (err) => {
+          this.cmsToastrService.typeErrorGetOne(err);
           this.formInfo.formSubmitAllow = true;
           this.loading.Stop(pName);
         }
+      }
       );
   }
 

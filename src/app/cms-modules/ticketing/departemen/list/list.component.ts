@@ -100,29 +100,28 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
     /*filter CLone*/
     this.contentService.setAccessLoad();
-    this.contentService.ServiceGetAllEditor(filterModel).subscribe(
-      (next) => {
-        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(next.access);
-        if (next.isSuccess) {
-          this.dataModelResult = next;
-          this.tableSource.data = next.listItems;
+    this.contentService.ServiceGetAllEditor(filterModel).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        if (ret.isSuccess) {
+          this.dataModelResult = ret;
+          this.tableSource.data = ret.listItems;
 
 
           if (this.optionsStatist?.data?.show)
             this.onActionButtonStatist(true);
           if (this.optionsSearch.childMethods) {
-            this.optionsSearch.childMethods.setAccess(next.access);
+            this.optionsSearch.childMethods.setAccess(ret.access);
           }
         }
         this.loading.Stop(pName);
 
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
-
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-
       }
+    }
     );
   }
 
@@ -297,18 +296,19 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
     this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
-    this.contentService.ServiceGetCount(this.filteModelContent).subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          statist.set('All', next.totalRowCount);
+    this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          statist.set('All', ret.totalRowCount);
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
         this.loading.Stop(pName);
       },
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
       }
+    }
     );
 
     const filterStatist1 = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -316,20 +316,20 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     fastfilter.propertyName = 'RecordStatus';
     fastfilter.value = RecordStatusEnum.Available;
     filterStatist1.filters.push(fastfilter);
-    this.contentService.ServiceGetCount(filterStatist1).subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          statist.set('Active', next.totalRowCount);
+    this.contentService.ServiceGetCount(filterStatist1).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          statist.set('Active', ret.totalRowCount);
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
         this.loading.Stop(pName);
       }
       ,
-      (error) => {
-        this.cmsToastrService.typeError(error);
+      error: (err) => {
+        this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-
       }
+    }
     );
 
   }

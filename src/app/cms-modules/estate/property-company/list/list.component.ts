@@ -54,9 +54,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
     this.filteModelContent.sortType = SortTypeEnum.Descending;
   }
   link: string;
-
   filteModelContent = new FilterModel();
-
   optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
   optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
 

@@ -106,31 +106,32 @@ export class TicketingTaskContactUsAddComponent extends AddBaseComponent<Ticketi
     this.dataModel.captchaKey = this.captchaModel.key;
     this.ticketingTaskService
       .ServiceContactUS(this.dataModel)
-      .subscribe(
-        async (next) => {
+      .subscribe({
+        next: (ret) => {
 
-          this.formInfo.formSubmitAllow = !next.isSuccess;
-          this.dataModelResult = next;
-          if (next.isSuccess) {
+          this.formInfo.formSubmitAllow = !ret.isSuccess;
+          this.dataModelResult = ret;
+          if (ret.isSuccess) {
             this.formInfo.formSubmitedStatus = FormSubmitedStatusEnum.Success;
             this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
             this.cmsToastrService.typeSuccessAdd();
           } else {
             this.formInfo.formSubmitedStatus = FormSubmitedStatusEnum.Error;
-            this.cmsToastrService.typeErrorAdd(next.errorMessage);
+            this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
           this.loading.Stop(pName);
           this.cdr.markForCheck();
 
 
         },
-        (error) => {
+        error: (err) => {
           this.loading.Stop(pName);
 
           this.formInfo.formSubmitAllow = true;
-          this.cmsToastrService.typeErrorAdd(error);
+          this.cmsToastrService.typeErrorAdd(err);
           this.cdr.markForCheck();
         }
+      }
       );
   }
 
@@ -164,26 +165,27 @@ export class TicketingTaskContactUsAddComponent extends AddBaseComponent<Ticketi
       return;
     }
     this.dataModel.captchaText = '';
-    this.coreAuthService.ServiceCaptcha().subscribe(
-      (next) => {
-        if (next.isSuccess) {
-          this.captchaModel = next.item;
-          this.expireDate = next.item.expire;//.split('+')[1];
+    this.coreAuthService.ServiceCaptcha().subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.captchaModel = ret.item;
+          this.expireDate = ret.item.expire;//.split('+')[1];
           const startDate = new Date();
-          const endDate = new Date(next.item.expire);
+          const endDate = new Date(ret.item.expire);
           const seconds = (endDate.getTime() - startDate.getTime());
           if (this.aoutoCaptchaOrder < 10) {
             this.aoutoCaptchaOrder = this.aoutoCaptchaOrder + 1;
             setTimeout(() => { this.onCaptchaOrder(); }, seconds);
           }
         } else {
-          this.cmsToastrService.typeErrorGetCpatcha(next.errorMessage);
+          this.cmsToastrService.typeErrorGetCpatcha(ret.errorMessage);
         }
         this.onCaptchaOrderInProcess = false;
       }
-      , (error) => {
+      , error: (err) => {
         this.onCaptchaOrderInProcess = false;
       }
+    }
     );
   }
 
