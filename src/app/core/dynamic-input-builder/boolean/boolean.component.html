@@ -6,9 +6,10 @@
   </div>
   <div class="ms-auto me-3 pe-2">
     <div class="custom-control ios-switch small-switch">
-      <input type="checkbox" class="ios-input" id="boolean-{{id}}" [checked]="checkedValue"
-        (change)="setValueToggle($event )" [disabled]="optionDisabled">
-      <label class="custom-control-label" for="boolean-{{id}}"></label>
+      <input type="checkbox" class="ios-input" id="boolean-{{id}}"
+       [(ngModel)]="isChecked" (change)="setValueToggle(isChecked?'true':'false')"
+        [disabled]="optionDisabled">
+      <label class="custom-control-label" for="boolean-{{id}}"></label>aa{{isChecked}}bb
     </div>
   </div>
 </div>

@@ -13,17 +13,19 @@ export class BooleanComponent implements OnInit {
   @Input() optionLabel = '';
   @Input() set model(val: any) {
     if (val && (val === true || val === 'true' || val === 1 || val === '1')) {
-      this.checkedValue = true;
+      this.isChecked = true;
     }
   }
   @Output() modelChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-  checkedValue = false;
+  isChecked = false;
   ngOnInit(): void {
   }
-  setValueToggle(e): void {
-    if (e && e.checked) {
+  setValueToggle(event: any): void {
+    if (event === 'true') {
+      this.isChecked = true;
       this.modelChange.emit(true);
     } else {
+      this.isChecked = false;
       this.modelChange.emit(false);
     }
   }
