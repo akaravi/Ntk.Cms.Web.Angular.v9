@@ -166,7 +166,7 @@
         <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
         <mat-cell *matCellDef="let row" class='Action'>
           <!-- Action Menu -->
-          <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+          <button  type="button" mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #actionMenu="matMenu">
@@ -179,7 +179,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{'TITLE.LINKTO' | translate}}
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button class="text-dark" (click)="onActionButtonLinkTo(row)">
+          <button  type="button" mat-icon-button class="text-dark" (click)="onActionButtonLinkTo(row)">
             <mat-icon>&#8599;</mat-icon>
           </button>
         </mat-cell>

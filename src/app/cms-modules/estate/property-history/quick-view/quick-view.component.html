@@ -68,7 +68,7 @@
             </tr>
             <tr *ngIf="dataModel.linkPropertyId?.length>0">
               <td>{{fieldsInfo['linkPropertyId']?.fieldTitle}}:</td>
-              <td>{{dataModel.linkPropertyId| estatePropertyInfo |async}} <button mat-icon-button
+              <td>{{dataModel.linkPropertyId| estatePropertyInfo |async}} <button  type="button" mat-icon-button
                   (click)="onActionButtonPropertyQuickViewRow(dataModel.linkPropertyId)">
                   <mat-icon>visibility</mat-icon>
                 </button></td>
@@ -77,7 +77,7 @@
               <td>{{fieldsInfo['linkCustomerOrderId']?.fieldTitle}}:</td>
               <td>{{dataModel.linkCustomerOrderId|estateCustomerOrderInfo |async}}
 
-                <button mat-icon-button
+                <button  type="button" mat-icon-button
                   (click)="onActionButtonCustomerOrderQuickViewRow(dataModel.linkCustomerOrderId)">
                   <mat-icon>visibility</mat-icon>
                 </button>

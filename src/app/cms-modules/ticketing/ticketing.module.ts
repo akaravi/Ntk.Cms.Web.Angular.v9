@@ -58,6 +58,7 @@ import { TicketingTemplateAddComponent } from './template/add/add.component';
 import { TicketingTemplateEditComponent } from './template/edit/edit.component';
 import { TicketingTemplateListComponent } from './template/list/list.component';
 import { TicketingTemplateSelectorComponent } from './template/selector/selector.component';
+import { TicketingDepartemenOperatorTreeComponent } from './departemenOperator/tree/tree.component';
 
 
 
@@ -94,6 +95,7 @@ import { TicketingTemplateSelectorComponent } from './template/selector/selector
     TicketingDepartemenOperatorAddComponent,
     TicketingDepartemenOperatorEditComponent,
     TicketingDepartemenOperatorSelectorComponent,
+    TicketingDepartemenOperatorTreeComponent,
     /* */
     TicketingAnswerListComponent,
     TicketingAnswerAddComponent,

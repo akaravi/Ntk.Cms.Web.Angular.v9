@@ -403,6 +403,7 @@ export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyS
     this.contractDataModel.linkEstateContractTypeId = this.contractTypeSelected.id;
   }
   onFormSubmit(): void {
+
     if (!this.formGroup.valid) {
       return;
     }

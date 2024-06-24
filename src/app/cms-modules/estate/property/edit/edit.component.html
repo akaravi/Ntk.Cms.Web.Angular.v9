@@ -900,7 +900,7 @@
               [disabled]="!vform.form.valid || !connectionStatus.internetConnection">
               {{'ACTION.SAVE' | translate}}
             </button>
-            <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
               [disabled]="!vform.form.valid" (click)="onFormSubmitAndMessage()" *ngIf="this.tokenHelper.isAdminSite">
               {{'ACTION.Send_Message' | translate}}
             </button>

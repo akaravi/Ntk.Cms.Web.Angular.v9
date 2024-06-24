@@ -81,7 +81,7 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
     const pName = this.constructor.name + 'main';
     this.loading.Start(pName);
 
-    this.categoryService.ServiceGetAll(this.filterModel).subscribe(
+    this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           this.dataModelResult = ret;
@@ -93,8 +93,8 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
       error: (err) => {
         this.cmsToastrService.typeError(err);
         this.loading.Stop(pName);
-
       }
+    }
     );
   }
   onActionSelect(model: TicketingDepartemenOperatorModel): void {

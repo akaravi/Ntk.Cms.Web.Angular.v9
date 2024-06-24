@@ -34,7 +34,7 @@
             class="cms-m-form-textarea"></textarea>
         </div>
         <div class="cms-m-container-footer">
-          <button class="cms-m-button" [disabled]="!dataModel.title || dataModel.title.length < 3"
+          <button type="button" class="cms-m-button" [disabled]="!dataModel.title || dataModel.title.length < 3"
             (click)="onActoinSelectStepNext('activityStatus')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -61,17 +61,17 @@
           </button>
         </div>
         <div class="cms-m-container-footer">
-          <button class="cms-m-button" (click)="onActoinSelectStepNext('selectDate')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepNext('selectDate')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
             <span>بعدی</span>
           </button>
-          <button class="cms-m-button" (click)="onFormSubmit()">
+          <button type="button" class="cms-m-button" (click)="onFormSubmit()">
             <span>ثبت</span>
           </button>
-          <button class="cms-m-button" (click)="onActoinSelectStepBefor('title')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepBefor('title')">
             <span>قبلی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -123,17 +123,17 @@
           </div>
         </div>
         <div class="cms-m-container-footer">
-          <button class="cms-m-button" (click)="onActoinSelectStepNext('grouping')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepNext('grouping')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
             <span>بعدی</span>
           </button>
-          <button class="cms-m-button" (click)="onFormSubmit()">
+          <button type="button" class="cms-m-button" (click)="onFormSubmit()">
             <span>ثبت</span>
           </button>
-          <button class="cms-m-button" (click)="onActoinSelectStepBefor('activityStatus')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepBefor('activityStatus')">
             <span>قبلی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -163,17 +163,17 @@
         </div>
 
         <div class="cms-m-container-footer">
-          <button class="cms-m-button" (click)="onActoinSelectStepNext('estate')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepNext('estate')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
             <span>بعدی</span>
           </button>
-          <button class="cms-m-button" (click)="onFormSubmit()">
+          <button type="button" class="cms-m-button" (click)="onFormSubmit()">
             <span>ثبت</span>
           </button>
-          <button class="cms-m-button" (click)="onActoinSelectStepBefor('selectDate')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepBefor('selectDate')">
             <span>قبلی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -218,17 +218,17 @@
             [style.direction]="this.tokenHelper.directionTheme"></app-estate-customer-order-selector>
         </div>
         <div class="cms-m-container-footer">
-          <button class="cms-m-button" (click)="onActoinSelectStepNext('chooseFile')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepNext('chooseFile')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
             <span>بعدی</span>
           </button>
-          <button class="cms-m-button" (click)="onFormSubmit()">
+          <button type="button" class="cms-m-button" (click)="onFormSubmit()">
             <span>ثبت</span>
           </button>
-          <button class="cms-m-button" (click)="onActoinSelectStepBefor('grouping')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepBefor('grouping')">
             <span>قبلی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -254,10 +254,10 @@
           </app-cms-files-selector>
         </div>
         <div class="cms-m-container-footer">
-          <button class="cms-m-button" (click)="onFormSubmit()">
+          <button type="button" class="cms-m-button" (click)="onFormSubmit()">
             <span>ثبت</span>
           </button>
-          <button class="cms-m-button" (click)="onActoinSelectStepBefor('estate')">
+          <button type="button" class="cms-m-button" (click)="onActoinSelectStepBefor('estate')">
             <span>قبلی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">

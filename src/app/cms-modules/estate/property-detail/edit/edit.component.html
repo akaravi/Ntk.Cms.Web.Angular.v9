@@ -220,7 +220,7 @@
         <mat-chip-grid #chipList aria-label="'TITLE.key_word'|translate">
           <mat-chip *ngFor="let item of keywordDefaultDataModel" (removed)="removeTagDefault(item)">
             {{item}}
-            <button matChipRemove>
+            <button  type="button" matChipRemove>
               <mat-icon>cancel</mat-icon>
             </button>
           </mat-chip>
@@ -236,7 +236,7 @@
         <mat-chip-grid #chipList aria-label="'TITLE.key_word'|translate">
           <mat-chip *ngFor="let item of keywordNullDataModel" (removed)="removeTagNull(item)">
             {{item}}
-            <button matChipRemove>
+            <button  type="button" matChipRemove>
               <mat-icon>cancel</mat-icon>
             </button>
           </mat-chip>

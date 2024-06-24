@@ -13,7 +13,7 @@
     <div class="accordion" id="accordion-{{departemenItem.id}}">
       <ng-container *ngFor="let faqItem of dataModelResult.listItems">
         <div *ngIf="faqItem.linkTicketingDepartemenId===departemenItem.id" class="mb-0">
-          <button class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+          <button type="button" class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
             [attr.data-bs-target]="'#collapse'+faqItem.id">
             <i class="fa fa-cloud color-yellow-dark me-2"></i>
             {{faqItem.question}}

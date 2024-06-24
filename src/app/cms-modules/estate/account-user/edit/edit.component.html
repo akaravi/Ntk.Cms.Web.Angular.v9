@@ -308,10 +308,9 @@
               </div>
             </div>
           </div>
-          <button class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
             (click)="onActionDataGetAddGroup()"
-            *ngIf="this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId && this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId.length>0"
-            type="button">&#x2b;
+            *ngIf="this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId && this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId.length>0">&#x2b;
           </button>
           <app-progress-spinner [options]="loadingOption">
           </app-progress-spinner>
@@ -370,7 +369,7 @@
               <ng-container matColumnDef="Action">
                 <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
                 <mat-cell *matCellDef="let row" class='Action'>
-                  <button mat-icon-button
+                  <button  type="button" mat-icon-button
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
                     <small (click)="onActionDataGetDeleteGroup(row)">
                       <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before"
@@ -403,7 +402,7 @@
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
         </button>
-        <button type="submit"  [disabled]="!vform.form.valid"
+        <button type="submit" [disabled]="!vform.form.valid"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
           <i class="fa fa-check-square-o"></i>
           {{ "ACTION.SAVE" | translate }}

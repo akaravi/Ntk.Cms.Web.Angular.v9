@@ -31,7 +31,7 @@
             </svg>
             <span>{{'ACTION.CANCEL' | translate}}</span>
           </button>
-          <button *ngIf="dataModel?.contactMobiles?.length>0 && regeMobile.test(dataModel.contactMobiles)"
+          <button type="button" *ngIf="dataModel?.contactMobiles?.length>0 && regeMobile.test(dataModel.contactMobiles)"
             (click)="onActoinSelectStepNext('orderType')" class="cms-m-button">
             <span>بعدی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -71,7 +71,7 @@
             </svg>
             <span>قبلی</span>
           </button>
-          <button *ngIf="dataModel?.linkContractTypeId?.length>0"
+          <button type="button" *ngIf="dataModel?.linkContractTypeId?.length>0"
             (click)="onActoinSelectStepNext('selectPropertyTypeUsage')" class="cms-m-button">
             <span>بعدی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -113,7 +113,7 @@
             </svg>
             <span>قبلی</span>
           </button>
-          <button *ngIf="dataModel?.linkPropertyTypeUsageId?.length>0"
+          <button type="button" *ngIf="dataModel?.linkPropertyTypeUsageId?.length>0"
             (click)="onActoinSelectStepNext('selectPropertyTypeLanduse');" class="cms-m-button">
             <span>بعدی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -153,7 +153,7 @@
             </svg>
             <span>قبلی</span>
           </button>
-          <button *ngIf="dataModel?.linkPropertyTypeLanduseId?.length>0" (click)="onActoinSelectStepNext('selectYear')"
+          <button type="button" *ngIf="dataModel?.linkPropertyTypeLanduseId?.length>0" (click)="onActoinSelectStepNext('selectYear')"
             class="cms-m-button">
             <span>بعدی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
