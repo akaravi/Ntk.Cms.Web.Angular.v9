@@ -72,6 +72,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     'CreatedDate',
     // 'Action',
     "LinkTo",
+    "action_menu"
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
@@ -79,6 +80,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     'Title',
     // 'Action',
     "LinkTo",
+    "action_menu"
   ];
 
   cmsApiStoreSubscribe: Subscription;

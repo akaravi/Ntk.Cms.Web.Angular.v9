@@ -36,6 +36,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   actionScrollIntoViewRun = false;
   public tableRowSelectDoubleClick = false;
   public tableRowSelect3Click = false;
+  public tableRowSelectActionMenuClick = false;
   requestRecordStatus: RecordStatusEnum;
   onActionTableRowSelect(row: TModel): void {
     this.clickCount++;
@@ -96,6 +97,12 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
       return;
     if (!this.tableRowSelected || this.tableRowSelected.id !== row.id)
       row["expanded"] = false;
+  }
+  onActionTableRowSelectActionMenu(row: TModel): void {
+    this.onActionTableRowSelect(row);
+    setTimeout(() => {
+      this.tableRowSelectActionMenuClick = true;
+    }, 1000);
   }
   onActionButtonMemo(): void {
     //open popup

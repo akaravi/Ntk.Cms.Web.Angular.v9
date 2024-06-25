@@ -21,6 +21,7 @@ export class CmsHtmlListComponent implements OnInit {
   lastSelectId: number | string;
   @Input()
   public set optionActionRowId(id: number | string) {
+
     if (typeof id === 'number' && id > 0) {
       this.optionActionRowDisplay = true;
     } else if (typeof id === 'string' && id.length > 0) {
@@ -40,6 +41,7 @@ export class CmsHtmlListComponent implements OnInit {
   }
   @Input()
   public set optionActionRowDisplayMenu(status: boolean) {
+
     if (this.optionActionRowDisplay && status)
       this.viewMenuItemRow = true;
     else

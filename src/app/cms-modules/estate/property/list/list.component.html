@@ -27,8 +27,9 @@
   (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
   (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
   [optionLoading]="loading" [optionTreeDisplay]="requestLinkPropertyTypeLanduseId?.length===0"
-  [optionActionRowDisplay]="tableRowSelected?.id?.length>0?true:false" [optionActionRowId]="tableRowSelected?.id"
-  [optionActionRowDisplayMenu]="tableRowSelect3Click" [optionSelectRowItemTitle]="tableRowSelected?.title">
+  [optionActionRowId]="tableRowSelected?.id"
+  [optionActionRowDisplayMenu]="tableRowSelect3Click || tableRowSelectActionMenuClick"
+  [optionSelectRowItemTitle]="tableRowSelected?.title">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-estate-property-type-landuse-tree (optionChange)="onActionSelectorSelect($event)">
