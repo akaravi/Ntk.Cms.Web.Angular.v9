@@ -2,11 +2,9 @@ import { ChangeDetectorRef } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { environment } from 'src/environments/environment';
+import { ProcessInfoModel } from './ProcessInfoModel';
 
-export class ProcessInfoModel {
-  inRun = false;
-  title = '';
-}
+
 export class ProgressSpinnerModel {
   constructor() {
     /** GUID */
@@ -14,7 +12,6 @@ export class ProgressSpinnerModel {
     /** GUID */
     this.consoleLog = environment.ProgressConsoleLog;
     this.mode = "indeterminate";
-    console.log('ProgressSpinnerModel');
   }
   /** GUID */
   private S4(): string {

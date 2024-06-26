@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
+import { ProcessInfoModel } from '../models/ProcessInfoModel';
 
 
 export type ThemeModeType = 'dark' | 'light' | 'system';
@@ -13,14 +14,26 @@ const themeHighLightLSKey = 'theme_highlight';
   providedIn: 'root',
 })
 export class ThemeService {
-  constructor(private cmsStoreService: CmsStoreService,) {
+  constructor(
+    private cmsStoreService: CmsStoreService,
+    //private cdr: ChangeDetectorRef
+  ) {
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    if (storeSnapshot.processInfoStore)
+      this.processInfo = storeSnapshot.processInfoStore;
 
+    if (storeSnapshot.themeStore)
+      this.themeStore = storeSnapshot.themeStore;
   }
 
   public onInitAppComponent() {
     this.cmsStoreService.getState().subscribe((value) => {
+      if (value.processInfoStore)
+        this.processInfo = value.processInfoStore;
+
       if (value.themeStore)
         this.themeStore = value.themeStore;
+
       if (value.themeStore?.themeMode) {
         setTimeout(() => {
           this.updateModeHtmlDom(value.themeStore.themeMode);
@@ -216,4 +229,30 @@ export class ThemeService {
       this.cmsStoreService.setState({ themeStore: this.themeStore });
     }
   }
+  /*
+  /process info
+  /
+  */
+  public processInfo = new Map<string, ProcessInfoModel>()
+  public processStart(key: string, title: string = ' '): void {
+    let model = new ProcessInfoModel();
+    model.inRun = true;
+    model.title = title;
+    this.processInfo.set(key, model);
+    this.cmsStoreService.setState({ processInfoStore: this.processInfo });
+  }
+  public processStop(key: string): void {
+    let model = this.processInfo.get(key);
+    if (!model) {
+      model = new ProcessInfoModel();
+    }
+    model.inRun = false;
+    this.processInfo.set(key, model);
+    this.cmsStoreService.setState({ processInfoStore: this.processInfo });
+  }
+
+  /*
+  /process info
+  /
+  */
 }
