@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
@@ -10,6 +11,7 @@ export class MenuFooterComponent implements OnInit {
 
   constructor(
     private themeService: ThemeService,
+    public publicHelper: PublicHelper
 
   ) { }
 

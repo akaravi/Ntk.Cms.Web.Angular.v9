@@ -61,6 +61,7 @@ export class MenuMainComponent implements OnInit {
   ngOnInit(): void { }
   ngOnDestroy() {
     this.cmsApiStoreSubscribe.unsubscribe();
+
   }
   DataGetCpMenu(): void {
     const pName = this.constructor.name + 'main';

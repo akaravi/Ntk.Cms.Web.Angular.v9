@@ -2,7 +2,10 @@
 <div [ngClass]="themeStore.dataMenu==='menu-main'?'menu-active':''" class="menu menu-box-right rounded-0"
   data-menu-width="280" data-menu-active="nav-pages">
 
-  <div class="card rounded-0 bg-6" data-card-height="150">
+  <div class="card rounded-0" data-card-height="150" style="background-repeat: no-repeat;background-size: contain;"
+    [ngStyle]="{'background-image': this.tokenInfo?.linkMainImageIdSrc?.length>0?'url('+this.tokenInfo?.linkMainImageIdSrc+')':'url(../images/pictures/17.jpg)'}">
+
+
     <div class="card-top">
       <a (click)="themeStore.dataMenu=''" class="close-menu float-end me-2 text-center mt-3 icon-40 notch-clear"><i
           class="fa fa-times color-white"></i></a>
@@ -93,8 +96,7 @@
       </div>
     </a>
 
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components"
-      (click)="onActionLogout()" style="cursor: pointer;">
+    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionLogout()" style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-red"></i>
       <span>خروج</span>
       <!-- <i class="fa fa-angle-left"></i> -->

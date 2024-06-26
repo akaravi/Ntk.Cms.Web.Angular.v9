@@ -103,6 +103,7 @@ export class PublicHelper {
     ]
 
   };
+  env = environment;
   editorConfigFull: AngularEditorConfig = {
     editable: true,
     spellcheck: false,

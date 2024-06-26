@@ -26,7 +26,7 @@ export class HeaderBarComponent implements OnInit {
 
   constructor(
     public tokenHelper: TokenHelper,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private themeService: ThemeService,
     private pageInfoService: PageInfoService,
     private cdr: ChangeDetectorRef,
