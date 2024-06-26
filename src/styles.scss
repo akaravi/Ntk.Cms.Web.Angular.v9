@@ -44,7 +44,7 @@
 .mat-option {
   word-wrap: break-word !important;
   white-space: normal !important;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "IRANYekan", Times, serif;
 }
 
 .mat-option-text {
@@ -58,13 +58,23 @@
 .mat-mdc-dialog-container .mdc-dialog__surface {
   box-shadow: none !important;
 }
+
 @keyframes jump {
-  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+  0% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+
   //40%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
-  40%  {transform: translate3d(1%,1%,0) scale3d(1.01,1.01,1.01);}
+  40% {
+    transform: translate3d(1%, 1%, 0) scale3d(1.01, 1.01, 1.01);
+  }
+
   //100% {transform: translate3d(0,100%,0) scale3d(1.5,.7,1);}
-  100% {transform: translate3d(2%,2%,0) scale3d(1.02,1.02,1.02);}
+  100% {
+    transform: translate3d(2%, 2%, 0) scale3d(1.02, 1.02, 1.02);
+  }
 }
+
 .jump {
   transform-origin: 50% 50%;
   animation: jump .5s linear alternate infinite;
