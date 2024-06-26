@@ -2,8 +2,8 @@
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
   [optionLoading]="loading" [optionTreeDisplay]="true && optionloadByRoute" [optionActionRowId]="tableRowSelected?.id"
-  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick || tableRowSelectActionMenuClick"
-  [optionSelectRowItemTitle]="tableRowSelected?.title">
+  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+  [optionActionRowDisplayMenuAct]="tableRowSelectActionMenuClick" [optionSelectRowItemTitle]="tableRowSelected?.title">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-estate-customer-category-tree [(optionLoading)]="loading" (optionChange)="onActionSelectorSelect($event)">

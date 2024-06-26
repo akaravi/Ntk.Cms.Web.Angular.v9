@@ -101,7 +101,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   onActionTableRowSelectActionMenu(row: TModel): void {
     this.onActionTableRowSelect(row);
     setTimeout(() => {
-      this.tableRowSelectActionMenuClick = true;
+      this.tableRowSelectActionMenuClick = !this.tableRowSelectActionMenuClick;
     }, 1000);
   }
   onActionButtonMemo(): void {

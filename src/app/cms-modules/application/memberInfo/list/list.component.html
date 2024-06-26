@@ -3,8 +3,8 @@
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
   (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading"
   [optionTreeDisplay]="requestLinkApplicationId===0" [optionActionRowId]="tableRowSelected?.id"
-  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick || tableRowSelectActionMenuClick"
-  [optionSelectRowItemTitle]="tableRowSelected?.id">
+  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+  [optionActionRowDisplayMenuAct]="tableRowSelectActionMenuClick" [optionSelectRowItemTitle]="tableRowSelected?.id">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-application-app-tree (optionChange)="onActionSelectorSelect($event)"></app-application-app-tree>
