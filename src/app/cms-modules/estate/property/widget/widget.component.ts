@@ -11,7 +11,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
   selector: 'app-estate-property-widget',
-  templateUrl: './widget.component.html'
+  templateUrl: './widget.component.html',
+
 })
 
 export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
@@ -143,9 +144,13 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
-      this.loading.Stop(this.constructor.name + 'All');
+
       this.chartOptions.series = series;
       this.chartOptions.labels = labels;
+      this.cdr.markForCheck();
+      this.loading.Stop(this.constructor.name + 'All');
+
+
     });
 
   }

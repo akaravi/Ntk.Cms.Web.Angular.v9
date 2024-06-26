@@ -162,9 +162,11 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
-      this.loading.Stop(this.constructor.name + 'All');
+
       this.chartOptions.series = series;
       this.chartOptions.labels = labels;
+      this.loading.Stop(this.constructor.name + 'All');
+      this.cdr.detectChanges();
     });
 
   }

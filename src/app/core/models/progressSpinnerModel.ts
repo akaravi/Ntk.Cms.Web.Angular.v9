@@ -14,6 +14,7 @@ export class ProgressSpinnerModel {
     /** GUID */
     this.consoleLog = environment.ProgressConsoleLog;
     this.mode = "indeterminate";
+    console.log('ProgressSpinnerModel');
   }
   /** GUID */
   private S4(): string {
