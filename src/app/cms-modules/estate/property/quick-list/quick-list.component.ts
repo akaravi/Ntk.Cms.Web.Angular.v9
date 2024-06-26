@@ -220,17 +220,17 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     "CaseCode",
     "CreatedDate",
     "UpdatedDate",
-    // "Action",
     "LinkTo",
     "QuickView",
+    'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     "LinkMainImageIdSrc",
     "CaseCode",
     "IsSoldIt",
-    // 'Action',
     "LinkTo",
     "QuickView",
+    'action_menu',
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<
     string,

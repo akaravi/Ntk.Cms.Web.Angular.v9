@@ -22,7 +22,7 @@ import { EstatePropertySupplierDeleteComponent } from '../delete/delete.componen
 @Component({
   selector: 'app-estate-property-supplier-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class EstatePropertySupplierListComponent extends ListBaseComponent<EstatePropertySupplierService, EstatePropertySupplierModel, string> implements OnInit, OnDestroy {
   requestLinkProjectId = '';
@@ -71,8 +71,8 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     'mainAdminRecordStatus',
     'Title',
     'CreatedDate',
-    // 'Action',
     'LinkTo',
+    'action_menu',
   ];
 
   cmsApiStoreSubscribe: Subscription;

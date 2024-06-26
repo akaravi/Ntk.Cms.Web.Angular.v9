@@ -84,7 +84,7 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
     'StatusNotStableActive',
     'StatusNotStableExpire',
     'StatusNotStableCount',
-    // 'Action'
+    'action_menu',
   ];
 
   expandedElement: SmsLogApiPathModel | null;

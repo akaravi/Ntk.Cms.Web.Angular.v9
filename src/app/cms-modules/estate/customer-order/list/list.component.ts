@@ -99,15 +99,15 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     'scoreLiquidityPower',
     'scorePurchasingPower',
     "CaseCode",
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Title',
     'RecordStatus',
     "CaseCode",
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
 
   expandedElement: EstateCustomerOrderModel | null;

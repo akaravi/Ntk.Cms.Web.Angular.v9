@@ -70,7 +70,6 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     'ViewCount',
     'Title',
     'CreatedDate',
-    // 'Action',
     "LinkTo",
     "action_menu"
   ];
@@ -78,7 +77,6 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     'LinkMainImageIdSrc',
     'RecordStatus',
     'Title',
-    // 'Action',
     "LinkTo",
     "action_menu"
   ];

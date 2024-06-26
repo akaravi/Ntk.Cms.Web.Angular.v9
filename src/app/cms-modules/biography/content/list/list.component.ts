@@ -26,7 +26,6 @@ import { BiographyContentDeleteComponent } from '../delete/delete.component';
 @Component({
   selector: 'app-biography-content-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class BiographyContentListComponent extends ListBaseComponent<BiographyContentService, BiographyContentModel, number> implements OnInit, OnDestroy {
   constructor(
@@ -62,8 +61,8 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     'Title',
     'CreatedDate',
     'UpdatedDate',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
 
   cmsApiStoreSubscribe: Subscription;

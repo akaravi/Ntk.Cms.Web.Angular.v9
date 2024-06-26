@@ -84,7 +84,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     'email',
     'mobile',
     'CreatedDate',
-    // 'Action'
+    'action_menu',
   ];
 
 

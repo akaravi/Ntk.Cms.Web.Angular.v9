@@ -25,7 +25,7 @@ import { LinkManagementAccountingDetailEditComponent } from '../edit/edit.compon
 @Component({
   selector: 'app-linkmanagement-AccountingDetail-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class LinkManagementAccountingDetailListComponent extends ListBaseComponent<LinkManagementAccountingDetailService, LinkManagementAccountingDetailModel, number> implements OnInit, OnDestroy {
   requestLinkManagementAccountingId = 0;
@@ -68,7 +68,7 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
     'RecordStatus',
     'CreatedDate',
     'UpdatedDate',
-    // 'Action'
+    'action_menu',
   ];
 
 

@@ -22,7 +22,6 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-estate-billboard-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class EstateBillboardListComponent extends ListBaseComponent<EstateBillboardService, EstateBillboardModel, string> implements OnInit, OnDestroy {
   constructor(
@@ -66,16 +65,16 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
     'Title',
     'SpeedView',
     'ReloadViewPerMin',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'Title',
     'SpeedView',
     'ReloadViewPerMin',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
 
 

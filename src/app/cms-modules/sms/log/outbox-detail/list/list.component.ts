@@ -81,7 +81,8 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
     'SenderNumber',
     'ReceiverNumber',
     'IsSended',
-    // 'Action'
+    'action_menu'
+
   ];
 
   expandedElement: SmsLogOutBoxDetailModel | null;

@@ -27,7 +27,6 @@ import { CoreSiteUserEditComponent } from '../userEdit/userEdit.component';
 @Component({
   selector: 'app-core-site-user-list',
   templateUrl: './userList.component.html',
-  styleUrls: ["./userlist.component.scss"],
 })
 export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserService, CoreSiteUserModel, number>
   implements OnInit, OnDestroy {
@@ -111,7 +110,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     'virtual_CmsSite.title',
     'virtual_CmsSite.domain',
     'virtual_CmsSite.subDomain',
-    // 'Action'
+    'action_menu',
   ];
 
 

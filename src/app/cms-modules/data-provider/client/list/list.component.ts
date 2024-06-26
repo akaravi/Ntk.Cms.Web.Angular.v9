@@ -25,7 +25,6 @@ import { DataProviderClientEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-data-provider-client-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class DataProviderClientListComponent extends ListBaseComponent<DataProviderClientService, DataProviderClientModel, number>
   implements OnInit, OnDestroy {
@@ -64,7 +63,7 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     'Id',
     'RecordStatus',
     'Title',
-    // 'Action'
+    'action_menu',
   ];
 
 

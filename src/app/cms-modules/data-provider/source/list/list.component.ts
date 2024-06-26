@@ -25,7 +25,6 @@ import { DataProviderSourceEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-data-provider-source-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class DataProviderSourceListComponent extends ListBaseComponent<DataProviderSourceService, DataProviderSourceModel, number>
   implements OnInit, OnDestroy {
@@ -66,7 +65,7 @@ export class DataProviderSourceListComponent extends ListBaseComponent<DataProvi
     'Description',
     'HashMd5',
     'KeyCode',
-    // 'Action'
+    'action_menu',
   ];
 
 

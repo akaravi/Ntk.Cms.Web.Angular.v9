@@ -24,7 +24,7 @@ import { MemberGroupEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-member-group-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class MemberGroupListComponent extends ListBaseComponent<MemberGroupService, MemberGroupModel, number> implements OnInit, OnDestroy {
   constructor(
@@ -57,7 +57,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     'RecordStatus',
     'Title',
     'CreatedDate',
-    // 'Action',
+    'action_menu',
   ];
 
   cmsApiStoreSubscribe: Subscription;

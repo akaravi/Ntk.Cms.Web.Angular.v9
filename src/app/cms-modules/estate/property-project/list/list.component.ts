@@ -22,7 +22,6 @@ import { EstatePropertyProjectDeleteComponent } from '../delete/delete.component
 @Component({
   selector: 'app-estate-property-project-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class EstatePropertyProjectListComponent extends ListBaseComponent<EstatePropertyProjectService, EstatePropertyProjectModel, string> implements OnInit, OnDestroy {
   constructor(
@@ -60,8 +59,8 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
     'mainAdminRecordStatus',
     'Title',
     'CreatedDate',
-    // 'Action',
     'LinkTo',
+    'action_menu',
   ];
 
   cmsApiStoreSubscribe: Subscription;

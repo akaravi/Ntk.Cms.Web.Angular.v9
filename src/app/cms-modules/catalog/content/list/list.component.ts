@@ -27,7 +27,6 @@ import { CatalogContentDeleteComponent } from '../delete/delete.component';
 @Component({
   selector: 'app-catalog-content-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class CatalogContentListComponent extends ListBaseComponent<CatalogContentService, CatalogContentModel, string>
   implements OnInit, OnDestroy {
@@ -70,8 +69,8 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     'Title',
     'CreatedDate',
     'UpdatedDate',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
 
 

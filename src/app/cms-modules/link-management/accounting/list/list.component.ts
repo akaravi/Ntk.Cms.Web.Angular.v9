@@ -63,7 +63,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     'UpdatedDate',
     'Debtor',
     'Creditor',
-    // 'Action'
+    'action_menu',
   ];
 
 

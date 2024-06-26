@@ -17,7 +17,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-linkmanagement-member-selector',
   templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
+  
 })
 export class LinkManagementMemberSelectorComponent implements OnInit {
   static nextId = 0;

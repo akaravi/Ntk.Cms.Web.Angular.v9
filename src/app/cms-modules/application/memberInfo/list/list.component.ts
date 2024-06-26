@@ -26,7 +26,7 @@ import { ApplicationMemberInfoViewComponent } from '../view/view.component';
 @Component({
   selector: 'app-application-memberinfo-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class ApplicationMemberInfoListComponent extends ListBaseComponent<ApplicationMemberInfoService, ApplicationMemberInfoModel, string>
   implements OnInit, OnDestroy {
@@ -80,7 +80,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     'ScorePercent',
     'LinkApplicationId',
     'CreatedDate',
-    // 'Action'
+    'action_menu',
   ];
 
   expandedElement: ApplicationMemberInfoModel | null;

@@ -28,7 +28,6 @@ import { EstatePropertyCompanyDeleteComponent } from '../delete/delete.component
 @Component({
   selector: 'app-estate-property-company-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class EstatePropertyCompanyListComponent extends ListBaseComponent<EstatePropertyCompanyService, EstatePropertyCompanyModel, string> implements OnInit, OnDestroy {
   constructor(
@@ -70,8 +69,8 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
     'mainAdminRecordStatus',
     'Title',
     'CreatedDate',
-    // 'Action',
     'LinkTo',
+    'action_menu',
   ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   cmsApiStoreSubscribe: Subscription;

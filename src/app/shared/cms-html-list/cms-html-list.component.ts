@@ -41,11 +41,15 @@ export class CmsHtmlListComponent implements OnInit {
   }
   @Input()
   public set optionActionRowDisplayMenu(status: boolean) {
-
     if (this.optionActionRowDisplay && status)
       this.viewMenuItemRow = true;
     else
       this.viewMenuItemRow = false;
+  }
+  @Input()
+  public set optionActionRowDisplayMenuAct(status: boolean) {
+    if (this.optionActionRowDisplay)
+      this.viewMenuItemRow = true;
   }
   @Input() optionTitle = 'منوی عملیات';
   @Input() optionCategoryTitle = 'دسته بندی';

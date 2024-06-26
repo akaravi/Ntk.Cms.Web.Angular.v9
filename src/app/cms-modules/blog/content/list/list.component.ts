@@ -27,7 +27,6 @@ import { BlogContentDeleteComponent } from '../delete/delete.component';
 @Component({
   selector: 'app-blog-content-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class BlogContentListComponent extends ListBaseComponent<BlogContentService, BlogContentModel, number> implements OnInit, OnDestroy {
 
@@ -69,8 +68,8 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     'Title',
     'CreatedDate',
     'UpdatedDate',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
 
 

@@ -24,7 +24,7 @@ import { LinkManagementTargetBillboardLogEditComponent } from '../edit/edit.comp
 @Component({
   selector: 'app-linkmanagement-target-billboard-log-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class LinkManagementTargetBillboardLogListComponent extends ListBaseComponent<LinkManagementTargetBillboardLogService, LinkManagementTargetBillboardLogModel, string> implements OnInit, OnDestroy {
   requestLinkManagementBillboardId = 0;
@@ -81,7 +81,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
     'CreatedDate',
     'LinkManagementBillboardId',
     'LinkManagementTargetId',
-    // 'Action'
+    'action_menu',
   ];
 
 

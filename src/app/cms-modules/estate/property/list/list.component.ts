@@ -219,17 +219,17 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     "scoreEstatePrice",
     "CreatedDate",
     "UpdatedDate",
-    //"Action",
     "LinkTo",
     "QuickView",
+    'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     "LinkMainImageIdSrc",
     "CaseCode",
     "IsSoldIt",
-    //'Action',
     "LinkTo",
     "QuickView",
+    'action_menu',
   ];
 
   propertyDetails: Map<string, string> = new Map<string, string>();

@@ -27,7 +27,6 @@ import { ChartContentDeleteComponent } from '../delete/delete.component';
 @Component({
   selector: 'app-chart-content-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class ChartContentListComponent extends ListBaseComponent<ChartContentService, ChartContentModel, number>
   implements OnInit, OnDestroy {
@@ -65,8 +64,8 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
     'Title',
     'CreatedDate',
     'UpdatedDate',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
 
   cmsApiStoreSubscribe: Subscription;

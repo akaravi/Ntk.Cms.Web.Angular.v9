@@ -24,7 +24,7 @@ import { HyperShopContentViewComponent } from '../view/view.component';
 @Component({
   selector: 'app-hypershop-content-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+
 })
 export class HyperShopContentListComponent extends ListBaseComponent<HyperShopContentService, HyperShopContentModel, string> implements OnInit, OnDestroy {
   requestPareintId = '';
@@ -71,7 +71,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
     'Price',
     'SalePrice',
     'Discount',
-    // 'Action'
+    'action_menu',
   ];
 
   cmsApiStoreSubscribe: Subscription;

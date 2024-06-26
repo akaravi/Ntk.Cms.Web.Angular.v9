@@ -74,9 +74,8 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     'CurrentViewCount',
     'CurrentClickCount',
     'CreatedDate',
-    //'UpdatedDate',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
 
 

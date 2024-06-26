@@ -22,7 +22,6 @@ import { EstateAccountAgencyEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-estate-account-agency-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
 })
 export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAccountAgencyService, EstateAccountAgencyModel, string> implements OnInit, OnDestroy {
   requestLinkAccountUserId = '';
@@ -85,7 +84,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
     'Title',
     'LinkCmsUserId',
     'Description',
-    // 'Action',
+    'action_menu',
   ];
 
 

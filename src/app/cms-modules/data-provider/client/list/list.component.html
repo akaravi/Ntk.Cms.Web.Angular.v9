@@ -1,225 +1,236 @@
 <app-cms-html-list [optionGuideNoticeKey]="'dataprovider.client.list'"
-    [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
-    (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="true"
-    [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
-    [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">
-    <ng-container cms-tree>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
-        <app-data-provider-plan-tree (optionChange)="onActionSelectorSelect($event)"></app-data-provider-plan-tree>
+  [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="true"
+  [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+  [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">
+  <ng-container cms-tree>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
+    <app-data-provider-plan-tree (optionChange)="onActionSelectorSelect($event)"></app-data-provider-plan-tree>
 
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-tree-->
-    </ng-container>
-    <ng-container cms-header>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-tree-->
+  </ng-container>
+  <ng-container cms-header>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
 
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-    </ng-container>
-    <ng-container cms-action-header>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
-        <div class="d-flex justify-content-between flex-wrap">
-            <div class=" justify-content-end">
-                <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                    <mat-slide-toggle class="custom-slide-toggle"
-                        [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
-                    translate}}
-                </a>
-                <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                    <mat-slide-toggle (click)="onActionButtonStatist()">
-                    </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
-                </a>
-            </div>
-            <div class=" justify-content-start">
-                <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
-                    <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
-                </a>
-                <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    (click)="onActionButtonReload()" target="_blank">
-                    <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
+  </ng-container>
+  <ng-container cms-action-header>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
+    <div class="d-flex justify-content-between flex-wrap">
+      <div class=" justify-content-end">
+        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <mat-slide-toggle class="custom-slide-toggle"
+            [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
+          translate}}
+        </a>
+        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+          <mat-slide-toggle (click)="onActionButtonStatist()">
+          </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
+        </a>
+      </div>
+      <div class=" justify-content-start">
+        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
+          <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
+        </a>
+        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+          (click)="onActionButtonReload()" target="_blank">
+          <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
 
-                </a>
-            </div>
-        </div>
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
-    </ng-container>
-    <ng-container cms-action-main>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
-        <div *ngIf="dataModelResult?.access?.accessAddRow" class="col-4">
-            <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
-                (click)="onActionButtonNewRow()" target="_blank">
-                <i class="fa-solid fa-plus font-18" style="color: #FFFFFF;"></i>
-                <br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.ADD' |
-                translate}}</p>
-        </div>
+        </a>
+      </div>
+    </div>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
+  </ng-container>
+  <ng-container cms-action-main>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
+    <div *ngIf="dataModelResult?.access?.accessAddRow" class="col-4">
+      <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal"
+        (click)="onActionButtonNewRow()" target="_blank">
+        <i class="fa-solid fa-plus font-18" style="color: #FFFFFF;"></i>
+        <br>
+      </a>
+      <p class="font-11 text-center opacity-70">{{'ACTION.ADD' |
+        translate}}</p>
+    </div>
 
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
-    </ng-container>
-    <ng-container cms-action-row>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-        <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
-            <a mat-menu-item (click)="onActionButtonEditRow(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i
-                    class=" fa-solid fa-pen font-18" style="color: #FFFFFF;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
-        </div>
-        <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
-            <a (click)="onActionButtonDeleteRow(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i
-                    class="fa-solid fa-trash font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
-        </div>
-        <div *ngIf="dataModelResult?.access?.accessWatchRow" class="col-4">
-            <a mat-menu-item (click)="onActionButtonTransactionList(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-circle-dollar font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.TRANSACTIONS' | translate}}</p>
-        </div>
-        <div class="col-4">
-            <a mat-menu-item (click)="onActionButtonClientCreditAccountRow(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-cart-shopping font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">client charge</p>
-        </div>
-        <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
-            <a mat-menu-item (click)="onActionButtonDataRow(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-database font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.DATA' | translate}}</p>
-        </div>
-        <div *ngIf="dataModelResult?.access?.accessWatchRow" class="col-4">
-            <a mat-menu-item (click)="onActionButtonClientList(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-people font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.CLIENT' | translate}}</p>
-        </div>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
+  </ng-container>
+  <ng-container cms-action-row>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
+    <div *ngIf="dataModelResult?.access?.accessEditRow" class="col-4">
+      <a mat-menu-item (click)="onActionButtonEditRow(tableRowSelected)"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta" target="_blank"><i
+          class=" fa-solid fa-pen font-18" style="color: #FFFFFF;"></i><br>
+      </a>
+      <p class="font-11 text-center opacity-70">{{'ACTION.EDIT' | translate}}</p>
+    </div>
+    <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
+      <a (click)="onActionButtonDeleteRow(tableRowSelected)"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red" target="_blank"><i
+          class="fa-solid fa-trash font-18" style="color: #ffffff;"></i><br>
+      </a>
+      <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
+    </div>
+    <div *ngIf="dataModelResult?.access?.accessWatchRow" class="col-4">
+      <a mat-menu-item (click)="onActionButtonTransactionList(tableRowSelected)"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
+          class="fa-solid fa-circle-dollar font-18" style="color: #ffffff;"></i><br>
+      </a>
+      <p class="font-11 text-center opacity-70">{{'ACTION.TRANSACTIONS' | translate}}</p>
+    </div>
+    <div class="col-4">
+      <a mat-menu-item (click)="onActionButtonClientCreditAccountRow(tableRowSelected)"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
+          class="fa-solid fa-cart-shopping font-18" style="color: #ffffff;"></i><br>
+      </a>
+      <p class="font-11 text-center opacity-70">client charge</p>
+    </div>
+    <div *ngIf="dataModelResult?.access?.accessDeleteRow" class="col-4">
+      <a mat-menu-item (click)="onActionButtonDataRow(tableRowSelected)"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
+          class="fa-solid fa-database font-18" style="color: #ffffff;"></i><br>
+      </a>
+      <p class="font-11 text-center opacity-70">{{'ACTION.DATA' | translate}}</p>
+    </div>
+    <div *ngIf="dataModelResult?.access?.accessWatchRow" class="col-4">
+      <a mat-menu-item (click)="onActionButtonClientList(tableRowSelected)"
+        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
+          class="fa-solid fa-people font-18" style="color: #ffffff;"></i><br>
+      </a>
+      <p class="font-11 text-center opacity-70">{{'ACTION.CLIENT' | translate}}</p>
+    </div>
 
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
-    </ng-container>
-    <ng-container cms-action-area>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
-        <app-cms-search-list [(options)]="optionsSearch"></app-cms-search-list>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
+  </ng-container>
+  <ng-container cms-action-area>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
+    <app-cms-search-list [(options)]="optionsSearch"></app-cms-search-list>
 
-        <app-cms-statist-list [(options)]="optionsStatist"></app-cms-statist-list>
+    <app-cms-statist-list [(options)]="optionsStatist"></app-cms-statist-list>
 
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
-    </ng-container>
-    <ng-container cms-body>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
-            multiTemplateDataRows>
-            <!-- LinkMainImageIdSrc Column -->
-            <ng-container matColumnDef="LinkMainImageIdSrc">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TITLE.PICTURE' | translate}} </mat-header-cell>
-                <mat-cell *matCellDef="let row">
-                    <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
-                        aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="40" width="40" />
-                </mat-cell>
-            </ng-container>
-            <!-- ID Column -->
-            <ng-container matColumnDef="Id">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['id']?.fieldTitle}} </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-            </ng-container>
-            <!-- LinkSiteId Column -->
-            <ng-container matColumnDef="LinkSiteId">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['linkSiteId']?.fieldTitle}}
-                </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.linkSiteId | cmssiteinfo |async}} </mat-cell>
-            </ng-container>
-            <!-- RecordStatus Column -->
-            <ng-container matColumnDef="RecordStatus">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['recordStatus']?.fieldTitle}}
-                </mat-header-cell>
-                <mat-cell *matCellDef="let row">
-                    <i [ngClass]="row.recordStatus|statusIconClass"></i>
-                    <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
-                        [contentService]="contentService" [row]="row" style="background: none; border: none;"
-                        [ngStyle]="{'display': row.id === tableRowSelected?.id ? '' : 'none' }">
-                    </select>
-                </mat-cell>
-            </ng-container>
-            <!-- Title Column -->
-            <ng-container matColumnDef="Title">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['title']?.fieldTitle}}
-                </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
-            </ng-container>
-            <!-- Action Column -->
-            <ng-container matColumnDef="Action">
-                <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
-                <mat-cell *matCellDef="let row" class='Action'>
-                    <!-- Action Menu -->
-                    <button  type="button" mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
-                        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-                        <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #actionMenu="matMenu">
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-area-->
+  </ng-container>
+  <ng-container cms-body>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+    <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
+      multiTemplateDataRows>
 
-                    </mat-menu>
-                </mat-cell>
-            </ng-container>
-            <!--expandedDetail-->
-            <ng-container matColumnDef="expandedDetail">
-                <mat-cell *matCellDef="let row">
-                    <div>
-                        <table>
-                            <tr>
-                                <th> <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
-                                        class="ntk-hover-zoom" aria-hidden
-                                        src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="80" width="80" /></th>
-                                <th>
-                                    {{row.id}}
-                                    <span class="navi-icon pointer" [cdkCopyToClipboard]="row.id"
-                                        (click)="onActionCopied()">
-                                        <i class="flaticon2-copy"></i></span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td> {{row.title}} </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
+      <!-- action_menu Column -->
+      <ng-container matColumnDef="action_menu">
+        <mat-header-cell *matHeaderCellDef> {{'TITLE.MENU' | translate}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button type="button" mat-icon-button aria-label="Action Menu"
+            (click)="onActionTableRowSelectActionMenu(row)">
+            <i class="fa fa-bars font-18"></i>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <!-- LinkMainImageIdSrc Column -->
+      <ng-container matColumnDef="LinkMainImageIdSrc">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TITLE.PICTURE' | translate}} </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+            aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="40" width="40" />
+        </mat-cell>
+      </ng-container>
+      <!-- ID Column -->
+      <ng-container matColumnDef="Id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['id']?.fieldTitle}} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+      </ng-container>
+      <!-- LinkSiteId Column -->
+      <ng-container matColumnDef="LinkSiteId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['linkSiteId']?.fieldTitle}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.linkSiteId | cmssiteinfo |async}} </mat-cell>
+      </ng-container>
+      <!-- RecordStatus Column -->
+      <ng-container matColumnDef="RecordStatus">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['recordStatus']?.fieldTitle}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <i [ngClass]="row.recordStatus|statusIconClass"></i>
+          <select matNativeControl cmsRecordStatusSelfSave *ngIf="dataModelResult?.access?.accessEditRow"
+            [contentService]="contentService" [row]="row" style="background: none; border: none;"
+            [ngStyle]="{'display': row.id === tableRowSelected?.id ? '' : 'none' }">
+          </select>
+        </mat-cell>
+      </ng-container>
+      <!-- Title Column -->
+      <ng-container matColumnDef="Title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['title']?.fieldTitle}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+      </ng-container>
+      <!-- Action Column -->
+      <ng-container matColumnDef="Action">
+        <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
+        <mat-cell *matCellDef="let row" class='Action'>
+          <!-- Action Menu -->
+          <button type="button" mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #actionMenu="matMenu">
 
-
-
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
-                </mat-cell>
-            </ng-container>
-            <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
-                (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-                [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
-            </mat-row>
-            <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowSelect(row)"
-                (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-                [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
-            </mat-row>
-        </mat-table>
+          </mat-menu>
+        </mat-cell>
+      </ng-container>
+      <!--expandedDetail-->
+      <ng-container matColumnDef="expandedDetail">
+        <mat-cell *matCellDef="let row">
+          <div>
+            <table>
+              <tr>
+                <th> <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
+                    class="ntk-hover-zoom" aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="80"
+                    width="80" /></th>
+                <th>
+                  {{row.id}}
+                  <span class="navi-icon pointer" [cdkCopyToClipboard]="row.id" (click)="onActionCopied()">
+                    <i class="flaticon2-copy"></i></span>
+                </th>
+              </tr>
+              <tr>
+                <td></td>
+                <td> {{row.title}} </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
 
 
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </ng-container>
-    <ng-container cms-footer>
-        <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <mat-paginator #paginator [length]="(dataModelResult.totalRowCount)"
-            [pageIndex]="(dataModelResult.currentPageNumber-1)" [pageSize]="dataModelResult.rowPerPage"
-            [pageSizeOptions]="[5, 10, 20, 100]" (page)="onTablePageingData($event)"></mat-paginator>
 
-        <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-    </ng-container>
+                </td>
+              </tr>
+
+            </table>
+          </div>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
+        (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+        [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
+      </mat-row>
+      <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowSelect(row)"
+        (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+        [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
+      </mat-row>
+    </mat-table>
+
+
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+  </ng-container>
+  <ng-container cms-footer>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <mat-paginator #paginator [length]="(dataModelResult.totalRowCount)"
+      [pageIndex]="(dataModelResult.currentPageNumber-1)" [pageSize]="dataModelResult.rowPerPage"
+      [pageSizeOptions]="[5, 10, 20, 100]" (page)="onTablePageingData($event)"></mat-paginator>
+
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+  </ng-container>
 </app-cms-html-list>

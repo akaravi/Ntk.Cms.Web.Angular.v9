@@ -25,7 +25,7 @@ import { LinkManagementMemberEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-linkmanagement-member-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class LinkManagementMemberListComponent extends ListBaseComponent<LinkManagementMemberService, LinkManagementMemberModel, number> implements OnInit, OnDestroy {
 
@@ -63,7 +63,7 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
     'UpdatedDate',
     'CurrentDebtor',
     'CurrentCreditor',
-    // 'Action'
+    'action_menu',
   ];
 
 

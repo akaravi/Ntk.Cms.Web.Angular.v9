@@ -147,8 +147,8 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     'AppointmentDateTo',
     'LinkActivityTypeId',
     'ActivityStatus',
-    // 'Action',
     'QuickView',
+    'action_menu',
   ];
 
 

@@ -23,7 +23,7 @@ import { PollingContentDeleteComponent } from '../delete/delete.component';
 @Component({
   selector: 'app-polling-content-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class PollingContentListComponent extends ListBaseComponent<PollingContentService, PollingContentModel, number> implements OnInit, OnDestroy {
 
@@ -61,7 +61,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
     'Title',
     'CreatedDate',
     'UpdatedDate',
-    // 'Action'
+    'action_menu',
   ];
 
 

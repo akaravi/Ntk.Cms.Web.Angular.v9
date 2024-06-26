@@ -3,7 +3,7 @@
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
   (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading"
   [optionTreeDisplay]="requestLinkApplicationId===0" [optionActionRowId]="tableRowSelected?.id"
-  [optionActionRowDisplayMenu]="tableRowSelect3Click || tableRowSelectActionMenuClick"
+  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick || tableRowSelectActionMenuClick"
   [optionSelectRowItemTitle]="tableRowSelected?.id">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
@@ -96,6 +96,18 @@
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
       multiTemplateDataRows>
+
+      <!-- action_menu Column -->
+      <ng-container matColumnDef="action_menu">
+        <mat-header-cell *matHeaderCellDef> {{'TITLE.MENU' | translate}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button type="button" mat-icon-button aria-label="Action Menu"
+            (click)="onActionTableRowSelectActionMenu(row)">
+            <i class="fa fa-bars font-18"></i>
+          </button>
+        </mat-cell>
+      </ng-container>
       <!-- ID Column -->
       <ng-container matColumnDef="Id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['id']?.fieldTitle}} </mat-header-cell>

@@ -86,7 +86,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     'LinkContractTypeId',
     'LinkCoreCurrencyId',
     'CreatedDate',
-    // 'Action'
+    'action_menu',
   ];
   dataModelInquiryResult: ErrorExceptionResultBase;
   dataModelInquiry: EstatePriceInquiryDtoModel = new EstatePriceInquiryDtoModel();

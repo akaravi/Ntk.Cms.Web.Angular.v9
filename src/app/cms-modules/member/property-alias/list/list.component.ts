@@ -24,7 +24,7 @@ import { MemberPropertyAliasEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-member-propertyalias-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+
 })
 export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPropertyAliasService, MemberPropertyAliasModel, number> implements OnInit, OnDestroy {
   constructor(
@@ -62,7 +62,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     'Address',
     'ViewCount',
     'CreatedDate',
-    // 'Action',
+    'action_menu',
   ];
 
   cmsApiStoreSubscribe: Subscription;

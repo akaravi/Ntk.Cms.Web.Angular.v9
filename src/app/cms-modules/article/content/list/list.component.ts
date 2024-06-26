@@ -25,7 +25,6 @@ import { ArticleContentDeleteComponent } from '../delete/delete.component';
 @Component({
   selector: 'app-article-content-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class ArticleContentListComponent extends ListBaseComponent<ArticleContentService, ArticleContentModel, number>
   implements OnInit, OnDestroy {
@@ -69,15 +68,15 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     'ViewCount',
     'Title',
     'CreatedDate',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'Title',
     'ViewCount',
-    // 'Action',
     "LinkTo",
+    'action_menu',
   ];
 
   cmsApiStoreSubscribe: Subscription;

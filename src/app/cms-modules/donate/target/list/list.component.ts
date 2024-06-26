@@ -25,7 +25,6 @@ import { DonateTargetEditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-donate-target-list',
   templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
 })
 export class DonateTargetListComponent extends ListBaseComponent<DonateTargetService, DonateTargetModel, number> implements OnInit, OnDestroy {
 
@@ -65,7 +64,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     'RecordStatus',
     'Title',
     'CreatedDate',
-    // 'Action'
+    'action_menu',
   ];
 
 
