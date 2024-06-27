@@ -44,7 +44,7 @@ export class CmsAuthGuard implements OnDestroy {
     }
     );
     while (!this.runSubscribe) {
-      await this.delay(1000);
+      await this.delay(10000);
     }
     if (tokenInfo && tokenInfo.userId > 0) {
       return true;

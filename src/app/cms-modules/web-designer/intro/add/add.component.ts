@@ -73,7 +73,7 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.webDesignerMainIntroService
       .ServiceAdd(this.dataModel)
       .subscribe({
@@ -87,10 +87,10 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorEdit(err);
         }

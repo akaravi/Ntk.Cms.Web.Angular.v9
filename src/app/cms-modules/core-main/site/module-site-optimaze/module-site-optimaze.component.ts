@@ -12,6 +12,7 @@ import {
   CoreEnumService, CoreSiteService, ErrorExceptionResult,
   FormInfoModel, ProcessModuleSiteDataOptimazeOutputModel
 } from 'ntk-cms-api';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -30,6 +31,7 @@ export class CoreSiteModuleSiteOptimazeComponent implements OnInit {
     public coreSiteService: CoreSiteService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
@@ -55,7 +57,7 @@ export class CoreSiteModuleSiteOptimazeComponent implements OnInit {
   }
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.coreSiteService.ServiceModuleDataOptimaze(this.requestLinkSiteId).subscribe({
       next: (ret) => {
@@ -64,11 +66,11 @@ export class CoreSiteModuleSiteOptimazeComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

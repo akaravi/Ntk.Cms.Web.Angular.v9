@@ -28,6 +28,7 @@ import { environment } from 'src/environments/environment';
 import { ChartCategoryAddComponent } from '../add/add.component';
 import { ChartCategoryDeleteComponent } from '../delete/delete.component';
 import { ChartCategoryEditComponent } from '../edit/edit.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -43,6 +44,7 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
   ) {
     this.loading.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
@@ -83,7 +85,7 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
@@ -93,12 +95,12 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

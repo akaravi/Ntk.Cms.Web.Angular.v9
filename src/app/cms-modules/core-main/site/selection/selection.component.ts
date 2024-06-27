@@ -15,6 +15,7 @@ import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class CoreSiteSelectionComponent implements OnInit {
     private coreSiteUserService: CoreSiteUserService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private router: Router,
     public translate: TranslateService,
   ) {
@@ -66,7 +68,7 @@ export class CoreSiteSelectionComponent implements OnInit {
   }
   DataGetAll(): void {
     const pName = this.constructor.name + 'ServiceGetAll';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.coreSiteUserService.ServiceGetAllSiteCurrentUser().subscribe({
       next: (ret) => {
@@ -92,12 +94,12 @@ export class CoreSiteSelectionComponent implements OnInit {
         else {
           this.cmsToastrService.typeError(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -115,13 +117,13 @@ export class CoreSiteSelectionComponent implements OnInit {
 
 
     const pName = this.constructor.name + '.ServiceRenewToken';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
       next: (res) => {
         if (res.isSuccess && res.item.siteId > 0) {
           this.cmsToastrService.typeSuccessSelected();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           setTimeout(() => this.router.navigate(['/']), 5000);
           /**Select Site */
           if (!this.lastSelectSiteId)
@@ -137,12 +139,12 @@ export class CoreSiteSelectionComponent implements OnInit {
           this.cmsToastrService.typeErrorSelected();
           this.formInfo.buttonSubmittedEnabled = true;
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
         this.formInfo.buttonSubmittedEnabled = true;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -155,7 +157,7 @@ export class CoreSiteSelectionComponent implements OnInit {
       authModel = new AuthRenewTokenModel();
 
       const pName = this.constructor.name + '.onActionAddFirstSite';
-      this.loading.Start(pName);
+      this.publicHelper.processService.processStart(pName);
 
       this.coreAuthService.ServiceRenewToken(authModel).subscribe({
         next: (ret) => {
@@ -163,11 +165,11 @@ export class CoreSiteSelectionComponent implements OnInit {
 
             setTimeout(() => this.router.navigate(['/dashboard/']), 5000);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

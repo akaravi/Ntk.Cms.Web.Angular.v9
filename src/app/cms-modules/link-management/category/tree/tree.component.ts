@@ -29,6 +29,7 @@ import { environment } from 'src/environments/environment';
 import { LinkManagementCategoryAddComponent } from '../add/add.component';
 import { LinkManagementCategoryDeleteComponent } from '../delete/delete.component';
 import { LinkManagementCategoryEditComponent } from '../edit/edit.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -45,6 +46,7 @@ export class LinkManagementCategoryTreeComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
   ) {
     this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
@@ -84,7 +86,7 @@ export class LinkManagementCategoryTreeComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
@@ -94,12 +96,12 @@ export class LinkManagementCategoryTreeComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

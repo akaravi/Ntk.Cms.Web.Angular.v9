@@ -69,7 +69,7 @@ export class MenuProfileComponent implements OnInit {
     }
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.loadingStatus = true;
     this.disabledAllow = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
@@ -89,13 +89,13 @@ export class MenuProfileComponent implements OnInit {
         } else {
           if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.loadingStatus = false;
         this.disabledAllow = false;
         if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -119,7 +119,7 @@ export class MenuProfileComponent implements OnInit {
     }
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.loadingStatus = true;
     this.disabledAllow = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
@@ -138,13 +138,13 @@ export class MenuProfileComponent implements OnInit {
         } else {
           if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.loadingStatus = false;
         this.disabledAllow = false;
         if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -174,7 +174,7 @@ export class MenuProfileComponent implements OnInit {
 
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.loadingStatus = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe(
       {
@@ -192,12 +192,12 @@ export class MenuProfileComponent implements OnInit {
           } else {
             if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
           this.loadingStatus = false;
           if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     );
@@ -227,7 +227,7 @@ export class MenuProfileComponent implements OnInit {
 
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.loadingStatus = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
       next: (ret) => {
@@ -244,7 +244,7 @@ export class MenuProfileComponent implements OnInit {
           this.inputSiteId = this.tokenInfo.siteId;
           if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.loadingStatus = false;
@@ -263,7 +263,7 @@ export class MenuProfileComponent implements OnInit {
   }
   async onActionLogout() {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Sign_out_of_user_account'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Sign_out_of_user_account'));
     this.cmsToastrService.typeOrderActionLogout();
 
     this.coreAuthService.ServiceLogout().subscribe({
@@ -275,12 +275,12 @@ export class MenuProfileComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorLogout();
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.loadingStatus = false;
         if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

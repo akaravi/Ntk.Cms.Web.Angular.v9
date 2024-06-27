@@ -44,7 +44,7 @@ export class ApplicationAppUploadUpdateComponent implements OnInit {
   DataGetAccess(): void {
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.applicationAppService
       .ServiceViewModel()
       .subscribe({
@@ -54,11 +54,11 @@ export class ApplicationAppUploadUpdateComponent implements OnInit {
           } else {
             this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -76,7 +76,7 @@ export class ApplicationAppUploadUpdateComponent implements OnInit {
       return;
     }
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.formInfo.formSubmitAllow = false;
     this.applicationAppService.ServiceUploadUpdate(this.dataModel).subscribe({
       next: (ret) => {
@@ -87,13 +87,13 @@ export class ApplicationAppUploadUpdateComponent implements OnInit {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorEdit(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     });
   }

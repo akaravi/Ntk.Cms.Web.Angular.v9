@@ -89,7 +89,7 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
     this.onActionTableRowSelect(new TicketingFaqModel());
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.filteModelContent.accessLoad = true;
@@ -113,11 +113,11 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
         else {
           this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

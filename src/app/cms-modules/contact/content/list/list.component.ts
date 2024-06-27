@@ -100,7 +100,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new ContactContentModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -128,13 +128,13 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -241,7 +241,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.loading.Start(pName);
+          this.publicHelper.processService.processStart(pName);
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
             next: (ret) => {
               if (ret.isSuccess) {
@@ -250,11 +250,11 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
               } else {
                 this.cmsToastrService.typeErrorRemove();
               }
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             }
           }
           );
@@ -276,7 +276,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -285,11 +285,11 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -307,11 +307,11 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

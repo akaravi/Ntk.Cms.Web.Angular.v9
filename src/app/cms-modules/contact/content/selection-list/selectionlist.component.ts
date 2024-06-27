@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } fro
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ContactContentModel, ContactContentService, CoreEnumService, ErrorExceptionResult, FilterModel } from 'ntk-cms-api';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -17,6 +18,7 @@ export class ContactContentSelectionlistComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public categoryService: ContactContentService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService) {
     this.loading.cdr = this.cdr;
@@ -52,7 +54,7 @@ export class ContactContentSelectionlistComponent implements OnInit {
 
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
@@ -69,12 +71,12 @@ export class ContactContentSelectionlistComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

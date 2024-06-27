@@ -20,6 +20,7 @@ import {
   FilterModel, RessellerChartModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -40,6 +41,7 @@ export class CoreUserResellerChartComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -91,7 +93,7 @@ export class CoreUserResellerChartComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetRessellerChart(this.requestLinkUserId).subscribe({
       next: (ret) => {
@@ -101,11 +103,11 @@ export class CoreUserResellerChartComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

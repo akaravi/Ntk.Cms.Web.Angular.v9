@@ -8,6 +8,7 @@ import {
 } from 'ntk-cms-api';
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -25,6 +26,7 @@ export class EstateAdsTypeSelectorComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public categoryService: EstateAdsTypeService) {
     this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
@@ -98,7 +100,7 @@ export class EstateAdsTypeSelectorComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(
@@ -113,7 +115,7 @@ export class EstateAdsTypeSelectorComponent implements OnInit {
             this.onActionSelect(this.dataModelResult.listItems[0]);
           }
           /*select First Item */
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           return response.listItems;
         });

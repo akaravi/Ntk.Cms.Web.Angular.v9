@@ -100,7 +100,7 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'DataGetOneContent';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Receive_categories_of_documents'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Receive_categories_of_documents'));
 
     this.coreUserClaimGroupService.setAccessLoad();
     this.coreUserClaimGroupService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -117,12 +117,12 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -132,7 +132,7 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Registration_of categories_of_documents'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Registration_of categories_of_documents'));
     this.coreUserClaimGroupService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
@@ -147,12 +147,12 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -224,7 +224,7 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'DataGetAllCoreUserClaimType'
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Receive_categories_of_documents'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Receive_categories_of_documents'));
 
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
@@ -247,11 +247,11 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

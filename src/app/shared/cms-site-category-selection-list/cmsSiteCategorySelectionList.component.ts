@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } fro
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreEnumService, CoreSiteCategoryModel, CoreSiteCategoryService, ErrorExceptionResult, FilterModel } from 'ntk-cms-api';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -17,6 +18,7 @@ export class CmsSiteCategorySelectionListComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public categoryService: CoreSiteCategoryService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
   ) {
@@ -59,7 +61,7 @@ export class CmsSiteCategorySelectionListComponent implements OnInit {
 
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
@@ -75,12 +77,12 @@ export class CmsSiteCategorySelectionListComponent implements OnInit {
           });
 
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

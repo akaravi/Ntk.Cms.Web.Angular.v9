@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   BankPaymentInjectOnlineTransactionDtoModel, BankPaymentInjectPaymentGotoBankStep2LandingSitePageModel, BankPaymentPrivateSiteConfigModel, BankPaymentPrivateSiteConfigService, CoreEnumService, ErrorExceptionResult, FormInfoModel
 } from 'ntk-cms-api';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
@@ -26,6 +27,7 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
     public bankPaymentPrivateSiteConfigService: BankPaymentPrivateSiteConfigService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
@@ -78,7 +80,7 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
     }
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.bankPaymentPrivateSiteConfigService.ServiceTestPay(this.dataModel).subscribe(
       {
@@ -95,13 +97,13 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
             this.formInfo.formError = ret.errorMessage;
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (err) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     );//).toPromise();

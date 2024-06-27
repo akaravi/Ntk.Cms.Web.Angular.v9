@@ -133,7 +133,7 @@ export class ContactConfigSiteComponent implements OnInit {
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceSiteStorage';
-    this.translate.get('MESSAGE.get_saved_module_values').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_saved_module_values').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
     this.configService
       .ServiceSiteStorage(SiteId)
@@ -146,12 +146,12 @@ export class ContactConfigSiteComponent implements OnInit {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetOne(er);
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -162,7 +162,7 @@ export class ContactConfigSiteComponent implements OnInit {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteStorageSave';
-    this.translate.get('MESSAGE.Save_the_stored_values_of_the_module').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Save_the_stored_values_of_the_module').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceSiteStorageSave(SiteId, this.dataSiteStorageModel)
       .subscribe({
@@ -174,12 +174,12 @@ export class ContactConfigSiteComponent implements OnInit {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -190,7 +190,7 @@ export class ContactConfigSiteComponent implements OnInit {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteConfig';
-    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceSiteConfig(SiteId)
       .subscribe({
@@ -201,12 +201,12 @@ export class ContactConfigSiteComponent implements OnInit {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -216,7 +216,7 @@ export class ContactConfigSiteComponent implements OnInit {
     this.translate.get('MESSAGE.Saving_Information_On_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceSiteConfigSave';
-    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
     this.configService
       .ServiceSiteConfigSave(SiteId, this.dataConfigSiteValuesModel)
@@ -228,12 +228,12 @@ export class ContactConfigSiteComponent implements OnInit {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -244,7 +244,7 @@ export class ContactConfigSiteComponent implements OnInit {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccess';
-    this.translate.get('MESSAGE.get_module_access').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_module_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
     this.configService
       .ServiceSiteAccess(SiteId)
@@ -256,12 +256,12 @@ export class ContactConfigSiteComponent implements OnInit {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -274,7 +274,7 @@ export class ContactConfigSiteComponent implements OnInit {
 
 
     const pName = this.constructor.name + 'ServiceSiteAccessSave';
-    this.translate.get('MESSAGE.Save_module_access').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Save_module_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
     this.configService
       .ServiceSiteAccessSave(SiteId, this.dataConfigSiteAccessValuesModel)
@@ -286,12 +286,12 @@ export class ContactConfigSiteComponent implements OnInit {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetOne(er);
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

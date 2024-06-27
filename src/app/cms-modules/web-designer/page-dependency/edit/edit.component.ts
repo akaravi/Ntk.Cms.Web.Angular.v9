@@ -68,7 +68,7 @@ export class WebDesignerMainPageDependencyEditComponent extends EditBaseComponen
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.webDesignerMainPageDependencyService.setAccessLoad();
     this.webDesignerMainPageDependencyService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.webDesignerMainPageDependencyService.ServiceGetOneById(this.requestId).subscribe({
@@ -83,11 +83,11 @@ export class WebDesignerMainPageDependencyEditComponent extends EditBaseComponen
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -96,7 +96,7 @@ export class WebDesignerMainPageDependencyEditComponent extends EditBaseComponen
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.webDesignerMainPageDependencyService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
@@ -110,12 +110,12 @@ export class WebDesignerMainPageDependencyEditComponent extends EditBaseComponen
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

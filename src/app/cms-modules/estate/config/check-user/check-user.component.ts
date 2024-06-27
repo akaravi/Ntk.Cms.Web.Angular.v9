@@ -76,12 +76,12 @@ export class EstateConfigCheckUserComponent implements OnInit, OnDestroy {
       return;
     }
     const pName = this.constructor.name + '.ServiceCheckUser';
-    this.loading.Start(pName, this.loading.message = this.translate.instant('TITLE.Check_account'));
+    this.publicHelper.processService.processStart(pName, this.loading.message = this.translate.instant('TITLE.Check_account'));
     this.configService
       .ServiceCheckUser(this.requestLinkUserId)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
           if (!ret.isSuccess) {
@@ -90,7 +90,7 @@ export class EstateConfigCheckUserComponent implements OnInit, OnDestroy {
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

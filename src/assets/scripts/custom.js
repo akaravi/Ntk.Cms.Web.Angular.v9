@@ -2,7 +2,7 @@
 setTimeout(function () {
   var preloader = document.getElementById('preloader')
   if (preloader) { preloader.classList.add('preloader-hide'); }
-}, 150);
+}, 15000);
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict'

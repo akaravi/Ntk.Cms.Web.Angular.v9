@@ -78,7 +78,7 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     /*َAccess Field*/
     this.applicationIntroService.setAccessLoad();
     this.applicationIntroService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -96,12 +96,12 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -111,7 +111,7 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.applicationIntroService
       .ServiceEdit(this.dataModel)
       .subscribe({
@@ -125,12 +125,12 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

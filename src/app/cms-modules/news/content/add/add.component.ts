@@ -158,12 +158,12 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.contentService
       .ServiceAdd(this.dataModel)
       .subscribe({
         next: async (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = !ret.isSuccess;
           this.dataModelResult = ret;
           if (ret.isSuccess) {
@@ -176,10 +176,10 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
           } else {
             this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(err);
         }
@@ -216,7 +216,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
       x.linkContentId = model.id;
     });
     const pName = this.constructor.name + 'contentOtherInfoService.ServiceAddBatch';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     return firstValueFrom(this.contentOtherInfoService.ServiceAddBatch(this.otherInfoDataModel)).then(
       (ret) => {
         if (ret.isSuccess) {
@@ -227,7 +227,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
         return of(ret);
       },
       (err) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeErrorAdd(err);
@@ -246,7 +246,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
       dataList.push(row);
     });
     const pName = this.constructor.name + 'contentSimilarService.ServiceAddBatch';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     return firstValueFrom(this.contentSimilarService.ServiceAddBatch(dataList)).then(
 
       (ret) => {
@@ -258,7 +258,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
         return of(ret);
       },
       (err) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeErrorAdd(err);
 

@@ -84,7 +84,7 @@ export class DataProviderPlanPriceChargePaymentComponent implements OnInit {
   DataCalculate(): void {
     this.viewCalculate = false;
     const pName = this.constructor.name + 'ServiceOrderCalculate';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.donateTransactionService.ServiceOrderCalculate(this.dataModelCalculate).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -94,13 +94,13 @@ export class DataProviderPlanPriceChargePaymentComponent implements OnInit {
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -108,7 +108,7 @@ export class DataProviderPlanPriceChargePaymentComponent implements OnInit {
   DataPayment(): void {
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'ServiceOrderPayment';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.donateTransactionService.ServiceOrderPayment(this.dataModelPayment).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -121,12 +121,12 @@ export class DataProviderPlanPriceChargePaymentComponent implements OnInit {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           this.formInfo.formSubmitAllow = true;
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
         this.formInfo.formSubmitAllow = true;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

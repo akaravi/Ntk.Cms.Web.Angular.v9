@@ -97,7 +97,7 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
       filterModel.filters.push(fastfilter);
     }
     const pName = this.constructor.name + '.ServiceGetAll';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Receiving_List_Of_Modules'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Receiving_List_Of_Modules'));
     this.coreSiteCategoryCmsModuleService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
@@ -114,11 +114,11 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

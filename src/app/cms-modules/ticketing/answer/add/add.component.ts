@@ -88,7 +88,7 @@ export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswe
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.ticketingAnswerService.ServiceAdd(this.dataModel).subscribe({
@@ -102,11 +102,11 @@ export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswe
         } else {
           this.cmsToastrService.typeErrorAdd(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeErrorAdd(err);

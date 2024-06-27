@@ -27,6 +27,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { WebDesignerMainPageDependencyAddComponent } from '../add/add.component';
 import { WebDesignerMainPageDependencyEditComponent } from '../edit/edit.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 @Component({
   selector: 'app-webdesigner-pagedependency-tree',
   templateUrl: './tree.component.html',
@@ -38,6 +39,7 @@ export class WebDesignerMainPageDependencyTreeComponent implements OnInit, OnDes
     public categoryService: WebDesignerMainPageDependencyService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     private translate: TranslateService,
   ) {
@@ -76,18 +78,18 @@ export class WebDesignerMainPageDependencyTreeComponent implements OnInit, OnDes
     this.filterModel.rowPerPage = 200;
     this.filterModel.accessLoad = true;
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           this.dataModelResult = ret;
           this.dataSource.data = this.dataModelResult.listItems;
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

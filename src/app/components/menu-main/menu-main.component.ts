@@ -65,7 +65,7 @@ export class MenuMainComponent implements OnInit {
   }
   DataGetCpMenu(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.coreCpMainMenuService.ServiceGetAllMenu(null).subscribe({
       next: (ret) => {
 
@@ -75,11 +75,11 @@ export class MenuMainComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -115,7 +115,7 @@ export class MenuMainComponent implements OnInit {
 
   async onActionLogout() {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Sign_out_of_user_account'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Sign_out_of_user_account'));
     this.cmsToastrService.typeOrderActionLogout();
 
     this.coreAuthService.ServiceLogout().subscribe({
@@ -126,11 +126,11 @@ export class MenuMainComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorLogout();
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

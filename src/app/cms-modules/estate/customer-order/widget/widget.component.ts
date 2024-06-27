@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular
 import { TranslateService } from '@ngx-translate/core';
 import { EstateCustomerOrderService, FilterDataModel, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription, forkJoin } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ChartOptionsModel } from 'src/app/core/models/chartOptionsModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -20,6 +21,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
   constructor(
     private service: EstateCustomerOrderService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
@@ -81,7 +83,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   async onActionStatist() {
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
     this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     //*filter */
     const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -165,7 +167,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
 
       this.chartOptions.series = series;
       this.chartOptions.labels = labels;
-      this.loading.Stop(this.constructor.name + 'All');
+      this.publicHelper.processService.processStop(this.constructor.name + 'All');
       this.cdr.detectChanges();
     });
 

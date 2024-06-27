@@ -21,6 +21,7 @@ import {
   FilterModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -37,6 +38,7 @@ export class ApplicationAppTreeComponent implements OnInit, OnDestroy {
     public categoryService: ApplicationAppService,
     private router: Router,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -75,7 +77,7 @@ export class ApplicationAppTreeComponent implements OnInit, OnDestroy {
     this.filterModel.rowPerPage = 200;
     this.filterModel.accessLoad = true;
     const pName = this.constructor.name + 'categoryService.ServiceGetAll';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -84,11 +86,11 @@ export class ApplicationAppTreeComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

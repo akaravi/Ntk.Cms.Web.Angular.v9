@@ -161,7 +161,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstateCustomerOrderModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -197,11 +197,11 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -223,11 +223,11 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -250,11 +250,11 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -289,11 +289,11 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -439,7 +439,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.loading.Start(pName);
+          this.publicHelper.processService.processStart(pName);
           this.contentService.ServiceDelete(model.id).subscribe({
             next: (ret) => {
               if (ret.isSuccess) {
@@ -448,11 +448,11 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
               } else {
                 this.cmsToastrService.typeErrorRemove();
               }
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             }
           }
           );
@@ -520,7 +520,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
 
 
 
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     //*filter */
     const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -591,7 +591,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       } else {
         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
       }
-      this.loading.Stop(this.constructor.name + 'All');
+      this.publicHelper.processService.processStop(this.constructor.name + 'All');
       this.optionsStatist.childMethods.setStatistValue(statist);
 
     });
@@ -650,7 +650,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.onActionTableRowSelect(model);
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_customer_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_customer_information'));
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
       .subscribe({
@@ -682,11 +682,11 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -733,7 +733,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     filteModelProperty.filters.push(filter);
     this.dataModelPropertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
     this.estatePropertyDetailGroupService.ServiceGetAllFastSearch(filteModelProperty)
       .subscribe({
         next: (ret) => {
@@ -751,11 +751,11 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
           } else {
             this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

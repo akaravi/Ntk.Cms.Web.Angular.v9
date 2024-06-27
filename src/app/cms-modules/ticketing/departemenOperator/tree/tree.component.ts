@@ -21,6 +21,7 @@ import {
   TicketingDepartemenOperatorService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -38,6 +39,7 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
     public categoryService: TicketingDepartemenOperatorService,
     private router: Router,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     private translate: TranslateService,
   ) {
@@ -79,7 +81,7 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
@@ -87,12 +89,12 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
           this.dataModelResult = ret;
           this.dataSource.data = this.dataModelResult.listItems;
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

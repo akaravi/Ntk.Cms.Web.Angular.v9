@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular
 import { TranslateService } from '@ngx-translate/core';
 import { EstatePropertyService, FilterDataModel, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription, forkJoin } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ChartOptionsModel } from 'src/app/core/models/chartOptionsModel';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -23,6 +24,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
@@ -85,7 +87,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   async onActionStatist() {
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
     this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     //*filter */
     const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -148,7 +150,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       this.chartOptions.series = series;
       this.chartOptions.labels = labels;
       this.cdr.markForCheck();
-      this.loading.Stop(this.constructor.name + 'All');
+      this.publicHelper.processService.processStop(this.constructor.name + 'All');
 
 
     });

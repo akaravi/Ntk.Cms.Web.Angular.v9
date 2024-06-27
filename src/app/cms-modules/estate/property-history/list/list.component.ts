@@ -223,7 +223,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstatePropertyHistoryModel());
     const pName = this.constructor.name + 'main';
-    this.loading.Start(
+    this.publicHelper.processService.processStart(
       pName,
       this.translate.instant('MESSAGE.get_information_list')
     );
@@ -307,14 +307,14 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           if (this.popupAdd) {
             this.onActionButtonNewRow();
           }
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
       });
       /** Search On Select Day */
@@ -334,14 +334,14 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           if (this.popupAdd) {
             this.onActionButtonNewRow();
           }
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
       });
     }
@@ -534,7 +534,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.loading.Start(pName);
+          this.publicHelper.processService.processStart(pName);
 
           this.contentService
             .ServiceDelete(this.tableRowSelected.id)
@@ -546,11 +546,11 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
                 } else {
                   this.cmsToastrService.typeErrorRemove();
                 }
-                this.loading.Stop(pName);
+                this.publicHelper.processService.processStop(pName);
               },
               error: (er) => {
                 this.cmsToastrService.typeError(er);
-                this.loading.Stop(pName);
+                this.publicHelper.processService.processStop(pName);
               },
             });
         }
@@ -569,7 +569,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.loading.Start(
+    this.publicHelper.processService.processStart(
       pName,
       this.translate.instant('MESSAGE.Get_the_statist')
     );
@@ -581,11 +581,11 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
     });
 
@@ -605,11 +605,11 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
     });
   }

@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreModuleEntityReportFileModel, ErrorExceptionResult, ErrorExceptionResultExportFile, ExportFileModel, ExportFileTypeEnum, ExportReceiveMethodEnum, FormInfoModel, IApiCmsServerBase, InfoEnumModel, ReportFileTypeEnum, TokenInfoModel } from 'ntk-cms-api';
 import { Observable } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -23,6 +24,7 @@ export class CmsExportEntityComponent implements OnInit {
     private dialogRef: MatDialogRef<CmsExportEntityComponent>,
     public translate: TranslateService,
     public tokenHelper: TokenHelper,
+    private publicHelper: PublicHelper,
   ) {
     if (data) {
       if (data.service)
@@ -116,7 +118,7 @@ export class CmsExportEntityComponent implements OnInit {
 
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.dataModelSubmitResult = new ErrorExceptionResultExportFile();
     this.formInfo.formSubmitAllow = false;
     this.requestService.ServiceReportFileGetAll().subscribe({
@@ -127,13 +129,13 @@ export class CmsExportEntityComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
       }
     }
@@ -147,7 +149,7 @@ export class CmsExportEntityComponent implements OnInit {
   onFormSubmit(): void {
     this.dataModelSubmitResult = new ErrorExceptionResultExportFile();
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.formInfo.formSubmitAllow = false;
 
     this.requestService.ServiceExportFileGetOne(this.requestId, this.dataModel).subscribe({
@@ -160,13 +162,13 @@ export class CmsExportEntityComponent implements OnInit {
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
       }
     }

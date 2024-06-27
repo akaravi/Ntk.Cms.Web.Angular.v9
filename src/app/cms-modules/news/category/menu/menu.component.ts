@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorExceptionResult, FilterDataModel, FilterModel, NewsCategoryModel, NewsCategoryService, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
@@ -23,6 +24,7 @@ export class NewsCategoryMenuComponent implements OnInit {
     private router: Router,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
   ) {
     this.loading.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
@@ -76,7 +78,7 @@ export class NewsCategoryMenuComponent implements OnInit {
       this.filterModel.filters.push(filter);
     }
     const pName = this.constructor.name + '.ServiceGetAll';
-    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => {this.loading.Start(pName, str);});
+    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -86,10 +88,10 @@ export class NewsCategoryMenuComponent implements OnInit {
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.cmsToastrService.typeError(er);
       }
     }

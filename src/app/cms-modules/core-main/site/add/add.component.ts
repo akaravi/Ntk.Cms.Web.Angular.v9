@@ -125,7 +125,7 @@ export class CoreSiteAddComponent extends AddBaseComponent<CoreSiteService, Core
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     //! for convert color to hex
     this.dataModel.pwaThemeColor = this.dataModel.pwaThemeColor?.toString();
@@ -144,10 +144,10 @@ export class CoreSiteAddComponent extends AddBaseComponent<CoreSiteService, Core
           } else {
             this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(er);
         }

@@ -135,14 +135,14 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.pollingContentService
       .ServiceGetOneById(this.dataModelResult.item.id)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.dataModelResult = ret;
           this.formInfo.formSubmitAllow = true;
 
@@ -156,14 +156,14 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
               this.receiveMap();
             }
             this.DataOptionGetAll();
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
 
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
         }
@@ -212,14 +212,14 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.pollingContentService
       .ServiceAdd(this.dataModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.dataModelResult = ret;
           if (ret.isSuccess) {
             this.cmsToastrService.typeSuccessAdd();
@@ -231,7 +231,7 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
           this.formInfo.formSubmitAllow = true;
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(er);
         }
@@ -244,14 +244,14 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.pollingContentService
       .ServiceEdit(this.dataModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           if (ret.isSuccess) {
             //**Get One */
@@ -259,7 +259,7 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
               .ServiceGetOneById(this.dataModel.id)
               .subscribe({
                 next: (ret) => {
-                  this.loading.Stop(pName);
+                  this.publicHelper.processService.processStop(pName);
                   this.formInfo.formSubmitAllow = true;
                   this.dataModelResult = ret;
                   if (ret.isSuccess) {
@@ -267,10 +267,10 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
                   } else {
                     this.cmsToastrService.typeErrorEdit(ret.errorMessage);
                   }
-                  this.loading.Stop(pName);
+                  this.publicHelper.processService.processStop(pName);
                 },
                 error: (er) => {
-                  this.loading.Stop(pName);
+                  this.publicHelper.processService.processStop(pName);
                   this.formInfo.formSubmitAllow = true;
                   this.cmsToastrService.typeError(er);;
                 }
@@ -284,11 +284,11 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);;
         }

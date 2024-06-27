@@ -62,7 +62,7 @@ export class CatalogCategoryDeleteComponent implements OnInit {
     }
     this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.setAccessLoad();
     this.categoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -80,13 +80,13 @@ export class CatalogCategoryDeleteComponent implements OnInit {
           } else {
             this.formInfo.formAlert = '';
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formErrorStatus = true;
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -97,7 +97,7 @@ export class CatalogCategoryDeleteComponent implements OnInit {
     const filterModel: FilterModel = new FilterModel();
     filterModel.rowPerPage = 100;
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService
       .ServiceGetAll(filterModel)
@@ -112,13 +112,13 @@ export class CatalogCategoryDeleteComponent implements OnInit {
           } else {
             this.formInfo.formAlert = '';
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formErrorStatus = true;
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -142,7 +142,7 @@ export class CatalogCategoryDeleteComponent implements OnInit {
 
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService
       .ServiceMove(this.requestId, this.dataModel.newCatId)
@@ -158,7 +158,7 @@ export class CatalogCategoryDeleteComponent implements OnInit {
           }
           this.formInfo.formSubmitAllow = true;
           this.formInfo.buttonSubmittedEnabled = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
@@ -166,7 +166,7 @@ export class CatalogCategoryDeleteComponent implements OnInit {
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -180,7 +180,7 @@ export class CatalogCategoryDeleteComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService
       .ServiceDelete(this.requestId)
@@ -197,7 +197,7 @@ export class CatalogCategoryDeleteComponent implements OnInit {
             this.dialogRef.close({ dialogChangedDate: true });
           }
           this.formInfo.buttonSubmittedEnabled = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
@@ -205,7 +205,7 @@ export class CatalogCategoryDeleteComponent implements OnInit {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

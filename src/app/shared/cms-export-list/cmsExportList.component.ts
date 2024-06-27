@@ -2,6 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreModuleEntityReportFileModel, ErrorExceptionResult, ErrorExceptionResultExportFile, ExportFileModel, ExportFileTypeEnum, ExportReceiveMethodEnum, FilterModel, FormInfoModel, IApiCmsServerBase, InfoEnumModel, ReportFileTypeEnum, TokenInfoModel } from 'ntk-cms-api';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -20,6 +21,7 @@ export class CmsExportListComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CmsExportListComponent>,
     public translate: TranslateService,
+    private publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,) {
 
     if (data) {
@@ -103,7 +105,7 @@ export class CmsExportListComponent implements OnInit {
 
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.dataModelSubmitResult = new ErrorExceptionResultExportFile();
     this.formInfo.formSubmitAllow = false;
     this.requestService.ServiceReportFileGetAll().subscribe({
@@ -114,13 +116,13 @@ export class CmsExportListComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
       }
     }
@@ -138,7 +140,7 @@ export class CmsExportListComponent implements OnInit {
   onFormSubmit(): void {
     this.dataModelSubmitResult = new ErrorExceptionResultExportFile();
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.formInfo.formSubmitAllow = false;
 
     this.requestService.ServiceExportFile(this.filterModel).subscribe({
@@ -151,13 +153,13 @@ export class CmsExportListComponent implements OnInit {
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.formInfo.formSubmitAllow = true;
       }
     }

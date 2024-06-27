@@ -93,7 +93,7 @@ export class TicketingTaskEditComponent extends EditBaseComponent<TicketingTaskS
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     /*َAccess Field*/
     this.ticketingTaskService.setAccessLoad();
@@ -106,7 +106,7 @@ export class TicketingTaskEditComponent extends EditBaseComponent<TicketingTaskS
           this.dataAccessModel = ret.access;
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.dataModelResult = ret;
           this.formInfo.formSubmitAllow = true;
@@ -130,7 +130,7 @@ export class TicketingTaskEditComponent extends EditBaseComponent<TicketingTaskS
           }
         },
         error: (err) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(err);
@@ -143,7 +143,7 @@ export class TicketingTaskEditComponent extends EditBaseComponent<TicketingTaskS
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
 
     this.ticketingTaskService
@@ -163,11 +163,11 @@ export class TicketingTaskEditComponent extends EditBaseComponent<TicketingTaskS
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (err) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorEdit(err);

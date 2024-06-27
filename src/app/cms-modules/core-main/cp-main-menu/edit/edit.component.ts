@@ -102,7 +102,7 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     /*َAccess Field*/
     this.coreCpMainMenuService.setAccessLoad();
@@ -122,11 +122,11 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -141,7 +141,7 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Getting_access_category_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
@@ -164,11 +164,11 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -178,7 +178,7 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     //! for convert color to hex
     this.dataModel.color = this.dataModel.color?.toString();
     this.coreCpMainMenuService.ServiceEdit(this.dataModel).subscribe({
@@ -194,12 +194,12 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

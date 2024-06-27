@@ -95,7 +95,7 @@ export class EstatePropertyHistoryQuickViewComponent implements OnInit, OnDestro
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     /*َAccess Field*/
     this.estatePropertyHistoryService.setAccessLoad();
@@ -119,12 +119,12 @@ export class EstatePropertyHistoryQuickViewComponent implements OnInit, OnDestro
           this.errorMessage = ret.errorMessage + '<br> ( ' + ret.errorTypeTitle + ' ) ';
           this.cmsToastrService.typeErrorMessage(this.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

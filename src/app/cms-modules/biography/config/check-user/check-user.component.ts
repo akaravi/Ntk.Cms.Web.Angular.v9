@@ -71,12 +71,12 @@ export class BiographyConfigCheckUserComponent implements OnInit, OnDestroy {
       return;
     }
     const pName = this.constructor.name + '.ServiceCheckUser';
-    this.translate.get('TITLE.Check_account').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('TITLE.Check_account').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceCheckUser(this.requestLinkUserId)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
           if (!ret.isSuccess) {
@@ -85,7 +85,7 @@ export class BiographyConfigCheckUserComponent implements OnInit, OnDestroy {
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

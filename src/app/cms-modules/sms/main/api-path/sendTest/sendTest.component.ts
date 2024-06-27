@@ -88,7 +88,7 @@ export class SmsMainApiPathSendTestComponent implements OnInit {
     }
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.smsMainApiPathService.ServiceSendMessageTest(this.dataModel).subscribe({
       next: (ret) => {
@@ -102,13 +102,13 @@ export class SmsMainApiPathSendTestComponent implements OnInit {
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       }
     }

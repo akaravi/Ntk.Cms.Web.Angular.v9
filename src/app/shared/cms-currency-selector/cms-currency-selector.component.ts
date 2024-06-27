@@ -134,7 +134,7 @@ export class CmsCurrencySelectorComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'ServiceGetAll';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.categoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Viewer);
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(
@@ -149,7 +149,7 @@ export class CmsCurrencySelectorComponent implements OnInit {
             this.onActionSelect(this.dataModelResult.listItems[0]);
           }
           /*select First Item */
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           return response.listItems;
         });

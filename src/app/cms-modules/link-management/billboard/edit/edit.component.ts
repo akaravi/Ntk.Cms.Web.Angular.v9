@@ -124,7 +124,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     /*َAccess Field*/
     this.linkManagementBillboardService.setAccessLoad();
@@ -145,11 +145,11 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
         }
@@ -164,14 +164,14 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
 
     this.linkManagementBillboardService
       .ServiceEdit(this.dataModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = true;
           this.dataModelResult = ret;
@@ -184,11 +184,11 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);;
         }
@@ -217,7 +217,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
     this.formInfo.formAlert = this.translate.instant('MESSAGE.get_category_information_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     const filterModel = new FilterModel();
@@ -240,12 +240,12 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
           });
           this.dataContentCategoryModel = itemList;
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetAll(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

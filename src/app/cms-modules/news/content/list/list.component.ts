@@ -114,7 +114,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
         selectId = this.requestLinkCategoryId;
       }
       const pName = this.constructor.name + '.ServiceGetAllWithHierarchyCategoryId';
-      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
       this.contentService.ServiceGetAllWithHierarchyCategoryId(selectId, filterModel).subscribe({
         next: (ret) => {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
@@ -131,11 +131,11 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
           else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         complete: () => {
 
@@ -179,7 +179,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       }
       /** filter Category */
       const pName = this.constructor.name + '.ServiceGetAll';
-      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
       this.contentService.ServiceGetAllEditor(filterModel).subscribe({
         next: (ret) => {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
@@ -200,12 +200,12 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
           else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
 
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         complete: () => {
 
@@ -358,7 +358,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     fastfilter.value = RecordStatusEnum.Available;
     filterStatist1.filters.push(fastfilter);
     const pName = this.constructor.name + '.ServiceGetCount';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_article'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_article'));
     this.contentService.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -368,11 +368,11 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     });
   }
@@ -406,7 +406,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     this.onActionTableRowSelect(model);
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_news_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_news_information'));
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
       .subscribe({
@@ -439,11 +439,11 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       });
   }

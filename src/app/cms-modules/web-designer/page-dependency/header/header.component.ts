@@ -40,7 +40,7 @@ export class WebDesignerMainPageDependencyHeaderComponent implements OnInit {
 
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.webDesignerMainPageDependencyService.setAccessLoad();
     this.webDesignerMainPageDependencyService.ServiceGetOneById(this.optionId).subscribe({
       next: (ret) => {
@@ -50,11 +50,11 @@ export class WebDesignerMainPageDependencyHeaderComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

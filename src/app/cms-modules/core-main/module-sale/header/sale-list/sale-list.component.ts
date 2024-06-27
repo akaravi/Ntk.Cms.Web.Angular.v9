@@ -140,7 +140,7 @@ export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy 
     this.tableRowsSelected = [];
     this.tableRowSelected = new CoreModuleSaleHeaderModel();
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
 
@@ -156,11 +156,11 @@ export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy 
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

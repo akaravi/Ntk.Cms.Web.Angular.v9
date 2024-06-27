@@ -136,7 +136,7 @@ export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
   DataGetAll(): void {
     this.tableRowSelected = new EstateAdsTypeModel();
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.showBuy = false;
     const model = new FilterModel();
     this.estateAdsTypeService.ServiceGetAllSale(model).subscribe({
@@ -148,11 +148,11 @@ export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

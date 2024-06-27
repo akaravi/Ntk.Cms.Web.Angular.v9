@@ -142,7 +142,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     /*َAccess Field*/
     this.contentService.setAccessLoad();
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -153,7 +153,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
           /*َAccess Field*/
           this.dataAccessModel = ret.access;
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.dataModelResult = ret;
           this.formInfo.formSubmitAllow = true;
           if (ret.isSuccess) {
@@ -170,13 +170,13 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
             this.DataTagGetAll();
             this.DataOtherInfoGetAll();
             this.DataSimilarGetAllIds();
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
         }
@@ -189,7 +189,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_tag_information_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Receiving_tag_information_from_the_server'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Receiving_tag_information_from_the_server'));
     const filterModel = new FilterModel();
     const filter = new FilterDataModel();
     filter.propertyName = 'LinkContentId';
@@ -201,7 +201,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
       .ServiceGetAll(filterModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.dataContentTagModelResult = ret;
           this.formInfo.formSubmitAllow = true;
 
@@ -211,14 +211,14 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
               list.push(x.linkTagId);
             });
             this.tagIdsData = list;
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           }
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetAll(er);
         }
@@ -230,7 +230,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
     this.translate.get('MESSAGE.get_other_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_other_information_from_the_server'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_other_information_from_the_server'));
     const filterModel = new FilterModel();
     const filter = new FilterDataModel();
     filter.propertyName = 'LinkContentId';
@@ -241,7 +241,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
       .ServiceGetAll(filterModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.dataContentOtherInfoModelResult = ret;
           if (ret.isSuccess) {
@@ -249,11 +249,11 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
             this.otherInfoTabledataSource.data = ret.listItems;
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           }
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetAll(er);
         }
@@ -265,7 +265,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
     this.translate.get('MESSAGE.get_other_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_other_information_from_the_server'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_other_information_from_the_server'));
     const filterModel = new FilterModel();
     const filter = new FilterDataModel();
     filter.propertyName = 'LinkSourceId';
@@ -280,7 +280,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
       .ServiceGetAll(filterModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.dataContentSimilarModelResult = ret;
           if (ret.isSuccess) {
@@ -295,11 +295,11 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
             this.DataSimilarGetAll(listIds);
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           }
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetAll(er);
         }
@@ -314,7 +314,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
     this.translate.get('MESSAGE.get_other_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_other_information_from_the_server'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_other_information_from_the_server'));
     const filterModel = new FilterModel();
     ids.forEach(item => {
       if (item > 0) {
@@ -336,12 +336,12 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetAll(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -351,7 +351,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.contentService
       .ServiceEdit(this.dataModel)
       .subscribe({
@@ -368,12 +368,12 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -489,7 +489,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
     this.formInfo.formAlert = this.translate.instant('MESSAGE.get_category_information_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_category_information_from_the_server'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_category_information_from_the_server'));
     const filterModel = new FilterModel();
     const filter = new FilterDataModel();
     filter.propertyName = 'LinkContentId';
@@ -507,12 +507,12 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
           });
           this.dataContentCategoryModel = itemList;
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetAll(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

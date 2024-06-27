@@ -126,7 +126,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new ApplicationAppModel());
     const pName = this.constructor.name + 'contentService.ServiceGetAll';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.filteModelContent.accessLoad = true;
     const filter = new FilterDataModel();
     /*filter CLone*/
@@ -153,11 +153,11 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
         else {
           this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -269,7 +269,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'contentService.ServiceDelete';
-          this.loading.Start(pName);
+          this.publicHelper.processService.processStart(pName);
 
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
             next: (ret) => {
@@ -279,11 +279,11 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
               } else {
                 this.cmsToastrService.typeErrorRemove();
               }
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             }
           }
           );
@@ -305,7 +305,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     statist.set('Active', 0);
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -315,11 +315,11 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -336,12 +336,12 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
       ,
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -419,10 +419,10 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     }
     this.onActionTableRowSelect(mode);
     const pName = this.constructor.name + 'contentService.ServiceBuild';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.contentService.ServiceBuild(this.tableRowSelected.id).subscribe({
       next: (ret) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessAppBuild(ret.errorMessage);
         }
@@ -432,7 +432,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

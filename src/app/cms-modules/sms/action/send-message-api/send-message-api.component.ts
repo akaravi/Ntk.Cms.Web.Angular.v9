@@ -10,6 +10,7 @@ import {
 } from 'ntk-cms-api';
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -26,6 +27,7 @@ export class SmsActionSendMessageApiComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
     public pathService: SmsMainApiPathService,
     public numberService: SmsMainApiNumberService
@@ -123,7 +125,7 @@ export class SmsActionSendMessageApiComponent implements OnInit {
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
     }
-    this.loading.Start('DataPathGetAll');
+    this.publicHelper.processService.processStart('DataPathGetAll');
     return await firstValueFrom(this.pathService.ServiceGetAll(filterModel))
       .then(
         (response) => {
@@ -137,7 +139,7 @@ export class SmsActionSendMessageApiComponent implements OnInit {
             this.onActionSelectPath(this.dataPathModelResult.listItems[0]);
           }
           /*select First Item */
-          this.loading.Stop('DataPathGetAll');
+          this.publicHelper.processService.processStop('DataPathGetAll');
           return response.listItems;
         });
   }
@@ -159,7 +161,7 @@ export class SmsActionSendMessageApiComponent implements OnInit {
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
     }
-    this.loading.Start('DataNumberGetAll');
+    this.publicHelper.processService.processStart('DataNumberGetAll');
     return await firstValueFrom(this.numberService.ServiceGetAll(filterModel))
       .then(
         (response) => {
@@ -173,7 +175,7 @@ export class SmsActionSendMessageApiComponent implements OnInit {
             this.onActionSelectNumber(this.dataNumberModelResult.listItems[0]);
           }
           /*select First Item */
-          this.loading.Stop('DataNumberGetAll');
+          this.publicHelper.processService.processStop('DataNumberGetAll');
           return response.listItems;
         });
   }

@@ -143,7 +143,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     this.onActionTableRowSelect(new CoreSiteUserModel());
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.filteModelContent.accessLoad = true;
@@ -165,13 +165,13 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -303,7 +303,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.loading.Start(pName);
+          this.publicHelper.processService.processStart(pName);
 
           this.contentService.ServiceDeleteEntity(this.tableRowSelected).subscribe({
             next: (ret) => {
@@ -313,12 +313,12 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
               } else {
                 this.cmsToastrService.typeErrorRemove();
               }
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
 
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             }
           }
           );
@@ -466,7 +466,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -475,11 +475,11 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -497,11 +497,11 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

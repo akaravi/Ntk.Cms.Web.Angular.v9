@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { ApplicationAppModel, ApplicationAppService, FormInfoModel } from 'ntk-cms-api';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
@@ -16,6 +17,7 @@ export class ApplicationAppDownloadComponent implements OnInit {
     private applicationAppService: ApplicationAppService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
@@ -32,7 +34,7 @@ export class ApplicationAppDownloadComponent implements OnInit {
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceGetOneById';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.applicationAppService
       .ServiceGetOneById(requestId)
       .subscribe({
@@ -43,12 +45,12 @@ export class ApplicationAppDownloadComponent implements OnInit {
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

@@ -82,7 +82,7 @@ export class CoreUserMobileConfirmComponent implements OnInit {
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.coreUserService
       .ServiceViewModel()
@@ -93,11 +93,11 @@ export class CoreUserMobileConfirmComponent implements OnInit {
           } else {
             this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -138,7 +138,7 @@ export class CoreUserMobileConfirmComponent implements OnInit {
     }
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -158,11 +158,11 @@ export class CoreUserMobileConfirmComponent implements OnInit {
           this.cmsToastrService.typeErrorGetCpatcha(ret.errorMessage);
         }
         this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

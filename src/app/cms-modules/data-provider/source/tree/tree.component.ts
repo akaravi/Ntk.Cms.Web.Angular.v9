@@ -27,6 +27,7 @@ import { environment } from 'src/environments/environment';
 import { DataProviderSourceAddComponent } from '../add/add.component';
 import { DataProviderSourceDeleteComponent } from '../delete/delete.component';
 import { DataProviderSourceEditComponent } from '../edit/edit.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 @Component({
   selector: 'app-data-provider-source-tree',
@@ -39,6 +40,7 @@ export class DataProviderSourceTreeComponent implements OnInit, OnDestroy {
     public categoryService: DataProviderSourceService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -80,7 +82,7 @@ export class DataProviderSourceTreeComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
@@ -88,11 +90,11 @@ export class DataProviderSourceTreeComponent implements OnInit, OnDestroy {
           this.dataModelResult = ret;
           this.dataSource.data = this.dataModelResult.listItems;
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

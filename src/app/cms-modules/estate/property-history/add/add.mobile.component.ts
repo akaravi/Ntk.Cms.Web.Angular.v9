@@ -103,7 +103,7 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.estatePropertyHistoryService.ServiceViewModel().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -111,11 +111,11 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeErrorGetAccess(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
     });
   }
@@ -133,7 +133,7 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.estatePropertyHistoryService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
@@ -151,21 +151,21 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.formInfo.formSubmitAllow = true;
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
     });
   }
 
   DataGetAllActivityType(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     const filterModel = new FilterModel();
     this.estateActivityTypeService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
@@ -173,11 +173,11 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
         if (!ret.isSuccess) {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
     });
   }

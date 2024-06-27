@@ -94,7 +94,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new TicketingDepartemenModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -114,12 +114,12 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
             this.optionsSearch.childMethods.setAccess(ret.access);
           }
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -295,18 +295,18 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           statist.set('All', ret.totalRowCount);
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -322,12 +322,12 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
           statist.set('Active', ret.totalRowCount);
           this.optionsStatist.childMethods.setStatistValue(statist);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
       ,
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

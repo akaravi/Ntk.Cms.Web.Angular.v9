@@ -72,7 +72,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.webDesignerMainPageTemplateService.setAccessLoad();
     this.webDesignerMainPageTemplateService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.webDesignerMainPageTemplateService.ServiceGetOneById(this.requestId).subscribe({
@@ -87,12 +87,12 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -101,7 +101,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.webDesignerMainPageTemplateService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
@@ -115,12 +115,12 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -129,7 +129,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
     filter.propertyName = 'LinkPageTemplateId';
@@ -150,11 +150,11 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -167,7 +167,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     entity.linkSiteCagegoryId = model.id;
     entity.linkPageTemplateId = this.dataModel.id;
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService.ServiceAdd';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.webDesignerMainPageTemplateSiteCategoryService.ServiceAdd(entity).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -179,12 +179,12 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -194,7 +194,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     entity.linkSiteCagegoryId = model.id;
     entity.linkPageTemplateId = this.dataModel.id;
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity(entity).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -206,12 +206,12 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (err) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

@@ -74,12 +74,12 @@ export class PollingConfigCheckSiteComponent implements OnInit, OnDestroy {
       return;
     }
     const pName = this.constructor.name + '.ServiceCheckSite';
-    this.translate.get('MESSAGE.Check_website').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Check_website').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceCheckSite(this.requestLinkSiteId)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.dataModelResult = ret;
           this.tableSource.data = ret.listItems;
           if (!ret.isSuccess) {
@@ -87,7 +87,7 @@ export class PollingConfigCheckSiteComponent implements OnInit, OnDestroy {
           }
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.cmsToastrService.typeErrorGetOne(er);
         }
       }

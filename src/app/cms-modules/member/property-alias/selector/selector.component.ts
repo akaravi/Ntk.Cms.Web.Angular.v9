@@ -10,6 +10,7 @@ import {
 } from 'ntk-cms-api';
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
@@ -23,6 +24,7 @@ export class MemberPropertyAliasSelectorComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
     public contentService: MemberPropertyAliasService) {
     this.loading.cdr = this.cdr;
@@ -95,7 +97,7 @@ export class MemberPropertyAliasSelectorComponent implements OnInit {
       filterModel.filters.push(filter);
     }
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     return firstValueFrom(this.contentService.ServiceGetAll(filterModel))
       .then(
         (response) => {
@@ -109,7 +111,7 @@ export class MemberPropertyAliasSelectorComponent implements OnInit {
             this.onActionSelect(this.dataModelResult.listItems[0]);
           }
           /*select First Item */
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           return response.listItems;
         });
   }

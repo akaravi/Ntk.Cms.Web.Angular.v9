@@ -153,7 +153,7 @@ export class EstatePropertyProjectAddComponent extends AddBaseComponent<EstatePr
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     if (this.dataFileModelFiles) {
@@ -173,7 +173,7 @@ export class EstatePropertyProjectAddComponent extends AddBaseComponent<EstatePr
       .ServiceAdd(this.dataModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = !ret.isSuccess;
           this.dataModelResult = ret;
           if (ret.isSuccess) {
@@ -183,12 +183,12 @@ export class EstatePropertyProjectAddComponent extends AddBaseComponent<EstatePr
           } else {
             this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
 
       });

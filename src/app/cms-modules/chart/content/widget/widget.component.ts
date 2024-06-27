@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular
 import { TranslateService } from '@ngx-translate/core';
 import { ChartContentService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
@@ -17,6 +18,7 @@ export class ChartContentWidgetComponent implements OnInit, OnDestroy {
     private service: ChartContentService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -51,8 +53,8 @@ export class ChartContentWidgetComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_chart_statistics'));
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_chart'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_chart_statistics'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_chart'));
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, 0, ''));
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
@@ -62,10 +64,10 @@ export class ChartContentWidgetComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All');
       }
     }
     );
@@ -81,10 +83,10 @@ export class ChartContentWidgetComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(this.constructor.name + 'Active');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Active');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'Active');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Active');
       }
     }
     );

@@ -137,28 +137,28 @@ export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManag
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.linkManagementTargetService
       .ServiceGetOneById(this.dataModelResult.item.id)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.dataModelResult = ret;
           this.formInfo.formSubmitAllow = true;
 
           if (ret.isSuccess) {
             this.dataModel = ret.item;
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
 
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
         }
@@ -172,14 +172,14 @@ export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManag
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.linkManagementTargetService
       .ServiceAdd(this.dataModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.dataModelResult = ret;
           if (ret.isSuccess) {
@@ -192,7 +192,7 @@ export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManag
           this.formInfo.formSubmitAllow = true;
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(er);
         }
@@ -205,14 +205,14 @@ export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManag
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.linkManagementTargetService
       .ServiceEdit(this.dataModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           if (ret.isSuccess) {
             //**Get One */
@@ -220,7 +220,7 @@ export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManag
               .ServiceGetOneById(this.dataModel.id)
               .subscribe({
                 next: (ret) => {
-                  this.loading.Stop(pName);
+                  this.publicHelper.processService.processStop(pName);
                   this.formInfo.formSubmitAllow = true;
                   this.dataModelResult = ret;
                   if (ret.isSuccess) {
@@ -228,10 +228,10 @@ export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManag
                   } else {
                     this.cmsToastrService.typeErrorEdit(ret.errorMessage);
                   }
-                  this.loading.Stop(pName);
+                  this.publicHelper.processService.processStop(pName);
                 },
                 error: (er) => {
-                  this.loading.Stop(pName);
+                  this.publicHelper.processService.processStop(pName);
                   this.formInfo.formSubmitAllow = true;
                   this.cmsToastrService.typeError(er);;
                 }
@@ -245,10 +245,10 @@ export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManag
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);;
         }

@@ -11,6 +11,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 import { SingupRuleComponent } from '../singupRule/singupRule.Component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 @Component({
   selector: 'app-auth-singup',
   templateUrl: './singup.component.html',
@@ -22,6 +23,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     private coreAuthService: CoreAuthService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
 
@@ -99,7 +101,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     this.formInfo.formErrorStatus = false;
     this.dataModel.captchaKey = this.captchaModel.key;
     const pName = this.constructor.name + '.ServiceSignupUser';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Creating_new_account'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Creating_new_account'));
     /** read storage */
     const siteId = + localStorage.getItem('siteId');
     if (siteId > 0) {
@@ -132,7 +134,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
             dataLoginModel.siteId = this.dataModel.siteId;
             dataLoginModel.mobile = this.dataModel.mobile;
             const pName2 = this.constructor.name + 'ServiceSigninUser';
-            this.loading.Start(pName2, this.translate.instant('MESSAGE.login_to_user_account'));
+            this.publicHelper.processService.processStart(pName2, this.translate.instant('MESSAGE.login_to_user_account'));
             this.coreAuthService.ServiceSigninUser(dataLoginModel).subscribe({
               next: (res) => {
                 if (res.isSuccess) {
@@ -148,12 +150,12 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
                   this.cmsToastrService.typeErrorLogin(res.errorMessage);
                   setTimeout(() => this.router.navigate(['/']), 1000);
                 }
-                this.loading.Stop(pName2);
+                this.publicHelper.processService.processStop(pName2);
               },
               error: (err) => {
                 this.formInfo.buttonSubmittedEnabled = true;
                 this.cmsToastrService.typeError(err);
-                this.loading.Stop(pName2);
+                this.publicHelper.processService.processStop(pName2);
               }
             }
             );
@@ -165,13 +167,13 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
           this.formInfo.formErrorStatus = true;
           this.onCaptchaOrder();
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }, error: (err) => {
         this.cmsToastrService.typeError(err);
         this.formInfo.formErrorStatus = true;
         this.formInfo.buttonSubmittedEnabled = true;
         this.onCaptchaOrder();
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     });
   }
@@ -195,7 +197,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     }
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
     this.coreAuthService.ServiceCaptcha()
       .subscribe({
         next: (ret) => {
@@ -213,11 +215,11 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
             this.cmsToastrService.typeErrorGetCpatcha(ret.errorMessage);
           }
           this.onCaptchaOrderInProcess = false;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         , error: (err) => {
           this.onCaptchaOrderInProcess = false;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

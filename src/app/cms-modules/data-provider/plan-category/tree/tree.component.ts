@@ -27,6 +27,7 @@ import { environment } from 'src/environments/environment';
 import { DataProviderPlanCategoryAddComponent } from '../add/add.component';
 import { DataProviderPlanCategoryDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanCategoryEditComponent } from '../edit/edit.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class DataProviderPlanCategoryTreeComponent implements OnInit, OnDestroy 
     public categoryService: DataProviderPlanCategoryService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -82,7 +84,7 @@ export class DataProviderPlanCategoryTreeComponent implements OnInit, OnDestroy 
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
@@ -92,11 +94,11 @@ export class DataProviderPlanCategoryTreeComponent implements OnInit, OnDestroy 
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular
 import { TranslateService } from '@ngx-translate/core';
 import { CoreModuleLogReportAbuseService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
@@ -16,6 +17,7 @@ export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestro
   constructor(
     private service: CoreModuleLogReportAbuseService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -49,8 +51,8 @@ export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestro
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'Pending', this.translate.instant('MESSAGE.Get_pending_report_abuse'));
-    this.loading.Start(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_all_report_abuse'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'Pending', this.translate.instant('MESSAGE.Get_pending_report_abuse'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_all_report_abuse'));
 
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 0, 0, ''));
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
@@ -60,10 +62,10 @@ export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestro
         if (ret.isSuccess) {
           this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, ret.totalRowCount, this.widgetInfoModel.link));
         }
-        this.loading.Stop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All');
       }
     }
     );
@@ -80,10 +82,10 @@ export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestro
 
           this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 0, ret.totalRowCount, this.widgetInfoModel.link));
         }
-        this.loading.Stop(this.constructor.name + 'Pending');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Pending');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'Pending');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Pending');
       }
     }
     );

@@ -7,6 +7,7 @@ import {
   CoreAuthService, FormInfoModel
 } from 'ntk-cms-api';
 import { Observable } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
@@ -27,6 +28,7 @@ export class AuthForgotPasswordComponent implements OnInit {
     public translate: TranslateService,
     private router: Router,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public pageInfo: PageInfoService,
 
   ) {
@@ -59,7 +61,7 @@ export class AuthForgotPasswordComponent implements OnInit {
     this.dataModelforgetPasswordEntryPinCode.email = '';
     this.dataModelforgetPasswordEntryPinCode.mobile = this.dataModelforgetPasswordBySms.mobile;
     const pName = this.constructor.name + '.ServiceForgetPassword';
-    this.loading.Start(pName, this.translate.instant('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER'));
     this.coreAuthService
       .ServiceForgetPassword(this.dataModelforgetPasswordBySms)
       .subscribe({
@@ -73,13 +75,13 @@ export class AuthForgotPasswordComponent implements OnInit {
           }
           this.formInfo.buttonSubmittedEnabled = true;
           this.onCaptchaOrder();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;
           this.onCaptchaOrder();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       });
   }
@@ -90,7 +92,7 @@ export class AuthForgotPasswordComponent implements OnInit {
     this.dataModelforgetPasswordEntryPinCode.mobile = '';
     this.dataModelforgetPasswordEntryPinCode.email = this.dataModelforgetPasswordByEmail.email;
     const pName = this.constructor.name + '.ServiceForgetPassword';
-    this.loading.Start(pName, this.translate.instant('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER'));
     this.coreAuthService
       .ServiceForgetPassword(this.dataModelforgetPasswordByEmail)
       .subscribe({
@@ -104,13 +106,13 @@ export class AuthForgotPasswordComponent implements OnInit {
           }
           this.formInfo.buttonSubmittedEnabled = true;
           this.onCaptchaOrder();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;
           this.onCaptchaOrder();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       });
   }
@@ -119,7 +121,7 @@ export class AuthForgotPasswordComponent implements OnInit {
     this.errorState = ErrorStates.NotSubmitted;
     this.dataModelforgetPasswordEntryPinCode.captchaKey = this.captchaModel.key;
     const pName = this.constructor.name + '.ServiceForgetPasswordEntryPinCode';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Check_the_code_on_the_server'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Check_the_code_on_the_server'));
     this.coreAuthService
       .ServiceForgetPasswordEntryPinCode(this.dataModelforgetPasswordEntryPinCode)
       .subscribe({
@@ -133,13 +135,13 @@ export class AuthForgotPasswordComponent implements OnInit {
           }
           this.formInfo.buttonSubmittedEnabled = true;
           this.onCaptchaOrder();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;
           this.onCaptchaOrder();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -153,16 +155,16 @@ export class AuthForgotPasswordComponent implements OnInit {
     }
     this.dataModelforgetPasswordBySms.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
         this.captchaModel = ret.item;
         this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

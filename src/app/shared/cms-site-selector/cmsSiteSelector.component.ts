@@ -8,6 +8,7 @@ import {
 } from 'ntk-cms-api';
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 
@@ -22,6 +23,7 @@ export class CmsSiteSelectorComponent implements OnInit {
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
     public categoryService: CoreSiteService) {
     this.loading.cdr = this.cdr;
@@ -125,7 +127,7 @@ export class CmsSiteSelectorComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.List_of_authorized_sites'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.List_of_authorized_sites'));
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(
@@ -150,7 +152,7 @@ export class CmsSiteSelectorComponent implements OnInit {
             this.onActionSelect(this.dataModelResult.listItems[0]);
           }
           /*select First Item */
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           return response.listItems;
         });

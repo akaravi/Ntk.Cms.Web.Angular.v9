@@ -28,6 +28,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { EstatePropertyDetailGroupAddComponent } from '../add/add.component';
 import { EstatePropertyDetailGroupEditComponent } from '../edit/edit.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 @Component({
   selector: 'app-estate-property-detail-group-tree',
   templateUrl: './tree.component.html'
@@ -41,6 +42,7 @@ export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
   ) {
@@ -92,7 +94,7 @@ export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
@@ -102,11 +104,11 @@ export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -197,7 +199,7 @@ export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.loading.Start(pName);
+          this.publicHelper.processService.processStart(pName);
 
           this.categoryService.ServiceDelete(this.dataModelSelect.id).subscribe({
             next: (ret) => {
@@ -207,11 +209,11 @@ export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy
               } else {
                 this.cmsToastrService.typeErrorRemove();
               }
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             }
           }
           );

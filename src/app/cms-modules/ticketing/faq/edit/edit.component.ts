@@ -86,7 +86,7 @@ export class TicketingFaqEditComponent extends EditBaseComponent<TicketingFaqSer
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.ticketingFaqService.setAccessLoad();
     this.ticketingFaqService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -115,12 +115,12 @@ export class TicketingFaqEditComponent extends EditBaseComponent<TicketingFaqSer
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -130,7 +130,7 @@ export class TicketingFaqEditComponent extends EditBaseComponent<TicketingFaqSer
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
     this.dataModel.linkFileIds = '';
     if (this.dataFileModel) {
@@ -153,13 +153,13 @@ export class TicketingFaqEditComponent extends EditBaseComponent<TicketingFaqSer
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       }
     }

@@ -172,13 +172,13 @@ export class CatalogContentAddComponent extends AddBaseComponent<CatalogContentS
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.contentService
       .ServiceAdd(this.dataModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = !ret.isSuccess;
           this.dataModelResult = ret;
@@ -191,11 +191,11 @@ export class CatalogContentAddComponent extends AddBaseComponent<CatalogContentS
           } else {
             this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (err) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(err);

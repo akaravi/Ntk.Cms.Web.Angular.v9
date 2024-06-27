@@ -53,7 +53,7 @@ export class CmsBankpaymentGridComponent implements OnInit {
   DataGetAll(): void {
     if (this.optionMasterItem) {
       const pName = this.constructor.name + 'main';
-      this.loading.Start(pName);
+      this.publicHelper.processService.processStart(pName);
       this.bankPaymentPrivateSiteConfigService.ServicePaymentGatewayCoreList().subscribe({
         next: (ret) => {
           if (ret.isSuccess) {
@@ -67,19 +67,19 @@ export class CmsBankpaymentGridComponent implements OnInit {
           else {
             this.errorMessage = ret.errorMessage;
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
           this.errorMessage = er;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
     }
     else {
       const pName = this.constructor.name + 'main';
-      this.loading.Start(pName);
+      this.publicHelper.processService.processStart(pName);
       this.bankPaymentPrivateSiteConfigService.ServicePaymentGatewayList().subscribe({
         next: (ret) => {
           if (ret.isSuccess) {
@@ -93,10 +93,10 @@ export class CmsBankpaymentGridComponent implements OnInit {
           else {
             this.errorMessage = ret.errorMessage;
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }, error: (er) => {
           this.errorMessage = er;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
 
       }

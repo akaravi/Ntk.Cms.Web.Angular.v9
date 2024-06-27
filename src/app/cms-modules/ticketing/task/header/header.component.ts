@@ -58,7 +58,7 @@ export class TicketingTaskHeaderComponent implements OnInit, OnDestroy {
 
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.headerService.setAccessLoad();
     this.headerService.ServiceGetOneById(this.optionId).subscribe({
@@ -69,12 +69,12 @@ export class TicketingTaskHeaderComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

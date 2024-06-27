@@ -8,6 +8,7 @@ import {
 } from 'ntk-cms-api';
 import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -23,6 +24,7 @@ export class EstatePropertyTypeUsageSelectorComponent implements OnInit, OnDestr
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
     public categoryService: EstatePropertyTypeUsageService) {
@@ -108,7 +110,7 @@ export class EstatePropertyTypeUsageSelectorComponent implements OnInit, OnDestr
     }
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(
@@ -123,7 +125,7 @@ export class EstatePropertyTypeUsageSelectorComponent implements OnInit, OnDestr
             this.onActionSelect(this.dataModelResult.listItems[0]);
           }
           /*select First Item */
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           return response.listItems;
         });

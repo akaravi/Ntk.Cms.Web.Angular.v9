@@ -87,7 +87,7 @@ export class EstatePropertyAdsSalePaymentComponent implements OnInit {
   DataCalculate(): void {
     this.viewCalculate = false;
     const pName = this.constructor.name + 'ServiceOrderCalculate';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.estatePropertyAdsService.ServiceOrderCalculate(this.dataModelCalculate).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -97,19 +97,19 @@ export class EstatePropertyAdsSalePaymentComponent implements OnInit {
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
   }
   DataPayment(): void {
     const pName = this.constructor.name + 'ServiceOrderPayment';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.estatePropertyAdsService.ServiceOrderPayment(this.dataModelPayment).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -121,11 +121,11 @@ export class EstatePropertyAdsSalePaymentComponent implements OnInit {
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

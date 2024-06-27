@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular
 import { TranslateService } from '@ngx-translate/core';
 import { EstatePropertyHistoryService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
@@ -22,6 +23,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
   ) {
     this.loading.cdr = this.cdr;
@@ -58,9 +60,9 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
   }
 
   onActionStatist(): void {
-    this.loading.Start(this.constructor.name + 'InChecking');
-    this.loading.Start(this.constructor.name + 'Available');
-    this.loading.Start(this.constructor.name + 'All');
+    this.publicHelper.processService.processStart(this.constructor.name + 'InChecking');
+    this.publicHelper.processService.processStart(this.constructor.name + 'Available');
+    this.publicHelper.processService.processStart(this.constructor.name + 'All');
 
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('InChecking', 0, 0, ''));
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 1, 0, ''));
@@ -74,10 +76,10 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All');
       }
     }
     );
@@ -93,10 +95,10 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
         if (ret.isSuccess) {
           this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 1, ret.totalRowCount, this.widgetInfoModel.link));
         }
-        this.loading.Stop(this.constructor.name + 'Available');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Available');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'Available');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Available');
       }
     }
     );
@@ -120,10 +122,10 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(this.constructor.name + 'InChecking');
+        this.publicHelper.processService.processStop(this.constructor.name + 'InChecking');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'InChecking');
+        this.publicHelper.processService.processStop(this.constructor.name + 'InChecking');
       }
     }
     );

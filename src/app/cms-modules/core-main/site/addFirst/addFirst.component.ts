@@ -75,7 +75,7 @@ export class CoreSiteAddFirstComponent implements OnInit {
 
   DataGetAccess(): void {
     const pName = this.constructor.name + '.DataGetAccess';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_access'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_access'));
     this.coreSiteService
       .ServiceViewModel()
       .subscribe({
@@ -86,11 +86,11 @@ export class CoreSiteAddFirstComponent implements OnInit {
           } else {
             this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -98,7 +98,7 @@ export class CoreSiteAddFirstComponent implements OnInit {
 
   GetDomainList(): void {
     const pName = this.constructor.name + '.GetDomainList';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_list_of_authorized_domains'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_list_of_authorized_domains'));
     this.coreSiteService.ServiceGetRegDomains(this.dataModel.linkSiteCategoryId).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -112,11 +112,11 @@ export class CoreSiteAddFirstComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -154,7 +154,7 @@ export class CoreSiteAddFirstComponent implements OnInit {
 
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + '.onFormSubmit';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Registering_your_first_system_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Registering_your_first_system_information'));
     this.coreSiteService.ServiceAddFirstSite(this.dataModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -164,12 +164,12 @@ export class CoreSiteAddFirstComponent implements OnInit {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
         this.formInfo.formSubmitAllow = true;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -177,21 +177,21 @@ export class CoreSiteAddFirstComponent implements OnInit {
 
   clickSelectSite(Id: number): void {
     const pName = this.constructor.name + '.clickSelectSite';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Request_new_access'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Request_new_access'));
 
     let authModel: AuthRenewTokenModel;
     authModel = new AuthRenewTokenModel();
     authModel.siteId = Id;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
       next: (res) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         if (res.isSuccess) {
           setTimeout(() => this.router.navigate(['/dashboard/']), 2000);
         }
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

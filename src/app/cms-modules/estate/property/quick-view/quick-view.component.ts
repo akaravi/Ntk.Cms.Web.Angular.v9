@@ -105,13 +105,13 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
   }
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
-    this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));
     this.estateContractTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
         this.dataModelEstateContractTypeResult = ret;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }, error: (er) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     });
 
@@ -121,7 +121,7 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     /*َAccess Field*/
     this.estatePropertyService.setAccessLoad();
@@ -159,12 +159,12 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
           this.errorMessage = ret.errorMessage + '<br> ( ' + ret.errorTypeTitle + ' ) ';
           this.cmsToastrService.typeErrorMessage(this.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

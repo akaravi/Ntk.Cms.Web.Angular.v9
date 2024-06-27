@@ -104,7 +104,7 @@ export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAcco
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.estateAccountUserService.setAccessLoad();
     this.estateAccountUserService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -128,11 +128,11 @@ export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAcco
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -141,7 +141,7 @@ export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAcco
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
     this.estateAccountUserService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -155,14 +155,14 @@ export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAcco
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.formInfo.formSubmitAllow = true;
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -239,7 +239,7 @@ export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAcco
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Getting_access_category_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
@@ -258,18 +258,18 @@ export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAcco
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
   }
   onActionDataGetAddGroup(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.estateAccountAgencyUserService.ServiceAdd(this.dataEstateAccountAgencyUserModel).subscribe({
       next: (ret) => {
 
@@ -282,18 +282,18 @@ export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAcco
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     });
 
   }
   onActionDataGetDeleteGroup(model: EstateAccountAgencyUserModel): void {
     const pName = this.constructor.name + 'onActionDataGetDeleteGroup';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.estateAccountAgencyUserService.ServiceDeleteEntity(model).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -302,11 +302,11 @@ export class EstateAccountUserEditComponent extends EditBaseComponent<EstateAcco
         } else {
           this.cmsToastrService.typeErrorRemove();
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

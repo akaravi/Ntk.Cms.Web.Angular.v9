@@ -139,7 +139,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   DataEditContent(actionSubmit = false): void {
 
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.estateCustomerOrderService.setAccessLoad
     this.estateCustomerOrderService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -179,12 +179,12 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
                 } else {
                   this.cmsToastrService.typeErrorMessage(ret.errorMessage);
                 }
-                this.loading.Stop(pName);
+                this.publicHelper.processService.processStop(pName);
 
               },
               error: (er) => {
                 this.cmsToastrService.typeError(er);
-                this.loading.Stop(pName);
+                this.publicHelper.processService.processStop(pName);
               }
             }
             );
@@ -195,12 +195,12 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
 
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -208,7 +208,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   DataGetOneContent(): void {
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     // var id = '';
     // if (this.dataModelResult && this.dataModelResult.item && this.dataModelResult.item.id && this.dataModelResult.item.id.length > 0) {
     //   id = this.dataModelResult.item.id;
@@ -246,12 +246,12 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -259,7 +259,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   DataGetAllContractType(): void {
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     const filterModel = new FilterModel();
     this.estateContractTypeService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
@@ -273,11 +273,11 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -286,7 +286,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   DataGetAllPropertyTypeUsage(): void {
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     const filterModel = new FilterModel();
     this.estatePropertyTypeUsageService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
@@ -294,18 +294,18 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
         if (!ret.isSuccess) {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
   }
   DataGetAllPropertyTypeLanduse(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     const filterModel = new FilterModel();
 
     if (this.dataModel.linkPropertyTypeUsageId && this.dataModel.linkPropertyTypeUsageId.length > 0) {
@@ -332,11 +332,11 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
 
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -349,7 +349,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
     filteModelProperty.filters.push(filter);
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
         next: (ret) => {
@@ -373,11 +373,11 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
           } else {
             this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -387,7 +387,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
       return;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.dataModelEstatePropertyResult = new ErrorExceptionResult<EstatePropertyModel>();
     const filterModel = new EstatePropertyFilterModel();
     filterModel.countLoad = true;
@@ -408,11 +408,11 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er)
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -420,7 +420,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   }
   DataSend(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.dataModelActionSend.id = this.dataModel.id;
     this.estateCustomerOrderService.ServiceActionSendSms(this.dataModelActionSend).subscribe({
       next: (ret) => {
@@ -429,11 +429,11 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

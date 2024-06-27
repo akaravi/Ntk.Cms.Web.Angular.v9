@@ -115,7 +115,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
   onActionStatist(): void {
 
     const pName = this.constructor.name + 'ServiceClaimCheck';
-    this.loading.Start(pName, this.translate.instant('TITLE.Verification_of_documents_and_identity'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Verification_of_documents_and_identity'));
     this.service.ServiceClaimCheckCurrent().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -126,10 +126,10 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

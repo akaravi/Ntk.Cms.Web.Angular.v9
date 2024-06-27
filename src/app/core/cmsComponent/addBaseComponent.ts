@@ -17,7 +17,7 @@ export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.baseService
       .ServiceViewModel()
       .subscribe({
@@ -28,11 +28,11 @@ export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends
           } else {
             this.publicHelper.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.publicHelper.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

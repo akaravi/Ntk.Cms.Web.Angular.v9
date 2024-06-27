@@ -110,7 +110,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.dataModelAuthUserSignInBySms.captchaKey = this.captchaModel.key;
     this.dataModelAuthUserSignInBySms.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUserBySMS';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Send_login_request_with_one_time_password'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Send_login_request_with_one_time_password'));
     this.coreAuthService
       .ServiceSigninUserBySMS(this.dataModelAuthUserSignInBySms)
       .subscribe({
@@ -147,13 +147,13 @@ export class AuthSingInBySmsComponent implements OnInit {
             this.onCaptchaOrder();
           }
 
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;
           this.onCaptchaOrder();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       });
   }
@@ -163,7 +163,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.dataModelAuthUserSignInBySms.captchaKey = this.captchaModel.key;
     this.dataModelAuthUserSignInBySms.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUserBySMS';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Send_login_request_with_one_time_password'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Send_login_request_with_one_time_password'));
     /** read storage */
     const siteId = + localStorage.getItem('siteId');
     if (siteId > 0) {
@@ -197,13 +197,13 @@ export class AuthSingInBySmsComponent implements OnInit {
             this.cmsToastrService.typeErrorMessage(res.errorMessage);
           }
           this.formInfo.buttonSubmittedEnabled = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
           this.formInfo.buttonSubmittedEnabled = true;
           this.onCaptchaOrder();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -219,7 +219,7 @@ export class AuthSingInBySmsComponent implements OnInit {
       this.diffSecondsSubscribe.unsubscribe();
     this.dataModelAuthUserSignInBySms.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
         this.captchaModel = ret.item;
@@ -231,11 +231,11 @@ export class AuthSingInBySmsComponent implements OnInit {
             this.onCaptchaOrder();
           }
         });
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

@@ -45,7 +45,7 @@ export class CoreUserClaimTypeHeaderComponent implements OnInit {
 
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.coreUserClaimTypeService.setAccessLoad();
     this.coreUserClaimTypeService.ServiceGetOneById(this.optionId).subscribe({
@@ -56,12 +56,12 @@ export class CoreUserClaimTypeHeaderComponent implements OnInit {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

@@ -118,7 +118,7 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteConfigDefault';
-    this.translate.get('MESSAGE.get_the_module_default_settings').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_the_module_default_settings').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceSiteConfigDefault()
       .subscribe({
@@ -129,12 +129,12 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -147,7 +147,7 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
 
 
     const pName = this.constructor.name + 'ServiceSiteConfigDefault';
-    this.translate.get('MESSAGE.Save_module_default_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Save_module_default_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceSiteConfigDefaultSave(this.dataConfigSiteValuesDefaultModel)
       .subscribe({
@@ -158,12 +158,12 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
           this.formInfo.formSubmitAllow = true;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -175,7 +175,7 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccessDefault';
-    this.translate.get('MESSAGE.get_the_module_default_access').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceSiteAccessDefault()
       .subscribe({
@@ -186,12 +186,12 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -202,7 +202,7 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccessDefaultSave';
-    this.translate.get('MESSAGE.Save_the_module_default_access').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Save_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceSiteAccessDefaultSave(this.dataConfigSiteAccessValuesDefaultModel)
       .subscribe({
@@ -213,12 +213,12 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -229,7 +229,7 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceAdminMain';
-    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceAdminMain()
       .subscribe({
@@ -240,12 +240,12 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -256,7 +256,7 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceAdminMain';
-    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService
       .ServiceAdminMainSave(this.dataConfigAdminMainModel)
       .subscribe({
@@ -267,12 +267,12 @@ export class WebDesignerConfigMainAdminComponent implements OnInit, OnDestroy {
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (err) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(err);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

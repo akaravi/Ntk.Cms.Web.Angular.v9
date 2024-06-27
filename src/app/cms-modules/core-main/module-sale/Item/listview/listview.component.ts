@@ -107,7 +107,7 @@ export class CoreModuleSaleItemListViewComponent implements OnInit, OnDestroy {
     this.onActionTableRowSelect(new CoreModuleSaleItemModel());
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     this.filteModelContent.accessLoad = true;
@@ -130,12 +130,12 @@ export class CoreModuleSaleItemListViewComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

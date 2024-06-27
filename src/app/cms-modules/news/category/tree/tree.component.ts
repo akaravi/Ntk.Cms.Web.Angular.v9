@@ -29,6 +29,7 @@ import { environment } from 'src/environments/environment';
 import { NewsCategoryAddComponent } from '../add/add.component';
 import { NewsCategoryDeleteComponent } from '../delete/delete.component';
 import { NewsCategoryEditComponent } from '../edit/edit.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -42,6 +43,7 @@ export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
     public categoryService: NewsCategoryService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -80,7 +82,7 @@ export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
     this.filterModel.rowPerPage = 200;
     this.filterModel.accessLoad = true;
     const pName = this.constructor.name + '.ServiceGetAll';
-    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -90,10 +92,10 @@ export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         this.cmsToastrService.typeError(er);
       }
     }

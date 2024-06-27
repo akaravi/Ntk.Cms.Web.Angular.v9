@@ -274,7 +274,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstatePropertyModel());
     const pName = this.constructor.name + "main";
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -320,11 +320,11 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
             } else {
               this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
             }
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           },
           error: (er) => {
             this.cmsToastrService.typeError(er);
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           }
         }
         );
@@ -353,11 +353,11 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
             } else {
               this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
             }
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           },
           error: (er) => {
             this.cmsToastrService.typeError(er)
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
           }
         }
         );
@@ -380,11 +380,11 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -608,7 +608,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + "main";
-          this.loading.Start(pName, this.translate.instant('MESSAGE.Deleting_information'));
+          this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Deleting_information'));
           this.contentService
             .ServiceDelete(this.tableRowSelected.id)
             .subscribe({
@@ -619,11 +619,11 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
                 } else {
                   this.cmsToastrService.typeErrorRemove();
                 }
-                this.loading.Stop(pName);
+                this.publicHelper.processService.processStop(pName);
               },
               error: (er) => {
                 this.cmsToastrService.typeError(er);
-                this.loading.Stop(pName);
+                this.publicHelper.processService.processStop(pName);
               }
             });
         }
@@ -683,7 +683,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       return;
     }
     const pName = this.constructor.name + "main";
-    this.loading.Start(pName, this.translate.instant('ACTION.ActionSendSmsToCustomerOrder'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('ACTION.ActionSendSmsToCustomerOrder'));
     // ** */
     this.contentService
       .ServiceActionSendSmsToCustomerOrder(model.id)
@@ -694,11 +694,11 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -759,7 +759,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
@@ -792,11 +792,11 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

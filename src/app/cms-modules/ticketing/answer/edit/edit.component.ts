@@ -89,7 +89,7 @@ export class TicketingAnswerEditComponent extends EditBaseComponent<TicketingAns
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     /*َAccess Field*/
     this.ticketingAnswerService.setAccessLoad();
@@ -102,7 +102,7 @@ export class TicketingAnswerEditComponent extends EditBaseComponent<TicketingAns
           this.dataAccessModel = ret.access;
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.dataModelResult = ret;
           this.formInfo.formSubmitAllow = true;
@@ -115,11 +115,12 @@ export class TicketingAnswerEditComponent extends EditBaseComponent<TicketingAns
           }
         },
         error: (err) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(err);
-        }}
+        }
+      }
       );
   }
   DataEditContent(): void {
@@ -127,7 +128,7 @@ export class TicketingAnswerEditComponent extends EditBaseComponent<TicketingAns
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
 
     this.ticketingAnswerService
@@ -144,15 +145,16 @@ export class TicketingAnswerEditComponent extends EditBaseComponent<TicketingAns
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (err) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorEdit(err);
-        }}
+        }
+      }
       );
   }
 

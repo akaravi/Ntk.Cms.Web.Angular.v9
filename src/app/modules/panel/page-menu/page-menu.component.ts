@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreCpMainMenuModel, CoreCpMainMenuService, ErrorExceptionResult, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
@@ -23,6 +24,7 @@ export class PageMenuComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public translate: TranslateService,
+    private publicHelper: PublicHelper,
   ) {
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
@@ -64,7 +66,7 @@ export class PageMenuComponent implements OnInit {
   }
   DataGetCpMenu(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.coreCpMainMenuService.ServiceGetAllMenu(null).subscribe({
       next: (ret) => {
 
@@ -74,11 +76,11 @@ export class PageMenuComponent implements OnInit {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.DataListSelect();
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

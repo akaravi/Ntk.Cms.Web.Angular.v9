@@ -80,7 +80,7 @@ export class ApplicationIntroAddComponent extends AddBaseComponent<ApplicationIn
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'applicationIntroService.ServiceAdd';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.applicationIntroService.ServiceAdd(this.dataModel)
       .subscribe({
         next: (ret) => {
@@ -93,12 +93,12 @@ export class ApplicationIntroAddComponent extends AddBaseComponent<ApplicationIn
           } else {
             this.cmsToastrService.typeErrorEdit(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

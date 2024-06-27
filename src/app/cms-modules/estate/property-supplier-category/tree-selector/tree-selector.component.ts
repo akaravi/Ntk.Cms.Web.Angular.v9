@@ -21,6 +21,7 @@ import {
   EstatePropertySupplierCategoryService, FilterModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -34,6 +35,7 @@ export class EstatePropertySupplierCategoryTreeSelectorComponent implements OnIn
     public coreEnumService: CoreEnumService,
     public categoryService: EstatePropertySupplierCategoryService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public dialog: MatDialog,
     public translate: TranslateService,
@@ -114,7 +116,7 @@ export class EstatePropertySupplierCategoryTreeSelectorComponent implements OnIn
     this.filterModel.rowPerPage = 200;
     this.filterModel.accessLoad = true;
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -125,10 +127,10 @@ export class EstatePropertySupplierCategoryTreeSelectorComponent implements OnIn
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.cmsToastrService.typeError(er);
       }

@@ -10,6 +10,7 @@ import {
 } from 'ntk-cms-api';
 import { Observable } from 'rxjs';
 import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 class chipModel {
@@ -26,6 +27,7 @@ export class CmsLocationCompleteComponent implements OnInit {
   constructor(
     public service: CoreLocationService,
     private cmsToastrService: CmsToastrService,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.filteredOptions = this.tagCtrl.valueChanges.pipe(
@@ -103,7 +105,7 @@ export class CmsLocationCompleteComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
     return this.service.ServiceGetAll(filterModel).pipe(
@@ -112,7 +114,7 @@ export class CmsLocationCompleteComponent implements OnInit {
           display: this.displayOption(val)//val.titleML
           , value: val.id
         }));
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         return this.tagLastDataModel;
       })
     );

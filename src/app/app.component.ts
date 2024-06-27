@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     private coreSiteService: CoreSiteService,
     private configService: CoreConfigurationService,
     private themeService: ThemeService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
     private cmsTranslationService: CmsTranslationService,
     private singlarService: CmsSignalrService,
@@ -213,15 +213,15 @@ export class AppComponent implements OnInit {
   getServiceVer(): void {
     const pName = this.constructor.name + 'ServiceIp';
 
-    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.configService.ServiceIp().subscribe({
       next: (ret) => {
         this.publicHelper.appServerVersion = ret.appVersion
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeErrorGetOne(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

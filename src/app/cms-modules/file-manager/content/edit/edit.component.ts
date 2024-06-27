@@ -124,7 +124,7 @@ export class FileContentEditComponent extends EditBaseComponent<FileContentServi
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     /*َAccess Field*/
     this.fileContentService.setAccessLoad();
@@ -138,7 +138,7 @@ export class FileContentEditComponent extends EditBaseComponent<FileContentServi
           this.dataAccessModel = ret.access;
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
 
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.dataModelResult = ret;
           this.formInfo.formSubmitAllow = true;
@@ -154,14 +154,14 @@ export class FileContentEditComponent extends EditBaseComponent<FileContentServi
             }
             this.dataModel.keyword = this.dataModel.keyword + '';
             this.keywordDataModel = this.dataModel.keyword.split(',');
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
 
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
         }
@@ -174,14 +174,14 @@ export class FileContentEditComponent extends EditBaseComponent<FileContentServi
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
 
     this.fileContentService
       .ServiceEdit(this.dataModel)
       .subscribe({
         next: (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = true;
           this.dataModelResult = ret;
@@ -194,11 +194,11 @@ export class FileContentEditComponent extends EditBaseComponent<FileContentServi
           } else {
             this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeError(er);;
         }

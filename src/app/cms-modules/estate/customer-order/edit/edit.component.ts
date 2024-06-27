@@ -137,7 +137,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.estateCustomerOrderService.setAccessLoad();
     this.estateCustomerOrderService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -186,12 +186,12 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -200,7 +200,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
 
     this.estateCustomerOrderService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -223,7 +223,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
             });
             dialogRef.afterClosed().subscribe(result => {
               this.formInfo.formSubmitAllow = true;
-              this.loading.Stop(pName);
+              this.publicHelper.processService.processStop(pName);
             });
           }
           this.cdr.detectChanges();
@@ -232,14 +232,14 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.formInfo.formSubmitAllow = true;
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -253,7 +253,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     filteModelProperty.filters.push(filter);
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
         next: (ret) => {
@@ -278,11 +278,11 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
             this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
           }
           this.cdr.detectChanges();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

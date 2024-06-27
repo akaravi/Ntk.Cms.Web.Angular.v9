@@ -25,6 +25,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { CoreLocationAddComponent } from '../add/add.component';
 import { CoreLocationEditComponent } from '../edit/edit.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -38,6 +39,7 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
     public categoryService: CoreLocationService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -80,7 +82,7 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAllTree(this.filterModel).subscribe({
       next: (ret) => {
@@ -91,11 +93,11 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -110,7 +112,7 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
     filterModel.filters.push(filter);
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAllTree(filterModel).subscribe({
       next: (ret) => {
@@ -119,7 +121,7 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
           this.dataSource.data = null;
           this.dataSource.data = this.dataModelResult.listItems;
           this.cdr.detectChanges();
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           return;
 
         } else {
@@ -129,7 +131,7 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
         return;
       }
     }

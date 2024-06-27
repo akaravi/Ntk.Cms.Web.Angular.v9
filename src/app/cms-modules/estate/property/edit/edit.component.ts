@@ -139,13 +139,13 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
 
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
-    this.loading.Start(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));
     this.estateContractTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
         this.dataModelEstateContractTypeResult = ret;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }, error: (er) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     });
 
@@ -158,7 +158,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
 
 
     const pName = this.constructor.name + 'ServiceGetOneById';
-    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.loading.Start(pName, str); });
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     this.estatePropertyService.setAccessLoad();
     this.estatePropertyService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.estatePropertyService.ServiceGetOneById(this.requestId).subscribe({
@@ -210,11 +210,11 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -228,7 +228,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     filteModelProperty.filters.push(filter);
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
         next: (ret) => {
@@ -252,11 +252,11 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
           } else {
             this.cmsToastrService.typeErrorGetAccess(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -277,7 +277,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
       }
     }
     const pName = this.constructor.name + 'ServiceEdit';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.registration_chaneges_in_property_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.registration_chaneges_in_property_information'));
 
     this.estatePropertyService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -308,13 +308,13 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

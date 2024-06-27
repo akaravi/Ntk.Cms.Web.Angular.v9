@@ -96,7 +96,7 @@ export class EstatePropertyHistoryAddComponent extends AddBaseComponent<EstatePr
     }
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.estatePropertyHistoryService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
@@ -110,14 +110,14 @@ export class EstatePropertyHistoryAddComponent extends AddBaseComponent<EstatePr
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.formInfo.formSubmitAllow = true;
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

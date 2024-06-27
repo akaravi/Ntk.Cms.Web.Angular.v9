@@ -8,6 +8,7 @@ import {
   EstateActivityTypeService, FilterModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -23,6 +24,7 @@ export class EstateActivityTypeSelectionlistComponent implements OnInit, OnDestr
     public coreEnumService: CoreEnumService,
     public categoryService: EstateActivityTypeService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService) {
@@ -64,7 +66,7 @@ export class EstateActivityTypeSelectionlistComponent implements OnInit, OnDestr
 
 
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     this.categoryService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
@@ -80,12 +82,12 @@ export class EstateActivityTypeSelectionlistComponent implements OnInit, OnDestr
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

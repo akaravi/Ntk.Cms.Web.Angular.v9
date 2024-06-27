@@ -136,18 +136,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     /** Search On Select Day */
     this.estatePropertyService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelPropertyResult = ret;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     }
@@ -167,18 +167,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     /** Search On Select Day */
     this.estateCustomerOrderService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelCustomerOrderResult = ret;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     }
@@ -199,18 +199,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     /** Search On Select Day */
     this.estatePropertyHistoryService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelHistoryResult = ret;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     }
@@ -231,18 +231,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     /** Search On Select Day */
     this.estatePropertyCompanyService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelPropertyCompanyResult = ret;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     }
@@ -263,18 +263,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     /** Search On Select Day */
     this.estatePropertySupplierService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelPropertySupplierResult = ret;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     }
@@ -295,18 +295,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     /** Search On Select Day */
     this.estatePropertyProjectService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelPropertyProjectResult = ret;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     }
@@ -327,18 +327,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     /** Search On Select Day */
     this.estateAccountUserService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelAccountUserResult = ret;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     }
@@ -360,18 +360,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     /** Search On Select Day */
     this.estateAccountAgencyService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelAccountAgencyResult = ret;
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
     }

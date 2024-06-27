@@ -111,7 +111,7 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
   DataGetAll(): void {
     this.onActionTableRowSelect(new CoreUserClaimCheckModel());
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
 
 
@@ -135,13 +135,13 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
 
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
@@ -164,13 +164,13 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
 
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );

@@ -56,7 +56,7 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
   }
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'webDesignerMainPageService.ServiceGetOneById';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.webDesignerMainPageService.setAccessLoad();
     this.webDesignerMainPageService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.webDesignerMainPageService.ServiceGetOneById(this.requestId).subscribe({
@@ -68,19 +68,19 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
   }
   // DataEditContent(): void {
   //   const pName = this.constructor.name + 'main';
-  //   this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {this.loading.Start(pName, str);});
+  //   this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {this.publicHelper.processService.processStart(pName, str);});
   //   this.webDesignerMainPageService.ServiceEdit(this.dataModel).subscribe(
   //     next:(ret) => {
 
@@ -90,12 +90,12 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
   //       } else {
   //         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
   //       }
-  //       this.loading.Stop(pName);
+  //       this.publicHelper.processService.processStop(pName);
   //     },
   //     error:(err) => {
 
   //       this.cmsToastrService.typeError(err);
-  //       this.loading.Stop(pName);
+  //       this.publicHelper.processService.processStop(pName);
   //     }
   //   );
   // }

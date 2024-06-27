@@ -66,7 +66,7 @@ export class AuthSingInComponent implements OnInit {
     this.dataModel.captchaKey = this.captchaModel.key;
     this.dataModel.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUser';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.login_to_user_account'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.login_to_user_account'));
     const siteId = + localStorage.getItem('siteId');
     if (siteId > 0) {
       this.dataModel.siteId = siteId;
@@ -87,14 +87,14 @@ export class AuthSingInComponent implements OnInit {
           this.cmsToastrService.typeErrorLogin(res.errorMessage);
           this.onCaptchaOrder();
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.firstRun = false;
         this.formInfo.buttonSubmittedEnabled = true;
         this.cmsToastrService.typeError(er);
         this.onCaptchaOrder();
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );
@@ -108,7 +108,7 @@ export class AuthSingInComponent implements OnInit {
     }
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -128,11 +128,11 @@ export class AuthSingInComponent implements OnInit {
           this.cmsToastrService.typeErrorGetCpatcha(ret.errorMessage);
         }
         this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {
         this.onCaptchaOrderInProcess = false;
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

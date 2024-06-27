@@ -11,6 +11,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { CoreUserEmailConfirmComponent } from '../emailConfirm/emailConfirm.component';
 import { CoreUserMobileConfirmComponent } from '../mobileConfirm/mobileConfirm.component';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 @Component({
   selector: 'app-core-user-widget',
@@ -33,6 +34,7 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
     private cmsToastrService: CmsToastrService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
@@ -69,7 +71,7 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
     if (!this.tokenInfo.userId || this.tokenInfo.userId <= 0) {
       return;
     }
-    this.loading.Start(this.constructor.name + 'All');
+    this.publicHelper.processService.processStart(this.constructor.name + 'All');
     this.widgetInfoModel.link = '/core/user/edit/' + this.tokenInfo.userId;
     // this.modelData.set('Id', this.tokenInfoModel.userId + '');
     // this.modelData.set('Username', '...');
@@ -103,10 +105,10 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All');
       },
       error: (er) => {
-        this.loading.Stop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All');
       }
     }
     );

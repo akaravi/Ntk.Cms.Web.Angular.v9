@@ -89,14 +89,18 @@ export class CoreTokenUserLogEditComponent extends EditBaseComponent<CoreTokenUs
   }
 
   getEnumManageUserAccessAreaTypes(): void {
-    this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe({next: (ret) => {
-      this.dataModelEnumManageUserAccessAreaTypesResult = ret;
-    }});
+    this.coreEnumService.ServiceManageUserAccessAreaTypesEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumManageUserAccessAreaTypesResult = ret;
+      }
+    });
   }
   getEnumManageUserAccessUserTypes(): void {
-    this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe({next: (ret) => {
-      this.dataModelEnumManageUserAccessUserTypesResult = ret;
-    }});
+    this.coreEnumService.ServiceManageUserAccessUserTypesEnum().subscribe({
+      next: (ret) => {
+        this.dataModelEnumManageUserAccessUserTypesResult = ret;
+      }
+    });
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -112,7 +116,7 @@ export class CoreTokenUserLogEditComponent extends EditBaseComponent<CoreTokenUs
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     /*َAccess Field*/
     this.coreTokenUserLogService.setAccessLoad();
@@ -132,12 +136,12 @@ export class CoreTokenUserLogEditComponent extends EditBaseComponent<CoreTokenUs
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       }
     }
     );

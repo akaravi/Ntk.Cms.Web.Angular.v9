@@ -159,12 +159,12 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     this.biographyContentService
       .ServiceAdd(this.dataModel)
       .subscribe({
         next: async (ret) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
           this.formInfo.formSubmitAllow = !ret.isSuccess;
           this.dataModelResult = ret;
           if (ret.isSuccess) {
@@ -173,14 +173,14 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
             await this.DataActionAfterAddContentSuccessfulTag(this.dataModelResult.item);
             await this.DataActionAfterAddContentSuccessfulSimilar(this.dataModelResult.item);
             await this.DataActionAfterAddContentSuccessfulOtherInfo(this.dataModelResult.item);
-            this.loading.Stop(pName);
+            this.publicHelper.processService.processStop(pName);
             setTimeout(() => this.router.navigate(['/biography/content/']), 1000);
           } else {
             this.cmsToastrService.typeErrorAdd(ret.errorMessage);
           }
         },
         error: (err) => {
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
 
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(err);
@@ -218,7 +218,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
       x.linkContentId = model.id;
     });
     const pName = this.constructor.name + 'biographyContentOtherInfoService.ServiceAddBatch';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
 
     return firstValueFrom(this.biographyContentOtherInfoService.ServiceAddBatch(this.otherInfoDataModel)).then(
       (ret) => {
@@ -230,7 +230,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
         return of(ret);
       },
       (err) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeErrorAdd(err);
@@ -249,7 +249,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
       dataList.push(row);
     });
     const pName = this.constructor.name + 'biographyContentSimilarService.ServiceAddBatch';
-    this.loading.Start(pName);
+    this.publicHelper.processService.processStart(pName);
     return firstValueFrom(this.biographyContentSimilarService.ServiceAddBatch(dataList)).then(
       (ret) => {
         if (ret.isSuccess) {
@@ -260,7 +260,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
         return of(ret);
       },
       (err) => {
-        this.loading.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
 
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeErrorAdd(err);

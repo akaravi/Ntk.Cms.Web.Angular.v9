@@ -2,6 +2,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreConfigurationService, ErrorExceptionResult } from 'ntk-cms-api';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
@@ -13,6 +14,7 @@ export class SingupRuleComponent implements OnInit {
     private coreConfigurationService: CoreConfigurationService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
+    private publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.loading.cdr = this.cdr;
@@ -22,7 +24,7 @@ export class SingupRuleComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<string> = new ErrorExceptionResult<string>();
   ngOnInit(): void {
     const pName = this.constructor.name + 'ServiceUserMembershipRule';
-    this.loading.Start(pName, this.translate.instant('MESSAGE.get_the_rules'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_the_rules'));
     this.coreConfigurationService
       .ServiceUserMembershipRule()
       .subscribe({
@@ -33,11 +35,11 @@ export class SingupRuleComponent implements OnInit {
           } else {
             this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
           }
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetOne(er);
-          this.loading.Stop(pName);
+          this.publicHelper.processService.processStop(pName);
         }
       }
       );
