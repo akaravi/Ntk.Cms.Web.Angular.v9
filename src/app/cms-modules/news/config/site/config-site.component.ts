@@ -164,7 +164,7 @@ export class NewsConfigSiteComponent implements OnInit {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -190,7 +190,7 @@ export class NewsConfigSiteComponent implements OnInit {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -216,7 +216,7 @@ export class NewsConfigSiteComponent implements OnInit {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -242,7 +242,7 @@ export class NewsConfigSiteComponent implements OnInit {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

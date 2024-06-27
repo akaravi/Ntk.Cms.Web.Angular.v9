@@ -151,7 +151,7 @@ export class PollingConfigMainAdminComponent implements OnInit, OnDestroy {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -178,7 +178,7 @@ export class PollingConfigMainAdminComponent implements OnInit, OnDestroy {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -206,7 +206,7 @@ export class PollingConfigMainAdminComponent implements OnInit, OnDestroy {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -233,7 +233,7 @@ export class PollingConfigMainAdminComponent implements OnInit, OnDestroy {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -260,7 +260,7 @@ export class PollingConfigMainAdminComponent implements OnInit, OnDestroy {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -287,7 +287,7 @@ export class PollingConfigMainAdminComponent implements OnInit, OnDestroy {
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

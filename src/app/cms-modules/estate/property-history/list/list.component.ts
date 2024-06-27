@@ -314,7 +314,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         },
       });
       /** Search On Select Day */
@@ -341,7 +341,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         },
       });
     }

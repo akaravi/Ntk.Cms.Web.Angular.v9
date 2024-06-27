@@ -168,7 +168,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

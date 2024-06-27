@@ -187,7 +187,7 @@ export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, Co
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

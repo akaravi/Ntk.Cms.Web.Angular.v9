@@ -384,7 +384,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -698,7 +698,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -796,7 +796,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

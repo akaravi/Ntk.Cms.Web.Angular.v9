@@ -90,7 +90,7 @@ export class EstateConfigCheckUserComponent implements OnInit, OnDestroy {
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetOne(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

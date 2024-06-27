@@ -163,8 +163,7 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -197,32 +196,6 @@ export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberP
     this.filteModelContent.rowPerPage = event.pageSize;
     this.DataGetAll();
   }
-  // onTableDropRow(event: CdkDragDrop<MemberPropertyDetailModel[]>): void {
-  //   const previousIndex = this.tableSource.data.findIndex(row => row === event.item.data);
-  //   const model = new EditStepDtoModel<number>();
-  //   model.id = this.tableSource.data[previousIndex].id;
-  //   model.centerId = this.tableSource.data[event.currentIndex].id;
-  //   if (previousIndex > event.currentIndex) {
-  //     model.actionGo = ActionGoStepEnum.GoUp;
-  //   }
-  //   else {
-  //     model.actionGo = ActionGoStepEnum.GoDown;
-  //   }
-  //   this.contentService.ServiceEditStep(model).subscribe({
-  //     next: (ret) => {
-  //       if (ret.isSuccess) {
-  //         moveItemInArray(this.tableSource.data, previousIndex, event.currentIndex);
-  //         this.tableSource.data = this.tableSource.data.slice();
-  //       } else {
-  //         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-  //       }
-  //     },
-  //     error: (er) => {
-  //       this.cmsToastrService.typeError(er);
-  //     }
-  //   }
-  //   );
-  // }
   onActionSelectorSelect(model: MemberPropertyDetailGroupModel | null): void {
     /*filter */
     var sortColumn = this.filteModelContent.sortColumn;

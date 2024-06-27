@@ -124,7 +124,7 @@ export class DataProviderPlanListComponent extends ListBaseComponent<DataProvide
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

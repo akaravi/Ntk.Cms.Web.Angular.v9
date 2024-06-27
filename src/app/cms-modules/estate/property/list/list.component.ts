@@ -345,7 +345,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -492,7 +492,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -529,7 +529,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -965,7 +965,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -1095,7 +1095,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

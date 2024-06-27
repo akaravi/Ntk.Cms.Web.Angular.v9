@@ -201,7 +201,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -227,7 +227,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -254,7 +254,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -293,7 +293,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -686,7 +686,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -755,7 +755,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
         },
         error: (er) => {
           this.cmsToastrService.typeErrorGetAccess(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

@@ -155,7 +155,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
       error: (er) => {
         this.cmsToastrService.typeError(er);
 
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
