@@ -4,35 +4,11 @@
   left: 0;
   width: 100% !important;
   height: 100% !important;
-  z-index: 100;
-  background-color: rgba(0,0,0,0.53);
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.53);
+
   /* this seems to work for me but may need to be higher*/
   label {
     text-shadow: 1px 1px 2px black;
   }
-}
-
-.progress-spinner2222222 {
-    position: fixed;
-    z-index: 999;
-    height: 2em;
-    width: 2em;
-    overflow: show;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
-/* Transparent Overlay */
-.progress-spinner2222222222:before {
-  content: '';
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.53);
 }
