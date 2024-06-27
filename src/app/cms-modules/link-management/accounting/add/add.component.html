@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -48,7 +48,8 @@
              </textarea>
                 <em>{{ Description.value.length }} / 500</em>
                 <mat-error *ngIf="Description.errors?.required">
-                    {{ fieldsInfo["description"]?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                    {{ fieldsInfo["description"]?.fieldTitle }} is <strong>{{'MESSAGE.required' |
+                        translate}}</strong>
                 </mat-error>
             </div>
             <!-- Debtor Field -->
@@ -65,7 +66,8 @@
             </div>
             <!-- Creditor Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.creditor" class="color-highlight">{{ fieldsInfo["creditor"]?.fieldTitle }}</label>
+                <label for="dataModel.creditor" class="color-highlight">{{ fieldsInfo["creditor"]?.fieldTitle
+                    }}</label>
                 <input matInput type="number" [(ngModel)]="dataModel.creditor" name="dataModel.creditor" #Creditor
                     placeholder="{{'TITLE.Creditor_Credit' | translate}}" minlength="0" required
                     class="form-control validate-name" id="dataModel.creditor" />
@@ -87,7 +89,8 @@
             <!-- EndDate Field -->
             <div *ngIf="fieldsInfo['endDate']?.accessWatchField"
                 class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.endDate" class="color-highlight">{{ fieldsInfo["endDate"]?.fieldTitle }}</label>
+                <label for="dataModel.endDate" class="color-highlight">{{ fieldsInfo["endDate"]?.fieldTitle
+                    }}</label>
                 <input matInput [matDatepicker]="EndDate" [(ngModel)]="dataModel.endDate" name="dataModel.endDate"
                     class="form-control validate-name" id="dataModel.endDate" />
                 <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
@@ -99,7 +102,7 @@
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
                 <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                     [disabled]="!vform.form.valid">
+                    [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
             </div>

@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -101,7 +101,8 @@
             <hr style="height:2px;border-width:0;color:gray;background-color:gray">
             <!-- TitleEn Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.titleEn" class="color-highlight">{{ fieldsInfo["titleEn"]?.fieldTitle }}</label>
+                <label for="dataModel.titleEn" class="color-highlight">{{ fieldsInfo["titleEn"]?.fieldTitle
+                    }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.titleEn" name="dataModel.titleEn" #TitleEn
                     placeholder="{{fieldsInfo['titleEn']?.fieldTitle}}" minlength="3" maxlength="100"
                     class="form-control validate-name" id="dataModel.titleEn" />
@@ -228,7 +229,8 @@
             <hr style="height:2px;border-width:0;color:gray;background-color:gray">
             <!-- TitleDe Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.titleDe" class="color-highlight">{{ fieldsInfo["titleDe"]?.fieldTitle }}</label>
+                <label for="dataModel.titleDe" class="color-highlight">{{ fieldsInfo["titleDe"]?.fieldTitle
+                    }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.titleDe" name="dataModel.titleDe" #TitleDe
                     placeholder="{{fieldsInfo['titleDe']?.fieldTitle}}" minlength="3" maxlength="100"
                     class="form-control validate-name" id="dataModel.titleDe" />
@@ -292,7 +294,7 @@
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
                 <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                     [disabled]="!vform.form.valid">
+                    [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
             </div>

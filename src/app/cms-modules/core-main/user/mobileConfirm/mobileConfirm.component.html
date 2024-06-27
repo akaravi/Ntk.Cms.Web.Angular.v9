@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -19,8 +19,7 @@
           <label for="dataModel.mobile" class="color-highlight">{{fieldsInfo['mobile']?.fieldTitle}}</label>
           <input matInput [(ngModel)]="dataModel.mobile" name="dataModel.mobile" #Mobile type="text"
             [disabled]="!fieldsInfo['mobile']?.accessAddField" placeholder="{{fieldsInfo['mobile']?.fieldTitle}}"
-            class="form-control validate-name input-ltr-center" id="dataModel.mobile"
-            required />
+            class="form-control validate-name input-ltr-center" id="dataModel.mobile" required />
           <em>{{ Mobile.value.length }} / 100</em>
           <mat-error *ngIf="Mobile.errors?.required">
             Mobile is <strong>{{'MESSAGE.required' | translate}}</strong>

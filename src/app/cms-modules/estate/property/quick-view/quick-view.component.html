@@ -4,7 +4,7 @@
       {{ formInfo.formTitle }}
     </p>
 
-    <app-progress-spinner [options]="loading"> </app-progress-spinner>
+    <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
     <!--Content-->
     <ng-container *ngIf="!loading.display">
       <div class="ntk-cms-html-card-header">
@@ -115,8 +115,8 @@
 
         <hr>
         <p> {{'TITLE.List_Of_Transaction_Details_Of_This_Property' | translate}} </p>
-        <app-progress-spinner [options]="loadingOption">
-        </app-progress-spinner>
+        <cms-progress-spinner [options]="loadingOption">
+        </cms-progress-spinner>
         <!-- TABLE  -->
         <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
           <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>

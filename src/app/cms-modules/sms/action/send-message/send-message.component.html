@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -185,7 +185,8 @@
                                         <div
                                             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                                             <label for="dataModelDateByClockExpire.clock"
-                                                class="color-highlight">{{'TITLE.Send_end_time' | translate}}</label>
+                                                class="color-highlight">{{'TITLE.Send_end_time' |
+                                                translate}}</label>
                                             <input matInput [ngxTimepicker]="scheduleSendExpireClock"
                                                 [(ngModel)]="dataModelDateByClockExpire.clock" [format]="24"
                                                 name="scheduleSendExpireClock" class="form-control validate-name"
@@ -335,9 +336,9 @@
                             </div>
                             <div class="row" *ngIf="formInfo.formSubmitAllow  && !loading?.display"
                                 style="height:140px;bottom: 4vh;justify-content: center;">
-                                <app-progress-spinner [options]="loadingAction"> </app-progress-spinner>
-                                <button type="submit" class="message-box-button"
-                                    [disabled]="!vform.valid" *ngIf="!this.loading.display">
+                                <cms-progress-spinner [options]="loadingAction"> </cms-progress-spinner>
+                                <button type="submit" class="message-box-button" [disabled]="!vform.valid"
+                                    *ngIf="!this.loading.display">
                                     <i class="fa fa-check-square-o"></i>
                                     {{'ACTION.Send_Message' | translate}}
                                 </button>

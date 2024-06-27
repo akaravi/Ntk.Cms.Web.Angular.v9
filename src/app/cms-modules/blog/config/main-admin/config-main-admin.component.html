@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
     </div>
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
@@ -17,7 +17,8 @@
         <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
             <mat-step label="{{'TITLE.Default_module_settings'|translate}}" state="main"
                 *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
-                <p>{{'TITLE.Settings_that_are_used_in_the_first_assignment_of_the_module_to_the_site' |translate}}</p>
+                <p>{{'TITLE.Settings_that_are_used_in_the_first_assignment_of_the_module_to_the_site' |translate}}
+                </p>
                 <!-- StatusRenderUser Field -->
                 <div class="d-flex mb-3">
                     <div class="pt-1">

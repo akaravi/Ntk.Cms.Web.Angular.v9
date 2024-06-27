@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <app-cms-guide-notice [Key]="'estate.property.list.add'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'"
   [ngStyle]="{'direction' : tokenInfo.direction }">
 </app-cms-guide-notice>
@@ -281,7 +281,8 @@
           <!-- AddressHidden Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
             *ngIf="fieldsInfo['addressHidden']?.accessWatchField">
-            <label for="dataModel.addressHidden" class="color-highlight">{{'TITLE.Address_Hidden' | translate}}</label>
+            <label for="dataModel.addressHidden" class="color-highlight">{{'TITLE.Address_Hidden' |
+              translate}}</label>
             <textarea matInput [(ngModel)]="dataModel.addressHidden" name="dataModel.addressHidden" #AddressHidden
               type="text" placeholder="{{fieldsInfo['addressHidden']?.fieldTitle}}" minlength="1" maxlength="2000"
               rows=5 class="form-control validate-name" id="dataModel.addressHidden"></textarea>
@@ -333,9 +334,8 @@
                     <label for="contractDataModel.salePrice"
                       class="color-highlight">{{contractTypeSelected.titleSalePriceML}}</label>
                     <input matInput [(ngModel)]="contractDataModel.salePrice" name="contractDataModel.salePrice"
-                      [disabled]="contractDataModel.salePriceByAgreement" type="text" currencyMask
-                      placeholder="0" class="form-control validate-name input-ltr-center"
-                      id="contractDataModel.salePrice" />
+                      [disabled]="contractDataModel.salePriceByAgreement" type="text" currencyMask placeholder="0"
+                      class="form-control validate-name input-ltr-center" id="contractDataModel.salePrice" />
                     <label> ({{dataModelCorCurrencySelector.titleML}}
                       {{dataModelCorCurrencySelector.symbol}} )
                     </label>
@@ -366,9 +366,8 @@
                     <label for="contractDataModel.depositPrice"
                       class="color-highlight">{{contractTypeSelected.titleDepositPriceML}}</label>
                     <input matInput [(ngModel)]="contractDataModel.depositPrice" name="contractDataModel.depositPrice"
-                      [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask
-                       placeholder="0" class="form-control validate-name input-ltr-center"
-                      id="contractDataModel.depositPrice" />
+                      [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask placeholder="0"
+                      class="form-control validate-name input-ltr-center" id="contractDataModel.depositPrice" />
                     <label> ({{dataModelCorCurrencySelector.titleML}}
                       {{dataModelCorCurrencySelector.symbol}} )
                     </label>
@@ -399,9 +398,8 @@
                     <label for="contractDataModel.rentPrice"
                       class="color-highlight">{{contractTypeSelected.titleRentPriceML}}</label>
                     <input matInput [(ngModel)]="contractDataModel.rentPrice" name="contractDataModel.rentPrice"
-                      [disabled]="contractDataModel.rentPriceByAgreement" type="text" currencyMask
-                      placeholder="0" class="form-control validate-name input-ltr-center"
-                      id="contractDataModel.rentPrice" />
+                      [disabled]="contractDataModel.rentPriceByAgreement" type="text" currencyMask placeholder="0"
+                      class="form-control validate-name input-ltr-center" id="contractDataModel.rentPrice" />
                     <label> ({{dataModelCorCurrencySelector.titleML}}
                       {{dataModelCorCurrencySelector.symbol}} )
                     </label>
@@ -432,8 +430,8 @@
                     <label for="contractDataModel.periodPrice"
                       class="color-highlight">{{contractTypeSelected.titlePeriodPriceML}}</label>
                     <input matInput [(ngModel)]="contractDataModel.periodPrice" name="contractDataModel.periodPrice"
-                      [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask
-                      placeholder="0" class="form-control validate-name input-ltr-center"
+                      [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask placeholder="0"
+                      class="form-control validate-name input-ltr-center"
                       id="contractDataModel.periodPriceByAgreement" />
                     <label> ({{dataModelCorCurrencySelector.titleML}}
                       {{dataModelCorCurrencySelector.symbol}} )
@@ -482,8 +480,8 @@
           </button>
           <hr>
           <p> {{'TITLE.List_Of_Transaction_Details_Of_This_Property' | translate}} </p>
-          <app-progress-spinner [options]="loadingOption">
-          </app-progress-spinner>
+          <cms-progress-spinner [options]="loadingOption">
+          </cms-progress-spinner>
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
             <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>

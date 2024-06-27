@@ -1,8 +1,4 @@
-
-
-
-
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -14,37 +10,37 @@
       {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
     </p>
     <!--Content-->
-<div class="ntk-cms-html-card-body">
+    <div class="ntk-cms-html-card-body">
 
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
 
-    <app-cms-json-list [dataModel]="dataModel" [optionMethod]="1"></app-cms-json-list>
+      <app-cms-json-list [dataModel]="dataModel" [optionMethod]="1"></app-cms-json-list>
 
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-</div>
-<div class="ntk-cms-html-card-message">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    <div class="form-actions">
+      <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+    </div>
+    <div class="ntk-cms-html-card-message">
+      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+      <div class="form-actions">
         <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
         <small class="form-text text-muted danger">{{ formInfo.formError }}
         </small>
+      </div>
+      <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
     </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-</div>
-<div class="ntk-cms-html-card-footer">
-    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <div class="ntk-cms-html-card-footer">
+      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
 
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
         <button type="button" (click)="onFormCancel()"
-            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-            <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
+      </div>
+      <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
     </div>
-    <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-</div>
 
 
-	 <!--Content-->
+    <!--Content-->
   </div>
 </div>

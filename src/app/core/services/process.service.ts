@@ -60,12 +60,13 @@ export class ProcessService {
     this.processInfo.set(key, model);
     this.cmsStoreService.setState({ processInfoStore: this.processInfo });
   }
-  public processStop(key: string): void {
+  public processStop(key: string,isSuccess=true): void {
     let model = this.processInfo.get(key);
     if (!model) {
       model = new ProcessInfoModel();
     }
     model.inRun = false;
+    model.isSuccess = isSuccess;
     this.processInfo.set(key, model);
 
     const retOut = [];

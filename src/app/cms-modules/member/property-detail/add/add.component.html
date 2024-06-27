@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -146,7 +146,8 @@
         <mat-chip-grid #chipList aria-label="'TITLE.key_word'|translate">
           <mat-chip *ngFor="let item of  keywordDataModel" (removed)="removeTag(item)">
             {{item}}
-            <button  type="button" matChipRemove class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+            <button type="button" matChipRemove
+              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
               <mat-icon>cancel</mat-icon>
             </button>
           </mat-chip>
@@ -161,7 +162,7 @@
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
         <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-           [disabled]="!vform.form.valid">
+          [disabled]="!vform.form.valid">
           <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>
       </div>

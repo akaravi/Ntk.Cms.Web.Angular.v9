@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -18,7 +18,8 @@
             </app-sms-apipath-selector>
             <!-- FromNumber Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.fromNumber" class="color-highlight">{{'TITLE.sender_number' | translate}}</label>
+                <label for="dataModel.fromNumber" class="color-highlight">{{'TITLE.sender_number' |
+                    translate}}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.fromNumber" name="dataModel.fromNumber" #FromNumber
                     minlength="0" maxlength="50" class="form-control validate-name" id="dataModel.fromNumber"
                     placeholder="10000118" />
@@ -26,7 +27,8 @@
             </div>
             <!-- ToNumber Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.toNumber" class="color-highlight">{{'TITLE.Receiver_number' | translate}}</label>
+                <label for="dataModel.toNumber" class="color-highlight">{{'TITLE.Receiver_number' |
+                    translate}}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.toNumber" name="dataModel.toNumber" #ToNumber
                     minlength="0" maxlength="100" class="form-control validate-name" id="dataModel.toNumber"
                     placeholder="0912" />
@@ -34,7 +36,8 @@
             </div>
             <!-- Message Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.message" class="color-highlight">{{'MESSAGE.Message_Text' | translate}}</label>
+                <label for="dataModel.message" class="color-highlight">{{'MESSAGE.Message_Text' |
+                    translate}}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.message" name="dataModel.message" #Message
                     minlength="1" maxlength="500" class="form-control validate-name" id="dataModel.message"
                     placeholder="..." />

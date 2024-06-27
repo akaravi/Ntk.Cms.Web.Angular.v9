@@ -1,5 +1,5 @@
 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-  <app-progress-spinner [options]="loading"> </app-progress-spinner>
+  <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
   <label *ngIf="optionLabel?.length>0" for="app-cms-site-selector-{{id}}"
     class="color-highlight">{{optionLabel}}</label>
   <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null" matInput

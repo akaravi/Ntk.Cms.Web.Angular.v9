@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -108,7 +108,8 @@
                 this.translate.instant('TITLE.Domain') : dataModel.domain }}</button>
               <div class="dropdown-menu">
                 <option (click)="domain(item)" class="cursor-pointer"
-                  *ngFor="let item of dataModelResultDomains.listItems;let i = index" value="{{item}}">{{item}}</option>
+                  *ngFor="let item of dataModelResultDomains.listItems;let i = index" value="{{item}}">{{item}}
+                </option>
               </div>
             </div>
             <input [(ngModel)]="dataModel.subDomain" name="subDomain" placeholder="YourSubDomain" type="text"

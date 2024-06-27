@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -104,7 +104,7 @@
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}
         </button>
-        <button type="submit"  [disabled]="!vform.form.valid"
+        <button type="submit" [disabled]="!vform.form.valid"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
           <i class="fa fa-check-square-o"></i>
           {{ "ACTION.SAVE" | translate }}

@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -88,7 +88,8 @@
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
         <button (click)="onActionButtonGetMeAsync()" type="button"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.GetMeAsync' |
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.GetMeAsync'
+          |
           translate}}</button>
         <button (click)="onActionButtonSetWebhookAsync()" type="button"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SetWebhookAsync'

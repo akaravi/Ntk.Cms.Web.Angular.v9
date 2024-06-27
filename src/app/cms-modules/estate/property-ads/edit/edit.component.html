@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -32,8 +32,7 @@
       <!-- LinkPropertyId Field -->
       <app-estate-property-selector (optionChange)="onActionSelectorSelectLinkPropertyId($event)"
         [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkPropertyId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkPropertyId"
-        [optionPlaceholder]="'TITLE.Property_ID' | translate ">
+        [optionSelectForce]="dataModel.linkPropertyId" [optionPlaceholder]="'TITLE.Property_ID' | translate ">
       </app-estate-property-selector>
       <!-- StationLevel Field -->
       <div *ngIf="fieldsInfo['stationLevel']?.accessWatchField"

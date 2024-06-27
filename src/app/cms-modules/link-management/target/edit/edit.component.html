@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -79,7 +79,8 @@
           </div>
           <!-- WebAddress Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.webAddress" class="color-highlight">{{ fieldsInfo["webAddress"]?.fieldTitle }}</label>
+            <label for="dataModel.webAddress" class="color-highlight">{{ fieldsInfo["webAddress"]?.fieldTitle
+              }}</label>
             <input style="direction: ltr; text-align: left !important;" matInput type="text"
               [(ngModel)]="dataModel.webAddress" name="dataModel.webAddress" #WebAddress
               placeholder="{{fieldsInfo['webAddress']?.fieldTitle }}" minlength="3" maxlength="100"
@@ -116,7 +117,8 @@
           </div>
           <!-- ClickPrice Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.clickPrice" class="color-highlight">{{ fieldsInfo["clickPrice"]?.fieldTitle }}</label>
+            <label for="dataModel.clickPrice" class="color-highlight">{{ fieldsInfo["clickPrice"]?.fieldTitle
+              }}</label>
             <input matInput type="number" [(ngModel)]="dataModel.clickPrice" name="dataModel.clickPrice" #ClickPrice
               placeholder="{{'TITLE.Amount_Per_Click' | translate}}" minlength="0" class="form-control validate-name"
               id="dataModel.clickPrice" />

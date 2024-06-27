@@ -125,8 +125,8 @@
                 <!-- <div class="button-row">
           نسبت به نیازمندی های خود و مدت زمان اقدام به خرید نمایید
         </div> -->
-                <app-progress-spinner [options]="loading">
-                </app-progress-spinner>
+                <cms-progress-spinner [options]="loading">
+                </cms-progress-spinner>
                 <div class="row">
                     <div class="col-3" *ngFor="let row of dataModelResult.listItems">
                         <mat-card class="example-card" style="border:groove ;">
@@ -156,7 +156,8 @@
                             </mat-card-content>
                             <mat-card-actions>
                                 <!-- Action Menu -->
-                                <button  type="button" mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Action Menu">
+                                <button type="button" mat-icon-button [matMenuTriggerFor]="actionMenu"
+                                    aria-label="Action Menu">
                                     <mat-icon>more_vert</mat-icon>
                                 </button>
                                 <mat-menu #actionMenu="matMenu">

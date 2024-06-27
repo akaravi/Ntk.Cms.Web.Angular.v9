@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"></app-progress-spinner>
+<cms-progress-spinner [options]="loading"></cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -80,7 +80,8 @@
           <!-- ExpireDate Field -->
           <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
+            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle
+              }}</label>
             <input matInput [matDatepicker]="ExpireDate" type="text" [(ngModel)]="dataModel.expireDate"
               name="dataModel.expireDate" placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3"
               maxlength="100" disabled="{{!fieldsInfo['expireDate']?.accessEditField}}"
@@ -129,7 +130,8 @@
           <!-- AboutUsTel Field -->
           <div *ngIf="fieldsInfo['aboutUsTel']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.aboutUsTel" class="color-highlight">{{ fieldsInfo['aboutUsTel']?.fieldTitle }}</label>
+            <label for="dataModel.aboutUsTel" class="color-highlight">{{ fieldsInfo['aboutUsTel']?.fieldTitle
+              }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsTel" [disabled]="!fieldsInfo['aboutUsTel']?.accessAddField"
               class="input-Mobile" name="dataModel.aboutUsTel" #AboutUsTel type="text" placeholder="021444444444"
               minlength="0" maxlength="100" class="form-control validate-name" id="dataModel.aboutUsTel" />
@@ -138,7 +140,8 @@
           <!-- AboutUsFax Field -->
           <div *ngIf="fieldsInfo['aboutUsFax']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.aboutUsFax" class="color-highlight">{{ fieldsInfo['aboutUsFax']?.fieldTitle }}</label>
+            <label for="dataModel.aboutUsFax" class="color-highlight">{{ fieldsInfo['aboutUsFax']?.fieldTitle
+              }}</label>
             <input matInput [(ngModel)]="dataModel.aboutUsFax" [disabled]="!fieldsInfo['aboutUsFax']?.accessAddField"
               name="dataModel.aboutUsFax" #AboutUsFax type="text" placeholder="02133333333" minlength="0"
               maxlength="100" class="form-control validate-name" id="dataModel.aboutUsFax" />

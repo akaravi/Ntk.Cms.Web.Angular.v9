@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -19,8 +19,7 @@
           <label for="dataModel.email" class="color-highlight">{{fieldsInfo['email']?.fieldTitle}}</label>
           <input matInput [(ngModel)]="dataModel.email" name="dataModel.email" #Email type="email"
             [disabled]="!fieldsInfo['email']?.accessAddField" placeholder="{{fieldsInfo['email']?.fieldTitle}}"
-            class="form-control validate-name input-ltr-center" id="dataModel.email"
-            required />
+            class="form-control validate-name input-ltr-center" id="dataModel.email" required />
           <em>{{ Email.value.length }} / 100</em>
           <mat-error *ngIf="Email.errors?.required">
             Email is <strong>{{'MESSAGE.required' | translate}}</strong>

@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -87,7 +87,8 @@
           <!-- ExpireDate Field -->
           <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
+            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle
+              }}</label>
             <input matInput type="text" [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate"
               name="dataModel.expireDate" [disabled]="!fieldsInfo['expireDate']?.accessEditField"
               placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}" minlength="3" maxlength="100"
@@ -179,7 +180,8 @@
           <!-- PostalCode Field -->
           <div *ngIf="fieldsInfo['postalCode']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.postalCode" class="color-highlight">{{ fieldsInfo["postalCode"]?.fieldTitle }}</label>
+            <label for="dataModel.postalCode" class="color-highlight">{{ fieldsInfo["postalCode"]?.fieldTitle
+              }}</label>
             <input matInput type="text" [(ngModel)]="dataModel.postalCode" name="dataModel.postalCode" #PostalCode
               [disabled]="!fieldsInfo['postalCode']?.accessEditField"
               placeholder="{{fieldsInfo['postalCode']?.fieldTitle }}" minlength="3" maxlength="100"

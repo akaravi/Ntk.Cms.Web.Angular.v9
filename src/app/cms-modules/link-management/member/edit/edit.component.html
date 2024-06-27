@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -47,12 +47,14 @@
              </textarea>
                 <em>{{ Description.value.length }} / 500</em>
                 <mat-error *ngIf="Description.errors?.required">
-                    {{ fieldsInfo["description"]?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                    {{ fieldsInfo["description"]?.fieldTitle }} is <strong>{{'MESSAGE.required' |
+                        translate}}</strong>
                 </mat-error>
             </div>
             <!-- CurrentDebtor Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.currentDebtor" class="color-highlight">{{ fieldsInfo["currentDebtor"]?.fieldTitle
+                <label for="dataModel.currentDebtor" class="color-highlight">{{
+                    fieldsInfo["currentDebtor"]?.fieldTitle
                     }}</label>
                 <input matInput type="number" [(ngModel)]="dataModel.currentDebtor" name="dataModel.currentDebtor"
                     #CurrentDebtor placeholder="{{'TITLE.Current_Credit_Of_Debtor' | translate}}" minlength="0" required

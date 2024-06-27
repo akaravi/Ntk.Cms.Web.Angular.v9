@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <app-cms-guide-notice [Key]="'polling.content.list.add'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <div class="card card-style">
@@ -74,7 +74,8 @@
           <!-- MaxVoteForEachOption Field -->
           <div *ngIf="fieldsInfo['title']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.maxVoteForEachOption" class="color-highlight">{{'TITLE.Maximum_Score_For_Per_Option' |
+            <label for="dataModel.maxVoteForEachOption" class="color-highlight">{{'TITLE.Maximum_Score_For_Per_Option'
+              |
               translate}}</label>
             <input matInput type="number" [(ngModel)]="dataModel.maxVoteForEachOption"
               name="dataModel.maxVoteForEachOption" #MaxVoteForEachOption type="number"
@@ -184,8 +185,8 @@
             {{'ACTION.Add_To_List' | translate}} ...
           </button>
           <p>{{'TITLE.List_of_other_information' | translate}}</p>
-          <app-progress-spinner [options]="loadingOption">
-          </app-progress-spinner>
+          <cms-progress-spinner [options]="loadingOption">
+          </cms-progress-spinner>
 
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
@@ -232,10 +233,11 @@
                     <mat-icon aria-hidden="false" style="color: blue;">edit</mat-icon>{{'ACTION.EDIT' |
                     translate}}
                   </small>|
-                  <button  type="button" mat-icon-button
+                  <button type="button" mat-icon-button
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
                     <small (click)="onActionOptionRemoveFromList(i)">
-                      <mat-icon aria-hidden="false" style="color: red;">delete</mat-icon>{{'ACTION.DELETE' | translate}}
+                      <mat-icon aria-hidden="false" style="color: red;">delete</mat-icon>{{'ACTION.DELETE' |
+                      translate}}
                     </small>
                   </button>
                 </mat-cell>

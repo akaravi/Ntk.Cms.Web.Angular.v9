@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -61,7 +61,8 @@
       <!-- UserAcceptor Field -->
       <div *ngIf="fieldsInfo['userAcceptor']?.accessWatchField"
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.userAcceptor" class="color-highlight">{{ fieldsInfo["userAcceptor"]?.fieldTitle }}</label>
+        <label for="dataModel.userAcceptor" class="color-highlight">{{ fieldsInfo["userAcceptor"]?.fieldTitle
+          }}</label>
         <input matInput type="number" [(ngModel)]="dataModel.userAcceptor" name="dataModel.userAcceptor" #UserAcceptor
           placeholder="1" [disabled]="!fieldsInfo['userAcceptor']?.accessEditField" class="form-control validate-name"
           id="dataModel.userAcceptor" />
@@ -135,7 +136,7 @@
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
         </button>
         <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-           [disabled]="!vform.form.valid">
+          [disabled]="!vform.form.valid">
           <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>
       </div>

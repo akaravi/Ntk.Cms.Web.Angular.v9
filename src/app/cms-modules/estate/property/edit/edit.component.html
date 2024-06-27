@@ -1,6 +1,6 @@
 <app-cms-guide-notice [Key]="'estate.property.list.edit'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -68,7 +68,8 @@
           <!-- SharingKey Field -->
           <div *ngIf="fieldsInfo['sharingKey']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.sharingKey" class="color-highlight">{{ fieldsInfo["sharingKey"]?.fieldTitle }}</label>
+            <label for="dataModel.sharingKey" class="color-highlight">{{ fieldsInfo["sharingKey"]?.fieldTitle
+              }}</label>
             <input matInput type="text" [(ngModel)]="dataModel.sharingKey" name="dataModel.sharingKey" #SharingKey
               type="text" placeholder="{{fieldsInfo['sharingKey']?.fieldTitle }}"
               disabled="{{ !fieldsInfo['sharingKey']?.accessEditField }}" class="form-control validate-name"
@@ -706,8 +707,8 @@
           </div>
           <hr>
           <p> {{'TITLE.List_Of_Transaction_Details_Of_This_Property' | translate}} </p>
-          <app-progress-spinner [options]="loadingOption">
-          </app-progress-spinner>
+          <cms-progress-spinner [options]="loadingOption">
+          </cms-progress-spinner>
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
             <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>

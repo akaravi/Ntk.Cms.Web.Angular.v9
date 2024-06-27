@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -63,7 +63,8 @@
             </div>
             <!-- ToWebAddress Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.toWebAddress" class="color-highlight">{{ fieldsInfo["toWebAddress"]?.fieldTitle
+                <label for="dataModel.toWebAddress" class="color-highlight">{{
+                    fieldsInfo["toWebAddress"]?.fieldTitle
                     }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.toWebAddress" name="dataModel.toWebAddress"
                     #ToWebAddress placeholder="https://...." minlength="0" maxlength="100" style="text-align: left;"
@@ -72,7 +73,8 @@
             </div>
             <!-- HashMd5 Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.hashMd5" class="color-highlight">{{ fieldsInfo["hashMd5"]?.fieldTitle }}</label>
+                <label for="dataModel.hashMd5" class="color-highlight">{{ fieldsInfo["hashMd5"]?.fieldTitle
+                    }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.hashMd5" name="dataModel.hashMd5" #HashMd5
                     placeholder="...." minlength="0" maxlength="100" class="form-control validate-name"
                     id="dataModel.hashMd5" />
@@ -80,7 +82,8 @@
             </div>
             <!-- KeyCode Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.keyCode" class="color-highlight">{{ fieldsInfo["keyCode"]?.fieldTitle }}</label>
+                <label for="dataModel.keyCode" class="color-highlight">{{ fieldsInfo["keyCode"]?.fieldTitle
+                    }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.keyCode" name="dataModel.keyCode" #KeyCode
                     placeholder="...." minlength="0" maxlength="100" class="form-control validate-name"
                     id="dataModel.keyCode" />
@@ -120,7 +123,8 @@
             </div>
             <!-- LinkCmsUserId Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                <label for="dataModel.linkCmsUserId" class="color-highlight">{{ fieldsInfo["linkCmsUserId"]?.fieldTitle
+                <label for="dataModel.linkCmsUserId" class="color-highlight">{{
+                    fieldsInfo["linkCmsUserId"]?.fieldTitle
                     }}</label>
                 <input matInput type="number" [(ngModel)]="dataModel.linkCmsUserId" name="dataModel.linkCmsUserId"
                     #LinkCmsUserId placeholder="0" class="form-control validate-name" id="dataModel.linkCmsUserId" />
@@ -153,7 +157,7 @@
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
                 </button>
                 <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-                     [disabled]="!vform.form.valid">
+                    [disabled]="!vform.form.valid">
                     <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
                 </button>
             </div>

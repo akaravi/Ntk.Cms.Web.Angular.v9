@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -7,8 +7,8 @@
 
 
         <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
+            {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+        </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
@@ -35,7 +35,8 @@
                         <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
                         <em>{{ Title.value.length }} / 100</em>
                         <mat-error *ngIf="Title.errors?.required">
-                            {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                            {{ fieldsInfo['title']?.fieldTitle }} is <strong>{{'MESSAGE.required' |
+                                translate}}</strong>
                         </mat-error>
                     </div>
                     <!-- LinkPageId Field -->
@@ -52,7 +53,8 @@
                     <!-- Priority Field -->
                     <div *ngIf="fieldsInfo['priority']?.accessWatchField"
                         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-                        <label for="dataModel.priority" class="color-highlight">{{ fieldsInfo["priority"]?.fieldTitle
+                        <label for="dataModel.priority" class="color-highlight">{{
+                            fieldsInfo["priority"]?.fieldTitle
                             }}</label>
                         <input matInput type="number" [(ngModel)]="dataModel.priority" name="dataModel.priority"
                             #Priority placeholder="{{'TITLE.priority' | translate}}"

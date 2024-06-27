@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <app-cms-guide-notice [Key]="'estate.property.list.add'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <div class="card card-style">
@@ -103,7 +103,8 @@
             <!-- CaseCode Field -->
             <div *ngIf="fieldsInfo['caseCode']?.accessWatchField"
               class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.caseCode" class="color-highlight"> {{ fieldsInfo["caseCode"]?.fieldTitle }}</label>
+              <label for="dataModel.caseCode" class="color-highlight"> {{ fieldsInfo["caseCode"]?.fieldTitle
+                }}</label>
               <input matInput [(ngModel)]="dataModel.caseCode" name="dataModel.caseCode" #CaseCode type="text"
                 disabled="{{ !fieldsInfo['caseCode']?.accessAddField }}"
                 placeholder="{{ fieldsInfo['caseCode']?.fieldTitle }}" minlength="3" maxlength="100"
@@ -146,7 +147,8 @@
               PropertyTypeSelected.titlePartition.length > 1 &&
               PropertyTypeSelected.titlePartition !== '---'
             ">
-              <label for="dataModel.partition" class="color-highlight">{{ PropertyTypeSelected.titlePartition }}</label>
+              <label for="dataModel.partition" class="color-highlight">{{ PropertyTypeSelected.titlePartition
+                }}</label>
               <input matInput [(ngModel)]="dataModel.partition" name="dataModel.partition" #Partition type="number"
                 placeholder="{{ PropertyTypeSelected.titlePartition }}" class="form-control validate-name"
                 id="dataModel.partition" />
@@ -156,9 +158,8 @@
               *ngIf="fieldsInfo['area']?.accessWatchField">
               <label for="dataModel.area" class="color-highlight">{{ fieldsInfo["area"]?.fieldTitle }}</label>
               <input matInput [(ngModel)]="dataModel.area" name="dataModel.area" #Area type="text" currencyMask
-                 disabled="{{ !fieldsInfo['area']?.accessAddField }}"
-                placeholder="{{ fieldsInfo['area']?.fieldTitle }}" class="form-control validate-name input-ltr"
-                id="dataModel.area" />
+                disabled="{{ !fieldsInfo['area']?.accessAddField }}" placeholder="{{ fieldsInfo['area']?.fieldTitle }}"
+                class="form-control validate-name input-ltr" id="dataModel.area" />
             </div>
 
             <!-- LinkLocationId Field -->
@@ -215,7 +216,8 @@
             fieldsInfo['linkSiteId']?.accessWatchField &&
             this.tokenHelper.isAdminSite
           ">
-            <label for="dataModel.linkSiteId" class="color-highlight">{{ fieldsInfo["linkSiteId"]?.fieldTitle }}</label>
+            <label for="dataModel.linkSiteId" class="color-highlight">{{ fieldsInfo["linkSiteId"]?.fieldTitle
+              }}</label>
             <input matInput [(ngModel)]="dataModel.linkSiteId" name="dataModel.linkSiteId" #LinkSiteId type="text"
               disabled="{{ !fieldsInfo['linkSiteId']?.accessAddField }}" class="form-control validate-name"
               id="dataModel.linkSiteId" placeholder="{{ fieldsInfo['linkSiteId']?.fieldTitle }}" minlength="3"
@@ -680,7 +682,7 @@
                       contractTypeSelected.titleDepositPriceML
                       }}</label>
                     <input matInput [(ngModel)]="contractDataModel.depositPrice" name="contractDataModel.depositPrice"
-                      [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask 
+                      [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask
                       class=" form-control validate-name input-ltr-center" placeholder="0"
                       id="contractDataModel.depositPrice" />
                     <label>
@@ -698,7 +700,7 @@
                         contractTypeSelected.titleDepositPriceML
                         }}</label>
                       <input matInput [(ngModel)]="contractDataModel.depositPrice" name="contractDataModel.depositPrice"
-                        [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask 
+                        [disabled]="contractDataModel.depositPriceByAgreement" type="text" currencyMask
                         class="input-ltr-center" placeholder="0" id="contractDataModel.depositPrice" />
                       <label>
                         ({{ dataModelCorCurrencySelector.titleML }}
@@ -787,8 +789,8 @@
                       }}</label>
                     <input matInput [(ngModel)]="contractDataModel.periodPrice" name="contractDataModel.periodPrice"
                       [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask
-                      class="form-control validate-name input-ltr-center"
-                      placeholder="0" id="contractDataModel.periodPrice" />
+                      class="form-control validate-name input-ltr-center" placeholder="0"
+                      id="contractDataModel.periodPrice" />
                     <label>
                       ({{ dataModelCorCurrencySelector.titleML }}
                       {{ dataModelCorCurrencySelector.symbol }} )
@@ -805,8 +807,7 @@
                         }}</label>
                       <input matInput [(ngModel)]="contractDataModel.periodPrice" name="contractDataModel.periodPrice"
                         [disabled]="contractDataModel.periodPriceByAgreement" type="text" currencyMask
-                         class="input-ltr-center" placeholder="0"
-                        id="contractDataModel.periodPrice" />
+                        class="input-ltr-center" placeholder="0" id="contractDataModel.periodPrice" />
                       <label>
                         ({{ dataModelCorCurrencySelector.titleML }}
                         {{ dataModelCorCurrencySelector.symbol }} )
@@ -864,7 +865,7 @@
             <p>
               {{ "TITLE.List_Of_Transaction_Details_Of_This_Property" | translate }}
             </p>
-            <app-progress-spinner [options]="loadingOption"> </app-progress-spinner>
+            <cms-progress-spinner [options]="loadingOption"> </cms-progress-spinner>
             <!-- TABLE  -->
             <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
               <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>

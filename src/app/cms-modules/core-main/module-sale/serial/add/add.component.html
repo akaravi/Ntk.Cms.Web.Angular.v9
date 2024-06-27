@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
     <div class="content mb-0">
         <p class="mb-0 color-highlight font-600 font-12">
@@ -20,13 +20,15 @@
             </app-cms-enum-record-status-selector>
             <!-- SerialNumber Field -->
             <div class="input-style has-borders no-icon   input-style-always-active validate-field mb-4">
-                <label for="dataModel.serialNumber" class="color-highlight">{{ fieldsInfo["serialNumber"]?.fieldTitle
+                <label for="dataModel.serialNumber" class="color-highlight">{{
+                    fieldsInfo["serialNumber"]?.fieldTitle
                     }}</label>
                 <input matInput type="text" [(ngModel)]="dataModel.serialNumber" name="dataModel.serialNumber"
                     #SerialNumber placeholder="Serial Number" minlength="3" maxlength="100"
                     class="form-control validate-name" id="dataModel.serialNumber" />
                 <mat-error *ngIf="SerialNumber.errors?.required">
-                    {{fieldsInfo['serialNumber']?.fieldTitle}} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                    {{fieldsInfo['serialNumber']?.fieldTitle}} is <strong>{{'MESSAGE.required' |
+                        translate}}</strong>
                 </mat-error>
             </div>
             <!-- PwdForUse Field -->
@@ -113,13 +115,15 @@
             <!-- AllowReuseDay Field -->
             <div *ngIf="fieldsInfo['allowReuseDay']?.accessWatchField"
                 class="input-style has-borders no-icon     input-style-always-active validate-field mb-4">
-                <label for="dataModel.allowReuseDay" class="color-highlight">{{ fieldsInfo["allowReuseDay"]?.fieldTitle
+                <label for="dataModel.allowReuseDay" class="color-highlight">{{
+                    fieldsInfo["allowReuseDay"]?.fieldTitle
                     }}</label>
                 <input matInput [(ngModel)]="dataModel.allowReuseDay" name="dataModel.allowReuseDay"
                     [disabled]="!fieldsInfo['allowReuseDay']?.accessAddField" #AllowReuseDay type="number"
                     placeholder="0" class="form-control validate-name" id="dataModel.allowReuseDay" />
                 <mat-error *ngIf="AllowReuseDay.errors?.required">
-                    {{ fieldsInfo['allowReuseDay']?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
+                    {{ fieldsInfo['allowReuseDay']?.fieldTitle }} is <strong>{{'MESSAGE.required' |
+                        translate}}</strong>
                 </mat-error>
             </div>
             <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">

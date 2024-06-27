@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <app-cms-guide-notice [Key]="'news.content.list.edit'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <div class="card card-style">
@@ -74,7 +74,8 @@
           <!-- ExpireDate Field -->
           <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle }}</label>
+            <label for="dataModel.expireDate" class="color-highlight">{{ fieldsInfo["expireDate"]?.fieldTitle
+              }}</label>
             <input matInput type="text" [matDatepicker]="ExpireDate" [(ngModel)]="dataModel.expireDate"
               name="dataModel.expireDate" type="text" placeholder="{{fieldsInfo['expireDate']?.fieldTitle }}"
               disabled="{{!fieldsInfo['expireDate']?.accessEditField}}" class="form-control validate-name"
@@ -256,7 +257,8 @@
           </div>
           <!-- Source Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="contentOtherInfoSelected.source" class="color-highlight">{{'TITLE.Source' | translate}}</label>
+            <label for="contentOtherInfoSelected.source" class="color-highlight">{{'TITLE.Source' |
+              translate}}</label>
             <input matInput type="text" [(ngModel)]="contentOtherInfoSelected.source"
               name="contentOtherInfoSelected.source" #contentOtherInfoSelected_Source type="text" placeholder="http://"
               maxlength="500" dir="ltr" style="text-align: left;" class="form-control validate-name"

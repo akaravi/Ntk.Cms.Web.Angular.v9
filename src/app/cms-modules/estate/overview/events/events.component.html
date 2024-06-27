@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -18,7 +18,8 @@
           <mat-error
             *ngIf="checkingOnDayRange.controls.start.hasError('matStartDateInvalid')">{{'MESSAGE.InvalidStartDate'
             | translate}}</mat-error>
-          <mat-error *ngIf="checkingOnDayRange.controls.end.hasError('matEndDateInvalid')">{{'MESSAGE.InvalidEndDate' |
+          <mat-error *ngIf="checkingOnDayRange.controls.end.hasError('matEndDateInvalid')">{{'MESSAGE.InvalidEndDate'
+            |
             translate}}</mat-error>
         </mat-form-field>
       </div>
@@ -92,11 +93,13 @@
               <ng-container *ngFor="let item of dataModelPropertyResult.listItems">
                 <div class="divider divider-margins bg-highlight"></div>
                 <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
                   {{
                   publicHelper.getTime(item.createdDate)}}</p>
-                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
                 <h4 (click)="onActionButtonProperty(item,$event)" style="cursor: pointer;"> {{item.title}}<i
                     [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonProperty(item,$event)"
@@ -151,11 +154,13 @@
               <ng-container *ngFor="let item of dataModelCustomerOrderResult.listItems">
                 <div class="divider divider-margins bg-highlight"></div>
                 <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
                   {{
                   publicHelper.getTime(item.createdDate)}}</p>
-                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
 
                 <h4 (click)="onActionButtonCustomerOrder(item,$event)" style="cursor: pointer;"> {{item.title}}<i
@@ -212,11 +217,13 @@
               <ng-container *ngFor="let item of dataModelHistoryResult.listItems">
                 <div class="divider divider-margins bg-highlight"></div>
                 <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
                   {{
                   publicHelper.getTime(item.createdDate)}}</p>
-                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
 
                 <h4 (click)="onActionButtonHistory(item,$event)" style="cursor: pointer;"> {{item.title}}<i
@@ -275,11 +282,13 @@
               <ng-container *ngFor="let item of dataModelAccountAgencyResult.listItems">
                 <div class="divider divider-margins bg-highlight"></div>
                 <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
                   {{
                   publicHelper.getTime(item.createdDate)}}</p>
-                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
 
                 <h4 (click)="onActionButtonAccountAgency(item,$event)" style="cursor: pointer;"> {{item.title}}<i
@@ -336,11 +345,13 @@
               <ng-container *ngFor="let item of dataModelAccountUserResult.listItems">
                 <div class="divider divider-margins bg-highlight"></div>
                 <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
                   {{
                   publicHelper.getTime(item.createdDate)}}</p>
-                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
 
                 <h4 (click)="onActionButtonAccountUser(item,$event)" style="cursor: pointer;"> {{item.title}}<i
@@ -401,11 +412,13 @@
               <ng-container *ngFor="let item of dataModelPropertyCompanyResult.listItems">
                 <div class="divider divider-margins bg-highlight"></div>
                 <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
                   {{
                   publicHelper.getTime(item.createdDate)}}</p>
-                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
 
                 <h4 (click)="onActionButtonPropertyCompany(item,$event)" style="cursor: pointer;"> {{item.title}}<i
@@ -465,11 +478,13 @@
               <ng-container *ngFor="let item of dataModelPropertySupplierResult.listItems">
                 <div class="divider divider-margins bg-highlight"></div>
                 <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
                   {{
                   publicHelper.getTime(item.createdDate)}}</p>
-                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
 
                 <h4 (click)="onActionButtonPropertySupplier(item,$event)" style="cursor: pointer;"> {{item.title}}<i
@@ -528,11 +543,13 @@
               <ng-container *ngFor="let item of dataModelPropertyProjectResult.listItems">
                 <div class="divider divider-margins bg-highlight"></div>
                 <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
-                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}} </b>
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
                   {{
                   publicHelper.getTime(item.createdDate)}}</p>
-                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">{{'TITLE.Edit'|translate}}:<b
-                    *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}} </b> {{
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
 
                 <h4 (click)="onActionButtonPropertyProject(item,$event)" style="cursor: pointer;"> {{item.title}}<i

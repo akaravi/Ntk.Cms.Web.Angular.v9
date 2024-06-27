@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <app-cms-guide-notice [Key]="'polling.content.list.edit'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <div class="card card-style">
@@ -184,8 +184,8 @@
             {{'ACTION.Add_To_List' | translate}} ...
           </button>
           <p>{{'TITLE.List_of_other_information' | translate}}</p>
-          <app-progress-spinner [options]="loadingOption">
-          </app-progress-spinner>
+          <cms-progress-spinner [options]="loadingOption">
+          </cms-progress-spinner>
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
             <mat-table [dataSource]="optionTabledataSource">

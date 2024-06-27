@@ -1,4 +1,4 @@
-<app-progress-spinner [options]="loading"> </app-progress-spinner>
+<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
 <div class="page-content" *ngIf="!this.loading.display">
 
   <div class="card card-style">
@@ -23,7 +23,8 @@
                 class="fa fa-qrcode"></i></a>
           </h4>
           <p>
-            {{'TITLE.In_this_section_you_can_view_your_website_link_and_copy_it_and_share_it_with_others' | translate}}
+            {{'TITLE.In_this_section_you_can_view_your_website_link_and_copy_it_and_share_it_with_others' |
+            translate}}
             <br>
             {{'TITLE.You_can_also_get_your_link_as_a_barcode_by_clicking_on_the_Barcode_option.' | translate}}
           </p>
