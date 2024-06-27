@@ -95,7 +95,7 @@ export class MenuProfileComponent implements OnInit {
         this.loadingStatus = false;
         this.disabledAllow = false;
         if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -144,7 +144,7 @@ export class MenuProfileComponent implements OnInit {
         this.loadingStatus = false;
         this.disabledAllow = false;
         if (this.cmsToastrService) this.cmsToastrService.typeErrorAccessChange(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

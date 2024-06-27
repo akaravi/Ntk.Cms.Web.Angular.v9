@@ -32,7 +32,7 @@ export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends
         },
         error: (er) => {
           this.publicHelper.cmsToastrService.typeErrorGetAccess(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

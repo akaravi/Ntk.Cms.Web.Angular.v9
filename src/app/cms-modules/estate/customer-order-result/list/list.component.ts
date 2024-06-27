@@ -219,7 +219,7 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.publicHelper.processService.processStop(pName);
+              this.publicHelper.processService.processStop(pName, false);
             }
           }
           );

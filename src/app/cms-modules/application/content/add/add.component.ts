@@ -112,7 +112,7 @@ export class ApplicationAppAddComponent extends AddBaseComponent<ApplicationAppS
         error: (er) => {
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorAdd(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName,false);
         }
       }
       );

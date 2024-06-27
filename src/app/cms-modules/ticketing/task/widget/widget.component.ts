@@ -68,7 +68,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
         this.publicHelper.processService.processStop(this.constructor.name + 'All');
       },
       error: (er) => {
-        this.publicHelper.processService.processStop(this.constructor.name + 'All');
+        this.publicHelper.processService.processStop(this.constructor.name + 'All',false);
       }
     }
     );
@@ -86,7 +86,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
       }
       ,
       error: (er) => {
-        this.publicHelper.processService.processStop(this.constructor.name + 'Read');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Read',false);
       }
     }
     );
@@ -104,7 +104,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
       }
       ,
       error: (er) => {
-        this.publicHelper.processService.processStop(this.constructor.name + 'Unread');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Unread',false);
       }
     }
     );
@@ -122,7 +122,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
       }
       ,
       error: (er) => {
-        this.publicHelper.processService.processStop(this.constructor.name + 'Answered');
+        this.publicHelper.processService.processStop(this.constructor.name + 'Answered',false);
       }
     }
     );

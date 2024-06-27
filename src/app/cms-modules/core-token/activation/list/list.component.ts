@@ -315,7 +315,7 @@ export class CoreTokenActivationListComponent extends ListBaseComponent<CoreToke
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.publicHelper.processService.processStop(pName);
+              this.publicHelper.processService.processStop(pName, false);
             }
           }
           );

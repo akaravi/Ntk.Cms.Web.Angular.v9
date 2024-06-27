@@ -277,7 +277,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.publicHelper.processService.processStop(pName);
+              this.publicHelper.processService.processStop(pName, false);
             }
           }
           );

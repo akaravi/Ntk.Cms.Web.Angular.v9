@@ -317,7 +317,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.publicHelper.processService.processStop(pName);
+              this.publicHelper.processService.processStop(pName, false);
             }
           }
           );

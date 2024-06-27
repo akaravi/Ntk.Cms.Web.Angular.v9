@@ -72,7 +72,7 @@ export class CmsBankpaymentGridComponent implements OnInit {
         },
         error: (er) => {
           this.errorMessage = er;
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -94,9 +94,10 @@ export class CmsBankpaymentGridComponent implements OnInit {
             this.errorMessage = ret.errorMessage;
           }
           this.publicHelper.processService.processStop(pName);
-        }, error: (er) => {
+        },
+        error: (er) => {
           this.errorMessage = er;
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
 
       }

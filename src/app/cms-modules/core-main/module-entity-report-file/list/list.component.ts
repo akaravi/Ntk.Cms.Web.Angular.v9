@@ -156,7 +156,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -286,7 +286,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.publicHelper.processService.processStop(pName);
+              this.publicHelper.processService.processStop(pName, false);
             }
           }
           );
@@ -320,7 +320,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -342,7 +342,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

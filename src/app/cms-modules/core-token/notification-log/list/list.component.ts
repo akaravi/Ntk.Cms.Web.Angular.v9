@@ -303,7 +303,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.publicHelper.processService.processStop(pName);
+              this.publicHelper.processService.processStop(pName, false);
             }
           }
           );

@@ -257,7 +257,7 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
             },
             error: (er) => {
               this.cmsToastrService.typeError(er);
-              this.publicHelper.processService.processStop(pName);
+              this.publicHelper.processService.processStop(pName, false);
             }
           }
           );

@@ -149,9 +149,9 @@ export class ContactConfigSiteComponent implements OnInit {
           this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
-          this.cmsToastrService.typeErrorGetOne(er);
           this.formInfo.formSubmitAllow = true;
-          this.publicHelper.processService.processStop(pName);
+          this.cmsToastrService.typeErrorGetOne(er);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -289,9 +289,9 @@ export class ContactConfigSiteComponent implements OnInit {
           this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
-          this.cmsToastrService.typeErrorGetOne(er);
           this.formInfo.formSubmitAllow = true;
-          this.publicHelper.processService.processStop(pName);
+          this.cmsToastrService.typeErrorGetOne(er);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

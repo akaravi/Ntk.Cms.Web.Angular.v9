@@ -138,7 +138,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
         },
         error: (er) => {
           this.publicHelper.cmsToastrService.typeErrorGetAccess(er);
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );

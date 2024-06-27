@@ -124,8 +124,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
@@ -169,8 +168,7 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);
-
-          this.publicHelper.processService.processStop(pName);
+          this.publicHelper.processService.processStop(pName, false);
         }
       }
       );
