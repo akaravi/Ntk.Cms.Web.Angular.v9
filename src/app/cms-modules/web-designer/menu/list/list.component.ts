@@ -125,7 +125,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -319,7 +319,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -339,7 +339,7 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
       ,
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

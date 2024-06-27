@@ -95,7 +95,7 @@ export class DataProviderPlanClientAddComponent extends AddBaseComponent<DataPro
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

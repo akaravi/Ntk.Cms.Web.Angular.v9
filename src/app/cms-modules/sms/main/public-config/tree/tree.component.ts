@@ -98,7 +98,7 @@ export class SmsMainApiPathPublicConfigTreeComponent implements OnInit, OnDestro
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

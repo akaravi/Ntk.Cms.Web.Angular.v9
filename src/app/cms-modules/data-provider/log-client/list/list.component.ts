@@ -119,7 +119,7 @@ export class DataProviderLogClientListComponent extends ListBaseComponent<DataPr
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -207,7 +207,7 @@ export class DataProviderLogClientListComponent extends ListBaseComponent<DataPr
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -229,7 +229,7 @@ export class DataProviderLogClientListComponent extends ListBaseComponent<DataPr
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

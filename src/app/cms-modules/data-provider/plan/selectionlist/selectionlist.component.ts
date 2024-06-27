@@ -78,7 +78,7 @@ export class DataProviderPlanSelectionlistComponent implements OnInit {
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

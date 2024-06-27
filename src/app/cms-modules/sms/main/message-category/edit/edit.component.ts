@@ -113,7 +113,7 @@ export class SmsMainMessageCategoryEditComponent extends EditBaseComponent<SmsMa
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -144,7 +144,7 @@ export class SmsMainMessageCategoryEditComponent extends EditBaseComponent<SmsMa
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

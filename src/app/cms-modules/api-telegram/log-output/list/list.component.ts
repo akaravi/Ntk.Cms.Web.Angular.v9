@@ -134,7 +134,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -205,7 +205,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -229,7 +229,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
       ,
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

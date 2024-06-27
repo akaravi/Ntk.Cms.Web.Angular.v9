@@ -355,7 +355,7 @@ export class DataProviderPlanListComponent extends ListBaseComponent<DataProvide
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -377,7 +377,7 @@ export class DataProviderPlanListComponent extends ListBaseComponent<DataProvide
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

@@ -74,7 +74,7 @@ export class DataProviderPlanSourceHeaderComponent implements OnInit, OnDestroy 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

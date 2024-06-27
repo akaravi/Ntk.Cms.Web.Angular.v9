@@ -100,7 +100,7 @@ export class WebDesignerMainMenuEditComponent extends EditBaseComponent<WebDesig
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -130,7 +130,7 @@ export class WebDesignerMainMenuEditComponent extends EditBaseComponent<WebDesig
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName, flase);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
