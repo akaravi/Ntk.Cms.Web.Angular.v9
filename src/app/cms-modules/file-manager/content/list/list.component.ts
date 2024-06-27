@@ -254,7 +254,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -276,7 +276,7 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

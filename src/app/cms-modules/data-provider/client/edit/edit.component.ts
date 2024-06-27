@@ -129,7 +129,7 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -160,7 +160,7 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -215,7 +215,7 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

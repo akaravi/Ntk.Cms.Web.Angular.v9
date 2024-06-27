@@ -124,6 +124,12 @@ export class ThemeService {
     this.themeStore.themeMode = updatedMode;
     this.cmsStoreService.setState({ themeStore: this.themeStore });
   }
+  public updateMainPagePreloaderShow(v: boolean) {
+    this.themeStore.mainPagePreloaderShow = v;
+    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    if (environment.consoleLog)
+      console.log('mainPagePreloaderShow :', this.themeStore.mainPagePreloaderShow);
+  }
   public updateInnerSize() {
     this.themeStore.innerWidth = window.innerWidth;
     this.themeStore.innerHeight = window.innerHeight;

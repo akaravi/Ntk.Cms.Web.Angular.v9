@@ -1,4 +1,4 @@
-<div id="preloader">
+<div id="preloader" [ngClass]="this.themeService.themeStore.mainPagePreloaderShow? '':'preloader-hide'">
   <div class="spinner-border color-highlight" role="status"></div>
 </div>
 <div id="page">

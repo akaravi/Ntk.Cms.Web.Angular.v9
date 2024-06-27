@@ -152,7 +152,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -336,7 +336,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -358,7 +358,7 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

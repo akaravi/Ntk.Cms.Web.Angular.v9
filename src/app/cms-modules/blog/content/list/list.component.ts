@@ -311,7 +311,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -333,7 +333,7 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

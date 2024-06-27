@@ -96,7 +96,7 @@ export class SmsMainMessageContentAddComponent extends AddBaseComponent<SmsMainM
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

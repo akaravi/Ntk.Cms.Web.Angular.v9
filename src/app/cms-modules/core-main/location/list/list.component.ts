@@ -141,7 +141,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -363,7 +363,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -385,7 +385,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

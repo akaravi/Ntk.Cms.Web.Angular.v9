@@ -112,7 +112,7 @@ export class BlogCategoryEditComponent extends EditBaseComponent<BlogCategorySer
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -142,7 +142,7 @@ export class BlogCategoryEditComponent extends EditBaseComponent<BlogCategorySer
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

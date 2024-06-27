@@ -109,7 +109,7 @@ export class CoreLocationAddComponent extends AddBaseComponent<CoreLocationServi
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

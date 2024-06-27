@@ -1,6 +1,6 @@
 //Removing Preloader
 setTimeout(function(){
-    var preloader = document.getElementById('preloader')
+    var preloader = document.getElementById('preloader0')//karavi add 0
     if(preloader){preloader.classList.add('preloader-hide');}
 },150);
 
@@ -1631,6 +1631,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const swup = new Swup(options);
             document.addEventListener('swup:pageView',(e) => { init_template(); })
         }
-    } 
+    }
     init_template();
 });

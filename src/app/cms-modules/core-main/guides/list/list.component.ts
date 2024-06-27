@@ -138,7 +138,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -356,7 +356,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -378,7 +378,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

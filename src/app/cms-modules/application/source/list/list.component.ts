@@ -284,7 +284,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -307,7 +307,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
       ,
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

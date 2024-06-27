@@ -83,7 +83,7 @@ export class BankPaymentPrivateSiteConfigAddComponent extends AddBaseComponent<B
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

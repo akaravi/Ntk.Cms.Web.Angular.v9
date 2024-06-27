@@ -277,7 +277,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -299,7 +299,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
       ,
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

@@ -376,7 +376,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -398,7 +398,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -428,7 +428,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

@@ -139,7 +139,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -322,7 +322,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -344,7 +344,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

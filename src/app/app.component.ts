@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
     private coreAuthService: CoreAuthService,
     private coreSiteService: CoreSiteService,
     private configService: CoreConfigurationService,
-    private themeService: ThemeService,
+    public themeService: ThemeService,
     public publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
     private cmsTranslationService: CmsTranslationService,
@@ -201,6 +201,9 @@ export class AppComponent implements OnInit {
       const analytics = getAnalytics(app);
     }
     this.getServiceVer();
+    setTimeout(() => {
+      this.themeService.updateMainPagePreloaderShow(false)
+    }, 10000)
   }
   ngAfterViewInit(): void {
     this.themeService.afterViewInitAppComponent();
@@ -221,7 +224,7 @@ export class AppComponent implements OnInit {
       },
       error: (er) => {
         this.cmsToastrService.typeErrorGetOne(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

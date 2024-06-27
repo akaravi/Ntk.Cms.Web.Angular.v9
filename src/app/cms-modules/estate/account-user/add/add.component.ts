@@ -99,7 +99,7 @@ export class EstateAccountUserAddComponent extends AddBaseComponent<EstateAccoun
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

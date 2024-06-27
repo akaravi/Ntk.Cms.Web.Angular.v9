@@ -101,7 +101,7 @@ export class DonateTargetCategoryAddComponent extends AddBaseComponent<DonateTar
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

@@ -141,7 +141,7 @@ export class CoreTokenActivationEditComponent extends EditBaseComponent<CoreToke
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

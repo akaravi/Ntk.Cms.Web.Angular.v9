@@ -152,7 +152,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -239,7 +239,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -261,7 +261,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

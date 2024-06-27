@@ -284,7 +284,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -305,7 +305,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

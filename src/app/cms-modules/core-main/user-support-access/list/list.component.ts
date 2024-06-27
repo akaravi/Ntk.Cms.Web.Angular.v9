@@ -152,7 +152,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -346,7 +346,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -368,7 +368,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

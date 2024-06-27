@@ -103,7 +103,7 @@ export class DonateTargetPeriodSponserEditComponent extends EditBaseComponent<Do
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -135,7 +135,7 @@ export class DonateTargetPeriodSponserEditComponent extends EditBaseComponent<Do
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

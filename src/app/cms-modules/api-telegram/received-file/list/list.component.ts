@@ -127,7 +127,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -206,7 +206,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -228,7 +228,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

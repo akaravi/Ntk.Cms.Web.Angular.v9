@@ -214,7 +214,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -314,7 +314,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

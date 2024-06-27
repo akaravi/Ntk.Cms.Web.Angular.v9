@@ -162,7 +162,7 @@ export class ApplicationSourceEditComponent extends EditBaseComponent<Applicatio
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

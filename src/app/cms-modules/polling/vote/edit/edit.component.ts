@@ -111,7 +111,7 @@ export class PollingVoteEditComponent extends EditBaseComponent<PollingVoteServi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -144,7 +144,7 @@ export class PollingVoteEditComponent extends EditBaseComponent<PollingVoteServi
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -173,7 +173,7 @@ export class PollingVoteEditComponent extends EditBaseComponent<PollingVoteServi
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

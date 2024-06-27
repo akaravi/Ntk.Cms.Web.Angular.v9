@@ -181,7 +181,7 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -371,7 +371,7 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );
@@ -393,7 +393,7 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, flase);
       }
     }
     );

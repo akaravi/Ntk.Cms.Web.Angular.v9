@@ -306,7 +306,7 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );
@@ -328,7 +328,7 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName,false);
       }
     }
     );

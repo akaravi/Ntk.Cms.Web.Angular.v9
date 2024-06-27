@@ -104,7 +104,7 @@ export class EstateCategoryZoneEditComponent extends EditBaseComponent<EstateCat
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -142,7 +142,7 @@ export class EstateCategoryZoneEditComponent extends EditBaseComponent<EstateCat
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -174,7 +174,7 @@ export class EstateCategoryZoneEditComponent extends EditBaseComponent<EstateCat
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

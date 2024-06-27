@@ -88,7 +88,7 @@ export class EstatePropertyTypeUsageSelectionlistComponent implements OnInit, On
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
