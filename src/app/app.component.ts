@@ -143,6 +143,7 @@ export class AppComponent implements OnInit {
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
     this.themeService.onInitAppComponent();
+    this.publicHelper.processService.onInitAppComponent();
     const url = window.location.href;
     if (url.includes('?')) {
       const httpParams = new HttpParams({ fromString: url.split('?')[1] });
@@ -224,7 +225,7 @@ export class AppComponent implements OnInit {
       },
       error: (er) => {
         this.cmsToastrService.typeErrorGetOne(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

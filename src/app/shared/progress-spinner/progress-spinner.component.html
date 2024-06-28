@@ -1,20 +1,20 @@
-<div *ngIf="this.processService.processInRun" class="card card-style ms-0 me-0 rounded-0 progress-spinner">
+<div *ngIf="this.processService.processInRunArea[optionsInfoAreaId]" class="card card-style ms-0 me-0 rounded-0 progress-spinner">
   <div class="spinner-border color-red-dark" style="border-width: 1px;" role="status">
 
   </div>
   <div class="content mt-5 mb-5 ms-5 me-5">
     <!-- <p class="mb-2 color-highlight font-600">{{ 'optionsData.message'|translate }}</p>
     <h2>لیست عملیات ها</h2> -->
-    <div *ngFor="let item of this.processService.processInfo | keyvalue" class="form-check icon-check"
+    <div *ngFor="let item of this.processService.processInfoArea[optionsInfoAreaId] | keyvalue" class="form-check icon-check"
       style="background-color: rgba(0,0,0,0);">
       <input class="font-14 form-check-input" type="checkbox" value="" disabled="disabled"
-        [(ngModel)]="!item.value['inRun']" id="{{item.value['guid']}}">
+        [(ngModel)]="item.value['isComplate']" id="{{item.value['guid']}}">
       <label class="font-14 form-check-label" for="{{item.value['guid']}}">{{item.value['title']}}</label>
       <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
       <i class="font-17 icon-check-2 fa fa-check-square color-green-dark"></i>
-      <span *ngIf="!item.value['inRun']&&item.value['isSuccess']"
+      <span *ngIf="item.value['isComplate']&&item.value['isSuccess']"
         class="badge bg-green-dark float-end mt-2 p-1 font-8">.</span>
-      <span *ngIf="!item.value['inRun']&&!item.value['isSuccess']"
+      <span *ngIf="item.value['isComplate']&&!item.value['isSuccess']"
         class="badge bg-blue-dark float-end mt-2 p-1 font-8">برروز خطا</span>
     </div>
   </div>

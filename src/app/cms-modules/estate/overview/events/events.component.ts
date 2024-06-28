@@ -136,7 +136,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.publicHelper.processService.processStart(pName);
+    this.publicHelper.processService.processStart(pName,"دریافت اطلاعات املاک","dataModelPropertyResult");
     /** Search On Select Day */
     this.estatePropertyService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
@@ -167,7 +167,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.publicHelper.processService.processStart(pName);
+    this.publicHelper.processService.processStart(pName,"دریافت اطلاعات سفارشات","dataModelCustomerOrderResult");
     /** Search On Select Day */
     this.estateCustomerOrderService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
@@ -199,7 +199,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.publicHelper.processService.processStart(pName);
+    this.publicHelper.processService.processStart(pName,"دریافت اطلاعات تاریخچه","dataModelHistoryResult");
     /** Search On Select Day */
     this.estatePropertyHistoryService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
@@ -231,7 +231,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.publicHelper.processService.processStart(pName);
+    this.publicHelper.processService.processStart(pName,"دریافت اطلاعات شرکت های ساختمانی","dataModelPropertyCompanyResult");
     /** Search On Select Day */
     this.estatePropertyCompanyService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
@@ -263,7 +263,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.publicHelper.processService.processStart(pName);
+    this.publicHelper.processService.processStart(pName,"دریافت اطلاعات تامین کنند","dataModelPropertySupplierResult");
     /** Search On Select Day */
     this.estatePropertySupplierService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
@@ -295,7 +295,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.publicHelper.processService.processStart(pName);
+    this.publicHelper.processService.processStart(pName,"دریافت اطلاعات پروژه ها","dataModelPropertyProjectResult");
     /** Search On Select Day */
     this.estatePropertyProjectService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
@@ -327,7 +327,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.publicHelper.processService.processStart(pName);
+    this.publicHelper.processService.processStart(pName,"دریافت اطلاعات حساب کاربری","dataModelAccountUserResult");
     /** Search On Select Day */
     this.estateAccountUserService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {
@@ -360,7 +360,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     if (this.linkCmsUserId > 0)
       filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
     filterModelOnDay.filters.push(this.filterChildrecordStatus);
-    this.publicHelper.processService.processStart(pName);
+    this.publicHelper.processService.processStart(pName,"دریافت اطلاعات کارشناس","dataModelAccountAgencyResult");
     /** Search On Select Day */
     this.estateAccountAgencyService.ServiceGetAll(filterModelOnDay).subscribe({
       next: (ret) => {

@@ -15,48 +15,16 @@ import { ProcessService } from 'src/app/core/services/process.service';
   templateUrl: './progress-spinner.component.html',
   styleUrls: ['./progress-spinner.component.scss'],
 })
-export class ProgressSpinnerComponent implements DoCheck, OnInit {
+export class ProgressSpinnerComponent implements OnInit {
   static nextId = 0;
   id = ++ProgressSpinnerComponent.nextId;
-
-  // @ViewChild('progressSpinnerRef', { static: true })
-  // private progressSpinnerRef: TemplateRef<any>;
-  private progressSpinnerOverlayConfig: OverlayConfig;
-  private overlayRef: OverlayRef;
   constructor(
-    private vcRef: ViewContainerRef,
-    private overlayService: OverlayService,
     public processService: ProcessService,
   ) {
-    processService.onInitAppComponent();
-
+    this.processService.processInRun
   }
+  @Input()  optionsInfoAreaId: string='global';
   ngOnInit(): void {
 
-    // Config for Overlay Service
-    // this.progressSpinnerOverlayConfig = {
-    //   hasBackdrop: this.optionsData.backdropEnabled,
-    // };
-    // if (this.optionsData.positionGloballyCenter) {
-    //   this.progressSpinnerOverlayConfig.positionStrategy = this.overlayService.positionGloballyCenter();
-    // }
-    // this.overlayRef = this.overlayService.createOverlay(
-    //   this.progressSpinnerOverlayConfig
-    // );
-  }
-  ngDoCheck(): void {
-    // Based on status of displayProgressSpinner attach/detach overlay to progress spinner template
-    // if (this.processService.processInRun && !this.overlayRef.hasAttached()) {
-    //   this.overlayService.attachTemplatePortal(
-    //     this.overlayRef,
-    //     this.progressSpinnerRef,
-    //     this.vcRef
-    //   );
-    //   // if (this.optionsData && this.optionsData.cdr)
-    //   //   this.optionsData.cdr.detectChanges();
-
-    // } else if (!this.processService.processInRun && this.overlayRef.hasAttached()) {
-    //   this.overlayRef.detach();
-    // }
   }
 }

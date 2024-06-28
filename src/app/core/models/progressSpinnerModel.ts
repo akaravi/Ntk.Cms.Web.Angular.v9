@@ -33,15 +33,15 @@ export class ProgressSpinnerModel {
   display = false;
   consoleLog = true;
   guid = '';
-  processInfo = new Map<string, ProcessInfoModel>();
+  processInfoAll = new Map<string, ProcessInfoModel>();
 
   displayItem(name: string): boolean {
-    if (!this.processInfo) {
+    if (!this.processInfoAll) {
       return false;
     }
-    for (const [key, value] of this.processInfo) {
+    for (const [key, value] of this.processInfoAll) {
       if (key === name) {
-        return value.inRun;
+        return value.isComplate;
       }
     }
     return false;
@@ -49,12 +49,12 @@ export class ProgressSpinnerModel {
 
   Start(key: string, title: string = ' '): void {
     let model = new ProcessInfoModel();
-    model.inRun = true;
+    model.isComplate = true;
     model.title = title;
-    this.processInfo.set(key, model);
+    this.processInfoAll.set(key, model);
     const retOut = [];
-    for (const [key, value] of this.processInfo) {
-      if (value && value.inRun === true) {
+    for (const [key, value] of this.processInfoAll) {
+      if (value && value.isComplate === true) {
         retOut.push(key);
       }
     }
@@ -64,7 +64,7 @@ export class ProgressSpinnerModel {
       this.display = true;
     }
     else {
-      this.processInfo = new Map<string, ProcessInfoModel>();
+      this.processInfoAll = new Map<string, ProcessInfoModel>();
       this.display = false;
     }
 
@@ -78,15 +78,15 @@ export class ProgressSpinnerModel {
   }
   Stop(key: string): void {
 
-    let model = this.processInfo.get(key);
+    let model = this.processInfoAll.get(key);
     if (!model) {
       model = new ProcessInfoModel();
     }
-    model.inRun = false;
-    this.processInfo.set(key, model);
+    model.isComplate = false;
+    this.processInfoAll.set(key, model);
     const retOut = [];
-    for (const [key, value] of this.processInfo) {
-      if (value && value.inRun === true) {
+    for (const [key, value] of this.processInfoAll) {
+      if (value && value.isComplate === true) {
         retOut.push(key);
       }
     }
@@ -96,7 +96,7 @@ export class ProgressSpinnerModel {
       this.display = true;
     }
     else {
-      this.processInfo = new Map<string, ProcessInfoModel>();
+      this.processInfoAll = new Map<string, ProcessInfoModel>();
       this.display = false;
     }
 

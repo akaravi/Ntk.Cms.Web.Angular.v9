@@ -5,7 +5,7 @@
   <br />
   <div>{{ optionsData.message }}
     <br>
-    <ul class="fa-ul" *ngFor="let item of optionsData.processInfo | keyvalue">
+    <ul class="fa-ul" *ngFor="let item of optionsData.processInfoAll | keyvalue">
       <li><span class="fa-li">
           <i
             [ngClass]="item.value['inRun']?'fas fa-spinner fa-pulse':'fas fa-check-square'"></i></span>{{item.value['title']}}

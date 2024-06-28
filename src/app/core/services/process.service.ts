@@ -15,69 +15,78 @@ export class ProcessService {
   ) {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     if (storeSnapshot.processInfoStore)
-      this.processInfo = storeSnapshot.processInfoStore;
+      this.processInfoAll = storeSnapshot.processInfoStore;
 
   }
+  public cdr: ChangeDetectorRef;
   processInRun = false;
+  processInRunArea: boolean[] = [];
   public onInitAppComponent(): void {
     this.cmsStoreService.getState().subscribe((value) => {
       if (value.processInfoStore) {
-        console.log("value.processInfoStore", value.processInfoStore.size);
-        this.processInfo = value.processInfoStore;
-        const retOut = [];
-        for (const [key, value] of this.processInfo) {
-          if (value && value.inRun === true) {
-            retOut.push(key);
+        /** processInRun */
+        this.processInfoAll = value.processInfoStore;
+        var retOutProcessInRun = false;
+        var retOutprocessInRunArea: boolean[] = [];
+        var retOutProcessInfoArea: Map<string, ProcessInfoModel>[] = []
+        for (const [key, value] of this.processInfoAll) {
+          //if (value && value.isComplate === false)
+          {
+            retOutProcessInRun = true;
+            if(!retOutProcessInfoArea[value.infoAreaId])
+              retOutProcessInfoArea[value.infoAreaId]=new Map<string, ProcessInfoModel>();
+            retOutProcessInfoArea[value.infoAreaId].set(key, value);
+            retOutprocessInRunArea[value.infoAreaId] = true;
           }
         }
+        //console.log(retOutProcessInfoArea);
+        //console.log(retOutprocessInRunArea);
+        this.processInfoArea = retOutProcessInfoArea;
+        this.processInRunArea = retOutprocessInRunArea;
+        this.processInRun = retOutProcessInRun;
         /** processInRun */
-        if (retOut && retOut.length > 0) {
-          this.processInRun = true;
-        }
-        else {
-          this.processInRun = false;
-        }
       }
       else {
         this.processInRun = false;
       }
-      // if (this.cdr) {
-      //   this.cdr.detectChanges();
-      // }
+      if (this.cdr) {
+        this.cdr.detectChanges();
+      }
     });
   }
-
   /*
   /process info
   /
   */
-  public processInfo = new Map<string, ProcessInfoModel>();
-  public processStart(key: string, title: string = ' '): void {
+  public processInfoArea: Map<string, ProcessInfoModel>[] = [];
+  public processInfoAll = new Map<string, ProcessInfoModel>();
+  public processStart(key: string, title: string = ' ', infoAreaId: string = 'global'): void {
     let model = new ProcessInfoModel();
     this.processInRun = true;
-    model.inRun = true;
+    model.isComplate = false;
     model.title = title;
-    this.processInfo.set(key, model);
-    this.cmsStoreService.setState({ processInfoStore: this.processInfo });
+    model.infoAreaId = infoAreaId;
+    this.processInfoAll.set(key, model);
+    this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
   }
   public processStop(key: string, isSuccess = true): void {
-    let model = this.processInfo.get(key);
+    let model = this.processInfoAll.get(key);
     if (!model) {
       model = new ProcessInfoModel();
     }
-    model.inRun = false;
+    model.isComplate = true;
     model.isSuccess = isSuccess;
-    this.processInfo.set(key, model);
+    this.processInfoAll.set(key, model);
 
-    const retOut = [];
-    for (const [key, value] of this.processInfo) {
-      if (value && value.inRun === true) {
-        retOut.push(key);
+    var retOutProcessInRun = false;
+    for (const [key, value] of this.processInfoAll) {
+      if (value && value.isComplate === false) {
+        retOutProcessInRun = true;
       }
     }
-    if (retOut && retOut.length > 0) {
+    if (retOutProcessInRun) {
       this.processInRun = true;
-      this.cmsStoreService.setState({ processInfoStore: this.processInfo });
+      this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
     }
     else {
       this.processInRun = false;
