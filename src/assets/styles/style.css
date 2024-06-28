@@ -2770,13 +2770,27 @@ img.mx-auto {
   z-index: 99999;
   transition: all 200ms ease;
 }
+.preloader {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 99999;
+  transition: all 200ms ease;
+}
 #preloader .spinner-border {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-left: -15px;
 }
-
+.preloader .spinner-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+}
 .preloader-hide {
   opacity: 0;
   pointer-events: none;
@@ -2786,8 +2800,15 @@ img.mx-auto {
 .theme-light #preloader {
   background-color: #FFF;
 }
+.theme-light .preloader {
+  background-color: #FFF;
+}
 
 .theme-dark #preloader {
+  background-color: #0f1117;
+}
+
+.theme-dark .preloader {
   background-color: #0f1117;
 }
 
@@ -6846,6 +6867,9 @@ input[type=number] {
 .theme-dark .footer,
 .theme-dark .card,
 .theme-dark #preloader {
+  background-color: #0f1117;
+}
+.theme-dark .preloader {
   background-color: #0f1117;
 }
 

@@ -21,6 +21,8 @@ export class ProcessService {
   public cdr: ChangeDetectorRef;
   processInRun = false;
   processInRunArea: boolean[] = [];
+  public processInfoArea: Map<string, ProcessInfoModel>[] = [];
+  public processInfoAll = new Map<string, ProcessInfoModel>();
   public onInitAppComponent(): void {
     this.cmsStoreService.getState().subscribe((value) => {
       if (value.processInfoStore) {
@@ -30,7 +32,7 @@ export class ProcessService {
         var retOutprocessInRunArea: boolean[] = [];
         var retOutProcessInfoArea: Map<string, ProcessInfoModel>[] = []
         for (const [key, value] of this.processInfoAll) {
-          //if (value && value.isComplate === false)
+          if (value && value.isComplate === false)
           {
             retOutProcessInRun = true;
             if(!retOutProcessInfoArea[value.infoAreaId])
@@ -58,8 +60,7 @@ export class ProcessService {
   /process info
   /
   */
-  public processInfoArea: Map<string, ProcessInfoModel>[] = [];
-  public processInfoAll = new Map<string, ProcessInfoModel>();
+
   public processStart(key: string, title: string = ' ', infoAreaId: string = 'global'): void {
     let model = new ProcessInfoModel();
     this.processInRun = true;
@@ -86,12 +87,14 @@ export class ProcessService {
     }
     if (retOutProcessInRun) {
       this.processInRun = true;
-      this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
     }
     else {
       this.processInRun = false;
-      this.cmsStoreService.setState({ processInfoStore: new Map<string, ProcessInfoModel>() });
+      this.processInRunArea = [];
+      this.processInfoArea=[];
+      this.processInfoAll=new Map<string, ProcessInfoModel>();
     }
+    this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
   }
   /*
   /process info
