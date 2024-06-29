@@ -35,21 +35,24 @@ export class ProcessService {
           if (value && value.isComplate === false)
           {
             retOutProcessInRun = true;
+            retOutprocessInRunArea[value.infoAreaId] = true;
+          }
             if(!retOutProcessInfoArea[value.infoAreaId])
               retOutProcessInfoArea[value.infoAreaId]=new Map<string, ProcessInfoModel>();
             retOutProcessInfoArea[value.infoAreaId].set(key, value);
-            retOutprocessInRunArea[value.infoAreaId] = true;
-          }
         }
+        //debugger
         //console.log(retOutProcessInfoArea);
         //console.log(retOutprocessInRunArea);
-        this.processInfoArea = retOutProcessInfoArea;
-        this.processInRunArea = retOutprocessInRunArea;
         this.processInRun = retOutProcessInRun;
+        this.processInRunArea = retOutprocessInRunArea;
+        this.processInfoArea = retOutProcessInfoArea;
         /** processInRun */
       }
       else {
         this.processInRun = false;
+        this.processInRunArea = [];
+        this.processInfoArea=[];
       }
       if (this.cdr) {
         this.cdr.detectChanges();
@@ -85,16 +88,21 @@ export class ProcessService {
         retOutProcessInRun = true;
       }
     }
+
     if (retOutProcessInRun) {
       this.processInRun = true;
+      this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
     }
     else {
+      setTimeout(()=>{
       this.processInRun = false;
       this.processInRunArea = [];
       this.processInfoArea=[];
       this.processInfoAll=new Map<string, ProcessInfoModel>();
+      this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
+    },1000);
     }
-    this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
+
   }
   /*
   /process info

@@ -7,7 +7,7 @@
       {{'TITLE.Event_Review'| translate}}
     </p>
     <div class="row ">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
         <!-- picker Field -->
         <mat-form-field appearance="fill">
           <mat-label>{{'TITLE.Enter_a_date_range'| translate}}</mat-label>
@@ -25,7 +25,7 @@
             translate}}</mat-error>
         </mat-form-field>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
         <button type="button" (click)="onActionNext()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray" *ngIf="!loading?.display">
           <i class="ft-x"></i>
@@ -44,20 +44,20 @@
               {{'TITLE.Today'| translate}}
             </button>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
         <!-- LinkCmsUserId Field -->
         <app-cms-user-selector (optionChange)="onActionSelectorUser($event)" [optionSelectForce]="linkCmsUserId"
           *ngIf="tokenHelper.isAdminSite" [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.USER' | translate">
         </app-cms-user-selector>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
         <a href="javascript:void(0)" (click)="onActionButtonOnDateSearch()" *ngIf="!loading?.display"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">{{'ACTION.SEARCH' |
           translate}}</a>
       </div>
     </div>
 
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer" *ngIf="checkingOnDayRange?.controls?.start?.value">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer" *ngIf="checkingOnDayRange?.controls?.start?.value">
       {{'TITLE.From_Date'| translate}}
       {{ publicHelper.LocaleDateTime(this.checkingOnDayRange.controls.start.value)}}
       -
@@ -65,7 +65,7 @@
 
       {{ publicHelper.LocaleDateTime(this.checkingOnDayRange.controls.end.value)}}
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer" *ngIf="this.linkCmsUserId>0 ">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer" *ngIf="this.linkCmsUserId>0 ">
       {{this.linkCmsUserId | cmsuserinfo |async}}
     </div>
 
@@ -73,7 +73,7 @@
 
 </div>
 <div class="row ">
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResult'"> </app-progress-spinner>
     <!-- begin::Row -->
     <div class="card card-style">
@@ -135,7 +135,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="'dataModelCustomerOrderResult'"> </app-progress-spinner>
     <!-- begin::Row -->
     <div class="card card-style">
@@ -199,7 +199,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="'dataModelHistoryResult'"> </app-progress-spinner>
     <!-- begin::Row -->
     <div class="card card-style">
@@ -265,7 +265,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="'dataModelAccountAgencyResult'"> </app-progress-spinner>
     <!-- begin::Row -->
     <div class="card card-style">
@@ -329,7 +329,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="'dataModelAccountUserResult'"> </app-progress-spinner>
     <!-- begin::Row -->
     <div class="card card-style">
@@ -397,7 +397,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyCompanyResult'"> </app-progress-spinner>
     <!-- begin::Row -->
     <div class="card card-style">
@@ -464,7 +464,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertySupplierResult'"> </app-progress-spinner>
     <!-- begin::Row -->
     <div class="card card-style">
@@ -530,7 +530,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 overlayContainer">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyProjectResult'"> </app-progress-spinner>
     <!-- begin::Row -->
     <div class="card card-style">

@@ -2801,7 +2801,8 @@ img.mx-auto {
   background-color: #FFF;
 }
 .theme-light .preloader {
-  background-color: #FFF;
+  /*background-color: #FFF;*/
+  background-color: rgba(0, 0, 0, 0.53);
 }
 
 .theme-dark #preloader {
@@ -2809,7 +2810,8 @@ img.mx-auto {
 }
 
 .theme-dark .preloader {
-  background-color: #0f1117;
+  /*background-color: #0f1117;*/
+  background-color: rgba(0, 0, 0, 0.53);
 }
 
 /*Buttons*/

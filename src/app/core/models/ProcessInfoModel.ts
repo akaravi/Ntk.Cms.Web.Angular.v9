@@ -1,6 +1,6 @@
 export class ProcessInfoModel {
   isComplate = false;
-  isSuccess = true;
+  isSuccess = false;
   title = '';
   component = '';
   infoAreaId = '';

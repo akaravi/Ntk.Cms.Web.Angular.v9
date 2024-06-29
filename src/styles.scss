@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-.overlayContainer{
+.progressOverlayContainer{
   position:relative;
 
 }
 
-.overlay {
+.progressOverlay {
 position: absolute;
   top:0;
   left:0;
@@ -16,6 +16,11 @@ position: absolute;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.53);
   /* this seems to work for me but may need to be higher*/
+  label {
+    text-shadow: 1px 1px 2px black;
+  }
+}
+.preloader .progressOverlay{
   label {
     text-shadow: 1px 1px 2px black;
   }
