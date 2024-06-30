@@ -32,7 +32,7 @@ export class CoreUserSupportAccessAddComponent extends AddBaseComponent<CoreUser
     public translate: TranslateService,
   ) {
     super(coreUserSupportAccessService, new CoreUserSupportAccessModel(), publicHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {

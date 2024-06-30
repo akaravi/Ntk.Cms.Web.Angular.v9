@@ -34,7 +34,7 @@ export class LinkManagementAccountingDetailDeleteComponent implements OnInit {
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService
   ) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = +data.id || 0;
     }

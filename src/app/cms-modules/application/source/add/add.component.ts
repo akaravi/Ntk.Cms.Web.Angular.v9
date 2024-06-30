@@ -32,7 +32,7 @@ export class ApplicationSourceAddComponent extends AddBaseComponent<ApplicationS
     private router: Router,
     public publicHelper: PublicHelper,) {
     super(applicationSourceService, new ApplicationSourceModel(), publicHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

@@ -27,7 +27,7 @@ export class DataProviderPlanSelectorComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
     public categoryService: DataProviderPlanService) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
   }
   dataModelResult: ErrorExceptionResult<DataProviderPlanModel> = new ErrorExceptionResult<DataProviderPlanModel>();

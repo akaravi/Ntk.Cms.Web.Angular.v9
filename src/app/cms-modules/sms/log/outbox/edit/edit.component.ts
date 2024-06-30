@@ -36,7 +36,7 @@ export class SmsLogOutBoxEditComponent extends EditBaseComponent<SmsLogOutBoxSer
   ) {
     super(smsLogOutBoxService, new SmsLogOutBoxModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data && data.id) {
       this.requestId = data.id;
     }

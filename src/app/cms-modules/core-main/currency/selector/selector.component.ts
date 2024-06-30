@@ -26,7 +26,7 @@ export class CoreCurrencySelectorComponent implements OnInit {
     private publicHelper: PublicHelper,
     public translate: TranslateService,
     public categoryService: CoreCurrencyService) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();

@@ -36,7 +36,7 @@ export class ApplicationConfigSiteComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   dataSiteStorageModel = new ApplicationModuleSiteStorageValuesModel();

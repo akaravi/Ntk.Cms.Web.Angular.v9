@@ -35,7 +35,7 @@ export class DataProviderPlanClientAddComponent extends AddBaseComponent<DataPro
     public translate: TranslateService,
   ) {
     super(dataProviderPlanClientService, new DataProviderPlanClientModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestPlanId = +data.parentId || 0;
     }

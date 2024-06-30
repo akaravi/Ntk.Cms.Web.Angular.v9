@@ -44,7 +44,7 @@ export class CoreUserClaimGroupDetailListComponent extends ListBaseComponent<Cor
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     super(contentService, new CoreUserClaimGroupDetailModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkUserClaimTypeId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserClaimTypeId'));
     this.requestLinkUserClaimGroupId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserClaimGroupId'));

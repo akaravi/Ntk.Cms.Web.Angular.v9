@@ -24,7 +24,7 @@ export class ApplicationAppSelectorComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
     public categoryService: ApplicationAppService) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<ApplicationAppModel> = new ErrorExceptionResult<ApplicationAppModel>();

@@ -47,7 +47,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     super(contentService, new BankPaymentTransactionModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

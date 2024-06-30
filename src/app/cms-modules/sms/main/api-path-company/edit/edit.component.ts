@@ -37,7 +37,7 @@ export class SmsMainApiPathCompanyEditComponent extends EditBaseComponent<SmsMai
   ) {
     super(smsMainApiPathCompanyService, new SmsMainApiPathCompanyModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data && data.id) {
       this.requestId = data.id;
     }

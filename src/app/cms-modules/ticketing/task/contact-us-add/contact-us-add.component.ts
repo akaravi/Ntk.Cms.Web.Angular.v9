@@ -34,7 +34,7 @@ export class TicketingTaskContactUsAddComponent extends AddBaseComponent<Ticketi
     public translate: TranslateService,
     private cdr: ChangeDetectorRef) {
     super(ticketingTaskService, new TicketingTaskModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;

@@ -26,7 +26,7 @@ export class NewsCategoryMenuComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));

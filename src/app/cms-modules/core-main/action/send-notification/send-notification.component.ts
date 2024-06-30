@@ -36,7 +36,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
     public translate: TranslateService,
     private router: Router
   ) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingAction.cdr = this.cdr;
 
   }

@@ -35,7 +35,7 @@ export class ApiTelegramConfigMainAdminComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

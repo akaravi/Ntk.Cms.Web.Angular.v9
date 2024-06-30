@@ -28,7 +28,7 @@ export class DonateTargetPeriodSelectorComponent implements OnInit {
     private publicHelper: PublicHelper,
     public translate: TranslateService,
     public categoryService: DonateTargetPeriodService) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
   }
 

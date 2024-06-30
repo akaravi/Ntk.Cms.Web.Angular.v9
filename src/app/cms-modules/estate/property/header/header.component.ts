@@ -32,7 +32,7 @@ export class EstatePropertyHeaderComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     public tokenHelper: TokenHelper
   ) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @Input() optionId = '';
   loading = new ProgressSpinnerModel();

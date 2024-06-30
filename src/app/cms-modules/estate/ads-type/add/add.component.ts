@@ -31,7 +31,7 @@ export class EstateAdsTypeAddComponent extends AddBaseComponent<EstateAdsTypeSer
     public translate: TranslateService,
   ) {
     super(estateAdsTypeService, new EstateAdsTypeModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

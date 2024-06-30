@@ -32,7 +32,7 @@ export class LinkManagementBillboardPatternSelectorComponent implements OnInit {
     public translate: TranslateService,
     private linkManagementEnumService: LinkManagementEnumService,
     public categoryService: LinkManagementBillboardPatternService) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.getManagementContentSettingTypeEnum();
   }

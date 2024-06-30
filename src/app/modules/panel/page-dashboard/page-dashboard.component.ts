@@ -22,7 +22,7 @@ export class PageDashboardComponent implements OnInit {
     public tokenHelper: TokenHelper,
     public pageInfo: PageInfoService,
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   tokenInfo = new TokenInfoModel();

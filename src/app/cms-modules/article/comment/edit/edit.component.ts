@@ -37,7 +37,7 @@ export class ArticleCommentEditComponent extends EditBaseComponent<ArticleCommen
   ) {
     super(commentService, new ArticleCommentModel(), publicHelper);
 
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = +data.id || 0;

@@ -42,7 +42,7 @@ export class CoreModuleSiteUserCreditListComponent extends ListBaseComponent<Cor
     public dialog: MatDialog,
   ) {
     super(contentService, new CoreModuleSiteUserCreditModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     this.optionsSearch.parentMethods = {

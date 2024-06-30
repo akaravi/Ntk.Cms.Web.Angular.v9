@@ -26,7 +26,7 @@ export class EstateAccountAgencySelectorComponent implements OnInit {
     private publicHelper: PublicHelper,
     public translate: TranslateService,
     public categoryService: EstateAccountAgencyService) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
   }
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyModel> = new ErrorExceptionResult<EstateAccountAgencyModel>();

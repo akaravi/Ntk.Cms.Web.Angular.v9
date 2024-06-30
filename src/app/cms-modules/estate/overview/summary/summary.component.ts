@@ -26,7 +26,7 @@ export class EstateOverviewSummaryComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
     public tokenHelper: TokenHelper
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   loading = new ProgressSpinnerModel();

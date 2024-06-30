@@ -34,7 +34,7 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
     public translate: TranslateService,
     private router: Router) {
     super(contentService, new ApplicationIntroModel(), publicHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));

@@ -28,7 +28,7 @@ export class EstateCategoryRackSelectorComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
     public categoryService: EstateCategoryRackService) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @Input() set optionSelectForce(x: string | EstateCategoryRackModel) {
     this.onActionSelectForce(x);

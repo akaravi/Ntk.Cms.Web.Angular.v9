@@ -43,7 +43,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     public dialog: MatDialog,
   ) {
     super(contentService, new NewsContentModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkCategoryId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCategoryId'));

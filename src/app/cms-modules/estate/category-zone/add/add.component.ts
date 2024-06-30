@@ -31,7 +31,7 @@ export class EstateCategoryZoneAddComponent extends AddBaseComponent<EstateCateg
     public translate: TranslateService,
   ) {
     super(estateCategoryZoneService, new EstateCategoryZoneModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

@@ -55,7 +55,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
   ) {
     super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.tokenHelper.getCurrentToken().then((value) => {

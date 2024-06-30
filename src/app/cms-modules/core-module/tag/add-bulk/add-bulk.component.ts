@@ -33,7 +33,7 @@ export class CoreModuleTagAddBulkComponent extends AddBaseComponent<CoreModuleTa
     public translate: TranslateService,
   ) {
     super(coreModuleTagService, new CoreModuleTagModel(), publicHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestParentId = +data.parentId || 0;

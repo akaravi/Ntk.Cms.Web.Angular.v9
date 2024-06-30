@@ -44,7 +44,7 @@ export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, Co
   ) {
     super(coreSiteService, new CoreSiteModel(), publicHelper);
 
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

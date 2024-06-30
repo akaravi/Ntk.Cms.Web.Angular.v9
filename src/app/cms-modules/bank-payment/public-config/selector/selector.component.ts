@@ -26,7 +26,7 @@ export class BankPaymentPublicConfigSelectorComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
     public categoryService: BankPaymentPublicConfigService) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<BankPaymentPublicConfigModel> = new ErrorExceptionResult<BankPaymentPublicConfigModel>();

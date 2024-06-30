@@ -38,7 +38,7 @@ export class DonateTargetEditComponent extends EditBaseComponent<DonateTargetSer
   ) {
     super(donateTargetService, new DonateTargetModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = +data.id || 0;
     }

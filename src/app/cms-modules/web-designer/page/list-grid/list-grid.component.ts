@@ -46,7 +46,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     super(contentService, new WebDesignerMainPageModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId')) {
       this.requestLinkPageTemplateGuId = this.activatedRoute.snapshot.paramMap.get('LinkPageTemplateGuId');
     }

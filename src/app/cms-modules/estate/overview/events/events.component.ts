@@ -69,7 +69,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     public tokenHelper: TokenHelper,
 
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
 

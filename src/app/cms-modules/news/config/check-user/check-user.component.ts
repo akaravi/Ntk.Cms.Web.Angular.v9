@@ -28,7 +28,7 @@ export class NewsConfigCheckUserComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
     this.tokenHelper.getCurrentToken().then((value) => {

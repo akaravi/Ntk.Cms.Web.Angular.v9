@@ -38,7 +38,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     public dialog: MatDialog
   ) {
     super(contentService, new CoreModuleTagModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     // this.optionsCategoryTree.parentMethods = {
     //   onActionSelect: (x) => this.onActionSelectorSelect(x),

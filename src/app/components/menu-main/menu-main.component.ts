@@ -31,7 +31,7 @@ export class MenuMainComponent implements OnInit {
     public translate: TranslateService,
     private themeService: ThemeService,
     private cdr: ChangeDetectorRef,) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {

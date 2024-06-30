@@ -38,7 +38,7 @@ export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<Sms
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     super(contentService, new SmsMainApiPathPermissionModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };

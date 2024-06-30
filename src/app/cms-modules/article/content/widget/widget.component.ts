@@ -24,7 +24,7 @@ export class ArticleContentWidgetComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   filteModelContent = new FilterModel();

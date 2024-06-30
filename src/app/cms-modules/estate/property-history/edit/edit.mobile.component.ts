@@ -51,7 +51,7 @@ export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<
   ) {
     super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper);
 
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.loading.message = this.translate.instant(
       'MESSAGE.Receiving_information'
     );

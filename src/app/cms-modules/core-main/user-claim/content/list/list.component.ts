@@ -45,7 +45,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     super(contentService, new CoreUserClaimContentModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkUserClaimTypeId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserClaimTypeId'));
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

@@ -39,7 +39,7 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
     public tokenHelper: TokenHelper,
     public dialog: MatDialog) {
     super(contentService, new ApplicationSourceModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),

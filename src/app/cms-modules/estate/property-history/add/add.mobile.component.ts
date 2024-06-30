@@ -45,7 +45,7 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
     public tokenHelper: TokenHelper,
     public translate: TranslateService
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.loading.message = this.translate.instant(
       'MESSAGE.Receiving_information'
     );

@@ -37,7 +37,7 @@ export class PollingCategoryEditComponent extends EditBaseComponent<PollingCateg
   ) {
     super(pollingCategoryService, new PollingCategoryModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = +data.id || 0;
     }

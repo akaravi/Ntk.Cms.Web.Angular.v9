@@ -32,7 +32,7 @@ export class WebDesignerMainIntroEditComponent extends EditBaseComponent<WebDesi
   ) {
     super(webDesignerMainIntroService, new WebDesignerMainIntroModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (this.activatedRoute.snapshot.paramMap.get('Id')) {
       this.requestId = this.activatedRoute.snapshot.paramMap.get('Id');

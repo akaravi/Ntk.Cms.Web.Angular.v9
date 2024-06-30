@@ -33,7 +33,7 @@ export class CoreModuleSaleSerialAddComponent extends AddBaseComponent<CoreModul
     public translate: TranslateService,
   ) {
     super(coreModuleSaleSerialService, new CoreModuleSaleSerialModel(), publicHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestLinkModuleSaleHeaderId = +data.linkModuleSaleHeaderId || 0;

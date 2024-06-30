@@ -37,7 +37,7 @@ export class CoreModuleSiteCreditWidgetPriceComponent implements OnInit, OnDestr
     public translate: TranslateService,
     private coreModuleService: CoreModuleService,
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   dataModelResult: ErrorExceptionResult<CoreModuleSiteCreditModel> = new ErrorExceptionResult<CoreModuleSiteCreditModel>();

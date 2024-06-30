@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
     //this.singlarService.addListenerActionLogin();
     //this.singlarService.addListenerActionLogout();
     /**singlarService */
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     //start change title when route happened
     this.router.events
       .pipe(

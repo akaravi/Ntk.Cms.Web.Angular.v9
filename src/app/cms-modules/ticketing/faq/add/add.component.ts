@@ -33,7 +33,7 @@ export class TicketingFaqAddComponent extends AddBaseComponent<TicketingFaqServi
     public translate: TranslateService,
   ) {
     super(ticketingFaqService, new TicketingFaqModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestParentId = +data.parentId || 0;
     }

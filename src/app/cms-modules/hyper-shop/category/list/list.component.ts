@@ -37,7 +37,7 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
     super(contentService, new HyperShopCategoryModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };

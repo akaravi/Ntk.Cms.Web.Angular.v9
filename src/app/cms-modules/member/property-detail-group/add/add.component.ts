@@ -35,7 +35,7 @@ export class MemberPropertyDetailGroupAddComponent extends AddBaseComponent<Memb
     public translate: TranslateService,
   ) {
     super(memberPropertyDetailGroupService, new MemberPropertyDetailGroupModel(), publicHelper);
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {
       this.requestLinkPropertyTypeId = +data.linkPropertyTypeId;

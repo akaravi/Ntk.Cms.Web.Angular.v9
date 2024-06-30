@@ -41,7 +41,7 @@ export class EstateBillboardEditComponent extends EditBaseComponent<EstateBillbo
   ) {
     super(estateBillboardService, new EstateBillboardModel(), publicHelper);
 
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

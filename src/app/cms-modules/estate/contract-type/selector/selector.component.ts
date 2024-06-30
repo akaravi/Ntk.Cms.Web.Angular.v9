@@ -29,7 +29,7 @@ export class EstateContractTypeSelectorComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     private publicHelper: PublicHelper,
     public categoryService: EstateContractTypeService) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @Input() set optionSelectForce(x: string | EstateContractTypeModel) {
     if (x && ((typeof x === 'string' && x.length > 0) || typeof x === typeof EstateContractTypeModel))

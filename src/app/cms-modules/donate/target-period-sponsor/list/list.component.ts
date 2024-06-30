@@ -45,7 +45,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
   ) {
     super(contentService, new DonateTargetPeriodSponsorModel(), publicHelper, tokenHelper);
 
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     // this.requestLinkSponserId =
     // Number(this.activatedRoute.snapshot.paramMap.get("LinkSponserId"));
 

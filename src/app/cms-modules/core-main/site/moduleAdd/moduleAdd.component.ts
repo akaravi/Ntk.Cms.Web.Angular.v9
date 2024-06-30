@@ -34,7 +34,7 @@ export class CoreSiteModuleAddComponent extends AddBaseComponent<CoreModuleSiteS
     public translate: TranslateService,
   ) {
     super(coreSiteService, new CoreModuleSiteModel, publicHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestLinkModuleId = +data.linkModuleId || 0;

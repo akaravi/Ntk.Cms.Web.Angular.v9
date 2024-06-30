@@ -41,7 +41,7 @@ export class CoreLogCurrencyListComponent extends ListBaseComponent<CoreLogCurre
     public dialog: MatDialog,
   ) {
     super(contentService, new CoreLogCurrencyModel(), publicHelper, tokenHelper);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkCurrencyId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCurrencyId'));
     if (this.requestLinkCurrencyId > 0) {

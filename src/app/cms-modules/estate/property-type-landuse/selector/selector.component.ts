@@ -28,7 +28,7 @@ export class EstatePropertyTypeLanduseSelectorComponent implements OnInit, OnDes
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
     public categoryService: EstatePropertyTypeLanduseService) {
-    this.loading.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
   }
   @Input() set optionSelectForce(x: string | EstatePropertyTypeLanduseModel) {
     if (x && ((typeof x === 'string' && x.length > 0) || typeof x === typeof EstatePropertyTypeLanduseModel))

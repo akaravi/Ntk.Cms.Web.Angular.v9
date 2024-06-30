@@ -38,7 +38,7 @@ export class EstatePropertySupplierQuickViewComponent implements OnInit, OnDestr
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestId = data.id + '';

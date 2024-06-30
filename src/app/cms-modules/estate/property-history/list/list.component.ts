@@ -67,7 +67,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     super(contentService, new EstatePropertyHistoryModel(), publicHelper, tokenHelper);
 
     pageInfo.updateContentService(contentService);
-    this.loading.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
     this.loading.message = this.translate.instant(
       'MESSAGE.Receiving_information'
     );
