@@ -20,7 +20,7 @@
 
     <!--begin::Body-->
     <div>
-      <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+      <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
       <div class="row">
         <div *ngFor="let item of dataModelResult.listItems" class="col-4">
           <mat-card class="example-card">

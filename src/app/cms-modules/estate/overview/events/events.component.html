@@ -1,4 +1,4 @@
-<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 
 
 <div class="card card-style">
@@ -57,7 +57,8 @@
       </div>
     </div>
 
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer" *ngIf="checkingOnDayRange?.controls?.start?.value">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer"
+      *ngIf="checkingOnDayRange?.controls?.start?.value">
       {{'TITLE.From_Date'| translate}}
       {{ publicHelper.LocaleDateTime(this.checkingOnDayRange.controls.start.value)}}
       -
@@ -73,10 +74,11 @@
 
 </div>
 <div class="row ">
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
-    <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResult'"> </app-progress-spinner>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
     <!-- begin::Row -->
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
         <div class="accordion" id="accordion-1">
@@ -135,10 +137,11 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
-    <app-progress-spinner [optionsInfoAreaId]="'dataModelCustomerOrderResult'"> </app-progress-spinner>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
     <!-- begin::Row -->
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelCustomerOrderResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
         <div class="accordion" id="accordion-2">
@@ -199,10 +202,11 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
-    <app-progress-spinner [optionsInfoAreaId]="'dataModelHistoryResult'"> </app-progress-spinner>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
     <!-- begin::Row -->
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelHistoryResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
         <div class="accordion" id="accordion-3">
@@ -265,10 +269,11 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
-    <app-progress-spinner [optionsInfoAreaId]="'dataModelAccountAgencyResult'"> </app-progress-spinner>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
     <!-- begin::Row -->
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelAccountAgencyResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
         <div class="accordion" id="accordion-4">
@@ -329,10 +334,11 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
-    <app-progress-spinner [optionsInfoAreaId]="'dataModelAccountUserResult'"> </app-progress-spinner>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
     <!-- begin::Row -->
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelAccountUserResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
         <div class="accordion" id="accordion-5">
@@ -397,10 +403,11 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
-    <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyCompanyResult'"> </app-progress-spinner>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
     <!-- begin::Row -->
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyCompanyResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
         <div class="accordion" id="accordion-6">
@@ -464,10 +471,11 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
-    <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertySupplierResult'"> </app-progress-spinner>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
     <!-- begin::Row -->
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertySupplierResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
         <div class="accordion" id="accordion-7">
@@ -530,10 +538,11 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer">
-    <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyProjectResult'"> </app-progress-spinner>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
     <!-- begin::Row -->
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyProjectResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
         <div class="accordion" id="accordion-8">

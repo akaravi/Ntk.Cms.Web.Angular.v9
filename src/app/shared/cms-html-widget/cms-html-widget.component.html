@@ -7,7 +7,7 @@
 <!--begin::Form-->
 <!--begin::Body-->
 <mat-dialog-content>
-  <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <ng-content select="[cms-body]"></ng-content>
 </mat-dialog-content>
 <!--end::Body-->

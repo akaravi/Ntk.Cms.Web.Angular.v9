@@ -20,7 +20,7 @@
           <!--begin::Body-->
           <div class="col-12 pe-0" [ngClass]="optionClassBody">
             <p class="text-center">
-              <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+              <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
               <ng-content select="[cms-body]"></ng-content>
             </p>
           </div>

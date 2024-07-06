@@ -1,4 +1,4 @@
-<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 <div *ngIf="requestLinkParentId>0" class="col-12">
   <a [routerLink]="['/menu']" data-back-button class="card card-style rounded-m me-0 p-3 mb-3">
     <i class="fa fa-home color-red-light font-40 icon-50"></i>

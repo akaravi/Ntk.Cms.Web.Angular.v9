@@ -52,7 +52,7 @@
       <form (ngSubmit)="onFormSubmit()" *ngIf="showFormAdd" #vform="ngForm">
 
         <div class="ntk-cms-html-card-body">
-          <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+          <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
           <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
           <!-- writer Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

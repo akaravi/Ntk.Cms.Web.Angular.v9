@@ -1,6 +1,7 @@
-<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 <div class="card card-style">
-  <div class="content mb-0">
+  <div class="content mb-0 progressOverlayContainer">
+    <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
     </p>
