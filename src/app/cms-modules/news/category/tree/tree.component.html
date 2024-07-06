@@ -26,7 +26,7 @@
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
   </ng-container>
   <ng-container cms-tree-body>
-    <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+    <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-tree class="category-tree cursor-pointer" [dataSource]="dataSource" [treeControl]="treeControl">
       <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="onActionSelect(node)"

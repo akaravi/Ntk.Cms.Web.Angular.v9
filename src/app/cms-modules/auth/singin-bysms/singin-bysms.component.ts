@@ -110,7 +110,10 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.dataModelAuthUserSignInBySms.captchaKey = this.captchaModel.key;
     this.dataModelAuthUserSignInBySms.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUserBySMS';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Send_login_request_with_one_time_password'));
+
+    this.translate.get('MESSAGE.Send_login_request_with_one_time_password').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreAuthService
       .ServiceSigninUserBySMS(this.dataModelAuthUserSignInBySms)
       .subscribe({
@@ -163,7 +166,9 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.dataModelAuthUserSignInBySms.captchaKey = this.captchaModel.key;
     this.dataModelAuthUserSignInBySms.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUserBySMS';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Send_login_request_with_one_time_password'));
+    this.translate.get('MESSAGE.Send_login_request_with_one_time_password').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     /** read storage */
     const siteId = + localStorage.getItem('siteId');
     if (siteId > 0) {
@@ -219,7 +224,9 @@ export class AuthSingInBySmsComponent implements OnInit {
       this.diffSecondsSubscribe.unsubscribe();
     this.dataModelAuthUserSignInBySms.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
         this.captchaModel = ret.item;

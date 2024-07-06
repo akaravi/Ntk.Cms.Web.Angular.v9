@@ -66,7 +66,9 @@ export class AuthSingInComponent implements OnInit {
     this.dataModel.captchaKey = this.captchaModel.key;
     this.dataModel.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUser';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.login_to_user_account'));
+    this.translate.get('MESSAGE.login_to_user_account').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const siteId = + localStorage.getItem('siteId');
     if (siteId > 0) {
       this.dataModel.siteId = siteId;
@@ -108,7 +110,9 @@ export class AuthSingInComponent implements OnInit {
     }
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

@@ -6,12 +6,12 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthUserSignInModel, AuthUserSignUpModel, CaptchaModel, CoreAuthService, FormInfoModel } from 'ntk-cms-api';
 import { Observable } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 import { SingupRuleComponent } from '../singupRule/singupRule.Component';
-import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 @Component({
   selector: 'app-auth-singup',
   templateUrl: './singup.component.html',

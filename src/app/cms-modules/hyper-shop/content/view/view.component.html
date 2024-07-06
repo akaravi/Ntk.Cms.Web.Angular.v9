@@ -4,7 +4,7 @@
   <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
 </div>
 <div class="ntk-cms-html-card-body">
-  <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
   <app-cms-json-list [dataModel]="dataModelResult.item" [optionMethod]="1"></app-cms-json-list>
   <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->

@@ -1,4 +1,4 @@
-<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 <div class="col pe-2">
   <a *ngIf="requestLinkParentId>0" (click)="onActionClickMenu(null)" data-back-button
     class="card card-style rounded-m me-0 p-3 mb-3">

@@ -1,5 +1,5 @@
 <div class="cms-m-body">
-  <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 
   <!-- mobile -->
   <ng-container *ngIf="stepContent === 'mobile'">

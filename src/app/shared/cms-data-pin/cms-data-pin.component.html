@@ -41,7 +41,7 @@
   <form (ngSubmit)="onFormSubmit()" *ngIf="showFormAdd" #vform="ngForm">
 
     <div class="ntk-cms-html-card-body">
-      <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+      <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
       <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->

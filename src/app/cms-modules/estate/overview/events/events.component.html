@@ -1,4 +1,4 @@
-<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 
 
 <div class="card card-style">
@@ -57,7 +57,8 @@
       </div>
     </div>
 
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer" *ngIf="checkingOnDayRange?.controls?.start?.value">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 progressOverlayContainer"
+      *ngIf="checkingOnDayRange?.controls?.start?.value">
       {{'TITLE.From_Date'| translate}}
       {{ publicHelper.LocaleDateTime(this.checkingOnDayRange.controls.start.value)}}
       -

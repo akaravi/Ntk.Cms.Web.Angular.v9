@@ -4,7 +4,7 @@
         routerLinkActive="active" class="float-end color-highlight">نمایش همه</a></h5>
     <div class="divider mb-3"></div>
     <div class="list-group list-custom-small list-menu ms-0 me-2">
-      <cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+      <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
       <a routerLink="{{widgetInfoModel.link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
         <span>فعال</span>

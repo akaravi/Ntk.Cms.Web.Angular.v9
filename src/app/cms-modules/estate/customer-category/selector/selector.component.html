@@ -1,4 +1,4 @@
-<cms-progress-spinner [options]="loading"> </cms-progress-spinner>
+<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 <div *ngIf="optionTypeView===1" class="input-style has-borders has-icon  input-style-always-active validate-field mb-4">
 
   <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null"
