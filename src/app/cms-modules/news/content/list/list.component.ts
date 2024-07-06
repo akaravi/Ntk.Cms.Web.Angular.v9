@@ -357,7 +357,9 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     fastfilter.value = RecordStatusEnum.Available;
     filterStatist1.filters.push(fastfilter);
     const pName = this.constructor.name + '.ServiceGetCount';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_article'));
+    this.translate.get('MESSAGE.Get_article').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -405,7 +407,9 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     this.onActionTableRowSelect(model);
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_news_information'));
+    this.translate.get('MESSAGE.get_news_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
       .subscribe({

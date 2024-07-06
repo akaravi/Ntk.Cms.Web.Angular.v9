@@ -380,7 +380,9 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_billboards_information'));
+    this.translate.get('MESSAGE.get_billboards_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
       .subscribe({

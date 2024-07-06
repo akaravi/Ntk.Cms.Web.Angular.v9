@@ -650,7 +650,9 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.onActionTableRowSelect(model);
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_customer_information'));
+    this.translate.get('MESSAGE.get_customer_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
       .subscribe({
@@ -733,7 +735,9 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     filteModelProperty.filters.push(filter);
     this.dataModelPropertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
+    this.translate.get('MESSAGE.Get_detailed_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyDetailGroupService.ServiceGetAllFastSearch(filteModelProperty)
       .subscribe({
         next: (ret) => {

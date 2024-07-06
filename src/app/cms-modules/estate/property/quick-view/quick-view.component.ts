@@ -105,7 +105,9 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
   }
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));
+    this.translate.get('TITLE.Get_Estate_Contract_Type').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estateContractTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
         this.dataModelEstateContractTypeResult = ret;

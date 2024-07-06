@@ -138,7 +138,9 @@ export class CoreUserMobileConfirmComponent implements OnInit {
     }
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+    this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

@@ -207,10 +207,9 @@ export class ChartContentEditComponent extends EditBaseComponent<ChartContentSer
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_tag_information_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Receiving_tag_information_from_the_server'));
-
-
-
+    this.translate.get('MESSAGE.Receiving_tag_information_from_the_server').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filterModel = new FilterModel();
     const filter = new FilterDataModel();
     filter.propertyName = 'LinkContentId';

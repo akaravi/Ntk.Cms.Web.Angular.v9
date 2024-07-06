@@ -253,7 +253,9 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     filteModelProperty.filters.push(filter);
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
+    this.translate.get('MESSAGE.Get_detailed_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
         next: (ret) => {

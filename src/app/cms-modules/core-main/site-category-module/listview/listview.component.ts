@@ -97,7 +97,9 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
       filterModel.filters.push(fastfilter);
     }
     const pName = this.constructor.name + '.ServiceGetAll';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Receiving_List_Of_Modules'));
+    this.translate.get('MESSAGE.Request_new_access').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreSiteCategoryCmsModuleService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);

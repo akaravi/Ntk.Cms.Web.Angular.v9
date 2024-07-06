@@ -349,7 +349,9 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_news_information'));
+    this.translate.get('MESSAGE.get_news_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
       .subscribe({

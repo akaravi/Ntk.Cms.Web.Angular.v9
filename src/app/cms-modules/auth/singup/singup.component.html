@@ -1,5 +1,5 @@
-<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
-<div class="card card-style">
+<div class="card card-style progressOverlayContainer">
+  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <form (ngSubmit)="onActionSubmit()" #vform="ngForm" class="form form-horizontal">
     <!--content-->
     <p class="font-600 color-highlight mb-0">ایجاد حساب</p>

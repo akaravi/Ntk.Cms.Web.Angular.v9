@@ -1,5 +1,5 @@
-<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
-<div class="page-content" *ngIf="!this.loading.display">
+<div class="page-content progressOverlayContainer" *ngIf="!this.loading.display">
+  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 
   <div class="card card-style">
     <div class="content">

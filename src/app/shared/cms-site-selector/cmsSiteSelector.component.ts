@@ -127,7 +127,9 @@ export class CmsSiteSelectorComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.List_of_authorized_sites'));
+    this.translate.get('MESSAGE.List_of_authorized_sites').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(

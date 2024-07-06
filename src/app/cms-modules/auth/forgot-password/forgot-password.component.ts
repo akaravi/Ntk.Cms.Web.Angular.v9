@@ -61,7 +61,9 @@ export class AuthForgotPasswordComponent implements OnInit {
     this.dataModelforgetPasswordEntryPinCode.email = '';
     this.dataModelforgetPasswordEntryPinCode.mobile = this.dataModelforgetPasswordBySms.mobile;
     const pName = this.constructor.name + '.ServiceForgetPassword';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER'));
+    this.translate.get('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreAuthService
       .ServiceForgetPassword(this.dataModelforgetPasswordBySms)
       .subscribe({
@@ -92,7 +94,9 @@ export class AuthForgotPasswordComponent implements OnInit {
     this.dataModelforgetPasswordEntryPinCode.mobile = '';
     this.dataModelforgetPasswordEntryPinCode.email = this.dataModelforgetPasswordByEmail.email;
     const pName = this.constructor.name + '.ServiceForgetPassword';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER'));
+    this.translate.get('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreAuthService
       .ServiceForgetPassword(this.dataModelforgetPasswordByEmail)
       .subscribe({

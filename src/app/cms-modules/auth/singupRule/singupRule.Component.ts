@@ -24,7 +24,9 @@ export class SingupRuleComponent implements OnInit {
   dataModelResult: ErrorExceptionResult<string> = new ErrorExceptionResult<string>();
   ngOnInit(): void {
     const pName = this.constructor.name + 'ServiceUserMembershipRule';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_the_rules'));
+    this.translate.get('MESSAGE.get_the_rules').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreConfigurationService
       .ServiceUserMembershipRule()
       .subscribe({

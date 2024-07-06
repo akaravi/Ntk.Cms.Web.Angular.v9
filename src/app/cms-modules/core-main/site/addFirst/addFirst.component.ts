@@ -75,7 +75,9 @@ export class CoreSiteAddFirstComponent implements OnInit {
 
   DataGetAccess(): void {
     const pName = this.constructor.name + '.DataGetAccess';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_access'));
+    this.translate.get('MESSAGE.get_access').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreSiteService
       .ServiceViewModel()
       .subscribe({
@@ -98,7 +100,9 @@ export class CoreSiteAddFirstComponent implements OnInit {
 
   GetDomainList(): void {
     const pName = this.constructor.name + '.GetDomainList';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_list_of_authorized_domains'));
+    this.translate.get('MESSAGE.Get_list_of_authorized_domains').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreSiteService.ServiceGetRegDomains(this.dataModel.linkSiteCategoryId).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -154,7 +158,9 @@ export class CoreSiteAddFirstComponent implements OnInit {
 
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + '.onFormSubmit';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Registering_your_first_system_information'));
+    this.translate.get('MESSAGE.Registering_your_first_system_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreSiteService.ServiceAddFirstSite(this.dataModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -177,8 +183,9 @@ export class CoreSiteAddFirstComponent implements OnInit {
 
   clickSelectSite(Id: number): void {
     const pName = this.constructor.name + '.clickSelectSite';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Request_new_access'));
-
+    this.translate.get('MESSAGE.Request_new_access').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     let authModel: AuthRenewTokenModel;
     authModel = new AuthRenewTokenModel();
     authModel.siteId = Id;

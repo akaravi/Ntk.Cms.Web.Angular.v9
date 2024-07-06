@@ -148,7 +148,9 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   }
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Get_Estate_Contract_Type'));
+    this.translate.get('TITLE.Get_Estate_Contract_Type').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estateContractTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
         this.dataModelEstateContractTypeResult = ret;
@@ -160,7 +162,9 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   }
   getEstatePropertyType(): void {
     const pName = this.constructor.name + 'getEstatePropertyType';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Get_Estate_property_Type'));
+    this.translate.get('TITLE.Get_Estate_property_Type').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
         this.dataModelEstatePropertyTypeResult = ret;
@@ -172,7 +176,9 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   }
   getEstatePropertyTypeLanduse(): void {
     const pName = this.constructor.name + 'getEstatePropertyType';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Get_Estate_user_Type'));
+    this.translate.get('TITLE.Get_Estate_user_Type').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyTypeLanduseService.ServiceGetAll(null).subscribe({
       next: (ret) => {
         this.dataModelEstatePropertyTypeLanduseResult = ret;
@@ -186,7 +192,9 @@ export class EstatePropertyAddMobileComponent implements OnInit {
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'ServiceViewModel';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Get_Estate_access'));
+    this.translate.get('TITLE.Get_Estate_access').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyService
       .ServiceViewModel()
       .subscribe({
@@ -214,7 +222,9 @@ export class EstatePropertyAddMobileComponent implements OnInit {
     filteModelProperty.filters.push(filter);
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Get_Details'));
+    this.translate.get('TITLE.Get_Details').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
         next: (ret) => {
@@ -249,7 +259,9 @@ export class EstatePropertyAddMobileComponent implements OnInit {
       }
     }
     const pName = this.constructor.name + 'ServiceAdd';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Property_registration'));
+    this.translate.get('TITLE.Property_registration').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;

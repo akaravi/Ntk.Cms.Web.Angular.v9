@@ -204,7 +204,9 @@ export class EstatePropertySupplierEditComponent extends EditBaseComponent<Estat
     this.translate.get('MESSAGE.get_other_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_other_information_from_the_server'));
+    this.translate.get('MESSAGE.get_other_information_from_the_server').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filterModel = new EstatePropertySupplierFilterModel();
     ids.forEach(item => {
       if (item > 0) {

@@ -181,10 +181,10 @@ export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<
       }
     }
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(
-      pName,
-      this.translate.instant('MESSAGE.sending_information_to_the_server')
-    );
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
+   
 
     this.estatePropertyHistoryService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

@@ -507,7 +507,9 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     filteModelProperty.filters.push(filter);
     this.dataModelPropertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_detailed_information'));
+    this.translate.get('MESSAGE.Get_detailed_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyDetailGroupService.ServiceGetAllFastSearch(filteModelProperty)
       .subscribe({
         next: (ret) => {
@@ -846,7 +848,9 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + "main";
-          this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Deleting_information'));
+          this.translate.get('MESSAGE.Deleting_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
           this.contentService
             .ServiceDelete(this.tableRowSelected.id)
             .subscribe({
@@ -949,7 +953,9 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     this.tableRowSelected = model;
 
     const pName = this.constructor.name + "main";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('ACTION.ActionSendSmsToCustomerOrder'));
+    this.translate.get('ACTION.ActionSendSmsToCustomerOrder').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     // ** */
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService

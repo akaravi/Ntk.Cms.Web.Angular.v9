@@ -115,7 +115,9 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
   onActionStatist(): void {
 
     const pName = this.constructor.name + 'ServiceClaimCheck';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('TITLE.Verification_of_documents_and_identity'));
+    this.translate.get('TITLE.Verification_of_documents_and_identity').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.service.ServiceClaimCheckCurrent().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

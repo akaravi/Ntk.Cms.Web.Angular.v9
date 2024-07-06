@@ -401,7 +401,9 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     }
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_chart_information'));
+    this.translate.get('MESSAGE.Get_chart_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.linkContentId)
       .subscribe({
@@ -465,7 +467,9 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_chart_information'));
+    this.translate.get('MESSAGE.Get_chart_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.linkContentId)
       .subscribe({

@@ -373,7 +373,9 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_blog_information'));
+    this.translate.get('MESSAGE.Get_blog_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)
       .subscribe({

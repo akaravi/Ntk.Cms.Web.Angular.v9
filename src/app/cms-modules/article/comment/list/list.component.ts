@@ -390,7 +390,9 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
       return;
     }
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_article_information'));
+    this.translate.get('MESSAGE.get_article_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.linkContentId)
       .subscribe({
@@ -459,7 +461,9 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     this.onActionTableRowSelect(model);
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_article_information'));
+    this.translate.get('MESSAGE.get_article_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.linkContentId)
       .subscribe({

@@ -115,7 +115,9 @@ export class MenuMainComponent implements OnInit {
 
   async onActionLogout() {
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Sign_out_of_user_account'));
+    this.translate.get('MESSAGE.Sign_out_of_user_account').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.cmsToastrService.typeOrderActionLogout();
 
     this.coreAuthService.ServiceLogout().subscribe({

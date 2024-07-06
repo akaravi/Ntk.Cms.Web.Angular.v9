@@ -137,9 +137,10 @@ export class CoreUserClaimTypeEditComponent extends EditBaseComponent<CoreUserCl
 
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
-    const pName = this.constructor.name + 'DataGetAllCoreUserClaimType'
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_the_list_of_documents'));
-
+    const pName = this.constructor.name + 'DataGetAllCoreUserClaimType';
+    this.translate.get('MESSAGE.Get_the_list_of_documents').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
     filter.propertyName = 'LinkUserClaimTypeId';
