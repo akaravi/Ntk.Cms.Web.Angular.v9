@@ -6,7 +6,8 @@
     <!--end::tree-->
   </div>
   <div [ngClass]="optionTreeDisplay && !this.tokenHelper.isMobile ?'col-xl-9':'col-xl-12'">
-    <div class="card card-style">
+    <div class="card card-style progressOverlayContainer">
+      <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
       <div class="content mb-0">
         <div class="row justify-content-center">
           <!--begin::Header-->
@@ -20,7 +21,6 @@
           <!--begin::Body-->
           <div class="col-12 pe-0" [ngClass]="optionClassBody">
             <p class="text-center">
-              <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
               <ng-content select="[cms-body]"></ng-content>
             </p>
           </div>

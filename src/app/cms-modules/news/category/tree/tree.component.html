@@ -25,7 +25,7 @@
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
   </ng-container>
-  <ng-container cms-tree-body>
+  <ng-container cms-tree-body class="progressOverlayContainer">
     <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-tree class="category-tree cursor-pointer" [dataSource]="dataSource" [treeControl]="treeControl">

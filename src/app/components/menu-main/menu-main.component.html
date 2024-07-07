@@ -1,6 +1,6 @@
+<div [ngClass]="themeStore.dataMenu==='menu-main'?'menu-active':''" class="menu menu-box-right rounded-0 "
+data-menu-width="280" data-menu-active="nav-pages">
 <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
-<div [ngClass]="themeStore.dataMenu==='menu-main'?'menu-active':''" class="menu menu-box-right rounded-0"
-  data-menu-width="280" data-menu-active="nav-pages">
 
   <div class="card rounded-0" data-card-height="150" style="background-repeat: no-repeat;background-size: contain;"
     [ngStyle]="{'background-image': this.tokenInfo?.linkMainImageIdSrc?.length>0?'url('+this.tokenInfo?.linkMainImageIdSrc+')':'url(/assets/images/pictures/17.jpg)'}">
