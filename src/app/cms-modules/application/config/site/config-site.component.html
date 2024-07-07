@@ -9,8 +9,6 @@
         </p>
         <!--Content-->
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
-
-            <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
             <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
             <mat-vertical-stepper (selectionChange)="onStepClick($event,stepper)" #stepper>
                 <mat-step label="{{'TITLE.Config_Module' | translate}}" state="main">
