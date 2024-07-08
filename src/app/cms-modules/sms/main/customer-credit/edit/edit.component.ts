@@ -35,7 +35,7 @@ export class SmsMainCustomerCreditEditComponent extends EditBaseComponent<SmsMai
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(SmsMainCustomerCreditService, new SmsMainCustomerCreditModel(), publicHelper);
+    super(SmsMainCustomerCreditService, new SmsMainCustomerCreditModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data && data.id) {

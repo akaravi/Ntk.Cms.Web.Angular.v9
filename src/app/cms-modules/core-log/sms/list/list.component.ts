@@ -43,7 +43,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogSmsModel(), publicHelper, tokenHelper);
+    super(contentService, new CoreLogSmsModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

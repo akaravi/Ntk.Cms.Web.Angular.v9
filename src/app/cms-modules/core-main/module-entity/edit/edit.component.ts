@@ -35,7 +35,7 @@ export class CoreModuleEntityEditComponent extends EditBaseComponent<CoreModuleE
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleEntityService, new CoreModuleEntityModel(), publicHelper);
+    super(coreModuleEntityService, new CoreModuleEntityModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

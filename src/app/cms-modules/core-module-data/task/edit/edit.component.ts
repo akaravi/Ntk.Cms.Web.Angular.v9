@@ -37,7 +37,7 @@ export class CoreModuleDataTaskEditComponent extends EditBaseComponent<CoreModul
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreModuleDataTaskService, new CoreModuleDataTaskModel(), publicHelper);
+    super(coreModuleDataTaskService, new CoreModuleDataTaskModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

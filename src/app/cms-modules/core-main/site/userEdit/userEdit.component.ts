@@ -35,7 +35,7 @@ export class CoreSiteUserEditComponent extends EditBaseComponent<CoreSiteUserSer
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreSiteUserService, new CoreSiteUserModel(), publicHelper);
+    super(coreSiteUserService, new CoreSiteUserModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

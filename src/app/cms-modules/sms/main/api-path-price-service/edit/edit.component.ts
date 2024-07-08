@@ -37,7 +37,7 @@ export class SmsMainApiPathPriceServiceEditComponent extends EditBaseComponent<S
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(smsMainApiPathPriceServiceService, new SmsMainApiPathPriceServiceModel(), publicHelper);
+    super(smsMainApiPathPriceServiceService, new SmsMainApiPathPriceServiceModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data && data.id) {

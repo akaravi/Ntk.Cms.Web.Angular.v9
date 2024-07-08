@@ -45,7 +45,7 @@ export class LinkManagementTargetEditComponent extends EditBaseComponent<LinkMan
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(linkManagementTargetService, new LinkManagementTargetModel(), publicHelper);
+    super(linkManagementTargetService, new LinkManagementTargetModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingOption.cdr = this.cdr;

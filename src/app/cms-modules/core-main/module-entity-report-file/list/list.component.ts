@@ -41,7 +41,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreModuleEntityReportFileModel(), publicHelper, tokenHelper);
+    super(contentService, new CoreModuleEntityReportFileModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {

@@ -30,7 +30,7 @@ export class EstatePropertySupplierCategoryAddComponent extends AddBaseComponent
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estatePropertySupplierCategoryService, new EstatePropertySupplierCategoryModel(), publicHelper);
+    super(estatePropertySupplierCategoryService, new EstatePropertySupplierCategoryModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

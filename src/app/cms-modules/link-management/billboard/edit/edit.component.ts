@@ -38,7 +38,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper);
+    super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingOption.cdr = this.cdr;

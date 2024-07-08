@@ -36,7 +36,7 @@ export class CoreModuleSiteUserCreditEditComponent extends EditBaseComponent<Cor
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleSiteUserCreditService, new CoreModuleSiteUserCreditModel(), publicHelper);
+    super(coreModuleSiteUserCreditService, new CoreModuleSiteUserCreditModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

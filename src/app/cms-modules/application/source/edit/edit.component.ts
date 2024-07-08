@@ -42,7 +42,7 @@ export class ApplicationSourceEditComponent extends EditBaseComponent<Applicatio
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private router: Router) {
-    super(contentService, new ApplicationSourceModel(), publicHelper);
+    super(contentService, new ApplicationSourceModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

@@ -35,7 +35,7 @@ export class CoreDeviceEditComponent extends EditBaseComponent<CoreDeviceService
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreDeviceService, new CoreDeviceModel(), publicHelper);
+    super(coreDeviceService, new CoreDeviceModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

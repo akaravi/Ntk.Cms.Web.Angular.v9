@@ -35,7 +35,7 @@ export class EstateCategoryZoneEditComponent extends EditBaseComponent<EstateCat
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateCategoryZoneService, new EstateCategoryZoneModel(), publicHelper);
+    super(estateCategoryZoneService, new EstateCategoryZoneModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

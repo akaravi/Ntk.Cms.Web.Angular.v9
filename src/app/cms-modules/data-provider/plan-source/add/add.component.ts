@@ -34,7 +34,7 @@ export class DataProviderPlanSourceAddComponent extends AddBaseComponent<DataPro
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(dataProviderPlanSourceService, new DataProviderPlanSourceModel(), publicHelper);
+    super(dataProviderPlanSourceService, new DataProviderPlanSourceModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestPlanId = +data.parentId || 0;

@@ -36,7 +36,7 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new EstateCategoryRackModel(), publicHelper, tokenHelper);
+    super(contentService, new EstateCategoryRackModel(), publicHelper, tokenHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {

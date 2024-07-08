@@ -31,7 +31,7 @@ export class CoreSiteCategoryAddComponent extends AddBaseComponent<CoreSiteCateg
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreSiteCategoryService, new CoreSiteCategoryModel(), publicHelper);
+    super(coreSiteCategoryService, new CoreSiteCategoryModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

@@ -35,7 +35,7 @@ export class CoreSiteCategoryEditComponent extends EditBaseComponent<CoreSiteCat
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreSiteCategoryService, new CoreSiteCategoryModel(), publicHelper);
+    super(coreSiteCategoryService, new CoreSiteCategoryModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

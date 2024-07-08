@@ -42,7 +42,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(coreUserService, new CoreUserModel(), publicHelper, tokenHelper);
+    super(coreUserService, new CoreUserModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

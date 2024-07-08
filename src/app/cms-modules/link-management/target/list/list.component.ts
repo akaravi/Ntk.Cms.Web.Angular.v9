@@ -43,7 +43,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementTargetModel(), publicHelper, tokenHelper);
+    super(contentService, new LinkManagementTargetModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkBillboardPatternId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkBillboardPatternId'));

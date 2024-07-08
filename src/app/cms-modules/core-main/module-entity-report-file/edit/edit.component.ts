@@ -35,7 +35,7 @@ export class CoreModuleEntityReportFileEditComponent extends EditBaseComponent<C
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleEntityReportFileService, new CoreModuleEntityReportFileModel(), publicHelper);
+    super(coreModuleEntityReportFileService, new CoreModuleEntityReportFileModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

@@ -39,7 +39,7 @@ export class DataProviderLogClientListComponent extends ListBaseComponent<DataPr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new DataProviderLogClientModel(), publicHelper, tokenHelper);
+    super(contentService, new DataProviderLogClientModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     this.optionsSearch.parentMethods = {

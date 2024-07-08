@@ -37,7 +37,7 @@ export class EstatePropertyTypeUsageEditComponent extends EditBaseComponent<Esta
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estatePropertyTypeUsageService, new EstatePropertyTypeUsageModel(), publicHelper);
+    super(estatePropertyTypeUsageService, new EstatePropertyTypeUsageModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

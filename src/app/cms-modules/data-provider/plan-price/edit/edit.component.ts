@@ -38,7 +38,7 @@ export class DataProviderPlanPriceEditComponent extends EditBaseComponent<DataPr
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(dataproviderplanpriceservice, new DataProviderPlanPriceModel(), publicHelper);
+    super(dataproviderplanpriceservice, new DataProviderPlanPriceModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

@@ -49,7 +49,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
     public dialog: MatDialog,
     public translate: TranslateService,
   ) {
-    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper);
+    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

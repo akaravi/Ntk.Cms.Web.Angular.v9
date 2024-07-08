@@ -35,7 +35,7 @@ export class DonateTargetPeriodSponserAddComponent extends AddBaseComponent<Dona
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(donateTargetPeriodSponsorService, new DonateTargetPeriodSponsorModel(), publicHelper);
+    super(donateTargetPeriodSponsorService, new DonateTargetPeriodSponsorModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {
       this.requestLinkTargetPeriodId = +data.linkTargetPeriodId || 0;

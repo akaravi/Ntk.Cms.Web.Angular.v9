@@ -33,7 +33,7 @@ export class ApiTelegramBotConfigAddComponent extends AddBaseComponent<ApiTelegr
     public translate: TranslateService,
     public publicHelper: PublicHelper,
   ) {
-    super(apiTelegramBotConfigService, new ApiTelegramBotConfigModel(), publicHelper);
+    super(apiTelegramBotConfigService, new ApiTelegramBotConfigModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 

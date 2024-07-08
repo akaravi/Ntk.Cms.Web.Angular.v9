@@ -36,7 +36,7 @@ export class CoreModuleSaleHeaderGroupEditComponent extends EditBaseComponent<Co
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleSaleHeaderGroupService, new CoreModuleSaleHeaderGroupModel(), publicHelper);
+    super(coreModuleSaleHeaderGroupService, new CoreModuleSaleHeaderGroupModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

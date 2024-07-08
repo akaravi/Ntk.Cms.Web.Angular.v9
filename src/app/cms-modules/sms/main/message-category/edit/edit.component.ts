@@ -35,7 +35,7 @@ export class SmsMainMessageCategoryEditComponent extends EditBaseComponent<SmsMa
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(smsMainMessageCategoryService, new SmsMainMessageCategoryModel(), publicHelper);
+    super(smsMainMessageCategoryService, new SmsMainMessageCategoryModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data && data.id && data.id.length > 0) {

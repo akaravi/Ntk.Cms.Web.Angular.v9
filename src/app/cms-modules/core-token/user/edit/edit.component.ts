@@ -38,7 +38,7 @@ export class CoreTokenUserEditComponent extends EditBaseComponent<CoreTokenUserS
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreTokenUserService, new CoreTokenUserModel(), publicHelper);
+    super(coreTokenUserService, new CoreTokenUserModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

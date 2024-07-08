@@ -42,7 +42,7 @@ export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, Co
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper
   ) {
-    super(coreSiteService, new CoreSiteModel(), publicHelper);
+    super(coreSiteService, new CoreSiteModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

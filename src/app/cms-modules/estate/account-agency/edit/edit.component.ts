@@ -46,7 +46,7 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateAccountAgencyService, new EstateAccountAgencyModel(), publicHelper);
+    super(estateAccountAgencyService, new EstateAccountAgencyModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

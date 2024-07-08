@@ -42,7 +42,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new ApplicationLogNotificationModel(), publicHelper, tokenHelper);
+    super(contentService, new ApplicationLogNotificationModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {

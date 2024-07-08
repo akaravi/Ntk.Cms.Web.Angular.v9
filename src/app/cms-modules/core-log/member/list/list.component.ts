@@ -44,7 +44,7 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogMemberModel(), publicHelper, tokenHelper);
+    super(contentService, new CoreLogMemberModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

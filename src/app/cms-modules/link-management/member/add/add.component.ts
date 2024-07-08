@@ -32,7 +32,7 @@ export class LinkManagementMemberAddComponent extends AddBaseComponent<LinkManag
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new LinkManagementMemberModel(), publicHelper);
+    super(categoryService, new LinkManagementMemberModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

@@ -38,7 +38,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new PollingContentModel(), publicHelper, tokenHelper);
+    super(contentService, new PollingContentModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     this.optionsSearch.parentMethods = {

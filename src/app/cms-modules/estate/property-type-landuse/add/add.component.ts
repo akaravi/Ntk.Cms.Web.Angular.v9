@@ -32,7 +32,7 @@ export class EstatePropertyTypeLanduseAddComponent extends AddBaseComponent<Esta
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estatePropertyTypeLanduseService, new EstatePropertyTypeLanduseModel(), publicHelper);
+    super(estatePropertyTypeLanduseService, new EstatePropertyTypeLanduseModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
 

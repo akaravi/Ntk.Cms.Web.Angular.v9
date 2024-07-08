@@ -35,7 +35,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new TicketingDepartemenLogModel, publicHelper, tokenHelper);
+    super(contentService, new TicketingDepartemenLogModel, publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestDepartemenId = + Number(this.activatedRoute.snapshot.paramMap.get('DepartemenId'));
     this.requestOperatorId = + Number(this.activatedRoute.snapshot.paramMap.get('OperatorId'));

@@ -41,7 +41,7 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreModuleSaleItemModel(), publicHelper, tokenHelper);
+    super(contentService, new CoreModuleSaleItemModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkModuleSaleHeader = + Number(this.activatedRoute.snapshot.paramMap.get('LinkModuleSaleHeader'));

@@ -37,7 +37,7 @@ export class CoreTokenActivationEditComponent extends EditBaseComponent<CoreToke
     public translate: TranslateService,
     public publicHelper: PublicHelper,
   ) {
-    super(coreTokenActivationService, new CoreTokenActivationModel(), publicHelper);
+    super(coreTokenActivationService, new CoreTokenActivationModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

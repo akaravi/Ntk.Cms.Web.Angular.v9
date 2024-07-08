@@ -37,7 +37,7 @@ export class CoreUserClaimTypeEditComponent extends EditBaseComponent<CoreUserCl
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreUserClaimTypeService, new CoreUserClaimTypeModel(), publicHelper);
+    super(coreUserClaimTypeService, new CoreUserClaimTypeModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

@@ -37,7 +37,7 @@ export class CoreSiteCategoryCmsModuleEditComponent extends EditBaseComponent<Co
     public publicHelper: PublicHelper,
 
   ) {
-    super(coreSiteCategoryCmsModuleService, new CoreSiteCategoryCmsModuleModel(), publicHelper);
+    super(coreSiteCategoryCmsModuleService, new CoreSiteCategoryCmsModuleModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

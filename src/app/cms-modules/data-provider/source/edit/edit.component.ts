@@ -38,7 +38,7 @@ export class DataProviderSourceEditComponent extends EditBaseComponent<DataProvi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(dataProviderSourceService, new DataProviderSourceModel(), publicHelper);
+    super(dataProviderSourceService, new DataProviderSourceModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

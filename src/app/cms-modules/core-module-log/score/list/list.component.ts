@@ -44,7 +44,7 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleLogScoreModel(), publicHelper, tokenHelper);
+    super(contentService, new CoreModuleLogScoreModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));

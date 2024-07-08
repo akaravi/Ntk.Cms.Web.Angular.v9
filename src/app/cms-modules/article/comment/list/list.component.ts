@@ -48,7 +48,7 @@ export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommen
     public pageInfo: PageInfoService,
     public tokenHelper: TokenHelper,
     public dialog: MatDialog) {
-    super(commentService, new ArticleCommentModel(), publicHelper, tokenHelper);
+    super(commentService, new ArticleCommentModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {

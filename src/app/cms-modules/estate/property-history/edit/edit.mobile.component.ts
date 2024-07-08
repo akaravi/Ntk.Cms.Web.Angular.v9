@@ -49,7 +49,7 @@ export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<
     public tokenHelper: TokenHelper,
     public translate: TranslateService
   ) {
-    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper);
+    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.loading.message = this.translate.instant(

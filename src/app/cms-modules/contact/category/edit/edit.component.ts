@@ -35,7 +35,7 @@ export class ContactCategoryEditComponent extends EditBaseComponent<ContactCateg
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contactCategoryService, new ContactCategoryModel(), publicHelper);
+    super(contactCategoryService, new ContactCategoryModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data && data.id && data.id.length > 0) {

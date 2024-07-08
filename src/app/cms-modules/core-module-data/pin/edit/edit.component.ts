@@ -37,7 +37,7 @@ export class CoreModuleDataPinEditComponent extends EditBaseComponent<CoreModule
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreModuleDataPinService, new CoreModuleDataPinModel(), publicHelper);
+    super(coreModuleDataPinService, new CoreModuleDataPinModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

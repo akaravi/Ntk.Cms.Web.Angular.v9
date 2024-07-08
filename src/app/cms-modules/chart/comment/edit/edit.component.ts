@@ -37,7 +37,7 @@ export class ChartCommentEditComponent extends EditBaseComponent<ChartCommentSer
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(commentService, new ChartCommentModel(), publicHelper);
+    super(commentService, new ChartCommentModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

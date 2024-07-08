@@ -32,7 +32,7 @@ export class LinkManagementBillboardPatternAddComponent extends AddBaseComponent
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new LinkManagementBillboardPatternModel(), publicHelper);
+    super(categoryService, new LinkManagementBillboardPatternModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

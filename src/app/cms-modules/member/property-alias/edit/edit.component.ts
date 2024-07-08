@@ -36,7 +36,7 @@ export class MemberPropertyAliasEditComponent extends EditBaseComponent<MemberPr
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(memberPropertyAliasService, new MemberPropertyAliasModel(), publicHelper);
+    super(memberPropertyAliasService, new MemberPropertyAliasModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

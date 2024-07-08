@@ -36,7 +36,7 @@ export class MemberGroupEditComponent extends EditBaseComponent<MemberGroupServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(memberGroupService, new MemberGroupModel(), publicHelper);
+    super(memberGroupService, new MemberGroupModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

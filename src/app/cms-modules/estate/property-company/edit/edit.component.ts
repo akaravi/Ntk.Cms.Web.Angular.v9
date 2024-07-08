@@ -40,7 +40,7 @@ export class EstatePropertyCompanyEditComponent extends EditBaseComponent<Estate
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new EstatePropertyCompanyModel(), publicHelper);
+    super(contentService, new EstatePropertyCompanyModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

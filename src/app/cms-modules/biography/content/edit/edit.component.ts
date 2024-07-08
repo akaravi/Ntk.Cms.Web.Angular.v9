@@ -45,7 +45,7 @@ export class BiographyContentEditComponent extends EditBaseComponent<BiographyCo
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new BiographyContentModel(), publicHelper);
+    super(contentService, new BiographyContentModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

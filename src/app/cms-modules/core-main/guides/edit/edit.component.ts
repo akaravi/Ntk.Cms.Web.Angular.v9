@@ -37,7 +37,7 @@ export class CoreGuideEditComponent extends EditBaseComponent<CoreGuideService, 
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreGuideService, new CoreGuideModel(), publicHelper);
+    super(coreGuideService, new CoreGuideModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

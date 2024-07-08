@@ -39,7 +39,7 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
     public tokenHelper: TokenHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new ArticleContentModel(), publicHelper, tokenHelper);
+    super(contentService, new ArticleContentModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {

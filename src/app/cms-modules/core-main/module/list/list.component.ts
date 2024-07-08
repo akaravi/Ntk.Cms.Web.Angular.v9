@@ -39,7 +39,7 @@ export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new CoreModuleModel(), publicHelper, tokenHelper);
+    super(contentService, new CoreModuleModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {

@@ -35,7 +35,7 @@ export class ChartCategoryEditComponent extends EditBaseComponent<ChartCategoryS
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new ChartCategoryModel(), publicHelper);
+    super(categoryService, new ChartCategoryModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

@@ -33,7 +33,7 @@ export class BankPaymentPrivateSiteConfigAddComponent extends AddBaseComponent<B
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(bankPaymentPrivateSiteConfigService, new BankPaymentPrivateSiteConfigModel(), publicHelper);
+    super(bankPaymentPrivateSiteConfigService, new BankPaymentPrivateSiteConfigModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

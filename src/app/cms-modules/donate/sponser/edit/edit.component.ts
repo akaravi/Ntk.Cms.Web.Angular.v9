@@ -36,7 +36,7 @@ export class DonateSponserEditComponent extends EditBaseComponent<DonateSponsorS
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(donateSponsorService, new DonateSponsorModel(), publicHelper);
+    super(donateSponsorService, new DonateSponsorModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

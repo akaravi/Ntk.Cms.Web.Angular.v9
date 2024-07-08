@@ -32,7 +32,7 @@ export class BlogCategoryAddComponent extends AddBaseComponent<BlogCategoryServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new BlogCategoryModel(), publicHelper);
+    super(categoryService, new BlogCategoryModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

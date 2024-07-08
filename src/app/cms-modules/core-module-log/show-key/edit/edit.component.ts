@@ -37,7 +37,7 @@ export class CoreModuleLogShowKeyEditComponent extends EditBaseComponent<CoreMod
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreModuleLogShowKeyService, new CoreModuleLogShowKeyModel(), publicHelper);
+    super(coreModuleLogShowKeyService, new CoreModuleLogShowKeyModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

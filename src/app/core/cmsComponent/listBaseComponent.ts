@@ -13,9 +13,11 @@ import { ContentInfoModel } from "../models/contentInfoModel";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
+import { TranslateService } from "@ngx-translate/core";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public tokenHelper: TokenHelper) {
+  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public tokenHelper: TokenHelper, public translate: TranslateService,
+  ) {
     publicHelper.pageInfo.updateContentService(baseService);
 
 

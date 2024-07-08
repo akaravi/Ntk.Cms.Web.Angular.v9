@@ -37,7 +37,7 @@ export class CoreModuleLogReportAbuseEditComponent extends EditBaseComponent<Cor
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreModuleLogReportAbuseService, new CoreModuleLogReportAbuseModel(), publicHelper);
+    super(coreModuleLogReportAbuseService, new CoreModuleLogReportAbuseModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

@@ -31,7 +31,7 @@ export class EstatePropertyAdsAddComponent extends AddBaseComponent<EstateProper
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estatePropertyAdsService, new EstatePropertyAdsModel(), publicHelper);
+    super(estatePropertyAdsService, new EstatePropertyAdsModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data && data.linkPropertyId) {
       this.requestLinkPropertyId = data.linkPropertyId;

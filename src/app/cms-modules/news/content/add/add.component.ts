@@ -42,7 +42,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new NewsContentModel(), publicHelper);
+    super(contentService, new NewsContentModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

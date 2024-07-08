@@ -6,9 +6,11 @@ import { CmsDataTaskComponent } from "src/app/shared/cms-data-task/cms-data-task
 import { environment } from "src/environments/environment";
 import { PublicHelper } from "../helpers/publicHelper";
 import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
+import { TranslateService } from "@ngx-translate/core";
 //IApiCmsServerBase
 export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
-  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper) {
+  constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public translate: TranslateService,
+  ) {
     publicHelper.pageInfo.updateContentService(baseService);
     this.dataModel = item;
   }

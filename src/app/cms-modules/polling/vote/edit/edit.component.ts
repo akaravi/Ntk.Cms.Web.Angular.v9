@@ -38,7 +38,7 @@ export class PollingVoteEditComponent extends EditBaseComponent<PollingVoteServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(pollingVoteService, new PollingVoteModel(), publicHelper);
+    super(pollingVoteService, new PollingVoteModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

@@ -37,7 +37,7 @@ export class CoreTokenNotificationLogEditComponent extends EditBaseComponent<Cor
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(coreTokenNotificationLogService, new CoreTokenNotificationLogModel(), publicHelper);
+    super(coreTokenNotificationLogService, new CoreTokenNotificationLogModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

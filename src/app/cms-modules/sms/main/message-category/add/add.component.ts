@@ -33,7 +33,7 @@ export class SmsMainMessageCategoryAddComponent extends AddBaseComponent<SmsMain
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(smsMainMessageCategoryService, new SmsMainMessageCategoryModel(), publicHelper);
+    super(smsMainMessageCategoryService, new SmsMainMessageCategoryModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data && data.parentId && data.parentId.length > 0) {
       this.requestParentId = data.parentId;

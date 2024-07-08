@@ -32,7 +32,7 @@ export class CoreModuleTagAddBulkComponent extends AddBaseComponent<CoreModuleTa
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleTagService, new CoreModuleTagModel(), publicHelper);
+    super(coreModuleTagService, new CoreModuleTagModel(), publicHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     if (data) {

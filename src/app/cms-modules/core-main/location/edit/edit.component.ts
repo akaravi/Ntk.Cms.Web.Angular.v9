@@ -35,7 +35,7 @@ export class CoreLocationEditComponent extends EditBaseComponent<CoreLocationSer
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreLocationService, new CoreLocationModel(), publicHelper);
+    super(coreLocationService, new CoreLocationModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

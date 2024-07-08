@@ -35,7 +35,7 @@ export class EstateCategoryRackEditComponent extends EditBaseComponent<EstateCat
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateCategoryRackService, new EstateCategoryRackModel(), publicHelper);
+    super(estateCategoryRackService, new EstateCategoryRackModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

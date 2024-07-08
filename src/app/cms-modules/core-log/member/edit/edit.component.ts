@@ -38,7 +38,7 @@ export class CoreLogMemberEditComponent extends EditBaseComponent<CoreLogMemberS
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreLogMemberService, new CoreLogMemberModel(), publicHelper);
+    super(coreLogMemberService, new CoreLogMemberModel(), publicHelper,translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });

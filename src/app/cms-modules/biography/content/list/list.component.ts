@@ -39,7 +39,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new BiographyContentModel(), publicHelper, tokenHelper);
+    super(contentService, new BiographyContentModel(), publicHelper, tokenHelper,translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
