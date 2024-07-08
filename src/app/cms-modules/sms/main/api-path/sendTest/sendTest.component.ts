@@ -88,7 +88,9 @@ export class SmsMainApiPathSendTestComponent implements OnInit {
     }
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.smsMainApiPathService.ServiceSendMessageTest(this.dataModel).subscribe({
       next: (ret) => {

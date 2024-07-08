@@ -39,7 +39,9 @@ export class WebDesignerMainPageTemplateHeaderComponent implements OnInit {
 
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.webDesignerMainPageTemplateService.setAccessLoad();
     this.webDesignerMainPageTemplateService.ServiceGetOneById(this.optionId).subscribe({
       next: (ret) => {

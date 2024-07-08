@@ -63,7 +63,9 @@ export class CoreModuleTagCategoryDeleteComponent implements OnInit {
     }
     this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreModuleTagCategoryService.setAccessLoad();
     this.coreModuleTagCategoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -100,7 +102,9 @@ export class CoreModuleTagCategoryDeleteComponent implements OnInit {
     const filterModel: FilterModel = new FilterModel();
     filterModel.rowPerPage = 100;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreModuleTagCategoryService
       .ServiceGetAll(filterModel)
@@ -145,7 +149,9 @@ export class CoreModuleTagCategoryDeleteComponent implements OnInit {
 
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.formInfo.formSubmitAllow = true;
     this.formInfo.buttonSubmittedEnabled = true;
@@ -160,7 +166,9 @@ export class CoreModuleTagCategoryDeleteComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreModuleTagCategoryService
       .ServiceDelete(this.requestId)

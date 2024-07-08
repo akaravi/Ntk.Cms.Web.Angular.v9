@@ -82,7 +82,9 @@ export class BlogCategoryAddComponent extends AddBaseComponent<BlogCategoryServi
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.categoryService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
@@ -101,7 +103,7 @@ export class BlogCategoryAddComponent extends AddBaseComponent<BlogCategoryServi
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

@@ -123,7 +123,9 @@ export class CmsMemberSelectorComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'categoryService.ServiceGetAll';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(

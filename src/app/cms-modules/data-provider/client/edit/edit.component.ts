@@ -108,7 +108,9 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.dataProviderClientService.setAccessLoad();
     this.dataProviderClientService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.dataProviderClientService.ServiceGetOneById(this.requestId).subscribe({
@@ -188,7 +190,9 @@ export class DataProviderClientEditComponent extends EditBaseComponent<DataProvi
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Getting_access_category_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();

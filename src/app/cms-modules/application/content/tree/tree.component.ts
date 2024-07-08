@@ -77,7 +77,9 @@ export class ApplicationAppTreeComponent implements OnInit, OnDestroy {
     this.filterModel.rowPerPage = 200;
     this.filterModel.accessLoad = true;
     const pName = this.constructor.name + 'categoryService.ServiceGetAll';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -90,7 +92,7 @@ export class ApplicationAppTreeComponent implements OnInit, OnDestroy {
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

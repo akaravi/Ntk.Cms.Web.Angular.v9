@@ -113,7 +113,9 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new CoreModuleSaleInvoiceDetailModel());
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
 
     this.tableSource.data = [];
@@ -146,7 +148,9 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
     this.onActionTableRowSelect(new CoreModuleSaleInvoiceDetailModel());
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
 
     this.coreModuleSaleSerialService.ServiceRegisterUseSerialForSite(model).subscribe({

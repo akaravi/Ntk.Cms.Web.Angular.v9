@@ -175,7 +175,9 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
 
     this.contentService
@@ -240,7 +242,9 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
       x.linkContentId = model.id;
     });
     const pName = this.constructor.name + 'contentOtherInfoService.ServiceAddBatch';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     return firstValueFrom(this.contentOtherInfoService.ServiceAddBatch(this.otherInfoDataModel)).then(
       (ret) => {
         if (ret.isSuccess) {
@@ -269,7 +273,9 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
       dataList.push(row);
     });
     const pName = this.constructor.name + 'contentSimilarService.ServiceAddBatch';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     return firstValueFrom(this.contentSimilarService.ServiceAddBatch(dataList)).then(
       (ret) => {
         if (ret.isSuccess) {

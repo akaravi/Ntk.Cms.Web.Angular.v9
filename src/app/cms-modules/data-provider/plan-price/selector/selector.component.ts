@@ -100,7 +100,9 @@ export class DataProviderPlanPriceSelectorComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(

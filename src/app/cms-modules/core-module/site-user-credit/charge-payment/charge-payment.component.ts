@@ -85,7 +85,9 @@ export class CoreModuleSiteUserCreditChargePaymentComponent implements OnInit {
   DataCalculate(): void {
     this.viewCalculate = false;
     const pName = this.constructor.name + 'ServiceOrderCalculate';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreModuleSiteUserCreditService.ServiceOrderCalculate(this.dataModelCalculate).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -109,7 +111,9 @@ export class CoreModuleSiteUserCreditChargePaymentComponent implements OnInit {
   DataPayment(): void {
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'ServiceOrderPayment';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreModuleSiteUserCreditService.ServiceOrderPayment(this.dataModelPayment).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

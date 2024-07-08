@@ -59,7 +59,9 @@ export class EstatePropertyCompanyDeleteComponent implements OnInit {
     }
     this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'fieldInfoConvertor';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService.setAccessLoad();
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
@@ -96,7 +98,9 @@ export class EstatePropertyCompanyDeleteComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService
       .ServiceDelete(this.requestId)
       .subscribe({

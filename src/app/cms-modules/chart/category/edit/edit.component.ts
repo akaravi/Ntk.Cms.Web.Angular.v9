@@ -91,7 +91,9 @@ export class ChartCategoryEditComponent extends EditBaseComponent<ChartCategoryS
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.categoryService.setAccessLoad();
     this.categoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -112,7 +114,7 @@ export class ChartCategoryEditComponent extends EditBaseComponent<ChartCategoryS
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -143,7 +145,7 @@ export class ChartCategoryEditComponent extends EditBaseComponent<ChartCategoryS
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

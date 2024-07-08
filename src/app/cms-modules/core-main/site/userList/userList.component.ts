@@ -143,7 +143,9 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     this.onActionTableRowSelect(new CoreSiteUserModel());
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
 
     this.filteModelContent.accessLoad = true;
@@ -303,7 +305,9 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.publicHelper.processService.processStart(pName);
+          this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
 
           this.contentService.ServiceDeleteEntity(this.tableRowSelected).subscribe({
             next: (ret) => {

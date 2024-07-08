@@ -145,7 +145,9 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new WebDesignerMainPageModel());
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -282,7 +284,9 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.publicHelper.processService.processStart(pName);
+          this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
             next: (ret) => {
               if (ret.isSuccess) {

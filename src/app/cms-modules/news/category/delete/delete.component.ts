@@ -50,7 +50,9 @@ export class NewsCategoryDeleteComponent implements OnInit {
     }
     this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.categoryService.setAccessLoad();
     this.categoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.categoryService
@@ -83,7 +85,9 @@ export class NewsCategoryDeleteComponent implements OnInit {
     const filterModel: FilterModel = new FilterModel();
     filterModel.rowPerPage = 100;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.categoryService
       .ServiceGetAll(filterModel)
       .subscribe({
@@ -125,7 +129,9 @@ export class NewsCategoryDeleteComponent implements OnInit {
     }
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.categoryService
       .ServiceMove(this.requestId, this.dataModel.newCatId)
       .subscribe({
@@ -160,7 +166,9 @@ export class NewsCategoryDeleteComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.categoryService
       .ServiceDelete(this.requestId)
       .subscribe({

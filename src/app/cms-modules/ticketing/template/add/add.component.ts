@@ -63,7 +63,9 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.ticketingTemplateService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
@@ -93,52 +95,54 @@ export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTem
   //   this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {this.formInfo.formAlert = str;});
   //   this.formInfo.formError = '';
   //   const pName = this.constructor.name + 'main';
-  //   this.publicHelper.processService.processStart(pName);
+  //   this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
 
-  //   this.ticketingTemplateService.ServiceEdit(this.dataModel).subscribe(
-  //     next:(ret) => {
-  //       this.formInfo.formSubmitAllow = true;
-  //       this.dataModelResult = ret;
-  //       if (ret.isSuccess) {
-  //         this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => {this.formInfo.formAlert = str;});
-  //         this.cmsToastrService.typeSuccessEdit();
-  //         this.dialogRef.close({ dialogChangedDate: true });
+//   this.ticketingTemplateService.ServiceEdit(this.dataModel).subscribe(
+//     next:(ret) => {
+//       this.formInfo.formSubmitAllow = true;
+//       this.dataModelResult = ret;
+//       if (ret.isSuccess) {
+//         this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => {this.formInfo.formAlert = str;});
+//         this.cmsToastrService.typeSuccessEdit();
+//         this.dialogRef.close({ dialogChangedDate: true });
 
-  //       } else {
-  //         this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => {this.formInfo.formAlert = str;});
-  //         this.formInfo.formError = ret.errorMessage;
-  //         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-  //       }
-  //       this.publicHelper.processService.processStop(pName);
+//       } else {
+//         this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => {this.formInfo.formAlert = str;});
+//         this.formInfo.formError = ret.errorMessage;
+//         this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+//       }
+//       this.publicHelper.processService.processStop(pName);
 
-  //     },
-  //     error:(err) => {
-  //       this.formInfo.formSubmitAllow = true;
-  //       this.cmsToastrService.typeError(err);
-  //       this.publicHelper.processService.processStop(pName);
+//     },
+//     error:(err) => {
+//       this.formInfo.formSubmitAllow = true;
+//       this.cmsToastrService.typeError(err);
+//       this.publicHelper.processService.processStop(pName);
 
-  //     }
-  //   );
-  // }
-  onActionSelectorSelect(model: TicketingDepartemenModel | null): void {
-    if (!model || model.id <= 0) {
-      const message = this.translate.instant('MESSAGE.Information_department_is_not_clear');
-      this.cmsToastrService.typeErrorSelected(message);
-      return;
-    }
-    this.dataModel.linkTicketingDepartemenId = model.id;
+//     }
+//   );
+// }
+onActionSelectorSelect(model: TicketingDepartemenModel | null): void {
+  if(!model || model.id <= 0) {
+  const message = this.translate.instant('MESSAGE.Information_department_is_not_clear');
+  this.cmsToastrService.typeErrorSelected(message);
+  return;
+}
+this.dataModel.linkTicketingDepartemenId = model.id;
   }
-  onFormSubmit(): void {
-    if (!this.formGroup.valid) {
-      return;
-    }
-    this.formInfo.formSubmitAllow = false;
+onFormSubmit(): void {
+  if(!this.formGroup.valid) {
+  return;
+}
+this.formInfo.formSubmitAllow = false;
 
-    this.DataAddContent();
+this.DataAddContent();
 
   }
-  onFormCancel(): void {
-    this.dialogRef.close({ dialogChangedDate: false });
-  }
+onFormCancel(): void {
+  this.dialogRef.close({ dialogChangedDate: false });
+}
 }

@@ -102,7 +102,9 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     /*َAccess Field*/
     this.coreCpMainMenuService.setAccessLoad();
@@ -126,7 +128,7 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -141,7 +143,9 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Getting_access_category_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
@@ -168,7 +172,7 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -199,7 +203,7 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

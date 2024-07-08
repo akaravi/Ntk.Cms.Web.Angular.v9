@@ -106,7 +106,9 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.estateAccountAgencyService.setAccessLoad();
     this.estateAccountAgencyService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -239,7 +241,9 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Getting_access_category_from_the_server');
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
@@ -272,7 +276,9 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
 
   onActionDataGetAddGroup(): void {
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estateAccountAgencyUserService.ServiceAdd(this.dataEstateAccountAgencyUserModel).subscribe({
       next: (ret) => {
 
@@ -296,7 +302,9 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
   }
   onActionDataGetDeleteGroup(model: EstateAccountAgencyUserModel): void {
     const pName = this.constructor.name + 'onActionDataGetDeleteGroup';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estateAccountAgencyUserService.ServiceDeleteEntity(model).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

@@ -147,7 +147,9 @@ export class LinkManagementTargetEditComponent extends EditBaseComponent<LinkMan
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     /*َAccess Field*/
     this.linkManagementTargetService.setAccessLoad();

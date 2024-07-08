@@ -64,7 +64,9 @@ export class CmsBankpaymentTransactionInfoComponent implements OnInit {
   TransactionSuccessful = TransactionRecordStatusEnum.TransactionSuccessful;
   DataGeOne(): void {
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.bankPaymentTransactionService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

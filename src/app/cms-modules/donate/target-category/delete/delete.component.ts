@@ -60,7 +60,9 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
     }
     this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.donateTargetCategoryService.setAccessLoad();
     this.donateTargetCategoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.donateTargetCategoryService
@@ -95,7 +97,9 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
     const filterModel: FilterModel = new FilterModel();
     filterModel.rowPerPage = 100;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.donateTargetCategoryService
       .ServiceGetAll(filterModel)
@@ -141,7 +145,9 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
 
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
   }
   onFormDelete(): void {
@@ -153,7 +159,9 @@ export class DonateTargetCategoryDeleteComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.donateTargetCategoryService
       .ServiceDelete(this.requestId)

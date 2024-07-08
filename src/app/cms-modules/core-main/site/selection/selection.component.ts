@@ -11,11 +11,11 @@ import {
   FilterModel,
   FormInfoModel
 } from 'ntk-cms-api';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
-import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -68,7 +68,9 @@ export class CoreSiteSelectionComponent implements OnInit {
   }
   DataGetAll(): void {
     const pName = this.constructor.name + 'ServiceGetAll';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreSiteUserService.ServiceGetAllSiteCurrentUser().subscribe({
       next: (ret) => {
@@ -117,7 +119,9 @@ export class CoreSiteSelectionComponent implements OnInit {
 
 
     const pName = this.constructor.name + '.ServiceRenewToken';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
       next: (res) => {
@@ -157,7 +161,9 @@ export class CoreSiteSelectionComponent implements OnInit {
       authModel = new AuthRenewTokenModel();
 
       const pName = this.constructor.name + '.onActionAddFirstSite';
-      this.publicHelper.processService.processStart(pName);
+      this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+        this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      });
 
       this.coreAuthService.ServiceRenewToken(authModel).subscribe({
         next: (ret) => {

@@ -134,7 +134,9 @@ export class CmsCurrencySelectorComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'ServiceGetAll';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.categoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Viewer);
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(

@@ -85,7 +85,9 @@ export class CoreDeviceAddComponent extends AddBaseComponent<CoreDeviceService, 
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreDeviceService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
@@ -105,7 +107,7 @@ export class CoreDeviceAddComponent extends AddBaseComponent<CoreDeviceService, 
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

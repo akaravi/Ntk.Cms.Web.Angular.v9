@@ -20,13 +20,13 @@ import {
   FilterModel, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { CoreGuideAddComponent } from '../add/add.component';
 import { CoreGuideEditComponent } from '../edit/edit.component';
-import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -86,7 +86,9 @@ export class CoreGuideTreeComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.categoryService.ServiceGetAllTree(this.filterModel).subscribe({
       next: (ret) => {
@@ -100,7 +102,7 @@ export class CoreGuideTreeComponent implements OnInit, OnDestroy {
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

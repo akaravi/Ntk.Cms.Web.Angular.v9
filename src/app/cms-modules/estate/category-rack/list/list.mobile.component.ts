@@ -273,7 +273,9 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.publicHelper.processService.processStart(pName);
+          this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
 
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
             next: (ret) => {
@@ -338,7 +340,9 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
       if (result && result.dialogChangedDate) {
         model.rackFolderOrders[findRow] = result.folder;
         const pName = this.constructor.name + 'onActionButtonEditFolderProperty';
-        this.publicHelper.processService.processStart(pName);
+        this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+          this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+        });
         this.contentService.ServiceEdit(model).subscribe({
           next: (ret) => {
             if (ret.isSuccess) {
@@ -394,7 +398,9 @@ export class EstateCategoryRackListMobileComponent extends ListBaseComponent<Est
       if (result && result.dialogChangedDate) {
         model.rackFolderProperties[findRow] = result.folder;
         const pName = this.constructor.name + 'onActionButtonEditFolderProperty';
-        this.publicHelper.processService.processStart(pName);
+        this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+          this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+        });
         this.contentService.ServiceEdit(model).subscribe({
           next: (ret) => {
             if (ret.isSuccess) {

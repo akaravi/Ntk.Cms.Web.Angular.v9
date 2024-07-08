@@ -103,7 +103,9 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
 
   DataGetAccess(): void {
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.estatePropertyHistoryService.ServiceViewModel().subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -133,7 +135,9 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
     }
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.estatePropertyHistoryService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
@@ -165,7 +169,9 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
 
   DataGetAllActivityType(): void {
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filterModel = new FilterModel();
     this.estateActivityTypeService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {

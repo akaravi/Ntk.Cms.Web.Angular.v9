@@ -86,7 +86,9 @@ export class CoreModuleSaleHeaderGroupEditComponent extends EditBaseComponent<Co
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreModuleSaleHeaderGroupService.setAccessLoad();
     this.coreModuleSaleHeaderGroupService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);

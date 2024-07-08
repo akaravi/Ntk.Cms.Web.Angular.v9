@@ -95,7 +95,9 @@ export class NewsContentSelectorComponent implements OnInit {
       filterModel.filters.push(filter);
     }
     const pName = this.constructor.name + 'ServiceGetAll';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     return firstValueFrom(this.contentService.ServiceGetAll(filterModel))
       .then(
         (response) => {

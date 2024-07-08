@@ -125,7 +125,10 @@ export class AuthForgotPasswordComponent implements OnInit {
     this.errorState = ErrorStates.NotSubmitted;
     this.dataModelforgetPasswordEntryPinCode.captchaKey = this.captchaModel.key;
     const pName = this.constructor.name + '.ServiceForgetPasswordEntryPinCode';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Check_the_code_on_the_server'));
+
+    this.translate.get('MESSAGE.Check_the_code_on_the_server').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreAuthService
       .ServiceForgetPasswordEntryPinCode(this.dataModelforgetPasswordEntryPinCode)
       .subscribe({
@@ -159,7 +162,10 @@ export class AuthForgotPasswordComponent implements OnInit {
     }
     this.dataModelforgetPasswordBySms.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.get_security_photo_content'));
+
+    this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
         this.captchaModel = ret.item;

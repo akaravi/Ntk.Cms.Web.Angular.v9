@@ -73,7 +73,9 @@ export class CoreModuleSaleHeaderSalePaymentComponent implements OnInit {
     // this.viewCalculate = true;
     //console.log('r');
     const pName = this.constructor.name + 'ServiceOrderCalculate';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreModuleSaleHeaderService.ServiceOrderCalculate(this.dataModelCalculate).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -97,7 +99,9 @@ export class CoreModuleSaleHeaderSalePaymentComponent implements OnInit {
   }
   DataPayment(): void {
     const pName = this.constructor.name + 'ServiceOrderPayment';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.coreModuleSaleHeaderService.ServiceOrderPayment(this.dataModelPayment).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

@@ -44,7 +44,9 @@ export class ApplicationAppUploadAppComponent implements OnInit {
   DataGetAccess(): void {
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.applicationAppService
       .ServiceViewModel()
       .subscribe({
@@ -76,7 +78,9 @@ export class ApplicationAppUploadAppComponent implements OnInit {
       return;
     }
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.formInfo.formSubmitAllow = false;
     this.applicationAppService.ServiceUpload(this.dataModel).subscribe({
       next: (ret) => {

@@ -85,7 +85,9 @@ export class CoreUserChangePasswordComponent implements OnInit, OnDestroy {
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     if (this.requestLinkUserId > 0) {
       this.dataModel.linkUserId = this.requestLinkUserId;
@@ -108,7 +110,7 @@ export class CoreUserChangePasswordComponent implements OnInit, OnDestroy {
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

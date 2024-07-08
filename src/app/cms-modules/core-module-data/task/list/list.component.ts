@@ -288,7 +288,9 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.publicHelper.processService.processStart(pName);
+          this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
 
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
             next: (ret) => {

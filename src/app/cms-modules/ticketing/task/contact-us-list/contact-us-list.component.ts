@@ -107,7 +107,9 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
     this.onActionTableRowSelect(new TicketingTaskModel());
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
 
     this.filteModelContent.accessLoad = true;

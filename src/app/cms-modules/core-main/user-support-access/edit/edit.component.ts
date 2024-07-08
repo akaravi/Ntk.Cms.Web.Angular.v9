@@ -96,7 +96,9 @@ export class CoreUserSupportAccessEditComponent extends EditBaseComponent<CoreUs
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filteModelContent = new FilterModel();
     /*make filter*/
     let filter = new FilterDataModel();
@@ -142,7 +144,7 @@ export class CoreUserSupportAccessEditComponent extends EditBaseComponent<CoreUs
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -174,7 +176,7 @@ export class CoreUserSupportAccessEditComponent extends EditBaseComponent<CoreUs
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

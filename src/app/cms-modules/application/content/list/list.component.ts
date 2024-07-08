@@ -269,7 +269,9 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'contentService.ServiceDelete';
-          this.publicHelper.processService.processStart(pName);
+          this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
 
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
             next: (ret) => {
@@ -419,7 +421,9 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     }
     this.onActionTableRowSelect(mode);
     const pName = this.constructor.name + 'contentService.ServiceBuild';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.contentService.ServiceBuild(this.tableRowSelected.id).subscribe({
       next: (ret) => {
         this.publicHelper.processService.processStop(pName);

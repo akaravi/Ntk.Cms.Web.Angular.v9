@@ -60,7 +60,9 @@ export class BiographyContentDeleteComponent implements OnInit {
     }
     this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.biographyContentService.setAccessLoad();
     this.biographyContentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -97,7 +99,9 @@ export class BiographyContentDeleteComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.biographyContentService
       .ServiceDelete(this.requestId)
       .subscribe({

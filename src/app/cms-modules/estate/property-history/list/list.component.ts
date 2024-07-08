@@ -534,7 +534,9 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.publicHelper.processService.processStart(pName);
+          this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
 
           this.contentService
             .ServiceDelete(this.tableRowSelected.id)
@@ -572,7 +574,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => {
       this.publicHelper.processService.processStart(pName, str, this.constructor.name);
     });
-   
+
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

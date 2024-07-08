@@ -87,7 +87,9 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.smsMainApiPathService.setAccessLoad();
     this.smsMainApiPathService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -158,7 +160,9 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
 
   onActionButtonGetBalance(): any {
     const pName = this.constructor.name + 'GetBalance';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     var modelData = new SmsApiGetBalanceDtoModel();
     modelData.linkApiPathId = this.requestId;
 

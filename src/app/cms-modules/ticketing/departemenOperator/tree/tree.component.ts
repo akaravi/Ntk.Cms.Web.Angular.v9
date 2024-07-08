@@ -81,7 +81,9 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {

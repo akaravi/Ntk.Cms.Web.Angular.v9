@@ -27,11 +27,11 @@ import { PollingCategoryEditComponent } from '../edit/edit.component';
 
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { PollingCategoryAddComponent } from '../add/add.component';
-import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -88,7 +88,9 @@ export class PollingCategoryTreeComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {

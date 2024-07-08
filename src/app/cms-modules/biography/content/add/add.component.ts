@@ -159,7 +159,9 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.biographyContentService
       .ServiceAdd(this.dataModel)
       .subscribe({
@@ -218,7 +220,9 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
       x.linkContentId = model.id;
     });
     const pName = this.constructor.name + 'biographyContentOtherInfoService.ServiceAddBatch';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     return firstValueFrom(this.biographyContentOtherInfoService.ServiceAddBatch(this.otherInfoDataModel)).then(
       (ret) => {
@@ -249,7 +253,9 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
       dataList.push(row);
     });
     const pName = this.constructor.name + 'biographyContentSimilarService.ServiceAddBatch';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     return firstValueFrom(this.biographyContentSimilarService.ServiceAddBatch(dataList)).then(
       (ret) => {
         if (ret.isSuccess) {

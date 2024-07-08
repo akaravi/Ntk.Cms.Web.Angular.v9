@@ -124,7 +124,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -239,7 +239,9 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'main';
-          this.publicHelper.processService.processStart(pName);
+          this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
             next: (ret) => {
               if (ret.isSuccess) {
@@ -319,7 +321,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -379,7 +381,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -415,7 +417,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -438,7 +440,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -456,7 +458,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

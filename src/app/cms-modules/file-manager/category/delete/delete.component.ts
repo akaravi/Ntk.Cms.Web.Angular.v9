@@ -60,7 +60,9 @@ export class FileCategoryDeleteComponent implements OnInit {
     }
     this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.fileCategoryService.setAccessLoad();
     this.fileCategoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -97,7 +99,9 @@ export class FileCategoryDeleteComponent implements OnInit {
     const filterModel: FilterModel = new FilterModel();
     filterModel.rowPerPage = 100;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.fileCategoryService
       .ServiceGetAll(filterModel)
@@ -142,7 +146,9 @@ export class FileCategoryDeleteComponent implements OnInit {
 
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.fileCategoryService
       .ServiceMove(this.requestId, this.dataModel.newCatId)
@@ -180,7 +186,9 @@ export class FileCategoryDeleteComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.fileCategoryService
       .ServiceDelete(this.requestId)

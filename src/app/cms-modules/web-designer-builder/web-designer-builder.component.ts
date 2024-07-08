@@ -56,7 +56,9 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
   }
   DataGetOneContent(): void {
     const pName = this.constructor.name + 'webDesignerMainPageService.ServiceGetOneById';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.webDesignerMainPageService.setAccessLoad();
     this.webDesignerMainPageService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.webDesignerMainPageService.ServiceGetOneById(this.requestId).subscribe({

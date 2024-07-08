@@ -87,7 +87,9 @@ export class CmsSiteUserCreditViewComponent implements OnInit {
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreModuleSiteUserCreditService.setAccessLoad();
     this.coreModuleSiteUserCreditService.ServiceGetCredit(this.requestLinkModuleId).subscribe({
@@ -118,7 +120,9 @@ export class CmsSiteUserCreditViewComponent implements OnInit {
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.coreModuleService.setAccessLoad();
     this.coreModuleService.ServiceGetOneById(this.requestLinkModuleId).subscribe({

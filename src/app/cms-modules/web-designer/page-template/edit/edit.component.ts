@@ -72,7 +72,9 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.webDesignerMainPageTemplateService.setAccessLoad();
     this.webDesignerMainPageTemplateService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.webDesignerMainPageTemplateService.ServiceGetOneById(this.requestId).subscribe({
@@ -101,7 +103,9 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.webDesignerMainPageTemplateService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
@@ -129,7 +133,9 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
     filter.propertyName = 'LinkPageTemplateId';
@@ -167,7 +173,9 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     entity.linkSiteCagegoryId = model.id;
     entity.linkPageTemplateId = this.dataModel.id;
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService.ServiceAdd';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.webDesignerMainPageTemplateSiteCategoryService.ServiceAdd(entity).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -194,7 +202,9 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     entity.linkSiteCagegoryId = model.id;
     entity.linkPageTemplateId = this.dataModel.id;
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity(entity).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

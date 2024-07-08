@@ -242,7 +242,9 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
       .then((confirmed) => {
         if (confirmed) {
           const pName = this.constructor.name + 'ServiceDelete';
-          this.publicHelper.processService.processStart(pName);
+          this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+          });
 
           this.contentService.ServiceDelete(this.tableRowSelected.code).subscribe({
             next: (ret) => {

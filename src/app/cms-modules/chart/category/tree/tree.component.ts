@@ -21,6 +21,7 @@ import {
   FilterModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -28,7 +29,6 @@ import { environment } from 'src/environments/environment';
 import { ChartCategoryAddComponent } from '../add/add.component';
 import { ChartCategoryDeleteComponent } from '../delete/delete.component';
 import { ChartCategoryEditComponent } from '../edit/edit.component';
-import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -85,7 +85,9 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
     this.filterModel.accessLoad = true;
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
@@ -100,7 +102,7 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

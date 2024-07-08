@@ -116,7 +116,9 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   dataFieldInfoModel: DataFieldInfoModel[];
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
 
     this.estateCustomerOrderService
       .ServiceViewModel()
@@ -158,7 +160,9 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   DataAddContent(actionSubmit = false): void {
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     if (!this.dataModel.title || this.dataModel.title.length == 0)
       this.dataModel.title = 'code:' + this.dataModel.caseCode;
     this.estateCustomerOrderService.ServiceAdd(this.dataModel).subscribe({
@@ -262,7 +266,9 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   DataGetOneContent(): void {
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     // var id = '';
     // if (this.dataModelResult && this.dataModelResult.item && this.dataModelResult.item.id && this.dataModelResult.item.id.length > 0) {
     //   id = this.dataModelResult.item.id;
@@ -313,7 +319,9 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   DataGetAllContractType(): void {
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filterModel = new FilterModel();
     this.estateContractTypeService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
@@ -340,7 +348,9 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   DataGetAllPropertyTypeUsage(): void {
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filterModel = new FilterModel();
     this.estatePropertyTypeUsageService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {
@@ -359,7 +369,9 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   }
   DataGetAllPropertyTypeLanduse(): void {
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     const filterModel = new FilterModel();
 
     if (this.dataModel.linkPropertyTypeUsageId && this.dataModel.linkPropertyTypeUsageId.length > 0) {
@@ -443,7 +455,9 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
       return;
 
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.dataModelEstatePropertyResult = new ErrorExceptionResult<EstatePropertyModel>();
     const filterModel = new EstatePropertyFilterModel();
     filterModel.countLoad = true;
@@ -476,7 +490,9 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   }
   DataSend(): void {
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
     this.dataModelActionSend.id = this.dataModel.id;
     this.estateCustomerOrderService.ServiceActionSendSms(this.dataModelActionSend).subscribe({
       next: (ret) => {
