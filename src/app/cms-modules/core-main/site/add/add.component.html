@@ -55,8 +55,8 @@
           <div *ngIf="fieldsInfo['title']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
-            <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title
-              disabled="!fieldsInfo['title']?.accessAddField" placeholder="{{fieldsInfo['title']?.fieldTitle }}"
+            <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title required
+              [disabled]="!fieldsInfo['title']?.accessAddField" placeholder="{{fieldsInfo['title']?.fieldTitle }}"
               minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.title" />
             <em>{{ Title.value.length }} / 100</em>
             <mat-error *ngIf="Title.errors?.required">
@@ -81,7 +81,7 @@
             <label for="dataModel.domain" class="color-highlight">Domain</label>
             <input matInput [(ngModel)]="dataModel.domain" name="dataModel.domain" #Domain type="text"
               placeholder="domain.com" rows="10" minlength="3" maxlength="100"
-              disabled="!fieldsInfo['domain']?.accessAddField" id="dataModel.domain"
+              [disabled]="!fieldsInfo['domain']?.accessAddField" id="dataModel.domain"
               class="form-control validate-name" />
             <em>{{ Domain.value.length }} / 50</em>
             <mat-error *ngIf="Domain.errors?.required">
@@ -119,7 +119,7 @@
               {{'ACTION.BACK' | translate}}
             </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-              disabled="!vform.form.valid" matStepperNext>
+              [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
           </div>
@@ -131,7 +131,7 @@
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <label for="dataModel.pwaName" class="color-highlight">{{ fieldsInfo["pwaName"]?.fieldTitle }}</label>
             <input matInput type="text" [(ngModel)]="dataModel.pwaName" name="dataModel.pwaName" #PwaName
-              disabled="!fieldsInfo['pwaName']?.accessAddField" placeholder="Site Application" minlength="3"
+              [disabled]="!fieldsInfo['pwaName']?.accessAddField" placeholder="Site Application" minlength="3"
               maxlength="100" class="form-control validate-name" id="dataModel.pwaName" />
             <em>{{ PwaName.value.length }} / 100</em>
           </div>
@@ -141,8 +141,8 @@
             <label for="dataModel.pwaShortName" class="color-highlight">{{ fieldsInfo["pwaShortName"]?.fieldTitle
               }}</label>
             <input matInput type="text" [(ngModel)]="dataModel.pwaShortName" name="dataModel.pwaShortName" #PwaShortName
-              disabled="!fieldsInfo['pwaShortName']?.accessAddField" placeholder="SiteApp" minlength="3" maxlength="100"
-              class="form-control validate-name" id="dataModel.pwaShortName" />
+              [disabled]="!fieldsInfo['pwaShortName']?.accessAddField" placeholder="SiteApp" minlength="3"
+              maxlength="100" class="form-control validate-name" id="dataModel.pwaShortName" />
             <em>{{ PwaShortName.value.length }} / 100</em>
           </div>
           <!-- PwaDescription Field -->
@@ -151,7 +151,7 @@
             <label for="dataModel.pwaDescription" class="color-highlight">{{ fieldsInfo["pwaDescription"]?.fieldTitle
               }}</label>
             <input matInput type="text" [(ngModel)]="dataModel.pwaDescription" name="dataModel.pwaDescription"
-              #PwaDescription disabled="!fieldsInfo['pwaDescription']?.accessAddField" placeholder="SiteApp"
+              #PwaDescription [disabled]="!fieldsInfo['pwaDescription']?.accessAddField" placeholder="SiteApp"
               minlength="3" maxlength="100" class="form-control validate-name" id="dataModel.pwaDescription" />
             <em>{{ PwaDescription.value.length }} / 100</em>
           </div>
@@ -161,7 +161,7 @@
             <label for="dataModel.pwaDisplay" class="color-highlight">{{ fieldsInfo["pwaDisplay"]?.fieldTitle
               }}</label>
             <input matInput type="text" [(ngModel)]="dataModel.pwaDisplay" name="dataModel.pwaDisplay" #PwaDisplay
-              disabled="!fieldsInfo['pwaDisplay']?.accessAddField" placeholder="SiteApp" minlength="3" maxlength="100"
+              [disabled]="!fieldsInfo['pwaDisplay']?.accessAddField" placeholder="SiteApp" minlength="3" maxlength="100"
               class="form-control validate-name" id="dataModel.pwaDisplay" />
             <em>{{ PwaDisplay.value.length }} / 100</em>
           </div>
@@ -177,7 +177,7 @@
               class="color-highlight">{{fieldsInfo['pwaIconSize72x72Id']?.fieldTitle}}</label>
             <input matInput type="text" [(ngModel)]="dataModel.pwaIconSize72x72Id" name="dataModel.pwaIconSize72x72Id"
               #PwaIconSize72x72Id placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-              disabled="!fieldsInfo['pwaIconSize72x72Id']?.accessAddField"
+              [disabled]="!fieldsInfo['pwaIconSize72x72Id']?.accessAddField"
               (click)="fileManagerOpenFormPwaIconSize72x72Id = true" class="form-control validate-name"
               id="dataModel.pwaIconSize72x72Id" />
             <cms-file-manager (itemSelected)="onActionFileSelectedPwaIconSize72x72Id($event)" [language]="appLanguage"
@@ -199,7 +199,7 @@
             <input matInput type="text" [(ngModel)]="dataModel.pwaIconSize192x192Id"
               name="dataModel.pwaIconSize192x192Id" #PwaIconSize192x192Id
               placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-              disabled="!fieldsInfo['pwaIconSize192x192Id']?.accessAddField"
+              [disabled]="!fieldsInfo['pwaIconSize192x192Id']?.accessAddField"
               (click)="fileManagerOpenFormPwaIconSize192x192Id = true" class="form-control validate-name"
               id="dataModel.pwaIconSize192x192Id" />
             <cms-file-manager (itemSelected)="onActionFileSelectedPwaIconSize192x192Id($event)" [language]="appLanguage"
@@ -221,7 +221,7 @@
             <input matInput type="text" [(ngModel)]="dataModel.pwaIconSize384x384Id"
               name="dataModel.pwaIconSize384x384Id" #PwaIconSize384x384Id
               placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-              disabled="!fieldsInfo['pwaIconSize384x384Id']?.accessAddField"
+              [disabled]="!fieldsInfo['pwaIconSize384x384Id']?.accessAddField"
               (click)="fileManagerOpenFormPwaIconSize384x384Id = true" class="form-control validate-name"
               id="dataModel.pwaIconSize384x384Id" />
             <cms-file-manager (itemSelected)="onActionFileSelectedPwaIconSize384x384Id($event)" [language]="appLanguage"
@@ -243,7 +243,7 @@
             <input matInput type="text" [(ngModel)]="dataModel.pwaIconSize512x512Id"
               name="dataModel.pwaIconSize512x512Id" #PwaIconSize512x512Id
               placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-              disabled="!fieldsInfo['pwaIconSize512x512Id']?.accessAddField"
+              [disabled]="!fieldsInfo['pwaIconSize512x512Id']?.accessAddField"
               (click)="fileManagerOpenFormPwaIconSize512x512Id = true" class="form-control validate-name"
               id="dataModel.pwaIconSize512x512Id" />
             <cms-file-manager (itemSelected)="onActionFileSelectedPwaIconSize512x512Id($event)" [language]="appLanguage"
@@ -259,7 +259,7 @@
               }}</label>
             <input matInput type="text" [style.background]="dataModel.pwaThemeColor"
               [ngxMatColorPicker]="pwaThemeColorPicker" [(ngModel)]="dataModel.pwaThemeColor"
-              name="dataModel.pwaThemeColor" #pwaThemeColor disabled="!fieldsInfo['pwaThemeColor']?.accessAddField"
+              name="dataModel.pwaThemeColor" #pwaThemeColor [disabled]="!fieldsInfo['pwaThemeColor']?.accessAddField"
               placeholder="{{fieldsInfo['pwaThemeColor']?.fieldTitle}}" class="form-control validate-name"
               id="dataModel.pwaThemeColor" />
             <ngx-ntk-mat-color-toggle matSuffix [for]="pwaThemeColorPicker"></ngx-ntk-mat-color-toggle>
@@ -274,7 +274,7 @@
             <input matInput type="text" [style.background]="dataModel.pwaThemeBackgroundColor"
               [ngxMatColorPicker]="pwaThemeBackgroundColorPicker" [(ngModel)]="dataModel.pwaThemeBackgroundColor"
               name="dataModel.pwaThemeBackgroundColor" #pwaThemeBackgroundColor
-              disabled="!fieldsInfo['pwaThemeBackgroundColor']?.accessAddField"
+              [disabled]="!fieldsInfo['pwaThemeBackgroundColor']?.accessAddField"
               placeholder="{{fieldsInfo['pwaThemeBackgroundColor']?.fieldTitle}}" class="form-control validate-name"
               id="dataModel.pwaThemeBackgroundColor" />
             <ngx-ntk-mat-color-toggle matSuffix [for]="pwaThemeBackgroundColorPicker"></ngx-ntk-mat-color-toggle>
@@ -289,7 +289,7 @@
               <label for="dataModel.pwaNotifySubject" class="color-highlight">{{
                 fieldsInfo["pwaNotifySubject"]?.fieldTitle }}</label>
               <input matInput type="text" [(ngModel)]="dataModel.pwaNotifySubject" name="dataModel.pwaNotifySubject"
-                #PwaNotifySubject disabled="!fieldsInfo['pwaNotifySubject']?.accessAddField"
+                #PwaNotifySubject [disabled]="!fieldsInfo['pwaNotifySubject']?.accessAddField"
                 placeholder="{{fieldsInfo['pwaNotifySubject']?.fieldTitle}}" class="form-control validate-name"
                 id="dataModel.pwaNotifySubject" />
             </div>
@@ -299,7 +299,7 @@
               <label for="dataModel.pwaNotifyPublicKey" class="color-highlight">{{
                 fieldsInfo["pwaNotifyPublicKey"]?.fieldTitle }}</label>
               <input matInput type="text" [(ngModel)]="dataModel.pwaNotifyPublicKey" name="dataModel.pwaNotifyPublicKey"
-                #PwaNotifyPublicKey disabled="!fieldsInfo['pwaNotifyPublicKey']?.accessAddField"
+                #PwaNotifyPublicKey [disabled]="!fieldsInfo['pwaNotifyPublicKey']?.accessAddField"
                 placeholder="{{fieldsInfo['pwaNotifyPublicKey']?.fieldTitle}}" class="form-control validate-name"
                 id="dataModel.pwaNotifyPublicKey" />
             </div>
@@ -310,7 +310,7 @@
                 fieldsInfo["pwaNotifyPrivateKey"]?.fieldTitle }}</label>
               <input matInput type="text" [(ngModel)]="dataModel.pwaNotifyPrivateKey"
                 name="dataModel.pwaNotifyPrivateKey" #PwaNotifyPrivateKey
-                disabled="!fieldsInfo['pwaNotifyPrivateKey']?.accessAddField"
+                [disabled]="!fieldsInfo['pwaNotifyPrivateKey']?.accessAddField"
                 placeholder="{{fieldsInfo['pwaNotifyPrivateKey']?.fieldTitle}}" class="form-control validate-name"
                 id="dataModel.pwaNotifyPrivateKey" />
             </div>
@@ -321,7 +321,7 @@
               {{'ACTION.BEFOR' | translate}}
             </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-              disabled="!vform.form.valid" matStepperNext>
+              [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
           </div>
@@ -399,7 +399,7 @@
               {{'ACTION.BEFOR' | translate}}
             </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-              disabled="!vform.form.valid" matStepperNext>
+              [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
           </div>
@@ -418,8 +418,9 @@
               (click)="fileManagerOpenFormLinkFavIconId = true">{{fieldsInfo['linkFavIconId']?.fieldTitle}}</label>
             <input matInput type="text" [(ngModel)]="dataModel.linkFavIconId" name="dataModel.linkFavIconId"
               #LinkFavIconId placeholder="{{'TITLE.Original_File_ID' | translate}}" autocomplete="off"
-              disabled="!fieldsInfo['linkFavIconId']?.accessAddField" (click)="fileManagerOpenFormLinkFavIconId = true"
-              class="form-control validate-name" id="dataModel.linkFavIconId" />
+              [disabled]="!fieldsInfo['linkFavIconId']?.accessAddField"
+              (click)="fileManagerOpenFormLinkFavIconId = true" class="form-control validate-name"
+              id="dataModel.linkFavIconId" />
             <cms-file-manager (itemSelected)="onActionFileSelectedLinkFavIconId($event)" [language]="appLanguage"
               [isPopup]="true" [(openForm)]="fileManagerOpenFormLinkFavIconId" [tree]="fileManagerTree"
               [openDirectUploadView]="true" [openFilemanagerButtonLabelKey]="'select'"
@@ -478,7 +479,7 @@
             <label for="dataModel.seoDescription"
               class="color-highlight">{{fieldsInfo['seoDescription']?.fieldTitle}}</label>
             <textarea matInput [(ngModel)]="dataModel.seoDescription" name="dataModel.seoDescription" #SeoDescription
-              type="text" disabled="!fieldsInfo['seoDescription']?.accessAddField"
+              type="text" [disabled]="!fieldsInfo['seoDescription']?.accessAddField"
               placeholder="{{fieldsInfo['seoDescription']?.fieldTitle}}" minlength="0" maxlength="1000" rows="6"
               id="dataModel.seoDescription" class="form-control validate-name">
             </textarea>
@@ -490,7 +491,7 @@
             <label for="dataModel.seoGoogleHTMLtag"
               class="color-highlight">{{fieldsInfo['seoGoogleHTMLtag']?.fieldTitle}}</label>
             <textarea matInput [(ngModel)]="dataModel.seoGoogleHTMLtag" name="dataModel.seoGoogleHTMLtag"
-              #SeoGoogleHTMLtag type="text" disabled="!fieldsInfo['seoGoogleHTMLtag']?.accessAddField"
+              #SeoGoogleHTMLtag type="text" [disabled]="!fieldsInfo['seoGoogleHTMLtag']?.accessAddField"
               placeholder="meta  ...." minlength="0" maxlength="1000" rows="6" id="dataModel.seoGoogleHTMLtag"
               class="form-control validate-name">
             </textarea>
@@ -502,7 +503,7 @@
             <label for="dataModel.seoGoogleAnalytics"
               class="color-highlight">{{fieldsInfo['seoGoogleAnalytics']?.fieldTitle}}</label>
             <textarea matInput [(ngModel)]="dataModel.seoGoogleAnalytics" name="dataModel.seoGoogleAnalytics"
-              #SeoGoogleAnalytics type="text" disabled="!fieldsInfo['seoGoogleAnalytics']?.accessAddField"
+              #SeoGoogleAnalytics type="text" [disabled]="!fieldsInfo['seoGoogleAnalytics']?.accessAddField"
               placeholder="" minlength="0" maxlength="1000" rows="6" id="dataModel.seoGoogleAnalytics"
               class="form-control validate-name">
             </textarea>
@@ -514,7 +515,7 @@
               {{'ACTION.BEFOR' | translate}}
             </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-              disabled="!vform.form.valid" matStepperNext>
+              [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
           </div>
@@ -759,7 +760,7 @@
               {{'ACTION.BEFOR' | translate}}
             </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
-              disabled="!vform.form.valid" matStepperNext>
+              [disabled]="!vform.form.valid" matStepperNext>
               {{'ACTION.NEXT' | translate}}
             </button>
           </div>
@@ -818,7 +819,7 @@
               {{'ACTION.BEFOR' | translate}}
             </button>
             <button type="submit" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-              disabled="!vform.form.valid">
+              [disabled]="!vform.form.valid">
               {{'ACTION.SAVE' | translate}}
             </button>
           </div>
