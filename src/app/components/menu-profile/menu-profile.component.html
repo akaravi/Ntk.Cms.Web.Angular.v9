@@ -14,7 +14,7 @@
           class="rounded-sm" width="80">
       </div>
       <div class="w-100 ms-3 pt-1">
-        <h6 class="font-500 font-14 pb-2">خلاصه مشخصات :</h6>
+        <h6 class="font-500 font-14 pb-2">{{"TITLE.SummaryOfSpecifications"|translate}} :</h6>
         <a routerLink="{{'/core/user/edit/' +this.tokenInfo.userId}}">
           <h5>{{'TITLE.User_Id'| translate}} : {{this.tokenInfo.userId}}</h5>
         </a>
@@ -27,7 +27,6 @@
     <div class="divider"></div>
     <ng-container
       *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)">
-
       <!-- userAccessAdminAllowToAllData Field -->
       <div class="d-flex mb-4">
         <div class="pt-1">
@@ -68,12 +67,9 @@
       <div class="divider">
       </div>
     </ng-container>
-
-
-
     <div class="row mb-0"
       *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)">
-      <h6 class="font-500 font-14 pb-2">انتقال سریع شما به حساب کاربری و یا سایت دیگران</h6>
+      <h6 class="font-500 font-14 pb-2">{{"FastTransferToYourUserAccountOrOtherPeoplesSite"|translate}}</h6>
       <br>
       <div class="col-6">
         <div class="input-style input-style-always-active has-borders mb-4">
@@ -85,7 +81,6 @@
           class="close-menu btn btn-full gradient-blue font-13 btn-s font-600 mt-3 rounded-s">{{'ACTION.GO'|
           translate}}</button>
       </div>
-
       <div class="col-6">
         <div class="input-style input-style-always-active has-borders mb-4">
           <input type="text" [(ngModel)]="inputSiteId" class="form-control" id="inputSiteId"
@@ -99,7 +94,6 @@
       </div>
     </div>
     <br>
-
     <a (click)="onActionLogout()" class="btn btn-s font-14 shadow-l btn-full rounded-s font-600 bg-red-dark text-start">
       <span class="ms-n2">{{'TITLE.Sign_Out'|translate}}</span>
       <span class="float-end">Exit</span>

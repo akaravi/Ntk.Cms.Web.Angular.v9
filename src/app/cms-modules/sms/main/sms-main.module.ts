@@ -191,8 +191,8 @@ import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tr
     SmsMainRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-
     SharedModule,
+
     AngularEditorModule,
     CmsFileManagerModule,
     DynamicFormBuilderModule,

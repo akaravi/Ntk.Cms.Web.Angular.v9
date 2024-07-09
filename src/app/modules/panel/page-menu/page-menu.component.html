@@ -2,8 +2,8 @@
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <a [routerLink]="['/menu']" data-back-button class="card card-style rounded-m me-0 p-3 mb-3">
     <i class="fa fa-home color-red-light font-40 icon-50"></i>
-    <h4 class="pt-3">بازگشت</h4>
-    <p class="font-11 mt-n2 mb-0 color-highlight">بازگشت به صفحات</p>
+    <h4 class="pt-3">{{"AUTH.GENERAL.BACK_BUTTON"|translate}}</h4>
+    <p class="font-11 mt-n2 mb-0 color-highlight"><span>{{"TABLE.BackToTop"|translate}}</span></p>
   </a>
 </div>
 <div class="row mb-0">
@@ -20,6 +20,6 @@
 </div>
 <div *ngIf="dataListResult?.length>8" class="content mt-5 mb-5">
   <a (click)="scrollToTop()" style="cursor: pointer;"
-    class="back-to-top-badge bg-highlight color-white shadow-xl py-2"><span>بازگشت به بالا</span><i
+    class="back-to-top-badge bg-highlight color-white shadow-xl py-2"><span>{{"TABLE.BackToTop"|translate}}</span><i
       class="fa fa-caret-up"></i></a>
 </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SmsActionSendMessageComponent } from './send-message/send-message.component';
 import { SmsActionComponent } from './sms-action.component';
+import { SmsActionSendMessageApiComponent } from './send-message-api/send-message-api.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'send-message/outbox-extras',
         component: SmsActionSendMessageComponent
+      },
+      {
+        path: 'send-api',
+        component: SmsActionSendMessageApiComponent
       },
 
     ]

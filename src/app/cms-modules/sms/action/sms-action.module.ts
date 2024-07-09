@@ -33,14 +33,19 @@ import { SmsActionSendMessageComponent } from './send-message/send-message.compo
     SmsActionSendMessageComponent,
     SmsActionSendMessageApiComponent,
   ],
+  exports: [
+    SmsActionComponent,
+    SmsActionSendMessageComponent,
+    SmsActionSendMessageApiComponent,
+  ],
   imports: [
     CommonModule,
-    SmsMainModule,
     SmsActionRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-
     SharedModule,
+    SmsMainModule,
+
     //AngularEditorModule,
     NgxMaterialTimepickerModule,
     CronEditorModule,//cron

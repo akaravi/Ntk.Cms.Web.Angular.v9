@@ -1,6 +1,6 @@
 <div [ngClass]="themeStore.dataMenu==='menu-main'?'menu-active':''" class="menu menu-box-right rounded-0 "
-data-menu-width="280" data-menu-active="nav-pages">
-<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+  data-menu-width="280" data-menu-active="nav-pages">
+  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 
   <div class="card rounded-0" data-card-height="150" style="background-repeat: no-repeat;background-size: contain;"
     [ngStyle]="{'background-image': this.tokenInfo?.linkMainImageIdSrc?.length>0?'url('+this.tokenInfo?.linkMainImageIdSrc+')':'url(/assets/images/pictures/17.jpg)'}">
@@ -13,23 +13,23 @@ data-menu-width="280" data-menu-active="nav-pages">
     <div *ngIf="this.tokenInfo?.userId>0" class="card-bottom">
       <a (click)="themeStore?.dataMenu!=='menu-profile' ? themeStore.dataMenu='menu-profile':themeStore.dataMenu=''">
         <h1 class="color-white ps-3 mb-0 font-28">{{ tokenInfo.name}} {{ tokenInfo.lastName }}</h1>
-        <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
+        <p class="mb-2 ps-3 font-12 color-white opacity-50">{{"TITLE.DarkTheme"|translate}}</p>
       </a>
     </div>
     <div *ngIf="!this.tokenInfo|| !this.tokenInfo.userId||this.tokenInfo.userId<=0" class="card-bottom">
       <a (click)="onActionCleanDataMenu('/auth/singinbysms')">
-        <h1 class="color-white ps-3 mb-0 font-28">وارد شوید</h1>
-        <p class="mb-2 ps-3 font-12 color-white opacity-50">به آینده خوش آمدید</p>
+        <h1 class="color-white ps-3 mb-0 font-28">{{"ACTION.LOGIN"|translate}}</h1>
+        <p class="mb-2 ps-3 font-12 color-white opacity-50">{{"TITLE.WelcomeToTheFuture"|translate}}</p>
       </a>
     </div>
     <div class="card-overlay bg-gradient"></div>
   </div>
   <div class="mt-4"></div>
-  <h6 class="menu-divider">منو</h6>
+  <h6 class="menu-divider">{{"TITLE.MENU"|translate}}</h6>
   <div class="list-group list-custom-small list-menu">
     <a id="nav-welcome" href="/">
       <i class="fa fa-heart gradient-red color-white"></i>
-      <span>خانه</span>
+      <span>{{"TITLE.Houses"|translate}}</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
 
@@ -37,19 +37,19 @@ data-menu-width="280" data-menu-active="nav-pages">
     <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" (click)="onActionCleanDataMenu('/dashboard')"
       style="cursor: pointer;">
       <i class="fa fa-home gradient-green color-white"></i>
-      <span>داشبورد</span>
+      <span>{{"MENU.DASHBOARD"|translate}}</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
     <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')"
       style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
-      <span>انتخاب سایت</span>
+      <span>{{"TITLE.Select_Site"|translate}}</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
     <a *ngIf="!this.tokenInfo|| !this.tokenInfo.userId|| this.tokenInfo.userId<=0" id="nav-components"
       (click)="onActionCleanDataMenu('/auth/singinbysms')" style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
-      <span>ورود</span>
+      <span>{{"ACTION.LOGIN"|translate}}</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
 
@@ -62,32 +62,32 @@ data-menu-width="280" data-menu-active="nav-pages">
 
     <a id="nav-contact" (click)="onActionCleanDataMenu('/page/aboutus')" style="cursor: pointer;">
       <i class="fa fa-envelope gradient-teal color-white"></i>
-      <span>درباره ما</span>
+      <span>{{"ACTION.ABOUT"|translate}}</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
     <a id="nav-contact" (click)="onActionCleanDataMenu('/page/contactus')" style="cursor: pointer;">
       <i class="fa fa-envelope gradient-teal color-white"></i>
-      <span>ارتباط با ما</span>
+      <span>{{"ACTION.GETINTOUCH"|translate}}</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
   </div>
-  <h6 class="menu-divider mt-4">تنظیمات</h6>
+  <h6 class="menu-divider mt-4">{{"TITLE.Settings"|translate}}</h6>
   <div class="list-group list-custom-small list-menu">
     <a (click)="themeStore?.dataMenu!=='menu-colors' ? themeStore.dataMenu='menu-colors':themeStore.dataMenu=''"
       style="cursor: pointer;">
       <i class="fa fa-brush gradient-highlight color-white"></i>
-      <span>رنگ بندی</span>
+      <span>{{"TITLE.coloring"|translate}}</span>
       <i class="fa fa-angle-left"></i>
     </a>
     <a (click)="themeStore?.dataMenu!=='menu-language' ? themeStore.dataMenu='menu-language':themeStore.dataMenu=''"
       style="cursor: pointer;">
       <i class="fa fa-globe gradient-highlight color-white"></i>
-      <span>زبان</span>
+      <span>{{"TITLE.Language"|translate}}</span>
       <i class="fa fa-angle-left"></i>
     </a>
     <a data-toggle-theme="" data-trigger-switch="switch-dark-mode">
       <i class="fa fa-moon gradient-dark color-white"></i>
-      <span>تم تاریک</span>
+      <span>{{"TITLE.DarkTheme"|translate}}</span>
       <div class="custom-control small-switch ios-switch">
         <input data-toggle-theme type="checkbox" class="ios-input" [checked]="themeStore.themeMode==='dark'"
           (click)="themeStore.themeMode==='dark' ? onActionThemeSwitch('light'):onActionThemeSwitch('dark')"
@@ -98,7 +98,7 @@ data-menu-width="280" data-menu-active="nav-pages">
 
     <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionLogout()" style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-red"></i>
-      <span>خروج</span>
+      <span>{{"TITLE.Sign_Out"|translate}}</span>
       <!-- <i class="fa fa-angle-left"></i> -->
     </a>
   </div>
