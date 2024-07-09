@@ -43,7 +43,7 @@
           class="color-highlight">{{fieldsInfo['descriptionHidden']?.fieldTitle}}</label>
         <textarea matInput [(ngModel)]="dataModel.descriptionHidden" name="dataModel.descriptionHidden"
           #DescriptionHidden type="text" placeholder="{{fieldsInfo['descriptionHidden']?.fieldTitle}}"
-          disabled="!fieldsInfo['descriptionHidden']?.accessEditField" minlength="0" maxlength="1000" rows="5"
+          [disabled]="!fieldsInfo['descriptionHidden']?.accessEditField" minlength="0" maxlength="1000" rows="5"
           id="dataModel.descriptionHidden" class="form-control validate-name"></textarea>
         <em>{{ DescriptionHidden.value.length }} / 500</em>
         <mat-error *ngIf="DescriptionHidden.errors?.required">
