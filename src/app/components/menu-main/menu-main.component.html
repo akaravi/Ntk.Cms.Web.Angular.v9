@@ -13,7 +13,7 @@
     <div *ngIf="this.tokenInfo?.userId>0" class="card-bottom">
       <a (click)="themeStore?.dataMenu!=='menu-profile' ? themeStore.dataMenu='menu-profile':themeStore.dataMenu=''">
         <h1 class="color-white ps-3 mb-0 font-28">{{ tokenInfo.name}} {{ tokenInfo.lastName }}</h1>
-        <p class="mb-2 ps-3 font-12 color-white opacity-50">{{"TITLE.DarkTheme"|translate}}</p>
+        <p class="mb-2 ps-3 font-12 color-white opacity-50">{{tokenInfo.userAccessUserTypeTitle}}</p>
       </a>
     </div>
     <div *ngIf="!this.tokenInfo|| !this.tokenInfo.userId||this.tokenInfo.userId<=0" class="card-bottom">
