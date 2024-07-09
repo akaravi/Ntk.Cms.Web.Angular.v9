@@ -36,7 +36,8 @@ export class SmsActionSendMessageComponent implements OnInit {
     public translate: TranslateService,
     private router: Router
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
+     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingAction.cdr = this.cdr;
     this.requestLinkApiPathId = this.activatedRoute.snapshot.paramMap.get('LinkApiPathId');
     if (this.requestLinkApiPathId?.length > 0) {

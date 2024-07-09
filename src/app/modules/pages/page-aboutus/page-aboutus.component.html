@@ -14,7 +14,7 @@
     <div class="card card-style">
 
       <div class="divider"></div>
-      <h3 *ngIf="dataModelResult.item?.aboutUsAddress?.length>0" class="font-700">اطلاعات پستی</h3>
+      <h3 *ngIf="dataModelResult.item?.aboutUsAddress?.length>0" class="font-700">{{"TITLE.PostalInformation"|translate}}</h3>
       <p *ngIf="dataModelResult.item?.aboutUsAddress?.length>0" class="pb-0 mb-0">
         {{dataModelResult.item?.aboutUsAddress}}
       </p>
@@ -29,7 +29,7 @@
           <span class="input-ltr-right">
             {{dataModelResult.item?.aboutUsTel}}
           </span>
-          <span class="badge bg-highlight">تماس</span>
+          <span class="badge bg-highlight">{{"AUTH.GENERAL.CONTACT"|translate}}</span>
           <i class="fa fa-angle-left"></i>
         </a>
         <a *ngIf="dataModelResult.item?.aboutUsMobile?.length>0" href="tel:{{dataModelResult.item?.aboutUsMobile}}"
@@ -38,14 +38,14 @@
           <span class="input-ltr-right">
             {{dataModelResult.item?.aboutUsMobile}}
           </span>
-          <span class="badge bg-highlight">همراه</span>
+          <span class="badge bg-highlight">{{"TITLE.Along"|translate}}</span>
           <i class="fa fa-angle-left"></i>
         </a>
         <a *ngIf="dataModelResult.item?.aboutUsEmail?.length>0" href="mailto:{{dataModelResult.item?.aboutUsEmail}}"
           class="external-link">
           <i class="fa font-14 fa-envelope color-mail"></i>
           <span class="input-ltr-right">{{dataModelResult.item?.aboutUsEmail}}</span>
-          <span class="badge bg-highlight">ارسال ایمیل</span>
+          <span class="badge bg-highlight">{{"TITLE.SendMail"|translate}}</span>
           <i class="fa fa-angle-left"></i>
         </a>
         <a *ngIf="dataModelResult.item?.aboutUsLinkFacebook?.length>0"
