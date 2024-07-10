@@ -5,13 +5,15 @@ import {
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { CronOptions } from 'ngx-ntk-cron-editor';
+import { CronOptionsModel } from 'ngx-ntk-cron-editor';
 import {
   CoreEnumService, ErrorExceptionResult, FormInfoModel, SmsApiSendMessageDtoModel,
   SmsApiSendResultModel, SmsMainApiNumberModel, SmsMainApiPathModel, SmsMainApiPathService, SmsMainMessageCategoryModel,
-  SmsMainMessageContentModel
+  SmsMainMessageContentModel,
+  TokenInfoModel
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
+import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class DateByClock {
@@ -34,10 +36,12 @@ export class SmsActionSendMessageComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
     public translate: TranslateService,
-    private router: Router
+    private router: Router,
+    private tokenHelper: TokenHelper
+
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingAction.cdr = this.cdr;
     this.requestLinkApiPathId = this.activatedRoute.snapshot.paramMap.get('LinkApiPathId');
     if (this.requestLinkApiPathId?.length > 0) {
@@ -51,7 +55,12 @@ export class SmsActionSendMessageComponent implements OnInit {
       this.linkApiPathId = this.router.getCurrentNavigation().extras.state.LinkApiPathId;
       this.linkNumberId = this.router.getCurrentNavigation().extras.state.LinkNumberId;
     }
+    this.tokenHelper.getCurrentToken().then((value) => {
+      this.tokenInfo=value;
+      
+    });
   }
+  tokenInfo = new TokenInfoModel();
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   @ViewChild('Message') message: ElementRef;
@@ -75,7 +84,7 @@ export class SmsActionSendMessageComponent implements OnInit {
   // Quartz compatible expression: '4 3 2 12 1/1 ? *'
   //public cronExpression = '0 12 1W 1/1 ?';
   public isCronDisabled = false;
-  public cronOptions: CronOptions = {
+  public cronOptions: CronOptionsModel = {
     formInputClass: 'form-control cron-editor-input',
     formSelectClass: 'form-control cron-editor-select',
     formRadioClass: 'cron-editor-radio',
