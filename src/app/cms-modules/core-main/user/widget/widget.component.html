@@ -2,47 +2,47 @@
   <div class="row mb-0">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
       <div class="card card-style mx-0 mb-2 p-3">
-        <h6 class="font-14">نام کاربری</h6>
+        <h6 class="font-14">{{"AUTH.INPUT.USERNAME"|translate}}</h6>
         <h3 class="color-green-dark mb-0" style="direction: ltr;text-align: center;">{{dataModel.username}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
       <div class="card card-style mx-0 mb-2 p-3">
-        <h6 class="font-14">نام</h6>
+        <h6 class="font-14">{{"TITLE.Name"|translate}}</h6>
         <h3 class="color-red-dark mb-0" style="text-align: center;">{{dataModel.name}} {{dataModel.lastName}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
       <div class="card card-style mx-0 mb-2 p-3">
-        <h6 class="font-14">ایمیل</h6>
+        <h6 class="font-14">{{"TITLE.Email"|translate}}</h6>
         <h3 class="color-red-dark mb-0" style="direction: ltr;text-align: center;">{{dataModel.email}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4">
       <div class="card card-style mx-0 mb-2 p-3">
-        <h6 class="font-14">موبایل</h6>
+        <h6 class="font-14">{{"TITLE.Mobile"|translate}}</h6>
         <h3 class="color-red-dark mb-0" style="direction: ltr;text-align: center;">{{dataModel.mobile}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4"
       *ngIf="dataModel.email?.length>0 &&!dataModel.emailConfirmed">
       <div class="card card-style mx-0 mb-2 p-3">
-        <h6 class="font-14">نیاز به تایید ایمیل</h6>
-        <h3 class="color-red-dark mb-0" style="cursor:pointer;" (click)="onActionButtonEmailConfirm()">برای تایید کلیک
-          کنید</h3>
+        <h6 class="font-14">{{"TITLE.EmailConfirmationRequired"|translate}}</h6>
+        <h3 class="color-red-dark mb-0" style="cursor:pointer;" (click)="onActionButtonEmailConfirm()">
+          {{"TITLE.ClickToConfirm"|translate}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4"
       *ngIf="(dataModel.mobile?.length>0 &&!dataModel.mobileConfirmed)">
       <div class="card card-style mx-0 mb-2 p-3">
-        <h6 class="font-14">نیاز به تایید شماره همراه</h6>
-        <h3 class="color-red-dark mb-0" style="cursor:pointer;" (click)="onActionButtonMobileConfirm()">برای تایید کلیک
-          کنید</h3>
+        <h6 class="font-14">{{"TITLE.MobileNumberVerificationRequired"|translate}}</h6>
+        <h3 class="color-red-dark mb-0" style="cursor:pointer;" (click)="onActionButtonMobileConfirm()">
+          {{"TITLE.ClickToConfirm"|translate}}</h3>
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 ps-4 pe-4" *ngIf="dataModel.expireDate">
       <div class="card card-style mx-0 mb-2 p-3">
-        <h6 class="font-14">انقضا حساب کاربری</h6>
+        <h6 class="font-14">{{"TITLE.UserAccountExpiration"|translate}}</h6>
         <h3 class="color-blue-dark mb-0" style="text-align: center;">{{dataModel.expireDate|persianDate}}</h3>
       </div>
     </div>
