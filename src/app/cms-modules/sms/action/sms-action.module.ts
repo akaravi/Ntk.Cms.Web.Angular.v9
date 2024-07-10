@@ -11,7 +11,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-import { CronEditorModule } from 'ngx-ntk-cron-editor';
 import {
   ContactCategoryService,
   ContactContentService,
@@ -26,6 +25,7 @@ import { SmsMainModule } from '../main/sms-main.module';
 import { SmsSharedModule } from '../sms.shared.module';
 import { SmsActionSendMessageApiComponent } from './send-message-api/send-message-api.component';
 import { SmsActionSendMessageComponent } from './send-message/send-message.component';
+import { CronEditorModule } from 'ngx-ntk-cron-editor';
 
 @NgModule({
   declarations: [
