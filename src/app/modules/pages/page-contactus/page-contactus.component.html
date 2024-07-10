@@ -7,7 +7,7 @@
     <div class="content">
       <p class="font-600 mb-0 color-highlight">{{'TITLE.Send_us_your_questions' | translate}}</p>
       <p>
-        با ما در تماس باشید
+        {{"TITLE.GetInTouchWithUs"|translate}}
       </p>
     </div>
 
@@ -20,7 +20,7 @@
           <fieldset>
             <div class="form-field form-name">
               <label class="contactNameField color-theme" for="contactNameField">{{'AUTH.INPUT.FULLNAME' |
-                translate}}:<span>(ضروری)</span></label>
+                translate}}:<span>( {{"TITLE.Necessary"|translate}} )</span></label>
               <input type="text" [(ngModel)]="dataModel.fullName" name="dataModel.fullName" class="round-small"
                 style="text-align: center !important;" id="contactNameField" #FullName required
                 placeholder="{{'TITLE.Enter_your_first_and_last_name' | translate}}" />
@@ -32,7 +32,7 @@
 
             <div class="form-field form-name">
               <label class="contactNameField color-theme" for="contactPhoneField">{{'AUTH.INPUT.MOBILE' |
-                translate}}:<span>(ضروری)</span></label>
+                translate}}:<span>( {{"TITLE.Necessary"|translate}} )</span></label>
               <input type="text" [(ngModel)]="dataModel.phoneNo" name="dataModel.phoneNo"
                 class="round-small input-ltr-center" id="contactPhoneField" #phoneNo required
                 placeholder="{{'TITLE.Enter_your_first_and_last_name' | translate}}" />
@@ -44,7 +44,7 @@
 
             <div class="form-field form-email">
               <label class="contactEmailField color-theme" for="contactEmailField">{{'AUTH.INPUT.EMAIL' |
-                translate}}:<span>(ضروری)</span></label>
+                translate}}:<span>( {{"TITLE.Necessary"|translate}} )</span></label>
               <input type="email" [(ngModel)]="dataModel.email" name="dataModel.email"
                 class="round-small input-ltr-center" placeholder="{{'TITLE.Enter_email' | translate}}"
                 id="contactEmailField" #Email />
@@ -56,7 +56,7 @@
 
             <div class="form-field form-text">
               <label class="contactMessageTextarea color-theme" for="contactMessageTextarea">{{'AUTH.INPUT.YOURMEESAGE'
-                | translate}}:<span>(ضروری)</span></label>
+                | translate}}:<span>( {{"TITLE.Necessary"|translate}} )</span></label>
               <textarea [(ngModel)]="dataModel.htmlBody" name="dataModel.htmlBody" #HtmlBody class="round-small"
                 id="contactMessageTextarea" rows="3" required></textarea>
               <mat-error *ngIf="HtmlBody.errors?.required">
@@ -66,7 +66,7 @@
             </div>
             <div class="form-button">
               <input type="submit"
-                class="btn bg-highlight font-700 btn-m btn-full rounded-sm  shadow-xl contactSubmitButton" value="ارسال"
+                class="btn bg-highlight font-700 btn-m btn-full rounded-sm  shadow-xl contactSubmitButton" value="{{'ACTION.SEND'|translate}}"
                 data-formId="contactForm" />
             </div>
           </fieldset>
