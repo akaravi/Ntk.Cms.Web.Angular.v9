@@ -152,6 +152,7 @@ import { CmsLocationSelectorComponent } from './cms-location-selector/cms-locati
 import { CmsMapComponent } from './cms-map/cms-map.component';
 import { CmsMemberSelectorComponent } from './cms-member-selector/cmsMemberSelector.component';
 import { CmsModuleSelectorComponent } from './cms-module-selector/cms-module-selector.component';
+import { CmsProgressSpinnerComponent } from './cms-progress-spinner/cms-progress-spinner.component';
 import { CmsQDocComponent } from './cms-qdoc/cms-qdoc.component';
 import { CmsSearchListComponent } from './cms-search-list/cms-search-list.component';
 import { CmsShowKeyComponent } from './cms-show-key/cms-show-key.component';
@@ -172,7 +173,6 @@ import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './material/mat
 import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
-import { CmsProgressSpinnerComponent } from './cms-progress-spinner/cms-progress-spinner.component';
 
 
 @NgModule({

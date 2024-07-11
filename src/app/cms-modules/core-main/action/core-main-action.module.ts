@@ -5,7 +5,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-import { CronEditorModule } from 'ngx-ntk-cron-editor';
 import {
   CoreAuthService,
   CoreEnumService,
@@ -28,6 +27,7 @@ import { CoreMainActionSendNotificationComponent } from './send-notification/sen
   ],
   imports: [
     CommonModule,
+
     CoreMainActionRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
@@ -35,7 +35,7 @@ import { CoreMainActionSendNotificationComponent } from './send-notification/sen
     SharedModule,
     //AngularEditorModule,
     NgxMaterialTimepickerModule,
-    CronEditorModule,//cron
+    //CronEditorModule,//cron
     MatIconModule,
     MatFormFieldModule,
     MatStepperModule,

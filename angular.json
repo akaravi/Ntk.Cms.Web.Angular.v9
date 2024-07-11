@@ -40,6 +40,11 @@
                 "glob": "**/*",
                 "input": "./node_modules/ntk-cms-filemanager/src/assets/",
                 "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-ntk-cron-editor/src/assets/",
+                "output": "assets/"
               }
             ],
             "styles": [

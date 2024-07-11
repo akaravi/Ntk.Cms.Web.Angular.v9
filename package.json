@@ -62,7 +62,7 @@
     "ngx-clipboard": "^15.1.0",
     "ngx-icon-picker": "^1.10.0",
     "ngx-material-timepicker": "^13.1.1",
-    "ngx-ntk-cron-editor": "^18.0.12",
+    "ngx-ntk-cron-editor": "^18.0.14",
     "ngx-ntk-file-picker": "^18.0.10",
     "ngx-ntk-mat-color-picker": "^18.0.10",
     "ngx-ntk-pannellum": "^2.5.7",

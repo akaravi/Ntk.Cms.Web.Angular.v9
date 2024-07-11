@@ -10,7 +10,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
+import { TranslateModule } from '@ngx-translate/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { CronEditorModule } from 'ngx-ntk-cron-editor';
 import {
   ContactCategoryService,
   ContactContentService,
@@ -25,7 +27,6 @@ import { SmsMainModule } from '../main/sms-main.module';
 import { SmsSharedModule } from '../sms.shared.module';
 import { SmsActionSendMessageApiComponent } from './send-message-api/send-message-api.component';
 import { SmsActionSendMessageComponent } from './send-message/send-message.component';
-import { CronEditorModule } from 'ngx-ntk-cron-editor';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CronEditorModule } from 'ngx-ntk-cron-editor';
   ],
   imports: [
     CommonModule,
+    TranslateModule,
     SmsActionRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
@@ -48,7 +50,7 @@ import { CronEditorModule } from 'ngx-ntk-cron-editor';
 
     //AngularEditorModule,
     NgxMaterialTimepickerModule,
-    CronEditorModule,//cron
+    CronEditorModule,//.forRoot(),
     MatIconModule,
     MatFormFieldModule,
     MatStepperModule,
