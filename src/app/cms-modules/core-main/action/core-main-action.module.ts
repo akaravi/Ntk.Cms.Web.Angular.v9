@@ -35,7 +35,6 @@ import { CoreMainActionSendNotificationComponent } from './send-notification/sen
     SharedModule,
     //AngularEditorModule,
     NgxMaterialTimepickerModule,
-    //CronEditorModule,//cron
     MatIconModule,
     MatFormFieldModule,
     MatStepperModule,
