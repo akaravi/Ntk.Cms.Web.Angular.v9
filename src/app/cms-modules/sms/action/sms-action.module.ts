@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-import { CronEditorModule } from 'ngx-ntk-cron-editor';
+//import { CronEditorModule } from 'ngx-ntk-cron-editor';
 import {
   ContactCategoryService,
   ContactContentService,
@@ -47,10 +47,8 @@ import { SmsActionSendMessageComponent } from './send-message/send-message.compo
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     SharedModule,
     SmsMainModule,
-
-    //AngularEditorModule,
     NgxMaterialTimepickerModule,
-    CronEditorModule,//.forRoot(),
+    //CronEditorModule,
     MatIconModule,
     MatFormFieldModule,
     MatStepperModule,

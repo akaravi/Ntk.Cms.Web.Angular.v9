@@ -1,6 +1,6 @@
 {
   "name": "ntk-cms-web",
-  "version": "15.3.0420.1",
+  "version": "15.3.0422.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -62,7 +62,6 @@
     "ngx-clipboard": "^15.1.0",
     "ngx-icon-picker": "^1.10.0",
     "ngx-material-timepicker": "^13.1.1",
-    "ngx-ntk-cron-editor": "^18.0.15",
     "ngx-ntk-file-picker": "^18.0.10",
     "ngx-ntk-mat-color-picker": "^18.0.10",
     "ngx-ntk-pannellum": "^2.5.7",

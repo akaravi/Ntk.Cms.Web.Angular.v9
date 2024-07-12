@@ -5,7 +5,7 @@ import {
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { CronOptionsModel } from 'ngx-ntk-cron-editor';
+//import { CronOptionsModel } from 'ngx-ntk-cron-editor';
 import {
   CoreEnumService, ErrorExceptionResult, FormInfoModel, SmsApiSendMessageDtoModel,
   SmsApiSendResultModel, SmsMainApiNumberModel, SmsMainApiPathModel, SmsMainApiPathService, SmsMainMessageCategoryModel,
@@ -57,7 +57,7 @@ export class SmsActionSendMessageComponent implements OnInit {
     }
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo=value;
-      
+
     });
   }
   tokenInfo = new TokenInfoModel();
@@ -84,27 +84,27 @@ export class SmsActionSendMessageComponent implements OnInit {
   // Quartz compatible expression: '4 3 2 12 1/1 ? *'
   //public cronExpression = '0 12 1W 1/1 ?';
   public isCronDisabled = false;
-  public cronOptions: CronOptionsModel = {
-    formInputClass: 'form-control cron-editor-input',
-    formSelectClass: 'form-control cron-editor-select',
-    formRadioClass: 'cron-editor-radio',
-    formCheckboxClass: 'cron-editor-checkbox',
+  // public cronOptions: CronOptionsModel = {
+  //   formInputClass: 'form-control cron-editor-input',
+  //   formSelectClass: 'form-control cron-editor-select',
+  //   formRadioClass: 'cron-editor-radio',
+  //   formCheckboxClass: 'cron-editor-checkbox',
 
-    defaultTime: '10:00:00',
-    use24HourTime: true,
+  //   defaultTime: '10:00:00',
+  //   use24HourTime: true,
 
-    hideMinutesTab: false,
-    hideHourlyTab: false,
-    hideDailyTab: false,
-    hideWeeklyTab: false,
-    hideMonthlyTab: false,
-    hideYearlyTab: false,
-    hideAdvancedTab: false,
+  //   hideMinutesTab: false,
+  //   hideHourlyTab: false,
+  //   hideDailyTab: false,
+  //   hideWeeklyTab: false,
+  //   hideMonthlyTab: false,
+  //   hideYearlyTab: false,
+  //   hideAdvancedTab: false,
 
-    hideSeconds: true,
-    removeSeconds: true,
-    removeYears: true
-  };
+  //   hideSeconds: true,
+  //   removeSeconds: true,
+  //   removeYears: true
+  // };
 
 
 

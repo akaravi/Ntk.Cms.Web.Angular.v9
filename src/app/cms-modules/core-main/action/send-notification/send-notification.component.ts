@@ -3,9 +3,9 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { CronOptionsModel } from 'ngx-ntk-cron-editor';
+
 import {
   CmsNotificationSendDtoModel,
   CoreEnumService, CoreTokenNotificationModel, CoreTokenNotificationService, ErrorExceptionResult, FormInfoModel, SmsMainApiPathModel, SmsMainMessageCategoryModel,
@@ -40,9 +40,9 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
   ) {
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingAction.cdr = this.cdr;
-    
+
     this.tokenHelper.getCurrentToken().then((value) => {
-      this.tokenInfo=value;
+      this.tokenInfo = value;
     });
   }
   tokenInfo = new TokenInfoModel();
@@ -59,38 +59,10 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
   clipboardText = '';
 
 
-  // Hangfire 1.7+ compatible expression: '3 2 12 1/1 ?'
-  // Quartz compatible expression: '4 3 2 12 1/1 ? *'
-  //public cronExpression = '0 12 1W 1/1 ?';
-  public isCronDisabled = false;
-  public cronOptions: CronOptionsModel = {
-    formInputClass: 'form-control cron-editor-input',
-    formSelectClass: 'form-control cron-editor-select',
-    formRadioClass: 'cron-editor-radio',
-    formCheckboxClass: 'cron-editor-checkbox',
-
-    defaultTime: '10:00:00',
-    use24HourTime: true,
-
-    hideMinutesTab: false,
-    hideHourlyTab: false,
-    hideDailyTab: false,
-    hideWeeklyTab: false,
-    hideMonthlyTab: false,
-    hideYearlyTab: false,
-    hideAdvancedTab: false,
-
-    hideSeconds: true,
-    removeSeconds: true,
-    removeYears: true
-  };
 
 
 
   ngOnInit(): void {
-    //this.readClipboardFromDevTools().then((r) => this.clipboardText = r as string);
-
-
 
   }
 
