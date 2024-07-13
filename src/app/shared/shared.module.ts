@@ -315,7 +315,8 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
   imports: [
     CommonModule,
     HttpClientModule,
-    TranslateModule,
+    //TranslateModule,
+    TranslateModule.forChild({}),
     // TranslateModule.forChild({
     //   loader: {
     //     provide: TranslateLoader,
