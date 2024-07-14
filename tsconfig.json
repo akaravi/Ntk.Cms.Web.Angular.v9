@@ -28,6 +28,7 @@
     /*Diffirent 15 to 18 */
   },
   "angularCompilerOptions": {
+    
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
