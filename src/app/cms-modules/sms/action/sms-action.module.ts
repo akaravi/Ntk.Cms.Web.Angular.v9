@@ -10,7 +10,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
-import { TranslateModule } from '@ngx-translate/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { CronEditorModule } from 'ngx-ntk-cron-editor';
 import {
@@ -41,11 +40,11 @@ import { SmsActionSendMessageComponent } from './send-message/send-message.compo
   ],
   imports: [
     CommonModule,
-    TranslateModule,
+    SharedModule,
     SmsActionRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    SharedModule,
+
     SmsMainModule,
     NgxMaterialTimepickerModule,
     CronEditorModule,

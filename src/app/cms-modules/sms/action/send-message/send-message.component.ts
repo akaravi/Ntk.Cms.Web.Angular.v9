@@ -57,7 +57,7 @@ export class SmsActionSendMessageComponent implements OnInit {
     }
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo=value;
-
+      
     });
   }
   tokenInfo = new TokenInfoModel();

@@ -115,7 +115,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   ],
 
   exports: [
-    //TranslateModule
+    
   ]
 })
 export class AppModule { }

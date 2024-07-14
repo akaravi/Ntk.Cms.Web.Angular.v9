@@ -315,7 +315,6 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
   imports: [
     CommonModule,
     HttpClientModule,
-    //TranslateModule,
     TranslateModule.forChild({}),
     // TranslateModule.forChild({
     //   loader: {
@@ -376,7 +375,6 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     CmsFileManagerModule.forRoot(),
 
   ],
-
   exports: [
     // common and shared components/directives/pipes between more than one module and components will be listed here.
     CommonModule,

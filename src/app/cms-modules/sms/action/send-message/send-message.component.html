@@ -208,7 +208,7 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>
 
-               <cron-editor [(cron)]="dataModel.scheduleCron" [disabled]="isCronDisabled" [options]="cronOptions" [language]="'fa'">
+               <cron-editor [(cron)]="dataModel.scheduleCron" [disabled]="isCronDisabled" [options]="cronOptions" [language]="this.tokenInfo.language">
                 </cron-editor> 
 
 
