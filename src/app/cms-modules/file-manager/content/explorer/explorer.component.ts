@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenInfoModel } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
+import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 
 @Component({
   selector: 'app-file-content-explorer',
@@ -9,10 +11,15 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 })
 export class FileContentExplorerComponent implements OnInit {
 
-  constructor(public publicHelper: PublicHelper) {
+  constructor(public publicHelper: PublicHelper,  private tokenHelper: TokenHelper) {
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
+    this.tokenHelper.getCurrentToken().then((value) => {
+      this.tokenInfo=value;
+      this.language=  this.tokenInfo.language;
+    });      
   }
-  appLanguage = 'fa';
+  tokenInfo = new TokenInfoModel();
+  language='en';
   fileManagerOpenForm = true;
   fileManagerTree: TreeModel;
   selectFileType = [];

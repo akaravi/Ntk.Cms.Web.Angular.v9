@@ -1565,43 +1565,6 @@
   "TRANSLATOR.HI": "hi",
   "TRANSLATOR.SELECT": "Select your language",
   "TRANSLATOR.WELCOME": "WELCOME",
-  "filemanager.Ok": "Ok",
-  "filemanager.cancel": "cancel",
-  "filemanager.cancel_selection": "cancel selection",
-  "filemanager.close": "close",
-  "filemanager.confirm": "confirm",
-  "filemanager.confirm_selection": "confirm selection",
-  "filemanager.create_new_folder": "create new folder",
-  "filemanager.delete": "delete",
-  "filemanager.download": "download",
-  "filemanager.drop_zone_label": "drop zone label",
-  "filemanager.file": "file",
-  "filemanager.file_delete_confirm": "file delete confirm",
-  "filemanager.file_name": "file name",
-  "filemanager.folder": "folder",
-  "filemanager.folder_name": "folder_name",
-  "filemanager.loading_troubles": "loading troubles",
-  "filemanager.new_name": "new name",
-  "filemanager.new_folder": "new folder",
-  "filemanager.no": "no",
-  "filemanager.no_data": "no data",
-  "filemanager.no_results": "no results",
-  "filemanager.old_name": "old name",
-  "filemanager.open_file_manager": "open file manager",
-  "filemanager.processing_dropped_files": "processing dropped files",
-  "filemanager.processing_request": "processing request",
-  "filemanager.rename": "rename",
-  "filemanager.rename_file": "rename file",
-  "filemanager.retry": "retry",
-  "filemanager.search": "search",
-  "filemanager.search_results_for": "search results for",
-  "filemanager.size": "size",
-  "filemanager.something_went_wrong_with_your_request": "something went wrong with your request",
-  "filemanager.type_new_folder_name": "type new folder name",
-  "filemanager.upload": "upload",
-  "filemanager.upload_file": "upload_file",
-  "filemanager.yes": "yes",
-  "filemanager.yes_delete_this": "yes delete this",
   "ROUTE.DASHBOARD": "Dashboard",
   "ROUTE.BUILDER": "Builder",
   "ROUTE.TICKETING": "Ticketing",
@@ -1749,99 +1712,7 @@
   "ROUTE.ROUTE.APPLICATION.NOTIFICATION": "Notification",
   "ROUTE.ROUTE.APPLICATION.THEMECONFIG": "Application",
   "lang": "en",
-  "ngx-ntk-cron-editor": {
-    "TABS": {
-      "MINUTES": "Minutes",
-      "HOURLY": "Hourly",
-      "DAILY": "Daily",
-      "WEEKLY": "Weekly",
-      "MONTHLY": "Monthly",
-      "YEARLY": "Yearly",
-      "ADVANCED": "Advanced"
-    },
-    "MINUTES": {
-      "EVERY": "Every",
-      "MINUTES": "minute(s)",
-      "ON_SECOND": "on second"
-    },
-    "HOURLY": {
-      "EVERY": "Every",
-      "HOURS": "hour(s)",
-      "ON_MINUTE": "on minute",
-      "ON_SECOND": "and second"
-    },
-    "DAILY": {
-      "EVERY": "Every",
-      "DAYS": "day(s) at",
-      "WORKING_DAY": "Every working day at"
-    },
-    "WEEKLY": {
-      "AT": "at"
-    },
-    "MONTHLY": {
-      "ON": "On the",
-      "OF_EVERY": "of every",
-      "MONTHS": "month(s)",
-      "NEAREST_WEEKDAY": "during the nearest weekday",
-      "AT": "at",
-      "STARTING_IN": "starting in"
-    },
-    "YEARLY": {
-      "EVERY": "Every",
-      "ON": "on the",
-      "AT": "at",
-      "OF": "of",
-      "NEAREST_WEEKDAY": "during the nearest weekday"
-    },
-    "ADVANCED": {
-      "CRON": "Cron Expression"
-    },
-    "MONTH_DAY": {
-      "LAST_DAY": "Last Day",
-      "LAST_WEEKDAY": "Last Weekday",
-      "FIRST_WEEKDAY": "First Weekday",
-      "DAY_N": "Day {{n}}"
-    },
-    "MONTH_WEEK": {
-      "FIRST": "First",
-      "SECOND": "Second",
-      "THIRD": "Third",
-      "FOURTH": "Fourth",
-      "FIFTH": "Fifth",
-      "LAST": "Last"
-    },
-    "MONTH": {
-      "JANUARY": "January",
-      "FEBRUARY": "February",
-      "MARCH": "March",
-      "APRIL": "April",
-      "MAY": "May",
-      "JUNE": "June",
-      "JULY": "July",
-      "AUGUST": "August",
-      "SEPTEMBER": "September",
-      "OCTOBER": "October",
-      "NOVEMBER": "November",
-      "DECEMBER": "December"
-    },
-    "WEEK": {
-      "MON": "Monday",
-      "TUE": "Tuesday",
-      "WED": "Wednesday",
-      "THU": "Thursday",
-      "FRI": "Friday",
-      "SAT": "Saturday",
-      "SUN": "Sunday"
-    },
-    "HOUR_TYPES": {
-      "AM": "AM",
-      "PM": "PM"
-    },
-    "VALIDATION_MESSAGE": {
-      "NULL": "Cron expression cannot be null",
-      "SEGMENTS": "Invalid cron expression, there must be {{n}} segments"
-    }
-  },
+  
   "querybuilder": {
     "And": "AND",
     "Or": "OR",

@@ -58,12 +58,8 @@ export class SmsActionSendMessageComponent implements OnInit {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo=value;
       this.language=  this.tokenInfo.language;
-    });
-
-   
-      
+    });      
   }
-
   tokenInfo = new TokenInfoModel();
   language='en';
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
