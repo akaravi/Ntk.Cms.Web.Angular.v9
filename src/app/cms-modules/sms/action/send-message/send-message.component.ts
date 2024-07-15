@@ -5,7 +5,7 @@ import {
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { CronOptionModel } from 'ngx-ntk-cron-editor';
+import { TranslateUiService, CronOptionModel } from 'ngx-ntk-cron-editor';
 import {
   CoreEnumService, ErrorExceptionResult, FormInfoModel, SmsApiSendMessageDtoModel,
   SmsApiSendResultModel, SmsMainApiNumberModel, SmsMainApiPathModel, SmsMainApiPathService, SmsMainMessageCategoryModel,
@@ -37,8 +37,8 @@ export class SmsActionSendMessageComponent implements OnInit {
     public publicHelper: PublicHelper,
     public translate: TranslateService,
     private router: Router,
-    private tokenHelper: TokenHelper
-
+    private tokenHelper: TokenHelper,
+    private translateUiService: TranslateUiService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
@@ -57,9 +57,13 @@ export class SmsActionSendMessageComponent implements OnInit {
     }
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo=value;
-      this.language=  this.tokenInfo.language
+      this.language=  this.tokenInfo.language;
     });
+
+   
+      
   }
+
   tokenInfo = new TokenInfoModel();
   language='en';
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
