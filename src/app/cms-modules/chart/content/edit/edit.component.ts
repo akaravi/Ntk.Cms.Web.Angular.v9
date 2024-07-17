@@ -47,7 +47,7 @@ export class ChartContentEditComponent extends EditBaseComponent<ChartContentSer
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new ChartContentModel(), publicHelper,translate);
+    super(contentService, new ChartContentModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
@@ -463,7 +463,7 @@ export class ChartContentEditComponent extends EditBaseComponent<ChartContentSer
           }
 
           return of(ret);
-        });//).toPromise();
+        });
     }
     if (dataListDelete && dataListDelete.length > 0) {
       firstValueFrom(this.contentTagService.ServiceDeleteBatch(dataListDelete)).then(
@@ -475,7 +475,7 @@ export class ChartContentEditComponent extends EditBaseComponent<ChartContentSer
           }
 
           return of(ret);
-        });//).toPromise();
+        });
     }
   }
   async DataActionAfterAddContentSuccessfulOtherInfo(model: ChartContentModel): Promise<any> {

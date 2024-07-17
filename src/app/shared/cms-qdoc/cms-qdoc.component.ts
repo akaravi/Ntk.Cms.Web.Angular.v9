@@ -52,7 +52,7 @@ export class CmsQDocComponent implements OnInit {
           //
         }
       });
-    //).toPromise();
+
   }
   onOtpChange(otp) {
     this.QDocModel.username = otp;

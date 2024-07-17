@@ -114,7 +114,7 @@ export class SmsMainApiPathSendTestComponent implements OnInit {
 
       }
     }
-    );//).toPromise();
+    );
   }
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });

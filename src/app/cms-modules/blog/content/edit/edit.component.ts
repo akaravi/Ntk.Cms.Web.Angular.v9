@@ -47,7 +47,7 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new BlogContentModel(), publicHelper,translate);
+    super(contentService, new BlogContentModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
@@ -455,7 +455,7 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
           }
 
           return of(ret);
-        });//).toPromise();
+        });
     }
     if (dataListDelete && dataListDelete.length > 0) {
       firstValueFrom(this.contentTagService.ServiceDeleteBatch(dataListDelete)).then(
@@ -467,7 +467,7 @@ export class BlogContentEditComponent extends EditBaseComponent<BlogContentServi
           }
 
           return of(ret);
-        });//).toPromise();
+        });
     }
   }
   async DataActionAfterAddContentSuccessfulOtherInfo(model: BlogContentModel): Promise<any> {

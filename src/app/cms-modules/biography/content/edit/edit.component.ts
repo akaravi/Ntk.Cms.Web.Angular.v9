@@ -45,7 +45,7 @@ export class BiographyContentEditComponent extends EditBaseComponent<BiographyCo
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new BiographyContentModel(), publicHelper,translate);
+    super(contentService, new BiographyContentModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
@@ -414,7 +414,7 @@ export class BiographyContentEditComponent extends EditBaseComponent<BiographyCo
           }
 
           return of(ret);
-        });//).toPromise();
+        });
     }
     if (dataListDelete && dataListDelete.length > 0) {
       firstValueFrom(this.contentTagService.ServiceDeleteBatch(dataListDelete)).then(
@@ -426,7 +426,7 @@ export class BiographyContentEditComponent extends EditBaseComponent<BiographyCo
           }
 
           return of(ret);
-        });//).toPromise();
+        });
     }
   }
   async DataActionAfterAddContentSuccessfulOtherInfo(model: BiographyContentModel): Promise<any> {
