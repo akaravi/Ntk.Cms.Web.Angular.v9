@@ -42,7 +42,7 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new BlogContentModel(), publicHelper,translate);
+    super(contentService, new BlogContentModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -297,7 +297,7 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
       }
     }
     )
-      ;//).toPromise();
+      ;
   }
   onActionSelectorSelect(model: BlogCategoryModel | null): void {
     if (!model || model.id <= 0) {

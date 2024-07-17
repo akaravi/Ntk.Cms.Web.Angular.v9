@@ -177,7 +177,7 @@ export class EstatePropertyTypeLanduseCompleteComponent implements OnInit {
       error: (err) => {
         this.cmsToastrService.typeErrorGetAll(err);
       }
-    });//).toPromise();
+    });
   }
 
 

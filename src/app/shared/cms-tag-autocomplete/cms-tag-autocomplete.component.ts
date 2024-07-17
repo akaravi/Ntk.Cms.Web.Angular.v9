@@ -178,7 +178,7 @@ export class CmsTagAutocompleteComponent implements OnInit {
       error: (err) => {
         this.cmsToastrService.typeErrorGetAll(err);
       }
-    });//).toPromise();
+    });
   }
 
 

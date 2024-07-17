@@ -106,7 +106,7 @@ export class TooltipGuideDirective {
           }
         }
       });
-      //).toPromise();
+
     } else if (this.tooltipGuide && this.tooltipGuide.length > 0) {
       this.statusIsRun = true;
       this.coreGuideService.ServiceGetOneByKey(this.tooltipGuide).subscribe({
@@ -161,7 +161,7 @@ export class TooltipGuideDirective {
           }
         }
       });
-      //).toPromise();
+
     }
   }
 

@@ -89,7 +89,7 @@ export class CmsGuideinfoComponent implements OnInit, OnDestroy {
           this.cmsToastrService.typeError(err);
         }
       });
-      //).toPromise();
+
     } else if (this.Key && this.Key.length > 0) {
       this.coreGuideService.ServiceGetOneByKey(this.Key).subscribe({
         next: (ret) => {
@@ -135,7 +135,7 @@ export class CmsGuideinfoComponent implements OnInit, OnDestroy {
           this.cmsToastrService.typeError(err);
         }
       });
-      //).toPromise();
+
 
     } else if (this.description && this.description.length > 0) {
       this.openModal(content);

@@ -46,7 +46,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
   ) {
-    super(contentService, new NewsContentModel(), publicHelper,translate);
+    super(contentService, new NewsContentModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
@@ -417,7 +417,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
           }
 
           return of(ret);
-        });//).toPromise();
+        });
     }
     if (dataListDelete && dataListDelete.length > 0) {
 
@@ -430,7 +430,7 @@ export class NewsContentEditComponent extends EditBaseComponent<NewsContentServi
           }
 
           return of(ret);
-        });//).toPromise();
+        });
     }
   }
   async DataActionAfterAddContentSuccessfulOtherInfo(model: NewsContentModel): Promise<any> {

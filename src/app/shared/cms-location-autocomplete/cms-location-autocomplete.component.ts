@@ -219,7 +219,7 @@ export class CmsLocationCompleteComponent implements OnInit {
       error: (err) => {
         this.cmsToastrService.typeErrorGetAll(err);
       }
-    });//).toPromise();
+    });
   }
 
 

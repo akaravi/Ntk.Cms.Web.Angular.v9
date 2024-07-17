@@ -123,7 +123,7 @@ export class CmsLinkToComponent implements OnInit {
           this.cmsToastrService.typeErrorMessage('برروز خطا در ارسال دستور', err);
 
         }
-      });//.toPromise();
+      });
   }
 
   onFormSubmit(): void {

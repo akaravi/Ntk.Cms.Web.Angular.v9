@@ -108,7 +108,7 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
           this.publicHelper.processService.processStop(pName);
         }
       }
-    );//).toPromise();
+    );
   }
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });

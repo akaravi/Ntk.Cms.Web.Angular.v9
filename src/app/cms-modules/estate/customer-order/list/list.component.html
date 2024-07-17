@@ -149,6 +149,13 @@
       <div *ngIf="!filteModelContent.caseCode ||filteModelContent.caseCode.length === 0">
         <P>{{'MESSAGE.Selecting_any_of_the_following_will_make_the_search_results_range_smaller' | translate}}
         </P>
+
+        <!-- linkResponsibleUserId Field -->
+        <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite"
+          (optionChange)="filteModelContent.linkResponsibleUserId=$event?.id" [(optionLoading)]="loading"
+          [optionPlaceholder]="'TITLE.InResponsibleTo'  | translate">
+        </app-cms-user-selector>
+
         <!-- LinkLocationIds Field -->
         <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
           [optionPlaceholder]="'TITLE.Region' | translate">
