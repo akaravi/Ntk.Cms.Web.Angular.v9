@@ -1,5 +1,3 @@
-
-
 import {
   ChangeDetectorRef,
   Component,
@@ -30,8 +28,6 @@ import { PageInfoService } from './core/services/page-info.service';
 import { ThemeService } from './core/services/theme.service';
 
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
@@ -58,7 +54,6 @@ export class AppComponent implements OnInit {
     public pageInfo: PageInfoService,
   ) {
     this.themeService.updateInnerSize();
-
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         //do something on start activity

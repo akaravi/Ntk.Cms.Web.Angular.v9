@@ -1,9 +1,7 @@
 
 import { ChangeDetectorRef, Injectable } from '@angular/core';
-import { CmsStoreService } from '../reducers/cmsStore.service';
 import { ProcessInfoModel } from '../models/ProcessInfoModel';
-import { Observable, Subscription } from 'rxjs';
-import { TokenInfoModel } from 'ntk-cms-api';
+import { CmsStoreService } from '../reducers/cmsStore.service';
 
 @Injectable({
   providedIn: 'root',
@@ -32,14 +30,13 @@ export class ProcessService {
         var retOutprocessInRunArea: boolean[] = [];
         var retOutProcessInfoArea: Map<string, ProcessInfoModel>[] = []
         for (const [key, value] of this.processInfoAll) {
-          if (value && value.isComplate === false)
-          {
+          if (value && value.isComplate === false) {
             retOutProcessInRun = true;
             retOutprocessInRunArea[value.infoAreaId] = true;
           }
-            if(!retOutProcessInfoArea[value.infoAreaId])
-              retOutProcessInfoArea[value.infoAreaId]=new Map<string, ProcessInfoModel>();
-            retOutProcessInfoArea[value.infoAreaId].set(key, value);
+          if (!retOutProcessInfoArea[value.infoAreaId])
+            retOutProcessInfoArea[value.infoAreaId] = new Map<string, ProcessInfoModel>();
+          retOutProcessInfoArea[value.infoAreaId].set(key, value);
         }
         //debugger
         //console.log(retOutProcessInfoArea);
@@ -52,9 +49,10 @@ export class ProcessService {
       else {
         this.processInRun = false;
         this.processInRunArea = [];
-        this.processInfoArea=[];
+        this.processInfoArea = [];
       }
       if (this.cdr) {
+        //todo: karavi error
         this.cdr.detectChanges();
       }
     });
@@ -94,13 +92,13 @@ export class ProcessService {
       this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
     }
     else {
-      setTimeout(()=>{
-      this.processInRun = false;
-      this.processInRunArea = [];
-      this.processInfoArea=[];
-      this.processInfoAll=new Map<string, ProcessInfoModel>();
-      this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
-    },1000);
+      setTimeout(() => {
+        this.processInRun = false;
+        this.processInRunArea = [];
+        this.processInfoArea = [];
+        this.processInfoAll = new Map<string, ProcessInfoModel>();
+        this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
+      }, 1000);
     }
 
   }
