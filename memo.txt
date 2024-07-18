@@ -1,15 +1,38 @@
-
-http://localhost:4209/#/auth/singin
-
-##########################################################
-npm install --save --legacy-peer-deps
-npm i --legacy-peer-deps
-
-
+*MEMO*************************************************
 برای رفع مشکل نام فولدر ها
+*MEMO*************************************************
 git config core.ignorecase false
 git config --global core.ignorecase false
-========================*
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.ng not find
+*MEMO*************************************************
+Press the windows-button on your keyboard.
+Type ‘PowerShell’
+Right-click Windows PowerShell
+Click Run as Administrator
+Run the following command and confirm with ‘Y’
+Set-ExecutionPolicy RemoteSigned -Force     اجرای همین تک خط آخرین باز همه چیز درست شد
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.
+*MEMO*************************************************
+
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.memory of run
+*MEMO*************************************************
 node --max-old-space-size=1024 index.js #increase to 1gb
 node --max-old-space-size=2048 index.js #increase to 2gb
 node --max-old-space-size=3072 index.js #increase to 3gb
@@ -23,15 +46,13 @@ node --max-old-space-size=32768 index.js #increase to 32gb
 
 See the current value of max-old-space-size (in MB)
 node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
-
-setx NODE_OPTIONS "--max-old-space-size=8384"
-# formula:
-export NODE_OPTIONS="--max-old-space-size=(X * 1024)" # Increase to X GB
-
-node --max-old-space-size=4096 `which npm` install
-npm install --max-old-space-size=4096
-
-========================*
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.git command
+*MEMO*************************************************
 git init
 git add README.md
 git commit -m "first commit"
@@ -40,30 +61,45 @@ git remote add origin https://github.com/akaravi/Ntk.Cms.Web.AngularV3.git
 git push -u origin main
 
 
-npm run build-prod
-ng build --prod --source-map
+git branch -r
+git remote update
+git fetch --all
+git pull --all
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.Check the unused dependencies
+*MEMO*************************************************
+1-Install the module:
+ npm install depcheck -g
+ or
+ yarn global add depcheck
 
-ng serve  --open
-===================RTL
-npm run rtl
-=========================================
-npm rebuild node-sass
-
-=========================================
-
-=========================================Update all npm
+2-Run it and find the unused dependencies:
+depcheck
+npm outdated
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.Update all npm
+*MEMO*************************************************
 npm i -g npm-check-updates
 ncu -u
 npm install --force
 ng serve --open
-=========================================Update all npm
-
-=========================================formate auto on seve
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.formate auto on seve
+*MEMO*************************************************
 edit this file settings.json
 C:\Users\Administrator\AppData\Roaming\Code\User\settings.json
-
-
-
 
 "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -71,153 +107,153 @@ C:\Users\Administrator\AppData\Roaming\Code\User\settings.json
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
   },
-=========================================formate auto on seve
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.sass
+*MEMO*************************************************
+npm rebuild node-sass
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.install deps
+*MEMO*************************************************
 
-============================ this only ok
-Press the windows-button on your keyboard.
-Type ‘PowerShell’
-Right-click Windows PowerShell
-Click Run as Administrator
-Run the following command and confirm with ‘Y’
-Set-ExecutionPolicy RemoteSigned -Force     اجرای همین تک خط آخرین باز همه چیز درست شد
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
-============================
+npm install --save --legacy-peer-deps
+npm i --legacy-peer-deps
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.path & http-server
+*MEMO*************************************************
 path Add
 %appdata%\npm
-=======================
+
 setx path %path%;%appdata%\npm
 npm install --global http-server
-==============================
-git config core.ignorecase false
-git config --global core.ignorecase false
-=============================
-ng update --next @angular/cli --force
-npm install typescript@latest
-=========================================
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.BabelEdit
+*MEMO*************************************************
+
+https://www.codeandweb.com/babeledit/start-download?os=win&bits=64
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.
+*MEMO*************************************************
+
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.
+*MEMO*************************************************
+
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.
+*MEMO*************************************************
+
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.
+*MEMO*************************************************
+
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.
+*MEMO*************************************************
+
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.
+*MEMO*************************************************
+
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.push notifications
+*MEMO*************************************************
+https://blog.angular-university.io/angular-push-notifications/
+ web-push generate-vapid-keys --json
+ 
+{
+  "publicKey":"BOr78Ceadeel4AyuayJxgsPXC5Eo3yIpSq__q6uPF6losigIi9HTSFHnp-Itqhq4UGfujxeTf0PxScyyJO3lfng",
+  "privateKey":"VKfr1tI3yvJaO1B1B8J15XaZnLVQcwCyT_szcXOrQtU"
+}
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.chart
+*MEMO*************************************************
+
+https://apexcharts.com/angular-chart-demos/
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.it is version mismatch, just update all dependencies with npm-check-updates
+*MEMO*************************************************
+npm i -g npm-check-updates
+ncu -u
+npm install
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.ngrpk
+*MEMO*************************************************
 ng build --prod
 ng build --prod --build-optimizer
 ng serve --disable-host-check
 ./ngrok http 4200 -host-header=rewrite localhost:4200
 ./ngrok http  -host-header=rewrite localhost:4200
-
-===============================================
-
-BabelEdit
-https://www.codeandweb.com/babeledit/start-download?os=win&bits=64
-
-=========================
-//it is version mismatch, just update all dependencies with npm-check-updates
-npm i -g npm-check-updates
-ncu -u
-npm install
-
-=========================
-npm uninstall -g @angular/cli
-npm cache clean
-
-
-
-npm update @angular/cli @angular/cdk rxjs
-npm install -S @angular/material @angular/cdk @angular/animations
-npm uninstall @angular/core
-npm install -S @angular/core
-=============================================================================================================================
-Check the unused dependencies
-npm install depcheck -g
-depcheck
-
-ENDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
-http://localhost:4200/#/estate/property/edit/63fcd99b5513193e755bd4ad
-
-
-=============================================================================================================================
-https://blog.angular-university.io/angular-push-notifications/
- web-push generate-vapid-keys --json
-{
-  "publicKey":"BOr78Ceadeel4AyuayJxgsPXC5Eo3yIpSq__q6uPF6losigIi9HTSFHnp-Itqhq4UGfujxeTf0PxScyyJO3lfng",
-  "privateKey":"VKfr1tI3yvJaO1B1B8J15XaZnLVQcwCyT_szcXOrQtU"
-}
-##########################################################################################
-====normal
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-highlight
-
-====save
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-green
-====back cancel
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-gray
-====delete
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-red
-====edit
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-magenta
-====add
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-teal
-====befor
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue
-====next
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue
-====end
-btn font-13 font-600 btn-m m-1 rounded-s shadow-xl border-0 gradient-blue
-
-
-
-====select ed
-btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-0 gradient-highlight btn-full
-====select
-btn font-13 font-600 btn-m m-1 rounded-xl shadow-xl border-blue-dark color-blue-dark bg-theme btn-border btn-full
-##########################################################################################
-#angular ng not found
-##########################################################################################
-#remove from local account
-npm list
-npm uninstall @angular/cli
-
-#remove from global account
-npm list -g
-npm uninstall -g @angular/cli
-
-#reinstall in global account
-npm install -g @angular/cli
-
-#set up environment variable
-npm config get prefix
-add obtained prefix in windows user environment variables>path
-
-
-
-##########################################################################################
-git git git git git git git git git git git git git git 
-##########################################################################################
-git branch -r
-git remote update
-git fetch --all
-git pull --all
-
-
-
-
-##########################################################################################
-git git git git git git git git git git git git git git 
-##########################################################################################
-
-
-
-
-
-
-##########################################################################################
-##########################################################################################
-chart
-https://apexcharts.com/angular-chart-demos/
-
-##########################################################################################
-##########################################################################################
-extension extension extension extension extension extension extension extension extension
-##########################################################################################
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.extension export
+*MEMO*************************************************
 code --list-extensions | % { "code --install-extension $_" }
-##########################################################################################
-extension extension extension extension extension extension extension extension extension
-##########################################################################################
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.extension import
+*MEMO*************************************************
 code --install-extension 1tontech.angular-material
 code --install-extension aaron-bond.better-comments
 code --install-extension Angular.ng-template
@@ -301,9 +337,9 @@ code --install-extension VisualStudioExptTeam.vscodeintellicode
 code --install-extension wholroyd.jinja
 code --install-extension yzhang.markdown-all-in-one
 code --install-extension zobo.php-intellisense
-##########################################################################################
-extension extension extension extension extension extension extension extension extension
-##########################################################################################
-
-
-<mat-form-field class="ntk-full-width"
+#END#################################################
+#END#################################################
+#END#################################################
+#END#################################################
+#END#################################################
+#END#################################################
