@@ -59,7 +59,12 @@ jobs:
       - name: Webhook Plesk
         uses: joelwmale/webhook-action@master
         with:
-          url: "${{vars.PLESK_WEBHOOK_ADMINPANEL_IR}}"
+          url: "${{vars.PLESK_WEBHOOK_amlakalonak_ir}}"
+
+      - name: Webhook Plesk
+        uses: joelwmale/webhook-action@master
+        with:
+          url: "${{vars.PLESK_WEBHOOK_adminpanel_ir}}"
 
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
