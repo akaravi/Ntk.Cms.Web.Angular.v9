@@ -163,6 +163,12 @@
           </mat-menu>
         </mat-cell>
       </ng-container>
+        <!--expandedTitle-->
+        <ng-container matColumnDef="expandedTitle">
+          <mat-cell *matCellDef="let row">
+            {{row.title}}
+          </mat-cell>
+        </ng-container>
       <!--expandedDetail-->
       <ng-container matColumnDef="expandedDetail">
         <mat-cell *matCellDef="let row">
@@ -199,10 +205,14 @@
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
         [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
       </mat-row>
-      <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowSelect(row)"
+      <mat-row *matRowDef="let row; columns: ['expandedTitle']" (click)="onActionTableRowSelect(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-        [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
+        [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
       </mat-row>
+      <mat-row *matRowDef="let row; columns: ['expandedDetail']" (click)="onActionTableRowSelect(row)"
+      (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+      [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
+    </mat-row>
     </mat-table>
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
