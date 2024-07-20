@@ -4,8 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "strict": false, //default is true
-    "noImplicitReturns": false,
+    "strict": false, //default is true karavi change
+    "noImplicitReturns": true, //default is true
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -23,12 +23,14 @@
     "strictFunctionTypes": true,
     /*karavi add*/
     /*Diffirent 15 to 18 */
-    "moduleResolution": "node",
-    "downlevelIteration": true
+    "moduleResolution": "bundler",
+    "useDefineForClassFields": false,
+    "skipLibCheck": true,
+    "noImplicitOverride": false, //default is true karavi change
+    "noPropertyAccessFromIndexSignature": false //default is true
     /*Diffirent 15 to 18 */
   },
   "angularCompilerOptions": {
-    
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
@@ -41,26 +43,8 @@
     "strictOutputEventTypes": false,
     "strictDomEventTypes": false,
     "strictLiteralTypes": false,
-    "strictNullChecks": false,
+    "strictNullChecks": false
     /*karavi add*/
-    /*Diffirent 15 to 18 */
-    "enableIvy": true
-    /*Diffirent 15 to 18 */
   },
-  /*karavi add*/
-  "include": ["**/*.js", "**/*.ts"],
-  "exclude": [
-    ".git",
-    ".app-cache",
-    ".npm",
-    ".npm-tmp",
-    "dist",
-    "dist*",
-    "node_modules",
-    "subfolder/dist",
-    "subfolder/node_modules",
-    "**/dist/*",
-    "**/node_modules/*"
-  ]
-  /*karavi add*/
+  "include": ["**/*.js", "**/*.ts"]
 }

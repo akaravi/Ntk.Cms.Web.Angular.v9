@@ -23,6 +23,26 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 #
 #
 *MEMO*************************************************
+.Memory Leak Detection and Monitoring
+*MEMO*************************************************
+ng build --prod --stats-json
+or
+ng build --configuration production
+then
+npx webpack-bundle-analyzer dist/stats.json
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
+.Memory Profiling and Optimization
+*MEMO*************************************************
+ng serve --prod --aot --vendor-chunk --common-chunk --source-map
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
 .
 *MEMO*************************************************
 
