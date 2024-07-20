@@ -85,6 +85,8 @@ export class AuthSingInBySmsComponent implements OnInit {
   onOtpChange(otp) {
     this.dataModelAuthUserSignInBySms.code = otp;
   }
+  private downloadTimer: any;
+
   onActionSubmitOrderCodeBySms(): void {
 
     if (this.forgetState == 'entrycode') {
@@ -118,14 +120,14 @@ export class AuthSingInBySmsComponent implements OnInit {
             this.prorocess.message = '';
             this.buttonnResendSmsDisable = true;
             var timeleft = this.prorocess.progressBarMaxValue;
-            let downloadTimer = setInterval(() => {
+            this. downloadTimer = setInterval(() => {
               this.prorocess.progressBarValue = this.prorocess.progressBarMaxValue - timeleft;
               this.prorocess.message = '(' + timeleft + ' ' + this.translate.instant('MESSAGE.SECONDS') + ')';
               timeleft -= 1;
               if (timeleft <= 0) {
                 this.buttonnResendSmsDisable = false;
                 this.prorocess.message = '';
-                clearInterval(downloadTimer);
+                clearInterval(this.downloadTimer);
               }
               this.cdr.detectChanges();
 
@@ -149,6 +151,9 @@ export class AuthSingInBySmsComponent implements OnInit {
           this.publicHelper.processService.processStop(pName);
         }
       });
+  }
+  ngOnDestroy() {
+    clearInterval(this.downloadTimer);
   }
   onActionSubmitEntryPinCode(): void {
     this.formInfo.buttonSubmittedEnabled = false;
