@@ -1,5 +1,5 @@
 
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Map as leafletMap } from 'leaflet';
@@ -28,7 +28,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   styleUrls: ['./add.component.scss'
   ]
 })
-export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number> implements OnInit, AfterViewInit {
+export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number> implements OnInit {
 
   requestLinkBillboardPatternId = 0;
   constructor(
@@ -42,7 +42,7 @@ export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkMa
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper,translate);
+    super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingOption.cdr = this.cdr;
 
@@ -97,9 +97,6 @@ export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkMa
 
   }
 
-  ngAfterViewInit(): void {
-
-  }
   onActionFileSelectedLinkMainImageId(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;

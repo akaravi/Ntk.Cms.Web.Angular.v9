@@ -1,7 +1,7 @@
 
 import { ENTER } from '@angular/cdk/keycodes';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatStepper } from '@angular/material/stepper';
@@ -31,7 +31,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   ]
 })
 export class ChartContentEditComponent extends EditBaseComponent<ChartContentService, ChartContentModel, number>
-  implements OnInit, AfterViewInit {
+  implements OnInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -106,9 +106,7 @@ export class ChartContentEditComponent extends EditBaseComponent<ChartContentSer
     this.DataCategoryGetAll();
 
   }
-  ngAfterViewInit(): void {
 
-  }
 
   onActionFileSelectedLinkMainImageId(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;

@@ -1,5 +1,5 @@
 
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as Leaflet from 'leaflet';
@@ -33,7 +33,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   ]
 })
 export class PollingContentEditComponent extends EditBaseComponent<PollingContentService, PollingContentModel, number>
-  implements OnInit, AfterViewInit {
+  implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,
@@ -45,7 +45,7 @@ export class PollingContentEditComponent extends EditBaseComponent<PollingConten
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(pollingContentService, new PollingContentModel(), publicHelper,translate);
+    super(pollingContentService, new PollingContentModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingOption.cdr = this.cdr;
@@ -99,9 +99,7 @@ export class PollingContentEditComponent extends EditBaseComponent<PollingConten
     this.DataGetOne();
 
   }
-  ngAfterViewInit(): void {
 
-  }
   onActionFileSelectedLinkMainImageId(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import { Map, MapOptions, ZoomAnimEvent, tileLayer } from 'leaflet';
 import { PoinModel } from 'src/app/core/models/pointModel';
@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './cms-map.component.html',
   styleUrls: ['./cms-map.component.scss']
 })
-export class CmsMapComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CmsMapComponent implements OnInit, OnDestroy {
   static nextId = 0;
   id = ++CmsMapComponent.nextId;
   @Output() map$: EventEmitter<Map> = new EventEmitter<Map>();
@@ -62,8 +62,7 @@ export class CmsMapComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   }
-  ngAfterViewInit(): void {
-  }
+
   ngOnDestroy(): void {
     if (this.map) {
       this.map.clearAllEventListeners();
