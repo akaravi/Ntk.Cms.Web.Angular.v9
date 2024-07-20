@@ -2,8 +2,8 @@
   (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
   (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
   [optionLoading]="loading" [optionTreeDisplay]="true" [optionActionRowId]="tableRowSelected?.id"
-  [optionActionRowDisplay]="tableRowSelected?.id >0"
-  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick" [optionActionRowDisplayMenuAct]="tableRowSelectActionMenuClick"
+  [optionActionRowDisplay]="tableRowSelected?.id >0" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+  [optionActionRowDisplayMenuAct]="tableRowSelectActionMenuClick"
   [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
@@ -183,6 +183,12 @@
           </button>
         </mat-cell>
       </ng-container>
+      <!--expandedTitle-->
+      <ng-container matColumnDef="expandedTitle">
+        <mat-cell *matCellDef="let row">
+          {{row.title}}
+        </mat-cell>
+      </ng-container>
       <!--expandedDetail-->
       <ng-container matColumnDef="expandedDetail">
         <mat-cell *matCellDef="let row">
@@ -226,6 +232,10 @@
 
       <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: tabledisplayedColumns;" (click)="onActionTableRowSelect(row)"
+        (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+        [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
+      </mat-row>
+      <mat-row *matRowDef="let row; columns: ['expandedTitle']" (click)="onActionTableRowSelect(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
         [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
       </mat-row>

@@ -42,7 +42,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new NewsContentModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new NewsContentModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.activatedRoute.params.subscribe((data) => {
@@ -68,7 +68,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     'Id',
     'RecordStatus',
     'ViewCount',
-    'Title',
+    //'Title',
     'CreatedDate',
     "LinkTo",
     "action_menu"
@@ -76,7 +76,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'RecordStatus',
-    'Title',
+    //'Title',
     "LinkTo",
     "action_menu"
   ];
