@@ -1,6 +1,6 @@
 <app-cms-guide-notice [Key]="'article.content.list.add'"
-[svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
-<div class="card card-style progressOverlayContainer" >
+  [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
+<div class="card card-style progressOverlayContainer">
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -270,7 +270,8 @@
                 </mat-cell>
               </ng-container>
               <mat-header-row *matHeaderRowDef="otherInfoTabledisplayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: otherInfoTabledisplayedColumns;"
+              <mat-row *matRowDef="let row; columns: otherInfoTabledisplayedColumns; let i = dataIndex;"
+                [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)"
                 [ngStyle]="{'background': row.title === contentOtherInfoSelected.title ? '#d3d3da' : '' }">
               </mat-row>
             </mat-table>
@@ -340,7 +341,8 @@
                 </mat-cell>
               </ng-container>
               <mat-header-row *matHeaderRowDef="similarTabledisplayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: similarTabledisplayedColumns;"
+              <mat-row *matRowDef="let row; columns: similarTabledisplayedColumns; let i = dataIndex;"
+                [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)"
                 [ngStyle]="{'background': row.id === contentSimilarSelected.id ? '#d3d3da' : '' }">
               </mat-row>
             </mat-table>

@@ -20,7 +20,8 @@
             <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: tabledisplayedColumns;">
+        <mat-row *matRowDef="let row; columns: tabledisplayedColumns; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
+            [class.ntk-row-even]="!(i % 2)">
         </mat-row>
     </mat-table>
 </div>

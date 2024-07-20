@@ -1,5 +1,5 @@
 <app-cms-guide-notice [Key]="'estate.property.list.add'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'"
-[ngStyle]="{'direction' : tokenInfo.direction }">
+  [ngStyle]="{'direction' : tokenInfo.direction }">
 </app-cms-guide-notice>
 <div class="card card-style progressOverlayContainer">
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
@@ -573,9 +573,11 @@
               </ng-container>
 
               <mat-header-row *matHeaderRowDef="optionTabledisplayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: optionTabledisplayedColumns;">
+              <mat-row *matRowDef="let row; columns: optionTabledisplayedColumns; let i = dataIndex;"
+                [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)">
               </mat-row>
-              <mat-row *matRowDef="let row; columns: ['descriptionDetail']">
+              <mat-row *matRowDef="let row; columns: ['descriptionDetail']; let i = dataIndex;"
+                [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)">
               </mat-row>
             </mat-table>
           </div>

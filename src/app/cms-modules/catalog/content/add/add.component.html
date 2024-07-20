@@ -285,7 +285,8 @@
                 </mat-cell>
               </ng-container>
               <mat-header-row *matHeaderRowDef="otherInfoTabledisplayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: otherInfoTabledisplayedColumns;"
+              <mat-row *matRowDef="let row; columns: otherInfoTabledisplayedColumns; let i = dataIndex;"
+                [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)"
                 [ngStyle]="{'background': row.title === contentOtherInfoSelected.title ? '#d3d3da' : '' }">
               </mat-row>
             </mat-table>

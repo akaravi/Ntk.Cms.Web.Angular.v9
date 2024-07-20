@@ -121,6 +121,16 @@
   font-size: large;
 }
 
+.ntk-row-odd {
+  //background-color: white !important;
+  background: rgba(0, 0, 0, 0.025) !important;
+}
+
+.ntk-row-even {
+  //background-color: #eee !important;
+  //background: rgba(0, 0, 0, 0.025) !important;
+}
+
 //  .ntk-col-b{
 // @extend .ali;
 //  @extend .col-xl-1;
