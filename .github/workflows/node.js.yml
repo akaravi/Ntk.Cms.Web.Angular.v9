@@ -1,6 +1,6 @@
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
+#"version": "18.3.0431.2",
 name: Node.js CI
 
 on:
@@ -56,17 +56,19 @@ jobs:
           url: "https://smsban.com/api/?action=SMS_SEND&username=${{ vars.SMS_USERNAME }}&password=${{ secrets.SMS_PASSWORD }}&api=${{ vars.SMS_API }}&from=${{ vars.SMS_FROM }}&API_CHANGE_ALLOW=true&to=${{ vars.SMS_TO }}&text=${{ github.repository }} status is ${{ job.status }}"
           #headers: '{"repository": "joelwmale/webhook-action"}'
           #body: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
-      - name: Webhook Plesk
-        # v18
-        uses: joelwmale/webhook-action@master
-        with:
-          url: "${{vars.PLESK_WEBHOOK_amlakalonak_ir}}"
+
+
+       - name: Webhook Plesk
+      #  v18
+         uses: joelwmale/webhook-action@master
+         with:
+           url: "${{vars.PLESK_WEBHOOK_amlakalonak_ir}}"
 
       # - name: Webhook Plesk
       #  v15
-      #   uses: joelwmale/webhook-action@master
-      #   with:
-      #   url: "${{vars.PLESK_WEBHOOK_adminpanel_ir}}"
+        # uses: joelwmale/webhook-action@master
+        # with:
+        # url: "${{vars.PLESK_WEBHOOK_adminpanel_ir}}"
 
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
