@@ -1,30 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-.progressOverlayContainer{
-  position:relative;
+.progressOverlayContainer {
+  position: relative;
 
 }
 
 .progressOverlay {
-position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   /*opacity:0.3;*/
-  text-align:center;
+  text-align: center;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.53);
+
   /* this seems to work for me but may need to be higher*/
   label {
     text-shadow: 1px 1px 2px black;
   }
 }
-.preloader .progressOverlay{
+
+.preloader .progressOverlay {
   label {
     text-shadow: 1px 1px 2px black;
   }
 }
+
 .tree-parent .tree-child-hidden {
   /*display: none;*/
   display: block;
@@ -55,6 +58,11 @@ position: absolute;
   direction: ltr !important;
   text-align: right !important;
   //float: right;
+}
+
+/*for moadl scrol*/
+.mat-mdc-dialog-component-host {
+  display: block !important;
 }
 
 .mat-option {

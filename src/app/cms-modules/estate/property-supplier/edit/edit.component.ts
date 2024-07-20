@@ -1,7 +1,7 @@
 
 import { ENTER } from '@angular/cdk/keycodes';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatStepper } from '@angular/material/stepper';
@@ -30,7 +30,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   ]
 })
 export class EstatePropertySupplierEditComponent extends EditBaseComponent<EstatePropertySupplierService, EstatePropertySupplierModel, string>
-  implements OnInit, AfterViewInit {
+  implements OnInit {
   requestId = '';
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,7 +41,7 @@ export class EstatePropertySupplierEditComponent extends EditBaseComponent<Estat
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new EstatePropertySupplierModel(), publicHelper,translate);
+    super(contentService, new EstatePropertySupplierModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -89,8 +89,7 @@ export class EstatePropertySupplierEditComponent extends EditBaseComponent<Estat
     // this.DataCategoryGetAll();
 
   }
-  ngAfterViewInit(): void {
-  }
+
   onActionFileSelectedLinkMainImageId(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;

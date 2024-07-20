@@ -1,5 +1,5 @@
 
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as Leaflet from 'leaflet';
@@ -31,7 +31,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
   styleUrls: ['./add.component.scss'
   ]
 })
-export class PollingContentAddComponent extends AddBaseComponent<PollingContentService, PollingContentModel, number> implements OnInit, AfterViewInit {
+export class PollingContentAddComponent extends AddBaseComponent<PollingContentService, PollingContentModel, number> implements OnInit {
   requestCategoryId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -44,7 +44,7 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(pollingContentService, new PollingContentModel(), publicHelper,translate);
+    super(pollingContentService, new PollingContentModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.loadingOption.cdr = this.cdr;
 
@@ -97,9 +97,7 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
     this.DataGetAccess();
 
   }
-  ngAfterViewInit(): void {
 
-  }
   onActionFileSelectedLinkMainImageId(model: NodeInterface): void {
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;

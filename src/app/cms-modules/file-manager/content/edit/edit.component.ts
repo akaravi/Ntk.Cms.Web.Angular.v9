@@ -1,7 +1,7 @@
 
 import { ENTER } from '@angular/cdk/keycodes';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatStepper } from '@angular/material/stepper';
@@ -29,7 +29,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   ]
 })
 export class FileContentEditComponent extends EditBaseComponent<FileContentService, FileContentModel, number>
-  implements OnInit, AfterViewInit {
+  implements OnInit {
   requestId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,7 +41,7 @@ export class FileContentEditComponent extends EditBaseComponent<FileContentServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(fileContentService, new FileContentModel(), publicHelper,translate);
+    super(fileContentService, new FileContentModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -87,12 +87,6 @@ export class FileContentEditComponent extends EditBaseComponent<FileContentServi
     this.DataGetOne();
 
   }
-  ngAfterViewInit(): void {
-
-  }
-
-
-
   onFormSubmit(): void {
     if (this.requestId <= 0) {
       this.cmsToastrService.typeErrorAddRowParentIsNull();
