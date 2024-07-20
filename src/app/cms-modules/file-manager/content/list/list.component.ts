@@ -62,7 +62,15 @@ export class FileContentListComponent extends ListBaseComponent<FileContentServi
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'fileName',
+    'Extension',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.tokenHelper.getCurrentToken().then((value) => {

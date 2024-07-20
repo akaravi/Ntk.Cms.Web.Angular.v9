@@ -99,7 +99,17 @@ export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreMo
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
+    'LinkMemberId',
+    'ModuleName',
+    'ModuleEntityName',
+    'ModuleEntityId',
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
 

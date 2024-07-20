@@ -68,7 +68,17 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Sponsor',
+    'TargetPeriod',
+    'Amount',
+    'AmountPure',
+    // 'Action'
+  ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.LinkCmsUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCmsUserId'));

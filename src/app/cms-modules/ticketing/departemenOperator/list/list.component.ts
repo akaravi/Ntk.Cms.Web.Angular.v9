@@ -66,7 +66,15 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LinkSourceId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
 
 

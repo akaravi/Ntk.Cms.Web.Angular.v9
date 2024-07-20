@@ -75,7 +75,19 @@ export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencySer
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'TitleML',
+    'IsDefault',
+    'Symbol',
+    'ExchangeBuyRatio',
+    'ExchangeSaleRatio',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   expandedElement: CoreCurrencyModel | null;
   cmsApiStoreSubscribe: Subscription;

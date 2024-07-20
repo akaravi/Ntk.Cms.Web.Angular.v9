@@ -70,7 +70,15 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

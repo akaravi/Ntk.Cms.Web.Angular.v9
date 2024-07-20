@@ -64,7 +64,13 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'IconFont',
+    'Title',
+    'Description',
+    // 'Action'
+  ];
 
 
 

@@ -75,7 +75,16 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LinkApplicationId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   expandedElement: ApplicationIntroModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

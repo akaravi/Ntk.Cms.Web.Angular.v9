@@ -100,7 +100,18 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     'CreatedDate',
     // 'Action'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
+    'LinkMemberId',
+    'ModuleName',
+    'ModuleEntityName',
+    'ModuleEntityId',
 
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
 

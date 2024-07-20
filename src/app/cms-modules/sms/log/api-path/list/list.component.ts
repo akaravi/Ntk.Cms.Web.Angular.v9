@@ -86,7 +86,17 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
     'StatusNotStableCount',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'CreatedDate',
+    'StatusInfo',
+    'StatusOutOfServiceActive',
+    'StatusOutOfServiceExpire',
+    'StatusNotStableActive',
+    'StatusNotStableExpire',
+    'StatusNotStableCount',
+    'action_menu',
+  ];
   expandedElement: SmsLogApiPathModel | null;
   cmsApiStoreSubscribe: Subscription;
 

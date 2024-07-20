@@ -79,7 +79,13 @@ export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<
     'FromDate',
     'ExpireDate',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkModuleId',
+    'EnumCmsModuleSaleItemType',
+    'FromDate',
+    'ExpireDate',
+  ];
 
 
   expandedElement: CoreModuleSaleInvoiceDetailModel | null;

@@ -150,7 +150,18 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     'QuickView',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'CreatedDate',
+    'AppointmentDateFrom',
+    'AppointmentDateTo',
+    'LinkActivityTypeId',
+    'ActivityStatus',
+    'QuickView',
+    'action_menu',
+  ];
 
 
   dataModelEstateActivityStatusEnumResult: ErrorExceptionResult<InfoEnumModel> =

@@ -82,7 +82,16 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    //'Id',
+    'RecordStatus',
+    'Title',
+    'LinkApiPathCompanyId',
+    'LinkPublicConfigId',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   expandedElement: SmsMainApiPathModel | null;
   cmsApiStoreSubscribe: Subscription;

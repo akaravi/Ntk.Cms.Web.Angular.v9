@@ -99,7 +99,17 @@ export class CoreModuleLogLikeListComponent extends ListBaseComponent<CoreModule
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
+    'LinkMemberId',
+    'ModuleName',
+    'ModuleEntityName',
+    'ModuleEntityId',
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
 

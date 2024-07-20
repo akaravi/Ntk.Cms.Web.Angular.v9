@@ -94,7 +94,16 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkSiteId',
+    'LinkUserId',
+    'LinkMemberId',
+    'UserAccessAreaType',
+    'UsedUsername',
+    'CreatedDate',
+    // 'Action'
+  ];
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

@@ -71,7 +71,19 @@ export class CoreCpMainMenuListComponent extends ListBaseComponent<CoreCpMainMen
     // 'Action',
     'position'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Icon',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'TitleML',
+    'ShowInMenu',
+    'ShowInAccessAdminAllowToProfessionalData',
+    'MenuPlaceType',
+    'ShowInMenuOrder',
+    // 'Action',
+    'position'
+  ];
 
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 

@@ -98,7 +98,19 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
     'AccessCountRow',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'RecordStatus',
+    'LinkUserId',
+    'LinkSiteId',
+    'ModuleName',
+    'ModuleEntityName',
+    'AccessAddRow',
+    'AccessWatchRow',
+    'AccessEditRow',
+    'AccessDeleteRow',
+    'AccessCountRow',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreUserSupportAccessModel | null;

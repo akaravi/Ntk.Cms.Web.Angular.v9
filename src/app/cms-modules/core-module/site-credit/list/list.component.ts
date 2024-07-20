@@ -67,7 +67,14 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
     'SumCreditBlocked',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'RecordStatus',
+    'linkSiteId',
+    'linkModuleId',
+    'Credit',
+    'SumCreditBlocked',
+    // 'Action'
+  ];
 
 
   cmsApiStoreSubscribe: Subscription;

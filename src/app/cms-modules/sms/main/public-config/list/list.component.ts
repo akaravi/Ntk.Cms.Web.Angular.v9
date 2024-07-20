@@ -69,7 +69,15 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    // 'Id',
+    'RecordStatus',
+    'Title',
+    'ClassName',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
 
   expandedElement: SmsMainApiPathPublicConfigModel | null;

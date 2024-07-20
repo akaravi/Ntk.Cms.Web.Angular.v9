@@ -97,7 +97,20 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
     'ExpireDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkSiteId',
+    'LinkUserId',
+    'LinkMemberUserId',
+    'UserAccessAreaType',
+    'UserType',
+    'UserAccessAdminAllowToAllData',
+    'UserAccessAdminAllowToProfessionalData',
+    'RememberOnDevice',
+    'CreatedDate',
+    'ExpireDate',
+    // 'Action'
+  ];
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 

@@ -73,7 +73,17 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'TitleML',
+    'LinkSourceId',
+    'TypeId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   ngOnInit(): void {
     this.requestLinkSourceId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSourceId'));
     const filter = new FilterDataModel();

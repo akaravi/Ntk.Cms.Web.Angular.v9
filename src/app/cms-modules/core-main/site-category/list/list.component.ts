@@ -66,7 +66,14 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
     'Domains',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'MainImageSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Domains',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreSiteCategoryModel | null;

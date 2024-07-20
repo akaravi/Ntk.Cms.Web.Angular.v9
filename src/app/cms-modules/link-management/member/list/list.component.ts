@@ -65,7 +65,16 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
     'CurrentCreditor',
     'action_menu',
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
 
+    'Id',
+    'RecordStatus',
+    'CreatedDate',
+    'UpdatedDate',
+    'CurrentDebtor',
+    'CurrentCreditor',
+    'action_menu',
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

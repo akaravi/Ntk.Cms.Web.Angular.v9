@@ -71,7 +71,16 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'MainImageSrc',
+    'Id',
+    'LinkSiteIdBuyer',
+    'RecordStatus',
+    'Price',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   expandedElement: CoreModuleSaleInvoiceModel | null;
   cmsApiStoreSubscribe: Subscription;
 

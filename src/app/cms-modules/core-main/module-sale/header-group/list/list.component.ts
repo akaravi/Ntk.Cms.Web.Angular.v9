@@ -79,7 +79,18 @@ export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<Co
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'TitleML',
+    'LinkUserGroupId',
+    'LinkCmsSiteCategoryId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreModuleSaleHeaderGroupModel | null;

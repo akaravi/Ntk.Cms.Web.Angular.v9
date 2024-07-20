@@ -72,7 +72,16 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
     'UpdatedDate',
     // 'Action',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Username',
+    'StatusWebhook',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action',
+  ];
 
   expandedElement: ApiTelegramReceivedFileModel | null;
   cmsApiStoreSubscribe: Subscription;

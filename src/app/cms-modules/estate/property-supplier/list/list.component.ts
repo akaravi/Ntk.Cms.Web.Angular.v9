@@ -74,7 +74,16 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     'LinkTo',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'mainAdminRecordStatus',
+    'Title',
+    'CreatedDate',
+    'LinkTo',
+    'action_menu',
+  ];
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

@@ -65,6 +65,14 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
     // 'Action'
   ];
 
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Image',
+    'Code',
+    'ParentCode',
+    'Name',
+    'Memo',
+    // 'Action'
+  ];
 
 
 

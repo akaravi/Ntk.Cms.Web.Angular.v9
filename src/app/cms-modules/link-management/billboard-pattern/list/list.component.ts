@@ -42,7 +42,7 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new LinkManagementBillboardPatternModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new LinkManagementBillboardPatternModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     this.optionsSearch.parentMethods = {
@@ -58,6 +58,15 @@ export class LinkManagementBillboardPatternListComponent extends ListBaseCompone
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'settingType',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ]; tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',

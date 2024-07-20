@@ -70,7 +70,14 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
     'LocationType',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LocationType',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreLocationModel | null;

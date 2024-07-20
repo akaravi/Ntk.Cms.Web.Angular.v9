@@ -68,7 +68,16 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LinkCmsUserId',
+    'LinkTargetCategoryId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

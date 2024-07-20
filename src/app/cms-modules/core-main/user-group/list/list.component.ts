@@ -71,7 +71,16 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
     'UserTypeTitle',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'TitleML',
+    'TitleResourceLanguage',
+    'UserType',
+    'UserTypeTitle',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreUserGroupModel | null;

@@ -91,7 +91,13 @@ export class CoreUserClaimGroupDetailListComponent extends ListBaseComponent<Cor
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'RecordStatus',
+    'LinkUserClaimGroupId',
+    'LinkUserClaimTypeId',
+    'IsRequired',
+    // 'Action'
+  ];
 
   expandedElement: CoreUserClaimGroupDetailModel | null;
   cmsApiStoreSubscribe: Subscription;

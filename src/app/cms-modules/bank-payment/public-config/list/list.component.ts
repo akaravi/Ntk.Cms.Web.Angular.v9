@@ -70,6 +70,16 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
     'UpdatedDate',
     // 'Action'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkModuleFileLogoIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'ClassName',
+    'LinkCurrencyId',
+    'UpdatedDate',
+    // 'Action'
+  ];
   expandedElement: BankPaymentPublicConfigModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

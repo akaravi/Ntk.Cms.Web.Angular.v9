@@ -95,7 +95,14 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
     'CreatedDate',
     // 'Action'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
 
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
 

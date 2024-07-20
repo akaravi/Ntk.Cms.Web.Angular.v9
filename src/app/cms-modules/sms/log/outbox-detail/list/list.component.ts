@@ -84,7 +84,15 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
     'action_menu'
 
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'CreatedDate',
+    'SenderNumber',
+    'ReceiverNumber',
+    'IsSended',
+    'action_menu'
 
+  ];
   expandedElement: SmsLogOutBoxDetailModel | null;
   cmsApiStoreSubscribe: Subscription;
 

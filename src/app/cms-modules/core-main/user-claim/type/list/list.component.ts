@@ -75,7 +75,14 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
     'Kind',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Kind',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreUserClaimTypeModel | null;

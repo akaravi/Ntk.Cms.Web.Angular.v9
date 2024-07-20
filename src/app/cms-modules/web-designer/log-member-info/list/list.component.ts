@@ -72,7 +72,21 @@ export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<Web
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkUserId',
+    'LinkMemberId',
+    'DeviceStatus',
+    'DeviceId',
+    'DeviceBrand',
+    'SimCard',
+    'AppBuildVer',
+    'AppSourceVer',
+    'ScorePercent',
+    'CreatedDate',
+    // 'Action'
+  ];
   expandedElement: WebDesignerLogMemberInfoModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

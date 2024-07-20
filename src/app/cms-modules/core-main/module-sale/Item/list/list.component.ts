@@ -84,7 +84,16 @@ export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModul
     'ExpireDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkModuleSaleHeader',
+    'LinkModuleId',
+    'MonthLength',
+    'EnumCmsModuleSaleItemType',
+    'ExpireDate',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreModuleSaleItemModel | null;

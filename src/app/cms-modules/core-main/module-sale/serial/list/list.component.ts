@@ -77,7 +77,20 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'MainImageSrc',
+    'Id',
+    'RecordStatus',
+    'SerialNumber',
+    'HasUsed',
+    'HasDemo',
+    'NumberOfMaxUse',
+    'NumberOfRegistered',
+    'DatePeriodStart',
+    'UpdatedDate',
+    'DatePeriodEnd',
+    // 'Action'
+  ];
 
   expandedElement: CoreModuleSaleSerialModel | null;
   cmsApiStoreSubscribe: Subscription;

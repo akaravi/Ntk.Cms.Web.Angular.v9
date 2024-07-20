@@ -88,6 +88,20 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     'CreatedDate',
     'action_menu',
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'ExpertPriceType',
+    'CreatedYaer',
+    'LinkLocationId',
+    'LinkPropertyTypeUsageId',
+    'LinkPropertyTypeLanduseId',
+    'LinkContractTypeId',
+    'LinkCoreCurrencyId',
+    'CreatedDate',
+    'action_menu',
+  ];
   dataModelInquiryResult: ErrorExceptionResultBase;
   dataModelInquiry: EstatePriceInquiryDtoModel = new EstatePriceInquiryDtoModel();
 

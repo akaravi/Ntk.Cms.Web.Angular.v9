@@ -104,7 +104,20 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     'ExpireDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkFileContentId',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LinkSiteId',
+    'LinkUserId',
+    'LinkUserClaimTypeId',
+    'IsApproved',
+    'CreatedDate',
+    'UpdatedDate',
+    'ExpireDate',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreUserClaimContentModel | null;

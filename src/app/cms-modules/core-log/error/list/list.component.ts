@@ -82,7 +82,16 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'ModuleName',
+    'ModuleEntityName',
+    'LinkUserId',
+    'LinkMemberId',
+    'ModuleEntityId',
+    'CreatedDate',
+    // 'Action'
+  ];
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   expandedElement: CoreSiteModel | null;

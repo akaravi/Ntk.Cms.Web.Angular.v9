@@ -75,7 +75,14 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
     'TicketStatus',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Title',
+    'LinkMemberId',
+    'CreatedDate',
+    'UpdatedDate',
+    'TicketStatus',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
 

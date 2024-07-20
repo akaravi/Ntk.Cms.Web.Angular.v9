@@ -81,7 +81,14 @@ export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleE
     'ModuleEntityName',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkModuleId',
+    'ModuleName',
+    'ModuleEntityName',
+    // 'Action'
+  ];
 
   expandedElement: CoreModuleEntityModel | null;
   cmsApiStoreSubscribe: Subscription;

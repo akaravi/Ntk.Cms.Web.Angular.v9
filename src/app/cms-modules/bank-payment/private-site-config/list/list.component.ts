@@ -83,6 +83,15 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     'UpdatedDate',
     // 'Action'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LinkPublicConfigId',
+    'UpdatedDate',
+    // 'Action'
+  ];
   ngOnInit(): void {
     this.requestLinkPublicConfigId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkPublicConfigId'));
     const filter = new FilterDataModel();

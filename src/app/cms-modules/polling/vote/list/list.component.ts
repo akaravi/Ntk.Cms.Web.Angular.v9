@@ -71,7 +71,14 @@ export class PollingVoteListComponent extends ListBaseComponent<PollingVoteServi
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkMemberId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   expandedElement: PollingVoteModel | null;
   cmsApiStoreSubscribe: Subscription;
 

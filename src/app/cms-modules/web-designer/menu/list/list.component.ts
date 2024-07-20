@@ -66,6 +66,17 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
     // 'Action',
     'position'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Icon',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'ShowInAccessAdminAllowToProfessionalData',
+    'MenuPlaceType',
+    'ShowInMenuOrder',
+    // 'Action',
+    'position'
+  ];
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   expandedElement: WebDesignerMainMenuModel | null;
   cmsApiStoreSubscribe: Subscription;

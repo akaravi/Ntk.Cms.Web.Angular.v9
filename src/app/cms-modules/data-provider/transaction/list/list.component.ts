@@ -73,7 +73,22 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkSiteId',
+    'RecordStatus',
+    'LinkClientId',
+    'LinkPlanId',
+    'LinkPlanPriceId',
+    'SystemTransactionId',
+    'SystemPaymentisSuccess',
+    'AmountPure',
+    'FeeTransport',
+    'FeeTax',
+    'Amount',
+    'CreatedDate',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

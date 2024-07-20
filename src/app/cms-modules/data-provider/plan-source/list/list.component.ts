@@ -63,7 +63,12 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
     'Title',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

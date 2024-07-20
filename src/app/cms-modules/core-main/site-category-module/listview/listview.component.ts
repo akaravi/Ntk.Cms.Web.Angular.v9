@@ -62,7 +62,11 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
     'virtual_CmsModule.title',
     'virtual_CmsModule.Description',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'virtual_CmsSiteCategory.title',
+    'virtual_CmsModule.title',
+    'virtual_CmsModule.Description',
+  ];
 
   cmsApiStoreSubscribe: Subscription;
 

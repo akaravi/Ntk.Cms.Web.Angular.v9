@@ -76,7 +76,14 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
     'LinkSiteCategoryId',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LinkModuleId',
+    'LinkSiteCategoryId',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreUserClaimGroupModel | null;

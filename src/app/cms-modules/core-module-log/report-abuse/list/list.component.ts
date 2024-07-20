@@ -100,7 +100,19 @@ export class CoreModuleLogReportAbuseListComponent extends ListBaseComponent<Cor
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
+    'LinkMemberId',
+    'ModuleName',
+    'ModuleEntityName',
+    'ModuleEntityId',
+    'SubjectBody',
+    'AdminResultProcess',
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
 

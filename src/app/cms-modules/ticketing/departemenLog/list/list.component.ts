@@ -72,7 +72,15 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LinkSourceId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   expandedElement: TicketingDepartemenLogModel | null;
   cmsApiStoreSubscribe: Subscription;
 

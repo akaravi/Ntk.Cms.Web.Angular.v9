@@ -72,7 +72,16 @@ export class BlogContentListComponent extends ListBaseComponent<BlogContentServi
     'action_menu',
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'CreatedDate',
+    'UpdatedDate',
+    "LinkTo",
+    'action_menu',
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;

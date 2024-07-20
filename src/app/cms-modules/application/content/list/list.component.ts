@@ -79,6 +79,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     'LastSuccessfullyBuildDate',
     // 'Action'
   ];
+  
   tabledisplayedColumnsMobileSource: string[] = [
     'Title',
     'AppVersion',

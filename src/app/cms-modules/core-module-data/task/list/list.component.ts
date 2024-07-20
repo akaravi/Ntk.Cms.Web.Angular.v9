@@ -80,7 +80,15 @@ export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModul
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'RecordStatus',
+    'ModuleName',
+    'ModuleEntityName',
+    'ModuleEntityId',
+    'SubjectBody',
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreSiteModel | null;

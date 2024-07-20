@@ -82,7 +82,19 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
     'CreatedDate',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkUserId',
+    'LinkMemberId',
+    'SimCard',
+    'AppBuildVer',
+    'AppSourceVer',
+    'ScorePercent',
+    'LinkApplicationId',
+    'CreatedDate',
+    'action_menu',
+  ];
   expandedElement: ApplicationMemberInfoModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

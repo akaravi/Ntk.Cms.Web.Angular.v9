@@ -77,7 +77,17 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     "LinkTo",
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'IsPublic',
+    'CurrentViewCount',
+    'CurrentClickCount',
+    'CreatedDate',
+    "LinkTo",
+    'action_menu',
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

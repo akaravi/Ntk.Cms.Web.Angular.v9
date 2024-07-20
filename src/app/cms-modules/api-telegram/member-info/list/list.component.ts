@@ -73,7 +73,16 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
     'UpdatedDate',
     // 'Action',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Username',
+    'StatusWebhook',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action',
+  ];
 
   expandedElement: ApiTelegramMemberInfoModel | null;
   cmsApiStoreSubscribe: Subscription;

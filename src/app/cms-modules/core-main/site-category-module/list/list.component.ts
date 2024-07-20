@@ -86,7 +86,14 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkCmsModuleId',
+    'LinkCmsSiteCategoryId',
+    'RecordStatus',
+    'virtual_CmsSiteCategory.title',
+    'virtual_CmsModule.title',
+    // 'Action'
+  ];
 
   expandedElement: CoreSiteCategoryCmsModuleModel | null;
   cmsApiStoreSubscribe: Subscription;

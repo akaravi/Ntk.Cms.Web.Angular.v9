@@ -64,6 +64,16 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     'UpdatedDate',
     // 'Action'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'LinkPageId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   expandedElement: WebDesignerMainIntroModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

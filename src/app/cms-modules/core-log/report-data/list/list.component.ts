@@ -108,7 +108,17 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
     'ExpireDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
+    'LinkMemberId',
+    'LinkModuleEntityId',
+    'LinkModuleEntityReportFileId',
+    'CreatedDate',
+    'ExpireDate',
+    // 'Action'
+  ];
   dataModelEnumSendReportDataStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

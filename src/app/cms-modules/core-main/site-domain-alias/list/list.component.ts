@@ -83,7 +83,17 @@ export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSite
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkCmsSiteId',
+    'RecordStatus',
+    'SubDomain',
+    'Domain',
+    'Redirect',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   expandedElement: CoreSiteModel | null;
   cmsApiStoreSubscribe: Subscription;

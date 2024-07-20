@@ -86,7 +86,15 @@ export class BlogCommentListComponent extends ListBaseComponent<BlogCommentServi
     // 'Action',
     "LinkTo",
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Writer',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action',
+    "LinkTo",
+  ];
 
 
   expandedElement: BlogCommentModel | null;

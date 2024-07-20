@@ -65,7 +65,13 @@ export class DataProviderClientListComponent extends ListBaseComponent<DataProvi
     'Title',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'action_menu',
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

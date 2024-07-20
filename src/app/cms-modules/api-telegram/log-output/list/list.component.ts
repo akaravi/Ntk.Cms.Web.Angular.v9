@@ -74,7 +74,17 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     // 'Action',
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkBotConfigId',
+    'Username',
+    'ChatId',
+    'StatusWebhook',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action',
+  ];
   expandedElement: ApiTelegramLogOutputModel | null;
   cmsApiStoreSubscribe: Subscription;
 

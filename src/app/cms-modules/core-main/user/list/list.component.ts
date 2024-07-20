@@ -86,7 +86,18 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     'CreatedDate',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Name',
+    'LastName',
+    'CompanyName',
+    'email',
+    'mobile',
+    'CreatedDate',
+    'action_menu',
+  ];
 
   expandedElement: CoreUserModel | null;
   cmsApiStoreSubscribe: Subscription;

@@ -71,7 +71,17 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
     'IsPublish',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'TitleML',
+    'PackageName',
+    'OsType',
+    'ForceUpdate',
+    'IsPublish',
+    // 'Action'
+  ];
 
 
 

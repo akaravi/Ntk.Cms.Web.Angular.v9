@@ -73,7 +73,19 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
     'Discount',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Image',
+    'Status',
+    'Code',
+    'Category',
+    'Name',
+    'Count',
+    'Unit',
+    'Price',
+    'SalePrice',
+    'Discount',
+    'action_menu',
+  ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.paramMap.get('PareintId')) {

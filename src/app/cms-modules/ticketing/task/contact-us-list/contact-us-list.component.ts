@@ -76,7 +76,14 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
 

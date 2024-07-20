@@ -84,7 +84,15 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     // 'Action',
     "LinkTo",
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Writer',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action',
+    "LinkTo",
+  ];
   expandedElement: BiographyCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

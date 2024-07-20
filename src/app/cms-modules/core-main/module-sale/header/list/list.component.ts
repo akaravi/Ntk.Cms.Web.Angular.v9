@@ -85,7 +85,19 @@ export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreMod
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'SalePrice',
+    'HasDemo',
+    'FromDate',
+    'ExpireDate',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   expandedElement: CoreModuleSaleHeaderModel | null;
   cmsApiStoreSubscribe: Subscription;

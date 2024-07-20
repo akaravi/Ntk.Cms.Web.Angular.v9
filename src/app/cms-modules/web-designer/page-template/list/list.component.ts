@@ -63,6 +63,14 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
     'IndexFile',
     // 'Action'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Folder',
+    'IndexFile',
+    // 'Action'
+  ];
   expandedElement: WebDesignerMainPageTemplateModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

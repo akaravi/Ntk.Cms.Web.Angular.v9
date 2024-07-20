@@ -75,7 +75,14 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'TransactionStatus',
+    'LinkTransactionId',
+    'Memo',
+    'CreatedDate',
+    // 'Action'
+  ];
   expandedElement: BankPaymentTransactionLogModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

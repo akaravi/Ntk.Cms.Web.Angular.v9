@@ -64,7 +64,16 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     "LinkTo",
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'CreatedDate',
+    'UpdatedDate',
+    "LinkTo",
+    'action_menu',
+  ];
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

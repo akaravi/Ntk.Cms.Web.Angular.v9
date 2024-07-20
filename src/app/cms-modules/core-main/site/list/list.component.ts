@@ -92,7 +92,19 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
     'ExpireDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'MainImageSrc',
+    'Id',
+    'linkCreatedBySiteId',
+    'RecordStatus',
+    'Title',
+    'SubDomain',
+    'Domain',
+    'CreatedDate',
+    'UpdatedDate',
+    'ExpireDate',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreSiteModel | null;

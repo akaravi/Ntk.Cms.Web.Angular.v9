@@ -85,7 +85,19 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkSiteId',
+    'RecordStatus',
+    'osType',
+    'DeviceType',
+    'PackageName',
+    'LinkApplicationId',
+    'CreatedDate',
+    'UpdatedDate',
+    'ExpireDate',
+    // 'Action'
+  ];
 
   expandedElement: CoreDeviceModel | null;
   cmsApiStoreSubscribe: Subscription;

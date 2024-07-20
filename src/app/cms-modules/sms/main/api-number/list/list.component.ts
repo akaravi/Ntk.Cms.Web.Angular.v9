@@ -70,7 +70,17 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'NumberChar',
+    'FirstSubmit',
+    'UsanceDate',
+    'SaleStatus',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   expandedElement: SmsMainApiNumberModel | null;
   cmsApiStoreSubscribe: Subscription;
 

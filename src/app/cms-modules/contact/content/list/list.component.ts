@@ -75,7 +75,14 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

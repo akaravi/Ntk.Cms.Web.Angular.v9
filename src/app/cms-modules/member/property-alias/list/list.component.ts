@@ -38,7 +38,7 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new MemberPropertyAliasModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new MemberPropertyAliasModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.optionsSearch.parentMethods = {
@@ -64,7 +64,18 @@ export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPr
     'CreatedDate',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkSiteId',
+    'LinkCmsUserId',
+    'RecordStatus',
+    'Title',
+    'Description',
+    'Address',
+    'ViewCount',
+    'CreatedDate',
+    'action_menu',
+  ];
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

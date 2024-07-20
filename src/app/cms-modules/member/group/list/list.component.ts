@@ -59,7 +59,13 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     'CreatedDate',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'CreatedDate',
+    'action_menu',
+  ];
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;
   ngOnInit(): void {

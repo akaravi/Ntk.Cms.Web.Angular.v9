@@ -64,7 +64,16 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
     // 'Action'
   ];
 
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
 
+    'DonateTargetId',
+    'DeviceId',
+    'VisitDate',
+    // 'Action'
+  ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));

@@ -71,7 +71,13 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'IconFont',
+    'Title',
+    'ShowInFormOrder',
+    'LinkPropertyTypeId',
+    // 'Action'
+  ];
 
 
 

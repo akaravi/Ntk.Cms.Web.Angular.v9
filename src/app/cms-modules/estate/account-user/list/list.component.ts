@@ -87,7 +87,13 @@ export class EstateAccountUserListComponent extends ListBaseComponent<EstateAcco
   ];
 
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Title',
+    'LinkCmsUserId',
+    'Description',
+    'action_menu',
+  ];
 
 
   expandedElement: EstateAccountUserModel | null;

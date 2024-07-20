@@ -60,7 +60,12 @@ export class DataProviderLogClientListComponent extends ListBaseComponent<DataPr
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkClientId',
+    'CreatedDate',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

@@ -72,6 +72,16 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
     'LinkTo',
     'action_menu',
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'mainAdminRecordStatus',
+    'Title',
+    'CreatedDate',
+    'LinkTo',
+    'action_menu',
+  ];
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   cmsApiStoreSubscribe: Subscription;
   GetAllWithHierarchyCategoryId = false;

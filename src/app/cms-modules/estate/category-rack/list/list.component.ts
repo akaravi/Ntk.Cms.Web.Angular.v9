@@ -66,7 +66,13 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'IconFont',
+    'Title',
+    'Description',
+    // 'Action'
+  ];
 
 
 

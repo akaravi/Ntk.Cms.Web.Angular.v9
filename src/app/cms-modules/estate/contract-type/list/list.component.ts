@@ -67,7 +67,14 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Title',
+    'HasSalePrice',
+    'HasDepositPrice',
+    'HasRentPrice',
+    'HasPeriodPrice',
+    // 'Action'
+  ];
 
 
 

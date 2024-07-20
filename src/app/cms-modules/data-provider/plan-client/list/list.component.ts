@@ -68,7 +68,12 @@ export class DataProviderPlanClientListComponent extends ListBaseComponent<DataP
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'ExpireDate',
+    // 'Action'
+  ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.requestLinkPlanId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkPlanId'));

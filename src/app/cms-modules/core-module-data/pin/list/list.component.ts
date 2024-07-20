@@ -82,7 +82,15 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'RecordStatus',
+    'ModuleName',
+    'ModuleEntityName',
+    'ModuleEntityId',
+    'SubjectBody',
+    'CreatedDate',
+    // 'Action'
+  ];
 
   expandedElement: CoreSiteModel | null;
   cmsApiStoreSubscribe: Subscription;

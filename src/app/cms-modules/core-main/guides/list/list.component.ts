@@ -66,7 +66,15 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     // 'Action',
     'position'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Key',
+    'TitleFa',
+    'ShowInMenuOrder',
+    // 'Action',
+    'position'
+  ];
 
   dataModelEnumMenuPlaceTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 

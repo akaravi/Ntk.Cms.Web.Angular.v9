@@ -83,7 +83,16 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'IsAccepted',
+    'LinkPrivateConfigId',
+    'Message',
+    'CreatedDate',
+    'SendDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
   expandedElement: SmsLogOutBoxModel | null;
   cmsApiStoreSubscribe: Subscription;

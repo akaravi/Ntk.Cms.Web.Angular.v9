@@ -64,7 +64,13 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'IconFont',
+    'Title',
+    'Description',
+    // 'Action'
+  ];
 
 
 

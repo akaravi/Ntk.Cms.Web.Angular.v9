@@ -74,7 +74,16 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
     'MessageLength',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    //  'Id',
+    'RecordStatus',
+    'LinkApiPathId',
+    'RegulatorNumber',
+    'ServicePrice',
+    'EndUserPrice',
+    'MessageLength',
+    // 'Action'
+  ];
 
 
   expandedElement: SmsMainApiPathPriceServiceModel | null;

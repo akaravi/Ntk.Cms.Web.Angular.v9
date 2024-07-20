@@ -83,7 +83,19 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'IsFlash',
+    'ScheduleCron',
+    'Message',
+    'ScheduleSendStart',
+    'ScheduleSendExpire',
+    'ScheduleSendAllowNextRun',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
 
   expandedElement: SmsLogOutBoxTaskSchedulerModel | null;

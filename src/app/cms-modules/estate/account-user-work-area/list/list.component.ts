@@ -62,7 +62,11 @@ export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<Es
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'linkEstateAccountUserId',
+    'linkCoreLocationId',
+    // 'Action'
+  ];
 
 
 

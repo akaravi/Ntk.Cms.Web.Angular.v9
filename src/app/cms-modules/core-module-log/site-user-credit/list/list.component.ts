@@ -93,7 +93,14 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
     'CreatedDate',
     // 'Action'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
 
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
 

@@ -98,7 +98,16 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkMemberId',
+    'ModuleName',
+    'ModuleEntityName',
+    'ModuleEntityId',
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
 

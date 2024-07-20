@@ -99,7 +99,17 @@ export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberS
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
+    'LinkMemberUserId',
+    'FromNumber',
+    'ToNumber',
+    'ApiNumber',
+    'CreatedDate',
+    // 'Action'
+  ];
   dataModelEnumSendMemberStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

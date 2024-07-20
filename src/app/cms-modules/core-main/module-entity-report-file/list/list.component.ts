@@ -83,7 +83,15 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkModuleEntityId',
+    'Title',
+    'Description',
+    'ReportFileType',
+    // 'Action'
+  ];
   expandedElement: CoreModuleEntityReportFileModel | null;
   cmsApiStoreSubscribe: Subscription;
 

@@ -61,7 +61,12 @@ export class DataProviderLogSourceListComponent extends ListBaseComponent<DataPr
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkSourceId',
+    'CreatedDate',
+    // 'Action'
+  ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.requestLinkSourceId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSourceId'));

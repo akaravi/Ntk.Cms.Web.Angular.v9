@@ -88,7 +88,9 @@ export class EstateCustomerOrderResultListComponent extends ListBaseComponent<Es
   tabledisplayedColumnsSource: string[] = [
     'Description',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Description',
+  ];
   expandedElement: EstateCustomerOrderResultModel | null;
   cmsApiStoreSubscribe: Subscription;
 

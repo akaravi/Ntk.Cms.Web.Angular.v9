@@ -78,7 +78,17 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkApplicationId',
+    'LinkApplicationMemberId',
+    'Title',
+    'ContentType',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   expandedElement: ApplicationLogNotificationModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

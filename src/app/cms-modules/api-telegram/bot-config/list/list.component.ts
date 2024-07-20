@@ -76,6 +76,17 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     // 'Action',
     'LinkTo'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Username',
+    'StatusWebhook',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action',
+    'LinkTo'
+  ];
   expandedElement: ApiTelegramBotConfigModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

@@ -67,7 +67,13 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
   ];
 
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    // 'Action'
+  ];
 
   expandedElement: TicketingDepartemenModel | null;
   cmsApiStoreSubscribe: Subscription;

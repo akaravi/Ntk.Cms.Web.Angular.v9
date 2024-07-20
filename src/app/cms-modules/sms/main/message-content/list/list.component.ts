@@ -71,7 +71,14 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMai
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    // 'Id',
+    'RecordStatus',
+    'Title',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
 

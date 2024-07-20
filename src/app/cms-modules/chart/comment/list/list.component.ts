@@ -84,7 +84,15 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     // 'Action',
     "LinkTo",
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Writer',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action',
+    "LinkTo",
+  ];
   expandedElement: ChartCommentModel | null;
   cmsApiStoreSubscribe: Subscription;
 

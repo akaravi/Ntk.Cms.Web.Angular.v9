@@ -99,7 +99,18 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
+    'LinkMemberId',
+    'SendStatusType',
+    'FromNumber',
+    'ToNumber',
+    'ApiNumber',
+    'CreatedDate',
+    // 'Action'
+  ];
   dataModelEnumSendSmsStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
 

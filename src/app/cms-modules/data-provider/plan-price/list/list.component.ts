@@ -67,7 +67,16 @@ export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataPr
     'Price',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Description',
+    'PeriodDay',
+    'Price',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

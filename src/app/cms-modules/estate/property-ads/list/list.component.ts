@@ -71,7 +71,15 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     'ExpireDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Title',
+    'StationLevel',
+    'ViewLevel',
+    'LinkPropertyId',
+    'FromDate',
+    'ExpireDate',
+    // 'Action'
+  ];
   expandedElement: EstatePropertyAdsModel | null;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

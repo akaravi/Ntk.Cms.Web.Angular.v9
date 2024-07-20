@@ -72,7 +72,15 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
     'AnswerStatus',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkTaskId',
+    'LinkMemberId',
+    'CreatedDate',
+    'UpdatedDate',
+    'AnswerStatus',
+    // 'Action'
+  ];
 
   cmsApiStoreSubscribe: Subscription;
 

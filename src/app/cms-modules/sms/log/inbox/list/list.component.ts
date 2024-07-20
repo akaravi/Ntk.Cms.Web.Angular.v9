@@ -79,7 +79,16 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'Message',
+    'SenderNumber',
+    'ReceiverNumber',
+    'LinkPrivateConfigId',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
 
   expandedElement: SmsLogInBoxModel | null;

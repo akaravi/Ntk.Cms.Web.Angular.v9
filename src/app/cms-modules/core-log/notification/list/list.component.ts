@@ -100,7 +100,18 @@ export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogN
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'LinkUserId',
+    'LinkSiteId',
+    'LinkMemberId',
+    'SendStatusType',
+    'senderlinkUserId',
+    'receiverlinkUserId',
+    'contentType',
+    'CreatedDate',
+    // 'Action'
+  ];
   dataModelEnumSendNotificationStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumContentTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 

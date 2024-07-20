@@ -83,7 +83,15 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
     'LinkManagementTargetId',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'ClickPrice',
+    'ViewPrice',
+    'CreatedDate',
+    'LinkManagementBillboardId',
+    'LinkManagementTargetId',
+    'action_menu',
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

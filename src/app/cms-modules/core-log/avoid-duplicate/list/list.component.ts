@@ -75,7 +75,16 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'ModuleName',
+    'ModuleEntityName',
+    'LinkUserId',
+    'LinkMemberUserId',
+    'ModuleEntityId',
+    'CreatedDate',
+    // 'Action'
+  ];
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEnumManageUserAccessUserTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   expandedElement: CoreSiteModel | null;

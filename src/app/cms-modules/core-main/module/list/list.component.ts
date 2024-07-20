@@ -74,7 +74,19 @@ export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService
     'position',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
+    'Id',
+    'RecordStatus',
+    'Title',
+    'ClassName',
+    'ShowInOrder',
+    'CreatedDate',
+    'UpdatedDate',
+    'ExpireDate',
+    'position',
+    // 'Action'
+  ];
 
   expandedElement: CoreModuleModel | null;
   cmsApiStoreSubscribe: Subscription;

@@ -81,7 +81,18 @@ export class CoreLogCurrencyListComponent extends ListBaseComponent<CoreLogCurre
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'MainId',
+    'RecordStatus',
+    'Title',
+    'Symbol',
+    'ExchangeBuyRatio',
+    'ExchangeSaleRatio',
+    'MasterCurrency',
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
 

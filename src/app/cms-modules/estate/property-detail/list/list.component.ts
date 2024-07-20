@@ -84,7 +84,15 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'IconFont',
+    'Title',
+    'Unit',
+    'ShowInFormOrder',
+    'LinkPropertyTypeLanduseId',
+    'LinkPropertyDetailGroupId',
+    // 'Action'
+  ];
 
 
 

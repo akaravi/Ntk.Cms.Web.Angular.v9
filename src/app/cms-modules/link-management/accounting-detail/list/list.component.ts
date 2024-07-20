@@ -70,7 +70,13 @@ export class LinkManagementAccountingDetailListComponent extends ListBaseCompone
     'UpdatedDate',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'CreatedDate',
+    'UpdatedDate',
+    'action_menu',
+  ];
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {

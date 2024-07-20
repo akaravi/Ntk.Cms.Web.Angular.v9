@@ -81,7 +81,15 @@ export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreMod
     'CreatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'RecordStatus',
+    'ModuleName',
+    'ModuleEntityName',
+    'ModuleEntityId',
+    'showKey',
+    'CreatedDate',
+    // 'Action'
+  ];
 
 
   expandedElement: CoreSiteModel | null;

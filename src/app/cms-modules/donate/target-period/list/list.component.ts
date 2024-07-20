@@ -74,7 +74,20 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'Title',
+    'Description',
+    'LinkTargeId',
+    'ShareBeginDate',
+    'ShareExpireDate',
+    'CurrentClickCount',
+    'CurrentViewCount',
+    'CurrentPaymentCount',
+    'CurrentPaymentSum',
+    // 'Action'
+  ];
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.requestLinkTargeId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkTargeId'));

@@ -112,7 +112,20 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
     'virtual_CmsSite.subDomain',
     'action_menu',
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'LinkSiteId',
+    'LinkUserId',
+    'LinkUserGroupId',
+    'RecordStatus',
+    'CreatedDate',
+    'virtual_CmsUser.name',
+    'virtual_CmsUser.lastName',
+    'virtual_CmsUserGroup.title',
+    'virtual_CmsSite.title',
+    'virtual_CmsSite.domain',
+    'virtual_CmsSite.subDomain',
+    'action_menu',
+  ];
 
 
   expandedElement: CoreUserModel | null;

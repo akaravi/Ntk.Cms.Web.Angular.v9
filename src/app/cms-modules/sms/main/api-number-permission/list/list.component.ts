@@ -64,7 +64,12 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
     // 'Action'
   ];
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'linkApiNumberId',
+    // 'Action'
+  ];
 
   expandedElement: SmsMainApiNumberPermissionModel | null;
   cmsApiStoreSubscribe: Subscription;

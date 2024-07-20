@@ -81,7 +81,18 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     'UpdatedDate',
     // 'Action'
   ];
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'IsFlash',
+    'Message',
+    'QueueCompleted',
+    'QueueCompleteDate',
+    'ScheduleSendStart',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action'
+  ];
 
 
   expandedElement: SmsLogOutBoxQueueModel | null;

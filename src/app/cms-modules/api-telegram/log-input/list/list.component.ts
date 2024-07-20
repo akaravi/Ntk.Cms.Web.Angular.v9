@@ -73,6 +73,17 @@ export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTeleg
     'UpdatedDate',
     // 'Action',
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'Id',
+    'RecordStatus',
+    'LinkBotConfigId',
+    'Username',
+    'ChatId',
+    'StatusWebhook',
+    'CreatedDate',
+    'UpdatedDate',
+    // 'Action',
+  ];
 
 
   expandedElement: ApiTelegramLogInputModel | null;

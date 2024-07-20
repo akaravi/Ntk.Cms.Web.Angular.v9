@@ -63,7 +63,11 @@ export class EstateAccountAgencyUserListComponent extends ListBaseComponent<Esta
   ];
 
 
-
+  tabledisplayedColumnsMobileSource: string[] = [
+    'linkEstateAccountAgencyId',
+    'linkEstateAccountUserId',
+    // 'Action'
+  ];
 
 
   expandedElement: EstateAccountAgencyUserModel | null;
