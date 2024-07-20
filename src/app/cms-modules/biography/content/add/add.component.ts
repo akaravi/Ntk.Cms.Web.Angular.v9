@@ -241,7 +241,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
       }
     );
   }
-  DataActionAfterAddContentSuccessfulSimilar(model: BiographyContentModel): Promise<any> {
+  async DataActionAfterAddContentSuccessfulSimilar(model: BiographyContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
       return null;
     }

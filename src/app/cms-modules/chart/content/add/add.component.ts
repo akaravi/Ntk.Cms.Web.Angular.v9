@@ -261,7 +261,7 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
       }
     );
   }
-  DataActionAfterAddContentSuccessfulSimilar(model: ChartContentModel): Promise<any> {
+ async DataActionAfterAddContentSuccessfulSimilar(model: ChartContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
       return null;
     }

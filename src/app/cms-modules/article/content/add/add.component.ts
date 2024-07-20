@@ -241,7 +241,7 @@ export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentS
       }
     );
   }
-  DataActionAfterAddContentSuccessfulSimilar(model: ArticleContentModel): Promise<any> {
+  async DataActionAfterAddContentSuccessfulSimilar(model: ArticleContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
       return null;
     }

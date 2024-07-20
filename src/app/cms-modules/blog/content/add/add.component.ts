@@ -265,9 +265,9 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
       }
     );
   }
-  DataActionAfterAddContentSuccessfulSimilar(model: BlogContentModel): Promise<any> {
+  async DataActionAfterAddContentSuccessfulSimilar(model: BlogContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
-      return null;
+      return;
     }
     const dataList: BlogContentSimilarModel[] = [];
     this.similarDataModel.forEach(x => {
