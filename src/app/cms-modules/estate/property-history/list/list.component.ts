@@ -64,7 +64,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyHistoryModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new EstatePropertyHistoryModel(), publicHelper, tokenHelper, translate);
 
     pageInfo.updateContentService(contentService);
     this.publicHelper.processService.cdr = this.cdr;
@@ -222,11 +222,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   });
   DataGetAll(): void {
     this.tabledisplayedColumns =
-      this.publicHelper.TabledisplayedColumnsCheckByAllDataAccess(
-        this.tabledisplayedColumnsSource,
-        [],
-        this.tokenInfo
-      );
+      this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     if (!this.optionloadComponent) {
       return;
     }
