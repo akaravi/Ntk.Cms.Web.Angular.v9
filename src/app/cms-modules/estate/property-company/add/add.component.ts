@@ -1,11 +1,11 @@
 import { ENTER } from '@angular/cdk/keycodes';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatStepper } from '@angular/material/stepper';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
@@ -24,9 +24,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./add.component.scss'
   ]
 })
-export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePropertyCompanyService, EstatePropertyCompanyModel, string> implements OnInit, AfterViewInit {
+export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePropertyCompanyService, EstatePropertyCompanyModel, string> implements OnInit {
   constructor(
-    private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,
     public publicHelper: PublicHelper,
     public contentService: EstatePropertyCompanyService,
@@ -35,7 +34,7 @@ export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePr
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new EstatePropertyCompanyModel(), publicHelper,translate);
+    super(contentService, new EstatePropertyCompanyModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -73,8 +72,6 @@ export class EstatePropertyCompanyAddComponent extends AddBaseComponent<EstatePr
 
 
     this.DataGetAccess();
-  }
-  ngAfterViewInit(): void {
   }
 
   onActionTagChange(model: any): void {

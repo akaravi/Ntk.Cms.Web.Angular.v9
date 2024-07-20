@@ -67,17 +67,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.onCaptchaOrder();
     this.pageInfo.updateTitle(this.translate.instant('AUTH.SINGINBYSMS.TITLE'));
   }
-  ngAfterViewInit() {
-    // var otp = document.querySelectorAll('.otp');
-    // if (otp[0]) {
-    //   otp.forEach(el => {
-    //     const node = el as Element;
-    //     el.addEventListener('focus', (e) => { el.value = ""; })
-    //     el.addEventListener('input', (e) => { el.nextElementSibling ? el.nextElementSibling.focus() : el.blur(); });
-    //   });
-    // }
 
-  }
   prorocess: processModel;
   buttonnResendSmsDisable = true;
   otpConfig = {

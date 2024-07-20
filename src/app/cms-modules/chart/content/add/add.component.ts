@@ -1,7 +1,7 @@
 
 import { ENTER } from '@angular/cdk/keycodes';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatStepper } from '@angular/material/stepper';
@@ -28,7 +28,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./add.component.scss'
   ]
 })
-export class ChartContentAddComponent extends AddBaseComponent<ChartContentService, ChartContentModel, number> implements OnInit, AfterViewInit {
+export class ChartContentAddComponent extends AddBaseComponent<ChartContentService, ChartContentModel, number> implements OnInit {
   requestCategoryId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -43,7 +43,7 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(contentService, new ChartContentModel(), publicHelper,translate);
+    super(contentService, new ChartContentModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
@@ -96,9 +96,7 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
     this.DataGetAccess();
 
   }
-  ngAfterViewInit(): void {
 
-  }
 
   onActionTagChange(model: any): void {
     this.tagDataModel = model;
@@ -261,7 +259,7 @@ export class ChartContentAddComponent extends AddBaseComponent<ChartContentServi
       }
     );
   }
- async DataActionAfterAddContentSuccessfulSimilar(model: ChartContentModel): Promise<any> {
+  async DataActionAfterAddContentSuccessfulSimilar(model: ChartContentModel): Promise<any> {
     if (!this.similarDataModel || this.similarDataModel.length === 0) {
       return null;
     }

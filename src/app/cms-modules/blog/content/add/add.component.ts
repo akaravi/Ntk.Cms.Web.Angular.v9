@@ -1,7 +1,7 @@
 
 import { ENTER } from '@angular/cdk/keycodes';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatStepper } from '@angular/material/stepper';
@@ -27,7 +27,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })
-export class BlogContentAddComponent extends AddBaseComponent<BlogContentService, BlogContentModel, number> implements OnInit, AfterViewInit {
+export class BlogContentAddComponent extends AddBaseComponent<BlogContentService, BlogContentModel, number> implements OnInit {
   requestCategoryId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -95,15 +95,7 @@ export class BlogContentAddComponent extends AddBaseComponent<BlogContentService
 
     this.DataGetAccess();
   }
-  ngAfterViewInit(): void {
-    // this.optionsCategorySelector.childMethods.ActionSelectForce(this.requestCategoryId);
-    // this.optionsCategorySelector.parentMethods = {
-    //   onActionSelect: (x) => this.onActionSelectorSelect(x),
-    // };
-    // this.optionsContentSelector.parentMethods = {
-    //   onActionSelect: (x) => this.onActionContentSimilarSelect(x),
-    // };
-  }
+
 
   onActionTagChange(model: any): void {
     this.tagDataModel = model;
