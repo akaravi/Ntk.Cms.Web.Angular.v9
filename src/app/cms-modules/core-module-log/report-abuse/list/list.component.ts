@@ -140,7 +140,7 @@ export class CoreModuleLogReportAbuseListComponent extends ListBaseComponent<Cor
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   DataGetAll(): void {
-    this.tabledisplayedColumns = this.publicHelper.TabledisplayedColumnsCheckByAllDataAccess(this.tabledisplayedColumnsSource, [], this.tokenInfo);
+    this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new CoreModuleLogReportAbuseModel());
     const pName = this.constructor.name + 'main';

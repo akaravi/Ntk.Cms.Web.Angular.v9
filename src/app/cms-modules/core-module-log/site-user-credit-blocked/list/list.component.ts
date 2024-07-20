@@ -130,7 +130,7 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   DataGetAll(): void {
-    this.tabledisplayedColumns = this.publicHelper.TabledisplayedColumnsCheckByAllDataAccess(this.tabledisplayedColumnsSource, [], this.tokenInfo);
+    this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new CoreModuleLogSiteUserCreditBlockedModel());
     const pName = this.constructor.name + 'main';

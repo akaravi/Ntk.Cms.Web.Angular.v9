@@ -130,7 +130,7 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   DataGetAll(): void {
-    this.tabledisplayedColumns = this.publicHelper.TabledisplayedColumnsCheckByAllDataAccess(this.tabledisplayedColumnsSource, [], this.tokenInfo);
+    this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new CoreLogErrorModel());
     const pName = this.constructor.name + 'main';

@@ -110,7 +110,7 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   DataGetAll(): void {
-    this.tabledisplayedColumns = this.publicHelper.TabledisplayedColumnsCheckByAllDataAccess(this.tabledisplayedColumnsSource, [], this.tokenInfo);
+    this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     if (this.requestLinkApplicationId === 0) {
       this.tabledisplayedColumns = this.publicHelper.listRemoveIfExist(
         this.tabledisplayedColumns,

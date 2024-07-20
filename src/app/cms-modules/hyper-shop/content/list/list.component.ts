@@ -116,7 +116,7 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
   }
 
   DataGetAll(): void {
-    this.tabledisplayedColumns = this.publicHelper.TabledisplayedColumnsCheckByAllDataAccess(this.tabledisplayedColumnsSource, [], this.tokenInfo);
+    this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new HyperShopContentModel());
     const pName = this.constructor.name + 'main';
