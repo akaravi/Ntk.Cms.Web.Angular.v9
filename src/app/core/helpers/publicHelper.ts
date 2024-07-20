@@ -523,9 +523,7 @@ export class PublicHelper {
       return false;
     return true;
   }
-  TabledisplayedColumnsCheckByAllDataAccess(cloumnDesktopSource: string[], cloumnAdminAccessDispaly: string[], token: TokenInfoModel): string[] {
-    return this.TableDisplayedColumns(cloumnDesktopSource, [], cloumnAdminAccessDispaly, token);
-  }
+
   TableDisplayedColumns(cloumnDesktopSource: string[], cloumnMobileDispalySource: string[], cloumnAdminAccessDispaly: string[], token: TokenInfoModel): string[] {
     if (!cloumnAdminAccessDispaly || cloumnAdminAccessDispaly.length == 0) {
       cloumnAdminAccessDispaly = [];
