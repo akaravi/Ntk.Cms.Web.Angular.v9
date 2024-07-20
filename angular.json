@@ -45,6 +45,16 @@
                 "glob": "**/*",
                 "input": "node_modules/ngx-ntk-cron-editor/src/assets/",
                 "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@fortawesome/fontawesome-free/webfonts/",
+                "output": "assets/fonts/webfonts/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/font-awesome/fonts/",
+                "output": "assets/fonts/"
               }
             ],
             "styles": [
