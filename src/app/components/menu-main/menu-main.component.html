@@ -54,7 +54,7 @@
     </a>
 
 
-    <a *ngFor="let item of dataModelResult.listItems;" (click)="onActionClickMenu(item)" style="cursor: pointer;">
+    <a *ngFor="let item of dataModelResult.listItems;" (click)="onActionClickMenu(item,$event)" style="cursor: pointer;">
       <i class="{{item.icon}} " [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
       <span>{{item.titleML}}</span>
       <i class="fa fa-angle-left"></i>

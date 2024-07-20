@@ -80,7 +80,7 @@ export class PageMenuComponent implements OnInit {
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );
@@ -95,15 +95,27 @@ export class PageMenuComponent implements OnInit {
     if (findRow && findRow.length > 0 && findRow[0].children && findRow[0].children.length > 0)
       this.dataListResult = findRow[0].children;
   }
-  onActionClickMenu(item: CoreCpMainMenuModel) {
+  onActionClickMenu(item: CoreCpMainMenuModel, event?: MouseEvent) {
     if (!item)
       return;
+    const pName = this.constructor.name + "menu";
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
     if (item.children?.length > 0) {
-      this.router.navigate(['/menu/LinkParentId/', item.id]);
+      if (event?.ctrlKey) {
+        window.open('/#/menu/LinkParentId/' + item.id, "_blank");
+      } else {
+        this.router.navigate(['/menu/LinkParentId/', item.id]);
+      }
+      this.publicHelper.processService.processStop(pName);
       return;
     }
     if (item.routeAddressLink?.length > 0) {
-      this.router.navigate([item.routeAddressLink]);
+      if (event?.ctrlKey) {
+        window.open('/#' + item.routeAddressLink, "_blank");
+      } else {
+        this.router.navigate([item.routeAddressLink]);
+      }
+      this.publicHelper.processService.processStop(pName);
       return;
     }
   }

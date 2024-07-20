@@ -53,7 +53,11 @@ export class ProcessService {
       }
       if (this.cdr) {
         //todo: karavi error
-        this.cdr.detectChanges();
+        try {
+          setTimeout(() => this.cdr.detectChanges(), 100);
+        } catch (error) {
+          console.log('cdr error', error);
+        }
       }
     });
   }

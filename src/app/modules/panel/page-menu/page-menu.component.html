@@ -9,7 +9,7 @@
 <div class="row mb-0">
   <ng-container *ngFor="let item of dataListResult;index as i">
     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-      <a (click)="onActionClickMenu(item)" class="card card-style rounded-m me-0 p-3 mb-3" style="cursor: pointer;">
+      <a (click)="onActionClickMenu(item,$event)" class="card card-style rounded-m me-0 p-3 mb-3" style="cursor: pointer;">
         <i class="{{item.icon}} font-40 icon-50" [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
         <h4 class="pt-3">{{item.titleML}}</h4>
         <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
