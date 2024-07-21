@@ -29,7 +29,8 @@
   <ng-container cms-tree-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-tree class="category-tree cursor-pointer" [dataSource]="dataSource" [treeControl]="treeControl">
-      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="onActionSelect(node)"
+      <mat-tree-node *matTreeNodeDef="let node; let i = dataIndex;" [class.ntk-tree-odd]="i % 2"
+        [class.ntk-tree-even]="!(i % 2)" matTreeNodePadding (click)="onActionSelect(node)"
         [ngStyle]="{'background': dataModelSelect?.id?.length>0 && dataModelSelect?.id === node.id ? '#d3d3da' : '' }">
         <button type="button" mat-icon-button disabled></button>
         <i [ngClass]="node.IconFont" [style.color]="node.IconColor" aria-hidden="true"></i> {{node.title}}

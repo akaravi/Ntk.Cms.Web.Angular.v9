@@ -156,6 +156,11 @@
   background: rgba(0, 0, 0, 0.050) !important;
 }
 
+.theme-light mat-row.ntk-row-selected {
+  background: #d3d3da !important;
+}
+
+
 .theme-light mat-paginator {
   color: #0f1117 !important;
 }
@@ -185,6 +190,11 @@
   background-color: #272b37 !important;
 }
 
+.theme-dark mat-row.ntk-row-selected {
+  color: #fff;
+  background: #5f6a8b !important;
+}
+
 .theme-dark mat-paginator {
   color: #fff;
   background-color: #0f1117 !important;
@@ -195,6 +205,62 @@
 }
 
 /*mat-table Color Settings*/
+
+/*mat-tree Color Settings*/
+.theme-light mat-tree {
+  color: #0f1117 !important;
+}
+
+.theme-light mat-tree-node {
+  color: #0f1117 !important;
+}
+
+.theme-light mat-tree-node {
+  background: rgba(0, 0, 0, 0.020) !important;
+}
+
+.theme-light mat-tree-node.ntk-tree-odd {
+  background: rgba(0, 0, 0, 0.020) !important;
+}
+
+.theme-light mat-tree-node.ntk-tree-even {
+  background: rgba(0, 0, 0, 0.050) !important;
+}
+
+.theme-light mat-tree-node.ntk-tree-selected {
+  background: #d3d3da !important;
+}
+
+
+.theme-dark mat-tree {
+  color: #fff;
+  background-color: #0f1117 !important;
+}
+
+.theme-dark mat-tree-node {
+  color: #fff;
+  background-color: #1b1e29 !important;
+}
+
+.theme-dark mat-tree-node.ntk-tree-odd {
+  color: #fff;
+  background-color: #1b1e29 !important;
+}
+
+.theme-dark mat-tree-node.ntk-tree-even {
+  color: #fff;
+  background-color: #272b37 !important;
+}
+
+.theme-dark mat-tree-node.ntk-tree-selected {
+  color: #fff;
+  background: #5f6a8b !important;
+}
+
+
+
+
+/*mat-tree Color Settings*/
 
 //  .ntk-col-b{
 // @extend .ali;
