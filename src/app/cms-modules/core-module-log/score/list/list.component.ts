@@ -96,7 +96,6 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     'ModuleName',
     'ModuleEntityName',
     'ModuleEntityId',
-
     'CreatedDate',
     // 'Action'
   ];
@@ -108,7 +107,6 @@ export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModul
     'ModuleName',
     'ModuleEntityName',
     'ModuleEntityId',
-
     'CreatedDate',
     // 'Action'
   ];

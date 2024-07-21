@@ -81,8 +81,14 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
   ];
   
   tabledisplayedColumnsMobileSource: string[] = [
+    // 'Id',
+    // 'RecordStatus',
     'Title',
     'AppVersion',
+    // 'LinkSourceId',
+    // 'CreatedDate',
+    // 'UpdatedDate',
+    // 'LastSuccessfullyBuildDate',
     // 'Action'
   ];
   expandedElement: ApplicationAppModel | null;

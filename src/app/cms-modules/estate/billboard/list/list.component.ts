@@ -70,6 +70,9 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
+    // 'Id',
+    // 'LinkSiteId',
+    // 'RecordStatus',
     'Title',
     'SpeedView',
     'ReloadViewPerMin',

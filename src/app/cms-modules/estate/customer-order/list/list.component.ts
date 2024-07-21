@@ -46,7 +46,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstateCustomerOrderModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new EstateCustomerOrderModel(), publicHelper, tokenHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
@@ -103,8 +103,16 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Title',
+    // 'Id',
+    // 'LinkSiteId',
     'RecordStatus',
+    'Title',
+    // 'CreatedDate',
+    // 'UpdatedDate',
+    // 'scoreRushToBuy',
+    // 'scorePurchaseDecision',
+    // 'scoreLiquidityPower',
+    // 'scorePurchasingPower',
     "CaseCode",
     "LinkTo",
     'action_menu',

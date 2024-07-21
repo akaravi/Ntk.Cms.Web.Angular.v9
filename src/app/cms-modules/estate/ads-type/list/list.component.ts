@@ -36,7 +36,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new EstateAdsTypeModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new EstateAdsTypeModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
 
     this.optionsSearch.parentMethods = {
@@ -74,6 +74,9 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
     'LinkMainImageIdSrc',
     'Title',
     'StationLevel',
+    // 'ViewLevel',
+    // 'LinkPropertyId',
+    // 'DayOfActivity',
     'SalePrice',
     // 'Action'
   ];

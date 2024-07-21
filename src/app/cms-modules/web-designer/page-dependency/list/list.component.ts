@@ -77,8 +77,14 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
   ];
 
   tabledisplayedColumnsMobileSource: string[] = [
+    // 'Id',
+    // 'RecordStatus',
     'Title',
-    // 'Action',
+    // 'TitleML',
+    // 'LinkModuleId',
+    // 'CmsModuleClassName',
+    // 'ClassActionName',
+    // 'Action'
   ];
   expandedElement: WebDesignerMainPageDependencyModel | null;
   cmsApiStoreSubscribe: Subscription;

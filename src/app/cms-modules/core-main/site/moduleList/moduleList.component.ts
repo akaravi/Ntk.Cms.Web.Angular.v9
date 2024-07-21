@@ -107,12 +107,17 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
+    // 'LinkSiteId',
+    // 'LinkModuleId',
     'RecordStatus',
+    //'virtual_CmsSite.title',
+    //'virtual_CmsModule.title',
     'CreatedDate',
     'UpdatedDate',
     'RenewDate',
     'HasBuyed',
     'expireDate',
+    // 'Action'
   ];
 
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

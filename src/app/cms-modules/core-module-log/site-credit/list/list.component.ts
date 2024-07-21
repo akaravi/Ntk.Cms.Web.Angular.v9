@@ -89,7 +89,6 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'LinkSiteId',
-
     'CreatedDate',
     // 'Action'
   ];
@@ -97,7 +96,6 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'LinkSiteId',
-
     'CreatedDate',
     // 'Action'
   ];

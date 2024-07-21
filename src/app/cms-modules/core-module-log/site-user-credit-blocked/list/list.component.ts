@@ -91,7 +91,6 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
     'Id',
     'LinkUserId',
     'LinkSiteId',
-
     'CreatedDate',
     // 'Action'
   ];
@@ -99,7 +98,6 @@ export class CoreModuleLogSiteUserCreditBlockedListComponent extends ListBaseCom
     'Id',
     'LinkUserId',
     'LinkSiteId',
-
     'CreatedDate',
     // 'Action'
   ];

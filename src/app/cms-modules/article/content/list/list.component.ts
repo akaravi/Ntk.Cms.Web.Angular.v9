@@ -73,8 +73,11 @@ export class ArticleContentListComponent extends ListBaseComponent<ArticleConten
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
-    'Title',
+    // 'Id',
+    // 'RecordStatus',
     'ViewCount',
+    'Title',
+    // 'CreatedDate',
     "LinkTo",
     'action_menu',
   ];

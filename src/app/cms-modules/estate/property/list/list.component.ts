@@ -59,7 +59,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     public translate: TranslateService,
     public pageInfo: PageInfoService,
   ) {
-    super(contentService, new EstatePropertyModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new EstatePropertyModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkPropertyTypeLanduseId =
@@ -225,8 +225,20 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     "LinkMainImageIdSrc",
-    "CaseCode",
+    // "Id",
+    // "RecordStatus",
+    // "MainAdminRecordStatus",
     "IsSoldIt",
+    // "ViewConfigHiddenInList",
+    // "LinkSiteId",
+    // "AdsActive",
+    // "ViewCount",
+    "CaseCode",
+    // "scoreEstateLocation",
+    // "scoreEstateBuild",
+    // "scoreEstatePrice",
+    // "CreatedDate",
+    // "UpdatedDate",
     "LinkTo",
     "QuickView",
     'action_menu',

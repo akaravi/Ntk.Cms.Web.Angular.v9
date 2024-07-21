@@ -89,7 +89,6 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
     'Id',
     'LinkUserId',
     'LinkSiteId',
-
     'CreatedDate',
     // 'Action'
   ];
@@ -97,7 +96,6 @@ export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<
     'Id',
     'LinkUserId',
     'LinkSiteId',
-
     'CreatedDate',
     // 'Action'
   ];

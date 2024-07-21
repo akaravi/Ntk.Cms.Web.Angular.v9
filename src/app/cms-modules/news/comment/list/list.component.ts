@@ -83,7 +83,11 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     "LinkTo",
   ];
   tabledisplayedColumnsMobileSource: string[] = [
+    // 'Id',
+    // 'RecordStatus',
     'Writer',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     //'Action',
     "LinkTo",
   ];

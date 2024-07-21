@@ -89,14 +89,12 @@ export class CoreModuleLogSiteCreditBlockedListComponent extends ListBaseCompone
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'LinkSiteId',
-
     'CreatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'LinkSiteId',
-
     'CreatedDate',
     // 'Action'
   ];

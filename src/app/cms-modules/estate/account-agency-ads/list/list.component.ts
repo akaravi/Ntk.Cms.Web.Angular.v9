@@ -80,6 +80,9 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
     'Title',
     'StationLevel',
     'ViewLevel',
+    // 'LinkAccountAgencyId',
+    // 'FromDate',
+    // 'ExpireDate',
     // 'Action'
   ];
 

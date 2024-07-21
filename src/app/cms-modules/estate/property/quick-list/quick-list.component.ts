@@ -59,7 +59,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new EstatePropertyModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       if (data.searchTitle)
@@ -226,8 +226,17 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     "LinkMainImageIdSrc",
-    "CaseCode",
+    // "Id",
+    // "RecordStatus",
+    // "MainAdminRecordStatus",
     "IsSoldIt",
+    // "ViewConfigHiddenInList",
+    // "LinkSiteId",
+    // "AdsActive",
+    // "ViewCount",
+    "CaseCode",
+    // "CreatedDate",
+    // "UpdatedDate",
     "LinkTo",
     "QuickView",
     'action_menu',
