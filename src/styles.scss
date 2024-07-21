@@ -121,15 +121,80 @@
   font-size: large;
 }
 
-.ntk-row-odd {
-  //background-color: white !important;
-  background: rgba(0, 0, 0, 0.025) !important;
+// .ntk-row-odd {
+//   //background-color: white !important;
+//   background: rgba(0, 0, 0, 0.020) !important;
+// }
+
+// .ntk-row-even {
+//   //background-color: #eee !important;
+//   background: rgba(0, 0, 0, 0.050) !important;
+// }
+
+/*mat-table Color Settings*/
+.theme-light mat-table {
+  color: #0f1117 !important;
 }
 
-.ntk-row-even {
-  //background-color: #eee !important;
-  //background: rgba(0, 0, 0, 0.025) !important;
+.theme-light mat-header-row {
+  color: #0f1117 !important;
 }
+
+.theme-light mat-row {
+  color: #0f1117 !important;
+}
+
+.theme-light mat-row {
+  background: rgba(0, 0, 0, 0.020) !important;
+}
+
+.theme-light mat-row.ntk-row-odd {
+  background: rgba(0, 0, 0, 0.020) !important;
+}
+
+.theme-light mat-row.ntk-row-even {
+  background: rgba(0, 0, 0, 0.050) !important;
+}
+
+.theme-light mat-paginator {
+  color: #0f1117 !important;
+}
+
+.theme-dark mat-table {
+  color: #fff;
+  background-color: #0f1117 !important;
+}
+
+.theme-dark mat-header-row {
+  color: #fff;
+  background-color: #0f1117 !important;
+}
+
+.theme-dark mat-row {
+  color: #fff;
+  background-color: #1b1e29 !important;
+}
+
+.theme-dark mat-row.ntk-row-odd {
+  color: #fff;
+  background-color: #1b1e29 !important;
+}
+
+.theme-dark mat-row.ntk-row-even {
+  color: #fff;
+  background-color: #272b37 !important;
+}
+
+.theme-dark mat-paginator {
+  color: #fff;
+  background-color: #0f1117 !important;
+}
+
+.theme-dark mat-paginator button {
+  background-color: #fff !important;
+}
+
+/*mat-table Color Settings*/
 
 //  .ntk-col-b{
 // @extend .ali;
