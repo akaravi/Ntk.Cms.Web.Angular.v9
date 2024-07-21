@@ -272,7 +272,7 @@
               <mat-header-row *matHeaderRowDef="otherInfoTabledisplayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: otherInfoTabledisplayedColumns; let i = dataIndex;"
                 [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)"
-                [ngStyle]="{'background': row.title === contentOtherInfoSelected.title ? '#d3d3da' : '' }">
+                [class.ntk-row-selected]="row.title === contentOtherInfoSelected.title">
               </mat-row>
             </mat-table>
           </div>
@@ -343,7 +343,7 @@
               <mat-header-row *matHeaderRowDef="similarTabledisplayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: similarTabledisplayedColumns; let i = dataIndex;"
                 [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)"
-                [ngStyle]="{'background': row.id === contentSimilarSelected.id ? '#d3d3da' : '' }">
+                [class.ntk-row-selected]="row.id === contentSimilarSelected.id">
               </mat-row>
             </mat-table>
           </div>

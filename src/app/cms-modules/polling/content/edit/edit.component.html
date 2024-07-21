@@ -240,7 +240,7 @@
               <mat-header-row *matHeaderRowDef="optionTabledisplayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: optionTabledisplayedColumns; let i = dataIndex;"
                 [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)"
-                [ngStyle]="{'background': row.option === optionSelected.option ? '#d3d3da' : '' }">
+                [class.ntk-row-selected]="row.option === optionSelected.option">
               </mat-row>
             </mat-table>
           </div>

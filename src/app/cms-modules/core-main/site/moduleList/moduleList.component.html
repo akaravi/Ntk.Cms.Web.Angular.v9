@@ -126,11 +126,11 @@
       <mat-row *matRowDef="let row; columns: ['expandedTitle']; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
         [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-        [ngStyle]="{'background':( row.linkSiteId === tableRowSelected?.linkSiteId  && row.linkModuleId=== tableRowSelected?.linkModuleId )? '#d3d3da' :'' }">
+        [class.ntk-row-selected]="( row.linkSiteId === tableRowSelected?.linkSiteId  && row.linkModuleId=== tableRowSelected?.linkModuleId)">
       </mat-row>
       <mat-row *matRowDef="let row; columns: tabledisplayedColumns; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
         [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
-        [ngStyle]="{'background':( row.linkSiteId === tableRowSelected?.linkSiteId  && row.linkModuleId=== tableRowSelected?.linkModuleId )? '#d3d3da' :'' }">
+        [class.ntk-row-selected]="( row.linkSiteId === tableRowSelected?.linkSiteId  && row.linkModuleId=== tableRowSelected?.linkModuleId)">
       </mat-row>
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
