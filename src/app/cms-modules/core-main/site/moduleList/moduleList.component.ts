@@ -45,7 +45,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreModuleSiteModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new CoreModuleSiteModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
@@ -92,12 +92,13 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
 
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
 
-  tabledisplayedColumns: string[] = [
+  tabledisplayedColumns: string[] = [];
+  tabledisplayedColumnsSource: string[] = [
     'LinkSiteId',
     'LinkModuleId',
     'RecordStatus',
-    'virtual_CmsSite.title',
-    'virtual_CmsModule.title',
+    //'virtual_CmsSite.title',
+    //'virtual_CmsModule.title',
     'CreatedDate',
     'UpdatedDate',
     'RenewDate',
@@ -105,6 +106,15 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     'expireDate',
     // 'Action'
   ];
+  tabledisplayedColumnsMobileSource: string[] = [
+    'RecordStatus',
+    'CreatedDate',
+    'UpdatedDate',
+    'RenewDate',
+    'HasBuyed',
+    'expireDate',
+  ];
+
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
 
@@ -141,7 +151,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   DataGetAll(): void {
-
+    this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new CoreModuleSiteModel());
 

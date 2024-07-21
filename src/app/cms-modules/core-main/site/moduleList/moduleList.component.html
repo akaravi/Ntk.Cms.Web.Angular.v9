@@ -107,18 +107,6 @@
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.ADMINISTRATIVE_SETTINGS' | translate}}</p>
     </div>
-    <!-- <div *ngIf="tableRowSelected?.virtual_CmsModule.NeedSiteCreditAccount" class="col-4">
-        <a mat-menu-item (click)="onActionButtonSiteCreditAccountRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-calendar-days font-18" style="color: #ffffff;"></i><br>
-        </a>
-        <p class="font-11 text-center opacity-70">{{'ACTION.CREDIT_SITE' | translate}}</p>
-      </div>
-      <div *ngIf="tableRowSelected?.virtual_CmsModule.NeedSiteUserCreditAccount" class="col-4">
-        <a mat-menu-item (click)="onActionButtonSiteUserCreditAccountRow(tableRowSelected)"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i class="fa-solid fa-calendar-circle-user font-18" style="color: #ffffff;"></i><br>
-        </a>
-        <p class="font-11 text-center opacity-70">{{'ACTION.YOUR_USER_CREDENTIALS' | translate}}</p>
-      </div> -->
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
@@ -132,18 +120,38 @@
   <ng-container cms-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
 
-    <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)">
+    <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
+      multiTemplateDataRows>
+      <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['expandedTitle']; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
+        [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
+        (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+        [ngStyle]="{'background':( row.linkSiteId === tableRowSelected?.linkSiteId  && row.linkModuleId=== tableRowSelected?.linkModuleId )? '#d3d3da' :'' }">
+      </mat-row>
+      <mat-row *matRowDef="let row; columns: tabledisplayedColumns; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
+        [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
+        [ngStyle]="{'background':( row.linkSiteId === tableRowSelected?.linkSiteId  && row.linkModuleId=== tableRowSelected?.linkModuleId )? '#d3d3da' :'' }">
+      </mat-row>
+      <!--expandedTitle-->
+      <ng-container matColumnDef="expandedTitle">
+        <mat-cell *matCellDef="let row">
+          {{'TITLE.SITE'|translate}} : {{row.linkSiteId | cmssiteinfo |async}}
+          <br>
+          {{'TITLE.MODULE'|translate}} : {{row.linkModuleId | cmstitle :
+          dataModelCoreModuleResult.listItems}}
+        </mat-cell>
+      </ng-container>
       <!-- LinkSiteId Column -->
       <ng-container matColumnDef="LinkSiteId">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['linkSiteId']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.linkSiteId | cmssiteinfo |async}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.linkSiteId }} </mat-cell>
       </ng-container>
       <!-- LinkModuleId Column -->
       <ng-container matColumnDef="LinkModuleId">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['linkModuleId']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.linkModuleId | cmstitle : dataModelCoreModuleResult.listItems}}
+        <mat-cell *matCellDef="let row"> {{row.linkModuleId}}
         </mat-cell>
       </ng-container>
       <!-- RecordStatus Column -->
@@ -210,11 +218,8 @@
           </mat-menu>
         </mat-cell>
       </ng-container>
-      <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: tabledisplayedColumns; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
-        [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
-        [ngStyle]="{'background':( row.linkSiteId === tableRowSelected?.linkSiteId  && row.linkModuleId=== tableRowSelected?.linkModuleId )? '#d3d3da' :'' }">
-      </mat-row>
+
+
     </mat-table>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
   </ng-container>
