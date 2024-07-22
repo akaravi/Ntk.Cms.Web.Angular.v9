@@ -62,7 +62,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Description',
     'LinkTargeId',
     'ShareBeginDate',
@@ -77,7 +77,7 @@ export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTar
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Description',
     'LinkTargeId',
     'ShareBeginDate',

@@ -59,7 +59,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
     'IconFont',
-    'Title',
+    // 'Title',
     'Description',
     // 'Action'
   ];
@@ -67,7 +67,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'IconFont',
-    'Title',
+    // 'Title',
     'Description',
     // 'Action'
   ];

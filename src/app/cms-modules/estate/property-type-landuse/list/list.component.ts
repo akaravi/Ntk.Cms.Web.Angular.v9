@@ -59,7 +59,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
     'IconFont',
-    'Title',
+    // 'Title',
     'Description',
     // 'Action'
   ];
@@ -67,7 +67,7 @@ export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<Es
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'IconFont',
-    'Title',
+    // 'Title',
     'Description',
     // 'Action'
   ];

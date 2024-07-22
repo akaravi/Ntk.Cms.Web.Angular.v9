@@ -62,14 +62,14 @@ export class DataProviderPlanListComponent extends ListBaseComponent<DataProvide
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
 

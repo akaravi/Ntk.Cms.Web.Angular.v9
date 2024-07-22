@@ -66,7 +66,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'LinkSourceId',
     'CreatedDate',
     'UpdatedDate',
@@ -75,7 +75,7 @@ export class TicketingDepartemenLogListComponent extends ListBaseComponent<Ticke
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'LinkSourceId',
     'CreatedDate',
     'UpdatedDate',

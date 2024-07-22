@@ -68,7 +68,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Title',
+    // 'Title',
     'StationLevel',
     'ViewLevel',
     'LinkAccountAgencyId',
@@ -77,7 +77,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Title',
+    // 'Title',
     'StationLevel',
     'ViewLevel',
     // 'LinkAccountAgencyId',

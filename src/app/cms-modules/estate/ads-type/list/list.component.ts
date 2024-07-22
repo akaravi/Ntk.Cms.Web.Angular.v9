@@ -62,7 +62,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
-    'Title',
+    // 'Title',
     'StationLevel',
     'ViewLevel',
     'LinkPropertyId',
@@ -72,7 +72,7 @@ export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeS
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
-    'Title',
+    // 'Title',
     'StationLevel',
     // 'ViewLevel',
     // 'LinkPropertyId',

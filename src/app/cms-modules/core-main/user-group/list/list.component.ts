@@ -64,7 +64,7 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'TitleML',
     'TitleResourceLanguage',
     'UserType',
@@ -74,7 +74,7 @@ export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupS
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'TitleML',
     'TitleResourceLanguage',
     'UserType',

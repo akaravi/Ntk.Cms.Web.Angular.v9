@@ -60,7 +60,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
     'IconFont',
-    'Title',
+    // 'Title',
     'Description',
     // 'Action'
   ];
@@ -68,7 +68,7 @@ export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCat
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'IconFont',
-    'Title',
+    // 'Title',
     'Description',
     // 'Action'
   ];

@@ -63,13 +63,13 @@ export class TicketingTemplateListComponent extends ListBaseComponent<TicketingT
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
   cmsApiStoreSubscribe: Subscription;

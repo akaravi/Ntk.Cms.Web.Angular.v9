@@ -70,7 +70,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'
@@ -78,7 +78,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'

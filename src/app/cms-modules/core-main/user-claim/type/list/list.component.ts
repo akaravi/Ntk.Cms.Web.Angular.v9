@@ -71,7 +71,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Kind',
     // 'Action'
   ];
@@ -79,7 +79,7 @@ export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserCl
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Kind',
     // 'Action'
   ];

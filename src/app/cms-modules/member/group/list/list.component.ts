@@ -55,14 +55,14 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'action_menu',
   ];

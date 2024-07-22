@@ -68,7 +68,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Username',
     'StatusWebhook',
     'CreatedDate',
@@ -79,7 +79,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Username',
     'StatusWebhook',
     'CreatedDate',

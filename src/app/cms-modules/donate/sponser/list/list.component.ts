@@ -61,7 +61,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'LinkCmsUserId',
     'LinkTargetCategoryId',
     'CreatedDate',
@@ -71,7 +71,7 @@ export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorS
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'LinkCmsUserId',
     'LinkTargetCategoryId',
     'CreatedDate',

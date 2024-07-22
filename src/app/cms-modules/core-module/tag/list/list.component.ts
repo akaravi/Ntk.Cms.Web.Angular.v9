@@ -61,7 +61,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
 
@@ -69,7 +69,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
 

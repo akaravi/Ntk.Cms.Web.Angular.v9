@@ -71,7 +71,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'
@@ -79,7 +79,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'

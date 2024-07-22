@@ -62,7 +62,7 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
     'MainImageSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Domains',
     // 'Action'
   ];
@@ -70,7 +70,7 @@ export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCat
     'MainImageSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Domains',
     // 'Action'
   ];

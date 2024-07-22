@@ -76,7 +76,7 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'IconFont',
-    'Title',
+    // 'Title',
     'Unit',
     'ShowInFormOrder',
     'LinkPropertyTypeLanduseId',
@@ -86,7 +86,7 @@ export class EstatePropertyDetailListComponent extends ListBaseComponent<EstateP
 
   tabledisplayedColumnsMobileSource: string[] = [
     'IconFont',
-    'Title',
+    // 'Title',
     'Unit',
     'ShowInFormOrder',
     'LinkPropertyTypeLanduseId',

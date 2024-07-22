@@ -62,7 +62,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'action_menu',
   ];
@@ -70,7 +70,7 @@ export class DonateTargetListComponent extends ListBaseComponent<DonateTargetSer
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'action_menu',
   ];

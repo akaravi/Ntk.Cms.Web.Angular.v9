@@ -68,7 +68,7 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'TitleML',
     'LinkModuleId',
     'CmsModuleClassName',
@@ -77,13 +77,13 @@ export class WebDesignerMainPageDependencyListComponent extends ListBaseComponen
   ];
 
   tabledisplayedColumnsMobileSource: string[] = [
-    // 'Id',
-    // 'RecordStatus',
-    'Title',
-    // 'TitleML',
-    // 'LinkModuleId',
-    // 'CmsModuleClassName',
-    // 'ClassActionName',
+    'Id',
+    'RecordStatus',
+    // 'Title',
+    'TitleML',
+    'LinkModuleId',
+    'CmsModuleClassName',
+    'ClassActionName',
     // 'Action'
   ];
   expandedElement: WebDesignerMainPageDependencyModel | null;

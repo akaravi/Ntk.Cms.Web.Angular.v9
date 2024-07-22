@@ -63,7 +63,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Title',
+    // 'Title',
     'StationLevel',
     'ViewLevel',
     'LinkPropertyId',
@@ -72,7 +72,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Title',
+    // 'Title',
     'StationLevel',
     'ViewLevel',
     'LinkPropertyId',

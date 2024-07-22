@@ -62,13 +62,13 @@ export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMai
   tabledisplayedColumnsSource: string[] = [
     // 'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     // 'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
 

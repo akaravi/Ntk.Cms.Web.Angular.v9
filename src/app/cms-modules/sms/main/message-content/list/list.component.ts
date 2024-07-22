@@ -65,7 +65,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMai
   tabledisplayedColumnsSource: string[] = [
     // 'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'
@@ -74,7 +74,7 @@ export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMai
   tabledisplayedColumnsMobileSource: string[] = [
     // 'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'

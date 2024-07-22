@@ -66,7 +66,7 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Username',
     'StatusWebhook',
     'CreatedDate',
@@ -76,7 +76,7 @@ export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTel
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Username',
     'StatusWebhook',
     'CreatedDate',

@@ -65,7 +65,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'IconFont',
-    'Title',
+    // 'Title',
     'ShowInFormOrder',
     'LinkPropertyTypeId',
     // 'Action'
@@ -73,7 +73,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
 
   tabledisplayedColumnsMobileSource: string[] = [
     'IconFont',
-    'Title',
+    // 'Title',
     'ShowInFormOrder',
     'LinkPropertyTypeId',
     // 'Action'

@@ -71,7 +71,7 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'LinkModuleId',
     'LinkSiteCategoryId',
     // 'Action'
@@ -79,7 +79,7 @@ export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserC
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'LinkModuleId',
     'LinkSiteCategoryId',
     // 'Action'

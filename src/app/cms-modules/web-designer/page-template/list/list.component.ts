@@ -58,7 +58,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Folder',
     'IndexFile',
     // 'Action'
@@ -66,7 +66,7 @@ export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Folder',
     'IndexFile',
     // 'Action'

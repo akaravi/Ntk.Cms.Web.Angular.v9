@@ -62,7 +62,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
 
@@ -71,7 +71,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     // 'Action'
   ];
 

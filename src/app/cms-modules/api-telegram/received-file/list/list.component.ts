@@ -65,7 +65,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Username',
     'StatusWebhook',
     'CreatedDate',
@@ -75,7 +75,7 @@ export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiT
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'Username',
     'StatusWebhook',
     'CreatedDate',

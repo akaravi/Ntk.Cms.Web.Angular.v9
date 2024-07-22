@@ -64,7 +64,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
     'LinkMainImageIdSrc',
     // 'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'ClassName',
     'UpdatedDate',
     // 'Action'
@@ -73,7 +73,7 @@ export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<S
     'LinkMainImageIdSrc',
     // 'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'ClassName',
     'UpdatedDate',
     // 'Action'

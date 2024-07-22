@@ -141,7 +141,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'AppointmentDateFrom',
     'AppointmentDateTo',

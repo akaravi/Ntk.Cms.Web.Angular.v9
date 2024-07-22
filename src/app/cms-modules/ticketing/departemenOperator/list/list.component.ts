@@ -60,7 +60,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
   tabledisplayedColumnsSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'LinkSourceId',
     'CreatedDate',
     'UpdatedDate',
@@ -69,7 +69,7 @@ export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'LinkSourceId',
     'CreatedDate',
     'UpdatedDate',

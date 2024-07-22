@@ -60,14 +60,14 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
     'IconFont',
-    'Title',
+    // 'Title',
     'Description',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'IconFont',
-    'Title',
+    // 'Title',
     'Description',
     // 'Action'
   ];

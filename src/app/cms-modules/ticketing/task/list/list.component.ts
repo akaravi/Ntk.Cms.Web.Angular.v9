@@ -68,7 +68,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
   dataModelEnumTicketStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Title',
+    // 'Title',
     'LinkMemberId',
     'CreatedDate',
     'UpdatedDate',
@@ -76,7 +76,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Title',
+    // 'Title',
     'LinkMemberId',
     'CreatedDate',
     'UpdatedDate',

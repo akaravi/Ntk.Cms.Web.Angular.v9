@@ -65,7 +65,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'
@@ -74,7 +74,7 @@ export class LinkManagementBillboardListComponent extends ListBaseComponent<Link
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    'Title',
+    // 'Title',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'

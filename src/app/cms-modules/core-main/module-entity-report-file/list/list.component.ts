@@ -77,7 +77,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     'Id',
     'RecordStatus',
     'LinkModuleEntityId',
-    'Title',
+    // 'Title',
     'Description',
     'ReportFileType',
     // 'Action'
@@ -87,7 +87,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     'Id',
     'RecordStatus',
     'LinkModuleEntityId',
-    'Title',
+    // 'Title',
     'Description',
     'ReportFileType',
     // 'Action'

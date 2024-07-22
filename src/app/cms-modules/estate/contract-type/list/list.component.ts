@@ -59,7 +59,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Title',
+    // 'Title',
     'HasSalePrice',
     'HasDepositPrice',
     'HasRentPrice',
@@ -68,7 +68,7 @@ export class EstateContractTypeListComponent extends ListBaseComponent<EstateCon
   ];
 
   tabledisplayedColumnsMobileSource: string[] = [
-    'Title',
+    // 'Title',
     'HasSalePrice',
     'HasDepositPrice',
     'HasRentPrice',
