@@ -5,7 +5,7 @@ export class ThemeStoreModel {
   themeMode: ThemeModeType = 'system';
   themeDirection: ThemeDirectionType = 'rtl';
   themeLanguage: string = 'fa';
-  highlight: string = '';
+  themeHighlight: string = '';
   innerWidth: number = 0;
   innerHeight: number = 0;
   mainPagePreloaderShow: boolean = true;
