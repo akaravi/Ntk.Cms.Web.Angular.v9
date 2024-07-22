@@ -116,7 +116,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       //*results */
       var ret = results[0];
       series[0] = ret.totalRowCount;
-      labels[0] = 'فعال'
+      labels[0] = this.translate.instant('TITLE.Active');
       if (ret.isSuccess) {
         this.rowExist = true;
         this.widgetInfoModel.description = this.translate.instant('TITLE.Number_Registered_Property') + ' : ' + ret.totalRowCount;
@@ -130,7 +130,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       //*results */
       ret = results[1];
       series[1] = ret.totalRowCount;
-      labels[1] = 'غیر فعال';
+      labels[1] = this.translate.instant('TITLE.InActive');
       if (ret.isSuccess) {
         this.widgetInfoModel.setItem(new WidgetContentInfoModel('Disable', 1, ret.totalRowCount, '/estate/property/recordstatus/Disable'));
 
@@ -140,7 +140,7 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
       //*results */
       ret = results[2];
       series[2] = ret.totalRowCount;
-      labels[2] = 'نیاز به تایید';
+      labels[2] = this.translate.instant('TITLE.NeedConfirmation');
       if (ret.isSuccess) {
         this.widgetInfoModel.setItem(new WidgetContentInfoModel('Pending', 2, ret.totalRowCount, '/estate/property/recordstatus/Pending'));
       } else {
