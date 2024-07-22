@@ -104,17 +104,12 @@ export class ThemeService {
     return data;
   }
   getThemeDirectionFromLocalStorage(): ThemeDirectionType {
-    if (!localStorage) {
+    if (!localStorage)
       return 'ltr';
-    }
     const data = localStorage.getItem(themeDirectionSKey);
-    if (!data) {
+    if (data && data == 'ltr')
       return 'ltr';
-    }
-    if(data=='ltr')
-      return 'ltr';
-    if(data=='rtl')
-      return 'ltr';
+    return 'ltr';
   }
   public themeMode: BehaviorSubject<ThemeModeType> =
     new BehaviorSubject<ThemeModeType>(
