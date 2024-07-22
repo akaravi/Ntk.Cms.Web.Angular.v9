@@ -2,7 +2,7 @@
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <div class="content">
     <h5 class="font-14 opacity-50">{{widgetInfoModel.title}} <a routerLink="{{widgetInfoModel.link}}"
-        routerLinkActive="active" class="float-end color-highlight">نمایش همه</a></h5>
+        routerLinkActive="active" class="float-end color-highlight">{{"TITLE.Show_All"|translate}}</a></h5>
     <div class="divider mb-3"></div>
 
     <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
@@ -11,19 +11,19 @@
     <div class="list-group list-custom-small list-menu ms-0 me-2">
       <a routerLink="{{widgetInfoModel?.items?.get('Pending')?.link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
-        <span>نیاز به تایید</span>
+        <span>{{"TITLE.NeedConfirmation"|translate}}</span>
         <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("Pending")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
       <a routerLink="{{widgetInfoModel?.items?.get('Disable')?.link}}">
         <i class="fa fa-heart gradient-green color-white"></i>
-        <span>غیر فعال</span>
+        <span>{{"MESSAGE.InActive"|translate}}</span>
         <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("Disable")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
       <a routerLink="{{widgetInfoModel?.items?.get('Available')?.link}}">
         <i class="fa fa-heart gradient-green color-white"></i>
-        <span>فعال</span>
+        <span>{{"TITLE.Active"|translate}}</span>
         <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("Available")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
