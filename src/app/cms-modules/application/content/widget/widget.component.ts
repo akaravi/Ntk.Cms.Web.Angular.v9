@@ -39,7 +39,7 @@ export class ApplicationAppWidgetComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Application');
     this.widgetInfoModel.description = '';
-    this.widgetInfoModel.link = '/application/content';
+    this.widgetInfoModel.link = '/application/app';
     this.onActionStatist();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
       next: (ret) => {
