@@ -15,7 +15,8 @@
   <ng-container cms-tree-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-tree class="category-tree cursor-pointer" [dataSource]="dataSource" [treeControl]="treeControl">
-      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+      <mat-tree-node *matTreeNodeDef="let node; let i = dataIndex;" [class.ntk-tree-odd]="i % 2"
+        [class.ntk-tree-even]="!(i % 2)" matTreeNodePadding>
         <button type="button" mat-icon-button disabled
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"></button>
         <mat-checkbox class="checklist-leaf-node" [checked]="checklistSelection.isSelected(node)"

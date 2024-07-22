@@ -10,7 +10,8 @@
     <button type="button" *ngIf="dataModelResult?.access?.accessAddRow" (click)="onActionAdd()"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD' |
       translate}}</button>
-    <button type="button" *ngIf="dataModelResult?.access?.accessEditRow && dataModelSelect.id?.length>0" (click)="onActionEdit()"
+    <button type="button" *ngIf="dataModelResult?.access?.accessEditRow && dataModelSelect.id?.length>0"
+      (click)="onActionEdit()"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-magenta">{{'ACTION.EDIT'
       |
       translate}}</button>
@@ -23,15 +24,16 @@
   <ng-container cms-tree-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-tree class="category-tree cursor-pointer" [dataSource]="dataSource" [treeControl]="treeControl">
-      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="onActionSelect(node)"
-        [ngStyle]="{'background': dataModelSelect.id?.length>0 && dataModelSelect.id === node.id ? '#d3d3da' : '' }">
+      <mat-tree-node *matTreeNodeDef="let node; let i = dataIndex;" [class.ntk-tree-odd]="i % 2"
+        [class.ntk-tree-even]="!(i % 2)" matTreeNodePadding (click)="onActionSelect(node)"
+        [class.ntk-tree-selected]="dataModelSelect.id?.length>0 && dataModelSelect.id === node.id">
         <button type="button" mat-icon-button disabled></button>
         {{node.title}}
       </mat-tree-node>
       <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
         <li>
           <div class="mat-tree-node" (click)="onActionSelect(node)"
-            [ngStyle]="{'background': dataModelSelect.id?.length>0 && dataModelSelect.id === node.id ? '#d3d3da' : '' }">
+            [class.ntk-tree-selected]="dataModelSelect.id?.length>0 && dataModelSelect.id === node.id">
             <button type="button" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.title"
               (click)="onActionSelect(node)">
               <mat-icon class="mat-icon-rtl-mirror">

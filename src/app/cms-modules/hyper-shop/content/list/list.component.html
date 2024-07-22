@@ -238,17 +238,18 @@
       <mat-row *matRowDef="let row; columns: ['expandedTitle']; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
         [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-        [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '' }">
+        [class.ntk-row-selected]="row.id === tableRowSelected?.id">
       </mat-row>
       <mat-row *matRowDef="let row; columns: tabledisplayedColumns; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
         [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-        [ngStyle]="{'background': row.code === tableRowSelected?.code ? '#d3d3da' : '' }">
+        [class.ntk-row-selected]="row.code === tableRowSelected?.code ">
       </mat-row>
       <mat-row *matRowDef="let row; columns: ['expandedDetail']; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
         [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
         (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
-        [ngStyle]="{'background': row.id === tableRowSelected?.id ? '#d3d3da' : '', 'display': row.expanded === true ? '' : 'none' }">
+        [class.ntk-row-selected]="row.id === tableRowSelected?.id"
+        [ngStyle]="{'display': row.expanded === true ? '' : 'none' }">
       </mat-row>
     </mat-table>
 

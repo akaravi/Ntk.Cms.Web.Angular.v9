@@ -121,15 +121,146 @@
   font-size: large;
 }
 
-.ntk-row-odd {
-  //background-color: white !important;
-  background: rgba(0, 0, 0, 0.025) !important;
+// .ntk-row-odd {
+//   //background-color: white !important;
+//   background: rgba(0, 0, 0, 0.020) !important;
+// }
+
+// .ntk-row-even {
+//   //background-color: #eee !important;
+//   background: rgba(0, 0, 0, 0.050) !important;
+// }
+
+/*mat-table Color Settings*/
+.theme-light mat-table {
+  color: #0f1117 !important;
 }
 
-.ntk-row-even {
-  //background-color: #eee !important;
-  //background: rgba(0, 0, 0, 0.025) !important;
+.theme-light mat-header-row {
+  color: #0f1117 !important;
 }
+
+.theme-light mat-row {
+  color: #0f1117 !important;
+}
+
+.theme-light mat-row {
+  background: rgba(0, 0, 0, 0.020) !important;
+}
+
+.theme-light mat-row.ntk-row-odd {
+  background: rgba(0, 0, 0, 0.020) !important;
+}
+
+.theme-light mat-row.ntk-row-even {
+  background: rgba(0, 0, 0, 0.050) !important;
+}
+
+.theme-light mat-row.ntk-row-selected {
+  background: #d3d3da !important;
+}
+
+
+.theme-light mat-paginator {
+  color: #0f1117 !important;
+}
+
+.theme-dark mat-table {
+  color: #fff;
+  background-color: #0f1117 !important;
+}
+
+.theme-dark mat-header-row {
+  color: #fff;
+  background-color: #0f1117 !important;
+}
+
+.theme-dark mat-row {
+  color: #fff;
+  background-color: #1b1e29 !important;
+}
+
+.theme-dark mat-row.ntk-row-odd {
+  color: #fff;
+  background-color: #1b1e29 !important;
+}
+
+.theme-dark mat-row.ntk-row-even {
+  color: #fff;
+  background-color: #272b37 !important;
+}
+
+.theme-dark mat-row.ntk-row-selected {
+  color: #fff;
+  background: #5f6a8b !important;
+}
+
+.theme-dark mat-paginator {
+  color: #fff;
+  background-color: #0f1117 !important;
+}
+
+.theme-dark mat-paginator button {
+  background-color: #fff !important;
+}
+
+/*mat-table Color Settings*/
+
+/*mat-tree Color Settings*/
+.theme-light mat-tree {
+  color: #0f1117 !important;
+}
+
+.theme-light mat-tree-node {
+  color: #0f1117 !important;
+}
+
+.theme-light mat-tree-node {
+  background: rgba(0, 0, 0, 0.020) !important;
+}
+
+.theme-light mat-tree-node.ntk-tree-odd {
+  background: rgba(0, 0, 0, 0.020) !important;
+}
+
+.theme-light mat-tree-node.ntk-tree-even {
+  background: rgba(0, 0, 0, 0.050) !important;
+}
+
+.theme-light mat-tree-node.ntk-tree-selected {
+  background: #d3d3da !important;
+}
+
+
+.theme-dark mat-tree {
+  color: #fff;
+  background-color: #0f1117 !important;
+}
+
+.theme-dark mat-tree-node {
+  color: #fff;
+  background-color: #1b1e29 !important;
+}
+
+.theme-dark mat-tree-node.ntk-tree-odd {
+  color: #fff;
+  background-color: #1b1e29 !important;
+}
+
+.theme-dark mat-tree-node.ntk-tree-even {
+  color: #fff;
+  background-color: #272b37 !important;
+}
+
+.theme-dark mat-tree-node.ntk-tree-selected {
+  color: #fff;
+  background: #5f6a8b !important;
+}
+
+
+
+
+/*mat-tree Color Settings*/
 
 //  .ntk-col-b{
 // @extend .ali;
@@ -145,7 +276,7 @@
  NTK optimaze
 */
 .cms-RecordStatusEnum-cell-1 {
-  background-color: white !important;
+
   font-weight: bold !important;
   color: green !important;
 }
@@ -181,7 +312,6 @@
 }
 
 .cms-RecordStatusEnum-selector-1 {
-  background-color: white !important;
   font-weight: bold !important;
   color: #000 !important;
 }
