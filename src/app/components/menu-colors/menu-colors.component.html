@@ -2,7 +2,7 @@
   [style.height]="this.themeStore.innerHeight>480?'480px':this.themeStore.innerHeight-50+'px'">
   <div class="menu-title">
     <p class="color-highlight font-600">Choose your Favorite</p>
-    <h1>Highlight {{this.themeStore.highlight}}</h1>
+    <h1>Highlight {{this.themeStore.themeHighlight}}</h1>
     <a (click)="themeStore.dataMenu=''" class="close-menu"><i class="fa fa-times-circle"></i></a>
   </div>
   <div class="divider divider-margins mt-3 mb-2"></div>
@@ -11,27 +11,27 @@
       <div class="col-6">
         <div class="list-group list-custom-small list-menu">
           <a (click)="onActionHighLightSwitch('blue');"
-            [ngClass]="this.themeStore.highlight==='blue'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='blue'?'highlight-active':''">
             <i class="gradient-blue color-white" style="cursor: pointer;"></i>
             <span>Blue</span>
           </a>
           <a (click)="onActionHighLightSwitch('red');"
-            [ngClass]="this.themeStore.highlight==='red'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='red'?'highlight-active':''">
             <i class="gradient-red color-white" style="cursor: pointer;"></i>
             <span>Red</span>
           </a>
           <a (click)="onActionHighLightSwitch('orange');"
-            [ngClass]="this.themeStore.highlight==='orange'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='orange'?'highlight-active':''">
             <i class="gradient-orange color-white" style="cursor: pointer;"></i>
             <span>Orange</span>
           </a>
           <a (click)="onActionHighLightSwitch('green');"
-            [ngClass]="this.themeStore.highlight==='green'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='green'?'highlight-active':''">
             <i class="gradient-green color-white" style="cursor: pointer;"></i>
             <span>Green</span>
           </a>
           <a (click)="onActionHighLightSwitch('yellow');"
-            [ngClass]="this.themeStore.highlight==='yellow'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='yellow'?'highlight-active':''">
             <i class="gradient-yellow color-white" style="cursor: pointer;"></i>
             <span>Yellow</span>
           </a>
@@ -40,27 +40,27 @@
       <div class="col-6">
         <div class="list-group list-custom-small list-menu">
           <a (click)="onActionHighLightSwitch('dark');"
-            [ngClass]="this.themeStore.highlight==='dark'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='dark'?'highlight-active':''">
             <i class="gradient-dark color-white" style="cursor: pointer;"></i>
             <span>Dark</span>
           </a>
           <a (click)="onActionHighLightSwitch('gray');"
-            [ngClass]="this.themeStore.highlight==='gray'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='gray'?'highlight-active':''">
             <i class="gradient-gray color-white" style="cursor: pointer;"></i>
             <span>Gray</span>
           </a>
           <a (click)="onActionHighLightSwitch('teal');"
-            [ngClass]="this.themeStore.highlight==='teal'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='teal'?'highlight-active':''">
             <i class="gradient-teal color-white" style="cursor: pointer;"></i>
             <span>Teal</span>
           </a>
           <a (click)="onActionHighLightSwitch('magenta');"
-            [ngClass]="this.themeStore.highlight==='magenta'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='magenta'?'highlight-active':''">
             <i class="gradient-magenta color-white" style="cursor: pointer;"></i>
             <span>Plum</span>
           </a>
           <a (click)="onActionHighLightSwitch('brown');"
-            [ngClass]="this.themeStore.highlight==='brown'?'highlight-active':''">
+            [ngClass]="this.themeStore.themeHighlight==='brown'?'highlight-active':''">
             <i class="gradient-brown color-white" style="cursor: pointer;"></i>
             <span>Brown</span>
           </a>

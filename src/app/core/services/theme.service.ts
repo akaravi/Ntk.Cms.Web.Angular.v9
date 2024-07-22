@@ -10,36 +10,32 @@ export type ThemeDirectionType = 'ltr' | 'rtl';
 const themeModeLSKey = 'theme_mode';
 const themeHighLightLSKey = 'theme_highlight';
 const themeDirectionSKey = 'theme_direction';
+const themeLanguageSKey = 'theme_language';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  constructor(
-    private cmsStoreService: CmsStoreService,
-  ) {
+  constructor(private cmsStoreService: CmsStoreService,) {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-
     if (storeSnapshot.themeStore)
       this.themeStore = storeSnapshot.themeStore;
   }
 
   public onInitAppComponent() {
     this.cmsStoreService.getState().subscribe((value) => {
-
       if (value.themeStore)
         this.themeStore = value.themeStore;
-
       if (value.themeStore?.themeMode) {
         setTimeout(() => {
           this.updateModeHtmlDom(value.themeStore);
-        }, 100);
+        }, 10);
       }
-
-      if (value.themeStore?.highlight) {
-        setTimeout(() => {
-          this.updateHighLightHtmlDom(value.themeStore.highlight);
-        }, 200);
-      }
+      // if (value.themeStore?.themeHighlight) {
+      //   setTimeout(() => {
+      //     this.updateHighLightHtmlDom(value.themeStore.themeHighlight);
+      //   }, 10);
+      // }
 
     });
     this.updateMode(this.themeMode.value);
@@ -103,6 +99,17 @@ export class ThemeService {
     }
     return data;
   }
+  getThemeLanguageFromLocalStorage(): string {
+    if (!localStorage) {
+      return 'en';
+    }
+    const data = localStorage.getItem(themeLanguageSKey);
+    if (!data) {
+      return 'en';
+    }
+    return data;
+  }
+
   getThemeDirectionFromLocalStorage(): ThemeDirectionType {
     if (!localStorage)
       return 'ltr';
@@ -119,6 +126,11 @@ export class ThemeService {
     new BehaviorSubject<string>(
       this.getThemeHighLightFromLocalStorage()
     );
+  public themeLanguage: BehaviorSubject<string> =
+    new BehaviorSubject<string>(
+      this.getThemeLanguageFromLocalStorage()
+    );
+
   public themeDirection: BehaviorSubject<ThemeDirectionType> =
     new BehaviorSubject<ThemeDirectionType>(
       this.getThemeDirectionFromLocalStorage()
@@ -178,6 +190,22 @@ export class ThemeService {
       document.getElementsByTagName('html')[0].setAttribute('direction', 'rtl');
       document.getElementsByTagName('html')[0].setAttribute('style', 'direction: rtl');
     }
+
+    if (model?.themeHighlight.length > 0) {
+      /* HighLigh*/
+      var pageHighlight = document.querySelectorAll('.page-highlight');
+      if (pageHighlight.length) {
+        pageHighlight.forEach(function (e) { e.remove(); });
+      }
+      var loadHighlight = document.createElement("link");
+      loadHighlight.rel = "stylesheet";
+      loadHighlight.className = "page-highlight";
+      loadHighlight.type = "text/css";
+      loadHighlight.href = 'assets/styles/highlights/highlight_' + model.themeHighlight + '.css';
+      document.getElementsByTagName("head")[0].appendChild(loadHighlight);
+      //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
+      /* HighLigh*/
+    }
   }
   public onActionScrollTopPage(v: boolean, d = 0) {
     if (v == false) {
@@ -235,7 +263,7 @@ export class ThemeService {
     if (localStorage) {
       localStorage.setItem(themeHighLightLSKey, colorStr);
     }
-    this.themeStore.highlight = colorStr;
+    this.themeStore.themeHighlight = colorStr;
     this.cmsStoreService.setState({ themeStore: this.themeStore });
   }
   public updateDirection(model: ThemeDirectionType) {
@@ -248,22 +276,17 @@ export class ThemeService {
     this.themeStore.themeDirection = model;
     this.cmsStoreService.setState({ themeStore: this.themeStore });
   }
-  private updateHighLightHtmlDom(colorStr: string) {
-    if (!colorStr || colorStr.length == 0)
+  public updateLanguage(model: string) {
+    if (!model)
       return;
-    /* HighLigh*/
-    var pageHighlight = document.querySelectorAll('.page-highlight');
-    if (pageHighlight.length) { pageHighlight.forEach(function (e) { e.remove(); }); }
-
-    var loadHighlight = document.createElement("link");
-    loadHighlight.rel = "stylesheet";
-    loadHighlight.className = "page-highlight";
-    loadHighlight.type = "text/css";
-    loadHighlight.href = 'assets/styles/highlights/highlight_' + colorStr + '.css';
-    document.getElementsByTagName("head")[0].appendChild(loadHighlight);
-    //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
-    /* HighLigh*/
+    this.themeLanguage.next(model);
+    if (localStorage) {
+      localStorage.setItem(themeLanguageSKey, model);
+    }
+    this.themeStore.themeLanguage = model;
+    this.cmsStoreService.setState({ themeStore: this.themeStore });
   }
+
   public cleanDataMenu(): void {
     if (this.themeStore?.dataMenu?.length > 0) {
       this.themeStore.dataMenu = '';
