@@ -16,7 +16,8 @@ jobs:
     strategy:
       matrix:
         #node-version: [12.x, 14.x, 16.x]
-        node-version: [20.x]
+        #node-version: [20.x]
+        node-version: [22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,7 +32,7 @@ jobs:
         run: npm ci --force
 
       - name: Build
-        run: npm run build-prod
+        run: npm run build-prod2
         #run: npm run build --if-present
       #- run: npm test
 
@@ -57,13 +58,13 @@ jobs:
           #headers: '{"repository": "joelwmale/webhook-action"}'
           #body: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
       - name: Webhook Plesk
-      #  v18
+        #  v18
         uses: joelwmale/webhook-action@master
         with:
           url: "${{vars.PLESK_WEBHOOK_amlakalonak_ir}}"
 
       - name: Webhook Plesk
-      #  v15
+        #  v15
         uses: joelwmale/webhook-action@master
         with:
           url: "${{vars.PLESK_WEBHOOK_adminpanel_ir}}"
