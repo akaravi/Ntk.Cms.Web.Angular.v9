@@ -4,12 +4,12 @@ import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { ProcessInfoModel } from '../models/ProcessInfoModel';
-
 
 export type ThemeModeType = 'dark' | 'light' | 'system';
+export type ThemeDirectionType = 'ltr' | 'rtl';
 const themeModeLSKey = 'theme_mode';
 const themeHighLightLSKey = 'theme_highlight';
+const themeDirectionSKey = 'theme_direction';
 @Injectable({
   providedIn: 'root',
 })
@@ -31,7 +31,7 @@ export class ThemeService {
 
       if (value.themeStore?.themeMode) {
         setTimeout(() => {
-          this.updateModeHtmlDom(value.themeStore.themeMode);
+          this.updateModeHtmlDom(value.themeStore);
         }, 100);
       }
 
@@ -103,6 +103,19 @@ export class ThemeService {
     }
     return data;
   }
+  getThemeDirectionFromLocalStorage(): ThemeDirectionType {
+    if (!localStorage) {
+      return 'ltr';
+    }
+    const data = localStorage.getItem(themeDirectionSKey);
+    if (!data) {
+      return 'ltr';
+    }
+    if(data=='ltr')
+      return 'ltr';
+    if(data=='rtl')
+      return 'ltr';
+  }
   public themeMode: BehaviorSubject<ThemeModeType> =
     new BehaviorSubject<ThemeModeType>(
       this.getThemeModeFromLocalStorage()
@@ -111,7 +124,10 @@ export class ThemeService {
     new BehaviorSubject<string>(
       this.getThemeHighLightFromLocalStorage()
     );
-
+  public themeDirection: BehaviorSubject<ThemeDirectionType> =
+    new BehaviorSubject<ThemeDirectionType>(
+      this.getThemeDirectionFromLocalStorage()
+    );
   public getSystemMode = (): ThemeModeType => {
     return window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light'
   }
@@ -137,8 +153,8 @@ export class ThemeService {
     if (environment.consoleLog)
       console.log('windows Width :', window.innerWidth, 'windows Height :', window.innerHeight);
   }
-  private updateModeHtmlDom(updatedMode: ThemeModeType) {
-    if (updatedMode == 'dark') {
+  private updateModeHtmlDom(model: ThemeStoreModel) {
+    if (model?.themeMode == 'dark') {
       document.documentElement.querySelectorAll('.theme-light').forEach((element) => {
         element.classList.remove('theme-light');
         element.classList.add('theme-dark');
@@ -148,6 +164,24 @@ export class ThemeService {
         element.classList.remove('theme-dark');
         element.classList.add('theme-light');
       });
+    }
+
+    if (model?.themeDirection == 'ltr') {
+      document.documentElement.querySelectorAll('.theme-rtl').forEach((element) => {
+        element.classList.remove('theme-rtl');
+        element.classList.add('theme-ltr');
+      });
+      document.getElementsByTagName('html')[0].setAttribute('dir', 'ltr');
+      document.getElementsByTagName('html')[0].setAttribute('direction', 'ltr');
+      document.getElementsByTagName('html')[0].setAttribute('style', 'direction: ltr');
+    } else {
+      document.documentElement.querySelectorAll('.theme-ltr').forEach((element) => {
+        element.classList.remove('theme-ltr');
+        element.classList.add('theme-rtl');
+      });
+      document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
+      document.getElementsByTagName('html')[0].setAttribute('direction', 'rtl');
+      document.getElementsByTagName('html')[0].setAttribute('style', 'direction: rtl');
     }
   }
   public onActionScrollTopPage(v: boolean, d = 0) {
@@ -209,10 +243,20 @@ export class ThemeService {
     this.themeStore.highlight = colorStr;
     this.cmsStoreService.setState({ themeStore: this.themeStore });
   }
+  public updateDirection(model: ThemeDirectionType) {
+    if (!model)
+      return;
+    this.themeHighLight.next(model);
+    if (localStorage) {
+      localStorage.setItem(themeDirectionSKey, model);
+    }
+    this.themeStore.themeDirection = model;
+    this.cmsStoreService.setState({ themeStore: this.themeStore });
+  }
   private updateHighLightHtmlDom(colorStr: string) {
     if (!colorStr || colorStr.length == 0)
       return;
-
+    /* HighLigh*/
     var pageHighlight = document.querySelectorAll('.page-highlight');
     if (pageHighlight.length) { pageHighlight.forEach(function (e) { e.remove(); }); }
 
@@ -223,6 +267,7 @@ export class ThemeService {
     loadHighlight.href = 'assets/styles/highlights/highlight_' + colorStr + '.css';
     document.getElementsByTagName("head")[0].appendChild(loadHighlight);
     //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
+    /* HighLigh*/
   }
   public cleanDataMenu(): void {
     if (this.themeStore?.dataMenu?.length > 0) {

@@ -11,6 +11,7 @@ import {
 import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CmsStoreService } from '../reducers/cmsStore.service';
+import { ThemeService } from '../services/theme.service';
 const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,7 @@ export class TokenHelper implements OnDestroy {
     private cmsApiStore: NtkCmsApiStoreService,
     public translate: TranslateService,
     private cmsStoreService: CmsStoreService,
+    private themeService: ThemeService,
     private router: Router,
   ) {
 
@@ -84,22 +86,13 @@ export class TokenHelper implements OnDestroy {
       return state.ntkCmsAPiState.tokenInfo;
     });
   }
-  directionTheme = '';
   setDirectionThemeBylanguage(language) {
     if (!language || language.length === 0)
       language = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate.getDefaultLang() || 'fa';// this.cmsTranslationService.getSelectedLanguage()
     if (language === 'ar' || language === 'fa') {
-      document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
-      document.getElementsByTagName('html')[0].setAttribute('direction', 'rtl');
-      document.getElementsByTagName('html')[0].setAttribute('style', 'direction: rtl');
-      this.directionTheme = 'rtl';
-      //   this.document.getElementById('cssdir').setAttribute('href', './assets/sass/style.angular.rtl.css');
+      this.themeService.updateDirection("ltr");
     } else {
-      document.getElementsByTagName('html')[0].setAttribute('dir', 'ltr');
-      document.getElementsByTagName('html')[0].setAttribute('direction', 'ltr');
-      document.getElementsByTagName('html')[0].setAttribute('style', 'direction: ltr');
-      this.directionTheme = 'ltr';
-      //   this.document.getElementById('cssdir').setAttribute('href', './assets/sass/style.angular.css');
+      this.themeService.updateDirection("rtl");
     }
     document.getElementsByTagName('html')[0].setAttribute('lang', language);
   }

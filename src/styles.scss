@@ -130,6 +130,13 @@
 //   //background-color: #eee !important;
 //   background: rgba(0, 0, 0, 0.050) !important;
 // }
+.theme-rtl {
+  direction: rtl !important;
+}
+
+.theme-ltr {
+  direction: ltr !important;
+}
 
 /*mat-table Color Settings*/
 .theme-light mat-table {

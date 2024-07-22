@@ -1,8 +1,10 @@
-import { ThemeModeType } from "../services/theme.service";
+import { ThemeDirectionType, ThemeModeType } from "../services/theme.service";
 
 export class ThemeStoreModel {
   dataMenu: string = '';
   themeMode: ThemeModeType = 'system';
+  themeDirection: ThemeDirectionType = 'rtl';
+  themeLanguage: string = 'fa';
   highlight: string = '';
   innerWidth: number = 0;
   innerHeight: number = 0;
