@@ -8,19 +8,19 @@
     <div class="list-group list-custom-small list-menu ms-0 me-2">
       <a routerLink="{{widgetInfoModel?.items?.get('Read')?.link}}" class="menu-active">
         <i class="fa fa-comment gradient-blue color-white"></i>
-        <span>خوانده شده</span>
+        <span>{{"TITLE.Read"|translate}}</span>
         <span class="badge gradient-blue color-white">{{widgetInfoModel?.items?.get("Read")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
       <a routerLink="{{widgetInfoModel?.items?.get('Unread')?.link}}">
         <i class="fa fa-heart gradient-green color-white"></i>
-        <span>خوانده نشده</span>
+        <span>{{"TITLE.Unread"|translate}}</span>
         <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("Unread")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
       <a routerLink="{{widgetInfoModel?.items?.get('Answered')?.link}}">
         <i class="fa fa-heart gradient-green color-white"></i>
-        <span>جواب داده شده</span>
+        <span>{{"TITLE.Answered"|translate}}</span>
         <span class="badge gradient-green color-white">{{widgetInfoModel?.items?.get("Answered")?.count}}</span>
         <i class="fa fa-angle-left"></i>
       </a>
