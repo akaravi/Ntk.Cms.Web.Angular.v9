@@ -281,7 +281,10 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{row.title}}
+         {{'TITLE.FULLNAME'| translate}} : {{row.virtual_CmsUser.name +' _ '+ row.virtual_CmsUser.lastName}}
+         <br>
+         {{'TITLE.SITE'| translate}} : {{row.virtual_CmsSite.domain }}
+
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->

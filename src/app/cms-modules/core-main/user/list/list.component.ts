@@ -87,14 +87,14 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'LinkMainImageIdSrc',
+    // 'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
     'Name',
     'LastName',
-    'CompanyName',
-    'email',
-    'mobile',
+    // 'CompanyName',
+    // 'email',
+    // 'mobile',
     'CreatedDate',
     'action_menu',
   ];
