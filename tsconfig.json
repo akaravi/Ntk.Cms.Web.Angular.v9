@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": false, //default is true karavi change
-    "noImplicitReturns": true, //default is true
+    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -27,7 +27,7 @@
     "useDefineForClassFields": false,
     "skipLibCheck": true,
     "noImplicitOverride": false, //default is true karavi change
-    "noPropertyAccessFromIndexSignature": false //default is true
+    "noPropertyAccessFromIndexSignature": false //default is true //if true  settings.username This would need to be settings["username"];
     /*Diffirent 15 to 18 */
   },
   "angularCompilerOptions": {

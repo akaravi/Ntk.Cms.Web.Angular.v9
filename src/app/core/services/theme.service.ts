@@ -1,10 +1,8 @@
-
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-
 export type ThemeModeType = 'dark' | 'light' | 'system';
 export type ThemeDirectionType = 'ltr' | 'rtl';
 const themeModeLSKey = 'theme_mode';
@@ -26,21 +24,16 @@ export class ThemeService {
     this.cmsStoreService.getState().subscribe((value) => {
       if (value.themeStore)
         this.themeStore = value.themeStore;
-      if (value.themeStore?.themeMode) {
-        setTimeout(() => {
-          this.updateModeHtmlDom(value.themeStore);
-        }, 10);
-      }
-      // if (value.themeStore?.themeHighlight) {
-      //   setTimeout(() => {
-      //     this.updateHighLightHtmlDom(value.themeStore.themeHighlight);
-      //   }, 10);
-      // }
+      setTimeout(() => {
+        this.updateModeHtmlDom(value.themeStore);
+        if (value.themeStore)
+          this.themeStoreOld = value.themeStore;
+      }, 10);
 
     });
     this.updateMode(this.themeMode.value);
     this.updateHighLight(this.themeHighLight.value);
-
+    this.updateDirection(this.themeDirection.value);
   }
   public afterViewInitAppComponent() {
 
@@ -70,6 +63,7 @@ export class ThemeService {
     }
   }
   themeStore = new ThemeStoreModel()
+  themeStoreOld = new ThemeStoreModel()
   getThemeModeFromLocalStorage(): ThemeModeType {
     if (!localStorage) {
       return 'light';
@@ -109,7 +103,6 @@ export class ThemeService {
     }
     return data;
   }
-
   getThemeDirectionFromLocalStorage(): ThemeDirectionType {
     if (!localStorage)
       return 'ltr';
@@ -162,50 +155,50 @@ export class ThemeService {
   }
   private updateModeHtmlDom(model: ThemeStoreModel) {
     /**theme-dark */
-    if (model?.themeMode == 'dark') {
-      document.documentElement.querySelectorAll('.theme-light').forEach((element) => {
-        element.classList.remove('theme-light');
-        element.classList.add('theme-dark');
-      });
-    } else {
-      document.documentElement.querySelectorAll('.theme-dark').forEach((element) => {
-        element.classList.remove('theme-dark');
-        element.classList.add('theme-light');
-      });
+    if (this.themeStoreOld.themeMode != model?.themeMode) {
+      if (model?.themeMode == 'dark') {
+        document.documentElement.querySelectorAll('.theme-light').forEach((element) => {
+          element.classList.remove('theme-light');
+          element.classList.add('theme-dark');
+        });
+      } else {
+        document.documentElement.querySelectorAll('.theme-dark').forEach((element) => {
+          element.classList.remove('theme-dark');
+          element.classList.add('theme-light');
+        });
+      }
     }
     /**theme-dark */
     /**theme-rtl */
-    if (model?.themeDirection == 'ltr') {
-      document.documentElement.querySelectorAll('.theme-rtl').forEach((element) => {
-        element.classList.remove('theme-rtl');
-        element.classList.add('theme-ltr');
-      });
-      // document.getElementsByTagName('html')[0].setAttribute('dir', 'ltr');
-      // document.getElementsByTagName('html')[0].setAttribute('direction', 'ltr');
-      // document.getElementsByTagName('html')[0].setAttribute('style', 'direction: ltr');
-    } else {
-      document.documentElement.querySelectorAll('.theme-ltr').forEach((element) => {
-        element.classList.remove('theme-ltr');
-        element.classList.add('theme-rtl');
-      });
-      // document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
-      // document.getElementsByTagName('html')[0].setAttribute('direction', 'rtl');
-      // document.getElementsByTagName('html')[0].setAttribute('style', 'direction: rtl');
+    if (this.themeStoreOld.themeDirection != model?.themeDirection) {
+      if (model?.themeDirection == 'ltr') {
+        document.documentElement.querySelectorAll('.theme-rtl').forEach((element) => {
+          element.classList.remove('theme-rtl');
+          element.classList.add('theme-ltr');
+        });
+      } else {
+        document.documentElement.querySelectorAll('.theme-ltr').forEach((element) => {
+          element.classList.remove('theme-ltr');
+          element.classList.add('theme-rtl');
+        });
+      }
     }
     /**theme-rtl */
     /* HighLigh*/
-    if (model?.themeHighlight.length > 0) {
-      var pageHighlight = document.querySelectorAll('.page-highlight');
-      if (pageHighlight.length) {
-        pageHighlight.forEach(function (e) { e.remove(); });
+    if (this.themeStoreOld.themeHighlight != model?.themeHighlight) {
+      if (model?.themeHighlight.length > 0) {
+        var pageHighlight = document.querySelectorAll('.page-highlight');
+        if (pageHighlight.length) {
+          pageHighlight.forEach(function (e) { e.remove(); });
+        }
+        var loadHighlight = document.createElement("link");
+        loadHighlight.rel = "stylesheet";
+        loadHighlight.className = "page-highlight";
+        loadHighlight.type = "text/css";
+        loadHighlight.href = 'assets/styles/highlights/highlight_' + model.themeHighlight + '.css';
+        document.getElementsByTagName("head")[0].appendChild(loadHighlight);
+        //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
       }
-      var loadHighlight = document.createElement("link");
-      loadHighlight.rel = "stylesheet";
-      loadHighlight.className = "page-highlight";
-      loadHighlight.type = "text/css";
-      loadHighlight.href = 'assets/styles/highlights/highlight_' + model.themeHighlight + '.css';
-      document.getElementsByTagName("head")[0].appendChild(loadHighlight);
-      //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
     }
     /* HighLigh*/
   }
@@ -271,7 +264,7 @@ export class ThemeService {
   public updateDirection(model: ThemeDirectionType) {
     if (!model)
       return;
-    this.themeHighLight.next(model);
+    this.themeDirection.next(model);
     if (localStorage) {
       localStorage.setItem(themeDirectionSKey, model);
     }
