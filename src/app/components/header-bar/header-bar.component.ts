@@ -94,7 +94,7 @@ export class HeaderBarComponent implements OnInit {
 
   }
   onActionThemeSwitch(themeMode: ThemeModeType) {
-    this.themeService.updateMode(themeMode);
+    this.themeService.updateThemeModeType(themeMode);
   }
   onActionButtonMemo(): void {
     //open popup

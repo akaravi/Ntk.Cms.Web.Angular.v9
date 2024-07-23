@@ -122,7 +122,7 @@ export class MenuMainComponent implements OnInit {
     }
   }
   onActionThemeSwitch(themeMode: ThemeModeType) {
-    this.themeService.updateMode(themeMode);
+    this.themeService.updateThemeModeType(themeMode);
   }
 
   async onActionLogout() {

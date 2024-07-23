@@ -90,9 +90,9 @@ export class TokenHelper implements OnDestroy {
     if (!language || language.length === 0)
       language = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate.getDefaultLang() || 'fa';// this.cmsTranslationService.getSelectedLanguage()
     if (language === 'ar' || language === 'fa') {
-      this.themeService.updateDirection("ltr");
+      this.themeService.updateThemeDirection("ltr");
     } else {
-      this.themeService.updateDirection("rtl");
+      this.themeService.updateThemeDirection("rtl");
     }
     document.getElementsByTagName('html')[0].setAttribute('lang', language);
   }

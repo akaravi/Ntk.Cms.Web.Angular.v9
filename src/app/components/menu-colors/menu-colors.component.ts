@@ -28,6 +28,6 @@ export class MenuColorsComponent implements OnInit {
 
   }
   onActionHighLightSwitch(colorStr: string) {
-    this.themeService.updateHighLight(colorStr);
+    this.themeService.updateThemeHighLight(colorStr);
   }
 }

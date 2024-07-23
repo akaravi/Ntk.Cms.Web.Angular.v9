@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
@@ -24,19 +23,16 @@ export class ThemeService {
     this.cmsStoreService.getState().subscribe((value) => {
       if (value.themeStore)
         this.themeStore = value.themeStore;
-      setTimeout(() => {
-        this.updateModeHtmlDom(value.themeStore);
-        if (value.themeStore)
-          this.themeStoreOld = value.themeStore;
-      }, 10);
-
+      else
+        this.themeStore = new ThemeStoreModel();
     });
-    this.updateMode(this.themeMode.value);
-    this.updateHighLight(this.themeHighLight.value);
-    this.updateDirection(this.themeDirection.value);
+
+    this.updateThemeModeType(this.getThemeModeTypeFromLocalStorage(), true);
+    this.updateThemeHighLight(this.getThemeHighLightFromLocalStorage(), true);
+    this.updateThemeDirection(this.getThemeDirectionFromLocalStorage(), true);
+    this.updateThemeLanguage(this.getThemeLanguageFromLocalStorage(), true);
   }
   public afterViewInitAppComponent() {
-
     setTimeout(() => { this.htmlSelectorAddEvent(); }, 200);
   }
   onNavigationStartAppComponent(): void {
@@ -63,8 +59,8 @@ export class ThemeService {
     }
   }
   themeStore = new ThemeStoreModel()
-  themeStoreOld = new ThemeStoreModel()
-  getThemeModeFromLocalStorage(): ThemeModeType {
+
+  private getThemeModeTypeFromLocalStorage(): ThemeModeType {
     if (!localStorage) {
       return 'light';
     }
@@ -83,7 +79,7 @@ export class ThemeService {
 
     return 'system';
   };
-  getThemeHighLightFromLocalStorage(): string {
+  private getThemeHighLightFromLocalStorage(): string {
     if (!localStorage) {
       return '';
     }
@@ -93,7 +89,7 @@ export class ThemeService {
     }
     return data;
   }
-  getThemeLanguageFromLocalStorage(): string {
+  private getThemeLanguageFromLocalStorage(): string {
     if (!localStorage) {
       return 'en';
     }
@@ -103,7 +99,7 @@ export class ThemeService {
     }
     return data;
   }
-  getThemeDirectionFromLocalStorage(): ThemeDirectionType {
+  private getThemeDirectionFromLocalStorage(): ThemeDirectionType {
     if (!localStorage)
       return 'ltr';
     const data = localStorage.getItem(themeDirectionSKey);
@@ -111,35 +107,118 @@ export class ThemeService {
       return 'ltr';
     return 'ltr';
   }
-  public themeMode: BehaviorSubject<ThemeModeType> =
-    new BehaviorSubject<ThemeModeType>(
-      this.getThemeModeFromLocalStorage()
-    );
-  public themeHighLight: BehaviorSubject<string> =
-    new BehaviorSubject<string>(
-      this.getThemeHighLightFromLocalStorage()
-    );
-  public themeLanguage: BehaviorSubject<string> =
-    new BehaviorSubject<string>(
-      this.getThemeLanguageFromLocalStorage()
-    );
 
-  public themeDirection: BehaviorSubject<ThemeDirectionType> =
-    new BehaviorSubject<ThemeDirectionType>(
-      this.getThemeDirectionFromLocalStorage()
-    );
   public getSystemMode = (): ThemeModeType => {
     return window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light'
   }
-  public updateMode(_mode: ThemeModeType) {
+  public updateThemeModeType(_mode: ThemeModeType, firstRun = false) {
+    if (!_mode)
+      _mode = 'system';
     const updatedMode = _mode === 'system' ? this.getSystemMode() : _mode;
-    this.themeMode.next(updatedMode);
-    if (localStorage) {
+    if (!firstRun && this.themeStore.themeMode == updatedMode)
+      return;
+    if (localStorage)
       localStorage.setItem(themeModeLSKey, updatedMode);
-    }
+
     this.themeStore.themeMode = updatedMode;
     this.cmsStoreService.setState({ themeStore: this.themeStore });
+    setTimeout(() => {
+      /**theme-dark */
+      if (this.themeStore.themeMode == 'dark') {
+        document.documentElement.querySelectorAll('.theme-light').forEach((element) => {
+          element.classList.remove('theme-light');
+          element.classList.add('theme-dark');
+        });
+      } else {
+        document.documentElement.querySelectorAll('.theme-dark').forEach((element) => {
+          element.classList.remove('theme-dark');
+          element.classList.add('theme-light');
+        });
+      }
+      /**theme-dark */
+    }, 10);
   }
+  public updateThemeHighLight(colorStr: string, firstRun = false) {
+    if (!colorStr || colorStr.length == 0)
+      colorStr = 'blue';
+    if (!firstRun && this.themeStore.themeHighlight == colorStr)
+      return;
+    if (localStorage)
+      localStorage.setItem(themeHighLightLSKey, colorStr);
+
+    this.themeStore.themeHighlight = colorStr;
+    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    setTimeout(() => {
+      /* HighLigh*/
+      if (this.themeStore.themeHighlight.length > 0) {
+        var pageHighlight = document.querySelectorAll('.page-highlight');
+        if (pageHighlight.length) {
+          pageHighlight.forEach(function (e) { e.remove(); });
+        }
+        var loadHighlight = document.createElement("link");
+        loadHighlight.rel = "stylesheet";
+        loadHighlight.className = "page-highlight";
+        loadHighlight.type = "text/css";
+        loadHighlight.href = 'assets/styles/highlights/highlight_' + this.themeStore.themeHighlight + '.css';
+        document.getElementsByTagName("head")[0].appendChild(loadHighlight);
+        //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
+      }
+      /* HighLigh*/
+    }, 10);
+  }
+  public updateThemeDirection(model: ThemeDirectionType, firstRun = false) {
+    if (!model)
+      model = 'ltr';
+    if (!firstRun && this.themeStore.themeDirection == model)
+      return;
+    if (localStorage)
+      localStorage.setItem(themeDirectionSKey, model);
+    this.themeStore.themeDirection = model;
+    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    setTimeout(() => {
+      /**theme-rtl */
+      if (this.themeStore.themeDirection == 'ltr') {
+        document.documentElement.querySelectorAll('.theme-rtl').forEach((element) => {
+          element.classList.remove('theme-rtl');
+          element.classList.add('theme-ltr');
+        });
+      } else {
+        document.documentElement.querySelectorAll('.theme-ltr').forEach((element) => {
+          element.classList.remove('theme-ltr');
+          element.classList.add('theme-rtl');
+        });
+      }
+      /**theme-rtl */
+    }, 10);
+  }
+  public updateThemeLanguage(model: string, firstRun = false) {
+    if (!model)
+      return;
+    if (!firstRun && this.themeStore.themeLanguage == model)
+      return;
+    if (localStorage)
+      localStorage.setItem(themeLanguageSKey, model);
+    this.themeStore.themeLanguage = model;
+    this.cmsStoreService.setState({ themeStore: this.themeStore });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   public updateMainPagePreloaderShow(v: boolean) {
     this.themeStore.mainPagePreloaderShow = v;
     this.cmsStoreService.setState({ themeStore: this.themeStore });
@@ -153,55 +232,7 @@ export class ThemeService {
     if (environment.consoleLog)
       console.log('windows Width :', window.innerWidth, 'windows Height :', window.innerHeight);
   }
-  private updateModeHtmlDom(model: ThemeStoreModel) {
-    /**theme-dark */
-    if (this.themeStoreOld.themeMode != model?.themeMode) {
-      if (model?.themeMode == 'dark') {
-        document.documentElement.querySelectorAll('.theme-light').forEach((element) => {
-          element.classList.remove('theme-light');
-          element.classList.add('theme-dark');
-        });
-      } else {
-        document.documentElement.querySelectorAll('.theme-dark').forEach((element) => {
-          element.classList.remove('theme-dark');
-          element.classList.add('theme-light');
-        });
-      }
-    }
-    /**theme-dark */
-    /**theme-rtl */
-    if (this.themeStoreOld.themeDirection != model?.themeDirection) {
-      if (model?.themeDirection == 'ltr') {
-        document.documentElement.querySelectorAll('.theme-rtl').forEach((element) => {
-          element.classList.remove('theme-rtl');
-          element.classList.add('theme-ltr');
-        });
-      } else {
-        document.documentElement.querySelectorAll('.theme-ltr').forEach((element) => {
-          element.classList.remove('theme-ltr');
-          element.classList.add('theme-rtl');
-        });
-      }
-    }
-    /**theme-rtl */
-    /* HighLigh*/
-    if (this.themeStoreOld.themeHighlight != model?.themeHighlight) {
-      if (model?.themeHighlight.length > 0) {
-        var pageHighlight = document.querySelectorAll('.page-highlight');
-        if (pageHighlight.length) {
-          pageHighlight.forEach(function (e) { e.remove(); });
-        }
-        var loadHighlight = document.createElement("link");
-        loadHighlight.rel = "stylesheet";
-        loadHighlight.className = "page-highlight";
-        loadHighlight.type = "text/css";
-        loadHighlight.href = 'assets/styles/highlights/highlight_' + model.themeHighlight + '.css';
-        document.getElementsByTagName("head")[0].appendChild(loadHighlight);
-        //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
-      }
-    }
-    /* HighLigh*/
-  }
+
   public onActionScrollTopPage(v: boolean, d = 0) {
     if (v == false) {
       this.themeStore.actionScrollTopPage = v;
@@ -251,36 +282,7 @@ export class ThemeService {
     }
 
   }
-  public updateHighLight(colorStr: string) {
-    if (!colorStr || colorStr.length == 0)
-      return;
-    this.themeHighLight.next(colorStr);
-    if (localStorage) {
-      localStorage.setItem(themeHighLightLSKey, colorStr);
-    }
-    this.themeStore.themeHighlight = colorStr;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
-  }
-  public updateDirection(model: ThemeDirectionType) {
-    if (!model)
-      return;
-    this.themeDirection.next(model);
-    if (localStorage) {
-      localStorage.setItem(themeDirectionSKey, model);
-    }
-    this.themeStore.themeDirection = model;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
-  }
-  public updateLanguage(model: string) {
-    if (!model)
-      return;
-    this.themeLanguage.next(model);
-    if (localStorage) {
-      localStorage.setItem(themeLanguageSKey, model);
-    }
-    this.themeStore.themeLanguage = model;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
-  }
+
 
   public cleanDataMenu(): void {
     if (this.themeStore?.dataMenu?.length > 0) {
