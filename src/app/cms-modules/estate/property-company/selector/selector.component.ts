@@ -9,7 +9,6 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-property-company-selector',
@@ -22,11 +21,11 @@ export class EstatePropertyCompanySelectorComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     public contentService: EstatePropertyCompanyService) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   dataModelResult: ErrorExceptionResult<EstatePropertyCompanyModel> = new ErrorExceptionResult<EstatePropertyCompanyModel>();
   dataModelSelect: EstatePropertyCompanyModel = new EstatePropertyCompanyModel();
@@ -42,13 +41,8 @@ export class EstatePropertyCompanySelectorComponent implements OnInit {
     this.onActionSelectForce(x);
   }
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit(): void {
     this.loadOptions();
   }
@@ -77,7 +71,7 @@ export class EstatePropertyCompanySelectorComponent implements OnInit {
     const filterModel = new EstatePropertyCompanyFilterModel();
     filterModel.rowPerPage = 20;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
     let filter = new FilterDataModel();
     filter.propertyName = 'Title';
     filter.value = text;

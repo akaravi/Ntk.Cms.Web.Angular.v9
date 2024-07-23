@@ -18,7 +18,6 @@ import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -40,7 +39,7 @@ export class CatalogConfigSiteComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   dataSiteStorageModel = new CatalogModuleSiteStorageValuesModel();
@@ -49,7 +48,7 @@ export class CatalogConfigSiteComponent implements OnInit {
   tokenInfo = new TokenInfoModel();
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  loading = new ProgressSpinnerModel();
+
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -128,7 +127,7 @@ export class CatalogConfigSiteComponent implements OnInit {
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceSiteStorage';
-    this.translate.get('MESSAGE.get_saved_module_values').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_saved_module_values').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.configService
       .ServiceSiteStorage(SiteId)
@@ -157,7 +156,7 @@ export class CatalogConfigSiteComponent implements OnInit {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteStorageSave';
-    this.translate.get('MESSAGE.Save_the_stored_values_of_the_module').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Save_the_stored_values_of_the_module').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceSiteStorageSave(SiteId, this.dataSiteStorageModel)
       .subscribe({
@@ -185,7 +184,7 @@ export class CatalogConfigSiteComponent implements OnInit {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteConfig';
-    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceSiteConfig(SiteId)
       .subscribe({
@@ -211,7 +210,7 @@ export class CatalogConfigSiteComponent implements OnInit {
     this.translate.get('MESSAGE.Saving_Information_On_The_Server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceSiteConfigSave';
-    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.configService
       .ServiceSiteConfigSave(SiteId, this.dataConfigSiteValuesModel)
@@ -239,7 +238,7 @@ export class CatalogConfigSiteComponent implements OnInit {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccess';
-    this.translate.get('MESSAGE.get_module_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_module_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.configService
       .ServiceSiteAccess(SiteId)
@@ -269,7 +268,7 @@ export class CatalogConfigSiteComponent implements OnInit {
 
 
     const pName = this.constructor.name + 'ServiceSiteAccessSave';
-    this.translate.get('MESSAGE.Save_module_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Save_module_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.configService
       .ServiceSiteAccessSave(SiteId, this.dataConfigSiteAccessValuesModel)

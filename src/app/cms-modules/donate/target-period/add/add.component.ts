@@ -33,8 +33,8 @@ export class DonateTargetPeriodAddComponent extends AddBaseComponent<DonateTarge
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(donateTargetPeriodService, new DonateTargetPeriodModel(), publicHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(donateTargetPeriodService, new DonateTargetPeriodModel(), publicHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestLinkTargeId = +data.linkTargeId || 0;
     }
@@ -74,7 +74,7 @@ export class DonateTargetPeriodAddComponent extends AddBaseComponent<DonateTarge
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.donateTargetPeriodService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
@@ -94,7 +94,7 @@ export class DonateTargetPeriodAddComponent extends AddBaseComponent<DonateTarge
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

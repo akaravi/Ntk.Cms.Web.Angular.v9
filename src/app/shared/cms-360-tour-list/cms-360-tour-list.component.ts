@@ -75,7 +75,7 @@ export class Cms360TourListComponent implements OnInit {
   }
   privateDataImageModel: File360ViewModel[];
   formInfo: FormInfoModel = new FormInfoModel();
-  loading = new ProgressSpinnerModel();
+
   loadingOption = new ProgressSpinnerModel();
   tabledataSource = new MatTableDataSource<File360TourScenesModel>();
   tableHotSpotdataSource = new MatTableDataSource<File360TourHotSpotModel>();

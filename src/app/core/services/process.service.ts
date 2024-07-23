@@ -17,7 +17,7 @@ export class ProcessService {
 
   }
   public cdr: ChangeDetectorRef;
-  processInRun = false;
+  public processInRun = false;
   processInRunArea: boolean[] = [];
   public processInfoArea: Map<string, ProcessInfoModel>[] = [];
   public processInfoAll = new Map<string, ProcessInfoModel>();

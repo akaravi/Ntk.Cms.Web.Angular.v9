@@ -48,20 +48,20 @@
         </mat-error>
       </div>
       <!-- LinkUserId Field -->
-      <app-cms-user-selector (optionChange)="onActionSelectUser($event)" [(optionLoading)]="loading"
-        [optionSelectForce]="this.dataModel.linkUserId" *ngIf="ProfessionalData"
-        [optionPlaceholder]="'TITLE.USER' | translate" [optionDisabled]="!fieldsInfo['linkUserId']?.accessAddField">
+      <app-cms-user-selector (optionChange)="onActionSelectUser($event)" [optionSelectForce]="this.dataModel.linkUserId"
+        *ngIf="ProfessionalData" [optionPlaceholder]="'TITLE.USER' | translate"
+        [optionDisabled]="!fieldsInfo['linkUserId']?.accessAddField">
       </app-cms-user-selector>
 
       <!-- LinkSiteId Field -->
-      <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [(optionLoading)]="loading"
-        [optionSelectForce]="this.dataModel.linkSiteId" *ngIf="ProfessionalData"
-        [optionPlaceholder]="'TITLE.SITE' | translate" [optionDisabled]="!fieldsInfo['linkSiteId']?.accessAddField">
+      <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [optionSelectForce]="this.dataModel.linkSiteId"
+        *ngIf="ProfessionalData" [optionPlaceholder]="'TITLE.SITE' | translate"
+        [optionDisabled]="!fieldsInfo['linkSiteId']?.accessAddField">
       </app-cms-site-selector>
 
       <!-- LinkUserClaimTypeId Field -->
       <app-core-userclaimtype-selector (optionChange)="onActionSelectClaimType($event)"
-        [optionSelectForce]="this.dataModel.linkUserClaimTypeId" [(optionLoading)]="loading"
+        [optionSelectForce]="this.dataModel.linkUserClaimTypeId"
         [optionPlaceholder]="'TITLE.DOCUMENT_CATEGORY'  | translate"
         [optionDisabled]="!fieldsInfo['linkUserClaimTypeId']?.accessAddField || (requestLinkUserClaimTypeId && requestLinkUserClaimTypeId>0)">
       </app-core-userclaimtype-selector>
@@ -151,7 +151,7 @@
         <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
         <mat-datepicker touchUi #ExpireDate></mat-datepicker>
       </div>
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

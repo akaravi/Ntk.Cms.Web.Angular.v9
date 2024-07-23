@@ -32,8 +32,8 @@ export class DataProviderClientAddComponent extends AddBaseComponent<DataProvide
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(dataProviderClientService, new DataProviderClientModel, publicHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(dataProviderClientService, new DataProviderClientModel, publicHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

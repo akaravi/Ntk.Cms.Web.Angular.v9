@@ -43,9 +43,9 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estatePropertyTypeService, new EstatePropertyTypeModel(), publicHelper,translate);
+    super(estatePropertyTypeService, new EstatePropertyTypeModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });

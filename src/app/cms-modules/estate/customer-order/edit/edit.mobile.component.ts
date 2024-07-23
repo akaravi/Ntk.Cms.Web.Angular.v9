@@ -49,10 +49,10 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
     public dialog: MatDialog,
     public translate: TranslateService,
   ) {
-    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper,translate);
+    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
     this.linkParentId = this.activatedRoute.snapshot.paramMap.get('LinkParentId');
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -139,7 +139,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   DataEditContent(actionSubmit = false): void {
 
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.estateCustomerOrderService.setAccessLoad
     this.estateCustomerOrderService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

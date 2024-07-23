@@ -44,7 +44,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
   ) {
     super(contentService, new NewsContentModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkCategoryId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCategoryId'));
       this.DataGetAll();
@@ -114,7 +114,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
         selectId = this.requestLinkCategoryId;
       }
       const pName = this.constructor.name + '.ServiceGetAllWithHierarchyCategoryId';
-      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
       this.contentService.ServiceGetAllWithHierarchyCategoryId(selectId, filterModel).subscribe({
         next: (ret) => {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
@@ -179,7 +179,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       }
       /** filter Category */
       const pName = this.constructor.name + '.ServiceGetAll';
-      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
       this.contentService.ServiceGetAllEditor(filterModel).subscribe({
         next: (ret) => {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);

@@ -1,9 +1,9 @@
 <app-donate-target-header *ngIf="this.requestLinkTargeId>0" [optionId]="this.requestLinkTargeId">
 </app-donate-target-header>
-<app-cms-html-list [optionGuideNoticeKey]="'donate.targetperiod.list'"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'donate.targetperiod.list'"
     [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
     (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
+    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
     [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
     [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">
     <ng-container cms-tree>

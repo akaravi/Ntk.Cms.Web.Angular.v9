@@ -2,7 +2,6 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 import { TranslateService } from '@ngx-translate/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
   selector: 'app-cms-html-list',
   templateUrl: './cms-html-list.component.html',
@@ -57,18 +56,15 @@ export class CmsHtmlListComponent implements OnInit {
   @Input() optionSelectRowItemTitle = '';
   @Input() optionClassBody = 'ntk-cms-html-tree-body';
   @Input() optionTreeDisplay = true;
-  @Input()
-  public set optionLoading(v: ProgressSpinnerModel) {
-    this.loading = v;
-  }
-
+  @Input() optionsListInfoAreaId = 'list';
+  
 
   @Output() optionOnActionButtonMemo = new EventEmitter<any>();
   @Output() optionOnActionButtonExport = new EventEmitter<any>();
   @Output() optionOnActionButtonMemoRow = new EventEmitter<any>();
   @Output() optionOnActionButtonPrintRow = new EventEmitter<any>();
 
-  loading = new ProgressSpinnerModel();
+
 
   constructor(
     public publicHelper: PublicHelper,
@@ -166,7 +162,7 @@ export class CmsHtmlListComponent implements OnInit {
     this.optionOnActionButtonPrintRow.emit();
   }
   /*
-  <app-cms-html-list [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"   [optionLoading]="loading" [optionTreeDisplay]="true">
+  <app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"    [optionTreeDisplay]="true">
     <ng-container  cms-tree>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
       --------------------------------------

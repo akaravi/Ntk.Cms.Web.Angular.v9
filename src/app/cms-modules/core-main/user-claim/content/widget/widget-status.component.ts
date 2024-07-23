@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -10,7 +10,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
@@ -36,20 +35,15 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
 
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   dataModelResult: ErrorExceptionResult<CoreUserClaimCheckModel> = new ErrorExceptionResult<CoreUserClaimCheckModel>();
 
   filteModelContent = new FilterModel();
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('TITLE.Evidence_Identity');
     this.widgetInfoModel.description = '';

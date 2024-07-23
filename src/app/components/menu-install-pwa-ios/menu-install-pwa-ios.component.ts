@@ -10,7 +10,7 @@ import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 export class MenuInstallPwaIosComponent implements OnInit {
 
   constructor(
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
   ) { }
   themeStore = new ThemeStoreModel();
 

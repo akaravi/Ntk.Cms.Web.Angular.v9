@@ -1,5 +1,4 @@
-
-<div class="card card-style progressOverlayContainer" *ngIf="!this.loading.display">
+<div class="card card-style progressOverlayContainer" *ngIf="!this.publicHelper.processService.processInRun">
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <div class="content">
     <p class="mb-0 font-600 color-highlight">{{dataModelResult.item?.title}}</p>
@@ -9,12 +8,13 @@
   </div>
 </div>
 
-<div class="row mb-0" *ngIf="!this.loading.display">
+<div class="row mb-0" *ngIf="!this.publicHelper.processService.processInRun">
   <div class="col-12 pe-0">
     <div class="card card-style">
 
       <div class="divider"></div>
-      <h3 *ngIf="dataModelResult.item?.aboutUsAddress?.length>0" class="font-700">{{"TITLE.PostalInformation"|translate}}</h3>
+      <h3 *ngIf="dataModelResult.item?.aboutUsAddress?.length>0" class="font-700">
+        {{"TITLE.PostalInformation"|translate}}</h3>
       <p *ngIf="dataModelResult.item?.aboutUsAddress?.length>0" class="pb-0 mb-0">
         {{dataModelResult.item?.aboutUsAddress}}
       </p>
@@ -148,7 +148,7 @@
 
 
 <div class="card card-style"
-  *ngIf="!this.loading.display && dataModelResult.item?.aboutUsPrivacyPolicyHtmlBody?.length>0">
+  *ngIf="!this.publicHelper.processService.processInRun && dataModelResult.item?.aboutUsPrivacyPolicyHtmlBody?.length>0">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">سیاست حریم خصوصی</p>
     <p [innerHTML]="dataModelResult.item?.aboutUsPrivacyPolicyHtmlBody">
@@ -156,7 +156,8 @@
   </div>
 </div>
 
-<div class="card card-style" *ngIf="!this.loading.display && dataModelResult.item?.aboutUsLicensesHtmlBody?.length>0">
+<div class="card card-style"
+  *ngIf="!this.publicHelper.processService.processInRun && dataModelResult.item?.aboutUsLicensesHtmlBody?.length>0">
   <div class="content">
     <p class="mb-0 font-600 color-highlight">مجوزات خدمت</p>
     <div [innerHTML]="dataModelResult.item?.aboutUsLicensesHtmlBody">
@@ -165,7 +166,7 @@
 </div>
 
 
-<div class="row px-3" *ngIf="!this.loading.display">
+<div class="row px-3" *ngIf="!this.publicHelper.processService.processInRun">
   <div class="col-6 p-0" *ngIf=" dataModelResult.item?.aboutUsLinkFacebook?.length>0">
     <a class="card card-style me-1 mb-2 bg-facebook p-3">
       <i class="fab fa-facebook fa-3x color-white text-center"></i>

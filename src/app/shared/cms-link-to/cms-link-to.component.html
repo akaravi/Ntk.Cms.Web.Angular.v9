@@ -1,5 +1,5 @@
 <app-cms-guide-notice [Key]="'linkto.content'"></app-cms-guide-notice>
-<cms-progress-spinner [options]="loadingAction"> </cms-progress-spinner>
+<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 <div class="card card-style">
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
@@ -93,10 +93,10 @@
             <div class="col-md-6 col-sm-6 col-xs-9" style="padding-top: 40px;">
               <!-- LinkPrivateSiteConfigId Field -->
               <app-cms-sms-apipath-selector (optionChange)="onActionSelectPrivateSiteConfig($event)"
-                [(optionLoading)]="loading" [optionSelectForce]="dataModel?.linkApiPathId"
-                [optionPlaceholder]="'TITLE.Direction' | translate" [optionSelectFirstItem]="true">
+                [optionSelectForce]="dataModel?.linkApiPathId" [optionPlaceholder]="'TITLE.Direction' | translate"
+                [optionSelectFirstItem]="true">
               </app-cms-sms-apipath-selector>
-              <app-cms-sms-api-number-selector *ngIf="dataModel.linkApiPathId?.length>0" [(optionLoading)]="loading"
+              <app-cms-sms-api-number-selector *ngIf="dataModel.linkApiPathId?.length>0"
                 (optionChange)="onActionSelectApiNumber($event)" [optionSelectForce]=""
                 [optionLinkApiPathId]="dataModel?.linkApiPathId" [optionPlaceholder]="'TITLE.sender_number' | translate"
                 [optionSelectFirstItem]="true" [optionSelectFirstItemOnChangeApi]="true">
@@ -139,11 +139,11 @@
                   </div>
                 </div>
                 <br>
-                <div class="row" *ngIf="formInfo.formSubmitAllow  && !loading?.display"
+                <div class="row" *ngIf="formInfo.formSubmitAllow  "
                   style="height:140px;bottom: 4vh;justify-content: center;">
                   <button type="submit"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    [disabled]="!vform.valid" *ngIf="!this.loading.display">
+                    [disabled]="!vform.valid" *ngIf="!this.publicHelper.processService.processInRun">
                     <i class="fa fa-check-square-o"></i>
                     {{'ACTION.Send_Message' | translate}}
                   </button>

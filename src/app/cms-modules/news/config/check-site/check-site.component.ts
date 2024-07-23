@@ -10,7 +10,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-news-config-checksite',
@@ -29,7 +28,7 @@ export class NewsConfigCheckSiteComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -45,7 +44,7 @@ export class NewsConfigCheckSiteComponent implements OnInit, OnDestroy {
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<BaseModuleSiteCheckSiteModel> = new ErrorExceptionResult<BaseModuleSiteCheckSiteModel>();
   tableRowsSelected: Array<BaseModuleSiteCheckSiteModel> = [];
   tableRowSelected: BaseModuleSiteCheckSiteModel = new BaseModuleSiteCheckSiteModel();
@@ -68,7 +67,7 @@ export class NewsConfigCheckSiteComponent implements OnInit, OnDestroy {
       return;
     }
     const pName = this.constructor.name + '.ServiceCheckSite';
-    this.translate.get('MESSAGE.Check_website').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Check_website').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceCheckSite(this.requestLinkSiteId)
       .subscribe({

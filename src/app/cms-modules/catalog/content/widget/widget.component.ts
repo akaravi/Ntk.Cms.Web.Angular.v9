@@ -1,11 +1,10 @@
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CatalogContentService, FilterDataModel, FilterModel, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -22,24 +21,19 @@ export class CatalogContentWidgetComponent implements OnInit, OnDestroy {
     private service: CatalogContentService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   filteModelContent = new FilterModel();
 
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Catalog');
     this.widgetInfoModel.description = '';
@@ -60,8 +54,8 @@ export class CatalogContentWidgetComponent implements OnInit, OnDestroy {
   }
 
   onActionStatist(): void {
-    this.publicHelper.processService.processStart(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_catalog_statistics'));
-    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_catalog'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'Active', this.translate.instant('MESSAGE.Get_active_catalog_statistics'), this.constructor.name);
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_catalog'), this.constructor.name);
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('Active', 0, 0, ''));
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 1, 0, ''));
     this.service.ServiceGetCount(this.filteModelContent).subscribe({

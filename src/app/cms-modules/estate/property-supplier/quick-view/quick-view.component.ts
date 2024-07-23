@@ -39,7 +39,7 @@ export class EstatePropertySupplierQuickViewComponent implements OnInit, OnDestr
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id + '';
       this.requestPerviousItem = data.perviousItem;
@@ -48,7 +48,7 @@ export class EstatePropertySupplierQuickViewComponent implements OnInit, OnDestr
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<EstatePropertySupplierModel> = new ErrorExceptionResult<EstatePropertySupplierModel>();
   dataModelEstateContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModel: EstatePropertySupplierModel = new EstatePropertySupplierModel();

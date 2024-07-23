@@ -18,17 +18,16 @@
         [optionSelectFirstItem]="true">
       </app-cms-enum-record-status-selector>
       <!-- LinkSiteId Field -->
-      <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField" [(optionLoading)]="loading"
+      <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField"
         [optionSelectForce]="this.dataModel.linkSiteId" [optionPlaceholder]="'TITLE.WEBSITE' | translate">
       </app-cms-site-selector>
       <!-- LinkUserId Field -->
-      <app-cms-user-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField" [(optionLoading)]="loading"
+      <app-cms-user-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField"
         [optionSelectForce]="this.dataModel.linkUserId" [optionPlaceholder]="'TITLE.USER' | translate">
       </app-cms-user-selector>
       <!-- module-entity Field -->
       <app-core-module-entity-selector (optionChange)="onActionSelectorModuleEntitySelect($event)"
-        [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField" [(optionLoading)]="loading"
-        [optionPlaceholder]="'TITLE.MODULE' | translate">
+        [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField" [optionPlaceholder]="'TITLE.MODULE' | translate">
       </app-core-module-entity-selector>
       <!-- moduleName Field -->
       <div *ngIf="fieldsInfo['moduleName']?.accessWatchField"
@@ -241,7 +240,7 @@
           </div>
         </div>
       </div>
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

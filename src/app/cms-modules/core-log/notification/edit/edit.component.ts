@@ -37,10 +37,10 @@ export class CoreLogNotificationEditComponent extends EditBaseComponent<CoreLogN
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreLogNotificationService, new CoreLogNotificationModel(), publicHelper,translate);
+    super(coreLogNotificationService, new CoreLogNotificationModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id;
     }

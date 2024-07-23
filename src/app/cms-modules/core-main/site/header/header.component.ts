@@ -13,7 +13,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 import { environment } from 'src/environments/environment';
@@ -33,10 +32,10 @@ export class CoreSiteHeaderComponent implements OnInit, OnDestroy {
     public tokenHelper: TokenHelper
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() optionId = 0;
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<CoreSiteModel> = new ErrorExceptionResult<CoreSiteModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

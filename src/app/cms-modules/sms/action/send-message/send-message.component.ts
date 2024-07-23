@@ -5,7 +5,7 @@ import {
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslateUiService, CronOptionModel } from 'ngx-ntk-cron-editor';
+import { CronOptionModel, TranslateUiService } from 'ngx-ntk-cron-editor';
 import {
   CoreEnumService, ErrorExceptionResult, FormInfoModel, SmsApiSendMessageDtoModel,
   SmsApiSendResultModel, SmsMainApiNumberModel, SmsMainApiPathModel, SmsMainApiPathService, SmsMainMessageCategoryModel,
@@ -41,8 +41,8 @@ export class SmsActionSendMessageComponent implements OnInit {
     private translateUiService: TranslateUiService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
-    this.loadingAction.cdr = this.cdr;
+
+    
     this.requestLinkApiPathId = this.activatedRoute.snapshot.paramMap.get('LinkApiPathId');
     if (this.requestLinkApiPathId?.length > 0) {
       this.dataModel.linkApiPathId = this.requestLinkApiPathId;
@@ -56,12 +56,12 @@ export class SmsActionSendMessageComponent implements OnInit {
       this.linkNumberId = this.router.getCurrentNavigation().extras.state.LinkNumberId;
     }
     this.tokenHelper.getCurrentToken().then((value) => {
-      this.tokenInfo=value;
-      this.language=  this.tokenInfo.language;
-    });      
+      this.tokenInfo = value;
+      this.language = this.tokenInfo.language;
+    });
   }
   tokenInfo = new TokenInfoModel();
-  language='en';
+  language = 'en';
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   @ViewChild('Message') message: ElementRef;
 
@@ -69,8 +69,8 @@ export class SmsActionSendMessageComponent implements OnInit {
   senderNumber: string = '';
   linkApiPathId: string = '';
   linkNumberId: string = '';
-  loading = new ProgressSpinnerModel();
-  loadingAction = new ProgressSpinnerModel();
+
+  
   dataModelParentSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   dataModel: SmsApiSendMessageDtoModel = new SmsApiSendMessageDtoModel();
   dataModelResult: ErrorExceptionResult<SmsApiSendResultModel> = new ErrorExceptionResult<SmsApiSendResultModel>();
@@ -240,7 +240,10 @@ export class SmsActionSendMessageComponent implements OnInit {
 
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'main';
-    this.loadingAction.Start(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
+
     this.formInfo.formAlert = '';
     this.formInfo.formError = '';
     this.smsMainApiPathService.ServiceSendMessage(this.dataModel).subscribe({
@@ -255,12 +258,12 @@ export class SmsActionSendMessageComponent implements OnInit {
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loadingAction.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (e) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(e);
-        this.loadingAction.Stop(pName);
+        this.publicHelper.processService.processStop(pName,false);
 
       },
       complete: () => {

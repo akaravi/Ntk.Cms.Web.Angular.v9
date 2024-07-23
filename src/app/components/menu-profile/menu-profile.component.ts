@@ -5,7 +5,6 @@ import { AuthRenewTokenModel, CoreAuthService, CoreSiteModel, TokenInfoModel } f
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -21,7 +20,7 @@ export class MenuProfileComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private router: Router
   ) {
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -32,7 +31,7 @@ export class MenuProfileComponent implements OnInit {
     });
 
   }
-  loading = new ProgressSpinnerModel();
+
 
   cmsApiStoreSubscribe: Subscription;
   tokenInfo: TokenInfoModel = new TokenInfoModel();

@@ -28,7 +28,7 @@ export class MenuLanguageComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private router: Router,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {

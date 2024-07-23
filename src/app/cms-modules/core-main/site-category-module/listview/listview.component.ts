@@ -14,7 +14,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -36,7 +35,7 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
@@ -44,13 +43,8 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
   filteModelContent = new FilterModel();
   dataModelResult: ErrorExceptionResult<CoreSiteCategoryCmsModuleModel> = new ErrorExceptionResult<CoreSiteCategoryCmsModuleModel>();
   tokenInfo = new TokenInfoModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   tableRowsSelected: Array<CoreSiteCategoryCmsModuleModel> = [];
   tableRowSelected: CoreSiteCategoryCmsModuleModel = new CoreSiteCategoryCmsModuleModel();
   tableSource: MatTableDataSource<CoreSiteCategoryCmsModuleModel> = new MatTableDataSource<CoreSiteCategoryCmsModuleModel>();
@@ -124,7 +118,7 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
       },
       error: (er) => {
         this.cmsToastrService.typeError(er);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
       }
     }
     );

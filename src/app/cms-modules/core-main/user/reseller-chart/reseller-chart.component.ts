@@ -22,7 +22,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -41,12 +40,12 @@ export class CoreUserResellerChartComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
 
   }
@@ -54,13 +53,8 @@ export class CoreUserResellerChartComponent implements OnInit, OnDestroy {
   dataModelSelect: RessellerChartModel = new RessellerChartModel();
   dataModelResult: ErrorExceptionResult<RessellerChartModel> = new ErrorExceptionResult<RessellerChartModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<RessellerChartModel>(node => node.userChilds);
 
   dataSource = new MatTreeNestedDataSource<RessellerChartModel>();

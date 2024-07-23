@@ -13,7 +13,6 @@ import {
   FormInfoModel, ProcessModuleSiteDataInfoOutputModel
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -31,17 +30,17 @@ export class CoreSiteModuleSiteInfoComponent implements OnInit {
     public coreSiteService: CoreSiteService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestLinkSiteId = +data.linkSiteId || 0;
     }
   }
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<ProcessModuleSiteDataInfoOutputModel> = new ErrorExceptionResult<ProcessModuleSiteDataInfoOutputModel>();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   formInfo: FormInfoModel = new FormInfoModel();

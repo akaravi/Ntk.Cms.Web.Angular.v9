@@ -1,11 +1,10 @@
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EstatePropertyHistoryService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -23,23 +22,18 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   filteModelContent = new FilterModel();
 
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('ROUTE.ESTATE.HISTORY');
     this.widgetInfoModel.description = '';

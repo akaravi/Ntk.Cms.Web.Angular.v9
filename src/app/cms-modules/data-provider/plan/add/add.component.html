@@ -20,8 +20,7 @@
             </app-cms-enum-record-status-selector>
             <!-- LinkPlanCategoryId Field -->
             <app-data-provider-plan-category-selector (optionChange)="onActionSelectorSelect($event)"
-                [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPlanCategoryId"
-                [optionPlaceholder]="'TITLE.Category' | translate">
+                [optionSelectForce]="dataModel.linkPlanCategoryId" [optionPlaceholder]="'TITLE.Category' | translate">
             </app-data-provider-plan-category-selector>
             <!-- Title Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -70,7 +69,7 @@
                 </cms-file-manager>
             </div>
 
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
                 <button type="button" (click)="onFormCancel()"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

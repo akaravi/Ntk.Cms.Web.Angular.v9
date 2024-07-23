@@ -31,9 +31,9 @@ export class HyperShopCategoryAddComponent extends AddBaseComponent<HyperShopCat
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(hyperShopCategoryService, new HyperShopCategoryModel(), publicHelper,translate);
+    super(hyperShopCategoryService, new HyperShopCategoryModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

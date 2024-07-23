@@ -1,7 +1,7 @@
-<app-cms-html-list [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
-    (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
-    (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
-    [optionLoading]="loading" [optionTreeDisplay]="false" [optionClassBody]="''"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''"
+    [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+    (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false" [optionClassBody]="''"
     [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
     [optionSelectRowItemTitle]="tableRowSelected?.title">
     <ng-container cms-tree>
@@ -125,8 +125,7 @@
                 <!-- <div class="button-row">
           نسبت به نیازمندی های خود و مدت زمان اقدام به خرید نمایید
         </div> -->
-                <cms-progress-spinner [options]="loading">
-                </cms-progress-spinner>
+                <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
                 <div class="row">
                     <div class="col-3" *ngFor="let row of dataModelResult.listItems">
                         <mat-card class="example-card" style="border:groove ;">

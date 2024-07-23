@@ -14,7 +14,6 @@ import {
   EstatePropertySupplierService, FormInfoModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-property-supplier-delete',
@@ -25,14 +24,14 @@ export class EstatePropertySupplierDeleteComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertySupplierDeleteComponent>,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public contentService: EstatePropertySupplierService,
     private cdr: ChangeDetectorRef,
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id;
     }
@@ -40,7 +39,7 @@ export class EstatePropertySupplierDeleteComponent implements OnInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResultContent: ErrorExceptionResult<EstatePropertySupplierModel> = new ErrorExceptionResult<EstatePropertySupplierModel>();
   formInfo: FormInfoModel = new FormInfoModel();
   ngOnInit(): void {

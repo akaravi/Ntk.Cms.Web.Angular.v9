@@ -20,27 +20,27 @@
 
 
       <!-- LinkApiPathId Field -->
-      <app-sms-apipath-selector (optionChange)="onActionSelectorSelectLinkApiPathId($event)" [(optionLoading)]="loading"
+      <app-sms-apipath-selector (optionChange)="onActionSelectorSelectLinkApiPathId($event)"
         [optionSelectForce]="dataModel.linkApiPathId" [optionPlaceholder]="'TITLE.Direction' | translate">
       </app-sms-apipath-selector>
       <!-- LinkCoreUserId Field -->
-      <app-cms-user-selector (optionChange)="onActionSelectorCmsUser($event)" [(optionLoading)]="loading"
+      <app-cms-user-selector (optionChange)="onActionSelectorCmsUser($event)"
         [optionDisabled]="!fieldsInfo['linkCoreUserId']?.accessAddField" [optionSelectForce]="dataModel.linkCoreUserId"
         [optionPlaceholder]="'TITLE.USER' | translate">
       </app-cms-user-selector>
       <!-- LinkCoreSiteId Field -->
-      <app-cms-site-selector (optionChange)="onActionSelectorCmsSite($event)" [(optionLoading)]="loading"
+      <app-cms-site-selector (optionChange)="onActionSelectorCmsSite($event)"
         [optionDisabled]="!fieldsInfo['linkCoreSiteId']?.accessAddField" [optionSelectForce]="dataModel.linkCoreSiteId"
         [optionPlaceholder]="'TITLE.SITE' | translate">
       </app-cms-site-selector>
       <!-- LinkCoreUserGroupId Field -->
       <app-cms-usergroup-selector (optionChange)="onActionSelectorCoreUserGroup($event)"
-        [optionDisabled]="!fieldsInfo['linkCoreUserGroupId']?.accessAddField" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkCoreUserGroupId']?.accessAddField"
         [optionSelectForce]="dataModel.linkCoreUserGroupId" [optionPlaceholder]="'TITLE.Type_Usage' | translate">
       </app-cms-usergroup-selector>
       <!-- LinkCoreSiteCategoryId Field -->
       <app-cms-sitecategory-selector (optionChange)="onActionSelectorCoreSiteCategory($event)"
-        [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField"
         [optionSelectForce]="dataModel.linkCoreSiteCategoryId" [optionPlaceholder]="'TITLE.Site_Type' | translate">
       </app-cms-sitecategory-selector>
       <!-- RegulatorNumber Field -->
@@ -92,7 +92,7 @@
         [optionDisabled]="false" [optionLabel]="this.fieldsInfo['outBoxType']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
 
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

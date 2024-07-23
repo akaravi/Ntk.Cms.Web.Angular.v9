@@ -14,7 +14,6 @@ import {
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -30,19 +29,19 @@ export class CoreUserMobileConfirmComponent implements OnInit {
     public coreUserService: CoreUserService,
     private coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
 
   }
   firstRun = true;
   expireDate: Date;
   aoutoCaptchaOrder = 1;
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
   dataModel: AuthMobileConfirmDtoModel = new AuthMobileConfirmDtoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

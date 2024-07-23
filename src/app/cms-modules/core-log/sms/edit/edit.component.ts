@@ -37,10 +37,10 @@ export class CoreLogSmsEditComponent extends EditBaseComponent<CoreLogSmsService
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreLogSmsService, new CoreLogSmsModel(), publicHelper,translate);
+    super(coreLogSmsService, new CoreLogSmsModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id;
     }

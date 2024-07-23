@@ -18,7 +18,7 @@ export class CmsFilesSelectorComponent implements OnInit {
   fileManagerTree: TreeModel;
 
 
-  constructor(private publicHelper: PublicHelper, public cmsToastrService: CmsToastrService) {
+  constructor(public publicHelper: PublicHelper, public cmsToastrService: CmsToastrService) {
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @Output() optionUploadSuccess = new EventEmitter<FilePreviewModel>();

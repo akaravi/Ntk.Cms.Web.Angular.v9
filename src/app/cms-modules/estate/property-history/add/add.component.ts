@@ -37,9 +37,9 @@ export class EstatePropertyHistoryAddComponent extends AddBaseComponent<EstatePr
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper,translate);
+    super(estatePropertyHistoryService, new EstatePropertyHistoryModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;

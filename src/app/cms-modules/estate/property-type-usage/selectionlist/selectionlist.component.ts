@@ -10,7 +10,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -24,16 +23,16 @@ export class EstatePropertyTypeUsageSelectionlistComponent implements OnInit, On
     public coreEnumService: CoreEnumService,
     public categoryService: EstatePropertyTypeUsageService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     public tokenHelper: TokenHelper,
     private cmsToastrService: CmsToastrService) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
   dataModelSelect: EstatePropertyTypeUsageModel[] = [];
   dataIdsSelect: string[] = [];
-  loading = new ProgressSpinnerModel();
+
   formControl = new FormControl();
   fieldsStatus: Map<string, boolean> = new Map<string, boolean>();
 
@@ -63,7 +62,7 @@ export class EstatePropertyTypeUsageSelectionlistComponent implements OnInit, On
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 50;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
 
 
     const pName = this.constructor.name + 'main';

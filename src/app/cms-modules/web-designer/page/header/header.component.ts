@@ -7,7 +7,6 @@ import {
   WebDesignerMainPageModel, WebDesignerMainPageService
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-webdesigner-page-header',
@@ -23,10 +22,10 @@ export class WebDesignerMainPageHeaderComponent implements OnInit {
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() optionId = '';
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<WebDesignerMainPageModel> = new ErrorExceptionResult<WebDesignerMainPageModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

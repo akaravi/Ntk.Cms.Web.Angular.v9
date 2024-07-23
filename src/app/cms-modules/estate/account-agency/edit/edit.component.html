@@ -73,7 +73,7 @@
           </div>
           <!-- LinkCmsUserId Field -->
           <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorUser($event)"
-            [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessEditField"
+            [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessEditField"
             [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.USER' | translate">
           </app-cms-user-selector>
           <!-- PhoneNumber Field -->
@@ -111,7 +111,7 @@
           </div>
           <!-- LinkLocationId Field -->
           <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-            [optionSelectForce]="dataModel.linkLocationId" [(optionLoading)]="loading"
+            [optionSelectForce]="dataModel.linkLocationId"
             [optionPlaceholder]="'TITLE.Geographical_Region'  | translate"
             [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField">
           </app-cms-location-selector>
@@ -119,8 +119,7 @@
           {{'TITLE.COVERED_AREAS' | translate}}
           <!-- linkLocationWorkAreaIds Field -->
           <app-cms-location-autocomplete (optionChange)="onActionSelectorLocationWorkArea($event)"
-            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkLocationWorkAreaIds"
-            [optionPlaceholder]="'TITLE.Region' | translate">
+            [optionSelectForce]="dataModel.linkLocationWorkAreaIds" [optionPlaceholder]="'TITLE.Region' | translate">
           </app-cms-location-autocomplete>
           <hr>
           <!-- AccessWatchRowSite Field -->
@@ -235,7 +234,7 @@
         <mat-step label="{{'TITLE.Property_personnel' | translate}}" state="file">
           <br>
           <app-estate-account-user-selector (optionChange)="onActionSelectorAccountUser($event)"
-            [(optionLoading)]="loading" [optionDisabled]="!this.tokenHelper.isAdminSite"
+            [optionDisabled]="!this.tokenHelper.isAdminSite"
             [optionPlaceholder]="'TITLE.Property_personnel' | translate ">
           </app-estate-account-user-selector>
           <!-- accessShareAgencyToUser Field -->
@@ -275,8 +274,7 @@
             *ngIf="this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId && this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId.length>0"
             type="button">&#x2b;
           </button>
-          <cms-progress-spinner [options]="loadingOption">
-          </cms-progress-spinner>
+          <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
             <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>
@@ -358,7 +356,7 @@
 
       </mat-vertical-stepper>
 
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}

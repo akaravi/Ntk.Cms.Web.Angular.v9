@@ -1,7 +1,6 @@
+import { TranslateService } from "@ngx-translate/core";
 import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 import { PublicHelper } from "../helpers/publicHelper";
-import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
-import { TranslateService } from "@ngx-translate/core";
 //IApiCmsServerBase
 export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public translate: TranslateService,
@@ -12,7 +11,7 @@ export class AddBaseComponent<TService extends IApiCmsServerBase, TModel extends
   }
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<TModel> = new ErrorExceptionResult<TModel>();
   dataModel: TModel;
 

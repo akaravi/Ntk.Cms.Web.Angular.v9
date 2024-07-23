@@ -1,5 +1,5 @@
 <app-cms-guide-notice [Key]="'customerorder.content.list.edit'"
-[svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
+  [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
 
 <div class="card card-style progressOverlayContainer">
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
@@ -38,7 +38,7 @@
 
         <!-- LinkCategoryId Field -->
         <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)"
-          [optionSelectForce]="dataModel.linkEstateCustomerCategoryId" [(optionLoading)]="loading"
+          [optionSelectForce]="dataModel.linkEstateCustomerCategoryId"
           [optionPlaceholder]="'TITLE.Category' | translate">
         </app-estate-customer-category-selector>
 
@@ -157,13 +157,13 @@
 
         <!-- LinkCmsUserId Field -->
         <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
-          [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
-          [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.Order_Owner'  | translate">
+          [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField" [optionSelectForce]="dataModel.linkCmsUserId"
+          [optionPlaceholder]="'TITLE.Order_Owner'  | translate">
         </app-cms-user-selector>
 
         <!-- linkEstateAgencyId Field -->
         <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
-          (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
+          (optionChange)="onActionSelectorEstateAgency($event)"
           [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessEditField"
           [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
           [optionPlaceholder]="'TITLE.Property_agency'  | translate">
@@ -172,7 +172,7 @@
         <!-- LinkEstateUserId Field -->
         <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
           [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessEditField"
-          [optionSelectForce]="dataModel.linkEstateUserId" [(optionLoading)]="loading"
+          [optionSelectForce]="dataModel.linkEstateUserId"
           [optionPlaceholder]="'TITLE.Real_estate_customer_personnel'  | translate">
         </app-estate-account-user-selector>
 
@@ -273,7 +273,7 @@
           <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
             [optionAllowUnSelect]="true" [optionDisabled]="
             !fieldsInfo['linkPropertyTypeUsageId']?.accessEditField
-          " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeUsageId" [(optionLoading)]="loading"
+          " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
             [optionPlaceholder]="'TITLE.Type_Usage' | translate">
 
           </app-estate-property-type-usage-selector>
@@ -285,7 +285,7 @@
           <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)"
             [optionAllowUnSelect]="true" [optionDisabled]="
             !fieldsInfo['linkPropertyTypeLanduseId']?.accessEditField
-          " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId" [(optionLoading)]="loading"
+          " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId"
             [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId"
             [optionPlaceholder]="'TITLE.Type_Property'  | translate">
 
@@ -296,7 +296,7 @@
           <!-- LinkContractTypeIds Field -->
           <app-estate-contract-type-selector (optionChange)="onActionSelectorContarctType($event)" [optionTypeView]="2"
             [optionAllowUnSelect]="true" [optionDisabled]="!fieldsInfo['linkContractTypeId']?.accessEditField"
-            [optionSelectForce]="dataModel.linkContractTypeId" [(optionLoading)]="loading"
+            [optionSelectForce]="dataModel.linkContractTypeId"
             [optionPlaceholder]="'TITLE.Type_Transaction'  | translate">
 
           </app-estate-contract-type-selector>
@@ -305,7 +305,7 @@
 
           <!-- linkCoreCurrencyId Field -->
           <app-cms-currency-selector [optionSelectFirstItem]="true" [optionSelectForce]="dataModel.linkCoreCurrencyId"
-            (optionChange)="onActionSelectCurrency($event)" [(optionLoading)]="loading"
+            (optionChange)="onActionSelectCurrency($event)"
             [optionPlaceholder]="'TITLE.Specify_the_transaction_currency'  | translate">
           </app-cms-currency-selector>
 
@@ -468,7 +468,7 @@
           <br />
           <!-- LinkLocationIds Field -->
           <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)"
-            [optionDisabled]="!fieldsInfo['linkLocationIds']?.accessEditField" [(optionLoading)]="loading"
+            [optionDisabled]="!fieldsInfo['linkLocationIds']?.accessEditField"
             [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="'TITLE.Region' | translate"
             [optionLabel]="'TITLE.Geographical_Areas'  | translate">
           </app-cms-location-autocomplete>
@@ -695,7 +695,7 @@
 
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-18">
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
               <button type="button" (click)="onFormCancel()"
                 class="btn font-13 btn-s font-600 m-1 rounded-s border-0 shadow-xl gradient-gray">
                 <i class="ft-x"></i> {{ "ACTION.BACK" | translate }}

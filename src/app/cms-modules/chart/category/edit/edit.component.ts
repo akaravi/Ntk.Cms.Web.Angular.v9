@@ -35,10 +35,10 @@ export class ChartCategoryEditComponent extends EditBaseComponent<ChartCategoryS
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new ChartCategoryModel(), publicHelper,translate);
+    super(categoryService, new ChartCategoryModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = +data.id || 0;
     }
@@ -124,7 +124,7 @@ export class ChartCategoryEditComponent extends EditBaseComponent<ChartCategoryS
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.categoryService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

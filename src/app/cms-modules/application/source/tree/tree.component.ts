@@ -23,7 +23,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-application-source-tree',
@@ -36,12 +35,12 @@ export class ApplicationSourceTreeComponent implements OnInit, OnDestroy {
     public categoryService: ApplicationSourceService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() set optionSelectForce(x: number | ApplicationSourceModel) {
     this.onActionSelectForce(x);
@@ -49,13 +48,8 @@ export class ApplicationSourceTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: ApplicationSourceModel = new ApplicationSourceModel();
   dataModelResult: ErrorExceptionResult<ApplicationSourceModel> = new ErrorExceptionResult<ApplicationSourceModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<ApplicationSourceModel>(node => null);
   dataSource = new MatTreeNestedDataSource<ApplicationSourceModel>();
   @Output() optionChange = new EventEmitter<ApplicationSourceModel>();

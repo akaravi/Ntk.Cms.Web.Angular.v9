@@ -7,17 +7,14 @@
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
   <!-- linkSiteId Field -->
-  <app-cms-site-selector [optionDisabled]="true" [(optionLoading)]="loading"
-    [optionSelectForce]=" this.dataModel.linkSiteId"
+  <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]=" this.dataModel.linkSiteId"
     [optionPlaceholder]="'TITLE.SITE' | translate"></app-cms-site-selector>
   <!-- LinkUserId Field -->
-  <app-cms-user-selector [optionDisabled]="true" [(optionLoading)]="loading"
-    [optionSelectForce]=" this.dataModel.linkUserId"
+  <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]=" this.dataModel.linkUserId"
     [optionPlaceholder]="'TITLE.USER' | translate"></app-cms-user-selector>
   <!-- LinkLocationId Field -->
-  <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
-    [optionDisabled]="true" [optionSelectForce]="dataModel.linkLocationId"
-    [optionPlaceholder]="'TITLE.Region' | translate">
+  <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)" [optionDisabled]="true"
+    [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="'TITLE.Region' | translate">
   </app-cms-location-selector>
   <app-cms-json-list [dataModel]="dataModel" [optionMethod]="1"></app-cms-json-list>
   <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
@@ -33,7 +30,7 @@
 </div>
 <div class="ntk-cms-html-card-footer">
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-  <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+  <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
     <button type="button" (click)="onFormCancel()"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
       <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

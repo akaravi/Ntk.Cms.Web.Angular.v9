@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cms-html-widget',
@@ -9,19 +8,14 @@ export class CmsHtmlWidgetComponent implements OnInit {
   static nextId = 0;
   id = ++CmsHtmlWidgetComponent.nextId;
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   constructor() { }
   ngOnInit(): void {
 
   }
   /*
-  <app-cms-html-widget [optionLoading]="loading">
+  <app-cms-html-widget >
     <ng-container  cms-header>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
       --------------------------------------

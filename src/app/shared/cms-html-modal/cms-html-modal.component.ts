@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormInfoModel } from 'ntk-cms-api';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 @Component({
   selector: 'app-cms-html-modal',
@@ -15,11 +14,6 @@ export class CmsHtmlModalComponent implements OnInit {
   }
   formInfo = new FormInfoModel();
 
-  @Input()
-  public set optionLoading(v: ProgressSpinnerModel) {
-    this.loading = v;
-  }
-  loading = new ProgressSpinnerModel();
   constructor() { }
   ngOnInit(): void {
 

@@ -1,7 +1,7 @@
-<app-cms-html-list [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
-    (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
-    (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
-    [optionLoading]="loading" [optionTreeDisplay]="requestLinkUserClaimGroupId===0"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''"
+    [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+    (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="requestLinkUserClaimGroupId===0"
     [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
     [optionSelectRowItemTitle]="tableRowSelected?.id">
     <ng-container cms-tree>

@@ -35,10 +35,10 @@ export class CoreModuleSiteCreditEditComponent extends EditBaseComponent<CoreMod
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleSiteCreditService, new CoreModuleSiteCreditModel(), publicHelper,translate);
+    super(coreModuleSiteCreditService, new CoreModuleSiteCreditModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = +data.id || 0;
     }
@@ -130,7 +130,7 @@ export class CoreModuleSiteCreditEditComponent extends EditBaseComponent<CoreMod
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.coreModuleSiteCreditService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
@@ -160,7 +160,7 @@ export class CoreModuleSiteCreditEditComponent extends EditBaseComponent<CoreMod
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.coreModuleSiteCreditService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

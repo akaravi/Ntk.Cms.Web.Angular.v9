@@ -19,8 +19,7 @@
       </app-cms-enum-record-status-selector>
       <!-- LinkParentId Field -->
       <app-core-cpmainmenu-selector (optionChange)="onActionSelectorSelect($event)" [optionDisabled]="false"
-        [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkParentId"
-        [optionPlaceholder]="'TITLE.Parent_Menu' | translate">
+        [optionSelectForce]="dataModel.linkParentId" [optionPlaceholder]="'TITLE.Parent_Menu' | translate">
       </app-core-cpmainmenu-selector>
       <!-- Title Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -45,7 +44,7 @@
           Description is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
       </div>
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

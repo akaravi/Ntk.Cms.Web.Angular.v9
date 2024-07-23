@@ -54,7 +54,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   ) {
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestLinkPropertyTypeLanduseId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyTypeLanduseId');
 
     if (this.requestLinkPropertyTypeLanduseId && this.requestLinkPropertyTypeLanduseId.length > 0) {
@@ -86,7 +86,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
   formMatcher = new CmsFormsErrorStateMatcher();
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<EstatePropertyModel> = new ErrorExceptionResult<EstatePropertyModel>();
   dataModelEstateContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModelEstatePropertyTypeResult: ErrorExceptionResult<EstatePropertyTypeModel> = new ErrorExceptionResult<EstatePropertyTypeModel>();

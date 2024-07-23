@@ -37,8 +37,8 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new EstatePropertyAdsModel(), publicHelper, tokenHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(contentService, new EstatePropertyAdsModel(), publicHelper, tokenHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
     this.requestLinkPropertyId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
@@ -103,7 +103,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstatePropertyAdsModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -288,7 +288,7 @@ export class EstatePropertyAdsListComponent extends ListBaseComponent<EstateProp
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

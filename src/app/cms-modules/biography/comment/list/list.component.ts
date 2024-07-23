@@ -49,9 +49,9 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new BiographyCommentModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new BiographyCommentModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
       this.searchInChecking =
         this.activatedRoute.snapshot.paramMap.get("InChecking") === "true";
@@ -127,7 +127,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new BiographyCommentModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -322,7 +322,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -394,7 +394,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
       return;
     }
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_biographical_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_biographical_information'), this.constructor.name);
     this.biographyContentService
       .ServiceGetOneById(this.tableRowSelected.linkContentId)
       .subscribe({
@@ -458,7 +458,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     this.onActionTableRowSelect(model);
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_biographical_information'));
+    this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_biographical_information'), this.constructor.name);
     this.biographyContentService
       .ServiceGetOneById(this.tableRowSelected.linkContentId)
       .subscribe({

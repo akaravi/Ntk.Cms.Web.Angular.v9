@@ -1,7 +1,7 @@
-<app-cms-html-list [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
-  (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
-  (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
-  [optionLoading]="loading" [optionTreeDisplay]="false"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''"
+  [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
   [optionTreeDisplay]="!requestLinkPrivateConfigId || requestLinkPrivateConfigId.length===0"
   [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionSelectRowItemTitle]="tableRowSelected?.message">

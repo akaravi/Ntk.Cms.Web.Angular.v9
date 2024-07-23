@@ -12,7 +12,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsBankpaymentTransactionInfoComponent } from 'src/app/shared/cms-bankpayment-transaction-info/cms-bankpayment-transaction-info.component';
 import { CoreModuleSaleHeaderSalePaymentComponent } from '../sale-payment/sale-payment.component';
@@ -36,7 +35,7 @@ export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy 
     public translate: TranslateService,
     public dialog: MatDialog) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   showBuy = false;
   comment: string;
@@ -49,7 +48,7 @@ export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy 
   dataModelItemResult: ErrorExceptionResult<CoreModuleSaleItemModel> = new ErrorExceptionResult<CoreModuleSaleItemModel>();
   dataModelRegResult: ErrorExceptionResult<CoreModuleSaleInvoiceModel> = new ErrorExceptionResult<CoreModuleSaleInvoiceModel>();
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   tableRowsSelected: Array<CoreModuleSaleHeaderModel> = [];
   tableRowSelected: CoreModuleSaleHeaderModel = new CoreModuleSaleHeaderModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

@@ -56,33 +56,32 @@
         [optionDisabled]="false" [optionLabel]="this.fieldsInfo['activityStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
       <!-- LinkCategoryId Field -->
-      <app-estate-activity-type-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+      <app-estate-activity-type-selector (optionChange)="onActionSelectorSelect($event)"
         [optionSelectForce]="dataModel.linkActivityTypeId" [optionPlaceholder]="'TITLE.Category' | translate">
       </app-estate-activity-type-selector>
 
       <!-- LinkEstateUserId Field -->
-      <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)" [(optionLoading)]="loading"
+      <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
         *ngIf="fieldsInfo['linkEstateUserId']?.accessWatchField" [optionSelectForce]="dataModel.linkEstateUserId"
         [optionPlaceholder]="'TITLE.USER' | translate">
       </app-estate-account-user-selector>
 
       <!-- linkEstateAgencyId Field -->
       <app-estate-account-agency-selector *ngIf="fieldsInfo['linkEstateAgencyId']?.accessWatchField"
-        (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
-        [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
-        [optionPlaceholder]="'TITLE.Property_agency'  | translate">
+        (optionChange)="onActionSelectorEstateAgency($event)" [optionSelectForce]="dataModel.linkEstateAgencyId"
+        [optionSelectUserId]="this.tokenInfo.userId" [optionPlaceholder]="'TITLE.Property_agency'  | translate">
       </app-estate-account-agency-selector>
 
       <!-- LinkPropertyId Field -->
-      <app-estate-property-selector (optionChange)="onActionSelectorProperty($event)" [(optionLoading)]="loading"
+      <app-estate-property-selector (optionChange)="onActionSelectorProperty($event)"
         *ngIf="fieldsInfo['linkPropertyId']?.accessWatchField" [optionSelectForce]="dataModel.linkPropertyId"
         [optionPlaceholder]="'TITLE.Property'  | translate">
       </app-estate-property-selector>
 
       <!-- linkCustomerOrderId Field -->
       <app-estate-customer-order-selector (optionChange)="onActionSelectorCustomerOrderId($event)"
-        [(optionLoading)]="loading" *ngIf="fieldsInfo['linkCustomerOrderId']?.accessWatchField"
-        [optionSelectForce]="dataModel.linkCustomerOrderId" [optionPlaceholder]="'TITLE.Customer'  | translate">
+        *ngIf="fieldsInfo['linkCustomerOrderId']?.accessWatchField" [optionSelectForce]="dataModel.linkCustomerOrderId"
+        [optionPlaceholder]="'TITLE.Customer'  | translate">
       </app-estate-customer-order-selector>
       <!-- AppointmentDateFrom Field -->
       <div *ngIf="fieldsInfo['appointmentDateFrom']?.accessWatchField"
@@ -109,7 +108,7 @@
       <p>{{'TITLE.List_of_attached_files' | translate}}</p>
       <app-cms-files-selector [(dataFileModel)]="dataFileModelFiles" [openDirectUploadView]="true">
       </app-cms-files-selector>
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}

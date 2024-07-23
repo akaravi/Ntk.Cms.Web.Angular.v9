@@ -13,7 +13,6 @@ import {
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -39,7 +38,7 @@ export class CmsSiteCreditViewComponent implements OnInit {
     public translate: TranslateService,
   ) {
 
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestLinkModuleId = +data.linkModuleId || 0;
     }
@@ -49,7 +48,7 @@ export class CmsSiteCreditViewComponent implements OnInit {
 
 
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<CoreModuleSiteCreditModel> = new ErrorExceptionResult<CoreModuleSiteCreditModel>();
   dataModuleModelResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   tokenInfo = new TokenInfoModel();

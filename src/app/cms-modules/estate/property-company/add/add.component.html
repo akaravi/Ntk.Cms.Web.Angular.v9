@@ -65,14 +65,14 @@
             <em>{{ DescriptionHidden.value.length }} / 500</em>
           </div>
           <!-- LinkLocationId Field -->
-          <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
+          <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
             [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField"
             [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="'TITLE.Region' | translate">
           </app-cms-location-selector>
           {{'TITLE.Geographical_Areas' | translate}} :
           <!-- LinkLocationIds Field -->
           <app-cms-location-autocomplete (optionChange)="onActionSelectorLocationWorkArea($event)"
-            [optionDisabled]="!fieldsInfo['linkLocationIds']?.accessAddField" [(optionLoading)]="loading"
+            [optionDisabled]="!fieldsInfo['linkLocationIds']?.accessAddField"
             [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="'TITLE.Region' | translate">
           </app-cms-location-autocomplete>
           <!-- PhoneNumber Field -->
@@ -113,7 +113,7 @@
           <label> {{fieldsInfo['body']?.fieldTitle}} </label>
           <angular-editor [placeholder]="'TITLE.Enter_Text' | translate" [config]="publicHelper.editorConfig" id="main"
             [(ngModel)]="dataModel.body" name="dataModel.body"></angular-editor>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+          <div *ngIf="formInfo.formSubmitAllow  " class="ntk-button-row">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()">
               {{'ACTION.BACK' | translate}}
@@ -154,7 +154,7 @@
             </mat-chip-grid>
           </mat-form-field>
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+          <div *ngIf="formInfo.formSubmitAllow  " class="ntk-button-row">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -240,7 +240,7 @@
           <h3>{{'TITLE.virtual_tour' | translate}}</h3>
           <app-cms-360-tour-list [(dataModel)]="dataModel.file360Tour"
             [dataImageModel]="dataModel.file360Views"></app-cms-360-tour-list>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+          <div *ngIf="formInfo.formSubmitAllow  " class="ntk-button-row">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -257,7 +257,7 @@
           <p>{{'TITLE.Click_on_the_map_to_specify_the_location' | translate}}</p>
           <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
             id='main-map'></app-cms-map>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+          <div *ngIf="formInfo.formSubmitAllow  " class="ntk-button-row">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}

@@ -10,7 +10,6 @@ import {
   SmsMainMessageCategoryService
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -24,13 +23,13 @@ export class SmsMainMessageCategoryDeleteComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<SmsMainMessageCategoryDeleteComponent>,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private smsMainMessageCategoryService: SmsMainMessageCategoryService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data && data.id && data.id.length > 0) {
       this.requestId = data.id;
     }
@@ -38,7 +37,7 @@ export class SmsMainMessageCategoryDeleteComponent implements OnInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResultCategory: ErrorExceptionResult<SmsMainMessageCategoryModel> = new ErrorExceptionResult<SmsMainMessageCategoryModel>();
   dataModelResultCategoryAllData: ErrorExceptionResult<SmsMainMessageCategoryModel> = new ErrorExceptionResult<SmsMainMessageCategoryModel>();
   dataModel: any = {};

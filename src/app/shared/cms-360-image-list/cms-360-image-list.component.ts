@@ -63,7 +63,7 @@ export class Cms360ImageListComponent implements OnInit {
   }
 
   formInfo: FormInfoModel = new FormInfoModel();
-  loading = new ProgressSpinnerModel();
+
   loadingOption = new ProgressSpinnerModel();
   tabledataSource = new MatTableDataSource<File360ViewModel>();
   tableHotSpotdataSource = new MatTableDataSource<File360TourHotSpotModel>();

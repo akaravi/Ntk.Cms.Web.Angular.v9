@@ -49,7 +49,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     super(contentService, new EstateCustomerOrderModel(), publicHelper, tokenHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -169,7 +169,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstateCustomerOrderModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -530,7 +530,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
 
 
 
-    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'), this.constructor.name);
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     //*filter */
     const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));

@@ -4,7 +4,6 @@ import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreEnumService, ErrorExceptionResult, EstateAccountAgencyFilterModel, EstateAccountAgencyModel, EstateAccountAgencyService } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -18,16 +17,16 @@ export class EstateAccountAgencySelectionlistComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public categoryService: EstateAccountAgencyService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   dataModelResult: ErrorExceptionResult<EstateAccountAgencyModel> = new ErrorExceptionResult<EstateAccountAgencyModel>();
   dataModelSelect: EstateAccountAgencyModel[] = [];
   dataIdsSelect: string[] = [];
-  loading = new ProgressSpinnerModel();
+
   formControl = new FormControl();
   fieldsStatus: Map<string, boolean> = new Map<string, boolean>();
 
@@ -51,7 +50,7 @@ export class EstateAccountAgencySelectionlistComponent implements OnInit {
     const filterModel = new EstateAccountAgencyFilterModel();
     filterModel.rowPerPage = 50;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
 
 
     const pName = this.constructor.name + 'main';

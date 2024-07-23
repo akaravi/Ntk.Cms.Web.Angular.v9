@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreModuleSiteUserCreditChargeDirectDtoModel, CoreModuleSiteUserCreditModel, CoreModuleSiteUserCreditService, ErrorExceptionResult } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -21,7 +20,7 @@ export class CoreModuleSiteUserCreditChargeDirectComponent implements OnInit {
     private dialog: MatDialog,
     private cmsToastrService: CmsToastrService,
     private router: Router,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private service: CoreModuleSiteUserCreditService,
     public translate: TranslateService,
     private dialogRef: MatDialogRef<CoreModuleSiteUserCreditChargeDirectComponent>,
@@ -32,7 +31,7 @@ export class CoreModuleSiteUserCreditChargeDirectComponent implements OnInit {
     }
   }
 
-  loading = new ProgressSpinnerModel();
+
   dataModel: CoreModuleSiteUserCreditChargeDirectDtoModel = new CoreModuleSiteUserCreditChargeDirectDtoModel();
   dataModelResult: ErrorExceptionResult<CoreModuleSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleSiteUserCreditModel>();
   ngOnInit(): void {

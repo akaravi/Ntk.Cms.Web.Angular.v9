@@ -45,7 +45,7 @@ export class PollingContentAddComponent extends AddBaseComponent<PollingContentS
     public translate: TranslateService,
   ) {
     super(pollingContentService, new PollingContentModel(), publicHelper, translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.loadingOption.cdr = this.cdr;
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();

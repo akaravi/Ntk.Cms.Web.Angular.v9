@@ -1,3 +1,4 @@
+import { TranslateService } from "@ngx-translate/core";
 import { BaseEntity, DataFieldInfoModel, ErrorExceptionResultBase, IApiCmsServerBase, TokenInfoModel } from "ntk-cms-api";
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
@@ -5,8 +6,6 @@ import { CmsDataPinComponent } from "src/app/shared/cms-data-pin/cms-data-pin.co
 import { CmsDataTaskComponent } from "src/app/shared/cms-data-task/cms-data-task.component";
 import { environment } from "src/environments/environment";
 import { PublicHelper } from "../helpers/publicHelper";
-import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
-import { TranslateService } from "@ngx-translate/core";
 //IApiCmsServerBase
 export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public translate: TranslateService,
@@ -16,7 +15,7 @@ export class EditBaseComponent<TService extends IApiCmsServerBase, TModel extend
   }
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
   dataModel: TModel;
   onActionButtonMemo(model: TModel = this.dataModel): void {

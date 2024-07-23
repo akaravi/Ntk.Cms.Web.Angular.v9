@@ -4,7 +4,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { ApplicationAppModel, ApplicationAppService, FormInfoModel } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-download',
@@ -17,14 +16,14 @@ export class ApplicationAppDownloadComponent implements OnInit {
     private applicationAppService: ApplicationAppService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   formInfo: FormInfoModel = new FormInfoModel();
-  loading = new ProgressSpinnerModel();
+
   // dataModel = new ApplicationAppModel();
   ngOnInit(): void {
     this.DataGetOne(this.dataModel.id);

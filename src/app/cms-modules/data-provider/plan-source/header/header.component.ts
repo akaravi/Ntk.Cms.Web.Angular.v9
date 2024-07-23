@@ -12,7 +12,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 import { environment } from 'src/environments/environment';
@@ -31,10 +30,10 @@ export class DataProviderPlanSourceHeaderComponent implements OnInit, OnDestroy 
     public dialog: MatDialog,
     public tokenHelper: TokenHelper
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() optionId = '';
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<DataProviderPlanSourceModel> = new ErrorExceptionResult<DataProviderPlanSourceModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

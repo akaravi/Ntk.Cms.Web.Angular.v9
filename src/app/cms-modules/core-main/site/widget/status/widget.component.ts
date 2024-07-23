@@ -1,5 +1,5 @@
 
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AuthRenewTokenModel,
@@ -11,7 +11,6 @@ import {
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { PersianCalendarService } from 'src/app/core/pipe/persian-date/persian-date.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -28,13 +27,8 @@ export class CoreSiteWidgetStatusComponent implements OnInit, OnDestroy {
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
   indexTheme = ['symbol-light-success', 'symbol-light-warning', 'symbol-light-danger', 'symbol-light-info', 'symbol-light-info', 'symbol-light-info'];
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   constructor(
     private service: CoreSiteService,
     public translate: TranslateService,

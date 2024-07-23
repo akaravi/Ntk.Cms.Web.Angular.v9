@@ -66,27 +66,27 @@
           </div>
           <hr>
           <!-- LinkModuleId Field -->
-          <app-cms-module-selector (optionChange)="onActionSelectModuleId($event)" [(optionLoading)]="loading"
+          <app-cms-module-selector (optionChange)="onActionSelectModuleId($event)"
             [optionSelectForce]="this.dataModel.linkModuleId" [optionPlaceholder]="'TITLE.MODULE' | translate"
             [optionDisabled]="!fieldsInfo['linkModuleId']?.accessEditField">
           </app-cms-module-selector>
 
 
           <!-- LinkSiteCategoryId Field -->
-          <app-cms-sitecategory-selector (optionChange)="onActionSelectSiteCategory($event)" [(optionLoading)]="loading"
+          <app-cms-sitecategory-selector (optionChange)="onActionSelectSiteCategory($event)"
             [optionSelectForce]="this.dataModel.linkSiteCategoryId"
             [optionPlaceholder]="'TITLE.SITE_CATEGORY' | translate"
             [optionDisabled]="!fieldsInfo['linkSiteCategoryId']?.accessEditField">
           </app-cms-sitecategory-selector>
 
           <!-- LinkUserGroupId Field -->
-          <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)" [(optionLoading)]="loading"
+          <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)"
             [optionSelectForce]="this.dataModel.linkUserGroupId" [optionPlaceholder]="'TITLE.User_Group' | translate"
             [optionDisabled]="!fieldsInfo['linkUserGroupId']?.accessEditField">
           </app-cms-usergroup-selector>
 
           <!-- LinkApplicationId Field -->
-          <app-cms-application-selector (optionChange)="onActionSelectApplication($event)" [(optionLoading)]="loading"
+          <app-cms-application-selector (optionChange)="onActionSelectApplication($event)"
             [optionSelectForce]="this.dataModel.linkApplicationId" [optionPlaceholder]="'TITLE.Application' | translate"
             [optionDisabled]="!fieldsInfo['linkApplicationId']?.accessEditField">
           </app-cms-application-selector>
@@ -94,7 +94,7 @@
 
           <!-- LinkApplicationSourceId Field -->
           <app-cms-application-selector (optionChange)="onActionSelectApplicationSource($event)"
-            [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkApplicationSourceId"
+            [optionSelectForce]="this.dataModel.linkApplicationSourceId"
             [optionPlaceholder]="'TITLE.Application_Source' | translate"
             [optionDisabled]="!fieldsInfo['linkApplicationSourceId']?.accessEditField">
           </app-cms-application-selector>
@@ -123,7 +123,7 @@
           </app-core-userclaimtype-selectionlist>
         </mat-step>
       </mat-vertical-stepper>
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

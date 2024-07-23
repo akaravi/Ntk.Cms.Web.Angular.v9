@@ -13,7 +13,6 @@ import {
   SmsApiSendResultModel, SmsMainApiPathModel, SmsMainApiPathService
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -36,7 +35,7 @@ export class SmsMainApiPathSendTestComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
 
     if (data && data.linkApiPathId) {
       this.requestLinkApiPathId = data.linkApiPathId;
@@ -45,7 +44,7 @@ export class SmsMainApiPathSendTestComponent implements OnInit {
   }
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  loading = new ProgressSpinnerModel();
+
   dataModelParentSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   dataModel: SmsApiSendMessageTestDtoModel = new SmsApiSendMessageTestDtoModel();
   dataModelResult: ErrorExceptionResult<SmsApiSendResultModel> = new ErrorExceptionResult<SmsApiSendResultModel>();

@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -13,7 +13,6 @@ import {
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 
@@ -31,13 +30,13 @@ export class CoreSiteSelectionComponent implements OnInit {
     private coreSiteUserService: CoreSiteUserService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private router: Router,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
-    this.loading.cdr = cdr;
+
+
     if (localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY)) {
       this.lastSelectSiteId = localStorage.getItem(this.SELECT_SITE_LOCAL_STORAGE_KEY).split(',').map(function (item) {
         return parseInt(item, 10);
@@ -46,13 +45,8 @@ export class CoreSiteSelectionComponent implements OnInit {
 
   }
   cmsImageThumbnailPipe = new CmsImageThumbnailPipe();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
 
   today = new Date();
   filterModel = new FilterModel();

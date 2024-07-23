@@ -8,7 +8,6 @@ import { FormInfoModel, SmsApiSendMessageDtoModel, SmsMainApiNumberModel, SmsMai
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 
@@ -28,7 +27,7 @@ export class CmsLinkToComponent implements OnInit {
     private router: Router,
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
   ) {
     if (data) {
       this.optionLabel = data.title;
@@ -37,9 +36,9 @@ export class CmsLinkToComponent implements OnInit {
     }
   }
   dataModel: SmsApiSendMessageDtoModel = new SmsApiSendMessageDtoModel();
-  loading = new ProgressSpinnerModel();
+
   formInfo: FormInfoModel = new FormInfoModel();
-  loadingAction = new ProgressSpinnerModel();
+
   tokenInfo = new TokenInfoModel();
 
 
@@ -136,7 +135,10 @@ export class CmsLinkToComponent implements OnInit {
 
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'main';
-    this.loadingAction.Start(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
+
     this.formInfo.formAlert = '';
     this.formInfo.formError = '';
     this.smsMainApiPathService.ServiceSendMessage(this.dataModel).subscribe({
@@ -151,12 +153,12 @@ export class CmsLinkToComponent implements OnInit {
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loadingAction.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (e) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(e);
-        this.loadingAction.Stop(pName);
+        this.publicHelper.processService.processStop(pName, false);
 
       },
       complete: () => {

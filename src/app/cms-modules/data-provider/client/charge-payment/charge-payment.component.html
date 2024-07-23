@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>{{ formInfo.formTitle }} </mat-card-title>
   </mat-card-header>
-  <app-cms-bankpayment-grid [optionloading]="loading" mat-card-md-image [optionMasterItem]="requestBankPrivateMaster"
+  <app-cms-bankpayment-grid mat-card-md-image [optionMasterItem]="requestBankPrivateMaster"
     (optionChange)="onActionSelectCalculate($event)">
   </app-cms-bankpayment-grid>
   <mat-card-content>

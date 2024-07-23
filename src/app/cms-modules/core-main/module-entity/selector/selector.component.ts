@@ -10,7 +10,6 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -25,11 +24,11 @@ export class CoreModuleEntitySelectorComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     public categoryService: CoreModuleEntityService) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   dataModelResult: ErrorExceptionResult<CoreModuleEntityModel> = new ErrorExceptionResult<CoreModuleEntityModel>();
   dataModelSelect: CoreModuleEntityModel = new CoreModuleEntityModel();
@@ -46,13 +45,8 @@ export class CoreModuleEntitySelectorComponent implements OnInit {
     this.onActionSelectForce(x);
   }
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
 
   ngOnInit(): void {
     this.loadOptions();
@@ -85,7 +79,7 @@ export class CoreModuleEntitySelectorComponent implements OnInit {
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 50;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
     let filter = new FilterDataModel();
     filter.propertyName = 'moduleName';
     filter.value = text;

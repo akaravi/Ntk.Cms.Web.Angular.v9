@@ -11,7 +11,6 @@ import { Observable, Subscription, interval } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 enum ErrorStates {
@@ -36,11 +35,11 @@ export class AuthSingInBySmsComponent implements OnInit {
     private router: Router,
     private cmsTranslationService: CmsTranslationService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public pageInfo: PageInfoService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.RePasswordModel = '';
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatus;
@@ -56,7 +55,7 @@ export class AuthSingInBySmsComponent implements OnInit {
   diffSecondsSubscribe: Subscription;
   // private fields
   forgetState = 'sms';
-  loading = new ProgressSpinnerModel();
+
   formInfo: FormInfoModel = new FormInfoModel();
   passwordIsValid = false;
   RePasswordModel = '';
@@ -120,7 +119,7 @@ export class AuthSingInBySmsComponent implements OnInit {
             this.prorocess.message = '';
             this.buttonnResendSmsDisable = true;
             var timeleft = this.prorocess.progressBarMaxValue;
-            this. downloadTimer = setInterval(() => {
+            this.downloadTimer = setInterval(() => {
               this.prorocess.progressBarValue = this.prorocess.progressBarMaxValue - timeleft;
               this.prorocess.message = '(' + timeleft + ' ' + this.translate.instant('MESSAGE.SECONDS') + ')';
               timeleft -= 1;

@@ -15,7 +15,6 @@ import {
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-property-project-delete',
@@ -26,7 +25,7 @@ export class EstatePropertyProjectDeleteComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyProjectDeleteComponent>,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public contentService: EstatePropertyProjectService,
     private cdr: ChangeDetectorRef,
     private cmsToastrService: CmsToastrService,
@@ -34,7 +33,7 @@ export class EstatePropertyProjectDeleteComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id;
     }
@@ -47,7 +46,7 @@ export class EstatePropertyProjectDeleteComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   dataModelResultContent: ErrorExceptionResult<EstatePropertyProjectModel> = new ErrorExceptionResult<EstatePropertyProjectModel>();
   formInfo: FormInfoModel = new FormInfoModel();
   ngOnInit(): void {

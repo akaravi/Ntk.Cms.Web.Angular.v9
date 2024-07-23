@@ -26,8 +26,7 @@
         [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
       <!-- LinkLocationId Field -->
       <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-        [optionSelectForce]="dataModel.linkLocationId" [(optionLoading)]="loading"
-        [optionPlaceholder]="'TITLE.Geographical_Region'  | translate"
+        [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="'TITLE.Geographical_Region'  | translate"
         [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField">
       </app-cms-location-selector>
       <!-- CreatedYaer Field -->
@@ -39,15 +38,14 @@
       <br>
       <!-- linkCoreCurrencyId Field -->
       <app-cms-currency-selector [optionSelectFirstItem]="true" [optionSelectForce]="dataModel.linkCoreCurrencyId"
-        (optionChange)="onActionSelectCurrency($event)" [(optionLoading)]="loading"
+        (optionChange)="onActionSelectCurrency($event)"
         [optionPlaceholder]="'TITLE.Specify_the_transaction_currency'  | translate">
       </app-cms-currency-selector>
       <br>
       <!-- LinkContractTypeIds Field -->
       <app-estate-contract-type-selector (optionChange)="onActionSelectorContarctType($event)" [optionTypeView]="1"
         [optionDisabled]="!fieldsInfo['linkContractTypeId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkContractTypeId" [(optionLoading)]="loading"
-        [optionPlaceholder]="'TITLE.Transaction_type'  | translate">
+        [optionSelectForce]="dataModel.linkContractTypeId" [optionPlaceholder]="'TITLE.Transaction_type'  | translate">
         <mat-icon matSuffix *ngIf="dataModel.linkContractTypeId && dataModel.linkContractTypeId?.length>0" matSuffix
           mat-icon-button aria-label="Clear" (click)="dataModel.linkContractTypeId = null;">close
         </mat-icon>
@@ -57,8 +55,7 @@
       <!-- LinkPropertyTypeUsageId Field -->
       <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
         [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageId']?.accessEditField" [optionTypeView]="1"
-        [optionSelectForce]="dataModel.linkPropertyTypeUsageId" [(optionLoading)]="loading"
-        [optionPlaceholder]="'TITLE.Type_Usage' | translate">
+        [optionSelectForce]="dataModel.linkPropertyTypeUsageId" [optionPlaceholder]="'TITLE.Type_Usage' | translate">
         <mat-icon matSuffix *ngIf="dataModel.linkPropertyTypeUsageId && dataModel.linkPropertyTypeUsageId?.length>0"
           matSuffix mat-icon-button aria-label="Clear" (click)="dataModel.linkPropertyTypeUsageId = null;">close
         </mat-icon>
@@ -66,7 +63,7 @@
       <!-- LinkPropertyTypeLanduseId Field -->
       <app-estate-property-type-landuse-selector (optionChange)="onActionSelectorSelectLanduse($event)"
         [optionDisabled]="!fieldsInfo['linkPropertyTypeLanduseId']?.accessEditField" [optionTypeView]="1"
-        [optionSelectForce]="dataModel.linkPropertyTypeLanduseId" [(optionLoading)]="loading"
+        [optionSelectForce]="dataModel.linkPropertyTypeLanduseId"
         [optionPlaceholder]="'TITLE.Property_Type'  | translate">
         <mat-icon matSuffix *ngIf="dataModel.linkPropertyTypeLanduseId && dataModel.linkPropertyTypeLanduseId?.length>0"
           matSuffix mat-icon-button aria-label="Clear" (click)="onActionSelectorSelectLanduse(null)">close
@@ -219,7 +216,7 @@
         </mat-error>
       </div>
 
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}

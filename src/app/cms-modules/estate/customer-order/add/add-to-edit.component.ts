@@ -37,9 +37,9 @@ export class EstateCustomerOrderAddToEditComponent extends AddBaseComponent<Esta
     public tokenHelper: TokenHelper,
 
   ) {
-    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper,translate);
+    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });

@@ -6,7 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { CoreModuleDataMemoDtoModel, CoreModuleDataMemoModel, ErrorExceptionResult, ErrorExceptionResultBase, FormInfoModel, IApiCmsServerBase } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -29,7 +28,7 @@ export class CmsDataMemoComponent implements OnInit {
     public tokenHelper: TokenHelper,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
 
     if (data) {
       this.service = data.service;
@@ -45,7 +44,7 @@ export class CmsDataMemoComponent implements OnInit {
 
   showFormAdd = true;
 
-  loading = new ProgressSpinnerModel();
+
 
   dataModelResult: ErrorExceptionResult<CoreModuleDataMemoModel> = new ErrorExceptionResult<CoreModuleDataMemoModel>();
   dataModelResultBase: ErrorExceptionResultBase = new ErrorExceptionResultBase();
@@ -64,7 +63,7 @@ export class CmsDataMemoComponent implements OnInit {
 
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     /*filter CLone*/
     if (this.dataModel.moduleEntityId && this.dataModel.moduleEntityId.length > 0) {

@@ -32,8 +32,8 @@ export class LinkManagementAccountingAddComponent extends AddBaseComponent<LinkM
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(categoryService, new LinkManagementAccountingModel(), publicHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(categoryService, new LinkManagementAccountingModel(), publicHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

@@ -1,7 +1,7 @@
-<app-cms-html-list [optionGuideNoticeKey]="'biography.comment.list'"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'biography.comment.list'"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
   [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionSelectRowItemTitle]="tableRowSelected?.id">
   <ng-container cms-tree>

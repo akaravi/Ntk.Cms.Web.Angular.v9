@@ -3,7 +3,6 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreConfigurationService, ErrorExceptionResult } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-auth-singup-rule',
@@ -14,13 +13,13 @@ export class SingupRuleComponent implements OnInit {
     private coreConfigurationService: CoreConfigurationService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<string> = new ErrorExceptionResult<string>();
   ngOnInit(): void {
     const pName = this.constructor.name + 'ServiceUserMembershipRule';

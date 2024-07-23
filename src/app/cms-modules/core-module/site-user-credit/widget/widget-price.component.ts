@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -15,7 +15,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -38,7 +37,7 @@ export class CoreModuleSiteUserCreditWidgetPriceComponent implements OnInit, OnD
     private coreModuleService: CoreModuleService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   dataModelResult: ErrorExceptionResult<CoreModuleSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleSiteUserCreditModel>();
   dataModelCoreModuleResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
@@ -50,13 +49,8 @@ export class CoreModuleSiteUserCreditWidgetPriceComponent implements OnInit, OnD
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('TITLE.Evidence_Identity');
     this.widgetInfoModel.description = '';
@@ -89,7 +83,7 @@ export class CoreModuleSiteUserCreditWidgetPriceComponent implements OnInit, OnD
 
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));

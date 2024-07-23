@@ -11,7 +11,6 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -27,25 +26,20 @@ export class SmsActionSendMessageApiComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     public pathService: SmsMainApiPathService,
     public numberService: SmsMainApiNumberService
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
 
   dataPathModelResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   dataNumberModelResult: ErrorExceptionResult<SmsMainApiNumberModel> = new ErrorExceptionResult<SmsMainApiNumberModel>();
   dataPathModelSelect: SmsMainApiPathModel = new SmsMainApiPathModel();
   dataNumberModelSelect: SmsMainApiNumberModel = new SmsMainApiNumberModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   formPathControl = new FormControl();
   formNumberControl = new FormControl();
   filteredPathOptions: Observable<SmsMainApiPathModel[]>;

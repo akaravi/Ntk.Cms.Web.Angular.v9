@@ -22,14 +22,13 @@ import {
   NewsCategoryService
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { NewsCategoryAddComponent } from '../add/add.component';
 import { NewsCategoryDeleteComponent } from '../delete/delete.component';
 import { NewsCategoryEditComponent } from '../edit/edit.component';
-import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
@@ -43,12 +42,12 @@ export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
     public categoryService: NewsCategoryService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() set optionSelectForce(x: number | NewsCategoryModel) {
     this.onActionSelectForce(x);
@@ -56,13 +55,8 @@ export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: NewsCategoryModel = new NewsCategoryModel();
   dataModelResult: ErrorExceptionResult<NewsCategoryModel> = new ErrorExceptionResult<NewsCategoryModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<NewsCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<NewsCategoryModel>();
   @Output() optionChange = new EventEmitter<NewsCategoryModel>();
@@ -82,7 +76,7 @@ export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
     this.filterModel.rowPerPage = 200;
     this.filterModel.accessLoad = true;
     const pName = this.constructor.name + '.ServiceGetAll';
-    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

@@ -15,7 +15,7 @@ export class FooterBarComponent implements OnInit {
 
   constructor(
     public tokenHelper: TokenHelper,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private themeService: ThemeService
   ) {
     this.tokenHelper.getCurrentToken().then((value) => {

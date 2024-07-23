@@ -33,9 +33,9 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private router: Router) {
-    super(contentService, new ApplicationIntroModel(), publicHelper,translate);
+    super(contentService, new ApplicationIntroModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));
   }
@@ -78,7 +78,7 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     /*َAccess Field*/
     this.applicationIntroService.setAccessLoad();
     this.applicationIntroService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -111,7 +111,7 @@ export class ApplicationIntroEditComponent extends EditBaseComponent<Application
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.applicationIntroService
       .ServiceEdit(this.dataModel)
       .subscribe({

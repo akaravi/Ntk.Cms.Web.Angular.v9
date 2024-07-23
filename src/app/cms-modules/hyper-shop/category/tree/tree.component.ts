@@ -24,7 +24,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { environment } from 'src/environments/environment';
@@ -42,11 +41,11 @@ export class HyperShopCategoryTreeComponent implements OnInit, OnDestroy {
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() set optionSelectForce(x: number | HyperShopCategoryModel) {
     this.onActionSelectForce(x);
@@ -54,13 +53,8 @@ export class HyperShopCategoryTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: HyperShopCategoryModel = new HyperShopCategoryModel();
   dataModelResult: ErrorExceptionResult<HyperShopCategoryModel> = new ErrorExceptionResult<HyperShopCategoryModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<HyperShopCategoryModel>(node => null);
   dataSource = new MatTreeNestedDataSource<HyperShopCategoryModel>();
   @Output() optionChange = new EventEmitter<HyperShopCategoryModel>();

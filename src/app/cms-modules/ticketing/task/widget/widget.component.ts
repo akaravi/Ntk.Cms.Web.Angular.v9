@@ -1,11 +1,10 @@
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FilterDataModel, FilterModel, TicketStatusEnum, TicketingTaskService } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 @Component({
   selector: 'app-ticketing-task-widget',
@@ -18,23 +17,18 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
   constructor(
     private service: TicketingTaskService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   filteModelContent = new FilterModel();
 
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_tickets');
     this.widgetInfoModel.description = '';
@@ -51,10 +45,10 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   onActionStatist(): void {
-    this.publicHelper.processService.processStart(this.constructor.name + 'Unread', this.translate.instant('MESSAGE.Get_unread_tickets_statistics'));
-    this.publicHelper.processService.processStart(this.constructor.name + 'Read', this.translate.instant('MESSAGE.Get_read_tickets_statistics'));
-    this.publicHelper.processService.processStart(this.constructor.name + 'Answered', this.translate.instant('MESSAGE.Get_answered_tickets_statistics'));
-    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_tickets'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'Unread', this.translate.instant('MESSAGE.Get_unread_tickets_statistics'), this.constructor.name);
+    this.publicHelper.processService.processStart(this.constructor.name + 'Read', this.translate.instant('MESSAGE.Get_read_tickets_statistics'), this.constructor.name);
+    this.publicHelper.processService.processStart(this.constructor.name + 'Answered', this.translate.instant('MESSAGE.Get_answered_tickets_statistics'), this.constructor.name);
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.Get_statistics_on_all_tickets'), this.constructor.name);
 
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('Unread', 0, 0, ''));
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('Read', 1, 0, ''));
@@ -68,7 +62,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
         this.publicHelper.processService.processStop(this.constructor.name + 'All');
       },
       error: (er) => {
-        this.publicHelper.processService.processStop(this.constructor.name + 'All',false);
+        this.publicHelper.processService.processStop(this.constructor.name + 'All', false);
       }
     }
     );
@@ -86,7 +80,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
       }
       ,
       error: (er) => {
-        this.publicHelper.processService.processStop(this.constructor.name + 'Read',false);
+        this.publicHelper.processService.processStop(this.constructor.name + 'Read', false);
       }
     }
     );
@@ -104,7 +98,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
       }
       ,
       error: (er) => {
-        this.publicHelper.processService.processStop(this.constructor.name + 'Unread',false);
+        this.publicHelper.processService.processStop(this.constructor.name + 'Unread', false);
       }
     }
     );
@@ -122,7 +116,7 @@ export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
       }
       ,
       error: (er) => {
-        this.publicHelper.processService.processStop(this.constructor.name + 'Answered',false);
+        this.publicHelper.processService.processStop(this.constructor.name + 'Answered', false);
       }
     }
     );

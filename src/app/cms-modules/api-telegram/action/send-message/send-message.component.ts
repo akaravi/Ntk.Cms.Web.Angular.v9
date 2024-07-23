@@ -12,7 +12,6 @@ import {
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CompModel {
   ChatIds: string;
@@ -35,7 +34,7 @@ export class ApiTelegramActionSendMessageComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
@@ -46,7 +45,7 @@ export class ApiTelegramActionSendMessageComponent implements OnInit {
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: ApiTelegramSendMessageTodoModel = new ApiTelegramSendMessageTodoModel();
   formInfo: FormInfoModel = new FormInfoModel();

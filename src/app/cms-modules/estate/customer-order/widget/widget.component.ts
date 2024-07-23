@@ -6,7 +6,6 @@ import { Subscription, forkJoin } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ChartOptionsModel } from 'src/app/core/models/chartOptionsModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -21,13 +20,13 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
   constructor(
     private service: EstateCustomerOrderService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     /** chart*/
     this.chartOptions = {
       series: [],
@@ -58,13 +57,8 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
   filteModelContent = new FilterModel();
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   rowExist = false;
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('TITLE.ESTATE.CUSTOMER_ORDER');
@@ -83,7 +77,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   async onActionStatist() {
-    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'), this.constructor.name);
     this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     //*filter */
     const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));

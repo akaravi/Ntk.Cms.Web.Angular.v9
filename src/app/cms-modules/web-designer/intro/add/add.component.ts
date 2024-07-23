@@ -31,8 +31,8 @@ export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesign
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(webDesignerMainIntroService, new WebDesignerMainIntroModel(), publicHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(webDesignerMainIntroService, new WebDesignerMainIntroModel(), publicHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

@@ -21,7 +21,7 @@
             [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true">
           </app-cms-enum-record-status-selector>
-          <app-chart-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+          <app-chart-category-selector (optionChange)="onActionSelectorSelect($event)"
             [optionSelectForce]="dataModel.linkCategoryId" [optionPlaceholder]="'TITLE.Category' | translate">
           </app-chart-category-selector>
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -74,7 +74,7 @@
             [(ngModel)]="dataModel.body" name="dataModel.body">
           </angular-editor>
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()">
               {{'ACTION.BACK' | translate}}
@@ -92,7 +92,7 @@
             (optionSelectDisChecked)="onActionCategorySelectDisChecked($event)">
           </app-chart-category-treeselector>
           <br>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -137,7 +137,7 @@
             </mat-chip-grid>
           </mat-form-field>
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -211,7 +211,7 @@
               [selectFileType]="selectFileTypeMovie" [openFilemanagerButtonView]="false">
             </cms-file-manager>
           </div>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -300,7 +300,7 @@
           <!-- TABLE  -->
 
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -314,7 +314,7 @@
 
         <mat-step label="{{'TITLE.Similar_Content' | translate}} " state="loaction">
           <p>{{'TITLE.Specify_relevant_content' | translate}}</p>
-          <app-chart-content-selector (optionChange)="onActionContentSimilarSelect($event)" [(optionLoading)]="loading"
+          <app-chart-content-selector (optionChange)="onActionContentSimilarSelect($event)"
             [optionPlaceholder]="'TITLE.Similar_Content' | translate">
             <button type="button" *ngIf="contentSimilarSelected && contentSimilarSelected.id"
               (click)="onActionContentSimilarAddToLIst()"
@@ -375,7 +375,7 @@
           </div>
           <!-- TABLE  -->
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -389,14 +389,14 @@
 
         <mat-step label="{{'TITLE.Location' | translate}} " state="loaction">
           <!-- LinkLocationId Field -->
-          <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
+          <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
             [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField"
             [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="'TITLE.Region' | translate">
           </app-cms-location-selector>
           <p>{{'TITLE.Click_on_the_map_to_specify_the_location' | translate}}</p>
           <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
             id='main-map'></app-cms-map>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}

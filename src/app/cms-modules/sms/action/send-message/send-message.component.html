@@ -30,10 +30,10 @@
 
                 <!-- LinkPrivateSiteConfigId Field -->
                 <app-sms-apipath-selector (optionChange)="onActionSelectPrivateSiteConfig($event)"
-                  [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkApiPathId"
-                  [optionPlaceholder]="'TITLE.Direction' | translate" [optionSelectFirstItem]="true">
+                  [optionSelectForce]="dataModel.linkApiPathId" [optionPlaceholder]="'TITLE.Direction' | translate"
+                  [optionSelectFirstItem]="true">
                 </app-sms-apipath-selector>
-                <app-sms-api-number-selector *ngIf="dataModel.linkApiPathId?.length>0" [(optionLoading)]="loading"
+                <app-sms-api-number-selector *ngIf="dataModel.linkApiPathId?.length>0"
                   (optionChange)="onActionSelectApiNumber($event)" [optionSelectForce]=""
                   [optionLinkApiPathId]="dataModel.linkApiPathId"
                   [optionPlaceholder]="'TITLE.sender_number' | translate " [optionSelectFirstItem]="true"
@@ -58,11 +58,9 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                <app-sms-main-message-category-selector [(optionLoading)]="loading"
-                  (optionChange)="onActionSelectMessageCategory($event)">
+                <app-sms-main-message-category-selector (optionChange)="onActionSelectMessageCategory($event)">
                 </app-sms-main-message-category-selector>
-                <app-sms-main-message-content-selector [(optionLoading)]="loading"
-                  (optionChange)="onActionSelectMessageContent($event)"
+                <app-sms-main-message-content-selector (optionChange)="onActionSelectMessageContent($event)"
                   [optionLinkCategryId]="dataMessageCategoryModel.id"></app-sms-main-message-content-selector>
 
                 <textarea matInput [(ngModel)]="dataMessageContentModel.messageBody"
@@ -208,8 +206,9 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>
 
-               <cron-editor [(cron)]="dataModel.scheduleCron" [disabled]="isCronDisabled" [options]="cronOptions" [language]="language" >
-                </cron-editor> 
+                <cron-editor [(cron)]="dataModel.scheduleCron" [disabled]="isCronDisabled" [options]="cronOptions"
+                  [language]="language">
+                </cron-editor>
 
 
 
@@ -316,11 +315,11 @@
 
                 </div>
               </div>
-              <div class="row" *ngIf="formInfo.formSubmitAllow  && !loading?.display"
+              <div class="row" *ngIf="formInfo.formSubmitAllow  "
                 style="height:140px;bottom: 4vh;justify-content: center;">
-                <cms-progress-spinner [options]="loadingAction"> </cms-progress-spinner>
+                <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
                 <button type="submit" class="message-box-button" [disabled]="!vform.valid"
-                  *ngIf="!this.loading.display">
+                  *ngIf="!this.publicHelper.processService.processInRun">
                   <i class="fa fa-check-square-o"></i>
                   {{'ACTION.Send_Message' | translate}}
                 </button>

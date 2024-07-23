@@ -34,7 +34,7 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
     public tokenHelper: TokenHelper,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     /*filter Sort*/
     this.filteModelContent.sortColumn = 'Id';
     this.filteModelContent.sortType = SortTypeEnum.Ascending;
@@ -54,7 +54,7 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
   optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
 
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   loadingCat = new ProgressSpinnerModel();
   tableRowsSelected: Array<TicketingFaqModel> = [];
   tableRowSelected: TicketingFaqModel = new TicketingFaqModel();

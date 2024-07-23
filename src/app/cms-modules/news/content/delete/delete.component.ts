@@ -11,7 +11,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { DataFieldInfoModel, ErrorExceptionResult, FormInfoModel, ManageUserAccessDataTypesEnum, NewsContentModel, NewsContentService } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-news-content-delete',
@@ -22,20 +21,20 @@ export class NewsContentDeleteComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<NewsContentDeleteComponent>,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public contentService: NewsContentService,
     private cdr: ChangeDetectorRef,
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestId = +data.id || 0;
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+
   dataModelResultContent: ErrorExceptionResult<NewsContentModel> = new ErrorExceptionResult<NewsContentModel>();
   formInfo: FormInfoModel = new FormInfoModel();
   ngOnInit(): void {
@@ -53,7 +52,7 @@ export class NewsContentDeleteComponent implements OnInit {
     }
     this.formInfo.formAlert = this.translate.instant('MESSAGE.get_information_list');
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.setAccessLoad();
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
@@ -89,7 +88,7 @@ export class NewsContentDeleteComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.contentService
       .ServiceDelete(this.requestId)

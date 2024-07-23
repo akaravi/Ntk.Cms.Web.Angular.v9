@@ -25,7 +25,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -39,12 +38,12 @@ export class LinkManagementBillboardPatternTreeSelectorComponent implements OnIn
     public coreEnumService: CoreEnumService,
     public categoryService: LinkManagementBillboardPatternService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public dialog: MatDialog,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.checklistSelection.changed.subscribe(x => {
       if (!this.runComplate) {
         return;
@@ -75,7 +74,7 @@ export class LinkManagementBillboardPatternTreeSelectorComponent implements OnIn
   dataModelSelect: number[] = [];
   dataModelResult: ErrorExceptionResult<LinkManagementBillboardPatternModel> = new ErrorExceptionResult<LinkManagementBillboardPatternModel>();
   filterModel = new FilterModel();
-  loading = new ProgressSpinnerModel();
+
   treeControl = new NestedTreeControl<LinkManagementBillboardPatternModel>(node => null);
   dataSource = new MatTreeNestedDataSource<LinkManagementBillboardPatternModel>();
   runComplate = false;

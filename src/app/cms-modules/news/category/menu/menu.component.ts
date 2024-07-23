@@ -5,7 +5,6 @@ import { ErrorExceptionResult, FilterDataModel, FilterModel, NewsCategoryModel, 
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -24,10 +23,10 @@ export class NewsCategoryMenuComponent implements OnInit {
     private router: Router,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
       this.loadData();
@@ -52,7 +51,7 @@ export class NewsCategoryMenuComponent implements OnInit {
   routerLinkContect = '/news/content/';
   routerLinkCategory = '/news/category/';
 
-  loading = new ProgressSpinnerModel();
+
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();
   dataModelResult: ErrorExceptionResult<NewsCategoryModel> = new ErrorExceptionResult<NewsCategoryModel>();
@@ -78,7 +77,7 @@ export class NewsCategoryMenuComponent implements OnInit {
       this.filterModel.filters.push(filter);
     }
     const pName = this.constructor.name + '.ServiceGetAll';
-    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_categories').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.categoryService.ServiceGetAll(this.filterModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

@@ -10,7 +10,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -24,16 +23,16 @@ export class EstatePropertyTypeLanduseSelectionlistComponent implements OnInit, 
     public coreEnumService: CoreEnumService,
     public categoryService: EstatePropertyTypeLanduseService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   dataModelResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
   dataModelSelect: EstatePropertyTypeLanduseModel[] = [];
   dataIdsSelect: string[] = [];
-  loading = new ProgressSpinnerModel();
+
   formControl = new FormControl();
   fieldsStatus: Map<string, boolean> = new Map<string, boolean>();
 

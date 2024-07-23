@@ -28,17 +28,15 @@
 
         <!-- LinkCmsSiteId Field -->
         <app-core-site-selector (optionChange)="onActionSelectorSiteSelect($event)" [optionDisabled]="false"
-          [optionSelectForce]="dataModel.linkSiteId" [(optionLoading)]="loading"
-          [optionPlaceholder]="'TITLE.WEBSITE' | translate">
+          [optionSelectForce]="dataModel.linkSiteId" [optionPlaceholder]="'TITLE.WEBSITE' | translate">
         </app-core-site-selector>
         <!-- LinkuserId Field -->
         <app-core-user-selector (optionChange)="onActionSelectorUserSelect($event)" [optionDisabled]="false"
-          [optionSelectForce]="dataModel.linkUserId" [(optionLoading)]="loading"
-          [optionPlaceholder]="'TITLE.USER' | translate">
+          [optionSelectForce]="dataModel.linkUserId" [optionPlaceholder]="'TITLE.USER' | translate">
         </app-core-user-selector>
         <!-- LinkUserGroupId Field -->
         <app-core-usercategory-selector (optionChange)="onActionSelectorUserGroupSelect($event)"
-          [optionDisabled]="false" [optionSelectForce]="dataModel.linkUserGroupId" [(optionLoading)]="loading"
+          [optionDisabled]="false" [optionSelectForce]="dataModel.linkUserGroupId"
           [optionPlaceholder]="'TITLE.Account_Type' | translate">
         </app-core-usercategory-selector>
 
@@ -67,7 +65,7 @@
       </div>
       <div class="ntk-cms-html-card-footer">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
-        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
           <button type="button" (click)="onFormCancel()"
             class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
             <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

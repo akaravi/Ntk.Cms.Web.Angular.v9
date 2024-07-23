@@ -55,9 +55,9 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     public translate: TranslateService,
     public dialog: MatDialog,
   ) {
-    super(estatePropertyService, new EstatePropertyModel(), publicHelper,translate);
+    super(estatePropertyService, new EstatePropertyModel(), publicHelper, translate);
 
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -160,7 +160,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
 
 
     const pName = this.constructor.name + 'ServiceGetOneById';
-    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.estatePropertyService.setAccessLoad();
     this.estatePropertyService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.estatePropertyService.ServiceGetOneById(this.requestId).subscribe({

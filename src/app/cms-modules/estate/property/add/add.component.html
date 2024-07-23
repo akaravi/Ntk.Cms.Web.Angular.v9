@@ -19,7 +19,7 @@
           <p>{{'TITLE.Type_Usage' | translate }}</p>
           <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
             [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageId']?.accessAddField" [optionTypeView]="2"
-            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
+            [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
             [optionPlaceholder]="'TITLE.Type_Usage' | translate">
           </app-estate-property-type-usage-selector>
 
@@ -45,7 +45,7 @@
               " [optionDisabled]="
               !fieldsInfo['linkPropertyTypeLanduseId']?.accessAddField
               " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId"
-            [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Property_Type'  | translate"
+            [optionPlaceholder]="'TITLE.Property_Type'  | translate"
             [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId">
           </app-estate-property-type-landuse-selector>
           <br>
@@ -151,7 +151,7 @@
             </div>
             <!-- LinkLocationId Field -->
             <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-              [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField" [(optionLoading)]="loading"
+              [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField"
               [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="'TITLE.Region' | translate">
             </app-cms-location-selector>
             <!-- Address Field -->
@@ -180,7 +180,7 @@
                 {{ fieldsInfo["description"]?.fieldTitle }} <strong>{{'MESSAGE.required' | translate}}</strong>
               </mat-error>
             </div>
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
               <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
                 (click)="onActionBackToParent()"
                 class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
@@ -290,7 +290,7 @@
             </div>
           </div>
 
-          <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+          <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
             <button type="button" matStepperPrevious
               class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
@@ -306,13 +306,13 @@
         <mat-step label="{{ 'TITLE.Personal_Information' | translate }}" state="main">
           <!-- LinkCmsUserId Field -->
           <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
-            [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
+            [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
             [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.Order_Owner'  | translate">
           </app-cms-user-selector>
 
           <!-- linkEstateAgencyId Field -->
           <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
-            (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
+            (optionChange)="onActionSelectorEstateAgency($event)"
             [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessAddField"
             [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
             [optionPlaceholder]="'TITLE.Property_agency'  | translate">
@@ -320,7 +320,7 @@
 
           <!-- LinkEstateUserId Field -->
           <app-estate-account-user-selector *ngIf="this.tokenHelper.isAdminSite"
-            (optionChange)="onActionSelectorEstateUser($event)" [(optionLoading)]="loading"
+            (optionChange)="onActionSelectorEstateUser($event)"
             [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessAddField"
             [optionSelectForce]="dataModel.linkEstateUserId"
             [optionPlaceholder]="'TITLE.Property_personnel' | translate ">
@@ -384,7 +384,7 @@
               </div>
             </div>
           </div>
-          <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+          <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
             <button type="button" matStepperPrevious
               class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
@@ -401,12 +401,12 @@
           *ngIf="dataModel.propertyDetailGroups && dataModel.propertyDetailGroups.length > 0">
           <p>{{ "TITLE.Property_details_according_to_the_type_of_property"| translate}}</p>
           <!-- LinkPropertyCompanyId Field -->
-          <app-estate-property-company-selector *ngIf="this.tokenHelper.isAdminSite" [(optionLoading)]="loading"
+          <app-estate-property-company-selector *ngIf="this.tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorCompany($event)" [optionSelectForce]="dataModel.linkPropertyCompanyId"
             [optionPlaceholder]="'TITLE.Company' | translate ">
           </app-estate-property-company-selector>
           <!-- LinkPropertyProjectId Field -->
-          <app-estate-property-project-selector *ngIf="this.tokenHelper.isAdminSite" [(optionLoading)]="loading"
+          <app-estate-property-project-selector *ngIf="this.tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorProject($event)" [optionSelectForce]="dataModel.linkPropertyProjectId"
             [optionPlaceholder]="'TITLE.Project' | translate ">
           </app-estate-property-project-selector>
@@ -501,7 +501,7 @@
             </mat-expansion-panel>
             <br />
           </mat-accordion>
-          <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+          <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
@@ -547,7 +547,7 @@
               <strong>{{ "MESSAGE.required" | translate }}</strong>
             </mat-error>
           </div>
-          <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+          <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
@@ -563,14 +563,13 @@
           <p>{{"TITLE.Specify_the_type_of_transaction_for_this_property"| translate}}</p>
           <app-estate-contract-type-selector (optionChange)="onActionSelectorContractType($event)" [optionTypeView]="2"
             [optionDisabled]="false" [optionPlaceholder]=" this.translate.instant('TITLE.Type_Of_Transaction')"
-            [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
+            [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
           </app-estate-contract-type-selector>
           <div class="container" *ngIf="contractTypeSelected && contractTypeSelected.id.length > 0">
             <br>
             <br>
             <app-cms-currency-selector [optionSelectFirstItem]="currencyOptionSelectFirstItem"
-              [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkCoreCurrencyId"
-              (optionChange)="onActionSelectCurrency($event)"
+              [optionSelectForce]="contractDataModel.linkCoreCurrencyId" (optionChange)="onActionSelectCurrency($event)"
               [optionPlaceholder]="'TITLE.Specify_the_transaction_currency'  | translate">
             </app-cms-currency-selector>
             <div *ngIf="contractDataModel.linkCoreCurrencyId > 0">
@@ -712,7 +711,7 @@
           <p>
             {{ "TITLE.List_Of_Transaction_Details_Of_This_Property" | translate }}
           </p>
-          <cms-progress-spinner [options]="loadingOption"> </cms-progress-spinner>
+          <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
             <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>
@@ -829,7 +828,7 @@
             </mat-table>
           </div>
           <!-- TABLE  -->
-          <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+          <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
             <button type="button" matStepperPrevious
               class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}
@@ -884,7 +883,7 @@
           <h3>{{ "TITLE.virtual_tour" | translate }}</h3>
           <app-cms-360-tour-list [(dataModel)]="dataModel.file360Tour" [dataImageModel]="dataModel.file360Views">
           </app-cms-360-tour-list>
-          <div *ngIf="formInfo.formSubmitAllow && !loading?.display" class="ntk-button-row">
+          <div *ngIf="formInfo.formSubmitAllow " class="ntk-button-row">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{ "ACTION.BEFOR" | translate }}
@@ -911,7 +910,7 @@
             class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
             {{ "ACTION.MY_LOCATION" | translate }}
           </button>
-          <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+          <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
             <button type="button" matStepperPrevious
               class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue">
               {{ "ACTION.BEFOR" | translate }}

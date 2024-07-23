@@ -45,9 +45,8 @@
         <em>{{ DeviceIPsAllow.value.length }} / 500</em>
       </div>
       <!-- LinkSiteId Field -->
-      <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [(optionLoading)]="loading"
-        [optionDisabled]="false" [optionSelectForce]=" this.dataModel.linkSiteId"
-        [optionPlaceholder]="'TITLE.SITE' | translate">
+      <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [optionDisabled]="false"
+        [optionSelectForce]=" this.dataModel.linkSiteId" [optionPlaceholder]="'TITLE.SITE' | translate">
       </app-cms-site-selector>
       <!-- LinkApplicationId Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -102,7 +101,7 @@
         <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
         <mat-datepicker touchUi #ExpireDate></mat-datepicker>
       </div>
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

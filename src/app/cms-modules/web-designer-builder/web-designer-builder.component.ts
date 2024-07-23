@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { HtmlBuilderModel } from 'src/app/core/models/htmlBuilderModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-web-designer-builder',
@@ -24,11 +23,11 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
     public webDesignerMainPageService: WebDesignerMainPageService,
 
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   dataModel: HtmlBuilderModel = new HtmlBuilderModel();
   dataPageModel: WebDesignerMainPageModel = new WebDesignerMainPageModel();
@@ -82,7 +81,7 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
   }
   // DataEditContent(): void {
   //   const pName = this.constructor.name + 'main';
-  //   this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {this.publicHelper.processService.processStart(pName, str);});
+  //   this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {this.publicHelper.processService.processStart(pName, str, this.constructor.name);});
   //   this.webDesignerMainPageService.ServiceEdit(this.dataModel).subscribe(
   //     next:(ret) => {
 

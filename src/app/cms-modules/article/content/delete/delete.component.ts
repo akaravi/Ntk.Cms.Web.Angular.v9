@@ -16,7 +16,6 @@ import {
   FormInfoModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-article-content-delete',
@@ -27,14 +26,14 @@ export class ArticleContentDeleteComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<ArticleContentDeleteComponent>,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public contentService: ArticleContentService,
     private cdr: ChangeDetectorRef,
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = +data.id || 0;
     }
@@ -42,7 +41,7 @@ export class ArticleContentDeleteComponent implements OnInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResultContent: ErrorExceptionResult<ArticleContentModel> = new ErrorExceptionResult<ArticleContentModel>();
   formInfo: FormInfoModel = new FormInfoModel();
   ngOnInit(): void {

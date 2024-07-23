@@ -8,7 +8,6 @@ import {
 } from 'ntk-cms-api';
 import { Observable } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 enum ErrorStates {
@@ -28,12 +27,12 @@ export class AuthForgotPasswordComponent implements OnInit {
     public translate: TranslateService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public pageInfo: PageInfoService,
 
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.RePasswordModel = '';
   }
   errorState: ErrorStates = ErrorStates.NotSubmitted;
@@ -45,7 +44,7 @@ export class AuthForgotPasswordComponent implements OnInit {
   captchaModel: CaptchaModel = new CaptchaModel();
   // private fields
   forgetState = 'sms';
-  loading = new ProgressSpinnerModel();
+
   formInfo: FormInfoModel = new FormInfoModel();
   passwordIsValid = false;
   RePasswordModel = '';

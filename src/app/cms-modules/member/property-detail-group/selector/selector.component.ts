@@ -11,7 +11,6 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -26,9 +25,9 @@ export class MemberPropertyDetailGroupSelectorComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public categoryService: MemberPropertyDetailGroupService) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
 
   }
   dataModelResult: ErrorExceptionResult<MemberPropertyDetailGroupModel> = new ErrorExceptionResult<MemberPropertyDetailGroupModel>();
@@ -45,13 +44,8 @@ export class MemberPropertyDetailGroupSelectorComponent implements OnInit {
     this.onActionSelectForce(x);
   }
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
 
   ngOnInit(): void {
     this.loadOptions();
@@ -82,7 +76,7 @@ export class MemberPropertyDetailGroupSelectorComponent implements OnInit {
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 20;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
     if (typeof text === 'string' && text.length > 0) {
       let filter = new FilterDataModel();
       filter.propertyName = 'Name';

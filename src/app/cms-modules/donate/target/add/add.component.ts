@@ -33,8 +33,8 @@ export class DonateTargetAddComponent extends AddBaseComponent<DonateTargetServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(donateTargetService, new DonateTargetModel(), publicHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(donateTargetService, new DonateTargetModel(), publicHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestTargetCategoryId = +data.linkTargetCategoryId || 0;
     }

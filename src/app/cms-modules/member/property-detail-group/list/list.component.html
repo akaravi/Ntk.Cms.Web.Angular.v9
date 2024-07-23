@@ -1,8 +1,8 @@
-<app-cms-html-list [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
-  (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
-  (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
-  [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowId]="tableRowSelected?.id"
-  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''"
+  [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
+  [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->

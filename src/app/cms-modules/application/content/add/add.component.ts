@@ -32,9 +32,9 @@ export class ApplicationAppAddComponent extends AddBaseComponent<ApplicationAppS
     public translate: TranslateService,
     private router: Router,
     public publicHelper: PublicHelper,) {
-    super(applicationAppService, new ApplicationAppModel(), publicHelper,translate);
+    super(applicationAppService, new ApplicationAppModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   requestSourceId = 0;

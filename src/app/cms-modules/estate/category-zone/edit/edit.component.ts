@@ -35,10 +35,10 @@ export class EstateCategoryZoneEditComponent extends EditBaseComponent<EstateCat
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateCategoryZoneService, new EstateCategoryZoneModel(), publicHelper,translate);
+    super(estateCategoryZoneService, new EstateCategoryZoneModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id;
     }
@@ -157,7 +157,7 @@ export class EstateCategoryZoneEditComponent extends EditBaseComponent<EstateCat
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.estateCategoryZoneService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

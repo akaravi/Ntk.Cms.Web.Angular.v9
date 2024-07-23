@@ -1,8 +1,9 @@
-<app-cms-html-list [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
-    (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
-    (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
-    [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowId]="tableRowSelected?.id"
-    [optionActionRowDisplayMenu]="tableRowSelectDoubleClick" [optionSelectRowItemTitle]="tableRowSelected?.id">
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''"
+    [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+    (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
+    [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+    [optionSelectRowItemTitle]="tableRowSelected?.id">
     <ng-container cms-tree>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
         <app-sms-apipath-tree (optionChange)="onActionSelectorSelect($event)"></app-sms-apipath-tree>

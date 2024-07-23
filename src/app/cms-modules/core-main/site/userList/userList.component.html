@@ -1,9 +1,9 @@
 <app-core-site-header [optionId]="requestLinkSiteId" *ngIf="requestLinkSiteId>0"></app-core-site-header>
-<app-cms-html-list [optionGuideNoticeKey]="'core.site.userlist'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
-  (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
-  (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
-  [optionLoading]="loading" [optionTreeDisplay]="false" [optionActionRowId]="tableRowSelected?.linkSiteId"
-  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'core.site.userlist'"
+  [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
+  [optionActionRowId]="tableRowSelected?.linkSiteId" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionActionRowDisplayMenuAct]="tableRowSelectActionMenuClick"
   [optionSelectRowItemTitle]="tableRowSelected?.virtual_CmsUserGroup.title">
   <ng-container cms-tree>
@@ -281,9 +281,9 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-         {{'TITLE.FULLNAME'| translate}} : {{row.virtual_CmsUser.name +' _ '+ row.virtual_CmsUser.lastName}}
-         <br>
-         {{'TITLE.SITE'| translate}} : {{row.virtual_CmsSite.domain }}
+          {{'TITLE.FULLNAME'| translate}} : {{row.virtual_CmsUser.name +' _ '+ row.virtual_CmsUser.lastName}}
+          <br>
+          {{'TITLE.SITE'| translate}} : {{row.virtual_CmsSite.domain }}
 
         </mat-cell>
       </ng-container>

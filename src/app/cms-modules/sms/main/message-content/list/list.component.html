@@ -1,7 +1,7 @@
-<app-cms-html-list [optionGuideNoticeKey]="'sms.message.content.list'"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'sms.message.content.list'"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
   [optionTreeDisplay]="!requestLinkCategoryId || requestLinkCategoryId.length ===0"
   [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">

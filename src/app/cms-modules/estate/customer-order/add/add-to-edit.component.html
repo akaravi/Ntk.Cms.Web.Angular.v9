@@ -13,7 +13,7 @@
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
 
       <!-- LinkCategoryId Field -->
-      <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+      <app-estate-customer-category-selector (optionChange)="onActionSelectorSelect($event)"
         [optionSelectForce]="dataModel.linkEstateCustomerCategoryId" [optionPlaceholder]="'TITLE.Category' | translate">
       </app-estate-customer-category-selector>
 
@@ -61,13 +61,13 @@
       <hr>
       <!-- LinkCmsUserId Field -->
       <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorCmsUser($event)"
-        [(optionLoading)]="loading" [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.Order_Owner'  | translate">
+        [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField" [optionSelectForce]="dataModel.linkCmsUserId"
+        [optionPlaceholder]="'TITLE.Order_Owner'  | translate">
       </app-cms-user-selector>
 
       <!-- linkEstateAgencyId Field -->
       <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
-        (optionChange)="onActionSelectorEstateAgency($event)" [(optionLoading)]="loading"
+        (optionChange)="onActionSelectorEstateAgency($event)"
         [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessAddField"
         [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
         [optionPlaceholder]="'TITLE.Property_agency'  | translate">
@@ -76,7 +76,7 @@
       <!-- LinkEstateUserId Field -->
       <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
         [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkEstateUserId" [(optionLoading)]="loading"
+        [optionSelectForce]="dataModel.linkEstateUserId"
         [optionPlaceholder]="'TITLE.Real_estate_customer_personnel'  | translate">
       </app-estate-account-user-selector>
 
@@ -116,7 +116,7 @@
       </div>
 
 
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{ "ACTION.CANCEL" | translate }}

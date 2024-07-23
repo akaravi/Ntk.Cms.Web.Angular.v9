@@ -37,9 +37,9 @@ export class CoreUserClaimContentAddComponent extends AddBaseComponent<CoreUserC
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
   ) {
-    super(coreUserClaimContentService, new CoreUserClaimContentModel(), publicHelper,translate);
+    super(coreUserClaimContentService, new CoreUserClaimContentModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestLinkUserClaimTypeId = +data.linkUserClaimTypeId || 0;
     }

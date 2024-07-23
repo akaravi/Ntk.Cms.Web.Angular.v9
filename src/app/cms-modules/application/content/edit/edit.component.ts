@@ -37,9 +37,9 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private router: Router) {
-    super(contentService, new ApplicationAppModel(), publicHelper,translate);
+    super(contentService, new ApplicationAppModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -101,7 +101,7 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'ServiceGetOneById';
 
-    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     /*َAccess Field*/
     this.applicationAppService.setAccessLoad();
     this.applicationAppService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -142,7 +142,7 @@ export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAp
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.applicationAppService
       .ServiceEdit(this.dataModel)
       .subscribe({

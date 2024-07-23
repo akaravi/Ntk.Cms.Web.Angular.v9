@@ -11,7 +11,6 @@ import {
   EstatePropertyExpertPriceService, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FormInfoModel, InfoEnumModel
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -31,7 +30,7 @@ export class EstatePropertyExpertPriceInquiryListComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.dataModel.linkLocationId = +data.linkLocationId | 0;
       this.dataModel.linkCoreCurrencyId = +data.linkCoreCurrencyId | 0;
@@ -44,7 +43,7 @@ export class EstatePropertyExpertPriceInquiryListComponent implements OnInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+
 
   dataModel: EstatePriceInquiryDtoModel = new EstatePriceInquiryDtoModel();
   dataModelResult: ErrorExceptionResult<EstatePropertyExpertPriceModel> = new ErrorExceptionResult<EstatePropertyExpertPriceModel>();

@@ -14,7 +14,6 @@ import {
 } from 'ntk-cms-api';
 
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -36,7 +35,7 @@ export class DataProviderPlanPriceChargePaymentComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       if (data.linkClientId && data.linkClientId > 0) {
         this.requestLinkClientId = data.linkClientId;
@@ -64,7 +63,7 @@ export class DataProviderPlanPriceChargePaymentComponent implements OnInit {
   }
   viewCalculate = false;
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<BankPaymentPrivateSiteConfigModel> = new ErrorExceptionResult<BankPaymentPrivateSiteConfigModel>();
   dataModelCalculateResult: ErrorExceptionResult<BankPaymentInjectPaymentGotoBankStep1CalculateModel>
     = new ErrorExceptionResult<BankPaymentInjectPaymentGotoBankStep1CalculateModel>();

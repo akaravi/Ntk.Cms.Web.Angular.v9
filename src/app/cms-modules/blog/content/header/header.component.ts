@@ -11,7 +11,6 @@ import {
   RecordStatusEnum
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 
@@ -31,10 +30,10 @@ export class BlogContentHeaderComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() optionId = 0;
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<BlogContentModel> = new ErrorExceptionResult<BlogContentModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

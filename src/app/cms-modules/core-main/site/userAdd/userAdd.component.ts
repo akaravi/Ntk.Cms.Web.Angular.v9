@@ -35,9 +35,9 @@ export class CoreSiteUserAddComponent extends AddBaseComponent<CoreSiteUserServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreSiteService, new CoreSiteUserModel(), publicHelper,translate);
+    super(coreSiteService, new CoreSiteUserModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestLinkUserId = +data.linkUserId || 0;
       this.requestLinkSiteId = +data.linkSiteId || 0;

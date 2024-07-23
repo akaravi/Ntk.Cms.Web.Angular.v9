@@ -21,7 +21,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { WebDesignerMainMenuAddComponent } from '../add/add.component';
@@ -37,11 +36,11 @@ export class WebDesignerMainMenuTreeComponent implements OnInit, OnDestroy {
     public categoryService: WebDesignerMainMenuService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.filterModel.sortColumn = 'ShowInMenuOrder';
     this.filterModel.sortType = SortTypeEnum.Ascending;
   }
@@ -51,13 +50,8 @@ export class WebDesignerMainMenuTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: WebDesignerMainMenuModel = new WebDesignerMainMenuModel();
   dataModelResult: ErrorExceptionResult<WebDesignerMainMenuModel> = new ErrorExceptionResult<WebDesignerMainMenuModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<WebDesignerMainMenuModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<WebDesignerMainMenuModel>();
   @Output() optionChange = new EventEmitter<WebDesignerMainMenuModel>();

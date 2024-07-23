@@ -5,7 +5,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreModuleLogShowKeyModel, CoreModuleShowKeyDtoModel, ErrorExceptionResult, ErrorExceptionResultBase, FormInfoModel, IApiCmsServerBase } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -28,7 +27,7 @@ export class CmsShowKeyComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestService = data.service;
       this.requestContentUrl = data.contentUrl;
@@ -43,7 +42,7 @@ export class CmsShowKeyComponent implements OnInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   showFormAdd = true;
   numbers: number[] = [5, 15, 30, 60, 120, 180, 600, 1200]
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<CoreModuleLogShowKeyModel> = new ErrorExceptionResult<CoreModuleLogShowKeyModel>();
   dataModelResultBase: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreModuleShowKeyDtoModel = new CoreModuleShowKeyDtoModel();
@@ -56,7 +55,7 @@ export class CmsShowKeyComponent implements OnInit {
   formInfo: FormInfoModel = new FormInfoModel();
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     /*filter CLone*/
     this.requestService.ServiceShowKeyGetAll(this.dataModel.moduleEntityId).subscribe({

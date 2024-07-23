@@ -37,8 +37,8 @@ export class EstateAccountAgencyAddComponent extends AddBaseComponent<EstateAcco
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estateAccountAgencyService, new EstateAccountAgencyModel(), publicHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(estateAccountAgencyService, new EstateAccountAgencyModel(), publicHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -75,7 +75,7 @@ export class EstateAccountAgencyAddComponent extends AddBaseComponent<EstateAcco
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.publicHelper.processService.processStart(pName,'',this.constructor.name);
+    this.publicHelper.processService.processStart(pName, '', this.constructor.name);
 
     this.estateAccountAgencyService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {

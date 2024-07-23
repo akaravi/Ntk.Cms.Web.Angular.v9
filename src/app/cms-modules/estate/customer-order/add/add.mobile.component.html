@@ -240,7 +240,7 @@
         <div class="cms-m-container-body">
           <div>
             <label class="cms-m-form-label">{{'TITLE.Geographical_Areas' | translate}} :</label>
-            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
+            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)"
               [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="'TITLE.Region' | translate"
               [optionCssClassInputText]="'cms-m-form-input'">
             </app-cms-location-autocomplete>

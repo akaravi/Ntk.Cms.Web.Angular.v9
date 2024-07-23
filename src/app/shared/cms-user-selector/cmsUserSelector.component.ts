@@ -9,7 +9,6 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 
 @Component({
@@ -22,21 +21,16 @@ export class CmsUserSelectorComponent implements OnInit {
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     public categoryService: CoreUserService) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   dataModelResult: ErrorExceptionResult<CoreUserModel> = new ErrorExceptionResult<CoreUserModel>();
   dataModelSelect: CoreUserModel = new CoreUserModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   formControl = new FormControl();
   filteredOptions: Observable<CoreUserModel[]>;
   @Input() optionDisabled = false;
@@ -102,7 +96,7 @@ export class CmsUserSelectorComponent implements OnInit {
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 20;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
     if (text && text.length > 0) {
       let filter = new FilterDataModel();
       /*Filters */

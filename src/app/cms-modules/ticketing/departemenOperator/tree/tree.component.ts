@@ -23,7 +23,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -39,11 +38,11 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
     public categoryService: TicketingDepartemenOperatorService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     private translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() set optionSelectForce(x: number | TicketingDepartemenOperatorModel) {
     this.onActionSelectForce(x);
@@ -51,13 +50,8 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
   dataModelSelect: TicketingDepartemenOperatorModel = new TicketingDepartemenOperatorModel();
   dataModelResult: ErrorExceptionResult<TicketingDepartemenOperatorModel> = new ErrorExceptionResult<TicketingDepartemenOperatorModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<TicketingDepartemenOperatorModel>(node => null);
   dataSource = new MatTreeNestedDataSource<TicketingDepartemenOperatorModel>();
   @Output() optionChange = new EventEmitter<TicketingDepartemenOperatorModel>();

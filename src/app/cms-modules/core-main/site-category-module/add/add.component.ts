@@ -33,9 +33,9 @@ export class CoreSiteCategoryCmsModuleAddComponent extends AddBaseComponent<Core
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreSiteCategoryCmsModuleService, new CoreSiteCategoryCmsModuleModel(), publicHelper,translate);
+    super(coreSiteCategoryCmsModuleService, new CoreSiteCategoryCmsModuleModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestLinkCmsSiteCategoryId = +data.linkCmsSiteCategoryId || 0;
       this.requestLinkCmsModuleId = +data.linkCmsModuleId || 0;

@@ -1,12 +1,13 @@
-<app-cms-html-list [optionGuideNoticeKey]="'estate.propertycompany.list'"
-  [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
-  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name"
+  [optionGuideNoticeKey]="'estate.propertycompany.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
+  (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
+  (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
+  [optionTreeDisplay]="false" [optionActionRowId]="tableRowSelected?.id"
+  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionActionRowDisplayMenuAct]="tableRowSelectActionMenuClick" [optionSelectRowItemTitle]="tableRowSelected?.title">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
-    <!-- <app-estate-property-project-tree [(optionLoading)]="loading" (optionChange)="onActionSelectorSelect($event)">
+    <!-- <app-estate-property-project-tree  (optionChange)="onActionSelectorSelect($event)">
     </app-estate-property-project-tree> -->
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-tree-->
   </ng-container>

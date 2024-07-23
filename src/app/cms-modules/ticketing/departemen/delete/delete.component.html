@@ -21,7 +21,7 @@
       </div>
     </ng-container>
 
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
 
       <button type="button" (click)="onFormCancel()"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
@@ -32,7 +32,7 @@
         <i class="fa fa-check-square-o"></i> {{'ACTION.DELETE' | translate}}
       </button>
     </div>
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
 
       <button type="button" (click)="onFormCancel()"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">

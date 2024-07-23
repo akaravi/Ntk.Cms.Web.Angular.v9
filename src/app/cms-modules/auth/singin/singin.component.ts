@@ -6,7 +6,6 @@ import { AuthUserSignInModel, CaptchaModel, CoreAuthService, FormInfoModel } fro
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
@@ -24,12 +23,12 @@ export class AuthSingInComponent implements OnInit {
     private cmsTranslationService: CmsTranslationService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public pageInfo: PageInfoService,
 
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.firstRun = true;
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatus;
@@ -39,7 +38,7 @@ export class AuthSingInComponent implements OnInit {
   connectionStatus = new ConnectionStatusModel();
   firstRun = true;
   hidePassword = true;
-  loading = new ProgressSpinnerModel();
+
   formInfo: FormInfoModel = new FormInfoModel();
   dataModel: AuthUserSignInModel = new AuthUserSignInModel();
   captchaModel: CaptchaModel = new CaptchaModel();

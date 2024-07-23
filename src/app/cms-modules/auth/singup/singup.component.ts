@@ -7,7 +7,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthUserSignInModel, AuthUserSignUpModel, CaptchaModel, CoreAuthService, FormInfoModel } from 'ntk-cms-api';
 import { Observable } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
@@ -23,16 +22,16 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     private coreAuthService: CoreAuthService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     public pageInfo: PageInfoService,
 
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  loading = new ProgressSpinnerModel();
+
   formInfo: FormInfoModel = new FormInfoModel();
   Roulaccespt = '';
   isLoading$: Observable<boolean>;
@@ -85,7 +84,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
       return;
     }
     if (!this.dataModel.captchaText || this.dataModel.captchaText.length === 0) {
-      this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
       this.formInfo.formErrorStatus = true;
       this.cmsToastrService.typeErrorRegistery(this.formInfo.formError);
       return;

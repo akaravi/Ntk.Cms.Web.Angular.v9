@@ -42,10 +42,10 @@ export class ApplicationSourceEditComponent extends EditBaseComponent<Applicatio
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
     private router: Router) {
-    super(contentService, new ApplicationSourceModel(), publicHelper,translate);
+    super(contentService, new ApplicationSourceModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   requestId = 0;
@@ -176,7 +176,7 @@ export class ApplicationSourceEditComponent extends EditBaseComponent<Applicatio
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
 
     this.applicationSourceService

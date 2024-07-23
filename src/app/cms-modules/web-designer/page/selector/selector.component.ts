@@ -9,7 +9,6 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
   selector: 'app-webdesigner-page-selector',
   templateUrl: './selector.component.html',
@@ -21,9 +20,9 @@ export class WebDesignerMainPageSelectorComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public categoryService: WebDesignerMainPageService) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() set optionMasterTemplateId(x: string) {
     this.masterTemplateId = x;
@@ -45,13 +44,8 @@ export class WebDesignerMainPageSelectorComponent implements OnInit {
   masterTemplateId = '';
   @Input() optionReload = () => this.onActionButtonReload();
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit(): void {
     this.loadOptions();
 
@@ -83,7 +77,7 @@ export class WebDesignerMainPageSelectorComponent implements OnInit {
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 20;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
     let filter = new FilterDataModel();
     const filterChild = new FilterDataModel();
     if (text && text.length > 0) {

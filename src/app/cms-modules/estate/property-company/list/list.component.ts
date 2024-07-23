@@ -21,7 +21,6 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 import { environment } from 'src/environments/environment';
 import { PublicHelper } from '../../../../core/helpers/publicHelper';
-import { ProgressSpinnerModel } from '../../../../core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { EstatePropertyCompanyDeleteComponent } from '../delete/delete.component';
 
@@ -41,9 +40,9 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new EstatePropertyCompanyModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new EstatePropertyCompanyModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -58,7 +57,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
   optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
 
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
 
   categoryModelSelected: EstatePropertyCompanyModel;
   tabledisplayedColumns: string[] = [];
@@ -105,7 +104,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstatePropertyCompanyModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -265,7 +264,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -355,7 +354,7 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)

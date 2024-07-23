@@ -14,7 +14,6 @@ import {
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-webdesigner-pagedependency-autoaddpage',
@@ -32,7 +31,7 @@ export class WebDesignerMainPageDependencyAutoAddPageComponent implements OnInit
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -40,7 +39,7 @@ export class WebDesignerMainPageDependencyAutoAddPageComponent implements OnInit
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: WebDesignerPageAutoAddDtoModel = new WebDesignerPageAutoAddDtoModel();
   formInfo: FormInfoModel = new FormInfoModel();

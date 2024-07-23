@@ -37,9 +37,9 @@ export class HyperShopContentEditComponent extends EditBaseComponent<HyperShopCo
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(hyperShopContentService, new HyperShopContentModel(), publicHelper,translate);
+    super(hyperShopContentService, new HyperShopContentModel(), publicHelper, translate);
 
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestId = data.id + '';
       this.requestParentId = data.parentId + '';
@@ -120,7 +120,7 @@ export class HyperShopContentEditComponent extends EditBaseComponent<HyperShopCo
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
 
     this.hyperShopContentService.ServiceEdit(this.dataModel).subscribe({

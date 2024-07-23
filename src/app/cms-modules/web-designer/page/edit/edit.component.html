@@ -53,16 +53,16 @@
         </mat-error>
       </div>
       <app-webdesigner-pagedependency-selector (optionChange)="onActionSelectDependency($event)"
-        [optionDisabled]="!fieldsInfo['linkPageDependencyGuId']?.accessEditField" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkPageDependencyGuId']?.accessEditField"
         [optionSelectForce]="dataModel.linkPageDependencyGuId" [optionPlaceholder]="'TITLE.Show_place' | translate">
       </app-webdesigner-pagedependency-selector>
       <app-webdesigner-pagetemplate-selector (optionChange)="onActionSelectTemplate($event)"
-        [optionDisabled]="!fieldsInfo['linkPageTemplateGuId']?.accessEditField" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkPageTemplateGuId']?.accessEditField"
         [optionSelectForce]="dataModel.linkPageTemplateGuId" [optionPlaceholder]="'TITLE.Page_template' | translate">
       </app-webdesigner-pagetemplate-selector>
       <app-webdesigner-page-selector (optionChange)="onActionSelectParent($event)"
         *ngIf="dataModel.linkPageTemplateGuId && dataModel.linkPageTemplateGuId.length>0"
-        [optionDisabled]="!fieldsInfo['linkPageParentGuId']?.accessEditField" [(optionLoading)]="loading"
+        [optionDisabled]="!fieldsInfo['linkPageParentGuId']?.accessEditField"
         [optionSelectForce]="dataModel.linkPageParentGuId" [optionMasterPage]="true"
         [optionMasterTemplateId]="dataModel.linkPageTemplateGuId" [optionPlaceholder]="'TITLE.parent_page' | translate">
       </app-webdesigner-page-selector>
@@ -83,7 +83,7 @@
       <!-- LinkSiteCategoryId Field -->
       <app-cms-sitecategory-selector
         *ngIf="dataModel.pageDependencyIsDefaultPage && fieldsInfo['pageDependencyIsDefaultPageLinkSiteCategoryId']?.accessWatchField"
-        (optionChange)="onActionSelectCategory($event)" [(optionLoading)]="loading"
+        (optionChange)="onActionSelectCategory($event)"
         [optionSelectForce]="this.dataModel.pageDependencyIsDefaultPageLinkSiteCategoryId"
         [optionPlaceholder]="'TITLE.Website_Type' | translate"
         [optionDisabled]="!fieldsInfo['pageDependencyIsDefaultPageLinkSiteCategoryId']?.accessEditField">
@@ -136,7 +136,7 @@
           {{ fieldsInfo["description"]?.fieldTitle }} is <strong>{{'MESSAGE.required' | translate}}</strong>
         </mat-error>
       </div>
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

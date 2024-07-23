@@ -6,7 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { FilePreviewModel } from 'ngx-ntk-file-picker';
 import { ApplicationAppModel, ApplicationAppService, DataFieldInfoModel, FormInfoModel, UploadApplictionDtoModel } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-upload-update',
@@ -19,12 +18,12 @@ export class ApplicationAppUploadUpdateComponent implements OnInit {
     private dialogRef: MatDialogRef<ApplicationAppUploadUpdateComponent>,
     private applicationAppService: ApplicationAppService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   formInfo: FormInfoModel = new FormInfoModel();
@@ -32,7 +31,7 @@ export class ApplicationAppUploadUpdateComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
   isHovering = false;
   fieldvalue = '';
-  loading = new ProgressSpinnerModel();
+
 
   ngOnInit(): void {
     this.dataModel.appVersion = this.dataItemModel.appVersion;

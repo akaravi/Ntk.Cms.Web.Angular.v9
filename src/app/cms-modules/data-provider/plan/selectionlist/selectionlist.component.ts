@@ -4,7 +4,6 @@ import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreEnumService, DataProviderPlanModel, DataProviderPlanService, ErrorExceptionResult, FilterModel } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -18,15 +17,15 @@ export class DataProviderPlanSelectionlistComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public categoryService: DataProviderPlanService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   dataModelResult: ErrorExceptionResult<DataProviderPlanModel> = new ErrorExceptionResult<DataProviderPlanModel>();
   dataModelSelect: DataProviderPlanModel[] = [];
   dataIdsSelect: number[] = [];
-  loading = new ProgressSpinnerModel();
+
   formControl = new FormControl();
   fieldsStatus: Map<number, boolean> = new Map<number, boolean>();
 
@@ -50,7 +49,7 @@ export class DataProviderPlanSelectionlistComponent implements OnInit {
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 50;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
 
     // tslint:disable-next-line: no-trailing-whitespace
 

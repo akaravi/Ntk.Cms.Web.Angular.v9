@@ -14,7 +14,6 @@ import {
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -43,7 +42,7 @@ export class CmsSiteUserCreditViewComponent implements OnInit {
   ) {
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       // this.requestLinkSiteId = +data.linkSiteId || 0;
       // this.requestLinkUserId = +data.linkUserId || 0;
@@ -54,7 +53,7 @@ export class CmsSiteUserCreditViewComponent implements OnInit {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<CoreModuleSiteUserCreditModel> = new ErrorExceptionResult<CoreModuleSiteUserCreditModel>();
   dataModuleModelResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
   tokenInfo = new TokenInfoModel();

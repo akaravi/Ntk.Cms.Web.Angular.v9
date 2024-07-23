@@ -32,9 +32,9 @@ export class ContactContentAddComponent extends AddBaseComponent<ContactContentS
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(ContactContentService, new ContactContentModel(), publicHelper,translate);
+    super(ContactContentService, new ContactContentModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
 
     if (data && data.linkCategoryId && data.linkCategoryId.length > 0)
       this.dataModel.linkCategoryId = data.linkCategoryId;

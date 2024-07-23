@@ -5,7 +5,6 @@ import { CoreAuthService, CoreCpMainMenuModel, CoreCpMainMenuService, ErrorExcep
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -54,7 +53,7 @@ export class MenuMainComponent implements OnInit {
 
   tokenInfo = new TokenInfoModel();
   cmsApiStoreSubscribe: Subscription;
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<CoreCpMainMenuModel> = new ErrorExceptionResult<CoreCpMainMenuModel>();
   themeStore = new ThemeStoreModel();
 
@@ -65,7 +64,7 @@ export class MenuMainComponent implements OnInit {
   }
   DataGetCpMenu(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.coreCpMainMenuService.ServiceGetAllMenu(null).subscribe({
       next: (ret) => {
 
@@ -97,7 +96,7 @@ export class MenuMainComponent implements OnInit {
     if (!item)
       return;
     const pName = this.constructor.name + "menu";
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     if (item.children?.length > 0) {
       //setTimeout(() => {
       if (event?.ctrlKey) {

@@ -16,7 +16,6 @@ import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/comp
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
@@ -40,8 +39,8 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
     public pageInfo: PageInfoService,
     public publicHelper: PublicHelper,
     public dialog: MatDialog) {
-    super(contentService, new TicketingTaskModel(), publicHelper, tokenHelper,translate)
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(contentService, new TicketingTaskModel(), publicHelper, tokenHelper, translate)
+    this.publicHelper.processService.cdr = this.cdr;
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -63,7 +62,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
   optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
 
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
 
   categoryModelSelected: TicketingDepartemenModel;
 
@@ -269,7 +268,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

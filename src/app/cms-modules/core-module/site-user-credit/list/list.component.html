@@ -1,7 +1,8 @@
-<app-cms-html-list [optionGuideNoticeKey]="'module.coremodule.siteusercredit'"
-    [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
-    (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name"
+    [optionGuideNoticeKey]="'module.coremodule.siteusercredit'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
+    (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
+    (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
+    [optionTreeDisplay]="false"
     [optionActionRowDisplay]="tableRowSelected?.linkUserId>0 && tableRowSelected?.linkModuleId>0"
     [optionSelectRowItemTitle]="tableRowSelected?.id">
     <ng-container cms-tree>

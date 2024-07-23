@@ -11,7 +11,6 @@ import {
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -32,7 +31,7 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.dataModel.linkLocationId = +data.linkLocationId | 0;
       this.dataModel.linkCoreCurrencyId = +data.linkCoreCurrencyId | 0;
@@ -48,7 +47,7 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstatePriceInquiryDtoModel = new EstatePriceInquiryDtoModel();
   dataModelEstatePropertyExpertPriceTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

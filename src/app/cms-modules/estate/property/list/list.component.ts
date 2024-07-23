@@ -61,7 +61,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   ) {
     super(contentService, new EstatePropertyModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestLinkPropertyTypeLanduseId =
       this.activatedRoute.snapshot.paramMap.get("LinkPropertyTypeLanduseId");
     this.requestLinkPropertyTypeUsageId =
@@ -308,7 +308,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
     this.onActionTableRowSelect(new EstatePropertyModel());
     const pName = this.constructor.name + "main";
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -892,7 +892,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       return;
     }
     const statist = new Map<string, number>();
-    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'));
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'), this.constructor.name);
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     //*filter */
     const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -1076,7 +1076,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)

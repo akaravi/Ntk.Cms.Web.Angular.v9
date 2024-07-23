@@ -1,5 +1,6 @@
 import {
-  ChangeDetectorRef, Component, Inject, Input, OnInit
+  ChangeDetectorRef, Component, Inject,
+  OnInit
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,7 +8,6 @@ import {
   BankPaymentEnumService, BankPaymentTransactionModel, BankPaymentTransactionService, ErrorExceptionResult, InfoEnumModel, TransactionRecordStatusEnum
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -29,19 +29,14 @@ export class CmsBankpaymentTransactionInfoComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestId = + data.id || 0;
     }
 
   }
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   dataModelResult: ErrorExceptionResult<BankPaymentTransactionModel> = new ErrorExceptionResult<BankPaymentTransactionModel>();
   dataModelEnumTransactionRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 

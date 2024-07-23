@@ -38,10 +38,10 @@ export class CoreLogReportDataEditComponent extends EditBaseComponent<CoreLogRep
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreLogReportDataService, new CoreLogReportDataModel(), publicHelper,translate);
+    super(coreLogReportDataService, new CoreLogReportDataModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id;
     }

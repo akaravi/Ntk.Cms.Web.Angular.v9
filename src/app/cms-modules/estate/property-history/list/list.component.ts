@@ -68,9 +68,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
     pageInfo.updateContentService(contentService);
     this.publicHelper.processService.cdr = this.cdr;
-    this.loading.message = this.translate.instant(
-      'MESSAGE.Receiving_information'
-    );
+
     this.requestLinkPropertyId =
       this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
     this.requestLinkEstateUserId =

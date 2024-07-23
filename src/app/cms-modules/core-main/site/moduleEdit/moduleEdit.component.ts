@@ -14,7 +14,6 @@ import {
 } from 'ntk-cms-api';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -36,10 +35,10 @@ export class CoreSiteModuleEditComponent extends EditBaseComponent<CoreModuleSit
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreModuleSiteService, new CoreModuleSiteModel(), publicHelper,translate);
+    super(coreModuleSiteService, new CoreModuleSiteModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
 
     if (data) {
       this.requestLinkModuleId = +data.linkModuleId || 0;
@@ -52,7 +51,7 @@ export class CoreSiteModuleEditComponent extends EditBaseComponent<CoreModuleSit
 
 
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: CoreModuleSiteModel = new CoreModuleSiteModel();
 

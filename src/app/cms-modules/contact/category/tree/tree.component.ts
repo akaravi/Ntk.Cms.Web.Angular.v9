@@ -18,7 +18,6 @@ import {
   ErrorExceptionResult,
   FilterModel
 } from 'ntk-cms-api';
-import { ProgressSpinnerModel } from './../../../../core/models/progressSpinnerModel';
 
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ContactCategoryDeleteComponent } from '../delete/delete.component';
@@ -45,11 +44,11 @@ export class ContactCategoryTreeComponent implements OnInit, OnDestroy {
     public categoryService: ContactCategoryService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() set optionSelectForce(x: string | ContactCategoryModel) {
     this.onActionSelectForce(x);
@@ -57,13 +56,8 @@ export class ContactCategoryTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: ContactCategoryModel = new ContactCategoryModel();
   dataModelResult: ErrorExceptionResult<ContactCategoryModel> = new ErrorExceptionResult<ContactCategoryModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<ContactCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<ContactCategoryModel>();
   @Output() optionChange = new EventEmitter<ContactCategoryModel>();

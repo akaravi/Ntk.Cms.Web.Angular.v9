@@ -43,7 +43,7 @@ export class BiographyContentAddComponent extends AddBaseComponent<BiographyCont
   ) {
     super(biographyContentService, new BiographyContentModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

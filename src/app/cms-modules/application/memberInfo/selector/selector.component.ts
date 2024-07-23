@@ -10,7 +10,6 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
   selector: 'app-application-memberinfo-selector',
   templateUrl: './selector.component.html',
@@ -22,10 +21,10 @@ export class ApplicationMemberInfoSelectorComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public categoryService: ApplicationMemberInfoService) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   dataModelResult: ErrorExceptionResult<ApplicationMemberInfoModel> = new ErrorExceptionResult<ApplicationMemberInfoModel>();
   dataModelSelect: ApplicationMemberInfoModel = new ApplicationMemberInfoModel();
@@ -41,13 +40,8 @@ export class ApplicationMemberInfoSelectorComponent implements OnInit {
     this.onActionSelectForce(x);
   }
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit(): void {
     this.loadOptions();
     if (!this.optionLabel || this.optionLabel.length == 0 && this.optionPlaceholder?.length > 0)
@@ -78,7 +72,7 @@ export class ApplicationMemberInfoSelectorComponent implements OnInit {
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 20;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
     if (text && typeof text === 'string' && text.length > 0) {
       /*filter*/
       let filter = new FilterDataModel();

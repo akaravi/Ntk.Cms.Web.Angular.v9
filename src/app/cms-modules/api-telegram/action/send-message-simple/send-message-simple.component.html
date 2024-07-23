@@ -14,8 +14,7 @@
 
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
         <app-api-telegram-bot-config-selector (optionChange)="onActionSelectorSelect($event)"
-          [optionSelectForce]="dataModel.botId" [(optionLoading)]="loading"
-          [optionPlaceholder]="'TITLE.Telegram_Bot' | translate">
+          [optionSelectForce]="dataModel.botId" [optionPlaceholder]="'TITLE.Telegram_Bot' | translate">
         </app-api-telegram-bot-config-selector>
         <!-- title Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -75,7 +74,7 @@
       <div class="ntk-cms-html-card-footer">
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
 
-        <div class="form-actions" *ngIf="!loading?.display">
+        <div class="form-actions" *ngIf="!this.publicHelper.processService.processInRun">
           <button type="button" (click)="onFormCancel()"
             class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
             <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

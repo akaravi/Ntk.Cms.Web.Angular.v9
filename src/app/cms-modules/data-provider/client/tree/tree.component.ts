@@ -22,7 +22,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { DataProviderClientAddComponent } from '../add/add.component';
@@ -40,11 +39,11 @@ export class DataProviderClientTreeComponent implements OnInit, OnDestroy {
     public categoryService: DataProviderClientService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() set optionSelectForce(x: number | DataProviderClientModel) {
     this.onActionSelectForce(x);
@@ -52,13 +51,8 @@ export class DataProviderClientTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: DataProviderClientModel = new DataProviderClientModel();
   dataModelResult: ErrorExceptionResult<DataProviderClientModel> = new ErrorExceptionResult<DataProviderClientModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<DataProviderClientModel>(node => null);
   dataSource = new MatTreeNestedDataSource<DataProviderClientModel>();
   @Output() optionChange = new EventEmitter<DataProviderClientModel>();

@@ -19,14 +19,14 @@
                 [optionSelectFirstItem]="true">
             </app-cms-enum-record-status-selector>
             <!-- LinkUserGroupId Field -->
-            <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)" [(optionLoading)]="loading"
+            <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)"
                 [optionSelectForce]="this.dataModel.linkUserGroupId"
                 [optionPlaceholder]="'TITLE.USER_CATEGORY' | translate"
                 [optionDisabled]="!fieldsInfo['linkUserGroupId']?.accessEditField">
             </app-cms-usergroup-selector>
             <!-- LinkCmsSiteCategoryId Field -->
             <app-cms-sitecategory-selector (optionChange)="onActionSelectSiteCategory($event)"
-                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkCmsSiteCategoryId"
+                [optionSelectForce]="this.dataModel.linkCmsSiteCategoryId"
                 [optionPlaceholder]="'TITLE.SITE_CATEGORY' | translate"
                 [optionDisabled]="!fieldsInfo['linkCmsSiteCategoryId']?.accessEditField">
             </app-cms-sitecategory-selector>
@@ -89,7 +89,7 @@
                     [selectFileType]="selectFileTypeMainImage" [openFilemanagerButtonView]="false">
                 </cms-file-manager>
             </div>
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
                 <button type="button" (click)="onFormCancel()"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

@@ -39,7 +39,7 @@ export class EstateCustomerOrderQuickViewComponent implements OnInit, OnDestroy 
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id + '';
       this.requestPerviousItem = data.perviousItem;
@@ -48,7 +48,7 @@ export class EstateCustomerOrderQuickViewComponent implements OnInit, OnDestroy 
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<EstateCustomerOrderModel> = new ErrorExceptionResult<EstateCustomerOrderModel>();
   dataModelEstateContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModel: EstateCustomerOrderModel = new EstateCustomerOrderModel();

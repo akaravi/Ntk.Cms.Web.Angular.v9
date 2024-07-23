@@ -18,7 +18,6 @@ import {
   FormInfoModel
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 
 @Component({
@@ -32,13 +31,13 @@ export class CoreSiteAddFirstComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private coreSiteService: CoreSiteService,
     public translate: TranslateService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private coreAuthService: CoreAuthService,
     private cdr: ChangeDetectorRef,
     private router: Router,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.formInfo.formTitle = this.translate.instant('TITLE.Create_your_first_system');
 
 
@@ -57,7 +56,7 @@ export class CoreSiteAddFirstComponent implements OnInit {
   dataModel = new CoreSiteAddFirstSiteDtoModel();
   filterModel = new FilterModel();
   dataModelResultDomains = new ErrorExceptionResult<string>();
-  loading = new ProgressSpinnerModel();
+
   formInfo: FormInfoModel = new FormInfoModel();
   modelDateSiteCategory = new CoreSiteCategoryModel();
   validateDomain = true;

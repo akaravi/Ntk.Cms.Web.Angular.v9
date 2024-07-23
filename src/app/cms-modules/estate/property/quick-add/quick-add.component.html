@@ -21,7 +21,7 @@
           <!-- LinkPropertyTypeUsageId Field -->
           <app-estate-property-type-usage-selector (optionChange)="onActionSelectorSelectUsage($event)"
             [optionDisabled]="!fieldsInfo['linkPropertyTypeUsageId']?.accessAddField" [optionTypeView]="2"
-            [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
+            [optionSelectForce]="dataModel.linkPropertyTypeUsageId"
             [optionPlaceholder]="'TITLE.Type_Usage' | translate">
           </app-estate-property-type-usage-selector>
 
@@ -48,7 +48,7 @@
               " [optionDisabled]="
               !fieldsInfo['linkPropertyTypeLanduseId']?.accessAddField
               " [optionTypeView]="2" [optionSelectForce]="dataModel.linkPropertyTypeLanduseId"
-            [(optionLoading)]="loading" [optionPlaceholder]="'TITLE.Property_Type'  | translate"
+            [optionPlaceholder]="'TITLE.Property_Type'  | translate"
             [optionTypeUsageId]="dataModel.linkPropertyTypeUsageId">
           </app-estate-property-type-landuse-selector>
 
@@ -126,7 +126,7 @@
 
             <!-- LinkLocationId Field -->
             <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-              [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField" [(optionLoading)]="loading"
+              [optionDisabled]="!fieldsInfo['linkLocationId']?.accessAddField"
               [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="'TITLE.Region' | translate">
             </app-cms-location-selector>
 
@@ -157,7 +157,7 @@
               </mat-error>
             </div>
           </div>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()"
               class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
@@ -223,7 +223,7 @@
           </app-cms-enum-record-status-selector>
 
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -293,7 +293,7 @@
           </div>
 
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -312,7 +312,7 @@
 
           <app-estate-contract-type-selector (optionChange)="onActionSelectorContractType($event)" [optionTypeView]="2"
             [optionDisabled]="false" [optionPlaceholder]="'TITLE.Type_Of_Transaction' | translate "
-            [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
+            [optionSelectForce]="contractDataModel.linkEstateContractTypeId">
           </app-estate-contract-type-selector>
 
           <div class="container" *ngIf="contractTypeSelected && contractTypeSelected.id.length>0">
@@ -320,8 +320,7 @@
 
             <br>
             <app-cms-currency-selector [optionSelectFirstItem]="currencyOptionSelectFirstItem"
-              [(optionLoading)]="loading" [optionSelectForce]="contractDataModel.linkCoreCurrencyId"
-              (optionChange)="onActionSelectCurrency($event)"
+              [optionSelectForce]="contractDataModel.linkCoreCurrencyId" (optionChange)="onActionSelectCurrency($event)"
               [optionPlaceholder]="'TITLE.Specify_the_transaction_currency'  | translate">
             </app-cms-currency-selector>
 
@@ -480,8 +479,7 @@
           </button>
           <hr>
           <p> {{'TITLE.List_Of_Transaction_Details_Of_This_Property' | translate}} </p>
-          <cms-progress-spinner [options]="loadingOption">
-          </cms-progress-spinner>
+          <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
             <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>
@@ -582,7 +580,7 @@
             </mat-table>
           </div>
           <!-- TABLE  -->
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}

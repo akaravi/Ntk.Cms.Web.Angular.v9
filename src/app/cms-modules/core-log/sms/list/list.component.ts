@@ -43,9 +43,9 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreLogSmsModel(), publicHelper, tokenHelper,translate);
+    super(contentService, new CoreLogSmsModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
     this.requestLinkDeviceId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkDeviceId'));
@@ -151,7 +151,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new CoreLogSmsModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -349,7 +349,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

@@ -1,10 +1,10 @@
 <app-estate-account-agency-header *ngIf="this.requestLinkAccountAgencyId?.length>0"
   [optionId]="this.requestLinkAccountAgencyId">
 </app-estate-account-agency-header>
-<app-cms-html-list [optionGuideNoticeKey]="'accountuser.content.list'"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'accountuser.content.list'"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
   [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionActionRowDisplayMenuAct]="tableRowSelectActionMenuClick" [optionSelectRowItemTitle]="tableRowSelected?.title">
   <ng-container cms-tree>
@@ -105,14 +105,14 @@
 
       <!-- LinkLocationIds Field -->
       {{'ACTION.LOCATION' | translate}}
-      <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
+      <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)"
         [optionSelectForce]="filteModelContent.locationListIds" [optionPlaceholder]="'TITLE.Region' | translate">
       </app-cms-location-autocomplete>
       <!-- LinkLocationIds Field -->
       <br>
       {{'ACTION.LOCATION_WORK_ACTIVITY' | translate}}
       <app-cms-location-autocomplete (optionChange)="onActionSelectorLocationWorkArea($event)"
-        [(optionLoading)]="loading" [optionSelectForce]="filteModelContent.linkLocationWorkAreaIds"
+        [optionSelectForce]="filteModelContent.linkLocationWorkAreaIds"
         [optionPlaceholder]="'TITLE.Region' | translate">
       </app-cms-location-autocomplete>
       <hr>

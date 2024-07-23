@@ -23,7 +23,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-estate-property-supplier-category-treeselector',
@@ -35,13 +34,13 @@ export class EstatePropertySupplierCategoryTreeSelectorComponent implements OnIn
     public coreEnumService: CoreEnumService,
     public categoryService: EstatePropertySupplierCategoryService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public dialog: MatDialog,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.checklistSelection.changed.subscribe(x => {
       if (!this.runComplate) {
         return;
@@ -71,13 +70,8 @@ export class EstatePropertySupplierCategoryTreeSelectorComponent implements OnIn
   dataModelSelect: string[] = [];
   dataModelResult: ErrorExceptionResult<EstatePropertySupplierCategoryModel> = new ErrorExceptionResult<EstatePropertySupplierCategoryModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<EstatePropertySupplierCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<EstatePropertySupplierCategoryModel>();
   runComplate = false;

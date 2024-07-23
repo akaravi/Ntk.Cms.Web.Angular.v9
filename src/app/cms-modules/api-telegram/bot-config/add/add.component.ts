@@ -1,7 +1,7 @@
 
 import {
   ChangeDetectorRef, Component, Inject,
-  Input, OnInit,
+  OnInit,
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -14,7 +14,6 @@ import {
 import { TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -33,9 +32,9 @@ export class ApiTelegramBotConfigAddComponent extends AddBaseComponent<ApiTelegr
     public translate: TranslateService,
     public publicHelper: PublicHelper,
   ) {
-    super(apiTelegramBotConfigService, new ApiTelegramBotConfigModel(), publicHelper,translate);
+    super(apiTelegramBotConfigService, new ApiTelegramBotConfigModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
@@ -45,12 +44,7 @@ export class ApiTelegramBotConfigAddComponent extends AddBaseComponent<ApiTelegr
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
   dataModelResult: ErrorExceptionResult<ApiTelegramBotConfigModel> = new ErrorExceptionResult<ApiTelegramBotConfigModel>();
   dataModel: ApiTelegramBotConfigModel = new ApiTelegramBotConfigModel();
   formInfo: FormInfoModel = new FormInfoModel();

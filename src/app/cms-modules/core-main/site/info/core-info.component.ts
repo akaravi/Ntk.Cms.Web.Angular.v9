@@ -7,7 +7,6 @@ import { CoreSiteService, ErrorExceptionResult, ShareInfoModel, TokenInfoModel }
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 
@@ -24,12 +23,12 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
     private router: Router,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog
 
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
@@ -43,7 +42,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo: TokenInfoModel;
-  loading = new ProgressSpinnerModel();
+
 
   dataModelResult: ErrorExceptionResult<ShareInfoModel> = new ErrorExceptionResult<ShareInfoModel>();
 

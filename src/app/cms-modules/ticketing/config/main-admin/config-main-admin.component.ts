@@ -18,7 +18,6 @@ import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -40,7 +39,7 @@ export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   dataConfigSiteValuesDefaultModel = new TicketingModuleConfigSiteValuesModel();
@@ -50,7 +49,7 @@ export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
   tokenInfo = new TokenInfoModel();
 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  loading = new ProgressSpinnerModel();
+
   formInfo: FormInfoModel = new FormInfoModel();
   dataAccessModel: AccessModel;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -134,7 +133,7 @@ export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteConfigDefault';
-    this.translate.get('MESSAGE.get_the_module_default_settings').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_the_module_default_settings').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceSiteConfigDefault()
       .subscribe({
@@ -163,7 +162,7 @@ export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
 
 
     const pName = this.constructor.name + 'ServiceSiteConfigDefault';
-    this.translate.get('MESSAGE.Save_module_default_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Save_module_default_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceSiteConfigDefaultSave(this.dataConfigSiteValuesDefaultModel)
       .subscribe({
@@ -191,7 +190,7 @@ export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccessDefault';
-    this.translate.get('MESSAGE.get_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceSiteAccessDefault()
       .subscribe({
@@ -218,7 +217,7 @@ export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccessDefaultSave';
-    this.translate.get('MESSAGE.Save_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Save_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceSiteAccessDefaultSave(this.dataConfigSiteAccessValuesDefaultModel)
       .subscribe({
@@ -245,7 +244,7 @@ export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceAdminMain';
-    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceAdminMain()
       .subscribe({
@@ -272,7 +271,7 @@ export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceAdminMain';
-    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService
       .ServiceAdminMainSave(this.dataConfigAdminMainModel)
       .subscribe({

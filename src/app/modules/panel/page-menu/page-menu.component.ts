@@ -5,7 +5,6 @@ import { CoreCpMainMenuModel, CoreCpMainMenuService, ErrorExceptionResult, Token
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
@@ -24,7 +23,7 @@ export class PageMenuComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public translate: TranslateService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
   ) {
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
@@ -40,7 +39,7 @@ export class PageMenuComponent implements OnInit {
       this.loadData();
     });
   }
-  loading = new ProgressSpinnerModel();
+
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();
   dataModelResult: ErrorExceptionResult<CoreCpMainMenuModel> = new ErrorExceptionResult<CoreCpMainMenuModel>();
@@ -66,7 +65,7 @@ export class PageMenuComponent implements OnInit {
   }
   DataGetCpMenu(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.coreCpMainMenuService.ServiceGetAllMenu(null).subscribe({
       next: (ret) => {
 
@@ -99,7 +98,7 @@ export class PageMenuComponent implements OnInit {
     if (!item)
       return;
     const pName = this.constructor.name + "menu";
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     if (item.children?.length > 0) {
       if (event?.ctrlKey) {
         window.open('/#/menu/LinkParentId/' + item.id, "_blank");

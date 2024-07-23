@@ -1,7 +1,7 @@
-<app-cms-html-list [optionGuideNoticeKey]="'application.notification.list'"
-    [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
-    (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-    (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name"
+    [optionGuideNoticeKey]="'application.notification.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
+    (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
+    (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
     [optionTreeDisplay]="requestLinkApplicationId===0  && requestLinkApplicationMemberId.length===0"
     [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
     [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">

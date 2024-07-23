@@ -24,7 +24,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-article-category-treeselector',
@@ -36,13 +35,13 @@ export class ArticleCategoryTreeSelectorComponent implements OnInit, OnDestroy {
     public coreEnumService: CoreEnumService,
     public categoryService: ArticleCategoryService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public dialog: MatDialog,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.checklistSelection.changed.subscribe(x => {
       if (!this.runComplate) {
         return;
@@ -72,7 +71,7 @@ export class ArticleCategoryTreeSelectorComponent implements OnInit, OnDestroy {
   dataModelSelect: number[] = [];
   dataModelResult: ErrorExceptionResult<ArticleCategoryModel> = new ErrorExceptionResult<ArticleCategoryModel>();
   filterModel = new FilterModel();
-  loading = new ProgressSpinnerModel();
+
   treeControl = new NestedTreeControl<ArticleCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<ArticleCategoryModel>();
   runComplate = false;

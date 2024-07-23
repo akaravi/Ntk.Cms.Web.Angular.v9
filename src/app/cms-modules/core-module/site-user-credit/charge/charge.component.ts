@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreModuleSiteUserCreditCalculateDtoModel, CoreSiteService } from 'ntk-cms-api';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsBankpaymentTransactionInfoComponent } from 'src/app/shared/cms-bankpayment-transaction-info/cms-bankpayment-transaction-info.component';
 import { CoreModuleSiteUserCreditChargePaymentComponent } from '../charge-payment/charge-payment.component';
@@ -30,7 +29,7 @@ export class CoreModuleSiteUserCreditChargeComponent implements OnInit {
     }
     currency = '';
     viewCalculate = false;
-    loading = new ProgressSpinnerModel();
+
     dataModelCalculate: CoreModuleSiteUserCreditCalculateDtoModel = new CoreModuleSiteUserCreditCalculateDtoModel();
 
     ngOnInit(): void {

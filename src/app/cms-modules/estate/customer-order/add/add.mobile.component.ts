@@ -18,7 +18,6 @@ import {
 import { TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
@@ -50,7 +49,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
     this.linkParentId = this.activatedRoute.snapshot.paramMap.get('LinkParentId');
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -73,7 +72,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   appLanguage = 'fa';
   tokenInfo = new TokenInfoModel();
   linkParentId = '';
-  loading = new ProgressSpinnerModel();
+
   dataModelContractTypeResult: ErrorExceptionResult<EstateContractTypeModel> = new ErrorExceptionResult<EstateContractTypeModel>();
   dataModelPropertyTypeUsageResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
   dataModelPropertyTypeLanduseResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
@@ -197,7 +196,7 @@ export class EstateCustomerOrderAddMobileComponent implements OnInit {
   DataEditContent(actionSubmit = false): void {
 
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.estateCustomerOrderService.setAccessLoad
     this.estateCustomerOrderService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

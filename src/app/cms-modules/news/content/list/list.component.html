@@ -1,13 +1,14 @@
-<app-cms-html-list [optionGuideNoticeKey]="'news.content.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
-  (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
-  (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
-  [optionLoading]="loading" [optionTreeDisplay]="true" [optionActionRowId]="tableRowSelected?.id"
-  [optionActionRowDisplay]="tableRowSelected?.id >0" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'news.content.list'"
+  [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
+  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="true"
+  [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplay]="tableRowSelected?.id >0"
+  [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionActionRowDisplayMenuAct]="tableRowSelectActionMenuClick"
   [optionSelectRowItemTitle]="tableRowSelected?.title?.length>0 ? tableRowSelected?.title : tableRowSelected?.id">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
-    <app-news-category-tree [(optionLoading)]="loading" (optionChange)="onActionSelectorSelect($event)"
+    <app-news-category-tree (optionChange)="onActionSelectorSelect($event)"
       [optionSelectForce]="this.requestLinkCategoryId">
     </app-news-category-tree>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-tree-->

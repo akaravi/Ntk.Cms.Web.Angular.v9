@@ -1,8 +1,7 @@
 <mat-card class="example-card">
-    <cms-progress-spinner [options]="loading">
-    </cms-progress-spinner>
+    <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 
-    <mat-card-header *ngIf="!loading?.display">
+    <mat-card-header *ngIf="!this.publicHelper.processService.processInRun">
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{dataModel.title}}</mat-card-title>
         <mat-card-subtitle>ver : {{dataModel.appVersion}}</mat-card-subtitle>

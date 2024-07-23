@@ -10,7 +10,6 @@ import {
   FormInfoModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-chart-category-delete',
@@ -21,21 +20,21 @@ export class ChartCategoryDeleteComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<ChartCategoryDeleteComponent>,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private categoryService: ChartCategoryService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = +data.id || 0;
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+
   dataModelResultCategory: ErrorExceptionResult<ChartCategoryModel> = new ErrorExceptionResult<ChartCategoryModel>();
   dataModelResultCategoryAllData: ErrorExceptionResult<ChartCategoryModel> = new ErrorExceptionResult<ChartCategoryModel>();
   dataModel: any = {};

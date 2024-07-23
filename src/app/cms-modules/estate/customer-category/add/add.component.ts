@@ -30,8 +30,8 @@ export class EstateCustomerCategoryAddComponent extends AddBaseComponent<EstateC
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estateCustomerCategoryService, new EstateCustomerCategoryModel(), publicHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(estateCustomerCategoryService, new EstateCustomerCategoryModel(), publicHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

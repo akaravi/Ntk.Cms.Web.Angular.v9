@@ -50,19 +50,16 @@
                 </mat-error>
             </div>
             <app-cms-site-selector (optionChange)="onActionSiteSelect($event)" [optionDisabled]="false"
-                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkSiteId"
-                [optionPlaceholder]="'TITLE.WEBSITE' | translate">
+                [optionSelectForce]="this.dataModel.linkSiteId" [optionPlaceholder]="'TITLE.WEBSITE' | translate">
             </app-cms-site-selector>
 
             <!-- LinkUserId Field -->
             <app-cms-user-selector (optionChange)="onActionUserSelect($event)" [optionDisabled]="false"
-                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkUserId"
-                [optionPlaceholder]="'TITLE.USER' | translate">
+                [optionSelectForce]="this.dataModel.linkUserId" [optionPlaceholder]="'TITLE.USER' | translate">
             </app-cms-user-selector>
             <!-- LinkMemberId Field -->
             <app-cms-member-selector (optionChange)="onActionMemberSelect($event)" [optionDisabled]="false"
-                [(optionLoading)]="loading" [optionSelectForce]="this.dataModel.linkMemberId"
-                [optionPlaceholder]="'TITLE.Member' | translate">
+                [optionSelectForce]="this.dataModel.linkMemberId" [optionPlaceholder]="'TITLE.Member' | translate">
             </app-cms-member-selector>
             <!-- UserAccessAdminAllowToAllData Field -->
             <div *ngIf="fieldsInfo['userAccessAdminAllowToAllData']?.accessWatchField" class="d-flex mb-3">
@@ -164,7 +161,7 @@
             <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
                 <div [innerHTML]="dataModel | prettyjson"></div>
             </div>
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
                 <button type="button" (click)="onFormCancel()"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

@@ -23,7 +23,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { ArticleCategoryAddComponent } from '../add/add.component';
 import { ArticleCategoryDeleteComponent } from '../delete/delete.component';
@@ -39,12 +38,12 @@ export class ArticleCategoryTreeComponent implements OnInit, OnDestroy {
     public categoryService: ArticleCategoryService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() set optionSelectForce(x: number | ArticleCategoryModel) {
     this.onActionSelectForce(x);
@@ -52,13 +51,8 @@ export class ArticleCategoryTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: ArticleCategoryModel = new ArticleCategoryModel();
   dataModelResult: ErrorExceptionResult<ArticleCategoryModel> = new ErrorExceptionResult<ArticleCategoryModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<ArticleCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<ArticleCategoryModel>();
   @Output() optionChange = new EventEmitter<ArticleCategoryModel>();

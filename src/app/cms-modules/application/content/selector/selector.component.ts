@@ -10,7 +10,6 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 @Component({
   selector: 'app-application-app-selector',
   templateUrl: './selector.component.html',
@@ -22,10 +21,10 @@ export class ApplicationAppSelectorComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public categoryService: ApplicationAppService) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   dataModelResult: ErrorExceptionResult<ApplicationAppModel> = new ErrorExceptionResult<ApplicationAppModel>();
   dataModelSelect: ApplicationAppModel = new ApplicationAppModel();
@@ -42,13 +41,8 @@ export class ApplicationAppSelectorComponent implements OnInit {
     this.onActionSelectForce(x);
   }
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
 
   ngOnInit(): void {
     this.loadOptions();

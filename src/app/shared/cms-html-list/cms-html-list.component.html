@@ -7,11 +7,12 @@
   </div>
   <div [ngClass]="optionTreeDisplay && !this.tokenHelper.isMobile ?'col-xl-9':'col-xl-12'">
     <div class="card card-style progressOverlayContainer">
-      <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+      <app-progress-spinner *ngIf="optionsListInfoAreaId?.length>0" [optionsInfoAreaId]="optionsListInfoAreaId">
+      </app-progress-spinner>
       <div class="content mb-0">
         <div class="row justify-content-center">
           <!--begin::Header-->
-          <div class="col-12 pe-0" *ngIf="optionHeaderDisplay">
+          <div class="col-12" *ngIf="optionHeaderDisplay">
             <ng-content *ngIf="optionHeaderDisplay" select="[cms-header]"></ng-content>
             <ng-content select="[cms-action-header]"></ng-content>
           </div>
@@ -19,14 +20,14 @@
           <!--end::Header-->
           <hr *ngIf="optionHeaderDisplay||optionActionMainDisplay">
           <!--begin::Body-->
-          <div class="col-12 pe-0" [ngClass]="optionClassBody">
-            <p class="text-center">
-              <ng-content select="[cms-body]"></ng-content>
-            </p>
+          <div class="col-12" [ngClass]="optionClassBody">
+
+            <ng-content select="[cms-body]"></ng-content>
+
           </div>
           <!--end::Body-->
           <!--begin::Footer-->
-          <div class="col-12 pe-0" *ngIf="optionFooterDisplay&& !loading?.display">
+          <div class="col-12" *ngIf="optionFooterDisplay">
             <p class="text-center">
               <ng-content select="[cms-message]"></ng-content>
               <ng-content select="[cms-footer]"></ng-content>

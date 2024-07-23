@@ -11,7 +11,6 @@ import {
   BankPaymentInjectOnlineTransactionDtoModel, BankPaymentInjectPaymentGotoBankStep2LandingSitePageModel, BankPaymentPrivateSiteConfigModel, BankPaymentPrivateSiteConfigService, CoreEnumService, ErrorExceptionResult, FormInfoModel
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-bankpayment-privateconfig-paymenttest',
@@ -27,11 +26,11 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
     public bankPaymentPrivateSiteConfigService: BankPaymentPrivateSiteConfigService,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestLinkPrivateSiteConfigId = +data.linkPrivateSiteConfigId || 0;
     }
@@ -39,7 +38,7 @@ export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit 
   }
   requestLinkPrivateSiteConfigId = 0;
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
-  loading = new ProgressSpinnerModel();
+
   dataModelParentSelected: BankPaymentPrivateSiteConfigModel = new BankPaymentPrivateSiteConfigModel();
   dataModel: BankPaymentInjectOnlineTransactionDtoModel = new BankPaymentInjectOnlineTransactionDtoModel();
   dataModelResult: ErrorExceptionResult<BankPaymentInjectPaymentGotoBankStep2LandingSitePageModel>

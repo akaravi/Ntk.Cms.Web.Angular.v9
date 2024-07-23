@@ -24,7 +24,7 @@
 
 
           <!-- LinkCategoryId Field -->
-          <app-news-category-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+          <app-news-category-selector (optionChange)="onActionSelectorSelect($event)"
             [optionSelectForce]="dataModel.linkCategoryId" [optionPlaceholder]="'TITLE.Category' | translate">
           </app-news-category-selector>
           <!-- Title Field -->
@@ -57,7 +57,7 @@
           </div>
           <!-- LinkLocationId Field -->
           <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"
-            [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField" [(optionLoading)]="loading"
+            [optionDisabled]="!fieldsInfo['linkLocationId']?.accessEditField"
             [optionSelectForce]="dataModel.linkLocationId" [optionPlaceholder]="'TITLE.Region' | translate">
           </app-cms-location-selector>
           <!-- FromDate Field -->
@@ -88,7 +88,7 @@
           <angular-editor [placeholder]="'TITLE.Enter_Text' | translate" [config]="publicHelper.editorConfig" id="main"
             [(ngModel)]="dataModel.body" name="dataModel.body"></angular-editor>
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()">
               {{'ACTION.BACK' | translate}}
@@ -110,7 +110,7 @@
             (optionSelectChecked)="onActionCategorySelectChecked($event)"
             (optionSelectDisChecked)="onActionCategorySelectDisChecked($event)"></app-news-category-treeselector>
           <br>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="ntk-button-row">
+          <div *ngIf="formInfo.formSubmitAllow  " class="ntk-button-row">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -155,7 +155,7 @@
           </mat-form-field>
 
 
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -222,7 +222,7 @@
               [openDirectUploadView]="true" [openFilemanagerButtonLabelKey]="'select'"
               [selectFileType]="selectFileTypeMovie" [openFilemanagerButtonView]="false"></cms-file-manager>
           </div>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -315,7 +315,7 @@
             </mat-table>
           </div>
           <!-- TABLE  -->
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -329,7 +329,7 @@
 
         <mat-step label="{{'TITLE.Similar_Content' | translate}} " state="info">
           <p>{{'TITLE.Specify_relevant_content' | translate}}</p>
-          <app-news-content-selector (optionChange)="onActionContentSimilarSelect($event)" [(optionLoading)]="loading"
+          <app-news-content-selector (optionChange)="onActionContentSimilarSelect($event)"
             [optionPlaceholder]="'TITLE.Similar_Content' | translate">
 
 
@@ -391,7 +391,7 @@
             </mat-table>
           </div>
           <!-- TABLE  -->
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -408,7 +408,7 @@
           <p>{{'TITLE.Click_on_the_map_to_specify_the_location' | translate}}</p>
           <app-cms-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" [optonCenter]="mapOptonCenter"
             id='main-map'></app-cms-map>
-          <div *ngIf="formInfo.formSubmitAllow  && !loading?.display" class="form-actions">
+          <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()">
               {{'ACTION.BACK' | translate}}

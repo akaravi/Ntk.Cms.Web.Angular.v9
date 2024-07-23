@@ -16,7 +16,6 @@ import {
   LinkManagementAccountingDetailService, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -28,13 +27,13 @@ export class LinkManagementAccountingDetailDeleteComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<LinkManagementAccountingDetailDeleteComponent>,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private linkManagementAccountingDetailService: LinkManagementAccountingDetailService,
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestId = +data.id || 0;
     }
@@ -42,7 +41,7 @@ export class LinkManagementAccountingDetailDeleteComponent implements OnInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
-  loading = new ProgressSpinnerModel();
+
   dataModelResultContent: ErrorExceptionResult<LinkManagementAccountingDetailModel> = new ErrorExceptionResult<LinkManagementAccountingDetailModel>();
   formInfo: FormInfoModel = new FormInfoModel();
   ngOnInit(): void {

@@ -13,7 +13,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -35,7 +34,7 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
     private cdr: ChangeDetectorRef,
     public dialog: MatDialog) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestSerial = this.activatedRoute.snapshot.paramMap.get('Serial');
   }
   showBuy = false;
@@ -48,7 +47,7 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
   dataModelResult: ErrorExceptionResult<CoreModuleSaleInvoiceDetailModel> = new ErrorExceptionResult<CoreModuleSaleInvoiceDetailModel>();
   dataModelRegResult: ErrorExceptionResult<CoreModuleSaleInvoiceModel> = new ErrorExceptionResult<CoreModuleSaleInvoiceModel>();
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   tableRowsSelected: Array<CoreModuleSaleInvoiceDetailModel> = [];
   tableRowSelected: CoreModuleSaleInvoiceDetailModel = new CoreModuleSaleInvoiceDetailModel();
   tableSource: MatTableDataSource<CoreModuleSaleInvoiceDetailModel> = new MatTableDataSource<CoreModuleSaleInvoiceDetailModel>();

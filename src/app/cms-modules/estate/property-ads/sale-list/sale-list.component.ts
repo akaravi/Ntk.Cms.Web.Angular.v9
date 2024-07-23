@@ -9,7 +9,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsBankpaymentTransactionInfoComponent } from 'src/app/shared/cms-bankpayment-transaction-info/cms-bankpayment-transaction-info.component';
 import { environment } from 'src/environments/environment';
@@ -34,7 +33,7 @@ export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     private activatedRoute: ActivatedRoute,
     public dialog: MatDialog) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.requestLinkPropertyId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
   }
   showBuy = false;
@@ -45,7 +44,7 @@ export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
   tableContentSelected = [];
   dataModelResult: ErrorExceptionResult<EstateAdsTypeModel> = new ErrorExceptionResult<EstateAdsTypeModel>();
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   tableRowSelected: EstateAdsTypeModel = new EstateAdsTypeModel();
   categoryModelSelected: EstateAdsTypeModel = new EstateAdsTypeModel();
   dataModelEnumCmsModuleSaleItemTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

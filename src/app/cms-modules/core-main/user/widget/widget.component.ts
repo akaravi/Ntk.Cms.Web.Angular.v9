@@ -1,17 +1,16 @@
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreUserModel, CoreUserService, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { CoreUserEmailConfirmComponent } from '../emailConfirm/emailConfirm.component';
 import { CoreUserMobileConfirmComponent } from '../mobileConfirm/mobileConfirm.component';
-import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 @Component({
   selector: 'app-core-user-widget',
@@ -21,25 +20,20 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
   tokenInfo = new TokenInfoModel();
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
 
   constructor(
     private service: CoreUserService,
     private cmsToastrService: CmsToastrService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
 
   }
   dataModel: CoreUserModel = new CoreUserModel();

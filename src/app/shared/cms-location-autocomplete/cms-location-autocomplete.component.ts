@@ -11,7 +11,6 @@ import {
 import { Observable } from 'rxjs';
 import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 class chipModel {
   display: string;
@@ -27,7 +26,7 @@ export class CmsLocationCompleteComponent implements OnInit {
   constructor(
     public service: CoreLocationService,
     private cmsToastrService: CmsToastrService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
     this.filteredOptions = this.tagCtrl.valueChanges.pipe(
@@ -49,13 +48,8 @@ export class CmsLocationCompleteComponent implements OnInit {
     this.onActionSelectForce(x);
   }
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
 
   tagDataModel: chipModel[] = [];
   tagLastDataModel: chipModel[] = [];

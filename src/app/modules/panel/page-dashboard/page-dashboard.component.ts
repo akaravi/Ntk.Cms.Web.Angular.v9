@@ -4,7 +4,6 @@ import { CoreModuleModel, ErrorExceptionResult, TokenInfoModel } from 'ntk-cms-a
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 
@@ -23,14 +22,14 @@ export class PageDashboardComponent implements OnInit {
     public pageInfo: PageInfoService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   tokenInfo = new TokenInfoModel();
   cmsApiStoreSubscribe: Subscription;
   env = environment;
   loadDemoTheme = environment.loadDemoTheme;
   dataCoreModuleModelResult: ErrorExceptionResult<CoreModuleModel> = new ErrorExceptionResult<CoreModuleModel>();
-  loading = new ProgressSpinnerModel();
+
   checkModuleExist: Map<string, CoreModuleModel> = new Map<string, CoreModuleModel>();
   ngOnInit(): void {
     this.tokenHelper.getCurrentToken().then((value) => {

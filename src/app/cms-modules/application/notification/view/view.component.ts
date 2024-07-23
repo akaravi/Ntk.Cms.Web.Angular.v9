@@ -14,7 +14,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-application-notification-view',
@@ -34,14 +33,14 @@ export class ApplicationLogNotificationViewComponent implements OnInit, OnDestro
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = data.id + '';
     }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<ApplicationLogNotificationModel> = new ErrorExceptionResult<ApplicationLogNotificationModel>();
   dataModel: ApplicationLogNotificationModel = new ApplicationLogNotificationModel();
   formInfo: FormInfoModel = new FormInfoModel();

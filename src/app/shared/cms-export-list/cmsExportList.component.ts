@@ -1,10 +1,9 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreModuleEntityReportFileModel, ErrorExceptionResult, ErrorExceptionResultExportFile, ExportFileModel, ExportFileTypeEnum, ExportReceiveMethodEnum, FilterModel, FormInfoModel, IApiCmsServerBase, InfoEnumModel, ReportFileTypeEnum, TokenInfoModel } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -21,7 +20,7 @@ export class CmsExportListComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CmsExportListComponent>,
     public translate: TranslateService,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,) {
 
     if (data) {
@@ -88,13 +87,8 @@ export class CmsExportListComponent implements OnInit {
   EnumExportFileTypeReport = ExportFileTypeEnum.Report;
   EnumExportReceiveMethodNow = ExportReceiveMethodEnum.Now;
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
 
   ngOnInit(): void {
     this.DataGetAll();
@@ -105,7 +99,7 @@ export class CmsExportListComponent implements OnInit {
 
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.dataModelSubmitResult = new ErrorExceptionResultExportFile();
     this.formInfo.formSubmitAllow = false;
     this.requestService.ServiceReportFileGetAll().subscribe({
@@ -140,7 +134,7 @@ export class CmsExportListComponent implements OnInit {
   onFormSubmit(): void {
     this.dataModelSubmitResult = new ErrorExceptionResultExportFile();
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.formInfo.formSubmitAllow = false;
 
     this.requestService.ServiceExportFile(this.filterModel).subscribe({

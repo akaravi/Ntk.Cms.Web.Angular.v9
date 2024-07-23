@@ -36,9 +36,9 @@ export class ApplicationThemeConfigAddComponent extends AddBaseComponent<Applica
     public translate: TranslateService,
     public publicHelper: PublicHelper,
   ) {
-    super(applicationThemeConfigService, new ApplicationThemeConfigModel(), publicHelper,translate);
+    super(applicationThemeConfigService, new ApplicationThemeConfigModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestLinkSourceId = +data.linkSourceId || 0;
     }

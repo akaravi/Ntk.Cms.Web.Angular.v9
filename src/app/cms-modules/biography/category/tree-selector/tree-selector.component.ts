@@ -24,7 +24,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-biography-category-treeselector',
@@ -36,13 +35,13 @@ export class BiographyCategoryTreeSelectorComponent implements OnInit, OnDestroy
     public coreEnumService: CoreEnumService,
     public categoryService: BiographyCategoryService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public dialog: MatDialog,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.checklistSelection.changed.subscribe(x => {
       if (!this.runComplate) {
         return;
@@ -72,7 +71,7 @@ export class BiographyCategoryTreeSelectorComponent implements OnInit, OnDestroy
   dataModelSelect: number[] = [];
   dataModelResult: ErrorExceptionResult<BiographyCategoryModel> = new ErrorExceptionResult<BiographyCategoryModel>();
   filterModel = new FilterModel();
-  loading = new ProgressSpinnerModel();
+
   treeControl = new NestedTreeControl<BiographyCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<BiographyCategoryModel>();
   runComplate = false;

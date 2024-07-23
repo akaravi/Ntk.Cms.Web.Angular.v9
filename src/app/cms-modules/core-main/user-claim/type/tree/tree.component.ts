@@ -22,7 +22,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { CoreUserClaimTypeAddComponent } from '../add/add.component';
@@ -41,12 +40,12 @@ export class CoreUserClaimTypeTreeComponent implements OnInit, OnDestroy {
     public categoryService: CoreUserClaimTypeService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     private translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() set optionSelectForce(x: number | CoreUserClaimTypeModel) {
     this.onActionSelectForce(x);
@@ -54,13 +53,8 @@ export class CoreUserClaimTypeTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: CoreUserClaimTypeModel = new CoreUserClaimTypeModel();
   dataModelResult: ErrorExceptionResult<CoreUserClaimTypeModel> = new ErrorExceptionResult<CoreUserClaimTypeModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<CoreUserClaimTypeModel>(node => null);
   dataSource = new MatTreeNestedDataSource<CoreUserClaimTypeModel>();
   @Output() optionChange = new EventEmitter<CoreUserClaimTypeModel>();

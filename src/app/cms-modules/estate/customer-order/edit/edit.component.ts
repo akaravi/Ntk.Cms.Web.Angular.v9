@@ -53,9 +53,9 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     public translate: TranslateService,
     public dialog: MatDialog,
   ) {
-    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper,translate);
+    super(estateCustomerOrderService, new EstateCustomerOrderModel(), publicHelper, translate);
 
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.tokenHelper.getCurrentToken().then((value) => {
@@ -202,7 +202,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
 
     this.estateCustomerOrderService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

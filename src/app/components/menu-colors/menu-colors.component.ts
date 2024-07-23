@@ -11,7 +11,7 @@ import { ThemeService } from 'src/app/core/services/theme.service';
 export class MenuColorsComponent implements OnInit {
 
   constructor(
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private themeService: ThemeService,
   ) {
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {

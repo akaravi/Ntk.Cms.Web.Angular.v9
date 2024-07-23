@@ -38,9 +38,9 @@ export class CoreTokenUserLogEditComponent extends EditBaseComponent<CoreTokenUs
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreTokenUserLogService, new CoreTokenUserLogModel(), publicHelper,translate);
+    super(coreTokenUserLogService, new CoreTokenUserLogModel(), publicHelper, translate);
 
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestId = data.id;
     }

@@ -47,7 +47,7 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
     super(contentService, new ArticleContentModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -141,7 +141,7 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
     this.translate.get('MESSAGE.get_information_from_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     /*َAccess Field*/
     this.contentService.setAccessLoad();
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -355,7 +355,7 @@ export class ArticleContentEditComponent extends EditBaseComponent<ArticleConten
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService
       .ServiceEdit(this.dataModel)
       .subscribe({

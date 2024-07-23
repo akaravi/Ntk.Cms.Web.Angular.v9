@@ -52,9 +52,9 @@ export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyS
     public tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(estatePropertyService, new EstatePropertyModel(), publicHelper,translate);
+    super(estatePropertyService, new EstatePropertyModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestLinkPropertyTypeLanduseId = this.activatedRoute.snapshot.paramMap.get('LinkPropertyTypeLanduseId');
 
     if (this.requestLinkPropertyTypeLanduseId && this.requestLinkPropertyTypeLanduseId.length > 0) {

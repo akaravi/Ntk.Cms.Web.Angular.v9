@@ -12,7 +12,6 @@ import {
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-application-notification-action-send',
@@ -30,7 +29,7 @@ export class ApplicationLogNotificationActionSendComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestLinkApplicationId = +data.linkApplicationId || 0;
       this.requestLinkApplicationMemberId = data.linkApplicationMemberId + '';
@@ -50,7 +49,7 @@ export class ApplicationLogNotificationActionSendComponent implements OnInit {
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<ApplicationLogNotificationModel> = new ErrorExceptionResult<ApplicationLogNotificationModel>();
   dataModel: SendNotificationModel = new SendNotificationModel();
   dataModelEnumContentTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

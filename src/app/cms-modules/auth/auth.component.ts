@@ -2,7 +2,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { environment } from 'src/environments/environment';
 
 
@@ -18,9 +17,9 @@ export class AuthComponent implements OnInit {
     public translate: CmsTranslationService,
     private cdr: ChangeDetectorRef) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
-  loading = new ProgressSpinnerModel();
+
   today: Date = new Date();
   //tesettt = 'gfjhgjh';
   showSplashModel = true;

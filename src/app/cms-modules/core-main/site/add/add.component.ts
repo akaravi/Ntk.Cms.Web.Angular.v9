@@ -35,9 +35,9 @@ export class CoreSiteAddComponent extends AddBaseComponent<CoreSiteService, Core
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(coreSiteService, new CoreSiteModel(), publicHelper,translate);
+    super(coreSiteService, new CoreSiteModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.dataModel.ownerSiteSetStatus = SiteStatusEnum.Active;
     this.dataModel.userLanguage = LanguageEnum.fa;

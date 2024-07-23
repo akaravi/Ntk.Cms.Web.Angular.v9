@@ -20,7 +20,6 @@ import { PublicHelper } from './core/helpers/publicHelper';
 import { TokenHelper } from './core/helpers/tokenHelper';
 import { CmsTranslationService } from './core/i18n/translation.service';
 import { ConnectionStatusModel } from './core/models/connectionStatusModel';
-import { ProgressSpinnerModel } from './core/models/progressSpinnerModel';
 import { CmsStoreService } from './core/reducers/cmsStore.service';
 import { CmsSignalrService } from './core/services/cmsSignalr.service';
 import { CmsToastrService } from './core/services/cmsToastr.service';
@@ -132,7 +131,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  loading = new ProgressSpinnerModel();
+
 
   cmsApiStoreSubscribe: Subscription;
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
@@ -212,7 +211,7 @@ export class AppComponent implements OnInit {
   getServiceVer(): void {
     const pName = this.constructor.name + 'ServiceIp';
 
-    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.configService.ServiceIp().subscribe({
       next: (ret) => {
         this.publicHelper.appServerVersion = ret.appVersion

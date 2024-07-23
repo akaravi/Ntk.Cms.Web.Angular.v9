@@ -20,7 +20,7 @@
 
 
       <!-- LinkCategoryId Field -->
-      <app-ticketing-departemen-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+      <app-ticketing-departemen-selector (optionChange)="onActionSelectorSelect($event)"
         [optionSelectForce]="dataModel.linkTicketingDepartemenId" [optionPlaceholder]="'TITLE.Department' | translate">
       </app-ticketing-departemen-selector>
       <!-- Question Field -->
@@ -44,7 +44,7 @@
       <app-cms-files-selector [(dataFileModel)]="dataFileModel" [openDirectUploadView]="true">
       </app-cms-files-selector>
 
-      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
           <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

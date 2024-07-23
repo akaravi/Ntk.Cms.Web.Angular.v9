@@ -31,8 +31,8 @@ export class EstatePropertyDetailGroupAddComponent extends AddBaseComponent<Esta
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(estatePropertyDetailGroupService, new EstatePropertyDetailGroupModel(), publicHelper,translate);
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    super(estatePropertyDetailGroupService, new EstatePropertyDetailGroupModel(), publicHelper, translate);
+    this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     if (data) {
       this.requestLinkPropertyTypeLanduseId = data.linkPropertyTypeLanduseId;

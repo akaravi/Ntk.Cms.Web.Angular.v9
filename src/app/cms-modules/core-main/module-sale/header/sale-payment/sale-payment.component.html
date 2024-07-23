@@ -1,7 +1,6 @@
 <h2 mat-dialog-title>{{ formInfo.formTitle }}</h2>
 <mat-dialog-content>
-    <app-cms-bankpayment-grid [optionloading]="loading" [optionMasterItem]="true"
-        (optionChange)="onActionSelectCalculate($event)">
+    <app-cms-bankpayment-grid [optionMasterItem]="true" (optionChange)="onActionSelectCalculate($event)">
     </app-cms-bankpayment-grid>
     <div class="my-5" *ngIf="viewCalculate">
         <div *ngIf="dataModelCalculateResult.item?.feeTax>0">
@@ -31,7 +30,7 @@
     <small class="form-text text-muted danger">{{ formInfo.formError }}
     </small>
   </div> -->
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="submit" (click)="onActionSelectBankPayment()"
             class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
             [disabled]="!viewCalculate">

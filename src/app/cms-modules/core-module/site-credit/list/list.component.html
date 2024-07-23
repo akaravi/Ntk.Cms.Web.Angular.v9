@@ -1,8 +1,9 @@
-<app-cms-html-list [optionGuideNoticeKey]="'module.coremodule.sitecredit'"
-  [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
-  (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
-  [optionActionRowDisplay]="tableRowSelected?.linkSiteId>0" [optionSelectRowItemTitle]="tableRowSelected?.id">
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name"
+  [optionGuideNoticeKey]="'module.coremodule.sitecredit'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
+  (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
+  (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"
+  [optionTreeDisplay]="false" [optionActionRowDisplay]="tableRowSelected?.linkSiteId>0"
+  [optionSelectRowItemTitle]="tableRowSelected?.id">
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
 

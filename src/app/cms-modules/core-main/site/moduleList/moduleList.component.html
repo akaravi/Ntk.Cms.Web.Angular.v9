@@ -1,9 +1,9 @@
 <app-core-site-header [optionId]="requestLinkSiteId" *ngIf="requestLinkSiteId>0"></app-core-site-header>
 <app-core-module-header [optionId]="requestLinkModuleId" *ngIf="requestLinkModuleId>0"></app-core-module-header>
-<app-cms-html-list [optionGuideNoticeKey]="'module.site.modulelist'"
+<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'module.site.modulelist'"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
-  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionLoading]="loading" [optionTreeDisplay]="false"
+  (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
   [optionActionRowDisplay]="tableRowSelected?.linkSiteId>0"
   [optionSelectRowItemTitle]="(tableRowSelected?.linkSiteId+' - '+ tableRowSelected?.linkModuleId)">
   <ng-container cms-tree>

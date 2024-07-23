@@ -23,7 +23,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { ChartCategoryAddComponent } from '../add/add.component';
@@ -44,10 +43,10 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
     public translate: TranslateService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() set optionSelectForce(x: number | ChartCategoryModel) {
     this.onActionSelectForce(x);
@@ -55,13 +54,8 @@ export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: ChartCategoryModel = new ChartCategoryModel();
   dataModelResult: ErrorExceptionResult<ChartCategoryModel> = new ErrorExceptionResult<ChartCategoryModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<ChartCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<ChartCategoryModel>();
   @Output() optionChange = new EventEmitter<ChartCategoryModel>();

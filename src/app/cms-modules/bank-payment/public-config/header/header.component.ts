@@ -7,7 +7,6 @@ import {
   BankPaymentPublicConfigModel, BankPaymentPublicConfigService, CoreEnumService, DataFieldInfoModel, ErrorExceptionResult
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
   selector: 'app-bankpayment-publicconfig-header',
@@ -24,10 +23,10 @@ export class BankPaymentPublicConfigHeaderComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() optionId = 0;
-  loading = new ProgressSpinnerModel();
+
   dataModelResult: ErrorExceptionResult<BankPaymentPublicConfigModel> = new ErrorExceptionResult<BankPaymentPublicConfigModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 

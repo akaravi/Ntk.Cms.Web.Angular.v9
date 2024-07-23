@@ -23,7 +23,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { BlogCategoryAddComponent } from '../add/add.component';
@@ -44,10 +43,10 @@ export class BlogCategoryTreeComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() set optionSelectForce(x: number | BlogCategoryModel) {
     this.onActionSelectForce(x);
@@ -55,13 +54,8 @@ export class BlogCategoryTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: BlogCategoryModel = new BlogCategoryModel();
   dataModelResult: ErrorExceptionResult<BlogCategoryModel> = new ErrorExceptionResult<BlogCategoryModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<BlogCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<BlogCategoryModel>();
   @Output() optionChange = new EventEmitter<BlogCategoryModel>();

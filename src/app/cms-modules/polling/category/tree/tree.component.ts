@@ -19,7 +19,6 @@ import {
   PollingCategoryModel,
   PollingCategoryService
 } from 'ntk-cms-api';
-import { ProgressSpinnerModel } from './../../../../core/models/progressSpinnerModel';
 
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PollingCategoryDeleteComponent } from '../delete/delete.component';
@@ -46,11 +45,11 @@ export class PollingCategoryTreeComponent implements OnInit, OnDestroy {
     public categoryService: PollingCategoryService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() set optionSelectForce(x: number | PollingCategoryModel) {
     this.onActionSelectForce(x);
@@ -58,13 +57,8 @@ export class PollingCategoryTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: PollingCategoryModel = new PollingCategoryModel();
   dataModelResult: ErrorExceptionResult<PollingCategoryModel> = new ErrorExceptionResult<PollingCategoryModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<PollingCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<PollingCategoryModel>();
   @Output() optionChange = new EventEmitter<PollingCategoryModel>();

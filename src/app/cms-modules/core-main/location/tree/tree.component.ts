@@ -21,7 +21,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { CoreLocationAddComponent } from '../add/add.component';
@@ -39,12 +38,12 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
     public categoryService: CoreLocationService,
     public dialog: MatDialog,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
   }
   @Input() set optionSelectForce(x: number | CoreLocationModel) {
     this.onActionSelectForce(x);
@@ -52,13 +51,8 @@ export class CoreLocationTreeComponent implements OnInit, OnDestroy {
   dataModelSelect: CoreLocationModel = new CoreLocationModel();
   dataModelResult: ErrorExceptionResult<CoreLocationModel> = new ErrorExceptionResult<CoreLocationModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<CoreLocationModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<CoreLocationModel>();
   @Output() optionChange = new EventEmitter<CoreLocationModel>();

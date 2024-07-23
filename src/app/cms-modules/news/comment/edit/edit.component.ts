@@ -36,9 +36,9 @@ export class NewsCommentEditComponent extends EditBaseComponent<NewsCommentServi
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(commentService, new NewsCommentModel(), publicHelper,translate);
+    super(commentService, new NewsCommentModel(), publicHelper, translate);
 
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestId = +data.id || 0;
       this.requestParentId = +data.parentId || 0;
@@ -112,7 +112,7 @@ export class NewsCommentEditComponent extends EditBaseComponent<NewsCommentServi
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.dataModel.linkContentId = this.requestContentId;
     this.commentService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {

@@ -13,7 +13,6 @@ import {
 import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/componentOptionSearchModel';
 import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -45,7 +44,7 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
     public dialog: MatDialog
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
 
@@ -61,7 +60,7 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
   optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
 
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
   tableRowSelected: CoreUserClaimCheckModel = new CoreUserClaimCheckModel();
   tableSource: MatTableDataSource<CoreUserClaimCheckModel> = new MatTableDataSource<CoreUserClaimCheckModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

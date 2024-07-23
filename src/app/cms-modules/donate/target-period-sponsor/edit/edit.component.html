@@ -20,8 +20,7 @@
             </app-cms-enum-record-status-selector>
             <!-- LinkTargetPeriodId Field -->
             <app-donate-target-category-selector (optionChange)="onActionSelectorSelect($event)"
-                [(optionLoading)]="loading" [optionSelectForce]="dataModel.linkTargetPeriodId"
-                [optionPlaceholder]="'TITLE.Category' | translate">
+                [optionSelectForce]="dataModel.linkTargetPeriodId" [optionPlaceholder]="'TITLE.Category' | translate">
             </app-donate-target-category-selector>
             <!-- LinkSponsorId Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -42,7 +41,7 @@
                 <mat-datepicker-toggle matSuffix [for]="payment"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #payment></mat-datepicker>
             </div>
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
                 <button type="button" (click)="onFormCancel()"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

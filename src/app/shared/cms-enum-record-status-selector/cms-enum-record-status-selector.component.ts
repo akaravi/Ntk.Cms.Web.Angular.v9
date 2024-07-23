@@ -18,7 +18,7 @@ export class CmsEnumRecordStatusSelectorComponent implements OnInit {
   id = ++CmsEnumRecordStatusSelectorComponent.nextId;
   constructor(
     public translate: TranslateService,
-    private publicHelper: PublicHelper,) {
+    public publicHelper: PublicHelper,) {
   }
   @Input()
   set model(value: RecordStatusEnum) {

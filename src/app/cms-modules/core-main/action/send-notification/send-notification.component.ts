@@ -38,8 +38,8 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
     public translate: TranslateService,
     private tokenHelper: TokenHelper
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
-    this.loadingAction.cdr = this.cdr;
+    this.publicHelper.processService.cdr = this.cdr;
+    
 
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -50,8 +50,8 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   @ViewChild('Message') message: ElementRef;
 
-  loading = new ProgressSpinnerModel();
-  loadingAction = new ProgressSpinnerModel();
+
+  
   dataModelParentSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   dataModel: CmsNotificationSendDtoModel = new CmsNotificationSendDtoModel();
   dataModelResult: ErrorExceptionResult<CoreTokenNotificationModel> = new ErrorExceptionResult<CoreTokenNotificationModel>();
@@ -138,7 +138,10 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
 
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'main';
-    this.loadingAction.Start(pName);
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+    });
+
     this.formInfo.formAlert = '';
     this.formInfo.formError = '';
     this.coreTokenNotificationService.ServiceSendNotification(this.dataModel).subscribe({
@@ -153,12 +156,12 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
           this.formInfo.formError = ret.errorMessage;
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
-        this.loadingAction.Stop(pName);
+        this.publicHelper.processService.processStop(pName);
       },
       error: (e) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(e);
-        this.loadingAction.Stop(pName);
+        this.publicHelper.processService.processStop(pName,false);
 
       },
       complete: () => {

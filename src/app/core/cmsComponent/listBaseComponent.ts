@@ -1,4 +1,5 @@
 import { MatTableDataSource } from "@angular/material/table";
+import { TranslateService } from "@ngx-translate/core";
 import { BaseEntity, DataFieldInfoModel, ErrorExceptionResult, FilterModel, IApiCmsServerBase, RecordStatusEnum, TokenInfoModel } from "ntk-cms-api";
 import { CmsDataCommentComponent } from "src/app/shared/cms-data-comment/cms-data-comment.component";
 import { CmsDataMemoComponent } from "src/app/shared/cms-data-memo/cms-data-memo.component";
@@ -10,10 +11,8 @@ import { environment } from "src/environments/environment";
 import { PublicHelper } from "../helpers/publicHelper";
 import { TokenHelper } from "../helpers/tokenHelper";
 import { ContentInfoModel } from "../models/contentInfoModel";
-import { ProgressSpinnerModel } from "../models/progressSpinnerModel";
 import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
-import { TranslateService } from "@ngx-translate/core";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
   constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public tokenHelper: TokenHelper, public translate: TranslateService,
@@ -27,7 +26,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   tableSource: MatTableDataSource<TModel> = new MatTableDataSource<TModel>();
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+
   optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
   optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
   tableRowSelected: TModel;

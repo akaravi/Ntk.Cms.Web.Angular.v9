@@ -12,7 +12,6 @@ import {
   EstateCustomerOrderModel, EstateCustomerOrderService, FormInfoModel
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -32,7 +31,7 @@ export class EstateCustomerOrderActionComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.dataModelCustomerOrder = data.model;
       this.dataModel.id = this.dataModelCustomerOrder.id;
@@ -40,7 +39,7 @@ export class EstateCustomerOrderActionComponent implements OnInit {
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-  loading = new ProgressSpinnerModel();
+
 
 
   dataModel: EstateCustomerOrderActionSendSmsDtoModel = new EstateCustomerOrderActionSendSmsDtoModel();

@@ -29,7 +29,7 @@
             </svg>
             <span>{{'ACTION.CANCEL' | translate}}</span>
           </button>
-          <button type="button"  *ngIf="dataModel?.contactMobiles?.length>0 && regeMobile.test(dataModel.contactMobiles)"
+          <button type="button" *ngIf="dataModel?.contactMobiles?.length>0 && regeMobile.test(dataModel.contactMobiles)"
             (click)="onActoinSelectStepNext('orderType')" class="cms-m-button">
             <span>بعدی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -147,8 +147,8 @@
             </svg>
             <span>قبلی</span>
           </button>
-          <button type="button" *ngIf="dataModel?.linkPropertyTypeLanduseId?.length>0" (click)="onActoinSelectStepNext('selectYear')"
-            class="cms-m-button">
+          <button type="button" *ngIf="dataModel?.linkPropertyTypeLanduseId?.length>0"
+            (click)="onActoinSelectStepNext('selectYear')" class="cms-m-button">
             <span>بعدی</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -226,7 +226,7 @@
           </div>
           <div>
             <label class="cms-m-form-label">{{'TITLE.Geographical_Areas' | translate}} :</label>
-            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)" [(optionLoading)]="loading"
+            <app-cms-location-autocomplete (optionChange)="onActionSelectorLocation($event)"
               [optionSelectForce]="dataModel.linkLocationIds" [optionPlaceholder]="'TITLE.Region' | translate"
               [optionCssClassInputText]="'cms-m-form-input'">
             </app-cms-location-autocomplete>

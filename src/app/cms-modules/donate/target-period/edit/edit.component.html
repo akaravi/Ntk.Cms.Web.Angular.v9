@@ -19,7 +19,7 @@
                 [optionSelectFirstItem]="true">
             </app-cms-enum-record-status-selector>
             <!-- LinkTargeId Field -->
-            <app-donate-target-selector (optionChange)="onActionSelectorSelect($event)" [(optionLoading)]="loading"
+            <app-donate-target-selector (optionChange)="onActionSelectorSelect($event)"
                 [optionSelectForce]="dataModel.linkTargeId" [optionPlaceholder]="'TITLE.Category' | translate">
             </app-donate-target-selector>
             <!-- Title Field -->
@@ -46,7 +46,7 @@
                     Description is <strong>{{'MESSAGE.required' | translate}}</strong>
                 </mat-error>
             </div>
-            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  && !loading?.display">
+            <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
                 <button type="button" (click)="onFormCancel()"
                     class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
                     <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}

@@ -21,7 +21,7 @@ export class TooltipGuideDirective {
     private el: ElementRef,
     private renderer: Renderer2,
     private tokenHelper: TokenHelper,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private coreGuideService: CoreGuideService,
     private cmsToastrService: CmsToastrService,
   ) {

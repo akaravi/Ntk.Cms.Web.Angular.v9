@@ -24,7 +24,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { LinkManagementBillboardPatternAddComponent } from '../add/add.component';
@@ -45,9 +44,9 @@ export class LinkManagementBillboardPatternTreeComponent implements OnInit, OnDe
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() set optionSelectForce(x: number | LinkManagementBillboardPatternModel) {
     this.onActionSelectForce(x);
@@ -55,13 +54,8 @@ export class LinkManagementBillboardPatternTreeComponent implements OnInit, OnDe
   dataModelSelect: LinkManagementBillboardPatternModel = new LinkManagementBillboardPatternModel();
   dataModelResult: ErrorExceptionResult<LinkManagementBillboardPatternModel> = new ErrorExceptionResult<LinkManagementBillboardPatternModel>();
   filterModel = new FilterModel();
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   treeControl = new NestedTreeControl<LinkManagementBillboardPatternModel>(node => null);
   dataSource = new MatTreeNestedDataSource<LinkManagementBillboardPatternModel>();
   @Output() optionChange = new EventEmitter<LinkManagementBillboardPatternModel>();

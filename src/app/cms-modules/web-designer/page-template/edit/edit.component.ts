@@ -34,9 +34,9 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(webDesignerMainPageTemplateService, new WebDesignerMainPageTemplateModel(), publicHelper,translate);
+    super(webDesignerMainPageTemplateService, new WebDesignerMainPageTemplateModel(), publicHelper, translate);
 
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     if (data) {
       this.requestId = data.id + '';
     }

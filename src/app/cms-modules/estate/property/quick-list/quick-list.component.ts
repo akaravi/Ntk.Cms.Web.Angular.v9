@@ -18,7 +18,6 @@ import { ComponentOptionStatistModel } from "src/app/core/cmsComponent/base/comp
 import { ListBaseComponent } from "src/app/core/cmsComponent/listBaseComponent";
 import { PublicHelper } from "src/app/core/helpers/publicHelper";
 import { TokenHelper } from "src/app/core/helpers/tokenHelper";
-import { ProgressSpinnerModel } from "src/app/core/models/progressSpinnerModel";
 import { CmsToastrService } from "src/app/core/services/cmsToastr.service";
 import { PageInfoService } from "src/app/core/services/page-info.service";
 import { CmsConfirmationDialogService } from "src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service";
@@ -70,7 +69,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
         this.requestSearchCaseCode = data.searchCaseCode + '';
     }
 
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.requestLinkPropertyTypeLanduseId =
       this.activatedRoute.snapshot.paramMap.get("LinkPropertyTypeLanduseId");
     this.requestLinkPropertyTypeUsageId =
@@ -203,7 +202,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     new ComponentOptionStatistModel();
 
   tokenInfo = new TokenInfoModel();
-  loading = new ProgressSpinnerModel();
+
 
   categoryModelSelected: EstatePropertyTypeLanduseModel;
   tabledisplayedColumns: string[] = [];
@@ -283,7 +282,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new EstatePropertyModel());
     const pName = this.constructor.name + "main";
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -772,7 +771,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)

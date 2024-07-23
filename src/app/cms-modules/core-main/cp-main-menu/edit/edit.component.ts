@@ -39,10 +39,10 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
     public translate: TranslateService,
     public tokenHelper: TokenHelper,
   ) {
-    super(coreCpMainMenuService, new CoreCpMainMenuModel(), publicHelper,translate);
+    super(coreCpMainMenuService, new CoreCpMainMenuModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     if (data) {
       this.requestId = +data.id || 0;
     }
@@ -182,7 +182,7 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     //! for convert color to hex
     this.dataModel.color = this.dataModel.color?.toString();
     this.coreCpMainMenuService.ServiceEdit(this.dataModel).subscribe({

@@ -4,7 +4,6 @@ import {
 import {
   BankPaymentPrivateSiteConfigModel, BankPaymentPrivateSiteConfigService, BlogCategoryModel, ErrorExceptionResult
 } from 'ntk-cms-api';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 import { TranslateService } from '@ngx-translate/core';
 import { NodeInterface } from 'ntk-cms-filemanager';
@@ -24,18 +23,14 @@ export class CmsBankpaymentGridComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() optionMasterItem = false;
   errorMessage = '';
   @Output() optionChange = new EventEmitter<BankPaymentPrivateSiteConfigModel>();
   dataModelSelect: BankPaymentPrivateSiteConfigModel = new BankPaymentPrivateSiteConfigModel();
-  @Input()
-  public set optionloading(v: ProgressSpinnerModel) {
-    if (v)
-      this.loading = v;
-  }
-  loading = new ProgressSpinnerModel();
+
+
 
   dataModelResult: ErrorExceptionResult<BankPaymentPrivateSiteConfigModel> = new ErrorExceptionResult<BankPaymentPrivateSiteConfigModel>();
   dataModel: BlogCategoryModel = new BlogCategoryModel();

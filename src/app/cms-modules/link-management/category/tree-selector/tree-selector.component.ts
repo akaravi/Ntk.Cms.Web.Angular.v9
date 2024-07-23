@@ -25,7 +25,6 @@ import {
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -40,12 +39,12 @@ export class LinkManagementCategoryTreeSelectorComponent implements OnInit, OnDe
     public coreEnumService: CoreEnumService,
     public categoryService: LinkManagementCategoryService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
     public dialog: MatDialog,
   ) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
     this.checklistSelection.changed.subscribe(x => {
       if (!this.runComplate) {
         return;
@@ -76,7 +75,7 @@ export class LinkManagementCategoryTreeSelectorComponent implements OnInit, OnDe
   dataModelSelect: number[] = [];
   dataModelResult: ErrorExceptionResult<LinkManagementCategoryModel> = new ErrorExceptionResult<LinkManagementCategoryModel>();
   filterModel = new FilterModel();
-  loading = new ProgressSpinnerModel();
+
   treeControl = new NestedTreeControl<LinkManagementCategoryModel>(node => node.children);
   dataSource = new MatTreeNestedDataSource<LinkManagementCategoryModel>();
   runComplate = false;

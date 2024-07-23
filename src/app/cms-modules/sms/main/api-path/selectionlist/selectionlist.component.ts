@@ -4,7 +4,6 @@ import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { CoreEnumService, ErrorExceptionResult, FilterModel, SmsMainApiPathModel, SmsMainApiPathService } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -19,15 +18,15 @@ export class SmsMainApiPathSelectionlistComponent implements OnInit {
     public coreEnumService: CoreEnumService,
     public categoryService: SmsMainApiPathService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   dataModelResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   dataModelSelect: SmsMainApiPathModel[] = [];
   dataIdsSelect: string[] = [];
-  loading = new ProgressSpinnerModel();
+
   formControl = new FormControl();
   fieldsStatus: Map<string, boolean> = new Map<string, boolean>();
 
@@ -50,7 +49,7 @@ export class SmsMainApiPathSelectionlistComponent implements OnInit {
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 50;
     filterModel.accessLoad = true;
-    // this.loading.backdropEnabled = false;
+
 
     // tslint:disable-next-line: no-trailing-whitespace
 

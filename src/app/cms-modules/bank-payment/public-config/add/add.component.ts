@@ -29,9 +29,9 @@ export class BankPaymentPublicConfigAddComponent extends AddBaseComponent<BankPa
     private cdr: ChangeDetectorRef,
     public translate: TranslateService,
   ) {
-    super(bankPaymentPublicConfigService, new BankPaymentPublicConfigModel(), publicHelper,translate);
+    super(bankPaymentPublicConfigService, new BankPaymentPublicConfigModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

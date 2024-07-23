@@ -10,7 +10,6 @@ import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
@@ -27,9 +26,9 @@ export class EstateContractTypeSelectorComponent implements OnInit, OnDestroy {
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
-    private publicHelper: PublicHelper,
+    public publicHelper: PublicHelper,
     public categoryService: EstateContractTypeService) {
-    this.publicHelper.processService.cdr = this.cdr; this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.loading.message = str; });
+    this.publicHelper.processService.cdr = this.cdr;
   }
   @Input() set optionSelectForce(x: string | EstateContractTypeModel) {
     if (x && ((typeof x === 'string' && x.length > 0) || typeof x === typeof EstateContractTypeModel))
@@ -54,13 +53,8 @@ export class EstateContractTypeSelectorComponent implements OnInit, OnDestroy {
   @Input() optionReload = () => this.onActionButtonReload();
   cmsApiStoreSubscribe: Subscription;
 
-  loading: ProgressSpinnerModel = new ProgressSpinnerModel();
-  get optionLoading(): ProgressSpinnerModel {
-    return this.loading;
-  }
-  @Input() set optionLoading(value: ProgressSpinnerModel) {
-    this.loading = value;
-  }
+
+
   ngOnInit(): void {
     this.loadOptions();
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
