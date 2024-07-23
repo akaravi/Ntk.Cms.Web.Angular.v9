@@ -105,7 +105,6 @@
   style="display: block; width: 350px; height: 320px;">
   <div class="menu-title">
     <p class="color-highlight" *ngIf="optionTitle?.length>0">{{optionTitle}}</p>
-    <p class="color-highlight" *ngIf="!optionTitle||optionTitle.length===0">منو</p>
     <h1></h1>
     <a (click)="actionViewMenuMain(false)" class="close-menu"><i class="fa fa-times-circle"></i></a>
   </div>
@@ -137,10 +136,11 @@
 <div class="menu menu-box-modal rounded-m shadow-xl" [ngClass]="viewMenuItemRow?'menu-active':''"
   style="display: block; width: 350px; height: 320px;">
   <div class="menu-title">
-    <p class="color-highlight" *ngIf="!optionSelectRowItemTitle||optionSelectRowItemTitle.length===0">
-      منو</p>
-    <p class="color-highlight" *ngIf="optionSelectRowItemTitle?.length>0">{{optionSelectRowItemTitle}}</p>
+    <p class="color-highlight" *ngIf="optionSelectRowItemTitle?.length>0">
+      {{optionSelectRowItemTitle}}</p>
+    <h1></h1>
     <a (click)="actionViewMenuItemRow(false)" class="close-menu"><i class="fa fa-times-circle"></i></a>
+    <!-- <p class="color-highlight" *ngIf="optionSelectRowItemTitle?.length>0">{{optionSelectRowItemTitle}}</p> -->
   </div>
   <div class="divider divider-margins"></div>
   <!--begin::cms-action-row-->

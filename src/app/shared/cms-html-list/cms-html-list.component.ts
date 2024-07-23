@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
@@ -51,8 +52,8 @@ export class CmsHtmlListComponent implements OnInit {
     if (this.optionActionRowDisplay)
       this.viewMenuItemRow = true;
   }
-  @Input() optionTitle = 'منوی عملیات';
-  @Input() optionCategoryTitle = 'دسته بندی';
+  @Input() optionTitle = this.translate.instant('TITLE.OperationMenu');
+  @Input() optionCategoryTitle = this.translate.instant('TITLE.Category');
   @Input() optionSelectRowItemTitle = '';
   @Input() optionClassBody = 'ntk-cms-html-tree-body';
   @Input() optionTreeDisplay = true;
@@ -72,7 +73,7 @@ export class CmsHtmlListComponent implements OnInit {
   constructor(
     public publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
-
+    public translate: TranslateService,
   ) {
 
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
