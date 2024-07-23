@@ -157,7 +157,7 @@
             <ng-container matColumnDef="CreatedDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row" [ngStyle]="{'direction':'ltr'}"> {{
+                <mat-cell *matCellDef="let row" style="direction:ltr"> {{
                     publicHelper.LocaleDate(row.createdDate) }}
                     {{ publicHelper.getTime(row.createdDate) }} </mat-cell>
             </ng-container>

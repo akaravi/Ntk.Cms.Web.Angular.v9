@@ -161,6 +161,7 @@ export class ThemeService {
       console.log('windows Width :', window.innerWidth, 'windows Height :', window.innerHeight);
   }
   private updateModeHtmlDom(model: ThemeStoreModel) {
+    /**theme-dark */
     if (model?.themeMode == 'dark') {
       document.documentElement.querySelectorAll('.theme-light').forEach((element) => {
         element.classList.remove('theme-light');
@@ -172,27 +173,28 @@ export class ThemeService {
         element.classList.add('theme-light');
       });
     }
-
+    /**theme-dark */
+    /**theme-rtl */
     if (model?.themeDirection == 'ltr') {
       document.documentElement.querySelectorAll('.theme-rtl').forEach((element) => {
         element.classList.remove('theme-rtl');
         element.classList.add('theme-ltr');
       });
-      document.getElementsByTagName('html')[0].setAttribute('dir', 'ltr');
-      document.getElementsByTagName('html')[0].setAttribute('direction', 'ltr');
-      document.getElementsByTagName('html')[0].setAttribute('style', 'direction: ltr');
+      // document.getElementsByTagName('html')[0].setAttribute('dir', 'ltr');
+      // document.getElementsByTagName('html')[0].setAttribute('direction', 'ltr');
+      // document.getElementsByTagName('html')[0].setAttribute('style', 'direction: ltr');
     } else {
       document.documentElement.querySelectorAll('.theme-ltr').forEach((element) => {
         element.classList.remove('theme-ltr');
         element.classList.add('theme-rtl');
       });
-      document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
-      document.getElementsByTagName('html')[0].setAttribute('direction', 'rtl');
-      document.getElementsByTagName('html')[0].setAttribute('style', 'direction: rtl');
+      // document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
+      // document.getElementsByTagName('html')[0].setAttribute('direction', 'rtl');
+      // document.getElementsByTagName('html')[0].setAttribute('style', 'direction: rtl');
     }
-
+    /**theme-rtl */
+    /* HighLigh*/
     if (model?.themeHighlight.length > 0) {
-      /* HighLigh*/
       var pageHighlight = document.querySelectorAll('.page-highlight');
       if (pageHighlight.length) {
         pageHighlight.forEach(function (e) { e.remove(); });
@@ -204,8 +206,8 @@ export class ThemeService {
       loadHighlight.href = 'assets/styles/highlights/highlight_' + model.themeHighlight + '.css';
       document.getElementsByTagName("head")[0].appendChild(loadHighlight);
       //document.body.setAttribute('data-highlight', 'highlight-' + colorStr)
-      /* HighLigh*/
     }
+    /* HighLigh*/
   }
   public onActionScrollTopPage(v: boolean, d = 0) {
     if (v == false) {
