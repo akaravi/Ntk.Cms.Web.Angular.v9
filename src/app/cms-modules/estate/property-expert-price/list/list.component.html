@@ -225,7 +225,13 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{row.title}}
+          {{"TITLE.LocationId"|translate}} : {{row.linkLocationIdTitle}} / {{row.linkLocationIdParentTitle}}
+          <br>
+          {{"TITLE.CreationDate"|translate}} : {{ publicHelper.LocaleDate(row.createdDate) }}
+          <br>
+          {{"TITLE.LinkAgreementTypeIdentifier"|translate}} :
+          {{row.linkContractTypeId|cmstitle:dataModelEstateContractTypeResult.listItems}}
+          <br>
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->
@@ -279,29 +285,19 @@
                 </td>
               </tr>
             </table>
-            <table>
-              <tr>
-                <th> <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;"
-                    class="ntk-hover-zoom" aria-hidden src="{{row.linkMainImageIdSrc | cmsthumbnail}}" height="80"
-                    width="80" /></th>
-                <th>
-                  <span class="navi-icon pointer" [cdkCopyToClipboard]="row.id" (click)="onActionCopied()">
-                    <i class="flaticon2-copy"></i></span> {{row.id}}
-
-                </th>
-              </tr>
-              <tr>
-                <td></td>
-                <td> {{row.description}} </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>
-
-                </td>
-              </tr>
-
-            </table>
+            <br>
+            <div>
+              <span class="navi-icon pointer" [cdkCopyToClipboard]="row.id" (click)="onActionCopied()">
+                <i class="flaticon2-copy"></i></span> {{row.id}}
+            </div>
+            <div>
+              {{"TITLE.ExpertPriceType"|translate}} : {{row.expertPriceType | enums :
+              dataModelEstatePropertyExpertPriceTypeEnumResult.listItems}}
+            </div>
+            <div>
+              {{"TITLE.TheUsageIdentifierOfTheLinkAssetType"|translate}} :
+              {{row.linkPropertyTypeUsageId|cmstitle:dataModelEstatePropertyTypeUsageResult.listItems}} </div>
+            <br>
           </div>
         </mat-cell>
       </ng-container>
