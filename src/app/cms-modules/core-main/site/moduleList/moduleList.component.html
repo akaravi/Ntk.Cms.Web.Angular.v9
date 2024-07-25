@@ -139,6 +139,9 @@
           <br>
           {{'TITLE.MODULE'|translate}} : {{row.linkModuleId | cmstitle :
           dataModelCoreModuleResult.listItems}}
+          <br>
+          {{'TITLE.DateOfUpdate'|translate}} : {{
+          publicHelper.LocaleDate(row.updatedDate)}}
         </mat-cell>
       </ng-container>
       <!-- LinkSiteId Column -->

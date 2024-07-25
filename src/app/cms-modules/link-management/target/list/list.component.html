@@ -208,7 +208,7 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{row.title}}
+          {{"TITLE.CreationDate"|translate}} : {{publicHelper.LocaleDateTime(row.createdDate)}}
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->

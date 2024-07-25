@@ -73,7 +73,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     'IsPublic',
     'CurrentViewCount',
     'CurrentClickCount',
-    'CreatedDate',
+    // 'CreatedDate',
     "LinkTo",
     'action_menu',
   ];
@@ -84,7 +84,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
     'IsPublic',
     'CurrentViewCount',
     'CurrentClickCount',
-    'CreatedDate',
+    // 'CreatedDate',
     "LinkTo",
     'action_menu',
   ];
