@@ -43,9 +43,20 @@ ng serve --prod --aot --vendor-chunk --common-chunk --source-map
 #
 #
 *MEMO*************************************************
-.
+.webpack-bundle-analyzer 
 *MEMO*************************************************
+npm install --save-dev webpack-bundle-analyzer
 
+...
+"scripts": {
+  ...
+  "build:stats": "ng build --stats-json",
+  "analyze": "webpack-bundle-analyzer dist/angular-bundle-analyzer-example/stats.json",
+  ...
+},
+...
+npm run build:stats
+npm run analyze
 #END#################################################
 #
 #
