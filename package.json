@@ -1,20 +1,19 @@
 {
   "name": "ntk-cms-web",
-  "version": "18.3.0502.7",
+  "version": "18.3.0505.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint",
     "serve1": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng serve",
     "serve2": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng serve",
     "serve3": "node --max_old_space_size=16384 ./node_modules/@angular/cli/bin/ng serve",
     "serve4": "node --max_old_space_size=32768 ./node_modules/@angular/cli/bin/ng serve",
-    "build-prod": "node --max_old_space_size=16384 ./node_modules/@angular/cli/bin/ng build --configuration production --build-optimizer",
-    "build-prod2": "node --max_old_space_size=32768 ./node_modules/@angular/cli/bin/ng build --configuration production --build-optimizer",
-    "build-prod3": "ng build --prod",
+    "build-prod": "ng build --configuration production",
+    "build-prod2": "node --max_old_space_size=16384 ./node_modules/@angular/cli/bin/ng build --configuration production",
+    "build-prod3": "node --max_old_space_size=32768 ./node_modules/@angular/cli/bin/ng build --configuration production --build-optimizer",
     "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/ntk-cms-web/stats.json",
     "start-pwa": "ng build --configuration production && http-server -p 8080 -c-1 dist/ntk-cms-web"
   },
@@ -91,8 +90,5 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.5.2"
-  },
-  "resolutions": {
-    "autoprefixer": "10.4.5"
   }
 }
