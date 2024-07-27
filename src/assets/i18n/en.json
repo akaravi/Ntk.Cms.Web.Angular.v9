@@ -1735,6 +1735,7 @@
   "ROUTE.ROUTE.APPLICATION.MEMBERINFO": "Member info",
   "ROUTE.ROUTE.APPLICATION.NOTIFICATION": "Notification",
   "ROUTE.ROUTE.APPLICATION.THEMECONFIG": "Application",
+  "ROUTE.LINKMANAGMENT.MEMBER": "Member",
   "lang": "en",
   "querybuilder": {
     "And": "AND",

@@ -1749,6 +1749,7 @@
   "ROUTE.ROUTE.APPLICATION.MEMBERINFO": "اطلاعات اعضا",
   "ROUTE.ROUTE.APPLICATION.NOTIFICATION": "نوتیفیکیشن",
   "ROUTE.ROUTE.APPLICATION.THEMECONFIG": "برنامه",
+  "ROUTE.LINKMANAGMENT.MEMBER": "اعضا",
   "lang": "fa",
   "ngx-ntk-cron-editor": {
     "TABS": {
