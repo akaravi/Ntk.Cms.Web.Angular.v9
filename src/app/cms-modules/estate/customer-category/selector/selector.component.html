@@ -1,4 +1,5 @@
-<div *ngIf="optionTypeView===1" class="input-style has-borders has-icon  input-style-always-active validate-field mb-4 progressOverlayContainer">
+<div *ngIf="optionTypeView===1"
+  class="input-style has-borders has-icon  input-style-always-active validate-field mb-4 progressOverlayContainer">
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
 
   <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null"
@@ -15,9 +16,8 @@
   <i *ngIf="optionRequired && formControl.valid" class="fa fa-check  valid color-green-dark"></i>
   <i *ngIf="dataModelSelect?.id?.length>0" class="fa fa-times  action color-red-dark"
     (click)="onActionSelectClear()"></i>
-  <em
-    *ngIf="optionRequired  && (!dataModelSelect || !dataModelSelect.id || dataModelSelect.id. length<=0)">({{'TITLE.Necessary'|
-    translate}})</em>
+  <em *ngIf="optionRequired  && (!dataModelSelect || !dataModelSelect.id || dataModelSelect.id. length<=0)">
+    {{'TITLE.Necessary'| translate}} </em>
   <ng-content></ng-content>
 </div>
 
