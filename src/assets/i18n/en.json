@@ -1591,6 +1591,7 @@
   "ROUTE.DASHBOARD": "Dashboard",
   "ROUTE.BUILDER": "Builder",
   "ROUTE.TICKETING": "Ticketing",
+  "ROUTE.FILEMANAGER":"Filemanager",
   "Route.FILEMANAGER": "File Manager",
   "ROUTE.REGISTER.SIGNUP": "Sign up ",
   "ROUTE.REGISTER.SIGNIN": "Sign in ",
