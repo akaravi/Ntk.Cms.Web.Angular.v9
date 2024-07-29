@@ -10,19 +10,19 @@
     <div *ngIf="optionHeaderDisplay" class="divider mb-1"></div>
     <!--end::cms-tree-header-->
     <!--begin::cms-tree-action-->
-    <div *ngIf="optionActionMainDisplay" class="col-12 pe-0 tree-child-hidden">
+    <div *ngIf="optionActionMainDisplay" class="col-12 ps-0 pe-0  tree-child-hidden">
       <ng-content select="[cms-tree-action]"></ng-content>
     </div>
     <div *ngIf="optionActionMainDisplay" class="divider mb-1 tree-child-hidden"></div>
     <!--end::cms-tree-action-->
     <!--begin::cms-tree-body-->
-    <div class="col-12 pe-0">
+    <div class="col-12  ps-0 pe-0">
       <ng-content select="[cms-tree-body]"></ng-content>
     </div>
     <!--end::cms-tree-body-->
     <!--begin::cms-tree-footer-->
     <div *ngIf="optionFooterDisplay" class="divider mb-1"></div>
-    <div class="col-12 pe-0" *ngIf="optionFooterDisplay">
+    <div class="col-12 " *ngIf="optionFooterDisplay">
       <p class="text-center">
         <ng-content select="[cms-tree-footer]"></ng-content>
       </p>

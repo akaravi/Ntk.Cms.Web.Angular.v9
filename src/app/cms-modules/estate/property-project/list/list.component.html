@@ -23,7 +23,7 @@
           <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' | translate}}
         </a>
         <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-slide-toggle (click)="onActionButtonStatist()">
+          <mat-slide-toggle (click)="onActionButtonStatist()" [(ngModel)]="optionsStatist.data.show">
           </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
         </a>
         <a *ngIf="this.tableRowSelected?.id>0"

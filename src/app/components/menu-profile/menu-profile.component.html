@@ -7,7 +7,7 @@
   </div>
   <div class="content">
     <div class="divider mt-n2"></div>
-    <div class="d-flex mb-4">
+    <div class="d-flex mb-0 ps-2 pe-2">
       <div>
         <img
           [src]="((tokenInfo&&tokenInfo.linkMainImageIdSrc && tokenInfo.linkMainImageIdSrc.length>0) ? tokenInfo.linkMainImageIdSrc : './assets/media/avatars/300-1.jpg')"
@@ -28,7 +28,7 @@
     <ng-container
       *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)">
       <!-- userAccessAdminAllowToAllData Field -->
-      <div class="d-flex mb-4">
+      <div class="d-flex mb-0  ps-2 pe-2">
         <div class="pt-1">
           <h5 data-trigger-switch="dataModel.userAccessAdminAllowToAllData" class="font-600 font-14">
             {{'TITLE.Show_all_information'| translate}}</h5>
@@ -43,7 +43,7 @@
         </div>
       </div>
       <!-- userAccessAdminAllowToProfessionalData Field -->
-      <div class="d-flex mb-3">
+      <div class="d-flex mb-0  ps-2 pe-2">
         <div class="pt-1">
           <h5 data-trigger-switch="dataModel.userAccessAdminAllowToProfessionalData" class="font-600 font-14">
             {{'TITLE.Display_specialized_information'| translate}}</h5>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <!-- LinkCmsSiteId Field -->
-      <div class="menu-item px-2">
+      <div class="menu-item px-2  ps-2 pe-2">
         <app-cms-site-selector (optionChange)="onActionSiteSelect($event)" [optionDisabled]="false"
           [optionSelectForce]="this.tokenInfo.siteId"
           [optionPlaceholder]="'TITLE.WEBSITE' | translate"></app-cms-site-selector>
@@ -67,36 +67,41 @@
       <div class="divider">
       </div>
     </ng-container>
-    <div class="row mb-0"
+    <div class="row mb-0  ps-2 pe-2"
       *ngIf="tokenInfo &&( tokenInfo.userAccessUserType === 1 || tokenInfo.userAccessUserType === 2 || tokenInfo.userAccessUserType === 3)">
       <h6 class="font-500 font-14 pb-2">{{"FastTransferToYourUserAccountOrOtherPeoplesSite"|translate}}</h6>
       <br>
       <div class="col-6">
-        <div class="input-style input-style-always-active has-borders mb-4">
+        <div class="input-style input-style-always-active has-borders mb-0">
           <input type="text" [(ngModel)]="inputUserId" class="form-control" id="inputUserId"
             placeholder="{{this.tokenInfo.userId}}">
           <label for="inputUserId" class="color-highlight">{{'TITLE.User_Id'| translate}}</label>
         </div>
         <button type="button" [disabled]="!inputUserId||inputUserId===0" style="width: 100%;"
-          class="close-menu btn btn-full gradient-blue font-13 btn-s font-600 mt-3 rounded-s">{{'ACTION.GO'|
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">{{'ACTION.GO'|
           translate}}</button>
       </div>
       <div class="col-6">
-        <div class="input-style input-style-always-active has-borders mb-4">
+        <div class="input-style input-style-always-active has-borders mb-0">
           <input type="text" [(ngModel)]="inputSiteId" class="form-control" id="inputSiteId"
             placeholder="{{this.tokenInfo.siteId}}">
           <label for="inputSiteId" class="color-highlight">{{'TITLE.Site_Id'| translate}}</label>
         </div>
         <button type="button" (click)="onActionButtonSelectSite()" [disabled]="!inputSiteId||inputSiteId===0"
           style="width: 100%;"
-          class="close-menu btn btn-full gradient-blue font-13 btn-s font-600 mt-3 rounded-s">{{'ACTION.GO'|
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">{{'ACTION.GO'|
           translate}}</button>
+      </div>
+      <br>
+      <br>
+      <div class="col-12">
+        <a (click)="onActionLogout()" style="width: 100%;"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 bg-red-dark">
+          <span class="ms-n2">{{'TITLE.Sign_Out'|translate}}</span>
+          <span class="float-end">Exit</span>
+        </a>
       </div>
     </div>
     <br>
-    <a (click)="onActionLogout()" class="btn btn-s font-14 shadow-l btn-full rounded-s font-600 bg-red-dark text-start">
-      <span class="ms-n2">{{'TITLE.Sign_Out'|translate}}</span>
-      <span class="float-end">Exit</span>
-    </a>
     <br>
   </div>

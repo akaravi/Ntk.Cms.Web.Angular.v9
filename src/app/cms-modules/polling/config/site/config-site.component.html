@@ -132,7 +132,15 @@
             </mat-error>
           </div>
 
-
+          <!-- UseDataDefaulteSiteId Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
+              class="color-highlight">{{'TITLE.Default_information_site_ID' | translate}}</label>
+            <input matInput [(ngModel)]="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
+              name="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId"
+              #dataConfigSiteAccessValuesModel_UseDataDefaulteSiteId type="number" placeholder="0"
+              class="form-control validate-name" id="dataConfigSiteAccessValuesModel.useDataDefaulteSiteId" />
+          </div>
           <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
             <div [innerHTML]="dataConfigSiteAccessValuesModel | prettyjson"></div>
           </div>

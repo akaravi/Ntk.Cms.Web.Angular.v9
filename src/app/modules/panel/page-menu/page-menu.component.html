@@ -1,25 +1,28 @@
-<div *ngIf="requestLinkParentId>0" class="col-12 progressOverlayContainer">
+<div class="col-12 progressOverlayContainer">
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
-  <a [routerLink]="['/menu']" data-back-button class="card card-style rounded-m me-0 p-3 mb-3">
-    <i class="fa fa-home color-red-light font-40 icon-50"></i>
-    <h4 class="pt-3">{{"AUTH.GENERAL.BACK_BUTTON"|translate}}</h4>
-    <p class="font-11 mt-n2 mb-0 color-highlight"><span>{{"TABLE.BackToTop"|translate}}</span></p>
-  </a>
-</div>
-<div class="row mb-0">
-  <ng-container *ngFor="let item of dataListResult;index as i">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-      <a (click)="onActionClickMenu(item,$event)" class="card card-style rounded-m me-0 p-3 mb-3" style="cursor: pointer;">
-        <i class="{{item.icon}} font-40 icon-50" [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
-        <h4 class="pt-3">{{item.titleML}}</h4>
-        <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
-      </a>
-    </div>
-    <div *ngIf="i%2>0" class="w-100"></div>
-  </ng-container>
-</div>
-<div *ngIf="dataListResult?.length>8" class="content mt-5 mb-5">
-  <a (click)="scrollToTop()" style="cursor: pointer;"
-    class="back-to-top-badge bg-highlight color-white shadow-xl py-2"><span>{{"TABLE.BackToTop"|translate}}</span><i
-      class="fa fa-caret-up"></i></a>
+  <div *ngIf="requestLinkParentId>0">
+    <a [routerLink]="['/menu']" data-back-button class="card card-style rounded-m me-0 p-3 mb-3">
+      <i class="fa fa-home color-red-light font-40 icon-50"></i>
+      <h4 class="pt-3">{{"AUTH.GENERAL.BACK_BUTTON"|translate}}</h4>
+      <p class="font-11 mt-n2 mb-0 color-highlight"><span>{{"TABLE.BackToTop"|translate}}</span></p>
+    </a>
+  </div>
+  <div class="row mb-0">
+    <ng-container *ngFor="let item of dataListResult;index as i">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <a (click)="onActionClickMenu(item,$event)" class="card card-style rounded-m me-0 p-3 mb-3"
+          style="cursor: pointer;">
+          <i class="{{item.icon}} font-40 icon-50" [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
+          <h4 class="pt-3">{{item.titleML}}</h4>
+          <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
+        </a>
+      </div>
+      <div *ngIf="i%2>0" class="w-100"></div>
+    </ng-container>
+  </div>
+  <div *ngIf="dataListResult?.length>8" class="content mt-5 mb-5">
+    <a (click)="scrollToTop()" style="cursor: pointer;"
+      class="back-to-top-badge bg-highlight color-white shadow-xl py-2"><span>{{"TABLE.BackToTop"|translate}}</span><i
+        class="fa fa-caret-up"></i></a>
+  </div>
 </div>
