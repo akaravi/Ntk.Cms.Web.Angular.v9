@@ -75,7 +75,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
+    // 'Id',
     'ClickPrice',
     'ViewPrice',
     // 'CreatedDate',
@@ -84,7 +84,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
     'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Id',
+    // 'Id',
     'ClickPrice',
     'ViewPrice',
     // 'CreatedDate',

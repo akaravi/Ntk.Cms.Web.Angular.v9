@@ -259,7 +259,15 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{fieldsInfo['title']?.fieldTitle}} : {{row.title}}
+          {{'TITLE.Domain'|translate}} : {{row.domain}}
+          <br>
+          {{'TITLE.Subdomains'|translate}} : {{row.subDomain}}
+          <br>
+          {{'TITLE.CreationDate'|translate}} : {{ publicHelper.LocaleDate(row.createdDate) }}
+          <br>
+          {{'TITLE.DateOfUpdate'|translate}} : {{ publicHelper.LocaleDate(row.updatedDate) }}
+          <br>
+          {{'TITLE.Expire_Date'|translate}} : {{publicHelper.LocaleDate(row.expireDate) }}
         </mat-cell>
       </ng-container>
     </mat-table>

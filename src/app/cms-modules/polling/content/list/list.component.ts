@@ -56,7 +56,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
-    'Id',
+    // 'Id',
     'RecordStatus',
     // 'Title',
     'CreatedDate',
@@ -65,7 +65,7 @@ export class PollingContentListComponent extends ListBaseComponent<PollingConten
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
-    'Id',
+    // 'Id',
     'RecordStatus',
     // 'Title',
     'CreatedDate',

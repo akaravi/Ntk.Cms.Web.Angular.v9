@@ -81,28 +81,28 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'MainImageSrc',
+    'Title',
     'Id',
     'linkCreatedBySiteId',
     'RecordStatus',
-    // 'Title',
-    'SubDomain',
-    'Domain',
-    'CreatedDate',
-    'UpdatedDate',
-    'ExpireDate',
+    // 'SubDomain',
+    // 'Domain',
+    // 'CreatedDate',
+    // 'UpdatedDate',
+    // 'ExpireDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'MainImageSrc',
+    'Title',
     'Id',
     'linkCreatedBySiteId',
     'RecordStatus',
-    // 'Title',
-    'SubDomain',
-    'Domain',
-    'CreatedDate',
-    'UpdatedDate',
-    'ExpireDate',
+    // 'SubDomain',
+    // 'Domain',
+    // 'CreatedDate',
+    // 'UpdatedDate',
+    // 'ExpireDate',
     // 'Action'
   ];
 

@@ -180,6 +180,8 @@
         <mat-cell *matCellDef="let row">
           {{'TITLE.CreationDate'|translate}} : {{
           publicHelper.LocaleDate(row.createdDate)}}
+          <br>
+          {{'TITLE.Id'|translate}} : {{row.id}}
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->

@@ -57,23 +57,23 @@ export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesig
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'Icon',
-    'Id',
+    // 'Id',
     'RecordStatus',
     // 'Title',
     'ShowInAccessAdminAllowToProfessionalData',
     'MenuPlaceType',
-    'ShowInMenuOrder',
+    // 'ShowInMenuOrder',
     // 'Action',
     'position'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Icon',
-    'Id',
+    // 'Id',
     'RecordStatus',
     // 'Title',
     'ShowInAccessAdminAllowToProfessionalData',
     'MenuPlaceType',
-    'ShowInMenuOrder',
+    // 'ShowInMenuOrder',
     // 'Action',
     'position'
   ];

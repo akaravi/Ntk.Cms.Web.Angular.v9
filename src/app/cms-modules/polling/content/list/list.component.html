@@ -183,7 +183,9 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{row.title}}
+          {{'TITLE.Id'|translate}} : {{row.id}}
+          <br>
+          {{'TITLE.title'|translate}} : {{row.title}}
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->

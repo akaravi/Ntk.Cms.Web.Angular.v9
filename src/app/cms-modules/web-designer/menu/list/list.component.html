@@ -83,7 +83,13 @@
     <ng-container cms-body>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
         <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
-            cdkDropList [cdkDropListData]="tableSource" (cdkDropListDropped)="onTableDropRow($event)">
+            multiTemplateDataRows cdkDropList [cdkDropListData]="tableSource"
+            (cdkDropListDropped)="onTableDropRow($event)">
+            <mat-row *matRowDef="let row; columns: ['expandedTitle']; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
+                [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
+                (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+                [class.ntk-row-selected]="row.id === tableRowSelected?.id">
+            </mat-row>
             <!-- Icon Column -->
             <ng-container matColumnDef="Icon">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['icon']?.fieldTitle}}
@@ -163,6 +169,16 @@
                 [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
                 [class.ntk-row-selected]="row.id === tableRowSelected?.id" cdkDrag [cdkDragData]=row>
             </mat-row>
+            <!--expandedTitle-->
+            <ng-container matColumnDef="expandedTitle">
+                <mat-cell *matCellDef="let row">
+                    {{'TITLE.Id'|translate}} : {{row.id}}
+                    <br>
+                    {{'TITLE.title'|translate}} : {{row.title}}
+                    <br>
+                    {{'TITLE.DisplayInThePriorityMenu'|translate}} : {{row.ShowInMenuOrder}}
+                </mat-cell>
+            </ng-container>
         </mat-table>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
     </ng-container>

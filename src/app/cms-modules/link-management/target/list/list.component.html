@@ -209,6 +209,12 @@
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
           {{"TITLE.CreationDate"|translate}} : {{publicHelper.LocaleDateTime(row.createdDate)}}
+          <br>
+          {{"TITLE.CurrentNumberOfClicks"|translate}} : {{row.currentClickCount}}
+          <br>
+          {{"TITLE.CurrentViewCount"|translate}} : {{row.CurrentViewCount}}
+
+          {{row.currentViewCount}}
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->

@@ -59,8 +59,8 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
 
     'Id',
     'RecordStatus',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     'CurrentDebtor',
     'CurrentCreditor',
     'action_menu',
@@ -69,8 +69,8 @@ export class LinkManagementMemberListComponent extends ListBaseComponent<LinkMan
 
     'Id',
     'RecordStatus',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     'CurrentDebtor',
     'CurrentCreditor',
     'action_menu',
