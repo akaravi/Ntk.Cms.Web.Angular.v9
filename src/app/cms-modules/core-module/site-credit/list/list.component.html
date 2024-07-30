@@ -93,8 +93,13 @@
   </ng-container>
   <ng-container cms-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)">
-
+    <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
+      multiTemplateDataRows>
+      <mat-row *matRowDef="let row; columns: ['expandedTitle']; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
+        [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
+        (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+        [class.ntk-row-selected]="row.id === tableRowSelected?.id">
+      </mat-row>
       <!-- RecordStatus Column -->
       <ng-container matColumnDef="RecordStatus">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['recordStatus']?.fieldTitle}}
@@ -151,6 +156,12 @@
         [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
         [class.ntk-row-selected]="row.linkSiteId === tableRowSelected?.linkSiteId && row.linkModuleId === tableRowSelected?.linkModuleId">
       </mat-row>
+      <!--expandedTitle-->
+      <ng-container matColumnDef="expandedTitle">
+        <mat-cell *matCellDef="let row">
+          {{'TITLE.Site_Id'|translate}} : {{row.linkSiteId | cmssiteinfo |async}}
+        </mat-cell>
+      </ng-container>
     </mat-table>
 
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->

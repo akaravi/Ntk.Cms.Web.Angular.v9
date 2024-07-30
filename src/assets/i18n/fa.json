@@ -1043,6 +1043,7 @@
   "TITLE.Sign_Out": "خروج",
   "TITLE.Settings": "تنظیمات",
   "TITLE.Id": "شناسه",
+  "TITLE.LinkUserClaimTypeId": "شناسه نوع ادعای کاربر پیوند دهید",
   "TITLE.Property_Id": "شناسه ملک",
   "TITLE.Customer_Order_Id": "شناسه سفارش مشتری",
   "TITLE.Expert_Id": "شناسه کارشناس",

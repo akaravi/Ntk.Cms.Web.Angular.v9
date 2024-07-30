@@ -67,8 +67,8 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
     'LinkSiteIdBuyer',
     'RecordStatus',
     'Price',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
@@ -77,8 +77,8 @@ export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreMo
     'LinkSiteIdBuyer',
     'RecordStatus',
     'Price',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   expandedElement: CoreModuleSaleInvoiceModel | null;

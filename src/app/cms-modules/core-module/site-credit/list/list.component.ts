@@ -61,7 +61,7 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'RecordStatus',
-    'linkSiteId',
+    // 'linkSiteId',
     'linkModuleId',
     'Credit',
     'SumCreditBlocked',
@@ -69,7 +69,7 @@ export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreMod
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'RecordStatus',
-    'linkSiteId',
+    // 'linkSiteId',
     'linkModuleId',
     'Credit',
     'SumCreditBlocked',

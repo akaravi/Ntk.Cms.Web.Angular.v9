@@ -95,13 +95,13 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     'Id',
     'RecordStatus',
     // 'Title',
-    'LinkSiteId',
-    'LinkUserId',
+    // 'LinkSiteId',
+    // 'LinkUserId',
     'LinkUserClaimTypeId',
     'IsApproved',
-    'CreatedDate',
-    'UpdatedDate',
-    'ExpireDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
+    // 'ExpireDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
@@ -109,13 +109,13 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
     'Id',
     'RecordStatus',
     // 'Title',
-    'LinkSiteId',
-    'LinkUserId',
+    // 'LinkSiteId',
+    // 'LinkUserId',
     'LinkUserClaimTypeId',
     'IsApproved',
-    'CreatedDate',
-    'UpdatedDate',
-    'ExpireDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
+    // 'ExpireDate',
     // 'Action'
   ];
 
