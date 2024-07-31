@@ -73,10 +73,10 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
+    // 'Id',
     'IsAccepted',
-    'LinkPrivateConfigId',
-    'Message',
+    // 'LinkPrivateConfigId',
+    // 'Message',
     'CreatedDate',
     'SendDate',
     'UpdatedDate',
@@ -84,10 +84,10 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
   ];
 
   tabledisplayedColumnsMobileSource: string[] = [
-    'Id',
+    // 'Id',
     'IsAccepted',
-    'LinkPrivateConfigId',
-    'Message',
+    // 'LinkPrivateConfigId',
+    // 'Message',
     'CreatedDate',
     'SendDate',
     'UpdatedDate',
