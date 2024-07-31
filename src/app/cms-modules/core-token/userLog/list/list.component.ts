@@ -85,31 +85,31 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
-    'Description',
-    'LinkSiteId',
-    'LinkUserId',
-    'LinkMemberUserId',
+    // 'Id',
+    // 'Description',
+    // 'LinkSiteId',
+    // 'LinkUserId',
+    // 'LinkMemberUserId',
     'UserAccessAreaType',
-    'UserType',
+    // 'UserType',
     'UserAccessAdminAllowToAllData',
     'UserAccessAdminAllowToProfessionalData',
     'RememberOnDevice',
-    'CreatedDate',
+    // 'CreatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Id',
-    'Description',
-    'LinkSiteId',
-    'LinkUserId',
-    'LinkMemberUserId',
+    // 'Id',
+    // 'Description',
+    // 'LinkSiteId',
+    // 'LinkUserId',
+    // 'LinkMemberUserId',
     'UserAccessAreaType',
-    'UserType',
+    // 'UserType',
     'UserAccessAdminAllowToAllData',
     'UserAccessAdminAllowToProfessionalData',
     'RememberOnDevice',
-    'CreatedDate',
+    // 'CreatedDate',
     // 'Action'
   ];
   dataModelEnumManageUserAccessAreaTypesResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
