@@ -68,10 +68,10 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
+    // 'Id',
     'RecordStatus',
     'LinkApplicationId',
-    'LinkApplicationMemberId',
+    // 'LinkApplicationMemberId',
     // 'Title',
     'ContentType',
     'CreatedDate',
@@ -79,10 +79,10 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Id',
+    // 'Id',
     'RecordStatus',
     'LinkApplicationId',
-    'LinkApplicationMemberId',
+    // 'LinkApplicationMemberId',
     // 'Title',
     'ContentType',
     'CreatedDate',

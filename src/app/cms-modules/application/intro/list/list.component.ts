@@ -69,20 +69,20 @@ export class ApplicationIntroListComponent extends ListBaseComponent<Application
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    // 'Title',
+    'Title',
     'LinkApplicationId',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    // 'Title',
+    'Title',
     'LinkApplicationId',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   expandedElement: ApplicationIntroModel | null;

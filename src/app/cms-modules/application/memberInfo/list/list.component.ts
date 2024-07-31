@@ -70,29 +70,29 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
+    // 'Id',
     'RecordStatus',
     'LinkUserId',
     'LinkMemberId',
-    'SimCard',
+    // 'SimCard',
     'AppBuildVer',
     'AppSourceVer',
     'ScorePercent',
     'LinkApplicationId',
-    'CreatedDate',
+    // 'CreatedDate',
     'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Id',
+    // 'Id',
     'RecordStatus',
     'LinkUserId',
     'LinkMemberId',
-    'SimCard',
+    // 'SimCard',
     'AppBuildVer',
     'AppSourceVer',
     'ScorePercent',
     'LinkApplicationId',
-    'CreatedDate',
+    // 'CreatedDate',
     'action_menu',
   ];
   expandedElement: ApplicationMemberInfoModel | null;
