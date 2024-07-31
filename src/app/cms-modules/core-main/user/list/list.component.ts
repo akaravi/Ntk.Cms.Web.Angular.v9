@@ -348,7 +348,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     var message = "";
     this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
       title = str['MESSAGE.Please_Confirm'];
-      message = str['MESSAGE.Do_you_want_to_delete_this_content'] + '?' + '<br> ( ' + this.tableRowSelected.username + ' ) ';
+      message = str['MESSAGE.Do_you_want_to_delete_this_content'] + '?' + '<br> ( ' + this.tableRowSelected.name + '-' + this.tableRowSelected.lastName + ' ) ';
     });
 
     this.contentService.confirm(title, message)

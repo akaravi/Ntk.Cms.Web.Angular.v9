@@ -69,8 +69,8 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
     'TitleML',
     'LinkSourceId',
     'TypeId',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
@@ -80,8 +80,8 @@ export class ApplicationThemeConfigListComponent extends ListBaseComponent<Appli
     'TitleML',
     'LinkSourceId',
     'TypeId',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   ngOnInit(): void {

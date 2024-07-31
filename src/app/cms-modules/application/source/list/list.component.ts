@@ -62,22 +62,22 @@ export class ApplicationSourceListComponent extends ListBaseComponent<Applicatio
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
-    'Id',
+    // 'Id',
     'RecordStatus',
-    'TitleML',
+    // 'TitleML',
     'PackageName',
-    'OsType',
+    // 'OsType',
     'ForceUpdate',
     'IsPublish',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
-    'Id',
+    // 'Id',
     'RecordStatus',
-    'TitleML',
+    // 'TitleML',
     'PackageName',
-    'OsType',
+    // 'OsType',
     'ForceUpdate',
     'IsPublish',
     // 'Action'

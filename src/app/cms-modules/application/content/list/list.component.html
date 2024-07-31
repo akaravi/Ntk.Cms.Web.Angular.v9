@@ -163,7 +163,13 @@
   </ng-container>
   <ng-container cms-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)">
+    <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
+      multiTemplateDataRows>
+      <mat-row *matRowDef="let row; columns: ['expandedTitle']; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
+        [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
+        (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
+        [class.ntk-row-selected]="row.id === tableRowSelected?.id">
+      </mat-row>
       <!-- ID Column -->
       <ng-container matColumnDef="Id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['id']?.fieldTitle}} </mat-header-cell>
@@ -242,6 +248,16 @@
         [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
         [class.ntk-row-selected]="row.id === tableRowSelected?.id">
       </mat-row>
+      <!--expandedTitle-->
+      <ng-container matColumnDef="expandedTitle">
+        <mat-cell *matCellDef="let row">
+          {{'TITLE.CreationDate'|translate}} : {{ publicHelper.LocaleDate(row.createdDate) }}
+          <br>
+          {{'TITLE.DateOfUpdate'|translate}} : {{ publicHelper.LocaleDate(row.updatedDate) }}
+          <br>
+          <!-- {{'TITLE.Expire_Date'|translate}} : {{publicHelper.LocaleDate(row.expireDate) }} -->
+        </mat-cell>
+      </ng-container>
     </mat-table>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
   </ng-container>

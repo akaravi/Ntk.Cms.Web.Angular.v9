@@ -74,8 +74,8 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     // 'Title',
     'AppVersion',
     'LinkSourceId',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     'LastSuccessfullyBuildDate',
     // 'Action'
   ];
@@ -86,8 +86,8 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     // 'Title',
     'AppVersion',
     'LinkSourceId',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     'LastSuccessfullyBuildDate',
     // 'Action'
   ];
