@@ -70,23 +70,23 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
+    // 'Id',
     'Message',
     'SenderNumber',
     'ReceiverNumber',
-    'LinkPrivateConfigId',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'LinkPrivateConfigId',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Id',
+    // 'Id',
     'Message',
     'SenderNumber',
     'ReceiverNumber',
-    'LinkPrivateConfigId',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'LinkPrivateConfigId',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
 

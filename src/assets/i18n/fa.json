@@ -1574,6 +1574,7 @@
   "TITLE.Along": "همراه",
   "TITLE.LocationId": "شناسه محل",
   "TITLE.CreationDate": "تاریخ ایجاد",
+  "TITLE.LinkPrivateConfigurationId": "شناسه پیکربندی خصوصی را پیوند دهید",
   "TITLE.DateOfUpdate": "تاریخ برروز رسانی",
   "TITLE.NotUpdated": "برروز رسانی نشده است",
   "TITLE.SiteBuyerId": "شناسه خریدار سایت",

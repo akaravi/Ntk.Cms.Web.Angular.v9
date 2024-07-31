@@ -1566,6 +1566,7 @@
   "TITLE.LocationId": "Location Id",
   "TITLE.ExpertPriceType": "Expert Price Type",
   "TITLE.CreationDate": "Creation Date",
+  "TITLE.LinkPrivateConfigurationId": "Link Private Configuration Id",
   "TITLE.DateOfUpdate": "Date Of Update",
   "TITLE.NotUpdated": "Not Updated",
   "TITLE.SiteBuyerId": "Site Buyer Id",
