@@ -72,8 +72,8 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
   tabledisplayedColumnsSource: string[] = [
     // 'Id',
     'RecordStatus',
-    'LinkUserId',
-    'LinkMemberId',
+    // 'LinkUserId',
+    // 'LinkMemberId',
     // 'SimCard',
     'AppBuildVer',
     'AppSourceVer',
@@ -85,8 +85,8 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
   tabledisplayedColumnsMobileSource: string[] = [
     // 'Id',
     'RecordStatus',
-    'LinkUserId',
-    'LinkMemberId',
+    // 'LinkUserId',
+    // 'LinkMemberId',
     // 'SimCard',
     'AppBuildVer',
     'AppSourceVer',
