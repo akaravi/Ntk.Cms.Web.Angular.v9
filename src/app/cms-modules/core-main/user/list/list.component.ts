@@ -83,7 +83,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     'CompanyName',
     'email',
     'mobile',
-    'CreatedDate',
+    // 'CreatedDate',
     'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
@@ -95,7 +95,7 @@ export class CoreUserListComponent extends ListBaseComponent<CoreUserService, Co
     // 'CompanyName',
     // 'email',
     // 'mobile',
-    'CreatedDate',
+    // 'CreatedDate',
     'action_menu',
   ];
 
