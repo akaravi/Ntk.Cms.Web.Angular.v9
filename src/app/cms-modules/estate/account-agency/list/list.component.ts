@@ -81,16 +81,16 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
     'LinkMainImageIdSrc',
-    // 'Title',
-    'LinkCmsUserId',
+    'Title',
+    // 'LinkCmsUserId',
     'Description',
     'action_menu',
   ];
 
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
-    // 'Title',
-    'LinkCmsUserId',
+    'Title',
+    // 'LinkCmsUserId',
     'Description',
     'action_menu',
   ];

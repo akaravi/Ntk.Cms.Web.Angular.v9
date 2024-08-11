@@ -516,11 +516,11 @@ const routesMobile: Routes = [
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },
 
-      {
-        path: 'property/add',
-        component: EstatePropertyAddMobileComponent,
-        data: { title: 'ROUTE.ESTATE.PROPERTYADD' },
-      },
+      // {
+      //   path: 'property/add',
+      //   component: EstatePropertyAddMobileComponent,
+      //   data: { title: 'ROUTE.ESTATE.PROPERTYADD' },
+      // },
       {
         path: 'property/add/LinkPropertyTypeLanduseId/:LinkPropertyTypeLanduseId',
         component: EstatePropertyAddComponent,
@@ -730,11 +730,11 @@ const routesMobile: Routes = [
         component: EstateCategoryZoneListComponent,
         data: { title: 'ROUTE.ESTATE.CATEGORY.ZONE' },
       },
-      {
-        path: 'category-rack',
-        component: EstateCategoryRackListMobileComponent,
-        data: { title: 'ROUTE.ESTATE.CATEGORY.RACK' },
-      },
+      // {
+      //   path: 'category-rack',
+      //   component: EstateCategoryRackListMobileComponent,
+      //   data: { title: 'ROUTE.ESTATE.CATEGORY.RACK' },
+      // },
       {
         path: 'customer-order',
         component: EstateCustomerOrderListComponent,
@@ -755,22 +755,22 @@ const routesMobile: Routes = [
         component: EstateCustomerOrderListComponent,
         data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
       },
-      {
-        path: 'customer-order/add',
-        component: EstateCustomerOrderAddMobileComponent,
-        data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
-      },
-      {
-        path: 'customer-order/add-copy/:id',
-        component: EstateCustomerOrderAddMobileComponent,
-        data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
-      },
+      // {
+      //   path: 'customer-order/add',
+      //   component: EstateCustomerOrderAddMobileComponent,
+      //   data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
+      // },
+      // {
+      //   path: 'customer-order/add-copy/:id',
+      //   component: EstateCustomerOrderAddMobileComponent,
+      //   data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
+      // },
 
-      {
-        path: 'customer-order/edit/:id',
-        component: EstateCustomerOrderEditMobileComponent,
-        data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
-      },
+      // {
+      //   path: 'customer-order/edit/:id',
+      //   component: EstateCustomerOrderEditMobileComponent,
+      //   data: { title: 'ROUTE.ESTATE.CUSTOMER.ORDER' },
+      // },
       /**/
       {
         path: 'customer-order-result/LinkCustomerOrder/:LinkCustomerOrder',

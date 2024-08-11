@@ -72,27 +72,27 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
-    'Id',
-    'LinkUserId',
+    // 'Id',
+    // 'LinkUserId',
     'RecordStatus',
     'TransactionStatus',
     'BankStatus',
     'Amount',
     'AmountPure',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
-    'Id',
-    'LinkUserId',
+    // 'Id',
+    // 'LinkUserId',
     'RecordStatus',
     'TransactionStatus',
     'BankStatus',
     'Amount',
     'AmountPure',
-    'CreatedDate',
-    'UpdatedDate',
+    // 'CreatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   dataModelEnumTransactionRecordStatusResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();

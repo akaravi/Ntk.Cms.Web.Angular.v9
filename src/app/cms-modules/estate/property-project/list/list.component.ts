@@ -58,7 +58,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
     'RecordStatus',
     'mainAdminRecordStatus',
     // 'Title',
-    'CreatedDate',
+    // 'CreatedDate',
     'LinkTo',
     'action_menu',
   ];
@@ -68,7 +68,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
     'RecordStatus',
     'mainAdminRecordStatus',
     // 'Title',
-    'CreatedDate',
+    // 'CreatedDate',
     'LinkTo',
     'action_menu',
   ];

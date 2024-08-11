@@ -67,7 +67,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
     // 'Title',
     'ClassName',
     'LinkCurrencyId',
-    'UpdatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
@@ -77,7 +77,7 @@ export class BankPaymentPublicConfigListComponent extends ListBaseComponent<Bank
     // 'Title',
     'ClassName',
     'LinkCurrencyId',
-    'UpdatedDate',
+    // 'UpdatedDate',
     // 'Action'
   ];
   expandedElement: BankPaymentPublicConfigModel | null;

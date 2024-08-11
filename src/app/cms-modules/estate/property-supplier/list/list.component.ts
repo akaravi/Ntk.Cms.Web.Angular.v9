@@ -70,7 +70,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     'RecordStatus',
     'mainAdminRecordStatus',
     // 'Title',
-    'CreatedDate',
+    // 'CreatedDate',
     'LinkTo',
     'action_menu',
   ];
@@ -80,7 +80,7 @@ export class EstatePropertySupplierListComponent extends ListBaseComponent<Estat
     'RecordStatus',
     'mainAdminRecordStatus',
     // 'Title',
-    'CreatedDate',
+    // 'CreatedDate',
     'LinkTo',
     'action_menu',
   ];

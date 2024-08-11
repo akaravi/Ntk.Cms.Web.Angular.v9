@@ -405,7 +405,8 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       panelClass = 'dialog-min';
     if (this.publicHelper.isMobile) {
       const dialogRef = this.dialog.open(
-        EstatePropertyHistoryAddMobileComponent,
+        EstatePropertyHistoryAddComponent,
+        // EstatePropertyHistoryAddMobileComponent,
         {
           height: '90%',
           panelClass: panelClass,
@@ -473,7 +474,8 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       panelClass = 'dialog-min';
     if (this.publicHelper.isMobile) {
       const dialogRef = this.dialog.open(
-        EstatePropertyHistoryEditMobileComponent,
+        EstatePropertyHistoryEditComponent,
+        // EstatePropertyHistoryEditMobileComponent,
         {
           height: '90%',
           panelClass: panelClass,

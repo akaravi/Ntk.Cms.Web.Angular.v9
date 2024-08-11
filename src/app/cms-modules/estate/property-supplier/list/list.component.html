@@ -200,6 +200,8 @@
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
           {{row.title}}
+          <br>
+          {{'TITLE.CreationDate'|translate}} : {{ publicHelper.LocaleDate(row.createdDate) }}
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->

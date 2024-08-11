@@ -191,7 +191,7 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{row.title}}
+          {{"TITLE.User-Id-Cms"|translate}}: {{row.linkCmsUserId| cmsuserinfo |async}}
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->

@@ -71,16 +71,16 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     'Id',
     'TransactionStatus',
     'LinkTransactionId',
-    'Memo',
-    'CreatedDate',
+    // 'Memo',
+    // 'CreatedDate',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'Id',
     'TransactionStatus',
     'LinkTransactionId',
-    'Memo',
-    'CreatedDate',
+    // 'Memo',
+    // 'CreatedDate',
     // 'Action'
   ];
   expandedElement: BankPaymentTransactionLogModel | null;
