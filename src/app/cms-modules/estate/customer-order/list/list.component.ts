@@ -7,9 +7,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel,
+  EstateConfigurationService,
   EstateContractTypeModel, EstateCustomerOrderFilterModel, EstateCustomerOrderModel,
 
-  EstateCustomerOrderService, EstatePropertyDetailGroupModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel,
+  EstateCustomerOrderService, EstateModuleSiteStorageValuesModel, EstatePropertyDetailGroupModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel,
   FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 
@@ -154,6 +155,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
           this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreLiquidityPower');
           this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scorePurchasingPower');
         }
+        
         this.DataGetAll();
       }
     });
@@ -161,6 +163,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
+
   DataGetAll(): void {
     this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     if (!this.optionloadComponent) {
@@ -646,18 +649,17 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     this.DataGetAll();
   }
 
-  onActionButtonLinkTo(
-    model: EstateCustomerOrderModel = this.tableRowSelected
-  ): void {
+  onActionButtonLinkTo(model: EstateCustomerOrderModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
+    //this.onActionTableRowSelect(model);
     if (model.recordStatus != RecordStatusEnum.Available) {
       this.cmsToastrService.typeWarningRecordStatusNoAvailable();
       return;
     }
-    this.onActionTableRowSelect(model);
+    this.tableRowSelected = model;
 
     const pName = this.constructor.name + "ServiceGetOneById";
     this.translate.get('MESSAGE.get_customer_information').subscribe((str: string) => {

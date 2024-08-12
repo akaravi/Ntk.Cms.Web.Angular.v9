@@ -600,7 +600,8 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['caseCode']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-form-label"> {{row.caseCode}} </mat-cell>
+        <mat-cell *matCellDef="let row" class="col-form-label" [ngStyle]="{'background':row['ActiveDataStyle'] }">
+          {{row.caseCode}} {{row['ActiveDataText']}}</mat-cell>
       </ng-container>
       <!-- scoreEstateLocation Column -->
       <ng-container matColumnDef="scoreEstateLocation">

@@ -494,8 +494,8 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       this.cmsToastrService.typeWarningRecordStatusNoAvailable();
       return;
     }
-    this.onActionTableRowSelect(model);
-
+    
+    this.tableRowSelected=model;
     const pName = this.constructor.name + "ServiceGetOneById";
     this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.ServiceGetOneById(this.tableRowSelected.id)

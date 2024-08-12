@@ -10,7 +10,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from '@ngx-translate/core';
 import {
   ClauseTypeEnum, CoreCurrencyModel,
-  EstateContractTypeModel, EstatePropertyDetailGroupModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyFilterModel, EstatePropertyModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel, FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum
+  EstateConfigurationService,
+  EstateContractTypeModel, EstateModuleConfigSiteValuesModel,
+  EstatePropertyDetailGroupModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyFilterModel, EstatePropertyModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel, FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum
 } from "ntk-cms-api";
 import { Subscription, forkJoin } from "rxjs";
 import { ListBaseComponent } from "src/app/core/cmsComponent/listBaseComponent";
@@ -47,6 +49,8 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   requestAction = '';
   constructor(
     public contentService: EstatePropertyService,
+    private configService: EstateConfigurationService,
+
     private activatedRoute: ActivatedRoute,
     public publicHelper: PublicHelper,
     private cmsToastrService: CmsToastrService,
@@ -200,6 +204,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   searchInResponsibleChecked = false;
   filteModelContent = new EstatePropertyFilterModel();
   dataModelPropertyDetailGroups: EstatePropertyDetailGroupModel[] = [];
+  dataConfigSiteValuesModel = new EstateModuleConfigSiteValuesModel();
 
   categoryModelSelected: EstatePropertyTypeLanduseModel;
   tabledisplayedColumns: string[] = [];
@@ -252,6 +257,8 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   ngOnInit(): void {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
+      this.GetServiceSiteConfig(this.tokenHelper.tokenInfo.siteId);
+
       this.DataGetAll();
       this.tokenHelper.CheckIsAdmin();
       if (!this.tokenHelper.isAdminSite && !this.tokenHelper.isSupportSite) {
@@ -266,6 +273,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       .subscribe({
         next: (ret) => {
           this.tokenInfo = ret;
+          this.GetServiceSiteConfig(this.tokenHelper.tokenInfo.siteId);
           this.DataGetAll();
           this.tokenHelper.CheckIsAdmin();
           if (!this.tokenHelper.isAdminSite && !this.tokenHelper.isSupportSite) {
@@ -285,6 +293,28 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
+  }
+  GetServiceSiteConfig(SiteId: number): void {
+    const pName = this.constructor.name + 'ServiceSiteConfig';
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.configService
+      .ServiceSiteConfig(SiteId)
+      .subscribe({
+        next: (ret) => {
+          if (ret.isSuccess) {
+            this.dataConfigSiteValuesModel = ret.item;
+            this.RowStyleActiveData();
+          } else {
+            this.cmsToastrService.typeErrorGetOne(ret.errorMessage);
+          }
+          this.publicHelper.processService.processStop(pName);
+        },
+        error: (er) => {
+          this.cmsToastrService.typeErrorGetOne(er);
+          this.publicHelper.processService.processStop(pName, false);
+        }
+      }
+      );
   }
 
   DataGetAll(): void {
@@ -343,6 +373,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
           if (ret.isSuccess) {
             this.dataModelResult = ret;
+            this.RowStyleActiveData();
             this.tableSource.data = ret.listItems;
 
             if (this.optionsStatist?.data?.show)
@@ -373,6 +404,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
             this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
             if (ret.isSuccess) {
               this.dataModelResult = ret;
+              this.RowStyleActiveData();
               this.tableSource.data = ret.listItems;
               if (this.optionsStatist?.data?.show)
                 this.onActionButtonStatist(true);
@@ -407,6 +439,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
             this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
             if (ret.isSuccess) {
               this.dataModelResult = ret;
+              this.RowStyleActiveData();
               this.tableSource.data = ret.listItems;
               if (this.optionsStatist?.data?.show)
                 this.onActionButtonStatist(true);
@@ -441,6 +474,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
             this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
             if (ret.isSuccess) {
               this.dataModelResult = ret;
+              this.RowStyleActiveData();
               this.tableSource.data = ret.listItems;
               if (this.optionsStatist?.data?.show)
                 this.onActionButtonStatist(true);
@@ -482,6 +516,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
           if (ret.isSuccess) {
             this.dataModelResult = ret;
+            this.RowStyleActiveData();
             this.tableSource.data = ret.listItems;
             if (this.requestAction?.length > 0 && this.requestAction === "quick-add") {
               this.requestAction = '';
@@ -1189,5 +1224,29 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       this.filteModelContent.caseCode = caseCode;
       this.dataModelPropertyDetailGroups = [];
     }
+  }
+  RowStyleActiveData(): void {
+    if (!this.dataModelResult.listItems || this.dataModelResult.listItems.length === 0 || !this.dataConfigSiteValuesModel || this.dataConfigSiteValuesModel.autoArchiveDataDay <= 0) {
+      return;
+    }
+    var dateTime = new Date();
+    dateTime.setDate(dateTime.getDate() - this.dataConfigSiteValuesModel.autoArchiveDataDay);
+
+    for (let index = 0; index < this.dataModelResult.listItems.length; index++) {
+      const element = this.dataModelResult.listItems[index];
+      this.dataModelResult.listItems[index]['ActiveDataStyle'] = '';
+      this.dataModelResult.listItems[index]['ActiveDataText'] = '';
+
+      if (element.updatedDate && new Date(element.updatedDate) < dateTime) {
+        this.dataModelResult.listItems[index]['ActiveDataStyle'] = '#d7ff91';
+        this.dataModelResult.listItems[index]['ActiveDataText'] = 'آرژشیو خودکار  سیستمی';
+
+      }
+      else if (new Date(element.createdDate) < dateTime) {
+        this.dataModelResult.listItems[index]['ActiveDataStyle'] = '#d7ff91';
+        this.dataModelResult.listItems[index]['ActiveDataText'] = 'آرژشیو خودکار  سیستمی';
+      }
+    }
+
   }
 }

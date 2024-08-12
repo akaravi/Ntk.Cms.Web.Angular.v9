@@ -357,7 +357,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
       this.cmsToastrService.typeWarningRecordStatusNoAvailable();
       return;
     }
-    this.onActionTableRowSelect(model);
+    this.tableRowSelected = model;
 
 
     const pName = this.constructor.name + "ServiceGetOneById";

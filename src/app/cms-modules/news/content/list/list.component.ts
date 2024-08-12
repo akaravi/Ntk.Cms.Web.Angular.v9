@@ -404,7 +404,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       this.cmsToastrService.typeWarningRecordStatusNoAvailable();
       return;
     }
-    this.onActionTableRowSelect(model);
+    this.tableRowSelected = model;
 
     const pName = this.constructor.name + "ServiceGetOneById";
     this.translate.get('MESSAGE.get_news_information').subscribe((str: string) => {
