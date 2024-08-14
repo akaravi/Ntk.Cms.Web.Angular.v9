@@ -8,8 +8,7 @@ import { CmsStoreService } from '../reducers/cmsStore.service';
 })
 export class ProcessService {
   constructor(
-    private cmsStoreService: CmsStoreService,
-    //private cdr: ChangeDetectorRef
+    public cmsStoreService: CmsStoreService,
   ) {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     if (storeSnapshot.processInfoStore)
@@ -18,7 +17,7 @@ export class ProcessService {
   }
   public cdr: ChangeDetectorRef;
   public processInRun = false;
-  processInRunArea: boolean[] = [];
+  public processInRunArea: boolean[] = [];
   public processInfoArea: Map<string, ProcessInfoModel>[] = [];
   public processInfoAll = new Map<string, ProcessInfoModel>();
   public onInitAppComponent(): void {
