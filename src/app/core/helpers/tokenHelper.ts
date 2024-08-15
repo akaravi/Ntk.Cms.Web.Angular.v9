@@ -18,15 +18,16 @@ const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 })
 export class TokenHelper implements OnDestroy {
   constructor(
-    public coreAuthService: CoreAuthService,
     private cmsApiStore: NtkCmsApiStoreService,
+    public coreAuthService: CoreAuthService,
     public translate: TranslateService,
     private cmsStoreService: CmsStoreService,
     private themeService: ThemeService,
     private router: Router,
   ) {
-
+    this.consoleLog = environment.ProgressConsoleLog;
   }
+  consoleLog = true;
 
   get isMobile() {
     if (window.innerWidth < environment.cmsViewConfig.mobileWindowInnerWidth)
@@ -79,6 +80,9 @@ export class TokenHelper implements OnDestroy {
   }
   getCurrentTokenOnChange(): Observable<TokenInfoModel> {
     return this.cmsApiStore.getState((state) => {
+      if (this.consoleLog)
+        console.log("getCurrentTokenOnChange");
+      console.log("getCurrentTokenOnChange");
       this.cmsStoreService.setState({ EnumRecordStatusResultStore: null });
       this.tokenInfo = state.ntkCmsAPiState.tokenInfoStore;
       this.setDirectionThemeBylanguage(this.tokenInfo.language);

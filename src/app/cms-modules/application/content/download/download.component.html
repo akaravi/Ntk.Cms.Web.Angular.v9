@@ -1,7 +1,7 @@
 <mat-card class="example-card">
     <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
 
-    <mat-card-header *ngIf="!this.publicHelper.processService.processInRun">
+    <mat-card-header *ngIf="!this.publicHelper.processService.process.inRunAll">
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{dataModel.title}}</mat-card-title>
         <mat-card-subtitle>ver : {{dataModel.appVersion}}</mat-card-subtitle>

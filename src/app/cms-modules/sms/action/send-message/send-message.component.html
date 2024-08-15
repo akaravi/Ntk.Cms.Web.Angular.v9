@@ -319,7 +319,7 @@
                 style="height:140px;bottom: 4vh;justify-content: center;">
                 <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
                 <button type="submit" class="message-box-button" [disabled]="!vform.valid"
-                  *ngIf="!this.publicHelper.processService.processInRun">
+                  *ngIf="!this.publicHelper.processService.process.inRunAll">
                   <i class="fa fa-check-square-o"></i>
                   {{'ACTION.Send_Message' | translate}}
                 </button>

@@ -24,6 +24,7 @@ import { CmsStoreService } from './core/reducers/cmsStore.service';
 import { CmsSignalrService } from './core/services/cmsSignalr.service';
 import { CmsToastrService } from './core/services/cmsToastr.service';
 import { PageInfoService } from './core/services/page-info.service';
+import { ProcessService } from './core/services/process.service';
 import { ThemeService } from './core/services/theme.service';
 
 
@@ -51,6 +52,7 @@ export class AppComponent implements OnInit {
     private cmsStoreService: CmsStoreService,
     private cdr: ChangeDetectorRef,
     public pageInfo: PageInfoService,
+    public processService: ProcessService,
   ) {
     this.themeService.updateInnerSize();
     this.router.events.subscribe((event: Event) => {
@@ -127,7 +129,12 @@ export class AppComponent implements OnInit {
       });
     }
 
-
+    this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+      console.log('##################################################################################################################');
+    })
+    this.processService.getProcessInfoOnChange().subscribe((value) => {
+      console.log('*******************************************************************************************************************', value);
+    })
 
   }
 
@@ -137,7 +144,7 @@ export class AppComponent implements OnInit {
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
     this.themeService.onInitAppComponent();
-    this.publicHelper.processService.onInitAppComponent();
+    //this.publicHelper.processService.onInitAppComponent();
     const url = window.location.href;
     if (url.includes('?')) {
       const httpParams = new HttpParams({ fromString: url.split('?')[1] });

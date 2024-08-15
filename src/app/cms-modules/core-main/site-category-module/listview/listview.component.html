@@ -1,6 +1,6 @@
 <div class="example-container mat-elevation-z8">
   <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
-  <mat-table *ngIf="!this.publicHelper.processService.processInRun" [dataSource]="tableSource" matSort
+  <mat-table *ngIf="!this.publicHelper.processService.process.inRunAll" [dataSource]="tableSource" matSort
     #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)">
 
 

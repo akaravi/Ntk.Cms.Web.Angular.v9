@@ -19,19 +19,14 @@ export class ProgressSpinnerComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {
     this.processService.cdr = this.cdr;
-    this.processService.getOnChange().subscribe((value) => {
-      console.log('###### Start :' + this.id + ' ######');
-      console.log('change#', value);
-      console.log('processInRun#', this.processService.processInRun);
-      console.log('processInRunArea#', this.processService.processInRunArea);
-      console.log('processInfoArea#', this.processService.processInfoArea);
-      console.log('processInfoAll#', this.processService.processInfoAll);
-      console.log('###### end :' + this.id + ' ######');
-      //this.cdr.detectChanges();
-    });
   }
   @Input() optionsInfoAreaId: string = 'global';
   ngOnInit(): void {
-
+    this.processService.getProcessInfoOnChange().subscribe((value) => {
+      console.log('*******************getProcessInfoOnChange************************************************************************************************', value);
+    })
+    this.processService.getState().subscribe((value) => {
+      console.log('********************getState***********************************************************************************************', value);
+    })
   }
 }

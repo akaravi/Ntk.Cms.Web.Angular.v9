@@ -8,8 +8,8 @@ import { Subscription } from 'rxjs';
 })
 export class CmsAuthSiteGuard implements OnDestroy {
   constructor(
-    private coreAuthService: CoreAuthService,
     private cmsApiStore: NtkCmsApiStoreService,
+    private coreAuthService: CoreAuthService,
     private router: Router) {
   }
   runSubscribe = false;

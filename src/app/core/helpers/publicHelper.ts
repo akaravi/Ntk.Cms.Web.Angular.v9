@@ -50,6 +50,7 @@ export class PublicHelper {
   ) {
     this.fileManagerTreeConfig = new TreeModel(this.treefileConfig);
     this.appClientVersion = environment.appVersion;
+    
   }
 
   get isMobile() {
