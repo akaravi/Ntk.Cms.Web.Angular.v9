@@ -483,7 +483,9 @@ export class PublicHelper {
     return new ThemeStoreModel();
   }
   getReducerCmsStoreOnChange(): Observable<ReducerCmsStore> {
-    return this.cmsStoreService.getState();
+    return this.cmsStoreService.getState((state) => {
+      return state
+    });
   }
   StringRandomGenerator(passwordLength = 10, onlynumber = false): string {
     // const chars = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ';

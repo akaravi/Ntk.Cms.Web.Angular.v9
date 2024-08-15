@@ -1,4 +1,4 @@
-<div *ngIf="optionsInfoAreaId?.length>0 && this.processService?.processInRunArea[optionsInfoAreaId]?.length>0"
+<div id="id" *ngIf="optionsInfoAreaId?.length>0 && this.processService?.processInRunArea[optionsInfoAreaId]?.length>0"
   class="card card-style ms-0 me-0 rounded-0 preloader progressOverlay">
   <div class="spinner-border color-highlight" role="status"></div>
   <div class="content mt-5 mb-5 ms-5 me-5">
@@ -18,3 +18,8 @@
     </div>
   </div>
 </div>
+optionsInfoAreaId:{{optionsInfoAreaId}}
+<br>
+processInRunArea:{{this.processService?.processInRunArea|json}}
+<br>
+processInfoArea:{{this.processService?.processInfoArea|json}}

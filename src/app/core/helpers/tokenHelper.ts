@@ -46,12 +46,12 @@ export class TokenHelper implements OnDestroy {
 
   async getCurrentToken(): Promise<TokenInfoModel> {
     const storeSnapshot = this.cmsApiStore.getStateSnapshot();
-    if (storeSnapshot?.ntkCmsAPiState?.tokenInfo) {
-      this.tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfo;
+    if (storeSnapshot?.ntkCmsAPiState?.tokenInfoStore) {
+      this.tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfoStore;
       if (this.tokenInfo)
         this.setDirectionThemeBylanguage(this.tokenInfo.language);
       this.CheckIsAdmin();
-      return storeSnapshot.ntkCmsAPiState.tokenInfo;
+      return storeSnapshot.ntkCmsAPiState.tokenInfoStore;
     }
     return await firstValueFrom(this.coreAuthService.ServiceCurrentToken())
       .then((ret) => {
@@ -65,10 +65,10 @@ export class TokenHelper implements OnDestroy {
   }
   async getCurrentDeviceToken(): Promise<TokenDeviceModel> {
     const storeSnapshot = this.cmsApiStore.getStateSnapshot();
-    if (storeSnapshot?.ntkCmsAPiState?.deviceTokenInfo) {
-      this.deviceTokenInfo = storeSnapshot.ntkCmsAPiState.deviceTokenInfo;
+    if (storeSnapshot?.ntkCmsAPiState?.deviceTokenInfoStore) {
+      this.deviceTokenInfo = storeSnapshot.ntkCmsAPiState.deviceTokenInfoStore;
 
-      return storeSnapshot.ntkCmsAPiState.deviceTokenInfo;
+      return storeSnapshot.ntkCmsAPiState.deviceTokenInfoStore;
     }
     return await firstValueFrom(this.coreAuthService.ServiceCurrentDeviceToken())
       .then((ret) => {
@@ -80,10 +80,10 @@ export class TokenHelper implements OnDestroy {
   getCurrentTokenOnChange(): Observable<TokenInfoModel> {
     return this.cmsApiStore.getState((state) => {
       this.cmsStoreService.setState({ EnumRecordStatusResultStore: null });
-      this.tokenInfo = state.ntkCmsAPiState.tokenInfo;
+      this.tokenInfo = state.ntkCmsAPiState.tokenInfoStore;
       this.setDirectionThemeBylanguage(this.tokenInfo.language);
       this.CheckIsAdmin();
-      return state.ntkCmsAPiState.tokenInfo;
+      return state.ntkCmsAPiState.tokenInfoStore;
     });
   }
   setDirectionThemeBylanguage(language) {
@@ -124,10 +124,10 @@ export class TokenHelper implements OnDestroy {
   }
   CheckRouteByToken(): void {
     const storeSnapshot = this.cmsApiStore.getStateSnapshot();
-    if (storeSnapshot?.ntkCmsAPiState?.tokenInfo) {
-      this.tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfo;
+    if (storeSnapshot?.ntkCmsAPiState?.tokenInfoStore) {
+      this.tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfoStore;
     }
-    this.cmsApiStoreSubscribe = this.cmsApiStore.getState((state) => state.ntkCmsAPiState.tokenInfo).subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.cmsApiStore.getState((state) => state.ntkCmsAPiState.tokenInfoStore).subscribe((value) => {
       this.tokenInfo = value;
 
       if (!this.tokenInfo || !this.tokenInfo.token || this.tokenInfo.token.length === 0) {

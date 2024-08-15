@@ -25,8 +25,8 @@ export class CmsAuthGuard implements OnDestroy {
 
     const storeSnapshot = this.cmsApiStore.getStateSnapshot();
     let tokenInfo: TokenInfoModel = new TokenInfoModel();
-    if (storeSnapshot?.ntkCmsAPiState?.tokenInfo) {
-      tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfo;
+    if (storeSnapshot?.ntkCmsAPiState?.tokenInfoStore) {
+      tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfoStore;
       if (tokenInfo && tokenInfo.userId > 0) {
         return true;
       }

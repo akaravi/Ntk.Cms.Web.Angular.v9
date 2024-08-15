@@ -1,6 +1,7 @@
 
 import { ChangeDetectorRef, Injectable } from '@angular/core';
-import { ProcessInfoModel } from '../models/ProcessInfoModel';
+import { Observable } from 'rxjs';
+import { ProcessInfoModel } from '../models/processInfoModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
 
 @Injectable({
@@ -21,10 +22,10 @@ export class ProcessService {
   public processInfoArea: Map<string, ProcessInfoModel>[] = [];
   public processInfoAll = new Map<string, ProcessInfoModel>();
   public onInitAppComponent(): void {
-    this.cmsStoreService.getState().subscribe((value) => {
-      if (value.processInfoStore) {
+    this.cmsStoreService.getState((state) => {
+      if (state.processInfoStore) {
         /** processInRun */
-        this.processInfoAll = value.processInfoStore;
+        this.processInfoAll = state.processInfoStore;
         var retOutProcessInRun = false;
         var retOutprocessInRunArea: boolean[] = [];
         var retOutProcessInfoArea: Map<string, ProcessInfoModel>[] = []
@@ -58,6 +59,13 @@ export class ProcessService {
           console.log('cdr error', error);
         }
       }
+    });
+
+
+  }
+  getOnChange(): Observable<Map<string, ProcessInfoModel>> {
+    return this.cmsStoreService.getState((state) => {
+      return state.processInfoStore;
     });
   }
   /*

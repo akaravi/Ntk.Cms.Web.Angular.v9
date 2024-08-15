@@ -20,9 +20,9 @@ export class ThemeService {
   }
 
   public onInitAppComponent() {
-    this.cmsStoreService.getState().subscribe((value) => {
-      if (value.themeStore)
-        this.themeStore = value.themeStore;
+    this.cmsStoreService.getState((state) => {
+      if (state.themeStore)
+        this.themeStore = state.themeStore;
       else
         this.themeStore = new ThemeStoreModel();
     });
