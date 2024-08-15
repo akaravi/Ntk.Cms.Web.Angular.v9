@@ -18,8 +18,20 @@
     </div>
   </div>
 </div>
-optionsInfoAreaId:{{optionsInfoAreaId}}
-<br>
-processInRunArea:{{this.processService?.process?.inRunArea|json}}
-<br>
-processInfoArea:{{this.processService?.process?.infoArea|json}}
+<div style="direction: ltr;">
+  optionsInfoAreaId:{{optionsInfoAreaId}}
+  <br>
+  processInRunArea:{{this.processService?.process?.inRunArea|json}}
+  <br>
+  processInfoArea:{{this.processService?.process?.infoArea|json}}
+  <br>
+  process$:{{process$| async | json}}
+  <br>
+  process$.inRunArea:{{(process$| async)?.inRunAll | json}}
+  <br>
+  process$.infoArea:{{(process$| async)?.infoAll | json}}
+  <br>
+  process$.inRunArea:{{(process$| async)?.inRunArea[optionsInfoAreaId] | json}}
+  <br>
+  process$.infoArea:{{(process$| async)?.infoArea[optionsInfoAreaId] | json}}
+</div>

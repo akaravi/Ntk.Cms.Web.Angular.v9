@@ -54,8 +54,8 @@ export class PageMenuComponent implements OnInit {
     if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
       setTimeout(() => {
         const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-        if (storeSnapshot?.CoreCpMainResultStore?.isSuccess && storeSnapshot?.CoreCpMainResultStore?.listItems?.length > 0) {
-          this.dataModelResult = storeSnapshot.CoreCpMainResultStore;
+        if (storeSnapshot?.coreCpMainResultStore?.isSuccess && storeSnapshot?.coreCpMainResultStore?.listItems?.length > 0) {
+          this.dataModelResult = storeSnapshot.coreCpMainResultStore;
           this.DataListSelect();
         } else {
           this.DataGetCpMenu();

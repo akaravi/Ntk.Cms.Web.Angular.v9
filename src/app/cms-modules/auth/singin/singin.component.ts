@@ -6,6 +6,7 @@ import { AuthUserSignInModel, CaptchaModel, CoreAuthService, FormInfoModel } fro
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
+import { SET_TOKEN_DEVICE, SET_TOKEN_INFO } from 'src/app/core/reducers/reducer.factory';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
@@ -29,11 +30,20 @@ export class AuthSingInComponent implements OnInit {
 
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-
     this.firstRun = true;
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
-      this.connectionStatus = value.connectionStatus;
+      this.connectionStatus = value.connectionStatusStore;
     });
+    //**Token */
+    this.coreAuthService.tokenInfoSubject.subscribe((value) => {
+      this.publicHelper.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
+      console.log("SET_TOKEN_INFO");
+    })
+    this.coreAuthService.tokenDeviceSubject.subscribe((value) => {
+      this.publicHelper.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
+      console.log("SET_TOKEN_DEVICE");
+    })
+    //**Token */
   }
   loadDemoTheme = environment.loadDemoTheme;
   connectionStatus = new ConnectionStatusModel();
@@ -89,6 +99,7 @@ export class AuthSingInComponent implements OnInit {
           this.cmsToastrService.typeErrorLogin(res.errorMessage);
           this.onCaptchaOrder();
         }
+
         this.publicHelper.processService.processStop(pName);
       },
       error: (er) => {

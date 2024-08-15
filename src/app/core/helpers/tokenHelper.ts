@@ -3,14 +3,14 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreAuthService,
-  ManageUserAccessUserTypesEnum, NtkCmsApiStoreService,
-  SET_DEVICE_TOKEN_INFO, SET_TOKEN_INFO,
+  ManageUserAccessUserTypesEnum,
   TokenDeviceModel,
   TokenInfoModel
 } from 'ntk-cms-api';
 import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CmsStoreService } from '../reducers/cmsStore.service';
+import { SET_Info_Enum, SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
 import { ThemeService } from '../services/theme.service';
 const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 @Injectable({
@@ -18,14 +18,23 @@ const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 })
 export class TokenHelper implements OnDestroy {
   constructor(
-    private cmsApiStore: NtkCmsApiStoreService,
+    public cmsStoreService: CmsStoreService,
     public coreAuthService: CoreAuthService,
     public translate: TranslateService,
-    private cmsStoreService: CmsStoreService,
     private themeService: ThemeService,
     private router: Router,
   ) {
     this.consoleLog = environment.ProgressConsoleLog;
+    //**Token */
+    this.coreAuthService.tokenInfoSubject.subscribe((value) => {
+      this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
+      console.log("SET_TOKEN_INFO");
+    })
+    this.coreAuthService.tokenDeviceSubject.subscribe((value) => {
+      this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
+      console.log("SET_TOKEN_DEVICE");
+    })
+    //**Token */
   }
   consoleLog = true;
 
@@ -46,17 +55,17 @@ export class TokenHelper implements OnDestroy {
   }
 
   async getCurrentToken(): Promise<TokenInfoModel> {
-    const storeSnapshot = this.cmsApiStore.getStateSnapshot();
-    if (storeSnapshot?.ntkCmsAPiState?.tokenInfoStore) {
-      this.tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfoStore;
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    if (storeSnapshot?.tokenInfoStore) {
+      this.tokenInfo = storeSnapshot.tokenInfoStore;
       if (this.tokenInfo)
         this.setDirectionThemeBylanguage(this.tokenInfo.language);
       this.CheckIsAdmin();
-      return storeSnapshot.ntkCmsAPiState.tokenInfoStore;
+      return storeSnapshot.tokenInfoStore;
     }
     return await firstValueFrom(this.coreAuthService.ServiceCurrentToken())
       .then((ret) => {
-        this.cmsApiStore.setState({ type: SET_TOKEN_INFO, payload: ret.item });
+        this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: ret.item });
         this.tokenInfo = ret.item;
         if (this.tokenInfo)
           this.setDirectionThemeBylanguage(this.tokenInfo.language);
@@ -65,29 +74,28 @@ export class TokenHelper implements OnDestroy {
       });
   }
   async getCurrentDeviceToken(): Promise<TokenDeviceModel> {
-    const storeSnapshot = this.cmsApiStore.getStateSnapshot();
-    if (storeSnapshot?.ntkCmsAPiState?.deviceTokenInfoStore) {
-      this.deviceTokenInfo = storeSnapshot.ntkCmsAPiState.deviceTokenInfoStore;
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    if (storeSnapshot?.deviceTokenInfoStore) {
+      this.deviceTokenInfo = storeSnapshot.deviceTokenInfoStore;
 
-      return storeSnapshot.ntkCmsAPiState.deviceTokenInfoStore;
+      return storeSnapshot.deviceTokenInfoStore;
     }
     return await firstValueFrom(this.coreAuthService.ServiceCurrentDeviceToken())
       .then((ret) => {
-        this.cmsApiStore.setState({ type: SET_DEVICE_TOKEN_INFO, payload: ret.item });
+        this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: ret.item });
         this.deviceTokenInfo = ret.item;
         return ret.item;
       });
   }
   getCurrentTokenOnChange(): Observable<TokenInfoModel> {
-    return this.cmsApiStore.getState((state) => {
+    return this.cmsStoreService.getState((state) => {
       if (this.consoleLog)
         console.log("getCurrentTokenOnChange");
-      console.log("getCurrentTokenOnChange");
-      this.cmsStoreService.setState({ EnumRecordStatusResultStore: null });
-      this.tokenInfo = state.ntkCmsAPiState.tokenInfoStore;
+      this.cmsStoreService.setState({ type: SET_Info_Enum, payload: null });
+      this.tokenInfo = state.tokenInfoStore;
       this.setDirectionThemeBylanguage(this.tokenInfo.language);
       this.CheckIsAdmin();
-      return state.ntkCmsAPiState.tokenInfoStore;
+      return state.tokenInfoStore;
     });
   }
   setDirectionThemeBylanguage(language) {
@@ -127,11 +135,11 @@ export class TokenHelper implements OnDestroy {
     return false;
   }
   CheckRouteByToken(): void {
-    const storeSnapshot = this.cmsApiStore.getStateSnapshot();
-    if (storeSnapshot?.ntkCmsAPiState?.tokenInfoStore) {
-      this.tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfoStore;
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    if (storeSnapshot?.tokenInfoStore) {
+      this.tokenInfo = storeSnapshot.tokenInfoStore;
     }
-    this.cmsApiStoreSubscribe = this.cmsApiStore.getState((state) => state.ntkCmsAPiState.tokenInfoStore).subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.cmsStoreService.getState((state) => state.tokenInfoStore).subscribe((value) => {
       this.tokenInfo = value;
 
       if (!this.tokenInfo || !this.tokenInfo.token || this.tokenInfo.token.length === 0) {

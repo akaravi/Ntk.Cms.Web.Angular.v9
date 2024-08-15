@@ -16,7 +16,6 @@ import { ErrorsRoutingModule } from './errors.routing';
   imports: [
     CommonModule,
     ErrorsRoutingModule,
-    //ComponentsModule
   ]
 })
 export class ErrorsModule { }

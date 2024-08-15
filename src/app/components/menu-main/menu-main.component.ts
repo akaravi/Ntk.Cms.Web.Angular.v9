@@ -7,6 +7,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
+import { SET_CpMain_Menu } from 'src/app/core/reducers/reducer.factory';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { ThemeModeType, ThemeService } from 'src/app/core/services/theme.service';
 import { environment } from 'src/environments/environment';
@@ -70,7 +71,7 @@ export class MenuMainComponent implements OnInit {
 
         if (ret.isSuccess) {
           this.dataModelResult = ret;
-          this.cmsStoreService.setState({ CoreCpMainResultStore: ret });
+          this.cmsStoreService.setState({ type: SET_CpMain_Menu, payload: ret });
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }

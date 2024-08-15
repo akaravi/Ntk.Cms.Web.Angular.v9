@@ -65,7 +65,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
       this.tokenInfo = value;
     });
     this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
-      this.connectionStatus = value.connectionStatus;
+      this.connectionStatus = value.connectionStatusStore;
     });
   }
   connectionStatus = new ConnectionStatusModel();

@@ -1,7 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
-import { CoreAuthService, NtkCmsApiStoreService, SET_TOKEN_INFO, TokenInfoModel } from 'ntk-cms-api';
+import { CoreAuthService, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
+import { CmsStoreService } from '../reducers/cmsStore.service';
+import { SET_TOKEN_INFO } from '../reducers/reducer.factory';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +11,12 @@ import { Subscription } from 'rxjs';
 export class CmsAuthGuard implements OnDestroy {
   constructor(
     private coreAuthService: CoreAuthService,
-    private cmsApiStore: NtkCmsApiStoreService,
+    private cmsStoreService: CmsStoreService,
     private router: Router) {
   }
   runSubscribe = false;
   subscriptions: Subscription;
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-
     const token = this.coreAuthService.getUserToken();
     if (!token || token.length === 0) {
       this.router.navigate(['auth'], { queryParams: { returnUrl: state.url } });
@@ -23,17 +24,17 @@ export class CmsAuthGuard implements OnDestroy {
       return false;
     }
 
-    const storeSnapshot = this.cmsApiStore.getStateSnapshot();
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     let tokenInfo: TokenInfoModel = new TokenInfoModel();
-    if (storeSnapshot?.ntkCmsAPiState?.tokenInfoStore) {
-      tokenInfo = storeSnapshot.ntkCmsAPiState.tokenInfoStore;
+    if (storeSnapshot?.tokenInfoStore) {
+      tokenInfo = storeSnapshot.tokenInfoStore;
       if (tokenInfo && tokenInfo.userId > 0) {
         return true;
       }
     }
     this.subscriptions = this.coreAuthService.ServiceCurrentToken().subscribe({
       next: (ret) => {
-        this.cmsApiStore.setState({ type: SET_TOKEN_INFO, payload: ret.item });
+        this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: ret.item });
         tokenInfo = ret.item;
         this.runSubscribe = true;
         return;

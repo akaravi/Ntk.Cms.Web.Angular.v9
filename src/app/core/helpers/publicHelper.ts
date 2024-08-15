@@ -23,7 +23,7 @@ import { ComponentLocalStorageModel } from '../models/componentLocalStorageModel
 import { ConnectionStatusModel } from '../models/connectionStatusModel';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { ReducerCmsStore } from '../reducers/reducer.factory';
+import { ReducerCmsStore, SET_Core_Currency, SET_Core_Module, SET_Core_Site, SET_Info_Enum } from '../reducers/reducer.factory';
 import { CmsToastrService } from '../services/cmsToastr.service';
 import { PageInfoService } from '../services/page-info.service';
 import { ThemeService } from '../services/theme.service';
@@ -42,7 +42,7 @@ export class PublicHelper {
     private coreCurrencyService: CoreCurrencyService,
     private coreSiteService: CoreSiteService,
     private coreModuleService: CoreModuleService,
-    private cmsStoreService: CmsStoreService,
+    public cmsStoreService: CmsStoreService,
     public themeService: ThemeService,
     public processService:ProcessService,
     public dialog: MatDialog,
@@ -399,15 +399,15 @@ export class PublicHelper {
         this.getCurrencyActionIndo = false;
     }
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.CurrencyResultStore?.isSuccess && storeSnapshot?.CurrencyResultStore?.listItems?.length > 0) {
-      return storeSnapshot.CurrencyResultStore;
+    if (storeSnapshot?.currencyResultStore?.isSuccess && storeSnapshot?.currencyResultStore?.listItems?.length > 0) {
+      return storeSnapshot.currencyResultStore;
     }
 
     this.getCurrencyActionIndo = true;
     return await firstValueFrom(this.coreCurrencyService.ServiceGetAll(null))
       .then((response) => {
         this.getCurrencyActionIndo = false;
-        this.cmsStoreService.setState({ CurrencyResultStore: response });
+        this.cmsStoreService.setState({ type: SET_Core_Currency, payload:  response });
 
         return response;
       });
@@ -436,45 +436,45 @@ export class PublicHelper {
         this.getEnumRecordStatusActionIndo = false;
     }
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.EnumRecordStatusResultStore?.listItems?.length > 0) {
-      return storeSnapshot.EnumRecordStatusResultStore;
+    if (storeSnapshot?.enumRecordStatusResultStore?.listItems?.length > 0) {
+      return storeSnapshot.enumRecordStatusResultStore;
     }
 
     this.getEnumRecordStatusActionIndo = true;
     return await firstValueFrom(this.coreEnumService.ServiceRecordStatusEnum(1000000))
       .then((response) => {
         this.getEnumRecordStatusActionIndo = false;
-        this.cmsStoreService.setState({ EnumRecordStatusResultStore: response });
+        this.cmsStoreService.setState({ type: SET_Info_Enum, payload:  response });
         return response;
       });
 
   }
   async getCurrentSite(): Promise<ErrorExceptionResult<CoreSiteModel>> {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.CoreSiteResultStore && storeSnapshot?.CoreSiteResultStore.item && storeSnapshot?.CoreSiteResultStore?.item?.id > 0) {
-      return storeSnapshot.CoreSiteResultStore;
+    if (storeSnapshot?.coreSiteResultStore && storeSnapshot?.coreSiteResultStore.item && storeSnapshot?.coreSiteResultStore?.item?.id > 0) {
+      return storeSnapshot.coreSiteResultStore;
     }
     return await firstValueFrom(this.coreSiteService.ServiceCurrectSite())
       .then((response) => {
-        this.cmsStoreService.setState({ CoreSiteResultStore: response });
+        this.cmsStoreService.setState({ type: SET_Core_Site, payload: response });
         return response;
       });
   }
   async getCurrentSiteModule(): Promise<ErrorExceptionResult<CoreModuleModel>> {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.CoreModuleResultStore && storeSnapshot?.CoreModuleResultStore?.listItems?.length > 0) {
-      return storeSnapshot.CoreModuleResultStore;
+    if (storeSnapshot?.coreModuleResultStore && storeSnapshot?.coreModuleResultStore?.listItems?.length > 0) {
+      return storeSnapshot.coreModuleResultStore;
     }
     return await firstValueFrom(this.coreModuleService.ServiceGetAllModuleName(null))
       .then((response) => {
-        this.cmsStoreService.setState({ CoreModuleResultStore: response });
+        this.cmsStoreService.setState({ type: SET_Core_Module, payload: response });
         return response;
       });
   }
   async getConnectionStatus(): Promise<ConnectionStatusModel> {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.connectionStatus)
-      return storeSnapshot.connectionStatus;
+    if (storeSnapshot?.connectionStatusStore)
+      return storeSnapshot.connectionStatusStore;
     return new ConnectionStatusModel();
   }
   async getThemeStore(): Promise<ThemeStoreModel> {

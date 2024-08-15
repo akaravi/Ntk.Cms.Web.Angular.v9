@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
+import { SET_Theme_STATE } from '../reducers/reducer.factory';
 export type ThemeModeType = 'dark' | 'light' | 'system';
 export type ThemeDirectionType = 'ltr' | 'rtl';
 const themeModeLSKey = 'theme_mode';
@@ -120,7 +121,7 @@ export class ThemeService {
       localStorage.setItem(themeModeLSKey, updatedMode);
 
     this.themeStore.themeMode = updatedMode;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
     setTimeout(() => {
       /**theme-dark */
       if (this.themeStore.themeMode == 'dark') {
@@ -146,7 +147,7 @@ export class ThemeService {
       localStorage.setItem(themeHighLightLSKey, colorStr);
 
     this.themeStore.themeHighlight = colorStr;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
     setTimeout(() => {
       /* HighLigh*/
       if (this.themeStore.themeHighlight.length > 0) {
@@ -173,7 +174,7 @@ export class ThemeService {
     if (localStorage)
       localStorage.setItem(themeDirectionSKey, model);
     this.themeStore.themeDirection = model;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
     setTimeout(() => {
       /**theme-rtl */
       if (this.themeStore.themeDirection == 'ltr') {
@@ -198,7 +199,7 @@ export class ThemeService {
     if (localStorage)
       localStorage.setItem(themeLanguageSKey, model);
     this.themeStore.themeLanguage = model;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
   }
 
 
@@ -220,14 +221,14 @@ export class ThemeService {
 
   public updateMainPagePreloaderShow(v: boolean) {
     this.themeStore.mainPagePreloaderShow = v;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
     if (environment.consoleLog)
       console.log('mainPagePreloaderShow :', this.themeStore.mainPagePreloaderShow);
   }
   public updateInnerSize() {
     this.themeStore.innerWidth = window.innerWidth;
     this.themeStore.innerHeight = window.innerHeight;
-    this.cmsStoreService.setState({ themeStore: this.themeStore });
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
     if (environment.consoleLog)
       console.log('windows Width :', window.innerWidth, 'windows Height :', window.innerHeight);
   }
@@ -235,7 +236,7 @@ export class ThemeService {
   public onActionScrollTopPage(v: boolean, d = 0) {
     if (v == false) {
       this.themeStore.actionScrollTopPage = v;
-      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
       if (environment.consoleLog)
         console.log('windows actionGoTop :', this.themeStore.actionScrollTopPage);
       return;
@@ -243,14 +244,14 @@ export class ThemeService {
     if (d > 0) {
       setTimeout(() => {
         this.themeStore.actionScrollTopPage = v;
-        this.cmsStoreService.setState({ themeStore: this.themeStore });
+        this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
         if (environment.consoleLog)
           console.log('windows actionGoTop :', this.themeStore.actionScrollTopPage);
       }, 1000);
     }
     else {
       this.themeStore.actionScrollTopPage = v;
-      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
       if (environment.consoleLog)
         console.log('windows actionGoTop :', this.themeStore.actionScrollTopPage);
     }
@@ -260,7 +261,7 @@ export class ThemeService {
   public onActionScrollTopList(v: boolean, d = 0) {
     if (v == false) {
       this.themeStore.actionScrollTopList = v;
-      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
       if (environment.consoleLog)
         console.log('windows actionGoTop :', this.themeStore.actionScrollTopList);
       return;
@@ -268,14 +269,14 @@ export class ThemeService {
     if (d > 0) {
       setTimeout(() => {
         this.themeStore.actionScrollTopList = v;
-        this.cmsStoreService.setState({ themeStore: this.themeStore });
+        this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
         if (environment.consoleLog)
           console.log('windows actionGoTop :', this.themeStore.actionScrollTopList);
       }, 1000);
     }
     else {
       this.themeStore.actionScrollTopList = v;
-      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
       if (environment.consoleLog)
         console.log('windows actionGoTop :', this.themeStore.actionScrollTopList);
     }
@@ -286,7 +287,7 @@ export class ThemeService {
   public cleanDataMenu(): void {
     if (this.themeStore?.dataMenu?.length > 0) {
       this.themeStore.dataMenu = '';
-      this.cmsStoreService.setState({ themeStore: this.themeStore });
+      this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
     }
   }
 

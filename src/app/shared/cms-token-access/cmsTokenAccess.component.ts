@@ -25,13 +25,9 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-
-
     this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
       this.tokenInfo = value;
     });
-
-
   }
 
   tokenInfo: TokenInfoModel = new TokenInfoModel();

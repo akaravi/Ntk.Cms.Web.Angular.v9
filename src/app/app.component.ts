@@ -7,7 +7,7 @@ import {
 //start change title when route happened
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { Subscription, filter, map } from 'rxjs';
+import { Observable, Subscription, filter, map } from 'rxjs';
 //end change title when route happened
 import { HttpParams } from '@angular/common/http';
 import { SwPush } from '@angular/service-worker';
@@ -20,7 +20,9 @@ import { PublicHelper } from './core/helpers/publicHelper';
 import { TokenHelper } from './core/helpers/tokenHelper';
 import { CmsTranslationService } from './core/i18n/translation.service';
 import { ConnectionStatusModel } from './core/models/connectionStatusModel';
+import { ProcessModel } from './core/models/processModel';
 import { CmsStoreService } from './core/reducers/cmsStore.service';
+import { SET_Connection_STATE } from './core/reducers/reducer.factory';
 import { CmsSignalrService } from './core/services/cmsSignalr.service';
 import { CmsToastrService } from './core/services/cmsToastr.service';
 import { PageInfoService } from './core/services/page-info.service';
@@ -54,6 +56,7 @@ export class AppComponent implements OnInit {
     public pageInfo: PageInfoService,
     public processService: ProcessService,
   ) {
+    debugger
     this.themeService.updateInnerSize();
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
@@ -129,15 +132,11 @@ export class AppComponent implements OnInit {
       });
     }
 
-    this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
-      console.log('##################################################################################################################');
-    })
-    this.processService.getProcessInfoOnChange().subscribe((value) => {
-      console.log('*******************************************************************************************************************', value);
-    })
+    this.process$ = processService.processSubject;
 
   }
 
+  process$: Observable<ProcessModel>;
 
 
   cmsApiStoreSubscribe: Subscription;
@@ -320,7 +319,7 @@ export class AppComponent implements OnInit {
     var model = new ConnectionStatusModel();
     model.internetConnection = true;
     model.serverConnection = true;
-    this.cmsStoreService.setState({ connectionStatus: model });
+    this.cmsStoreService.setState({ type: SET_Connection_STATE, payload: model });
     if (this.firstOnonline) {
       this.firstOnonline = false;
       return;
@@ -335,7 +334,7 @@ export class AppComponent implements OnInit {
     var model = new ConnectionStatusModel();
     model.internetConnection = false;
     model.serverConnection = false;
-    this.cmsStoreService.setState({ connectionStatus: model });
+    this.cmsStoreService.setState({ type: SET_Connection_STATE, payload: model });
     this.firstOnonline = false;
     this.toastId = this.cmsToastrService.toastr.error(this.translate.instant('ERRORMESSAGE.TITLE.Pleasecheckyourinternetconnection'), this.translate.instant('ERRORMESSAGE.TITLE.Internetaccesswasinterrupted'), {
       disableTimeOut: true
