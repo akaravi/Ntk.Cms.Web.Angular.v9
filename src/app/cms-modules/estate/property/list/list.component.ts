@@ -1237,10 +1237,11 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       this.dataModelResult.listItems[index]['ActiveDataStyle'] = '';
       this.dataModelResult.listItems[index]['ActiveDataText'] = '';
 
-      if (element.updatedDate && new Date(element.updatedDate) < dateTime) {
-        this.dataModelResult.listItems[index]['ActiveDataStyle'] = '#ff9c91';
-        this.dataModelResult.listItems[index]['ActiveDataText'] = 'آرشیو خودکار  سیستمی';
-
+      if (element.updatedDate) {
+        if (new Date(element.updatedDate) < dateTime) {
+          this.dataModelResult.listItems[index]['ActiveDataStyle'] = '#ff9c91';
+          this.dataModelResult.listItems[index]['ActiveDataText'] = 'آرشیو خودکار  سیستمی';
+        }
       }
       else if (new Date(element.createdDate) < dateTime) {
         this.dataModelResult.listItems[index]['ActiveDataStyle'] = '#ff9c01';
