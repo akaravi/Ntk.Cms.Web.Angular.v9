@@ -6,7 +6,7 @@
 <app-estate-account-user-header *ngIf="this.requestLinkEstateUserId?.length>0"
   [optionId]="this.requestLinkEstateUserId">
 </app-estate-account-user-header>
-<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name"
+<app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId"
   [optionGuideNoticeKey]="'estate.propertyhistory.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
   (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
   (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"

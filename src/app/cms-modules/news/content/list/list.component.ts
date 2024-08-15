@@ -30,6 +30,7 @@ import { NewsContentDeleteComponent } from '../delete/delete.component';
 })
 export class NewsContentListComponent extends ListBaseComponent<NewsContentService, NewsContentModel, number> implements OnInit, OnDestroy {
   requestLinkCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: NewsContentService,
     private cmsToastrService: CmsToastrService,

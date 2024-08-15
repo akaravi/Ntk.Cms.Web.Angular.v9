@@ -57,7 +57,7 @@ export class CmsHtmlListComponent implements OnInit {
   @Input() optionClassBody = 'ntk-cms-html-tree-body';
   @Input() optionTreeDisplay = true;
   @Input() optionsListInfoAreaId = 'list';
-  
+
 
   @Output() optionOnActionButtonMemo = new EventEmitter<any>();
   @Output() optionOnActionButtonExport = new EventEmitter<any>();
@@ -162,7 +162,7 @@ export class CmsHtmlListComponent implements OnInit {
     this.optionOnActionButtonPrintRow.emit();
   }
   /*
-  <app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"    [optionTreeDisplay]="true">
+  <app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId" [optionGuideNoticeKey]="''" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"    [optionTreeDisplay]="true">
     <ng-container  cms-tree>
       <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
       --------------------------------------

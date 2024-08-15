@@ -4,7 +4,7 @@
     [optionId]="requestLinkPlanPriceId"></app-data-provider-plan-price-header>
 <app-data-provider-client-header *ngIf="requestLinkClientId>0"
     [optionId]="requestLinkClientId"></app-data-provider-client-header>
-<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''"
+<app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId" [optionGuideNoticeKey]="''"
     [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
     (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
     (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"

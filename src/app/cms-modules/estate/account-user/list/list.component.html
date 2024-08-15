@@ -1,7 +1,7 @@
 <app-estate-account-agency-header *ngIf="this.requestLinkAccountAgencyId?.length>0"
   [optionId]="this.requestLinkAccountAgencyId">
 </app-estate-account-agency-header>
-<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'accountuser.content.list'"
+<app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId" [optionGuideNoticeKey]="'accountuser.content.list'"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
   (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"

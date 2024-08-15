@@ -1,6 +1,6 @@
 <app-estate-property-project-header *ngIf="this.requestLinkProjectId?.length>0" [optionId]="this.requestLinkProjectId">
 </app-estate-property-project-header>
-<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name"
+<app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId"
   [optionGuideNoticeKey]="'estate.propertysupplier.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
   (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
   (optionOnActionButtonExport)="onActionButtonExport()" (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"

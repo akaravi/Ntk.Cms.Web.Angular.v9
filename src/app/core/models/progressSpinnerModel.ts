@@ -1,8 +1,9 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { ProcessInfoModel } from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
-import { ProcessInfoModel } from './processInfoModel';
+
 
 
 export class ProgressSpinnerModel {

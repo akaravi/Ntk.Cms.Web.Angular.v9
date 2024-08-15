@@ -18,14 +18,16 @@ export class ProgressSpinnerComponent implements OnInit {
     public processService: ProcessService,
     private cdr: ChangeDetectorRef,
   ) {
+    this.processService.cdr = cdr;
     this.processService.getOnChange().subscribe((value) => {
+      console.log('###### S ######');
       console.log('change#', value);
       console.log('processInRun#', this.processService.processInRun);
       console.log('processInRunArea#', this.processService.processInRunArea);
       console.log('processInfoArea#', this.processService.processInfoArea);
       console.log('processInfoAll#', this.processService.processInfoAll);
-      console.log('############');
-      this.cdr.detectChanges();
+      console.log('###### E ######');
+      //this.cdr.detectChanges();
     });
   }
   @Input() optionsInfoAreaId: string = 'global';

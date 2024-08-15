@@ -1,56 +1,33 @@
 
 import { ChangeDetectorRef, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ProcessInfoModel } from '../models/processInfoModel';
-import { CmsStoreService } from '../reducers/cmsStore.service';
+import { NtkCmsApiStoreService, ProcessInfoModel, SET_IN_PROCESSING_LIST } from 'ntk-cms-api';
+import { Observable, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProcessService {
   constructor(
-    public cmsStoreService: CmsStoreService,
+    private cmsApiStore: NtkCmsApiStoreService,
   ) {
-    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot.processInfoStore)
-      this.processInfoAll = storeSnapshot.processInfoStore;
+    const storeSnapshot = this.cmsApiStore.getStateSnapshot();
+    if (storeSnapshot.ntkCmsAPiState.processInfoStore)
+      this.processInfoAll = storeSnapshot.ntkCmsAPiState.processInfoStore;
 
   }
+  public cmsApiStoreSubscribe: Subscription;
   public cdr: ChangeDetectorRef;
   public processInRun = false;
   public processInRunArea: boolean[] = [];
   public processInfoArea: Map<string, ProcessInfoModel>[] = [];
   public processInfoAll = new Map<string, ProcessInfoModel>();
+
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   public onInitAppComponent(): void {
-    this.cmsStoreService.getState((state) => {
-      if (state.processInfoStore) {
-        /** processInRun */
-        this.processInfoAll = state.processInfoStore;
-        var retOutProcessInRun = false;
-        var retOutprocessInRunArea: boolean[] = [];
-        var retOutProcessInfoArea: Map<string, ProcessInfoModel>[] = []
-        for (const [key, value] of this.processInfoAll) {
-          if (value && value.isComplate === false) {
-            retOutProcessInRun = true;
-            retOutprocessInRunArea[value.infoAreaId] = true;
-          }
-          if (!retOutProcessInfoArea[value.infoAreaId])
-            retOutProcessInfoArea[value.infoAreaId] = new Map<string, ProcessInfoModel>();
-          retOutProcessInfoArea[value.infoAreaId].set(key, value);
-        }
-        //debugger
-        //console.log(retOutProcessInfoArea);
-        //console.log(retOutprocessInRunArea);
-        this.processInRun = retOutProcessInRun;
-        this.processInRunArea = retOutprocessInRunArea;
-        this.processInfoArea = retOutProcessInfoArea;
-        /** processInRun */
-      }
-      else {
-        this.processInRun = false;
-        this.processInRunArea = [];
-        this.processInfoArea = [];
-      }
+    this.cmsApiStoreSubscribe = this.cmsApiStore.getState((state) => state.ntkCmsAPiState.processInfoStore).subscribe((value) => {
+
       if (this.cdr) {
         //todo: karavi error
         try {
@@ -59,13 +36,15 @@ export class ProcessService {
           console.log('cdr error', error);
         }
       }
+
     });
+
 
 
   }
   getOnChange(): Observable<Map<string, ProcessInfoModel>> {
-    return this.cmsStoreService.getState((state) => {
-      return state.processInfoStore;
+    return this.cmsApiStore.getState((state) => {
+      return state.ntkCmsAPiState.processInfoStore;
     });
   }
   /*
@@ -80,7 +59,26 @@ export class ProcessService {
     model.title = title;
     model.infoAreaId = infoAreaId;
     this.processInfoAll.set(key, model);
-    this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
+    console.log("#### processStart ####", key, model);
+    debugger
+    /** processInRun */
+    var retOutProcessInRun = false;
+    var retOutprocessInRunArea: boolean[] = [];
+    var retOutProcessInfoArea: Map<string, ProcessInfoModel>[] = []
+    for (const [key, value] of this.processInfoAll) {
+      if (value && value.isComplate === false) {
+        retOutProcessInRun = true;
+        retOutprocessInRunArea[value.infoAreaId] = true;
+      }
+      if (!retOutProcessInfoArea[value.infoAreaId])
+        retOutProcessInfoArea[value.infoAreaId] = new Map<string, ProcessInfoModel>();
+      retOutProcessInfoArea[value.infoAreaId].set(key, value);
+    }
+    this.processInRun = retOutProcessInRun;
+    this.processInRunArea = retOutprocessInRunArea;
+    this.processInfoArea = retOutProcessInfoArea;
+    /** processInRun */
+    this.cmsApiStore.setState({ type: SET_IN_PROCESSING_LIST, payload: this.processInfoAll });
   }
   public processStop(key: string, isSuccess = true): void {
     let model = this.processInfoAll.get(key);
@@ -90,27 +88,39 @@ export class ProcessService {
     model.isComplate = true;
     model.isSuccess = isSuccess;
     this.processInfoAll.set(key, model);
-
+    console.log("#### processStop ####", key, model)
     var retOutProcessInRun = false;
     for (const [key, value] of this.processInfoAll) {
       if (value && value.isComplate === false) {
         retOutProcessInRun = true;
       }
     }
-
-    if (retOutProcessInRun) {
-      this.processInRun = true;
-      this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
+    /** processInRun */
+    var retOutProcessInRun = false;
+    var retOutprocessInRunArea: boolean[] = [];
+    var retOutProcessInfoArea: Map<string, ProcessInfoModel>[] = []
+    for (const [key, value] of this.processInfoAll) {
+      if (value && value.isComplate === false) {
+        retOutProcessInRun = true;
+        retOutprocessInRunArea[value.infoAreaId] = true;
+      }
+      if (!retOutProcessInfoArea[value.infoAreaId])
+        retOutProcessInfoArea[value.infoAreaId] = new Map<string, ProcessInfoModel>();
+      retOutProcessInfoArea[value.infoAreaId].set(key, value);
     }
-    else {
+    if (retOutProcessInRun) {
+      this.processInRun = retOutProcessInRun;
+      this.processInRunArea = retOutprocessInRunArea;
+      this.processInfoArea = retOutProcessInfoArea;
+    } else {
       setTimeout(() => {
-        this.processInRun = false;
-        this.processInRunArea = [];
-        this.processInfoArea = [];
-        this.processInfoAll = new Map<string, ProcessInfoModel>();
-        this.cmsStoreService.setState({ processInfoStore: this.processInfoAll });
+        this.processInRun = retOutProcessInRun;
+        this.processInRunArea = retOutprocessInRunArea;
+        this.processInfoArea = retOutProcessInfoArea;
       }, 1000);
     }
+    /** processInRun */
+    this.cmsApiStore.setState({ type: SET_IN_PROCESSING_LIST, payload: this.processInfoAll });
 
   }
   /*

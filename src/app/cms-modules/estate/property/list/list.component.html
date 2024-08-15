@@ -23,7 +23,7 @@
 <app-estate-property-company-header *ngIf="this.requestLinkCompanyId?.length>0" [optionId]="this.requestLinkCompanyId">
 </app-estate-property-company-header>
 
-<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="'estate.property.list'"
+<app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId" [optionGuideNoticeKey]="'estate.property.list'"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
   (optionOnActionButtonPrintRow)="onActionButtonPrintRow()"

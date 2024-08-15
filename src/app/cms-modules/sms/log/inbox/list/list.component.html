@@ -1,4 +1,4 @@
-<app-cms-html-list [optionsListInfoAreaId]="this.constructor.name" [optionGuideNoticeKey]="''"
+<app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId" [optionGuideNoticeKey]="''"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
   (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
@@ -226,7 +226,7 @@
           {{'TITLE.Id'|translate}} : {{row.id}}
           <br>
           {{'TITLE.LinkPrivateConfigurationId'|translate}} : {{row.linkPrivateConfigId | cmstitle:
-            dataModelPrivateResult.listItems}}
+          dataModelPrivateResult.listItems}}
           <br>
           {{'TITLE.CreationDate'|translate}} : {{ publicHelper.LocaleDate(row.createdDate) }}
           <br>
