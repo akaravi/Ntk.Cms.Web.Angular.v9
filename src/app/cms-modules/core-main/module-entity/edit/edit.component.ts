@@ -85,7 +85,7 @@ export class CoreModuleEntityEditComponent extends EditBaseComponent<CoreModuleE
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreModuleEntityService.setAccessLoad();
     this.coreModuleEntityService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -117,7 +117,7 @@ export class CoreModuleEntityEditComponent extends EditBaseComponent<CoreModuleE
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
 
     this.coreModuleEntityService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

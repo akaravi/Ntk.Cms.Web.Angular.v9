@@ -18,6 +18,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class CmsLocationSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++CmsLocationSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
@@ -129,7 +130,7 @@ export class CmsLocationSelectorComponent implements OnInit {
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))

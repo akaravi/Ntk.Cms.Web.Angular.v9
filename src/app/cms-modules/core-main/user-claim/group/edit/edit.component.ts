@@ -102,7 +102,7 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'DataGetOneContent';
     this.translate.get('MESSAGE.Receive_categories_of_documents').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreUserClaimGroupService.setAccessLoad();
     this.coreUserClaimGroupService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -135,7 +135,7 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Registration_of categories_of_documents').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreUserClaimGroupService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -229,7 +229,7 @@ export class CoreUserClaimGroupEditComponent extends EditBaseComponent<CoreUserC
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'DataGetAllCoreUserClaimType';
     this.translate.get('MESSAGE.Receive_categories_of_documents').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     const filteModelContent = new FilterModel();

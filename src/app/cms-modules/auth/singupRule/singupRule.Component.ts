@@ -25,7 +25,7 @@ export class SingupRuleComponent implements OnInit {
   ngOnInit(): void {
     const pName = this.constructor.name + 'ServiceUserMembershipRule';
     this.translate.get('MESSAGE.get_the_rules').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreConfigurationService
       .ServiceUserMembershipRule()

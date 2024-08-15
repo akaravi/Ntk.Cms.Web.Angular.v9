@@ -159,7 +159,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.contentService
       .ServiceAdd(this.dataModel)
@@ -219,7 +219,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
     });
     const pName = this.constructor.name + 'contentOtherInfoService.ServiceAddBatch';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     return firstValueFrom(this.contentOtherInfoService.ServiceAddBatch(this.otherInfoDataModel)).then(
       (ret) => {
@@ -251,7 +251,7 @@ export class NewsContentAddComponent extends AddBaseComponent<NewsContentService
     });
     const pName = this.constructor.name + 'contentSimilarService.ServiceAddBatch';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     return firstValueFrom(this.contentSimilarService.ServiceAddBatch(dataList)).then(
 

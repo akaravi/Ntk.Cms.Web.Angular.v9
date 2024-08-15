@@ -67,7 +67,7 @@ export class ApplicationConfigCheckSiteComponent implements OnInit, OnDestroy {
       return;
     }
     const pName = this.constructor.name + '.ServiceCheckSite';
-    this.translate.get('MESSAGE.Check_website').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Check_website').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService
       .ServiceCheckSite(this.requestLinkSiteId)
       .subscribe({

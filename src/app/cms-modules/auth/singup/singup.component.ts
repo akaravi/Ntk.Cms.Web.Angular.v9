@@ -102,7 +102,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     this.dataModel.captchaKey = this.captchaModel.key;
     const pName = this.constructor.name + '.ServiceSignupUser';
     this.translate.get('MESSAGE.Creating_new_account').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     /** read storage */
     const siteId = + localStorage.getItem('siteId');
@@ -137,7 +137,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
             dataLoginModel.mobile = this.dataModel.mobile;
             const pName2 = this.constructor.name + 'ServiceSigninUser';
             this.translate.get('MESSAGE.login_to_user_account').subscribe((str: string) => {
-              this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+              this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
             });
             this.coreAuthService.ServiceSigninUser(dataLoginModel).subscribe({
               next: (res) => {
@@ -202,7 +202,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
     this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService.ServiceCaptcha()
       .subscribe({

@@ -82,7 +82,7 @@ export class ApplicationIntroAddComponent extends AddBaseComponent<ApplicationIn
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'applicationIntroService.ServiceAdd';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.applicationIntroService.ServiceAdd(this.dataModel)
       .subscribe({

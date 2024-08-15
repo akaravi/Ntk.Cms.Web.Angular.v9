@@ -4,7 +4,6 @@ import {
   Input,
   OnInit
 } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ProcessModel } from 'src/app/core/models/processModel';
 import { ProcessService } from 'src/app/core/services/process.service';
 
@@ -21,18 +20,15 @@ export class ProgressSpinnerComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {
     this.processService.cdr = this.cdr;
-    this.process$ = processService.processSubject;//.getState(x => x..processInfoStore);
+    processService.processSubject.subscribe((value) => {
+      this.process = processService.processSubject.value;
+    });
   }
   @Input() optionsInfoAreaId: string = 'global';
 
-  process$: Observable<ProcessModel>;
+  process: ProcessModel;
 
   ngOnInit(): void {
-    this.processService.getProcessInfoOnChange().subscribe((value) => {
-      console.log('*******************getProcessInfoOnChange************************************************************************************************', value);
-    })
-    this.processService.getState().subscribe((value) => {
-      console.log('********************getState***********************************************************************************************', value);
-    })
+
   }
 }

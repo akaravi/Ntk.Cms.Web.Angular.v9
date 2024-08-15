@@ -16,6 +16,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class CmsBankpaymentGridComponent implements OnInit {
   static nextId = 0;
   id = ++CmsBankpaymentGridComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public bankPaymentPrivateSiteConfigService: BankPaymentPrivateSiteConfigService,
 
@@ -49,7 +50,7 @@ export class CmsBankpaymentGridComponent implements OnInit {
     if (this.optionMasterItem) {
       const pName = this.constructor.name + 'main';
       this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-        this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+        this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
       });
       this.bankPaymentPrivateSiteConfigService.ServicePaymentGatewayCoreList().subscribe({
         next: (ret) => {
@@ -77,7 +78,7 @@ export class CmsBankpaymentGridComponent implements OnInit {
     else {
       const pName = this.constructor.name + 'main';
       this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-        this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+        this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
       });
       this.bankPaymentPrivateSiteConfigService.ServicePaymentGatewayList().subscribe({
         next: (ret) => {

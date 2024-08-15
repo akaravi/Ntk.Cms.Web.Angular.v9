@@ -118,7 +118,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new ApiTelegramLogOutputModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -203,7 +203,7 @@ export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTele
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     statist.set('All', 0);
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

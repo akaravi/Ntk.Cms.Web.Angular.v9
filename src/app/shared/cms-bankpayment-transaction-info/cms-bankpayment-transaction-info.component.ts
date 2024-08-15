@@ -19,6 +19,7 @@ export class CmsBankpaymentTransactionInfoComponent implements OnInit {
   static nextId = 0;
   id = ++CmsBankpaymentTransactionInfoComponent.nextId;
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public bankPaymentTransactionService: BankPaymentTransactionService,
@@ -60,7 +61,7 @@ export class CmsBankpaymentTransactionInfoComponent implements OnInit {
   DataGeOne(): void {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.bankPaymentTransactionService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {

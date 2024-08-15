@@ -115,7 +115,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
         selectId = this.requestLinkCategoryId;
       }
       const pName = this.constructor.name + '.ServiceGetAllWithHierarchyCategoryId';
-      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
       this.contentService.ServiceGetAllWithHierarchyCategoryId(selectId, filterModel).subscribe({
         next: (ret) => {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
@@ -180,7 +180,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
       }
       /** filter Category */
       const pName = this.constructor.name + '.ServiceGetAll';
-      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+      this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
       this.contentService.ServiceGetAllEditor(filterModel).subscribe({
         next: (ret) => {
           this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
@@ -359,7 +359,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
     filterStatist1.filters.push(fastfilter);
     const pName = this.constructor.name + '.ServiceGetCount';
     this.translate.get('MESSAGE.Get_article').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.contentService.ServiceGetCount(filterStatist1).subscribe({
       next: (ret) => {
@@ -409,7 +409,7 @@ export class NewsContentListComponent extends ListBaseComponent<NewsContentServi
 
     const pName = this.constructor.name + "ServiceGetOneById";
     this.translate.get('MESSAGE.get_news_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)

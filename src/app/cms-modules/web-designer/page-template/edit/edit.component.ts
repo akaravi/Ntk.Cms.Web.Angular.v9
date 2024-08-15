@@ -74,7 +74,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.webDesignerMainPageTemplateService.setAccessLoad();
     this.webDesignerMainPageTemplateService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -105,7 +105,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.webDesignerMainPageTemplateService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -135,7 +135,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
@@ -175,7 +175,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     entity.linkPageTemplateId = this.dataModel.id;
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService.ServiceAdd';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.webDesignerMainPageTemplateSiteCategoryService.ServiceAdd(entity).subscribe({
       next: (ret) => {
@@ -204,7 +204,7 @@ export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<
     entity.linkPageTemplateId = this.dataModel.id;
     const pName = this.constructor.name + 'webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.webDesignerMainPageTemplateSiteCategoryService.ServiceDeleteEntity(entity).subscribe({
       next: (ret) => {

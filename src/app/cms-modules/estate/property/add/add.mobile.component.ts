@@ -150,7 +150,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
     this.translate.get('TITLE.Get_Estate_Contract_Type').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estateContractTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
@@ -164,7 +164,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   getEstatePropertyType(): void {
     const pName = this.constructor.name + 'getEstatePropertyType';
     this.translate.get('TITLE.Get_Estate_property_Type').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
@@ -178,7 +178,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   getEstatePropertyTypeLanduse(): void {
     const pName = this.constructor.name + 'getEstatePropertyType';
     this.translate.get('TITLE.Get_Estate_user_Type').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyTypeLanduseService.ServiceGetAll(null).subscribe({
       next: (ret) => {
@@ -194,7 +194,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
   DataGetAccess(): void {
     const pName = this.constructor.name + 'ServiceViewModel';
     this.translate.get('TITLE.Get_Estate_access').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyService
       .ServiceViewModel()
@@ -224,7 +224,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
     this.translate.get('TITLE.Get_Details').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
@@ -261,7 +261,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
     }
     const pName = this.constructor.name + 'ServiceAdd';
     this.translate.get('TITLE.Property_registration').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {

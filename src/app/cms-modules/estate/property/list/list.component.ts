@@ -297,7 +297,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   }
   GetServiceSiteConfig(SiteId: number): void {
     const pName = this.constructor.name + 'ServiceSiteConfig';
-    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService
       .ServiceSiteConfig(SiteId)
       .subscribe({
@@ -339,7 +339,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
     this.onActionTableRowSelect(new EstatePropertyModel());
     const pName = this.constructor.name + "main";
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -556,7 +556,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     this.dataModelPropertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
     this.translate.get('MESSAGE.Get_detailed_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyDetailGroupService.ServiceGetAllFastSearch(filteModelProperty)
       .subscribe({
@@ -897,7 +897,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
         if (confirmed) {
           const pName = this.constructor.name + "main";
           this.translate.get('MESSAGE.Deleting_information').subscribe((str: string) => {
-            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+            this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
           });
           this.contentService
             .ServiceDelete(this.tableRowSelected.id)
@@ -928,7 +928,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       return;
     }
     const statist = new Map<string, number>();
-    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'), this.constructor.name);
+    this.publicHelper.processService.processStart(this.constructor.name + 'All', this.translate.instant('MESSAGE.property_list'), this.constructorInfoAreaId);
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     //*filter */
     const filterStatist0 = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -1002,7 +1002,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
     const pName = this.constructor.name + "main";
     this.translate.get('ACTION.ActionSendSmsToCustomerOrder').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     // ** */
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -1112,7 +1112,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
 
     const pName = this.constructor.name + "ServiceGetOneById";
-    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
       .ServiceGetOneById(this.tableRowSelected.id)

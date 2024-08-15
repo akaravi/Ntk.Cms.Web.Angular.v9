@@ -141,7 +141,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
     this.translate.get('TITLE.Get_Estate_Contract_Type').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estateContractTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
@@ -161,7 +161,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
 
 
     const pName = this.constructor.name + 'ServiceGetOneById';
-    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.estatePropertyService.setAccessLoad();
     this.estatePropertyService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.estatePropertyService.ServiceGetOneById(this.requestId).subscribe({
@@ -232,7 +232,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
     this.translate.get('MESSAGE.Get_detailed_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
@@ -283,7 +283,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     }
     const pName = this.constructor.name + 'ServiceEdit';
     this.translate.get('MESSAGE.registration_chaneges_in_property_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.estatePropertyService.ServiceEdit(this.dataModel).subscribe({

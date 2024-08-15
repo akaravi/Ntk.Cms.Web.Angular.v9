@@ -104,7 +104,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     const pName = this.constructor.name + '.ServiceSigninUserBySMS';
 
     this.translate.get('MESSAGE.Send_login_request_with_one_time_password').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService
       .ServiceSigninUserBySMS(this.dataModelAuthUserSignInBySms)
@@ -162,7 +162,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.dataModelAuthUserSignInBySms.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUserBySMS';
     this.translate.get('MESSAGE.Send_login_request_with_one_time_password').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     /** read storage */
     const siteId = + localStorage.getItem('siteId');
@@ -220,7 +220,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.dataModelAuthUserSignInBySms.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
     this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {

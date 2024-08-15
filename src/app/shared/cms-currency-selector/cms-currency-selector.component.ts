@@ -19,6 +19,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class CmsCurrencySelectorComponent implements OnInit {
   static nextId = 0;
   id = ++CmsCurrencySelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,
@@ -129,7 +130,7 @@ export class CmsCurrencySelectorComponent implements OnInit {
 
     const pName = this.constructor.name + 'ServiceGetAll';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.categoryService.setAccessDataType(ManageUserAccessDataTypesEnum.Viewer);
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))

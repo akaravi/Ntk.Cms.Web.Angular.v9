@@ -76,7 +76,7 @@ export class CoreSiteAddFirstComponent implements OnInit {
   DataGetAccess(): void {
     const pName = this.constructor.name + '.DataGetAccess';
     this.translate.get('MESSAGE.get_access').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreSiteService
       .ServiceViewModel()
@@ -101,7 +101,7 @@ export class CoreSiteAddFirstComponent implements OnInit {
   GetDomainList(): void {
     const pName = this.constructor.name + '.GetDomainList';
     this.translate.get('MESSAGE.Get_list_of_authorized_domains').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreSiteService.ServiceGetRegDomains(this.dataModel.linkSiteCategoryId).subscribe({
       next: (ret) => {
@@ -159,7 +159,7 @@ export class CoreSiteAddFirstComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + '.onFormSubmit';
     this.translate.get('MESSAGE.Registering_your_first_system_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreSiteService.ServiceAddFirstSite(this.dataModel).subscribe({
       next: (ret) => {
@@ -184,7 +184,7 @@ export class CoreSiteAddFirstComponent implements OnInit {
   clickSelectSite(Id: number): void {
     const pName = this.constructor.name + '.clickSelectSite';
     this.translate.get('MESSAGE.Request_new_access').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     let authModel: AuthRenewTokenModel;
     authModel = new AuthRenewTokenModel();

@@ -23,11 +23,11 @@ import { ComponentLocalStorageModel } from '../models/componentLocalStorageModel
 import { ConnectionStatusModel } from '../models/connectionStatusModel';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { ReducerCmsStore, SET_Core_Currency, SET_Core_Module, SET_Core_Site, SET_Info_Enum } from '../reducers/reducer.factory';
+import { ReducerCmsStore, SET_Core_Currency, SET_Core_Module, SET_Core_Site } from '../reducers/reducer.factory';
 import { CmsToastrService } from '../services/cmsToastr.service';
 import { PageInfoService } from '../services/page-info.service';
-import { ThemeService } from '../services/theme.service';
 import { ProcessService } from '../services/process.service';
+import { ThemeService } from '../services/theme.service';
 // import { ProviderAst } from '@angular/compiler';
 
 @Injectable({
@@ -44,13 +44,13 @@ export class PublicHelper {
     private coreModuleService: CoreModuleService,
     public cmsStoreService: CmsStoreService,
     public themeService: ThemeService,
-    public processService:ProcessService,
+    public processService: ProcessService,
     public dialog: MatDialog,
     public pageInfo: PageInfoService
   ) {
     this.fileManagerTreeConfig = new TreeModel(this.treefileConfig);
     this.appClientVersion = environment.appVersion;
-    
+
   }
 
   get isMobile() {
@@ -407,7 +407,7 @@ export class PublicHelper {
     return await firstValueFrom(this.coreCurrencyService.ServiceGetAll(null))
       .then((response) => {
         this.getCurrencyActionIndo = false;
-        this.cmsStoreService.setState({ type: SET_Core_Currency, payload:  response });
+        this.cmsStoreService.setState({ type: SET_Core_Currency, payload: response });
 
         return response;
       });
@@ -444,7 +444,8 @@ export class PublicHelper {
     return await firstValueFrom(this.coreEnumService.ServiceRecordStatusEnum(1000000))
       .then((response) => {
         this.getEnumRecordStatusActionIndo = false;
-        this.cmsStoreService.setState({ type: SET_Info_Enum, payload:  response });
+        //todo: karavi fix bug
+        //this.cmsStoreService.setState({ type: SET_Info_Enum, payload:  response });
         return response;
       });
 

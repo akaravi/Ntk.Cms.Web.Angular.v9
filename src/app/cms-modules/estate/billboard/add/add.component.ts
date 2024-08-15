@@ -69,7 +69,7 @@ export class EstateBillboardAddComponent extends AddBaseComponent<EstateBillboar
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.estateBillboardService.ServiceAdd(this.dataModel).subscribe({
@@ -104,7 +104,7 @@ export class EstateBillboardAddComponent extends AddBaseComponent<EstateBillboar
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.estateBillboardService.setAccessLoad();
@@ -136,7 +136,7 @@ export class EstateBillboardAddComponent extends AddBaseComponent<EstateBillboar
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.estateBillboardService.ServiceEdit(this.dataModel).subscribe({

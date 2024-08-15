@@ -136,7 +136,7 @@ export class SmsConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteConfigDefault';
-    this.translate.get('MESSAGE.get_the_module_default_settings').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_the_module_default_settings').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService
       .ServiceSiteConfigDefault()
       .subscribe({
@@ -165,7 +165,7 @@ export class SmsConfigMainAdminComponent implements OnInit, OnDestroy {
 
 
     const pName = this.constructor.name + 'ServiceSiteConfigDefault';
-    this.translate.get('MESSAGE.Save_module_default_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Save_module_default_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService
       .ServiceSiteConfigDefaultSave(this.dataConfigSiteValuesDefaultModel)
       .subscribe({
@@ -193,7 +193,7 @@ export class SmsConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccessDefault';
-    this.translate.get('MESSAGE.get_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService
       .ServiceSiteAccessDefault()
       .subscribe({
@@ -220,7 +220,7 @@ export class SmsConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceSiteAccessDefaultSave';
-    this.translate.get('MESSAGE.Save_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Save_the_module_default_access').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService
       .ServiceSiteAccessDefaultSave(this.dataConfigSiteAccessValuesDefaultModel)
       .subscribe({
@@ -247,7 +247,7 @@ export class SmsConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceAdminMain';
-    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService
       .ServiceAdminMain()
       .subscribe({
@@ -274,7 +274,7 @@ export class SmsConfigMainAdminComponent implements OnInit, OnDestroy {
     this.formInfo.formError = '';
 
     const pName = this.constructor.name + 'ServiceAdminMain';
-    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Save_module_setting').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService
       .ServiceAdminMainSave(this.dataConfigAdminMainModel)
       .subscribe({

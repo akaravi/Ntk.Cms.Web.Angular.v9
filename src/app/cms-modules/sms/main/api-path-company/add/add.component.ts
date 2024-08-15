@@ -68,7 +68,7 @@ export class SmsMainApiPathCompanyAddComponent extends AddBaseComponent<SmsMainA
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.smsMainApiPathCompanyService.ServiceAdd(this.dataModel).subscribe({

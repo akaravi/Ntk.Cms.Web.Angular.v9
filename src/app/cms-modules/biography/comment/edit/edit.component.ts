@@ -85,7 +85,7 @@ export class BiographyCommentEditComponent extends EditBaseComponent<BiographyCo
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.biographyCommentService.setAccessLoad();
     this.biographyCommentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
@@ -114,7 +114,7 @@ export class BiographyCommentEditComponent extends EditBaseComponent<BiographyCo
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.dataModel.linkContentId = this.requestContentId;
     this.biographyCommentService.ServiceAdd(this.dataModel).subscribe({
@@ -144,7 +144,7 @@ export class BiographyCommentEditComponent extends EditBaseComponent<BiographyCo
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.biographyCommentService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;

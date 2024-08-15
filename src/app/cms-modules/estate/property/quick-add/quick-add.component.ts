@@ -113,7 +113,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
   getEstateContractType(): void {
     const pName = this.constructor.name + 'getEstateContractType';
     this.translate.get('TITLE.Get_Estate_Contract_Type').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estateContractTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
@@ -127,7 +127,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
   getEstatePropertyType(): void {
     const pName = this.constructor.name + 'getEstatePropertyType';
     this.translate.get('TITLE.Get_Estate_property_Type').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyTypeService.ServiceGetAll(null).subscribe({
       next: (ret) => {
@@ -141,7 +141,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
   getEstatePropertyTypeLanduse(): void {
     const pName = this.constructor.name + 'getEstatePropertyType';
     this.translate.get('TITLE.Get_Estate_user_Type').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyTypeLanduseService.ServiceGetAll(null).subscribe({
       next: (ret) => {
@@ -163,7 +163,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
     this.translate.get('TITLE.Get_Details').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
@@ -189,7 +189,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
 
     const pName = this.constructor.name + 'ServiceAdd';
     this.translate.get('TITLE.Property_registration').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {

@@ -84,7 +84,7 @@ export class EstatePropertySupplierCategoryEditComponent extends EditBaseCompone
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.estatePropertySupplierCategoryService.setAccessLoad();
@@ -118,7 +118,7 @@ export class EstatePropertySupplierCategoryEditComponent extends EditBaseCompone
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     const filteModelContent = new FilterModel();
@@ -158,7 +158,7 @@ export class EstatePropertySupplierCategoryEditComponent extends EditBaseCompone
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
 
     this.estatePropertySupplierCategoryService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

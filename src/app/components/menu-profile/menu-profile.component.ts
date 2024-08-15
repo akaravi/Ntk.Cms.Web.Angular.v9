@@ -15,6 +15,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class MenuProfileComponent implements OnInit {
   static nextId = 0;
   id = ++MenuProfileComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,
@@ -69,7 +70,7 @@ export class MenuProfileComponent implements OnInit {
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.loadingStatus = true;
     this.disabledAllow = true;
@@ -121,7 +122,7 @@ export class MenuProfileComponent implements OnInit {
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.loadingStatus = true;
     this.disabledAllow = true;
@@ -178,7 +179,7 @@ export class MenuProfileComponent implements OnInit {
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.loadingStatus = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe(
@@ -233,7 +234,7 @@ export class MenuProfileComponent implements OnInit {
     if (this.cmsToastrService) this.cmsToastrService.toastr.info(message, title);
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.loadingStatus = true;
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
@@ -271,7 +272,7 @@ export class MenuProfileComponent implements OnInit {
   async onActionLogout() {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Sign_out_of_user_account').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.cmsToastrService.typeOrderActionLogout();
 

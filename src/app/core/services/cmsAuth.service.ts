@@ -1,5 +1,4 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import { TokenInfoModel } from 'ntk-cms-api';
 import { BehaviorSubject, Observable, Subscription, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,14 +11,14 @@ export class CmsAuthService implements OnDestroy {
   private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 
   // public fields
-  currentUser$: Observable<TokenInfoModel>;
-  currentUserSubject: BehaviorSubject<TokenInfoModel>;
-  isLoading$: Observable<boolean>;
+  currentUser$: Observable<TokenInfoModel> = new Observable<TokenInfoModel>();
+  currentUserSubject: BehaviorSubject<TokenInfoModel> = new BehaviorSubject<TokenInfoModel>(new TokenInfoModel());
+  isLoading$: Observable<boolean> = new Observable<boolean>();
+  isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   get currentUserValue(): TokenInfoModel {
     return this.currentUserSubject.value;
   }
-
-  constructor(private router: Router) {
+  constructor() {
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
     this.currentUserSubject = new BehaviorSubject<TokenInfoModel>(undefined);
     this.currentUser$ = this.currentUserSubject.asObservable();
@@ -28,7 +27,7 @@ export class CmsAuthService implements OnDestroy {
     // this.unsubscribe.push(subscr);
   }
   private authLocalStorageToken = `${environment.appVersion}-${environment.authKey}`;
-  isLoadingSubject: BehaviorSubject<boolean>;
+
   getUserByToken(): any {
     const auth = this.getAuthFromLocalStorage();
     if (!auth || !auth.token) {

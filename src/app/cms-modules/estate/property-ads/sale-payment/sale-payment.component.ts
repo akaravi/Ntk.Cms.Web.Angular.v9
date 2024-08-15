@@ -88,7 +88,7 @@ export class EstatePropertyAdsSalePaymentComponent implements OnInit {
     this.viewCalculate = false;
     const pName = this.constructor.name + 'ServiceOrderCalculate';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyAdsService.ServiceOrderCalculate(this.dataModelCalculate).subscribe({
       next: (ret) => {
@@ -112,7 +112,7 @@ export class EstatePropertyAdsSalePaymentComponent implements OnInit {
   DataPayment(): void {
     const pName = this.constructor.name + 'ServiceOrderPayment';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyAdsService.ServiceOrderPayment(this.dataModelPayment).subscribe({
       next: (ret) => {

@@ -105,7 +105,7 @@ export class CoreModuleTagEditComponent extends EditBaseComponent<CoreModuleTagS
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreModuleTagService.setAccessLoad();
@@ -137,7 +137,7 @@ export class CoreModuleTagEditComponent extends EditBaseComponent<CoreModuleTagS
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
 
     if (this.requestParentId > 0) {
       this.dataModel.linkCategoryId = this.requestParentId;
@@ -170,7 +170,7 @@ export class CoreModuleTagEditComponent extends EditBaseComponent<CoreModuleTagS
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
 
     this.coreModuleTagService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

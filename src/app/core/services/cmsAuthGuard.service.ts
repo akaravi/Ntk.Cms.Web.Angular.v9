@@ -14,6 +14,7 @@ export class CmsAuthGuard implements OnDestroy {
     private cmsStoreService: CmsStoreService,
     private router: Router) {
   }
+  debugger
   runSubscribe = false;
   subscriptions: Subscription;
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
@@ -23,7 +24,6 @@ export class CmsAuthGuard implements OnDestroy {
       //this.router.navigate(['page'], { queryParams: { returnUrl: state.url } });
       return false;
     }
-
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     let tokenInfo: TokenInfoModel = new TokenInfoModel();
     if (storeSnapshot?.tokenInfoStore) {

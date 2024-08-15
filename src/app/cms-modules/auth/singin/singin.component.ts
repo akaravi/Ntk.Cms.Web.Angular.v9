@@ -37,14 +37,17 @@ export class AuthSingInComponent implements OnInit {
     //**Token */
     this.coreAuthService.tokenInfoSubject.subscribe((value) => {
       this.publicHelper.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
-      console.log("SET_TOKEN_INFO");
+      if (environment.ProgressConsoleLog)
+        console.log("SET_TOKEN_INFO");
     })
     this.coreAuthService.tokenDeviceSubject.subscribe((value) => {
       this.publicHelper.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
-      console.log("SET_TOKEN_DEVICE");
+      if (environment.ProgressConsoleLog)
+        console.log("SET_TOKEN_DEVICE");
     })
     //**Token */
   }
+
   loadDemoTheme = environment.loadDemoTheme;
   connectionStatus = new ConnectionStatusModel();
   firstRun = true;
@@ -77,7 +80,7 @@ export class AuthSingInComponent implements OnInit {
     this.dataModel.lang = this.cmsTranslationService.getSelectedLanguage();
     const pName = this.constructor.name + '.ServiceSigninUser';
     this.translate.get('MESSAGE.login_to_user_account').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     const siteId = + localStorage.getItem('siteId');
     if (siteId > 0) {
@@ -122,7 +125,7 @@ export class AuthSingInComponent implements OnInit {
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
     this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {

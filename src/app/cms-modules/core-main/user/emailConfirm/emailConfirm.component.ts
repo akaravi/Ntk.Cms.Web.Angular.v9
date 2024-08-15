@@ -84,7 +84,7 @@ export class CoreUserEmailConfirmComponent implements OnInit {
   DataGetAccess(): void {
     const pName = this.constructor.name + 'DataGetAccess';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreUserService
@@ -142,7 +142,7 @@ export class CoreUserEmailConfirmComponent implements OnInit {
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
     this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {

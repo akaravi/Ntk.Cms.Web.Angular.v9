@@ -62,7 +62,7 @@ export class AuthForgotPasswordComponent implements OnInit {
     this.dataModelforgetPasswordEntryPinCode.mobile = this.dataModelforgetPasswordBySms.mobile;
     const pName = this.constructor.name + '.ServiceForgetPassword';
     this.translate.get('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService
       .ServiceForgetPassword(this.dataModelforgetPasswordBySms)
@@ -95,7 +95,7 @@ export class AuthForgotPasswordComponent implements OnInit {
     this.dataModelforgetPasswordEntryPinCode.email = this.dataModelforgetPasswordByEmail.email;
     const pName = this.constructor.name + '.ServiceForgetPassword';
     this.translate.get('AUTH.FORGOT.REQUEST_PASSWORD_REMINDER').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService
       .ServiceForgetPassword(this.dataModelforgetPasswordByEmail)
@@ -127,7 +127,7 @@ export class AuthForgotPasswordComponent implements OnInit {
     const pName = this.constructor.name + '.ServiceForgetPasswordEntryPinCode';
 
     this.translate.get('MESSAGE.Check_the_code_on_the_server').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService
       .ServiceForgetPasswordEntryPinCode(this.dataModelforgetPasswordEntryPinCode)
@@ -164,7 +164,7 @@ export class AuthForgotPasswordComponent implements OnInit {
     const pName = this.constructor.name + '.ServiceCaptcha';
 
     this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {

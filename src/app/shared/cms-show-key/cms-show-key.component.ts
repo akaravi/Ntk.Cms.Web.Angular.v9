@@ -18,6 +18,7 @@ export class CmsShowKeyComponent implements OnInit {
   id = ++CmsShowKeyComponent.nextId;
   requestService: IApiCmsServerBase;
   requestContentUrl = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(private cmsToastrService: CmsToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CmsShowKeyComponent>,
@@ -55,7 +56,7 @@ export class CmsShowKeyComponent implements OnInit {
   formInfo: FormInfoModel = new FormInfoModel();
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
 
     /*filter CLone*/
     this.requestService.ServiceShowKeyGetAll(this.dataModel.moduleEntityId).subscribe({
@@ -82,7 +83,7 @@ export class CmsShowKeyComponent implements OnInit {
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.requestService.ServiceShowKeyAdd(this.dataModel).subscribe({

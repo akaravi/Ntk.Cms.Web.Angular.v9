@@ -17,14 +17,6 @@ const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 // })
 @Injectable()
 export class CmsTranslationService {
-  /*
-//
-//this.translate.get('ACTION.ABOUT').subscribe((translation: string) => {
-//      console.log('Translated subscribe:', translation);
-//    });
-//
-//
-*/
   // Private properties
   private langIds: any = [];
 

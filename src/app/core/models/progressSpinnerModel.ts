@@ -11,7 +11,7 @@ export class ProgressSpinnerModel {
     /** GUID */
     this.guid = `${this.S4()}${this.S4()}-${this.S4()}-${this.S4()}-${this.S4()}-${this.S4()}${this.S4()}${this.S4()}`;
     /** GUID */
-    this.consoleLog = environment.ProgressConsoleLog;
+
     this.mode = "indeterminate";
   }
   /** GUID */
@@ -32,7 +32,7 @@ export class ProgressSpinnerModel {
   positionGloballyCenter = true;
   processRunList: string[];
   display = false;
-  consoleLog = true;
+
   guid = '';
   processInfoAll = new Map<string, ProcessInfoModel>();
 
@@ -70,7 +70,7 @@ export class ProgressSpinnerModel {
     }
 
     /** Display */
-    if (this.consoleLog) {
+    if (environment.ProgressConsoleLog) {
       console.log(this.guid, 'Start:', name, 'Globally:', this.Globally, 'Display:', this.display, 'key:', key, 'title:', model.title, 'processRunList:', this.processRunList);
     }
     if (this.cdr && !this.display) {
@@ -102,7 +102,7 @@ export class ProgressSpinnerModel {
     }
 
     /** Display */
-    if (this.consoleLog) {
+    if (environment.ProgressConsoleLog) {
       console.log(this.guid, 'Stop:', name, 'Globally:', this.Globally, 'Display:', 'Display:', this.display, 'key:', key, 'title:', model.title, 'processRunList:', this.processRunList);
     }
 

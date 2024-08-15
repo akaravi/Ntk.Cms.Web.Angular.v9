@@ -64,7 +64,7 @@ export class CoreModuleTagCategoryDeleteComponent implements OnInit {
     this.translate.get('TITLE.Loading_Information').subscribe((str: string) => { this.formInfo.formAlert = str; });
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreModuleTagCategoryService.setAccessLoad();
@@ -103,7 +103,7 @@ export class CoreModuleTagCategoryDeleteComponent implements OnInit {
     filterModel.rowPerPage = 100;
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreModuleTagCategoryService
@@ -150,7 +150,7 @@ export class CoreModuleTagCategoryDeleteComponent implements OnInit {
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.formInfo.formSubmitAllow = true;
@@ -167,7 +167,7 @@ export class CoreModuleTagCategoryDeleteComponent implements OnInit {
     this.formInfo.buttonSubmittedEnabled = false;
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreModuleTagCategoryService

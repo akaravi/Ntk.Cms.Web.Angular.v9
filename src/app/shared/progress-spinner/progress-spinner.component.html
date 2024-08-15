@@ -1,11 +1,11 @@
-<div id="id" *ngIf="optionsInfoAreaId?.length>0 && this.processService?.process?.inRunArea[optionsInfoAreaId]?.length>0"
+<div id="id" *ngIf="optionsInfoAreaId?.length>0 && process?.inRunArea[optionsInfoAreaId]"
   class="card card-style ms-0 me-0 rounded-0 preloader progressOverlay">
   <div class="spinner-border color-highlight" role="status"></div>
   <div class="content mt-5 mb-5 ms-5 me-5">
     <!-- <p class="mb-2 color-highlight font-600">{{ 'optionsData.message'|translate }}</p>
     <h2>لیست عملیات ها</h2> -->
-    <div *ngFor="let item of this.processService.process.infoArea[optionsInfoAreaId] | keyvalue"
-      class="form-check icon-check" style="background-color: rgba(0,0,0,0);">
+    <div *ngFor="let item of process?.infoArea[optionsInfoAreaId]| keyvalue" class="form-check icon-check"
+      style="background-color: rgba(0,0,0,0);">
       <input class="font-14 form-check-input" type="checkbox" value="" disabled="disabled"
         [(ngModel)]="item.value['isComplate']" id="{{item.value['guid']}}">
       <label class="font-14 form-check-label" for="{{item.value['guid']}}">{{item.value['title']}}</label>
@@ -19,19 +19,15 @@
   </div>
 </div>
 <div style="direction: ltr;">
-  optionsInfoAreaId:{{optionsInfoAreaId}}
+  Id:{{optionsInfoAreaId}}
   <br>
-  processInRunArea:{{this.processService?.process?.inRunArea|json}}
+  process$:{{process| json}}
   <br>
-  processInfoArea:{{this.processService?.process?.infoArea|json}}
+  inRunAll.inRunArea:{{process?.inRunAll | json}}
   <br>
-  process$:{{process$| async | json}}
+  infoAll:{{process?.infoAll | json}}
   <br>
-  process$.inRunArea:{{(process$| async)?.inRunAll | json}}
+  inRunArea:{{process?.inRunArea[optionsInfoAreaId] }}
   <br>
-  process$.infoArea:{{(process$| async)?.infoAll | json}}
-  <br>
-  process$.inRunArea:{{(process$| async)?.inRunArea[optionsInfoAreaId] | json}}
-  <br>
-  process$.infoArea:{{(process$| async)?.infoArea[optionsInfoAreaId] | json}}
+  infoArea:{{process?.infoArea[optionsInfoAreaId] | json}}
 </div>

@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 export class CmsLinkToComponent implements OnInit {
   static nextId = 0;
   id = ++CmsLinkToComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(private cmsToastrService: CmsToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CmsLinkToComponent>,
@@ -136,7 +137,7 @@ export class CmsLinkToComponent implements OnInit {
     this.formInfo.formSubmitAllow = false;
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.formInfo.formAlert = '';

@@ -64,7 +64,7 @@ export class CoreSiteSelectionComponent implements OnInit {
   DataGetAll(): void {
     const pName = this.constructor.name + 'ServiceGetAll';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreSiteUserService.ServiceGetAllSiteCurrentUser().subscribe({
@@ -115,7 +115,7 @@ export class CoreSiteSelectionComponent implements OnInit {
 
     const pName = this.constructor.name + '.ServiceRenewToken';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreAuthService.ServiceRenewToken(authModel).subscribe({
@@ -157,7 +157,7 @@ export class CoreSiteSelectionComponent implements OnInit {
 
       const pName = this.constructor.name + '.onActionAddFirstSite';
       this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-        this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+        this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
       });
 
       this.coreAuthService.ServiceRenewToken(authModel).subscribe({

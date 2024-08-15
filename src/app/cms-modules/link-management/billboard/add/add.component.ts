@@ -127,7 +127,7 @@ export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkMa
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
 
@@ -168,7 +168,7 @@ export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkMa
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
 
@@ -203,7 +203,7 @@ export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkMa
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
 
@@ -217,7 +217,7 @@ export class LinkManagementBillboardAddComponent extends AddBaseComponent<LinkMa
           if (ret.isSuccess) {
             /**Get One */
             this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-              this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+              this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
             });
             this.linkManagementBillboardService
               .ServiceGetOneById(this.dataModelResult.item.id)

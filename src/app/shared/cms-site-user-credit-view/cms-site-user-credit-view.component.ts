@@ -24,6 +24,8 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CmsSiteUserCreditViewComponent implements OnInit {
   static nextId = 0;
   id = ++CmsSiteUserCreditViewComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
+
   // requestLinkSiteId = 0;
   // requestLinkUserId = 0;
   requestLinkModuleId = 0;
@@ -87,7 +89,7 @@ export class CmsSiteUserCreditViewComponent implements OnInit {
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreModuleSiteUserCreditService.setAccessLoad();
@@ -120,7 +122,7 @@ export class CmsSiteUserCreditViewComponent implements OnInit {
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreModuleService.setAccessLoad();

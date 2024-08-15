@@ -134,7 +134,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new ApplicationAppModel());
     const pName = this.constructor.name + 'contentService.ServiceGetAll';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.filteModelContent.accessLoad = true;
     const filter = new FilterDataModel();
     /*filter CLone*/
@@ -278,7 +278,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
         if (confirmed) {
           const pName = this.constructor.name + 'contentService.ServiceDelete';
           this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+            this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
           });
 
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
@@ -315,7 +315,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     statist.set('Active', 0);
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
@@ -430,7 +430,7 @@ export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAp
     this.onActionTableRowSelect(mode);
     const pName = this.constructor.name + 'contentService.ServiceBuild';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.contentService.ServiceBuild(this.tableRowSelected.id).subscribe({
       next: (ret) => {

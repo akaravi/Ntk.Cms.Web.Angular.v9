@@ -18,6 +18,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class CmsUserGroupSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++CmsUserGroupSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
@@ -120,7 +121,7 @@ export class CmsUserGroupSelectorComponent implements OnInit {
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))

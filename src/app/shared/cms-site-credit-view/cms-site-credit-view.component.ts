@@ -24,6 +24,7 @@ export class CmsSiteCreditViewComponent implements OnInit {
   static nextId = 0;
   id = ++CmsSiteCreditViewComponent.nextId;
   requestLinkModuleId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CmsSiteCreditViewComponent>,
@@ -80,7 +81,7 @@ export class CmsSiteCreditViewComponent implements OnInit {
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreModuleSiteCreditService.setAccessLoad();
@@ -116,7 +117,7 @@ export class CmsSiteCreditViewComponent implements OnInit {
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreModuleService.setAccessLoad();

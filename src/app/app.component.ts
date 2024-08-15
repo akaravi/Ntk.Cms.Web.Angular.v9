@@ -37,6 +37,7 @@ import { ThemeService } from './core/services/theme.service';
 
 export class AppComponent implements OnInit {
   title = 'ntk-cms-web';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private router: Router,
     private titleService: Title,
@@ -56,7 +57,7 @@ export class AppComponent implements OnInit {
     public pageInfo: PageInfoService,
     public processService: ProcessService,
   ) {
-    debugger
+    //debugger
     this.themeService.updateInnerSize();
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
@@ -217,7 +218,7 @@ export class AppComponent implements OnInit {
   getServiceVer(): void {
     const pName = this.constructor.name + 'ServiceIp';
 
-    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Receiving_Information_From_The_Server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.configService.ServiceIp().subscribe({
       next: (ret) => {
         this.publicHelper.appServerVersion = ret.appVersion

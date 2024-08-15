@@ -9,7 +9,7 @@ import { Actions, initialState, ReducerCmsStore, stateReducer } from './reducer.
 export class CmsStoreService {
   private state: ReducerCmsStore;
   //private sub: Subject<AppStoreModel> = new Subject<AppStoreModel>();
-  private stateSubject: BehaviorSubject<ReducerCmsStore>;
+  private stateSubject: BehaviorSubject<ReducerCmsStore> = new BehaviorSubject(initialState);
   constructor() {
     this.state = initialState;
     this.stateSubject = new BehaviorSubject(this.state);

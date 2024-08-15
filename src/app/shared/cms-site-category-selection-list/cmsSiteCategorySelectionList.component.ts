@@ -13,6 +13,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CmsSiteCategorySelectionListComponent implements OnInit {
   static nextId = 0;
   id = ++CmsSiteCategorySelectionListComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public categoryService: CoreSiteCategoryService,
@@ -56,7 +57,7 @@ export class CmsSiteCategorySelectionListComponent implements OnInit {
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.categoryService.ServiceGetAll(filterModel).subscribe({

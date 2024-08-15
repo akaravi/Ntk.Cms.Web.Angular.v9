@@ -19,6 +19,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class CmsSiteSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++CmsSiteSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,
@@ -122,7 +123,7 @@ export class CmsSiteSelectorComponent implements OnInit {
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.List_of_authorized_sites').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))

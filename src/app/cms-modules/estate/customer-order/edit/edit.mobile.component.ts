@@ -140,7 +140,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   DataEditContent(actionSubmit = false): void {
 
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.estateCustomerOrderService.setAccessLoad
     this.estateCustomerOrderService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -210,7 +210,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     // var id = '';
     // if (this.dataModelResult && this.dataModelResult.item && this.dataModelResult.item.id && this.dataModelResult.item.id.length > 0) {
@@ -263,7 +263,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     const filterModel = new FilterModel();
     this.estateContractTypeService.ServiceGetAll(filterModel).subscribe({
@@ -292,7 +292,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     const filterModel = new FilterModel();
     this.estatePropertyTypeUsageService.ServiceGetAll(filterModel).subscribe({
@@ -313,7 +313,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   DataGetAllPropertyTypeLanduse(): void {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     const filterModel = new FilterModel();
 
@@ -359,7 +359,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
     this.dataModel.propertyDetailGroups = [];
     const pName = this.constructor.name + 'DataGetPropertyDetailGroup';
     this.translate.get('MESSAGE.Get_detailed_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.estatePropertyDetailGroupService.ServiceGetAll(filteModelProperty)
       .subscribe({
@@ -399,7 +399,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.dataModelEstatePropertyResult = new ErrorExceptionResult<EstatePropertyModel>();
     const filterModel = new EstatePropertyFilterModel();
@@ -434,7 +434,7 @@ export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<Es
   DataSend(): void {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.dataModelActionSend.id = this.dataModel.id;
     this.estateCustomerOrderService.ServiceActionSendSms(this.dataModelActionSend).subscribe({

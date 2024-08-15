@@ -19,7 +19,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MenuMainComponent implements OnInit {
   env = environment;
-
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public tokenHelper: TokenHelper,
     public publicHelper: PublicHelper,
@@ -65,7 +65,7 @@ export class MenuMainComponent implements OnInit {
   }
   DataGetCpMenu(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.coreCpMainMenuService.ServiceGetAllMenu(null).subscribe({
       next: (ret) => {
 
@@ -97,7 +97,7 @@ export class MenuMainComponent implements OnInit {
     if (!item)
       return;
     const pName = this.constructor.name + "menu";
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     if (item.children?.length > 0) {
       //setTimeout(() => {
       if (event?.ctrlKey) {
@@ -128,7 +128,7 @@ export class MenuMainComponent implements OnInit {
   async onActionLogout() {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Sign_out_of_user_account').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.cmsToastrService.typeOrderActionLogout();
 

@@ -15,6 +15,7 @@ import { ComponentOptionSearchModel } from "./base/componentOptionSearchModel";
 import { ComponentOptionStatistModel } from "./base/componentOptionStatistModel";
 //IApiCmsServerBase
 export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extends BaseEntity<TKey>, TKey> {
+  constructorInfoAreaId = this.constructor.name;
   constructor(public baseService: TService, public item: TModel, public publicHelper: PublicHelper, public tokenHelper: TokenHelper, public translate: TranslateService,
   ) {
     publicHelper.pageInfo.updateContentService(baseService);
@@ -326,7 +327,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   DataGetAccess(): void {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.baseService
       .ServiceViewModel()

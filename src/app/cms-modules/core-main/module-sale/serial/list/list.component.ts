@@ -118,7 +118,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
     this.tableRowsSelected = [];
     this.onActionTableRowSelect(new CoreModuleSaleSerialModel());
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.filteModelContent.accessLoad = true;
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
@@ -294,7 +294,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
         if (confirmed) {
           const pName = this.constructor.name + 'main';
           this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-            this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+            this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
           });
 
           this.contentService.ServiceDelete(this.tableRowSelected.id).subscribe({
@@ -343,7 +343,7 @@ export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreMod
     this.translate.get('MESSAGE.Active').subscribe((str: string) => { statist.set(str, 0); });
     this.translate.get('MESSAGE.All').subscribe((str: string) => { statist.set(str, 0); });
     const pName = this.constructor.name + '.ServiceStatist';
-    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Get_the_statist').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.contentService.ServiceGetCount(this.filteModelContent).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {

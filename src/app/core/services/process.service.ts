@@ -1,7 +1,7 @@
 
 import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { ProcessInfoModel } from 'ntk-cms-api';
-import { BehaviorSubject, distinctUntilChanged, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ProcessModel } from '../models/processModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
@@ -14,7 +14,6 @@ export class ProcessService {
   constructor(
     public cmsStoreService: CmsStoreService,
   ) {
-    this.consoleLog = environment.ProgressConsoleLog;
     this.process = new ProcessModel();
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     if (storeSnapshot.processInfoStore) {
@@ -22,7 +21,7 @@ export class ProcessService {
     }
     this.processSubject = new BehaviorSubject(this.process);
   }
-  consoleLog = true;
+
   public cmsApiStoreSubscribe: Subscription;
   public cdr: ChangeDetectorRef;
   public processSubject: BehaviorSubject<ProcessModel>;
@@ -46,17 +45,13 @@ export class ProcessService {
 
   getProcessInfoOnChange(): Observable<Map<string, ProcessInfoModel>> {
     return this.cmsStoreService.getState((state) => {
-      if (this.consoleLog)
+      if (environment.ProgressConsoleLog)
         console.log("getProcessInfoOnChange ");
 
       return state.processInfoStore;
     });
   }
-  getState(): Observable<ProcessModel> {
-    console.log('********************getState***********************1111111111111111111******************************');
 
-    return (this.processSubject.pipe(distinctUntilChanged()));
-  }
   /*
   /process info
   /
@@ -66,7 +61,7 @@ export class ProcessService {
     model.isComplate = false;
     model.title = title;
     model.infoAreaId = infoAreaId;
-    if (this.consoleLog)
+    if (environment.ProgressConsoleLog)
       console.log("#### processStart #### " + key + " " + JSON.stringify(model));
 
     /** processInRun */
@@ -77,8 +72,13 @@ export class ProcessService {
     this.process.infoArea[model.infoAreaId].set(key, model);
     this.process.inRunArea[model.infoAreaId] = true;
     /** processInRun */
+    setTimeout(() => {
+      const aaa = this.process;
+      if (environment.ProgressConsoleLog)
+        console.log("value in processStart ", aaa)
+      this.processSubject.next(aaa);
+    }, 1);
 
-    this.processSubject.next(this.process);
     this.cmsStoreService.setState({ type: SET_Process_Info, payload: this.process.infoAll });
   }
   public processStop(key: string, isSuccess = true): void {
@@ -89,32 +89,38 @@ export class ProcessService {
     }
     model.isComplate = true;
     model.isSuccess = isSuccess;
-    if (this.consoleLog)
+    if (environment.ProgressConsoleLog)
       console.log("#### processStop #### " + key + " " + JSON.stringify(model));
     this.process.infoAll.set(key, model);
     this.process.infoArea[model.infoAreaId].set(key, model);
-
     /** processInRun */
-    var retOutInRun = false;
-    var retOutInRunArea: boolean[] = [];
+    var retOutInRunAll = false;
+    var retOutInRunArea = false;
     for (const [key, value] of this.process.infoAll) {
       if (value && value.isComplate === false) {
-        retOutInRun = true;
+        retOutInRunAll = true;
       }
-      if (value && value.isComplate === false && retOutInRunArea[value.infoAreaId] === false) {
-        retOutInRun = true;
-        retOutInRunArea[value.infoAreaId] = true;
+      if (value && value.isComplate === false && value.infoAreaId === model.infoAreaId) {
+        retOutInRunArea = true;
       }
     }
-    if (retOutInRun) {
-      this.process.inRunAll = retOutInRun;
-      this.process.inRunArea = retOutInRunArea;
-      this.processSubject.next(this.process);
+    if (retOutInRunAll) {
+      this.process.inRunAll = retOutInRunAll;
+      this.process.inRunArea[model.infoAreaId] = retOutInRunArea;
+      setTimeout(() => {
+        const retValue = this.process;
+        if (environment.ProgressConsoleLog)
+          console.log("value in service ", retValue)
+        this.processSubject.next(retValue);
+      }, 1);
     } else {
       setTimeout(() => {
-        this.process.inRunAll = retOutInRun;
-        this.process.inRunArea = retOutInRunArea;
-        this.processSubject.next(this.process);
+        this.process.inRunAll = retOutInRunAll;
+        this.process.inRunArea[model.infoAreaId] = retOutInRunArea;
+        const retValue = this.process;
+        if (environment.ProgressConsoleLog)
+          console.log("value in processStop ", retValue)
+        this.processSubject.next(retValue);
       }, 1000);
     }
     /** processInRun */

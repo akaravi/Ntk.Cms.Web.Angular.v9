@@ -10,7 +10,7 @@ import {
 import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { SET_Info_Enum, SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
+import { SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
 import { ThemeService } from '../services/theme.service';
 const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 @Injectable({
@@ -28,11 +28,13 @@ export class TokenHelper implements OnDestroy {
     //**Token */
     this.coreAuthService.tokenInfoSubject.subscribe((value) => {
       this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
-      console.log("SET_TOKEN_INFO");
+      if (environment.consoleLog)
+        console.log("SET_TOKEN_INFO");
     })
     this.coreAuthService.tokenDeviceSubject.subscribe((value) => {
       this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
-      console.log("SET_TOKEN_DEVICE");
+      if (environment.consoleLog)
+        console.log("SET_TOKEN_DEVICE");
     })
     //**Token */
   }
@@ -89,9 +91,10 @@ export class TokenHelper implements OnDestroy {
   }
   getCurrentTokenOnChange(): Observable<TokenInfoModel> {
     return this.cmsStoreService.getState((state) => {
-      if (this.consoleLog)
+      if (environment.consoleLog)
         console.log("getCurrentTokenOnChange");
-      this.cmsStoreService.setState({ type: SET_Info_Enum, payload: null });
+      //todo: karavi fix bug
+      //this.cmsStoreService.setState({ type: SET_Info_Enum, payload: new ErrorExceptionResult<InfoEnumModel> });
       this.tokenInfo = state.tokenInfoStore;
       this.setDirectionThemeBylanguage(this.tokenInfo.language);
       this.CheckIsAdmin();

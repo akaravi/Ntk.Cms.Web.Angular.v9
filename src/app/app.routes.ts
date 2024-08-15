@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CmsAuthGuard } from './core/services/cmsAuthGuard.service';
 
-
 export const routes: Routes = [
-
   {
     path: 'error',
     loadChildren: () =>

@@ -97,7 +97,7 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
     }
     const pName = this.constructor.name + '.ServiceGetAll';
     this.translate.get('MESSAGE.Request_new_access').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.coreSiteCategoryCmsModuleService.ServiceGetAll(filterModel).subscribe({
       next: (ret) => {

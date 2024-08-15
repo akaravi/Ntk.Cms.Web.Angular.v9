@@ -15,6 +15,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class PageMenuComponent implements OnInit {
   requestLinkParentId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public tokenHelper: TokenHelper,
     private coreCpMainMenuService: CoreCpMainMenuService,
@@ -65,7 +66,7 @@ export class PageMenuComponent implements OnInit {
   }
   DataGetCpMenu(): void {
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.coreCpMainMenuService.ServiceGetAllMenu(null).subscribe({
       next: (ret) => {
 
@@ -98,7 +99,7 @@ export class PageMenuComponent implements OnInit {
     if (!item)
       return;
     const pName = this.constructor.name + "menu";
-    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     if (item.children?.length > 0) {
       if (event?.ctrlKey) {
         window.open('/#/menu/LinkParentId/' + item.id, "_blank");

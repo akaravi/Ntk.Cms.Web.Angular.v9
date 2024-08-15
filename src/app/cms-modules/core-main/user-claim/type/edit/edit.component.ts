@@ -102,7 +102,7 @@ export class CoreUserClaimTypeEditComponent extends EditBaseComponent<CoreUserCl
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreUserClaimTypeService.setAccessLoad();
@@ -142,7 +142,7 @@ export class CoreUserClaimTypeEditComponent extends EditBaseComponent<CoreUserCl
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'DataGetAllCoreUserClaimType';
     this.translate.get('MESSAGE.Get_the_list_of_documents').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     const filteModelContent = new FilterModel();
     const filter = new FilterDataModel();
@@ -178,7 +178,7 @@ export class CoreUserClaimTypeEditComponent extends EditBaseComponent<CoreUserCl
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
 
     this.coreUserClaimTypeService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {

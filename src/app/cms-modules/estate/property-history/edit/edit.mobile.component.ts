@@ -115,7 +115,7 @@ export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.estatePropertyHistoryService.setAccessLoad();
@@ -183,7 +183,7 @@ export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<
     }
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
 
@@ -218,7 +218,7 @@ export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<
   DataGetAllActivityType(): void {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     const filterModel = new FilterModel();
     this.estateActivityTypeService.ServiceGetAll(filterModel).subscribe({

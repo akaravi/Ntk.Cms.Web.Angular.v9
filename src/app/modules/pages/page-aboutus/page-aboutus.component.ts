@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PageAboutusComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(public pageInfo: PageInfoService,
     public translate: TranslateService,
     private tokenHelper: TokenHelper,
@@ -54,7 +55,7 @@ export class PageAboutusComponent implements OnInit {
   SiteInfo(linkSiteId: number): void {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.coreSiteService.ServiceMasterSiteInfo(linkSiteId).subscribe({

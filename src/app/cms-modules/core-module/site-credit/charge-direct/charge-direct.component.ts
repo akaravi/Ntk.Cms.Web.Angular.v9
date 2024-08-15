@@ -52,7 +52,7 @@ export class CoreModuleSiteCreditChargeDirectComponent implements OnInit {
   onActionButtonAdd(): void {
     const pName = this.constructor.name + 'ServiceChargeDirect';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.service.ServiceChargeDirect(this.dataModel).subscribe({
       next: (ret) => {

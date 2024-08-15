@@ -89,7 +89,7 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
     this.smsMainApiPathService.setAccessLoad();
@@ -133,7 +133,7 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
     this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.formInfo.formAlert = str; });
     this.formInfo.formError = '';
     const pName = this.constructor.name + 'main';
-    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
+    this.translate.get('MESSAGE.sending_information_to_the_server').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
 
     this.smsMainApiPathService.ServiceEdit(this.dataModel).subscribe({
       next: (ret) => {
@@ -162,7 +162,7 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
   onActionButtonGetBalance(): any {
     const pName = this.constructor.name + 'GetBalance';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
-      this.publicHelper.processService.processStart(pName, str, this.constructor.name);
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     var modelData = new SmsApiGetBalanceDtoModel();
     modelData.linkApiPathId = this.requestId;
