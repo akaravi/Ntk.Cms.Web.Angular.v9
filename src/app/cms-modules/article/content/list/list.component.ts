@@ -28,6 +28,7 @@ import { ArticleContentDeleteComponent } from '../delete/delete.component';
 })
 export class ArticleContentListComponent extends ListBaseComponent<ArticleContentService, ArticleContentModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public publicHelper: PublicHelper,
     public contentService: ArticleContentService,

@@ -32,6 +32,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
   implements OnInit, OnDestroy {
   requestLinkPrivateSiteConfigId = 0;
   requestLinkUserId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(DOCUMENT) private document: any,
     public contentService: BankPaymentTransactionService,

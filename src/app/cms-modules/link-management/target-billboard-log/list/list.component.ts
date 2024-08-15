@@ -30,6 +30,7 @@ export class LinkManagementTargetBillboardLogListComponent extends ListBaseCompo
   requestLinkManagementBillboardId = 0;
   requestLinkManagementTargetId = 0;
   requestKey = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: LinkManagementTargetBillboardLogService,
     private cmsToastrService: CmsToastrService,

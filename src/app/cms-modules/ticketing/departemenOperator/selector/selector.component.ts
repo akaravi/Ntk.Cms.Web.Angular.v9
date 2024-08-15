@@ -20,6 +20,7 @@ export class TicketingDepartemenOperatorSelectorComponent implements OnInit {
 
   static nextId = 0;
   id = ++TicketingDepartemenOperatorSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,

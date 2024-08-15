@@ -36,6 +36,7 @@ import { LinkManagementBillboardPatternEditComponent } from '../edit/edit.compon
   templateUrl: './tree.component.html',
 })
 export class LinkManagementBillboardPatternTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

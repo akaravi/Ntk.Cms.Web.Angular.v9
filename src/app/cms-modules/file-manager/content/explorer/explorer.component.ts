@@ -11,15 +11,16 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 })
 export class FileContentExplorerComponent implements OnInit {
 
-  constructor(public publicHelper: PublicHelper,  private tokenHelper: TokenHelper) {
+  constructorInfoAreaId = this.constructor.name;
+  constructor(public publicHelper: PublicHelper, private tokenHelper: TokenHelper) {
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.tokenHelper.getCurrentToken().then((value) => {
-      this.tokenInfo=value;
-      this.language=  this.tokenInfo.language;
-    });      
+      this.tokenInfo = value;
+      this.language = this.tokenInfo.language;
+    });
   }
   tokenInfo = new TokenInfoModel();
-  language='en';
+  language = 'en';
   fileManagerOpenForm = true;
   fileManagerTree: TreeModel;
   selectFileType = [];

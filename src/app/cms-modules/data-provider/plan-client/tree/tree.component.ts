@@ -33,6 +33,7 @@ import { DataProviderPlanClientEditComponent } from '../edit/edit.component';
   templateUrl: './tree.component.html',
 })
 export class DataProviderPlanClientTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

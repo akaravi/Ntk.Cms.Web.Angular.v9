@@ -29,6 +29,7 @@ import { DataProviderPlanPriceEditComponent } from '../edit/edit.component';
 export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataProviderPlanPriceService, DataProviderPlanPriceModel, number>
   implements OnInit, OnDestroy {
   requestLinkPlanId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: DataProviderPlanPriceService,
     private cmsToastrService: CmsToastrService,

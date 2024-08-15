@@ -25,6 +25,7 @@ export class DonateTargetPeriodChargePaymentComponent implements OnInit {
   requestsupportPayment = 0;
   requestLinkTargetPeriodId = 0;
   requestBankPrivateMaster = false;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     @Inject(DOCUMENT) private document: any,

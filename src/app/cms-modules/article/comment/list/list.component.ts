@@ -35,6 +35,7 @@ import { ArticleCommentEditComponent } from '../edit/edit.component';
 })
 export class ArticleCommentListComponent extends ListBaseComponent<ArticleCommentService, ArticleCommentModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private commentService: ArticleCommentService,
     public contentService: ArticleContentService,

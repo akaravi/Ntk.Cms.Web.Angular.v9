@@ -21,6 +21,7 @@ class chipModel {
 export class EstatePropertyCompleteComponent implements OnInit {
   static nextId = 0;
   id = ++EstatePropertyCompleteComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public service: EstatePropertyService,
     private cmsToastrService: CmsToastrService,

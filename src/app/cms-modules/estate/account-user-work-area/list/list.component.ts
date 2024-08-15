@@ -24,6 +24,7 @@ import { EstateAccountUserWorkAreaAddComponent } from '../add/add.component';
   styleUrls: ['./list.component.scss']
 })
 export class EstateAccountUserWorkAreaListComponent extends ListBaseComponent<EstateAccountUserWorkAreaService, EstateAccountUserWorkAreaModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstateAccountUserWorkAreaService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

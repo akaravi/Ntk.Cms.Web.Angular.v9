@@ -24,6 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswerService, TicketingAnswerModel, number> implements OnInit {
   requestLinkTaskId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<TicketingAnswerAddComponent>,

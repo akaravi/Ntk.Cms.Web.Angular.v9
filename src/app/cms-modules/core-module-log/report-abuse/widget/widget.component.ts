@@ -13,6 +13,7 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
 export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: CoreModuleLogReportAbuseService,
     private cdr: ChangeDetectorRef,

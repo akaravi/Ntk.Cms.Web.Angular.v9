@@ -19,6 +19,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class EstatePropertyTypeLanduseSelectorComponent implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,

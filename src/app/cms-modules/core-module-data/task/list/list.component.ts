@@ -28,6 +28,7 @@ import { CoreModuleDataTaskViewComponent } from '../view/view.component';
 export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModuleDataTaskService, CoreModuleDataTaskModel, string>
   implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreEnumService: CoreEnumService,
     public contentService: CoreModuleDataTaskService,

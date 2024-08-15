@@ -27,6 +27,7 @@ import { CoreUserClaimTypeEditComponent } from '../edit/edit.component';
 })
 export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserClaimTypeService, CoreUserClaimTypeModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreUserClaimTypeService,
     private cmsToastrService: CmsToastrService,

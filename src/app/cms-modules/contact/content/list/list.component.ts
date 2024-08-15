@@ -28,6 +28,7 @@ import { ContactContentEditComponent } from '../edit/edit.component';
 export class ContactContentListComponent extends ListBaseComponent<ContactContentService, ContactContentModel, string>
   implements OnInit, OnDestroy {
   requestLinkCategoryId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ContactContentService,
     private cmsToastrService: CmsToastrService,

@@ -30,6 +30,7 @@ export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogN
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreEnumService: CoreEnumService,
     private contentService: CoreLogNotificationService,

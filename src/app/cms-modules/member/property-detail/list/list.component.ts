@@ -25,6 +25,7 @@ import { MemberPropertyDetailEditComponent } from '../edit/edit.component';
 })
 export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberPropertyDetailService, MemberPropertyDetailModel, number> implements OnInit, OnDestroy {
   requestLinkPropertyTypeId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: MemberPropertyDetailService,
     private memberPropertyDetailGroupService: MemberPropertyDetailGroupService,

@@ -15,6 +15,7 @@ import { DonateTargetPeriodChargePaymentComponent } from '../charge-payment/char
 })
 export class DonateTargetPeriodChargeComponent implements OnInit {
     requestLinkTargetPeriodId = 0;
+    constructorInfoAreaId = this.constructor.name;
     constructor(
         @Inject(DOCUMENT) private document: any,
         private activatedRoute: ActivatedRoute,

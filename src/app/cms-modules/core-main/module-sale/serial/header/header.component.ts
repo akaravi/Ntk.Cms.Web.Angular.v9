@@ -15,6 +15,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./header.component.scss'],
 })
 export class CoreModuleSaleSerialHeaderComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public coreModuleSaleSerialService: CoreModuleSaleSerialService,

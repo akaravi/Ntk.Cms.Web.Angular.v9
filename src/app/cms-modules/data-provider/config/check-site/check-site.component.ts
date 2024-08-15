@@ -19,6 +19,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class DataProviderConfigCheckSiteComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: DataProviderConfigurationService,
     private activatedRoute: ActivatedRoute,

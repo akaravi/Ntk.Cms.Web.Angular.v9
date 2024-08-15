@@ -26,6 +26,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class TicketingTaskEditComponent extends EditBaseComponent<TicketingTaskService, TicketingTaskModel, number>
   implements OnInit {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private activatedRoute: ActivatedRoute,

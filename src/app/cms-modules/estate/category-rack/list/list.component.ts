@@ -25,6 +25,7 @@ import { EstateCategoryRackEditComponent } from '../edit/edit.component';
   styleUrls: ['list.component.scss']
 })
 export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCategoryRackService, EstateCategoryRackModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstateCategoryRackService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

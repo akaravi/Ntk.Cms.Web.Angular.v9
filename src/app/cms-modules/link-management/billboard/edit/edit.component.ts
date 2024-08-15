@@ -28,6 +28,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 export class LinkManagementBillboardEditComponent extends EditBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number>
   implements OnInit {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public publicHelper: PublicHelper,

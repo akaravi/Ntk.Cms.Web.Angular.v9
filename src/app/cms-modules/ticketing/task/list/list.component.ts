@@ -29,6 +29,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
   requestDepartemenId = 0;
   requestLinkCmsUserId = 0;
   requestTicketStatus = -1;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: TicketingTaskService,
     private activatedRoute: ActivatedRoute,

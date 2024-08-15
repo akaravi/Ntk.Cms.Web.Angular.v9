@@ -23,6 +23,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class TicketingTaskAddComponent extends AddBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit {
   requestLinkDepartemenId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public publicHelper: PublicHelper,

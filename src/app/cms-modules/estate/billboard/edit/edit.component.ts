@@ -27,6 +27,7 @@ import { EstatePropertyListComponent } from '../../property/list/list.component'
 export class EstateBillboardEditComponent extends EditBaseComponent<EstateBillboardService, EstateBillboardModel, string>
   implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private router: Router,
     public estatePropertyDetailGroupService: EstatePropertyDetailGroupService,

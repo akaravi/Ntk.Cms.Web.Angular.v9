@@ -24,6 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 })
 export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private ticketingFaqService: TicketingFaqService,
     private ticketingDepartemenService: TicketingDepartemenService,

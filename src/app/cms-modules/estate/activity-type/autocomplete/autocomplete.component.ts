@@ -19,6 +19,7 @@ class chipModel {
   templateUrl: './autocomplete.component.html'
 })
 export class EstateActivityTypeCompleteComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public service: EstateActivityTypeService,
     private cmsToastrService: CmsToastrService,

@@ -27,6 +27,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 })
 export class ApplicationIntroListComponent extends ListBaseComponent<ApplicationIntroService, ApplicationIntroModel, number> implements OnInit, OnDestroy {
   requestLinkApplicationId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApplicationIntroService,
     private activatedRoute: ActivatedRoute,

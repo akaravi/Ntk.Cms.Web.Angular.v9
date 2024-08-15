@@ -30,6 +30,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
   templateUrl: './tree.component.html',
 })
 export class CoreSiteCategoryCmsModuleTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

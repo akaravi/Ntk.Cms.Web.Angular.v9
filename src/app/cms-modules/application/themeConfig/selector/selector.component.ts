@@ -20,6 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class ApplicationThemeConfigSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++ApplicationThemeConfigSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,

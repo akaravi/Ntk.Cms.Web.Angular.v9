@@ -29,6 +29,7 @@ import { BankPaymentTransactionLogViewComponent } from '../view/view.component';
 })
 export class BankPaymentTransactionLogListComponent extends ListBaseComponent<BankPaymentTransactionLogService, BankPaymentTransactionLogModel, number> implements OnInit, OnDestroy {
   requestLinkTransactionId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: BankPaymentTransactionLogService,
     private activatedRoute: ActivatedRoute,

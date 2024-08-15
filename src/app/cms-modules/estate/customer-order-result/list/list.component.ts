@@ -25,6 +25,7 @@ import { EstateCustomerOrderResultViewComponent } from '../view/view.component';
 export class EstateCustomerOrderResultListComponent extends ListBaseComponent<EstateCustomerOrderResultService, EstateCustomerOrderResultModel, string> implements OnInit, OnDestroy {
   requestLinkCustomerOrder = '';
   requestLinkProperty = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstateCustomerOrderResultService,
     private activatedRoute: ActivatedRoute,

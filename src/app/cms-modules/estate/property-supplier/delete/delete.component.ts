@@ -21,6 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class EstatePropertySupplierDeleteComponent implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertySupplierDeleteComponent>,

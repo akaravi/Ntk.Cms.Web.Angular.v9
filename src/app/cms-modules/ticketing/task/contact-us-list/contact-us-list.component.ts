@@ -28,6 +28,7 @@ import { TicketingTaskViewComponent } from '../view/view.component';
 export class TicketingTaskContactUsListComponent extends ListBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;
   requestLinkCmsUserId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: TicketingTaskService,
     private activatedRoute: ActivatedRoute,

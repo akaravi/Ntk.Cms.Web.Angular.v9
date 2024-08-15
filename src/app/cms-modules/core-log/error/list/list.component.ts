@@ -25,6 +25,7 @@ export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorSer
   implements OnInit, OnDestroy {
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: CoreLogErrorService,
     private cmsToastrService: CmsToastrService,

@@ -19,6 +19,7 @@ export class DataProviderPlanPriceSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++DataProviderPlanPriceSelectorComponent.nextId;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,

@@ -29,6 +29,7 @@ import { ApiTelegramBotConfigEditComponent } from '../edit/edit.component';
   templateUrl: './list.component.html',
 })
 export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTelegramBotConfigService, ApiTelegramBotConfigModel, number> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApiTelegramBotConfigService,
     private cmsToastrService: CmsToastrService,
@@ -494,8 +495,8 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
       this.cmsToastrService.typeWarningRecordStatusNoAvailable();
       return;
     }
-    
-    this.tableRowSelected=model;
+
+    this.tableRowSelected = model;
     const pName = this.constructor.name + "ServiceGetOneById";
     this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructor.name); });
     this.contentService.ServiceGetOneById(this.tableRowSelected.id)

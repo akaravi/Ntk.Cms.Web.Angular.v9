@@ -7,10 +7,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel,
-  EstateConfigurationService,
   EstateContractTypeModel, EstateCustomerOrderFilterModel, EstateCustomerOrderModel,
 
-  EstateCustomerOrderService, EstateModuleSiteStorageValuesModel, EstatePropertyDetailGroupModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel,
+  EstateCustomerOrderService,
+  EstatePropertyDetailGroupModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel,
   FilterModel, InputDataTypeEnum, ManageUserAccessDataTypesEnum, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 
@@ -33,6 +33,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   requestLinkPropertyId: string;
   requestLinkPropertyIdHaveHistory: string;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: EstateCustomerOrderService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
@@ -155,7 +156,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
           this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreLiquidityPower');
           this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scorePurchasingPower');
         }
-        
+
         this.DataGetAll();
       }
     });

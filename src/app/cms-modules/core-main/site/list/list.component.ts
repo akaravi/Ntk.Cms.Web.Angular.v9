@@ -29,6 +29,7 @@ export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, Co
   implements OnInit, OnDestroy {
   requestLinkUserId = 0;
   requestLinkSiteCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreSiteService,
     private coreAuthService: CoreAuthService,

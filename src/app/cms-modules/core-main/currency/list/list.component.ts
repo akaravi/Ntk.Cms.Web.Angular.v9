@@ -27,6 +27,7 @@ import { CoreCurrencyEditComponent } from '../edit/edit.component';
 })
 export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencyService, CoreCurrencyModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreCurrencyService,
     private cmsToastrService: CmsToastrService,

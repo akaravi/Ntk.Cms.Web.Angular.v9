@@ -27,6 +27,7 @@ import { CoreUserGroupEditComponent } from '../edit/edit.component';
 })
 export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupService, CoreUserGroupModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreUserGroupService,
     private cmsToastrService: CmsToastrService,

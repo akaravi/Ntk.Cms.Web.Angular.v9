@@ -34,6 +34,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 })
 export class PollingContentEditComponent extends EditBaseComponent<PollingContentService, PollingContentModel, number>
   implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

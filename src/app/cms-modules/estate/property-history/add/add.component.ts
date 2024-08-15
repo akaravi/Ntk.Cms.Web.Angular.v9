@@ -23,6 +23,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
   styleUrls: ['./add.component.scss'],
 })
 export class EstatePropertyHistoryAddComponent extends AddBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyHistoryAddComponent>,

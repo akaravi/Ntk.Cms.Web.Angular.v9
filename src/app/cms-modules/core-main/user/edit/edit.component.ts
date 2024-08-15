@@ -30,6 +30,7 @@ import { CoreUserChangePasswordComponent } from '../changePassword/changePasswor
 })
 export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, CoreUserModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

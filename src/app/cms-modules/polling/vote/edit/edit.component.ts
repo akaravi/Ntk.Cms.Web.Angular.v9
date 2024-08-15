@@ -28,6 +28,7 @@ export class PollingVoteEditComponent extends EditBaseComponent<PollingVoteServi
   requestId = '';
   requestParentId = 0;
   requestContentId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<PollingVoteEditComponent>,

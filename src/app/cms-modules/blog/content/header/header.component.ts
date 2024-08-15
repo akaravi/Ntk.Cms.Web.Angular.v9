@@ -21,6 +21,7 @@ import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.compo
   styleUrls: ['./header.component.scss'],
 })
 export class BlogContentHeaderComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private headerService: BlogContentService,
     public publicHelper: PublicHelper,

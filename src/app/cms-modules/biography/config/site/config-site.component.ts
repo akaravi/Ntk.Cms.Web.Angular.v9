@@ -25,6 +25,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class BiographyConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: BiographyConfigurationService,
     private tokenHelper: TokenHelper,

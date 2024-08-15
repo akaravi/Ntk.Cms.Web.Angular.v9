@@ -14,6 +14,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./ticketing.component.scss'],
 })
 export class WebDesignerBuilderModuleTicketingComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public publicHelper: PublicHelper,

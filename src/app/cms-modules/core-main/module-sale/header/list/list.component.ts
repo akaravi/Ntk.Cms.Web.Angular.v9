@@ -29,6 +29,7 @@ import { CoreModuleSaleHeaderEditComponent } from '../edit/edit.component';
 export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreModuleSaleHeaderService, CoreModuleSaleHeaderModel, number>
   implements OnInit, OnDestroy {
   requestHeaderGroupId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreModuleSaleHeaderService,
     private cmsToastrService: CmsToastrService,

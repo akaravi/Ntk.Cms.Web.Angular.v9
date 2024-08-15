@@ -21,6 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class HyperShopCategorySelectorComponent implements OnInit {
   static nextId = 0;
   id = ++HyperShopCategorySelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,

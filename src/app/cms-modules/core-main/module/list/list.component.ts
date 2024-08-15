@@ -28,6 +28,7 @@ import { CoreModuleEditComponent } from '../edit/edit.component';
 })
 export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService, CoreModuleModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreModuleService,
     private cmsToastrService: CmsToastrService,

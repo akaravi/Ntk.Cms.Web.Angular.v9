@@ -26,6 +26,7 @@ import { EstatePropertySupplierDeleteComponent } from '../delete/delete.componen
 })
 export class EstatePropertySupplierListComponent extends ListBaseComponent<EstatePropertySupplierService, EstatePropertySupplierModel, string> implements OnInit, OnDestroy {
   requestLinkProjectId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: EstatePropertySupplierService,
     private cmsToastrService: CmsToastrService,

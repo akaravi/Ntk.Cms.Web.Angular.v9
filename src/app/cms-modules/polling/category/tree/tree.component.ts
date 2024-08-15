@@ -39,6 +39,7 @@ import { PollingCategoryAddComponent } from '../add/add.component';
   styleUrls: ['./tree.component.scss'],
 })
 export class PollingCategoryTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

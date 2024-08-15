@@ -24,6 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class ApplicationConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: ApplicationConfigurationService,
     private tokenHelper: TokenHelper,

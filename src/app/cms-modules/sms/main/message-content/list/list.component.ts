@@ -26,6 +26,7 @@ import { SmsMainMessageContentEditComponent } from '../edit/edit.component';
 })
 export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMainMessageContentService, SmsMainMessageContentModel, string> implements OnInit, OnDestroy {
   requestLinkCategoryId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsMainMessageContentService,
     private cmsToastrService: CmsToastrService,

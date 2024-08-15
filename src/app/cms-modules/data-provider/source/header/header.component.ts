@@ -20,6 +20,7 @@ import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.compo
   styleUrls: ['./header.component.scss'],
 })
 export class DataProviderSourceHeaderComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private headerService: DataProviderSourceService,
     public publicHelper: PublicHelper,

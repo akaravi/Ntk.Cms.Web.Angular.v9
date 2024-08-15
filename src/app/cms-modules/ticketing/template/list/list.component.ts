@@ -25,6 +25,7 @@ import { TicketingTemplateEditComponent } from '../edit/edit.component';
 })
 export class TicketingTemplateListComponent extends ListBaseComponent<TicketingTemplateService, TicketingTemplateModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: TicketingTemplateService,
     private activatedRoute: ActivatedRoute,

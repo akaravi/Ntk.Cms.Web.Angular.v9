@@ -27,6 +27,7 @@ import { PollingContentDeleteComponent } from '../delete/delete.component';
 })
 export class PollingContentListComponent extends ListBaseComponent<PollingContentService, PollingContentModel, number> implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: PollingContentService,
     private cmsToastrService: CmsToastrService,

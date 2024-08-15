@@ -24,6 +24,7 @@ import { EstateAccountAgencyUserAddComponent } from '../add/add.component';
   styleUrls: ['./list.component.scss']
 })
 export class EstateAccountAgencyUserListComponent extends ListBaseComponent<EstateAccountAgencyUserService, EstateAccountAgencyUserModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstateAccountAgencyUserService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

@@ -27,7 +27,6 @@ export class ProcessService {
   }
   public onInitAppComponent(): void {
     this.cmsApiStoreSubscribe = this.cmsApiStore.getState((state) => state.ntkCmsAPiState.processInfoStore).subscribe((value) => {
-
       if (this.cdr) {
         //todo: karavi error
         try {
@@ -36,11 +35,7 @@ export class ProcessService {
           console.log('cdr error', error);
         }
       }
-
     });
-
-
-
   }
   getOnChange(): Observable<Map<string, ProcessInfoModel>> {
     return this.cmsApiStore.getState((state) => {
@@ -53,14 +48,14 @@ export class ProcessService {
   */
 
   public processStart(key: string, title: string = ' ', infoAreaId: string = 'global'): void {
-    let model = new ProcessInfoModel();
+    let keyValue = new ProcessInfoModel();
+    keyValue.isComplate = false;
+    keyValue.title = title;
+    keyValue.infoAreaId = infoAreaId;
+    console.log("#### processStart 1####", key, keyValue);
+    this.processInfoAll.set(key, keyValue);
+    console.log("#### processStart 2####", key, keyValue);
     this.processInRun = true;
-    model.isComplate = false;
-    model.title = title;
-    model.infoAreaId = infoAreaId;
-    this.processInfoAll.set(key, model);
-    console.log("#### processStart ####", key, model);
-    debugger
     /** processInRun */
     var retOutProcessInRun = false;
     var retOutprocessInRunArea: boolean[] = [];
@@ -81,7 +76,7 @@ export class ProcessService {
     this.cmsApiStore.setState({ type: SET_IN_PROCESSING_LIST, payload: this.processInfoAll });
   }
   public processStop(key: string, isSuccess = true): void {
-    let model = this.processInfoAll.get(key);
+    var model = this.processInfoAll.get(key);
     if (!model) {
       model = new ProcessInfoModel();
     }

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor() { }
 
   ngOnInit() {

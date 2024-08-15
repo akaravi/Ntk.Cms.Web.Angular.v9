@@ -23,6 +23,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CoreSiteCategoryCmsModuleAddComponent extends AddBaseComponent<CoreSiteCategoryCmsModuleService, CoreSiteCategoryCmsModuleModel, number> implements OnInit {
   requestLinkCmsModuleId = 0;
   requestLinkCmsSiteCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CoreSiteCategoryCmsModuleAddComponent>,

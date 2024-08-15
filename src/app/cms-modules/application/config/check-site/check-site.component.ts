@@ -16,6 +16,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class ApplicationConfigCheckSiteComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: ApplicationConfigurationService,
     private activatedRoute: ActivatedRoute,

@@ -24,6 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class EstateActivityTypeEditComponent extends EditBaseComponent<EstateActivityTypeService, EstateActivityTypeModel, string>
   implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstateActivityTypeEditComponent>,

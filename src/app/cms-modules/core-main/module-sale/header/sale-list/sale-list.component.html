@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'module.modulesale.header'"
   [svg]="'assets/media/svg/icons/General/Notifications1.svg'"></app-cms-guide-notice>
 <div class="row">
-  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
   <div *ngFor="let item of dataModelResult.listItems" class="col-sm-2 col-md-2 col-lg-2 col-xl-2"
     style="padding: 10px;">
     <mat-card class="example-card">

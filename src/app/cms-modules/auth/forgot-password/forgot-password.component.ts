@@ -21,6 +21,7 @@ enum ErrorStates {
   styleUrls: ['./forgot-password.component.scss'],
 })
 export class AuthForgotPasswordComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,

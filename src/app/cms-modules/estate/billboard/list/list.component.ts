@@ -24,6 +24,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './list.component.html',
 })
 export class EstateBillboardListComponent extends ListBaseComponent<EstateBillboardService, EstateBillboardModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: EstateBillboardService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

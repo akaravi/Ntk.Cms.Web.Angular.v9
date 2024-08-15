@@ -15,6 +15,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class ArticleContentWidgetComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: ArticleContentService,
     private cmsToastrService: CmsToastrService,

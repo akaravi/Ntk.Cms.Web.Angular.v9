@@ -25,6 +25,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add-to-edit.component.html',
 })
 export class EstateCustomerOrderAddToEditComponent extends AddBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string> implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstateCustomerOrderAddToEditComponent>,

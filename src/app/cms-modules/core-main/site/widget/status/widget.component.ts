@@ -29,6 +29,7 @@ export class CoreSiteWidgetStatusComponent implements OnInit, OnDestroy {
   indexTheme = ['symbol-light-success', 'symbol-light-warning', 'symbol-light-danger', 'symbol-light-info', 'symbol-light-info', 'symbol-light-info'];
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: CoreSiteService,
     public translate: TranslateService,

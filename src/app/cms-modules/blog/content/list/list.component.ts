@@ -30,6 +30,7 @@ import { BlogContentDeleteComponent } from '../delete/delete.component';
 })
 export class BlogContentListComponent extends ListBaseComponent<BlogContentService, BlogContentModel, number> implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: BlogContentService,
     private cmsToastrService: CmsToastrService,

@@ -27,6 +27,7 @@ export class CoreUserSupportAccessEditComponent extends EditBaseComponent<CoreUs
   requestLinkUserId = 0;
   requestModuleName = '';
   requestModuleEntityName = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CoreUserSupportAccessEditComponent>,

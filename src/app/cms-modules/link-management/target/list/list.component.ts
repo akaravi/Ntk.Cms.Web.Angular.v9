@@ -30,6 +30,7 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 })
 export class LinkManagementTargetListComponent extends ListBaseComponent<LinkManagementTargetService, LinkManagementTargetModel, number> implements OnInit, OnDestroy {
   requestLinkBillboardPatternId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: LinkManagementTargetService,
     private cmsToastrService: CmsToastrService,

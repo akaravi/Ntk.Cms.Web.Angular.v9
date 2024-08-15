@@ -27,6 +27,7 @@ import { CoreModuleSiteCreditEditComponent } from '../edit/edit.component';
 export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreModuleSiteCreditService, CoreModuleSiteCreditModel, number>
   implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreModuleSiteCreditService,
     private cmsToastrService: CmsToastrService,

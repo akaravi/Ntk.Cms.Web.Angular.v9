@@ -28,6 +28,7 @@ import { CoreUserClaimGroupEditComponent } from '../edit/edit.component';
 })
 export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserClaimGroupService, CoreUserClaimGroupModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreUserClaimGroupService,
     private cmsToastrService: CmsToastrService,

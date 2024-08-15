@@ -31,6 +31,7 @@ export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<Do
   requestLinkSponserId = 0;
   requestLinkTargetPeriodId = 0;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: DonateTargetPeriodSponsorService,
     private activatedRoute: ActivatedRoute,

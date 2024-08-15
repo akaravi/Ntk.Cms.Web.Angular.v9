@@ -19,6 +19,7 @@ export class WebDesignerMainPageDependencySelectorComponent implements OnInit {
   id = ++WebDesignerMainPageDependencySelectorComponent.nextId;
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,

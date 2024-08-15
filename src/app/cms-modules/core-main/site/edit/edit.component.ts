@@ -31,6 +31,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, CoreSiteModel, number>
   implements OnInit, OnDestroy {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public publicHelper: PublicHelper,

@@ -34,6 +34,7 @@ import { MemberPropertyDetailGroupEditComponent } from '../edit/edit.component';
 })
 export class MemberPropertyDetailGroupTreeComponent implements OnInit, OnDestroy {
   requestLinkPropertyTypeId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

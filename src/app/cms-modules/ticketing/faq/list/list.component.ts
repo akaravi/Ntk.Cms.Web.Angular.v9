@@ -25,6 +25,7 @@ import { TicketingFaqEditComponent } from '../edit/edit.component';
 })
 export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqService, TicketingFaqModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: TicketingFaqService,
     private activatedRoute: ActivatedRoute,

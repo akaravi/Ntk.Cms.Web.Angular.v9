@@ -29,6 +29,7 @@ export class CoreUserClaimGroupDetailListComponent extends ListBaseComponent<Cor
   implements OnInit, OnDestroy {
   requestLinkUserClaimGroupId = 0;
   requestLinkUserClaimTypeId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreUserClaimGroupDetailService,
     private cmsToastrService: CmsToastrService,

@@ -24,6 +24,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 export class TicketingDepartemenLogListComponent extends ListBaseComponent<TicketingDepartemenLogService, TicketingDepartemenLogModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;
   requestOperatorId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: TicketingDepartemenLogService,
     private activatedRoute: ActivatedRoute,

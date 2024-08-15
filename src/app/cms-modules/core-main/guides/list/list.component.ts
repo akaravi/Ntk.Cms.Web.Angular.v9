@@ -26,6 +26,7 @@ import { CoreGuideEditComponent } from '../edit/edit.component';
 })
 export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, CoreGuideModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreGuideService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

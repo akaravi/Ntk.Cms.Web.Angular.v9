@@ -15,6 +15,7 @@ import { DataProviderClientChargePaymentComponent } from '../charge-payment/char
 })
 export class DataProviderClientChargeComponent implements OnInit {
     requestLinkClientId = 0;
+    constructorInfoAreaId = this.constructor.name;
     constructor(
         @Inject(DOCUMENT) private document: any,
         private activatedRoute: ActivatedRoute,

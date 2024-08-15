@@ -27,6 +27,7 @@ import { MemberPropertyAliasEditComponent } from '../edit/edit.component';
 
 })
 export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPropertyAliasService, MemberPropertyAliasModel, number> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: MemberPropertyAliasService,
     private cmsToastrService: CmsToastrService,

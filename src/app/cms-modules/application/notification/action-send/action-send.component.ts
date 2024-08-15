@@ -18,6 +18,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './action-send.component.html',
 })
 export class ApplicationLogNotificationActionSendComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<ApplicationLogNotificationActionSendComponent>,

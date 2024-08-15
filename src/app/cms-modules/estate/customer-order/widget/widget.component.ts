@@ -17,6 +17,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
   @Input() cssClass = '';
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: EstateCustomerOrderService,
     private cdr: ChangeDetectorRef,

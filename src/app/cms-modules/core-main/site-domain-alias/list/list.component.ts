@@ -27,6 +27,7 @@ import { CoreSiteDomainAliasEditComponent } from '../edit/edit.component';
 export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSiteDomainAliasService, CoreSiteDomainAliasModel, number>
   implements OnInit, OnDestroy {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreSiteDomainAliasService,
     private coreSiteService: CoreSiteService,

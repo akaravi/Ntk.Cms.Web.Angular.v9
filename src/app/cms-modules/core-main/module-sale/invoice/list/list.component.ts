@@ -27,6 +27,7 @@ import { CoreModuleSaleInvoiceViewComponent } from '../view/view.component';
 export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreModuleSaleInvoiceService, CoreModuleSaleInvoiceModel, number>
   implements OnInit, OnDestroy {
   requestHeaderItemGroupId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreModuleSaleInvoiceService,
     private cmsToastrService: CmsToastrService,

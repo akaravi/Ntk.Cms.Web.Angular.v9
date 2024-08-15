@@ -22,6 +22,7 @@ import { EstatePropertyListComponent } from '../../property/list/list.component'
 })
 export class EstateBillboardAddComponent extends AddBaseComponent<EstateBillboardService, EstateBillboardModel, string> implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private router: Router,
     public coreEnumService: CoreEnumService,

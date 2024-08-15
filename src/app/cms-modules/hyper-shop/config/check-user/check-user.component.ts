@@ -20,6 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class HyperShopConfigCheckUserComponent implements OnInit, OnDestroy {
   requestLinkUserId = 0;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: HyperShopConfigurationService,
     private activatedRoute: ActivatedRoute,

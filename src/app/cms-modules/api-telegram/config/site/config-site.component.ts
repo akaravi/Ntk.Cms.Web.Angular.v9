@@ -24,6 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class ApiTelegramConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: ApiTelegramConfigurationService,
     private tokenHelper: TokenHelper,

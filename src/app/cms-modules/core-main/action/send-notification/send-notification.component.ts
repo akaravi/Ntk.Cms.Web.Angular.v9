@@ -14,7 +14,6 @@ import {
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class DateByClock {
   date: Date;
@@ -28,6 +27,7 @@ export class DateByClock {
 })
 export class CoreMainActionSendNotificationComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public coreTokenNotificationService: CoreTokenNotificationService,
@@ -39,7 +39,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
     private tokenHelper: TokenHelper
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    
+
 
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
@@ -51,7 +51,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
   @ViewChild('Message') message: ElementRef;
 
 
-  
+
   dataModelParentSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   dataModel: CmsNotificationSendDtoModel = new CmsNotificationSendDtoModel();
   dataModelResult: ErrorExceptionResult<CoreTokenNotificationModel> = new ErrorExceptionResult<CoreTokenNotificationModel>();
@@ -161,7 +161,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
       error: (e) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(e);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
 
       },
       complete: () => {

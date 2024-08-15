@@ -20,6 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./add.component.scss'],
 })
 export class EstateCategoryRackAddComponent extends AddBaseComponent<EstateCategoryRackService, EstateCategoryRackModel, string> implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstateCategoryRackAddComponent>,

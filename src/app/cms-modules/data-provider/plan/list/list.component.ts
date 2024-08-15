@@ -30,6 +30,7 @@ import { DataProviderPlanEditComponent } from '../edit/edit.component';
 export class DataProviderPlanListComponent extends ListBaseComponent<DataProviderPlanService, DataProviderPlanModel, number>
   implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: DataProviderPlanService,
     private cmsToastrService: CmsToastrService,

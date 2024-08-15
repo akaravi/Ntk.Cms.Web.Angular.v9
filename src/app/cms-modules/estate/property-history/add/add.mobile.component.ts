@@ -31,6 +31,7 @@ import { EstatePropertyHistoryAddComponent } from './add.component';
   styleUrls: ['./add.mobile.component.scss'],
 })
 export class EstatePropertyHistoryAddMobileComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyHistoryAddComponent>,

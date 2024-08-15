@@ -25,6 +25,7 @@ import { CoreLogAvoidDuplicateDataEntryEditComponent } from '../edit/edit.compon
 export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseComponent<CoreLogAvoidDuplicateDataEntryService, CoreLogAvoidDuplicateDataEntryModel, string>
   implements OnInit, OnDestroy {
   requestLinkUserId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: CoreLogAvoidDuplicateDataEntryService,
     private cmsToastrService: CmsToastrService,

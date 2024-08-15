@@ -17,6 +17,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class WebDesignerMainMenuSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++WebDesignerMainMenuSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,

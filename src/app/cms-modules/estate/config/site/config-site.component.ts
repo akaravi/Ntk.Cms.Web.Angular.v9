@@ -29,6 +29,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class EstateConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: EstateConfigurationService,
     public publicHelper: PublicHelper,

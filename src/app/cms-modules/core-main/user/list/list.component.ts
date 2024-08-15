@@ -29,6 +29,7 @@ import { CoreUserViewComponent } from '../view/view.component';
 export class CoreUserListComponent extends ListBaseComponent<CoreUserService, CoreUserModel, number>
   implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreUserService: CoreUserService,
     public contentService: CmsConfirmationDialogService,

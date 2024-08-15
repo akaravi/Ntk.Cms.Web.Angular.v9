@@ -24,6 +24,7 @@ import { SmsLogOutBoxDetailViewComponent } from '../view/view.component';
 })
 export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOutBoxDetailService, SmsLogOutBoxDetailModel, string> implements OnInit, OnDestroy {
   requestLinkOutBoxId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: SmsLogOutBoxDetailService,
     private activatedRoute: ActivatedRoute,

@@ -41,6 +41,7 @@ import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.compo
 export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropertyService, EstatePropertyModel, string>
   implements OnInit, OnDestroy {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

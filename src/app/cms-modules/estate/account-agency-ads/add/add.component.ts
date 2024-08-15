@@ -24,6 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class EstateAccountAgencyAdsAddComponent extends AddBaseComponent<EstateAccountAgencyAdsService, EstateAccountAgencyAdsModel, string> implements OnInit {
   requestLinkAccountAgencyId = '';
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstateAccountAgencyAdsAddComponent>,

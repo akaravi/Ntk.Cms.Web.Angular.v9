@@ -50,6 +50,7 @@ import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quic
   styleUrls: ['./events.component.scss'],
 })
 export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public estatePropertyService: EstatePropertyService,
     public estatePropertyHistoryService: EstatePropertyHistoryService,
@@ -69,7 +70,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
 
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    
+
 
 
     this.filterChildrecordStatus = new FilterDataModel();

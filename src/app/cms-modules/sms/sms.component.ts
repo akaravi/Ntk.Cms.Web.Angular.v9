@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmsComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor() { }
 
   ngOnInit(): void {

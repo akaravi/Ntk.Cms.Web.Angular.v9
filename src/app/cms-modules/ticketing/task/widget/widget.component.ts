@@ -14,6 +14,7 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
 export class TicketingTaskWidgetComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: TicketingTaskService,
     private cdr: ChangeDetectorRef,

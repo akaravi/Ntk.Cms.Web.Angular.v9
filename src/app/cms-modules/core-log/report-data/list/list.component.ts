@@ -32,6 +32,7 @@ export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogRep
   requestLinkUserId = 0;
   requestLinkModuleEntityId = 0;
   requestLinkModuleEntityReportFileId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreEnumService: CoreEnumService,
     private contentService: CoreLogReportDataService,

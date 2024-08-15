@@ -27,6 +27,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class SmsMainApiNumberPermissionEditComponent extends EditBaseComponent<SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string>
   implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<SmsMainApiNumberPermissionEditComponent>,

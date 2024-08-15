@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CategoryResolver implements Resolve<any> {
   categoryModel = new FilterModel();
+  constructorInfoAreaId = this.constructor.name;
   constructor(public categoryService: NewsCategoryService) {
   }
   resolve(): Observable<any> {

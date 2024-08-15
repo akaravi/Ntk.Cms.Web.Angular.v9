@@ -22,6 +22,7 @@ import { CoreModuleSaleHeaderSalePaymentComponent } from '../sale-payment/sale-p
   styleUrls: ['./sale-list.component.scss']
 })
 export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreModuleSaleHeaderService: CoreModuleSaleHeaderService,
     private coreSiteService: CoreSiteService,

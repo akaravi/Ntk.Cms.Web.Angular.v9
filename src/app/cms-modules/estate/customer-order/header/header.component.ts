@@ -22,6 +22,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./header.component.scss'],
 })
 export class EstateCustomerOrderHeaderComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private headerService: EstateCustomerOrderService,
     public publicHelper: PublicHelper,

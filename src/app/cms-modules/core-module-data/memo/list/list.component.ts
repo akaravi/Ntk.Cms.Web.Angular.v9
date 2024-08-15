@@ -28,6 +28,7 @@ import { CoreModuleDataMemoViewComponent } from '../view/view.component';
 export class CoreModuleDataMemoListComponent extends ListBaseComponent<CoreModuleDataMemoService, CoreModuleDataMemoModel, string>
   implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreEnumService: CoreEnumService,
     public contentService: CoreModuleDataMemoService,

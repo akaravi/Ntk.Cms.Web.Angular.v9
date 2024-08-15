@@ -24,6 +24,7 @@ import { EstateCategoryZoneEditComponent } from '../edit/edit.component';
   templateUrl: './list.component.html'
 })
 export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCategoryZoneService, EstateCategoryZoneModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstateCategoryZoneService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

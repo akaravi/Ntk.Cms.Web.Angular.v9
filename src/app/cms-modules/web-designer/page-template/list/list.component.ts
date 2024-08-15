@@ -24,6 +24,7 @@ import { WebDesignerMainPageTemplateEditComponent } from '../edit/edit.component
   templateUrl: './list.component.html',
 })
 export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<WebDesignerMainPageTemplateService, WebDesignerMainPageTemplateModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: WebDesignerMainPageTemplateService,
     private cmsToastrService: CmsToastrService,

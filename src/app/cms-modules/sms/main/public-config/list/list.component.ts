@@ -25,6 +25,7 @@ import { SmsMainApiPathPublicConfigEditComponent } from '../edit/edit.component'
   templateUrl: './list.component.html'
 })
 export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<SmsMainApiPathPublicConfigService, SmsMainApiPathPublicConfigModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsMainApiPathPublicConfigService,
     private cmsToastrService: CmsToastrService,

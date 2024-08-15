@@ -33,6 +33,7 @@ import { EstateAccountAgencyEditComponent } from '../edit/edit.component';
   styleUrls: ['./tree.component.scss'],
 })
 export class EstateAccountAgencyTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

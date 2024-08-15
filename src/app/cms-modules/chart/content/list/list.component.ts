@@ -31,6 +31,7 @@ import { ChartContentDeleteComponent } from '../delete/delete.component';
 export class ChartContentListComponent extends ListBaseComponent<ChartContentService, ChartContentModel, number>
   implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ChartContentService,
     private cmsToastrService: CmsToastrService,

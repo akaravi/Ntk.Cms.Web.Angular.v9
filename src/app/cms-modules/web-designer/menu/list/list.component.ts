@@ -25,6 +25,7 @@ import { WebDesignerMainMenuEditComponent } from '../edit/edit.component';
   templateUrl: './list.component.html',
 })
 export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesignerMainMenuService, WebDesignerMainMenuModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: WebDesignerMainMenuService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

@@ -32,6 +32,7 @@ import { WebDesignerMainPageEditComponent } from '../edit/edit.component';
   templateUrl: './tree.component.html',
 })
 export class WebDesignerMainPageTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

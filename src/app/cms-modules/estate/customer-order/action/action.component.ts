@@ -21,6 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class EstateCustomerOrderActionComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstateCustomerOrderActionComponent>,

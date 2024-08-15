@@ -21,6 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy {
   requestSerial = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreModuleSaleSerialService: CoreModuleSaleSerialService,
     public publicHelper: PublicHelper,

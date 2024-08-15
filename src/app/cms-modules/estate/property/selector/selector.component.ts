@@ -20,6 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class EstatePropertySelectorComponent implements OnInit, OnDestroy {
   static nextId = 0;
   id = ++EstatePropertySelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,

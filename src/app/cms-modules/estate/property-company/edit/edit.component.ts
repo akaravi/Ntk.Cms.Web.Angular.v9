@@ -31,6 +31,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class EstatePropertyCompanyEditComponent extends EditBaseComponent<EstatePropertyCompanyService, EstatePropertyCompanyModel, string>
   implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public publicHelper: PublicHelper,

@@ -27,6 +27,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 })
 export class ApplicationSourceListComponent extends ListBaseComponent<ApplicationSourceService, ApplicationSourceModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApplicationSourceService,
     public publicHelper: PublicHelper,

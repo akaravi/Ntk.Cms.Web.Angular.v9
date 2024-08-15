@@ -14,6 +14,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./container.component.scss'],
 })
 export class WebDesignerBuilderHtmlContainerComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public publicHelper: PublicHelper,

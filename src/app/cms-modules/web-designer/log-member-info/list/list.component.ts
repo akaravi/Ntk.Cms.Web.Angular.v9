@@ -26,6 +26,7 @@ import { WebDesignerLogMemberInfoViewComponent } from '../view/view.component';
 })
 export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<WebDesignerLogMemberInfoService, WebDesignerLogMemberInfoModel, string> implements OnInit, OnDestroy {
   requestLinkMemberId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: WebDesignerLogMemberInfoService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoreConfigComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor() {
   }
 

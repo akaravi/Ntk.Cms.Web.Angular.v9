@@ -33,6 +33,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class ChartContentEditComponent extends EditBaseComponent<ChartContentService, ChartContentModel, number>
   implements OnInit {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

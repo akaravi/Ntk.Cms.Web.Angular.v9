@@ -12,6 +12,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./row.component.scss'],
 })
 export class WebDesignerBuilderHtmlRowComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public publicHelper: PublicHelper,

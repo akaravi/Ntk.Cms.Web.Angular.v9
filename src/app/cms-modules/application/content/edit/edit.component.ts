@@ -26,6 +26,7 @@ import { CmsMapComponent } from 'src/app/shared/cms-map/cms-map.component';
 export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAppService, ApplicationAppModel, number>
   implements OnInit {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApplicationAppService,
     private activatedRoute: ActivatedRoute,

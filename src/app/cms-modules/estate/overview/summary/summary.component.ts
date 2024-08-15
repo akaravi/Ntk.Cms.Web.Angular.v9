@@ -17,6 +17,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './summary.component.html'
 })
 export class EstateOverviewSummaryComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,

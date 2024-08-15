@@ -23,6 +23,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class BankPaymentPrivateSiteConfigAddComponent extends AddBaseComponent<BankPaymentPrivateSiteConfigService, BankPaymentPrivateSiteConfigModel, number> implements OnInit {
   requestLinkPublicConfigId = 0;
   requestLinkCmsSiteCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<BankPaymentPrivateSiteConfigAddComponent>,

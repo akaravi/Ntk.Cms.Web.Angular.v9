@@ -28,6 +28,7 @@ import { BiographyContentDeleteComponent } from '../delete/delete.component';
   templateUrl: './list.component.html',
 })
 export class BiographyContentListComponent extends ListBaseComponent<BiographyContentService, BiographyContentModel, number> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: BiographyContentService,
     private cmsToastrService: CmsToastrService,

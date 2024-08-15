@@ -27,6 +27,7 @@ import { CoreModuleEntityReportFileEditComponent } from '../edit/edit.component'
 export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<CoreModuleEntityReportFileService, CoreModuleEntityReportFileModel, string>
   implements OnInit, OnDestroy {
   requestLinkModuleEntityId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreModuleEntityReportFileService,
     public coreEnumService: CoreEnumService,

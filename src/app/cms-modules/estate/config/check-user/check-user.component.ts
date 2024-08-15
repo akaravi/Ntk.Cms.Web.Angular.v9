@@ -20,6 +20,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class EstateConfigCheckUserComponent implements OnInit, OnDestroy {
   requestLinkUserId = 0;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: EstateConfigurationService,
     private activatedRoute: ActivatedRoute,

@@ -28,6 +28,7 @@ export class processModel {
   templateUrl: './singin-bysms.component.html',
 })
 export class AuthSingInBySmsComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreAuthService: CoreAuthService,
     private cmsToastrService: CmsToastrService,

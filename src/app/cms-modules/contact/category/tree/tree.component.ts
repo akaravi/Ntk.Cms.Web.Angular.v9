@@ -38,6 +38,7 @@ import { ContactCategoryAddComponent } from '../add/add.component';
   styleUrls: ['./tree.component.scss'],
 })
 export class ContactCategoryTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

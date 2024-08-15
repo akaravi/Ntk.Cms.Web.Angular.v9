@@ -34,6 +34,7 @@ import { EstatePropertyDetailGroupEditComponent } from '../edit/edit.component';
 })
 export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy {
   requestLinkPropertyTypeLanduseId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

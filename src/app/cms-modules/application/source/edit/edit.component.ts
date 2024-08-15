@@ -30,6 +30,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class ApplicationSourceEditComponent extends EditBaseComponent<ApplicationSourceService, ApplicationSourceModel, number>
   implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApplicationSourceService,
     private activatedRoute: ActivatedRoute,

@@ -28,6 +28,7 @@ import { CoreModuleSaleSerialEditComponent } from '../edit/edit.component';
 export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreModuleSaleSerialService, CoreModuleSaleSerialModel, number>
   implements OnInit, OnDestroy {
   requestHeaderId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreModuleSaleSerialService,
     private cmsToastrService: CmsToastrService,

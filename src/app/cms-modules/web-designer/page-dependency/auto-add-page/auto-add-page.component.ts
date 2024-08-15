@@ -21,6 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./auto-add-page.component.scss'],
 })
 export class WebDesignerMainPageDependencyAutoAddPageComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<WebDesignerMainPageDependencyAutoAddPageComponent>,

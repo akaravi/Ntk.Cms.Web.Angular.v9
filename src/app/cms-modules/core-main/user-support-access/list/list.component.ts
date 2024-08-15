@@ -31,6 +31,7 @@ export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUs
   requestLinkUserId = 0;
   requestModuleName = '';
   requestModuleEntityName = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreUserSupportAccessService,
     private cmsToastrService: CmsToastrService,

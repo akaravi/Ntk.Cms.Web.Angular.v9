@@ -25,6 +25,7 @@ import { environment } from 'src/environments/environment';
 
 })
 export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTelegramMemberInfoService, ApiTelegramMemberInfoModel, number> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApiTelegramMemberInfoService,
     private cmsToastrService: CmsToastrService,

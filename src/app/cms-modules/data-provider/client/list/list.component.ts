@@ -29,6 +29,7 @@ import { DataProviderClientEditComponent } from '../edit/edit.component';
 export class DataProviderClientListComponent extends ListBaseComponent<DataProviderClientService, DataProviderClientModel, number>
   implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: DataProviderClientService,
     private cmsToastrService: CmsToastrService,

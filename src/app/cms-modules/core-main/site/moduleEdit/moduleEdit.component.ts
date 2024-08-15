@@ -25,6 +25,7 @@ export class CoreSiteModuleEditComponent extends EditBaseComponent<CoreModuleSit
   implements OnInit {
   requestLinkSiteId = 0;
   requestLinkModuleId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CoreSiteModuleEditComponent>,

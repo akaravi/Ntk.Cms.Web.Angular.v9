@@ -31,6 +31,7 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
   requestLinkPageParentGuId = '';
   requestLinkPageTemplateGuId = '';
   requestLinkPageDependencyGuId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: WebDesignerMainPageService,
     private cmsToastrService: CmsToastrService,

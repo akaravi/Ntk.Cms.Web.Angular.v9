@@ -18,6 +18,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class ApplicationSourceSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++ApplicationSourceSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,

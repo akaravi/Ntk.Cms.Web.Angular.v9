@@ -16,6 +16,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class WebDesignerLogMemberInfoWidgetComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: WebDesignerLogMemberInfoService,
     private cdr: ChangeDetectorRef,

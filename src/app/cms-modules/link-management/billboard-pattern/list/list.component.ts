@@ -30,6 +30,7 @@ import { LinkManagementBillboardPatternEditComponent } from '../edit/edit.compon
 })
 export class LinkManagementBillboardPatternListComponent extends ListBaseComponent<LinkManagementBillboardPatternService, LinkManagementBillboardPatternModel, number> implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: LinkManagementBillboardPatternService,
     private cmsToastrService: CmsToastrService,

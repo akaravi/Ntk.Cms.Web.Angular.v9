@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./header.component.scss'],
 })
 export class DataProviderPlanClientHeaderComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private headerService: DataProviderPlanClientService,
     public publicHelper: PublicHelper,

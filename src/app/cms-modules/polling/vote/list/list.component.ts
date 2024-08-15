@@ -33,6 +33,7 @@ import { PollingVoteEditComponent } from '../edit/edit.component';
 export class PollingVoteListComponent extends ListBaseComponent<PollingVoteService, PollingVoteModel, string> implements OnInit, OnDestroy {
   requestContentId = 0;
   requestOptionId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: PollingVoteService,
     private activatedRoute: ActivatedRoute,

@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
 
     public publicHelper: PublicHelper,

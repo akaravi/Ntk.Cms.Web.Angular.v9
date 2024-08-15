@@ -26,6 +26,7 @@ import { SmsMainApiNumberEditComponent } from '../edit/edit.component';
 })
 export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiNumberService, SmsMainApiNumberModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsMainApiNumberService,
     private cmsToastrService: CmsToastrService,

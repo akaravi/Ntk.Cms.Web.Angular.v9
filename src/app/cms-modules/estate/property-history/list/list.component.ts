@@ -36,9 +36,7 @@ import { environment } from 'src/environments/environment';
 import { EstateCustomerOrderQuickViewComponent } from '../../customer-order/quick-view/quick-view.component';
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
 import { EstatePropertyHistoryAddComponent } from '../add/add.component';
-import { EstatePropertyHistoryAddMobileComponent } from '../add/add.mobile.component';
 import { EstatePropertyHistoryEditComponent } from '../edit/edit.component';
-import { EstatePropertyHistoryEditMobileComponent } from '../edit/edit.mobile.component';
 import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-view.component';
 @Component({
   selector: 'app-estate-property-history-list',
@@ -50,6 +48,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   requestLinkCustomerOrderId = '';
   requestLinkEstateAgencyId = '';
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: EstatePropertyHistoryService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

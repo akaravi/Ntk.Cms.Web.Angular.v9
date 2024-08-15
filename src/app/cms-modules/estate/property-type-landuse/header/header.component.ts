@@ -17,6 +17,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./header.component.scss'],
 })
 export class EstatePropertyTypeLanduseHeaderComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private headerService: EstatePropertyTypeLanduseService,
     public publicHelper: PublicHelper,

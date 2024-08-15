@@ -24,6 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CoreUserClaimGroupDetailAddComponent extends AddBaseComponent<CoreUserClaimGroupDetailService, CoreUserClaimGroupDetailModel, number> implements OnInit {
   requestLinkUserClaimGroupId = 0;
   requestLinkUserClaimTypeId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CoreUserClaimGroupDetailAddComponent>,

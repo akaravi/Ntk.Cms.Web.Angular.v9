@@ -10,6 +10,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './download.component.html',
 })
 export class ApplicationAppDownloadComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public dataModel: ApplicationAppModel,
     private dialogRef: MatDialogRef<ApplicationAppDownloadComponent>,

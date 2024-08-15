@@ -14,6 +14,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class CoreModuleSiteCreditChargeDirectComponent implements OnInit {
   requestModel: CoreModuleSiteCreditModel;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(DOCUMENT) private document: any,
     @Inject(MAT_DIALOG_DATA) public data: any,

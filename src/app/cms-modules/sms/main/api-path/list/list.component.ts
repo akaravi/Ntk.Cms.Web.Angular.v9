@@ -28,6 +28,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
   requestLinkSiteId = 0;
   requestLinkCompanyId = '';
   requestLinkPublicConfigId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsMainApiPathService,
     private smsMainApiPathCompanyService: SmsMainApiPathCompanyService,

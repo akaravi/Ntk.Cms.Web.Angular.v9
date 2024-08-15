@@ -26,6 +26,7 @@ import { DonateLogViewComponent } from '../view/view.component';
 })
 export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewService, DonateLogViewModel, string> implements OnInit, OnDestroy {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public contentService: DonateLogViewService,

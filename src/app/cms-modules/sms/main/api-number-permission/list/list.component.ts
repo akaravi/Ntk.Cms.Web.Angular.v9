@@ -25,6 +25,7 @@ import { SmsMainApiNumberPermissionEditComponent } from '../edit/edit.component'
 })
 export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string> implements OnInit, OnDestroy {
   requestLinkApiNumberId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsMainApiNumberPermissionService,
     private cmsToastrService: CmsToastrService,

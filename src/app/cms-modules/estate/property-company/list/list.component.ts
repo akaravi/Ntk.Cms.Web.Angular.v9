@@ -29,6 +29,7 @@ import { EstatePropertyCompanyDeleteComponent } from '../delete/delete.component
   templateUrl: './list.component.html',
 })
 export class EstatePropertyCompanyListComponent extends ListBaseComponent<EstatePropertyCompanyService, EstatePropertyCompanyModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: EstatePropertyCompanyService,
     private cmsToastrService: CmsToastrService,

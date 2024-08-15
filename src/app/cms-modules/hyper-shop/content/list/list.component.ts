@@ -28,6 +28,7 @@ import { HyperShopContentViewComponent } from '../view/view.component';
 })
 export class HyperShopContentListComponent extends ListBaseComponent<HyperShopContentService, HyperShopContentModel, string> implements OnInit, OnDestroy {
   requestPareintId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: HyperShopContentService,
     private activatedRoute: ActivatedRoute,

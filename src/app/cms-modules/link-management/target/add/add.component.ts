@@ -28,6 +28,7 @@ import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 })
 export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManagementTargetService, LinkManagementTargetModel, number> implements OnInit {
   requestLinkBillboardPatternId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

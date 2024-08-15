@@ -17,6 +17,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class ApplicationAppSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++ApplicationAppSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,

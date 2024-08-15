@@ -15,6 +15,7 @@ import { CoreModuleSiteUserCreditChargePaymentComponent } from '../charge-paymen
 })
 export class CoreModuleSiteUserCreditChargeComponent implements OnInit {
     requestLinkModuleId = 0;
+    constructorInfoAreaId = this.constructor.name;
     constructor(
         @Inject(DOCUMENT) private document: any,
         private activatedRoute: ActivatedRoute,

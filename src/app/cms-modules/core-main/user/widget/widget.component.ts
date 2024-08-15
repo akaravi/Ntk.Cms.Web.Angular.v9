@@ -23,6 +23,7 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
 
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: CoreUserService,
     private cmsToastrService: CmsToastrService,

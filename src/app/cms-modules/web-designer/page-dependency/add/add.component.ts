@@ -21,6 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class WebDesignerMainPageDependencyAddComponent extends AddBaseComponent<WebDesignerMainPageDependencyService, WebDesignerMainPageDependencyModel, string> implements OnInit {
   requestLinkModuleId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<WebDesignerMainPageDependencyAddComponent>,

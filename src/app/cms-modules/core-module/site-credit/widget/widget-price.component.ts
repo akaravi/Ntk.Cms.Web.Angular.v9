@@ -26,6 +26,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CoreModuleSiteCreditWidgetPriceComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: CoreModuleSiteCreditService,
     private cmsToastrService: CmsToastrService,

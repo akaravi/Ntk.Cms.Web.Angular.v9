@@ -21,6 +21,7 @@ export class CoreUserGroupSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++CoreUserGroupSelectorComponent.nextId;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,

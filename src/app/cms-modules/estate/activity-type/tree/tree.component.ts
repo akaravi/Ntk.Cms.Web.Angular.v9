@@ -33,6 +33,7 @@ import { EstateActivityTypeEditComponent } from '../edit/edit.component';
   styleUrls: ['./tree.component.scss'],
 })
 export class EstateActivityTypeTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

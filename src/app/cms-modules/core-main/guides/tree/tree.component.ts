@@ -33,6 +33,7 @@ import { CoreGuideEditComponent } from '../edit/edit.component';
   templateUrl: './tree.component.html',
 })
 export class CoreGuideTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

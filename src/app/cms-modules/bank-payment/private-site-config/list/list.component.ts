@@ -33,6 +33,7 @@ import { BankPaymentPrivateSiteConfigPaymentTestComponent } from '../paymentTest
 export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent<BankPaymentPrivateSiteConfigService, BankPaymentPrivateSiteConfigModel, number>
   implements OnInit, OnDestroy {
   requestLinkPublicConfigId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: BankPaymentPrivateSiteConfigService,
     private bankPaymentPublicConfigService: BankPaymentPublicConfigService,

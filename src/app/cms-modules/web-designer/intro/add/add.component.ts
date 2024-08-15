@@ -21,6 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesignerMainIntroService, WebDesignerMainIntroModel, string> implements OnInit {
   requestLinkPageId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public publicHelper: PublicHelper,

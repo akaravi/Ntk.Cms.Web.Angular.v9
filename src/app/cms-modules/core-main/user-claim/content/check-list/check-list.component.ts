@@ -31,6 +31,7 @@ export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy
 
   requestLinkUserId = 0;
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreUserClaimContentService: CoreUserClaimContentService,
     public publicHelper: PublicHelper,

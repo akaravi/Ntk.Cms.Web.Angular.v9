@@ -29,6 +29,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: CoreTokenUserLogService,
     private cmsToastrService: CmsToastrService,

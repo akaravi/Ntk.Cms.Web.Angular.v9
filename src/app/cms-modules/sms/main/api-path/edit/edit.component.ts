@@ -28,6 +28,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPathService, SmsMainApiPathModel, string>
   implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public smsMainApiPathService: SmsMainApiPathService,

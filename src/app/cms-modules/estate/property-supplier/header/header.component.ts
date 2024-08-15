@@ -21,6 +21,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./header.component.scss'],
 })
 export class EstatePropertySupplierHeaderComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private headerService: EstatePropertySupplierService,
     public publicHelper: PublicHelper,

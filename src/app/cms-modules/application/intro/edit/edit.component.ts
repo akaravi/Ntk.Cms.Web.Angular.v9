@@ -22,6 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class ApplicationIntroEditComponent extends EditBaseComponent<ApplicationIntroService, ApplicationIntroModel, number>
   implements OnInit {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApplicationIntroService,
     private activatedRoute: ActivatedRoute,

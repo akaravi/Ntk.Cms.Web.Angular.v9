@@ -29,6 +29,7 @@ export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<Co
   implements OnInit, OnDestroy {
   requestLinkCmsModuleId = 0;
   requestLinkCmsSiteCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreSiteCategoryCmsModuleService,
     private cmsToastrService: CmsToastrService,

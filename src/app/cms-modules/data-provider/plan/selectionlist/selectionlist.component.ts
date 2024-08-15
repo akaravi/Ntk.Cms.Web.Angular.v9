@@ -13,6 +13,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class DataProviderPlanSelectionlistComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public categoryService: DataProviderPlanService,

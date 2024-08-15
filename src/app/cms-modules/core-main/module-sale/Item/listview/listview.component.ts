@@ -29,6 +29,7 @@ export class CoreModuleSaleItemListViewComponent implements OnInit, OnDestroy {
     this.DataGetAll();
   }
   LinkHeaderId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreModuleSaleItemService: CoreModuleSaleItemService,
     public publicHelper: PublicHelper,

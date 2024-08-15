@@ -29,6 +29,7 @@ export class CoreTokenUserBadLoginListComponent extends ListBaseComponent<CoreTo
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreEnumService: CoreEnumService,
     private contentService: CoreTokenUserBadLoginService,

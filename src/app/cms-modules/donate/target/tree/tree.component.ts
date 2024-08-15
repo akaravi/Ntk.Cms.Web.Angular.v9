@@ -34,6 +34,7 @@ import { DonateTargetEditComponent } from '../edit/edit.component';
   templateUrl: './tree.component.html'
 })
 export class DonateTargetTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

@@ -30,6 +30,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class PollingConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: PollingConfigurationService,
     private tokenHelper: TokenHelper,

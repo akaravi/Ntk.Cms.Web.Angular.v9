@@ -31,6 +31,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class BiographyContentEditComponent extends EditBaseComponent<BiographyContentService, BiographyContentModel, number>
   implements OnInit {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

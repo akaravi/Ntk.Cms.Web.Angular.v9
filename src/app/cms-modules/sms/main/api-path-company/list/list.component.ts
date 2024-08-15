@@ -24,6 +24,7 @@ import { SmsMainApiPathCompanyEditComponent } from '../edit/edit.component';
   templateUrl: './list.component.html',
 })
 export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMainApiPathCompanyService, SmsMainApiPathCompanyModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsMainApiPathCompanyService,
     private cmsToastrService: CmsToastrService,

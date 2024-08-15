@@ -17,6 +17,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class NewsConfigCheckSiteComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: NewsConfigurationService,
     private activatedRoute: ActivatedRoute,

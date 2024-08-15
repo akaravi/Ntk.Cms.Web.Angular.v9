@@ -30,6 +30,7 @@ import { EstatePropertyExpertPriceInquiryListComponent } from '../inquiry-list/i
 })
 export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<EstatePropertyExpertPriceService, EstatePropertyExpertPriceModel, string> implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: EstatePropertyExpertPriceService,
     private cmsToastrService: CmsToastrService,

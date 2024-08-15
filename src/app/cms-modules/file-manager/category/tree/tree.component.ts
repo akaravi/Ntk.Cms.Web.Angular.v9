@@ -34,6 +34,7 @@ import { FileCategoryEditComponent } from '../edit/edit.component';
   styleUrls: ['./tree.component.scss'],
 })
 export class FileCategoryTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

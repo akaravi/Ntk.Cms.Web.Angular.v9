@@ -25,6 +25,7 @@ import { SmsMainApiPathPermissionEditComponent } from '../edit/edit.component';
 })
 export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<SmsMainApiPathPermissionService, SmsMainApiPathPermissionModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsMainApiPathPermissionService,
     private cmsToastrService: CmsToastrService,

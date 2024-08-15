@@ -25,6 +25,7 @@ import { LinkManagementBillboardDeleteComponent } from '../delete/delete.compone
 })
 export class LinkManagementBillboardListComponent extends ListBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number> implements OnInit, OnDestroy {
   requestLinkBillboardPatternId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: LinkManagementBillboardService,
     private cmsToastrService: CmsToastrService,

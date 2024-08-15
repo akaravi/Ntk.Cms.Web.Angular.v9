@@ -47,6 +47,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   requestLinkUserId = 0;
   requestInChecking = false;
   requestAction = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: EstatePropertyService,
     private configService: EstateConfigurationService,

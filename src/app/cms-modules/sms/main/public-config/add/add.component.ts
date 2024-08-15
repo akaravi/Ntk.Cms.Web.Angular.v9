@@ -22,6 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./add.component.scss'],
 })
 export class SmsMainApiPathPublicConfigAddComponent extends AddBaseComponent<SmsMainApiPathPublicConfigService, SmsMainApiPathPublicConfigModel, string> implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<SmsMainApiPathPublicConfigAddComponent>,

@@ -16,7 +16,6 @@ import {
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsViewComponent } from 'src/app/shared/cms-view/cms-view.component';
 
@@ -28,6 +27,7 @@ import { CmsViewComponent } from 'src/app/shared/cms-view/cms-view.component';
 export class ApiTelegramBotConfigEditComponent extends EditBaseComponent<ApiTelegramBotConfigService, ApiTelegramBotConfigModel, number>
   implements OnInit {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<ApiTelegramBotConfigEditComponent>,
@@ -56,7 +56,7 @@ export class ApiTelegramBotConfigEditComponent extends EditBaseComponent<ApiTele
 
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-  
+
 
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: ApiTelegramBotConfigModel = new ApiTelegramBotConfigModel();

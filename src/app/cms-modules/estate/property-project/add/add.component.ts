@@ -25,6 +25,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   ]
 })
 export class EstatePropertyProjectAddComponent extends AddBaseComponent<EstatePropertyProjectService, EstatePropertyProjectModel, string> implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public publicHelper: PublicHelper,

@@ -28,6 +28,7 @@ import { DonateSponserEditComponent } from '../edit/edit.component';
 })
 export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorService, DonateSponsorModel, number> implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: DonateSponsorService,
     private cmsToastrService: CmsToastrService,

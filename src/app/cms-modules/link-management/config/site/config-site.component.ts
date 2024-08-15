@@ -29,6 +29,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class LinkManagementConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: LinkManagementConfigurationService,
     public publicHelper: PublicHelper,

@@ -24,6 +24,7 @@ import { EstatePropertyTypeLanduseEditComponent } from '../edit/edit.component';
   templateUrl: './list.component.html'
 })
 export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<EstatePropertyTypeLanduseService, EstatePropertyTypeLanduseModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstatePropertyTypeLanduseService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

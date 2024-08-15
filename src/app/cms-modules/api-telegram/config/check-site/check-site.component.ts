@@ -16,6 +16,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class ApiTelegramConfigCheckSiteComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: ApiTelegramConfigurationService,
     private activatedRoute: ActivatedRoute,

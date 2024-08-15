@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ContentResolver implements Resolve<ErrorExceptionResult<ChartContentModel>> {
   filterModelContent = new FilterModel();
+  constructorInfoAreaId = this.constructor.name;
   constructor(public contentService: ChartContentService) { }
   resolve(): Observable<ErrorExceptionResult<ChartContentModel>> {
     return this.contentService.ServiceGetAll(this.filterModelContent);

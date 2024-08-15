@@ -27,6 +27,7 @@ import { CoreModuleSaleItemEditComponent } from '../edit/edit.component';
 export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModuleSaleItemService, CoreModuleSaleItemModel, number>
   implements OnInit, OnDestroy {
   requestLinkModuleSaleHeader = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreModuleSaleItemService,
     private cmsToastrService: CmsToastrService,

@@ -30,6 +30,7 @@ export class CoreModuleLogContentCountListComponent extends ListBaseComponent<Co
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestlinkMemberId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreEnumService: CoreEnumService,
     public contentService: CoreModuleLogContentCountService,

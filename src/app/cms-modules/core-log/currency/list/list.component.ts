@@ -27,6 +27,7 @@ import { CoreLogCurrencyViewComponent } from '../view/view.component';
 export class CoreLogCurrencyListComponent extends ListBaseComponent<CoreLogCurrencyService, CoreLogCurrencyModel, string>
   implements OnInit, OnDestroy {
   requestLinkCurrencyId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreLogCurrencyService,
     private cmsToastrService: CmsToastrService,

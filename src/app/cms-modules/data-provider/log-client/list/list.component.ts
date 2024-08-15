@@ -27,6 +27,7 @@ import { DataProviderLogClientViewComponent } from '../view/view.component';
 export class DataProviderLogClientListComponent extends ListBaseComponent<DataProviderLogClientService, DataProviderLogClientModel, string>
   implements OnInit, OnDestroy {
   requestLinkClientId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public contentService: DataProviderLogClientService,

@@ -21,7 +21,7 @@
     <!--begin::Body-->
     <div>
       <div class="row progressOverlayContainer">
-        <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+        <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
         <div *ngFor="let item of dataModelResult.listItems" class="col-4">
           <mat-card class="example-card">
             <mat-card-header>

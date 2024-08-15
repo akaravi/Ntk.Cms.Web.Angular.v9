@@ -18,6 +18,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class BankPaymentPublicConfigSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++BankPaymentPublicConfigSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,

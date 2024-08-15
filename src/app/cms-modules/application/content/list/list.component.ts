@@ -34,6 +34,7 @@ import { ApplicationAppUploadUpdateComponent } from '../uploadUpdate/uploadUpdat
 export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAppService, ApplicationAppModel, number> implements OnInit, OnDestroy {
   requestLinkSourceId = 0;
   requestLinkThemeConfigId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApplicationAppService,
     private activatedRoute: ActivatedRoute,

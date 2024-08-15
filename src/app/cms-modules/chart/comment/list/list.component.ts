@@ -36,6 +36,7 @@ import { ChartCommentEditComponent } from '../edit/edit.component';
 })
 export class ChartCommentListComponent extends ListBaseComponent<ChartCommentService, ChartCommentModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private commentService: ChartCommentService,
     public contentService: ChartContentService,

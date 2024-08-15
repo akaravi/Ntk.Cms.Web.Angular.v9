@@ -22,6 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class EstateAccountAgencyAdsSalePaymentComponent implements OnInit {
   requestLinkAccountAgencyId = '';
   requestLinkAdsTypeId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     @Inject(DOCUMENT) private document: any,

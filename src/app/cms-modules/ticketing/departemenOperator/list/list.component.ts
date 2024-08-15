@@ -23,6 +23,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 })
 export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<TicketingDepartemenOperatorService, TicketingDepartemenOperatorModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: TicketingDepartemenOperatorService,
     private activatedRoute: ActivatedRoute,

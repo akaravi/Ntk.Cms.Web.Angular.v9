@@ -18,6 +18,7 @@ export class WebDesignerMainPageTemplateSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++WebDesignerMainPageTemplateSelectorComponent.nextId;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,

@@ -28,6 +28,7 @@ export class DataProviderLogPlanListComponent extends ListBaseComponent<DataProv
   implements OnInit, OnDestroy {
   requestLinkPlanId = 0;
   requestLinkSourceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public contentService: DataProviderLogPlanService,

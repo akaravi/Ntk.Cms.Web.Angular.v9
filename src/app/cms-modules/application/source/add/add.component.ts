@@ -22,6 +22,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './add.component.html',
 })
 export class ApplicationSourceAddComponent extends AddBaseComponent<ApplicationSourceService, ApplicationSourceModel, number> implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public applicationEnumService: ApplicationEnumService,

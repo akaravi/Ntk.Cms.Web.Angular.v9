@@ -30,6 +30,7 @@ export class CoreModuleLogSiteCreditListComponent extends ListBaseComponent<Core
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestlinkMemberUserId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreEnumService: CoreEnumService,
     public contentService: CoreModuleLogSiteCreditService,

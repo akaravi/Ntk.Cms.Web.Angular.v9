@@ -25,6 +25,7 @@ import { EstatePropertyAdsEditComponent } from '../edit/edit.component';
 })
 export class EstatePropertyAdsListComponent extends ListBaseComponent<EstatePropertyAdsService, EstatePropertyAdsModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstatePropertyAdsService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

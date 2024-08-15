@@ -26,6 +26,7 @@ import { CoreCpMainMenuEditComponent } from '../edit/edit.component';
 })
 export class CoreCpMainMenuListComponent extends ListBaseComponent<CoreCpMainMenuService, CoreCpMainMenuModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreCpMainMenuService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

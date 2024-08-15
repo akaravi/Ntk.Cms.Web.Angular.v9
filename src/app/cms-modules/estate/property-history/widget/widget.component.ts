@@ -17,6 +17,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: EstatePropertyHistoryService,
     private cmsToastrService: CmsToastrService,

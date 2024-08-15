@@ -29,6 +29,7 @@ import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quic
 })
 export class EstateCustomerOrderAddMobileComponent implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private router: Router,
     public coreEnumService: CoreEnumService,

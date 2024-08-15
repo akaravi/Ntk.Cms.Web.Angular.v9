@@ -33,6 +33,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CatalogContentEditComponent extends EditBaseComponent<CatalogContentService, CatalogContentModel, string>
   implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

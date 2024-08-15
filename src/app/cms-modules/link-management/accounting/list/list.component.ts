@@ -29,6 +29,7 @@ import { LinkManagementAccountingEditComponent } from '../edit/edit.component';
 })
 export class LinkManagementAccountingListComponent extends ListBaseComponent<LinkManagementAccountingService, LinkManagementAccountingModel, number> implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: LinkManagementAccountingService,
     private cmsToastrService: CmsToastrService,

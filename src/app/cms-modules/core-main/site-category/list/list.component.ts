@@ -26,6 +26,7 @@ import { CoreSiteCategoryEditComponent } from '../edit/edit.component';
 })
 export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCategoryService, CoreSiteCategoryModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreSiteCategoryService,
     private cmsToastrService: CmsToastrService,

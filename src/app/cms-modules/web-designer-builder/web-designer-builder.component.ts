@@ -14,6 +14,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,

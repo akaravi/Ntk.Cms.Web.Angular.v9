@@ -33,6 +33,7 @@ import { EstatePropertySupplierCategoryEditComponent } from '../edit/edit.compon
   styleUrls: ['./tree.component.scss'],
 })
 export class EstatePropertySupplierCategoryTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

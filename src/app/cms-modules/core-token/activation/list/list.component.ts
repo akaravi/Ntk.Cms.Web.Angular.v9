@@ -28,6 +28,7 @@ export class CoreTokenActivationListComponent extends ListBaseComponent<CoreToke
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreTokenActivationService,
     private cmsToastrService: CmsToastrService,

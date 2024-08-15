@@ -14,6 +14,7 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
 export class NewsContentWidgetComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: NewsContentService,
     private cdr: ChangeDetectorRef,

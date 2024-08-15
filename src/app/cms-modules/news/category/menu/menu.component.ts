@@ -15,6 +15,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class NewsCategoryMenuComponent implements OnInit {
   requestLinkParentId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public tokenHelper: TokenHelper,
     public categoryService: NewsCategoryService,

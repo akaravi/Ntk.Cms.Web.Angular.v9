@@ -31,6 +31,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
   implements OnInit, OnDestroy {
   requestLinkApplicationId = 0;
   requestLinkApplicationMemberId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: ApplicationLogNotificationService,
     private activatedRoute: ActivatedRoute,

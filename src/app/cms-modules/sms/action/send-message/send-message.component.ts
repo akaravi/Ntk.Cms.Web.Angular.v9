@@ -14,7 +14,6 @@ import {
 } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class DateByClock {
   date: Date;
@@ -28,6 +27,7 @@ export class DateByClock {
 })
 export class SmsActionSendMessageComponent implements OnInit {
   requestLinkApiPathId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public smsMainApiPathService: SmsMainApiPathService,
@@ -42,7 +42,7 @@ export class SmsActionSendMessageComponent implements OnInit {
   ) {
     this.publicHelper.processService.cdr = this.cdr;
 
-    
+
     this.requestLinkApiPathId = this.activatedRoute.snapshot.paramMap.get('LinkApiPathId');
     if (this.requestLinkApiPathId?.length > 0) {
       this.dataModel.linkApiPathId = this.requestLinkApiPathId;
@@ -70,7 +70,7 @@ export class SmsActionSendMessageComponent implements OnInit {
   linkApiPathId: string = '';
   linkNumberId: string = '';
 
-  
+
   dataModelParentSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   dataModel: SmsApiSendMessageDtoModel = new SmsApiSendMessageDtoModel();
   dataModelResult: ErrorExceptionResult<SmsApiSendResultModel> = new ErrorExceptionResult<SmsApiSendResultModel>();
@@ -263,7 +263,7 @@ export class SmsActionSendMessageComponent implements OnInit {
       error: (e) => {
         this.formInfo.formSubmitAllow = true;
         this.cmsToastrService.typeError(e);
-        this.publicHelper.processService.processStop(pName,false);
+        this.publicHelper.processService.processStop(pName, false);
 
       },
       complete: () => {

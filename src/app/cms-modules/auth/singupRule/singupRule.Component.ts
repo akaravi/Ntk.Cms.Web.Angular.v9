@@ -9,6 +9,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './singupRule.Component.html',
 })
 export class SingupRuleComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreConfigurationService: CoreConfigurationService,
     private cmsToastrService: CmsToastrService,

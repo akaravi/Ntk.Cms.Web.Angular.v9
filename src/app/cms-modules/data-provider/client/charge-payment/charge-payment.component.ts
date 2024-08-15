@@ -25,6 +25,7 @@ export class DataProviderClientChargePaymentComponent implements OnInit {
   requestLinkPlanPriceId = 0;
   requestLinkClientId = 0;
   requestBankPrivateMaster = false;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     @Inject(DOCUMENT) private document: any,

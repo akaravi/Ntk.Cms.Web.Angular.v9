@@ -25,6 +25,7 @@ import { HyperShopCategoryEditComponent } from '../edit/edit.component';
   styleUrls: ['./list.component.scss']
 })
 export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopCategoryService, HyperShopCategoryModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: HyperShopCategoryService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

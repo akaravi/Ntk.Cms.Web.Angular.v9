@@ -24,6 +24,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class DataProviderPlanClientAddComponent extends AddBaseComponent<DataProviderPlanClientService, DataProviderPlanClientModel, number> implements OnInit {
   requestPlanId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<DataProviderPlanClientAddComponent>,

@@ -7,6 +7,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   templateUrl: './singout.component.html',
 })
 export class AuthSingoutComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(private authService: CoreAuthService,
     private cmsToastrService: CmsToastrService,
   ) {

@@ -28,6 +28,7 @@ import { SmsLogOutBoxTaskSchedulerViewComponent } from '../view/view.component';
 })
 export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<SmsLogOutBoxTaskSchedulerService, SmsLogOutBoxTaskSchedulerModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsLogOutBoxTaskSchedulerService,
     private smsMainApiPathService: SmsMainApiPathService,

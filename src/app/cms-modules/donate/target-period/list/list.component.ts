@@ -28,6 +28,7 @@ import { DonateTargetPeriodEditComponent } from '../edit/edit.component';
 })
 export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTargetPeriodService, DonateTargetPeriodModel, number> implements OnInit, OnDestroy {
   requestLinkTargeId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: DonateTargetPeriodService,
     private cmsToastrService: CmsToastrService,

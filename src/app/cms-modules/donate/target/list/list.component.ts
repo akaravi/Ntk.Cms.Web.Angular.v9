@@ -28,6 +28,7 @@ import { DonateTargetEditComponent } from '../edit/edit.component';
 })
 export class DonateTargetListComponent extends ListBaseComponent<DonateTargetService, DonateTargetModel, number> implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: DonateTargetService,
     private cmsToastrService: CmsToastrService,

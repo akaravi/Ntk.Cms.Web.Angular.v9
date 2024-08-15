@@ -19,6 +19,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class DonateConfigCheckUserComponent implements OnInit, OnDestroy {
   requestLinkUserId = 0;
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: DonateConfigurationService,
     private activatedRoute: ActivatedRoute,

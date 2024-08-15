@@ -24,6 +24,7 @@ import { CoreUserClaimContentEditComponent } from '../edit/edit.component';
 export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: CoreUserClaimContentService,
     private cmsToastrService: CmsToastrService,

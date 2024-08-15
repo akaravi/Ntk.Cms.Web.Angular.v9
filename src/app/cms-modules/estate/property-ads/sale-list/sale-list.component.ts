@@ -21,6 +21,7 @@ import { EstatePropertyAdsSalePaymentComponent } from '../sale-payment/sale-paym
 })
 export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
   requestLinkPropertyId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private estateAdsTypeService: EstateAdsTypeService,
     public publicHelper: PublicHelper,

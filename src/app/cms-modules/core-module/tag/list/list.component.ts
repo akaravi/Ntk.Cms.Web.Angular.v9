@@ -26,6 +26,7 @@ import { CoreModuleTagEditComponent } from '../edit/edit.component';
 export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagService, CoreModuleTagModel, number>
   implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreModuleTagService,
     private cmsToastrService: CmsToastrService,

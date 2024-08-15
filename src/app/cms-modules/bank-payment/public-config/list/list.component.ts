@@ -27,6 +27,7 @@ import { BankPaymentPublicConfigEditComponent } from '../edit/edit.component';
 })
 export class BankPaymentPublicConfigListComponent extends ListBaseComponent<BankPaymentPublicConfigService, BankPaymentPublicConfigModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: BankPaymentPublicConfigService,
     private cmsToastrService: CmsToastrService,

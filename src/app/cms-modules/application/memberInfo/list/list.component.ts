@@ -32,6 +32,7 @@ export class ApplicationMemberInfoListComponent extends ListBaseComponent<Applic
   implements OnInit, OnDestroy {
   requestLinkApplicationId = 0;
   requestLinkMemberId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApplicationMemberInfoService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

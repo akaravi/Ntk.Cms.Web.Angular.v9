@@ -23,6 +23,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 })
 export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathService, SmsLogApiPathModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: SmsLogApiPathService,
     private activatedRoute: ActivatedRoute,

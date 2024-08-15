@@ -37,6 +37,7 @@ import { EstateCustomerOrderActionComponent } from '../action/action.component';
 export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string>
   implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private router: Router,
     public coreEnumService: CoreEnumService,

@@ -27,6 +27,7 @@ export class CoreModuleTagCategoryEditComponent extends EditBaseComponent<CoreMo
   implements OnInit {
   requestId = 0;
   requestParentId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CoreModuleTagCategoryEditComponent>,

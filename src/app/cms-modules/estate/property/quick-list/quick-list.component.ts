@@ -43,6 +43,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
   requestLinkProjectId = "";
   requestLinkUserId = 0;
   requestInChecking = false;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyQuickListComponent>,

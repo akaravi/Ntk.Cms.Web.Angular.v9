@@ -23,6 +23,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 })
 export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesignerMainIntroService, WebDesignerMainIntroModel, string> implements OnInit, OnDestroy {
   requestLinkPageId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: WebDesignerMainIntroService,
     private activatedRoute: ActivatedRoute,

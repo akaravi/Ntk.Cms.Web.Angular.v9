@@ -18,15 +18,15 @@ export class ProgressSpinnerComponent implements OnInit {
     public processService: ProcessService,
     private cdr: ChangeDetectorRef,
   ) {
-    this.processService.cdr = cdr;
+    this.processService.cdr = this.cdr;
     this.processService.getOnChange().subscribe((value) => {
-      console.log('###### S ######');
+      console.log('###### Start :' + this.id + ' ######');
       console.log('change#', value);
       console.log('processInRun#', this.processService.processInRun);
       console.log('processInRunArea#', this.processService.processInRunArea);
       console.log('processInfoArea#', this.processService.processInfoArea);
       console.log('processInfoAll#', this.processService.processInfoAll);
-      console.log('###### E ######');
+      console.log('###### end :' + this.id + ' ######');
       //this.cdr.detectChanges();
     });
   }

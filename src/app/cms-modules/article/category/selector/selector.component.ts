@@ -18,6 +18,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class ArticleCategorySelectorComponent implements OnInit {
   static nextId = 0;
   id = ++ArticleCategorySelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     public translate: TranslateService,

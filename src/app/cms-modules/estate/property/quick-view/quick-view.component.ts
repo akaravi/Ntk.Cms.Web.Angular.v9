@@ -26,6 +26,7 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
   requestId = '';
   requestPerviousItem: any;
   requestNextItem: any;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyQuickViewComponent>,

@@ -26,6 +26,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class CoreModuleLogShowKeyEditComponent extends EditBaseComponent<CoreModuleLogShowKeyService, CoreModuleLogShowKeyModel, string>
   implements OnInit, OnDestroy {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CoreModuleLogShowKeyEditComponent>,

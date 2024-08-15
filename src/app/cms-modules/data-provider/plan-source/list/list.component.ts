@@ -30,6 +30,7 @@ export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataP
   implements OnInit, OnDestroy {
   requestLinkPlanId = 0;
   requestLinkSourceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: DataProviderPlanSourceService,
     private activatedRoute: ActivatedRoute,

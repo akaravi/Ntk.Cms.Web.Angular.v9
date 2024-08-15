@@ -25,6 +25,7 @@ export class CoreModuleSiteUserCreditChargePaymentComponent implements OnInit {
   requestCredit = 0;
   requestLinkModuleId = 0;
   requestBankPrivateMaster = false;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     @Inject(DOCUMENT) private document: any,

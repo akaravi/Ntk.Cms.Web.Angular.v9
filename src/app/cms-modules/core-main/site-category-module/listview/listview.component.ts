@@ -26,6 +26,7 @@ export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDes
     this.DataGetAll();
   }
   LinkSiteCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreSiteCategoryCmsModuleService: CoreSiteCategoryCmsModuleService,
     public publicHelper: PublicHelper,

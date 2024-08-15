@@ -19,6 +19,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class TicketingTemplateSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++TicketingTemplateSelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,

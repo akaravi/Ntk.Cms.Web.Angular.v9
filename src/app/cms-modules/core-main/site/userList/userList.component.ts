@@ -32,6 +32,7 @@ export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserSer
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkUserGroupId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreSiteUserService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

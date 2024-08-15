@@ -16,6 +16,7 @@ import { SingupRuleComponent } from '../singupRule/singupRule.Component';
   templateUrl: './singup.component.html',
 })
 export class AuthSingUpComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     private router: Router,

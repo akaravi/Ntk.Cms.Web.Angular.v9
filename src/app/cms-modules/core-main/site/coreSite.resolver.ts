@@ -4,10 +4,11 @@ import { CoreSiteService, FilterModel } from 'ntk-cms-api';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class CoreSiteResolver  {
+export class CoreSiteResolver {
 
     filterModel = new FilterModel();
 
+    constructorInfoAreaId = this.constructor.name;
     constructor(private coreSiteService: CoreSiteService) {
     }
 

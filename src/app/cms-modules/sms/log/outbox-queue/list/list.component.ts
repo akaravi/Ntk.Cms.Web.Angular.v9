@@ -28,6 +28,7 @@ import { SmsLogOutBoxQueueViewComponent } from '../view/view.component';
 })
 export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutBoxQueueService, SmsLogOutBoxQueueModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsLogOutBoxQueueService,
     private smsMainApiPathService: SmsMainApiPathService,

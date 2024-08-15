@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 
 })
 export class AuthSingInComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     private route: ActivatedRoute,

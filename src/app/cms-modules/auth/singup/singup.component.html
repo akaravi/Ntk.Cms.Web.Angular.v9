@@ -1,5 +1,5 @@
 <div class="card card-style progressOverlayContainer">
-  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
   <form (ngSubmit)="onActionSubmit()" #vform="ngForm" class="form form-horizontal">
     <!--content-->
     <p class="font-600 color-highlight mb-0">{{"AUTH.Sign.Up"|translate}}</p>

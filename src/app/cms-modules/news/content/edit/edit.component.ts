@@ -32,6 +32,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class NewsContentEditComponent extends EditBaseComponent<NewsContentService, NewsContentModel, number>
   implements OnInit {
   requestId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

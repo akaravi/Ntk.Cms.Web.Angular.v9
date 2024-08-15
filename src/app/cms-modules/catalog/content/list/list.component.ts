@@ -31,6 +31,7 @@ import { CatalogContentDeleteComponent } from '../delete/delete.component';
 export class CatalogContentListComponent extends ListBaseComponent<CatalogContentService, CatalogContentModel, string>
   implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CatalogContentService,
     private cmsToastrService: CmsToastrService,

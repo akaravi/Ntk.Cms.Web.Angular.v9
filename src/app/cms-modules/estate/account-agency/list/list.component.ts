@@ -26,6 +26,7 @@ import { EstateAccountAgencyEditComponent } from '../edit/edit.component';
 export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAccountAgencyService, EstateAccountAgencyModel, string> implements OnInit, OnDestroy {
   requestLinkAccountUserId = '';
   requestLinkLocationWorkAreaIds: number[];
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstateAccountAgencyService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

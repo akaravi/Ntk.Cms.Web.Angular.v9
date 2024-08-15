@@ -29,6 +29,7 @@ import { WebDesignerMainPageDependencyEditComponent } from '../edit/edit.compone
 })
 export class WebDesignerMainPageDependencyListComponent extends ListBaseComponent<WebDesignerMainPageDependencyService, WebDesignerMainPageDependencyModel, string> implements OnInit, OnDestroy {
   requestLinkModuleId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: WebDesignerMainPageDependencyService,
     private cmsToastrService: CmsToastrService,

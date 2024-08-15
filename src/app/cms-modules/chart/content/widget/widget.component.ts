@@ -13,6 +13,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class ChartContentWidgetComponent implements OnInit, OnDestroy {
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: ChartContentService,
     private cmsToastrService: CmsToastrService,

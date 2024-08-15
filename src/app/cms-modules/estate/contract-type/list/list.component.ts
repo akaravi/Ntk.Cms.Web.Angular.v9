@@ -25,6 +25,7 @@ import { EstateContractTypeEditComponent } from '../edit/edit.component';
   styleUrls: ['./list.component.scss']
 })
 export class EstateContractTypeListComponent extends ListBaseComponent<EstateContractTypeService, EstateContractTypeModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstateContractTypeService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

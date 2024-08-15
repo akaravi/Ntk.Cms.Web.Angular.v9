@@ -27,6 +27,7 @@ import { CoreDeviceEditComponent } from '../edit/edit.component';
 export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService, CoreDeviceModel, number>
   implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreDeviceService,
     private cmsToastrService: CmsToastrService,

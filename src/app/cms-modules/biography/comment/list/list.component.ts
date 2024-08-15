@@ -36,6 +36,7 @@ import { BiographyCommentEditComponent } from '../edit/edit.component';
 })
 export class BiographyCommentListComponent extends ListBaseComponent<BiographyCommentService, BiographyCommentModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: BiographyCommentService,
     private biographyContentService: BiographyContentService,

@@ -30,6 +30,7 @@ import { WebDesignerMainMenuEditComponent } from '../edit/edit.component';
   templateUrl: './tree.component.html',
 })
 export class WebDesignerMainMenuTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

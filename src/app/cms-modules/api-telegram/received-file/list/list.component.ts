@@ -25,6 +25,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 
 })
 export class ApiTelegramReceivedFileListComponent extends ListBaseComponent<ApiTelegramReceivedFileService, ApiTelegramReceivedFileModel, number> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApiTelegramReceivedFileService,
     private cmsToastrService: CmsToastrService,

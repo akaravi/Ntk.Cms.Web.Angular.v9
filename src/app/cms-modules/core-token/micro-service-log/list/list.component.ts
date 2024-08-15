@@ -29,6 +29,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreTokenMicroServiceLogService,
     private cmsToastrService: CmsToastrService,

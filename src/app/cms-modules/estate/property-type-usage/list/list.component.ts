@@ -24,6 +24,7 @@ import { EstatePropertyTypeUsageEditComponent } from '../edit/edit.component';
   templateUrl: './list.component.html'
 })
 export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<EstatePropertyTypeUsageService, EstatePropertyTypeUsageModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstatePropertyTypeUsageService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,

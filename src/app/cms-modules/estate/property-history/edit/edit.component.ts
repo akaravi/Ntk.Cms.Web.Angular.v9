@@ -25,6 +25,7 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 })
 export class EstatePropertyHistoryEditComponent extends EditBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertyHistoryEditComponent>,

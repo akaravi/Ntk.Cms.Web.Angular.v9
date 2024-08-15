@@ -32,6 +32,7 @@ import { BankPaymentPrivateSiteConfigEditComponent } from '../edit/edit.componen
   templateUrl: './tree.component.html',
 })
 export class BankPaymentPrivateSiteConfigTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

@@ -28,6 +28,7 @@ import { CoreModuleLogShowKeyViewComponent } from '../view/view.component';
 export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreModuleLogShowKeyService, CoreModuleLogShowKeyModel, string>
   implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private coreEnumService: CoreEnumService,
     public contentService: CoreModuleLogShowKeyService,

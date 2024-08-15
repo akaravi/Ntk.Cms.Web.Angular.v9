@@ -7,7 +7,7 @@
         <i class="ft-x"></i> {{'ACTION.BACK' | translate}}
       </button>
     </div>
-    <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+    <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
     <div class="row">
       <div class="col" *ngFor="let item of dataModelResult.listItems">
         <mat-card class="example-card">

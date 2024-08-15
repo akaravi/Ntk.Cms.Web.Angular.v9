@@ -30,6 +30,7 @@ export class DataProviderTransactionListComponent extends ListBaseComponent<Data
   requestLinkPlanId = 0;
   requestLinkPlanPriceId = 0;
   requestLinkClientId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public contentService: DataProviderTransactionService,

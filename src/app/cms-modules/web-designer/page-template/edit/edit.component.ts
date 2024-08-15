@@ -23,6 +23,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 export class WebDesignerMainPageTemplateEditComponent extends EditBaseComponent<WebDesignerMainPageTemplateService, WebDesignerMainPageTemplateModel, string>
   implements OnInit {
   requestId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<WebDesignerMainPageTemplateEditComponent>,

@@ -35,6 +35,7 @@ import { DataProviderPlanCategoryEditComponent } from '../edit/edit.component';
   styleUrls: ['./tree.component.scss'],
 })
 export class DataProviderPlanCategoryTreeComponent implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     public coreEnumService: CoreEnumService,

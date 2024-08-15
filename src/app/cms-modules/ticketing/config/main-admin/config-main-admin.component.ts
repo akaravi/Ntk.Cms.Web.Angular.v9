@@ -28,6 +28,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private configService: TicketingConfigurationService,
     private activatedRoute: ActivatedRoute,

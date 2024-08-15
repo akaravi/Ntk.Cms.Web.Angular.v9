@@ -19,6 +19,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class CoreCurrencySelectorComponent implements OnInit {
   static nextId = 0;
   id = ++CoreCurrencySelectorComponent.nextId;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cdr: ChangeDetectorRef,

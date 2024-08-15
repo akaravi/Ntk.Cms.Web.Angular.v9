@@ -28,6 +28,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
   requestLinkSiteId = 0;
   requestLinkPrivateConfigId = '';
   requestLinkApiNumberId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: SmsLogOutBoxService,
     // private smsMainApiPathCompanyService: SmsMainApiPathCompanyService,

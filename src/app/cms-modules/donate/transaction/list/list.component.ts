@@ -28,6 +28,7 @@ export class DonateTransactionListComponent extends ListBaseComponent<DonateTran
   LinkCmsUserId = 0;
   LinkSponsorId = 0;
   LinkTargetPeriodId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     private activatedRoute: ActivatedRoute,

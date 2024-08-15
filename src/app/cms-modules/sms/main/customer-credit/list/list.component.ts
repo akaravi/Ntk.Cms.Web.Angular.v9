@@ -26,6 +26,7 @@ import { SmsMainCustomerCreditEditComponent } from '../edit/edit.component';
 })
 export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMainCustomerCreditService, SmsMainCustomerCreditModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsMainCustomerCreditService,
     private cmsToastrService: CmsToastrService,

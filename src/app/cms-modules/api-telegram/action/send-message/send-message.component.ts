@@ -23,6 +23,7 @@ export class CompModel {
 })
 export class ApiTelegramActionSendMessageComponent implements OnInit {
   requestLinkBotConfigId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<ApiTelegramActionSendMessageComponent>,
@@ -34,7 +35,7 @@ export class ApiTelegramActionSendMessageComponent implements OnInit {
     public translate: TranslateService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-    
+
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }

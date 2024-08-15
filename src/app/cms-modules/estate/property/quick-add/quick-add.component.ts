@@ -28,6 +28,7 @@ import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.compo
   styleUrls: ["./quick-add.component.scss"],
 })
 export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstatePropertyTypeService, EstatePropertyTypeModel, string> implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private dialogRef: MatDialogRef<EstatePropertyQuickAddComponent>,
     public coreEnumService: CoreEnumService,

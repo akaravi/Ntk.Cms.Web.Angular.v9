@@ -27,6 +27,7 @@ export class EstatePropertySupplierQuickViewComponent implements OnInit, OnDestr
   requestId = '';
   requestPerviousItem: any;
   requestNextItem: any;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EstatePropertySupplierQuickViewComponent>,

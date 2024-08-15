@@ -28,6 +28,7 @@ import { ApplicationThemeConfigEditComponent } from '../edit/edit.component';
 export class ApplicationThemeConfigListComponent extends ListBaseComponent<ApplicationThemeConfigService, ApplicationThemeConfigModel, number>
   implements OnInit, OnDestroy {
   requestLinkSourceId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: ApplicationThemeConfigService,
     private activatedRoute: ActivatedRoute,

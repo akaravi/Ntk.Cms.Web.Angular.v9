@@ -26,6 +26,7 @@ type NewType = MatDialog;
 export class ApplicationThemeConfigAddComponent extends AddBaseComponent<ApplicationThemeConfigService, ApplicationThemeConfigModel, number> implements OnInit {
   requestLinkSourceId = 0;
   requestLinkCmsSiteCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<ApplicationThemeConfigAddComponent>,

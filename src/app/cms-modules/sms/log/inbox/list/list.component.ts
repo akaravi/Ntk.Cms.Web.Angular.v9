@@ -30,6 +30,7 @@ export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxServi
   requestLinkSiteId = 0;
   requestLinkPrivateConfigId = '';
   requestLinkApiNumberId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: SmsLogInBoxService,
     private smsMainApiPathService: SmsMainApiPathService,

@@ -27,6 +27,7 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 })
 export class CoreSiteAddFirstComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private cmsToastrService: CmsToastrService,
     private coreSiteService: CoreSiteService,

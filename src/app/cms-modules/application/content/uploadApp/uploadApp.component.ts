@@ -13,6 +13,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./uploadApp.component.scss']
 })
 export class ApplicationAppUploadAppComponent implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public dataItemModel: ApplicationAppModel,
     private dialogRef: MatDialogRef<ApplicationAppUploadAppComponent>,

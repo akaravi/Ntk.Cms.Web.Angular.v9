@@ -26,6 +26,7 @@ import { FileContentDeleteComponent } from '../delete/delete.component';
 })
 export class FileContentListComponent extends ListBaseComponent<FileContentService, FileContentModel, number> implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: FileContentService,
     private cmsToastrService: CmsToastrService,

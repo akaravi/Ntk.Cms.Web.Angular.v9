@@ -28,6 +28,7 @@ import { EstatePropertyDetailEditComponent } from '../edit/edit.component';
 })
 export class EstatePropertyDetailListComponent extends ListBaseComponent<EstatePropertyDetailService, EstatePropertyDetailModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyTypeLanduseId = '';
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstatePropertyDetailService,
     private estatePropertyDetailGroupService: EstatePropertyDetailGroupService,

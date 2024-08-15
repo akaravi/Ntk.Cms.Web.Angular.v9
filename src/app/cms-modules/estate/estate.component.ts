@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstateComponent implements OnInit {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor() { }
 
   ngOnInit(): void {

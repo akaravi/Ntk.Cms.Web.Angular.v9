@@ -1,7 +1,7 @@
 <app-cms-guide-notice [Key]="'polling.content.list.edit'" [svg]="'assets/media/svg/icons/General/Notifications1.svg'">
 </app-cms-guide-notice>
 <div class="card card-style progressOverlayContainer">
-  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
       {{ formInfo.formTitle }}
@@ -184,7 +184,7 @@
             {{'ACTION.Add_To_List' | translate}} ...
           </button>
           <p>{{'TITLE.List_of_other_information' | translate}}</p>
-          <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+          <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!loadingOption.display">
             <mat-table [dataSource]="optionTabledataSource">

@@ -24,6 +24,7 @@ export class CoreSiteWidgetModuleComponent implements OnInit, OnDestroy {
 
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private service: CoreModuleSiteService,
     private cmsToastrService: CmsToastrService,

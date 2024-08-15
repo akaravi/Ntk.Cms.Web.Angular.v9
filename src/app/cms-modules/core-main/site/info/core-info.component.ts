@@ -16,6 +16,7 @@ import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.compo
 })
 export class CoreInfoComponent implements OnInit, OnDestroy {
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private tokenHelper: TokenHelper,
     private cmsToastrService: CmsToastrService,

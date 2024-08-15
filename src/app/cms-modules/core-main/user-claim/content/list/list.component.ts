@@ -31,6 +31,7 @@ export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUse
   requestLinkUserClaimTypeId = 0;
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreUserClaimContentService,
     private cmsToastrService: CmsToastrService,

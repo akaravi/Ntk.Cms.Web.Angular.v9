@@ -27,6 +27,7 @@ import { MemberGroupEditComponent } from '../edit/edit.component';
 
 })
 export class MemberGroupListComponent extends ListBaseComponent<MemberGroupService, MemberGroupModel, number> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: MemberGroupService,
     private cmsToastrService: CmsToastrService,

@@ -26,6 +26,7 @@ export class CoreSiteCategoryCmsModuleEditComponent extends EditBaseComponent<Co
   implements OnInit {
   requestLinkCmsModuleId = 0;
   requestLinkCmsSiteCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CoreSiteCategoryCmsModuleEditComponent>,

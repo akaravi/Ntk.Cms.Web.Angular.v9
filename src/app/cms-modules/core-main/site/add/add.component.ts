@@ -25,6 +25,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
   styleUrls: ['./add.component.scss']
 })
 export class CoreSiteAddComponent extends AddBaseComponent<CoreSiteService, CoreSiteModel, number> implements OnInit {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public publicHelper: PublicHelper,

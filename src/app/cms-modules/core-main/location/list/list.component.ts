@@ -27,6 +27,7 @@ import { CoreLocationEditComponent } from '../edit/edit.component';
 })
 export class CoreLocationListComponent extends ListBaseComponent<CoreLocationService, CoreLocationModel, number>
   implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: CoreLocationService,
     private coreEnumService: CoreEnumService,

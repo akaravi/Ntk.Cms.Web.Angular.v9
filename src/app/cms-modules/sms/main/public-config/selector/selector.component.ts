@@ -23,6 +23,7 @@ export class SmsMainApiPathPublicConfigSelectorComponent implements OnInit {
   id = ++SmsMainApiPathPublicConfigSelectorComponent.nextId;
 
 
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
     private cmsToastrService: CmsToastrService,

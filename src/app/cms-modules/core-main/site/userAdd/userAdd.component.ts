@@ -25,6 +25,7 @@ export class CoreSiteUserAddComponent extends AddBaseComponent<CoreSiteUserServi
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkUserGroupId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CoreSiteUserAddComponent>,

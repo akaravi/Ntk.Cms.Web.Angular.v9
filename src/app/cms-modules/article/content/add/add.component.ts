@@ -27,6 +27,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 })
 export class ArticleContentAddComponent extends AddBaseComponent<ArticleContentService, ArticleContentModel, number> implements OnInit {
   requestCategoryId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private activatedRoute: ActivatedRoute,
     public coreEnumService: CoreEnumService,

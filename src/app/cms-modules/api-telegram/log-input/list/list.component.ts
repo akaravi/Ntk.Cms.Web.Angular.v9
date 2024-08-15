@@ -25,6 +25,7 @@ import { ApiTelegramActionSendMessageComponent } from '../../action/send-message
 })
 export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTelegramLogInputService, ApiTelegramLogInputModel, string> implements OnInit, OnDestroy {
   requestLinkBotConfigId = 0;
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: ApiTelegramLogInputService,
     private cmsToastrService: CmsToastrService,

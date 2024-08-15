@@ -24,6 +24,7 @@ import { EstateActivityTypeEditComponent } from '../edit/edit.component';
   templateUrl: './list.component.html'
 })
 export class EstateActivityTypeListComponent extends ListBaseComponent<EstateActivityTypeService, EstateActivityTypeModel, string> implements OnInit, OnDestroy {
+  constructorInfoAreaId = this.constructor.name;
   constructor(
     private contentService: EstateActivityTypeService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
