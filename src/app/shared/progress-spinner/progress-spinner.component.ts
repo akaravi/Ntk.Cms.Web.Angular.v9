@@ -4,7 +4,7 @@ import {
   Input,
   OnInit
 } from '@angular/core';
-import { ProcessModel } from 'src/app/core/models/processModel';
+import { ProcessInfoModel } from 'ntk-cms-api';
 import { ProcessService } from 'src/app/core/services/process.service';
 
 @Component({
@@ -21,13 +21,14 @@ export class ProgressSpinnerComponent implements OnInit {
   ) {
     this.processService.cdr = this.cdr;
     processService.processSubject.subscribe((value) => {
-      this.process = processService.processSubject.value;
+      this.infoArea = value.infoArea[this.optionsInfoAreaId];
+      this.inRunArea = value.inRunArea[this.optionsInfoAreaId];
+      console.log("infoArea", this.infoArea);
     });
   }
   @Input() optionsInfoAreaId: string = 'global';
-
-  process: ProcessModel;
-
+  inRunArea: boolean[] = [];
+  infoArea: Map<string, ProcessInfoModel>[] = [];
   ngOnInit(): void {
 
   }

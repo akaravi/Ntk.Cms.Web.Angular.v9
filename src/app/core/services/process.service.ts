@@ -114,6 +114,7 @@ export class ProcessService {
         this.processSubject.next(retValue);
       }, 1);
     } else {
+      this.processSubject.next(this.process);
       setTimeout(() => {
         this.process.inRunAll = retOutInRunAll;
         this.process.inRunArea[model.infoAreaId] = retOutInRunArea;
