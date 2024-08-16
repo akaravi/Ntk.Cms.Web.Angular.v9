@@ -25,7 +25,8 @@
     </button>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-->
   </ng-container>
-  <ng-container cms-tree-body>
+  <ng-container cms-tree-body class="loader-container">
+    <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-tree class="category-tree cursor-pointer" [dataSource]="dataSource" [treeControl]="treeControl">
       <mat-tree-node *matTreeNodeDef="let node; let i = dataIndex;" [class.ntk-tree-odd]="i % 2"
