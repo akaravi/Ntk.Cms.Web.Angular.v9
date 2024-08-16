@@ -175,7 +175,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     });
 
     this.cmsApiStoreSubscribe = this.tokenHelper
-      .getCurrentTokenOnChange()
+      .geTokenInfoStateOnChange()
       .subscribe({
         next: (ret) => {
           this.tokenInfo = ret;

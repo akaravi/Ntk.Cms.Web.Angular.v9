@@ -10,7 +10,7 @@ import {
 import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
+import { ReducerCmsStore, SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
 import { ThemeService } from '../services/theme.service';
 const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 @Injectable({
@@ -55,7 +55,34 @@ export class TokenHelper implements OnDestroy {
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-
+  /*
+    /opny use on main page
+    */
+  onInitAppComponentStateOnChange(): Observable<ReducerCmsStore> {
+    return this.cmsStoreService.getState((state) => {
+      if (environment.consoleLog)
+        console.log("onInitAppComponentStateOnChange:tokenhelper");
+      this.tokenInfo = state.tokenInfoStore;
+      this.setDirectionThemeBylanguage(this.tokenInfo.language);
+      this.CheckIsAdmin();
+      return state;
+    });
+  }
+  getStateOnChange(): Observable<ReducerCmsStore> {
+    return this.cmsStoreService.getState((state) => {
+      if (environment.consoleLog)
+        console.log("getStateOnChange");
+      return state
+    });
+  }
+  geTokenInfoStateOnChange(): Observable<TokenInfoModel> {
+    return this.cmsStoreService.getState((state) => {
+      if (environment.consoleLog)
+        console.log("geTokenInfoStateOnChange");
+      this.tokenInfo = state.tokenInfoStore;
+      return state.tokenInfoStore;
+    });
+  }
   async getCurrentToken(): Promise<TokenInfoModel> {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     if (storeSnapshot?.tokenInfoStore) {
@@ -89,18 +116,7 @@ export class TokenHelper implements OnDestroy {
         return ret.item;
       });
   }
-  getCurrentTokenOnChange(): Observable<TokenInfoModel> {
-    return this.cmsStoreService.getState((state) => {
-      if (environment.consoleLog)
-        console.log("getCurrentTokenOnChange");
-      //todo: karavi fix bug
-      //this.cmsStoreService.setState({ type: SET_Info_Enum, payload: new ErrorExceptionResult<InfoEnumModel> });
-      this.tokenInfo = state.tokenInfoStore;
-      this.setDirectionThemeBylanguage(this.tokenInfo.language);
-      this.CheckIsAdmin();
-      return state.tokenInfoStore;
-    });
-  }
+
   setDirectionThemeBylanguage(language) {
     if (!language || language.length === 0)
       language = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate.getDefaultLang() || 'fa';// this.cmsTranslationService.getSelectedLanguage()

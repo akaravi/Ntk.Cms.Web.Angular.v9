@@ -57,7 +57,7 @@ export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, Co
         this.DataGetOne(this.tokenInfo.siteId);
       }
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         if (this.requestId > 0) {

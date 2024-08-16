@@ -37,7 +37,7 @@ export class MenuLanguageComponent implements OnInit {
     });
 
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
 
       this.setLanguage(value.language);
@@ -103,7 +103,7 @@ export class MenuLanguageComponent implements OnInit {
       if (indexId > 0)
         this.languages.splice(to, 0, this.languages.splice(indexId, 1)[0]);
     }
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });
   }

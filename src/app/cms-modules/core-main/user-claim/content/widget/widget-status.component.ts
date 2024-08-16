@@ -51,7 +51,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
     this.widgetInfoModel.link = '/core/userclaim/checklist';
 
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.onActionStatist();
       }

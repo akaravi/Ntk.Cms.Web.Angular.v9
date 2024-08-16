@@ -84,7 +84,7 @@ export class ContactCategoryTreeSelectorComponent implements OnInit, OnDestroy {
   hasNoContent = (_: string, nodeData: ContactCategoryModel) => nodeData.children;
   ngOnInit(): void {
     this.DataGetAll();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });
   }

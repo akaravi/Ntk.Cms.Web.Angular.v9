@@ -38,7 +38,7 @@ export class ApplicationMemberInfoWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/application/memberinfo';
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Member');
         this.onActionStatist();

@@ -72,7 +72,7 @@ export class CmsHtmlListComponent implements OnInit {
     public translate: TranslateService,
   ) {
 
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       if (value.themeStore.actionScrollTopList && this.topList && this.topList.nativeElement) {
         this.topList.nativeElement.scrollIntoView({ behavior: 'smooth', block: "start" })
         this.publicHelper.themeService.onActionScrollTopList(false);

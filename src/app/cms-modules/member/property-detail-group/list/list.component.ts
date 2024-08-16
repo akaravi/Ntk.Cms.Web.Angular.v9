@@ -92,7 +92,7 @@ export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<Me
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         this.DataGetAll();

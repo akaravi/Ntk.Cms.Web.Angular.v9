@@ -63,7 +63,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatusStore;
     });
   }
@@ -126,7 +126,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     this.getEstateContractType();
 
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetOne();
         this.getEstateContractType();

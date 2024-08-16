@@ -9,7 +9,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 export class ScrollTopComponent implements OnInit {
   constructor(public publicHelper: PublicHelper,
   ) {
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       if (value.themeStore.actionScrollTopPage)
         this.onScroll(null);
     });

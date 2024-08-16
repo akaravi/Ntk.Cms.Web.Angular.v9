@@ -75,7 +75,7 @@ export class EstatePropertyCompanyQuickViewComponent implements OnInit, OnDestro
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
       }

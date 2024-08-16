@@ -35,7 +35,7 @@ export class NewsContentWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/news/content';
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.onActionStatist();
       }

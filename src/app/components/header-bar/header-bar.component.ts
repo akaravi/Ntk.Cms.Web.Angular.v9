@@ -50,11 +50,11 @@ export class HeaderBarComponent implements OnInit {
     });
 
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
 
     });
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });
   }

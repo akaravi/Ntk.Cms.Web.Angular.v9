@@ -38,7 +38,7 @@ export class PageDashboardComponent implements OnInit {
       this.cdr.detectChanges();
     });
     this.cmsApiStoreSubscribe = this.tokenHelper
-      .getCurrentTokenOnChange()
+      .geTokenInfoStateOnChange()
       .subscribe({
         next: (ret) => {
           this.tokenInfo = ret;

@@ -39,7 +39,7 @@ export class WebDesignerLogMemberInfoWidgetComponent implements OnInit, OnDestro
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/application/content';
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.onActionStatist();
       }

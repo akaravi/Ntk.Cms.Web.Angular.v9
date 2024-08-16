@@ -1,0 +1,29 @@
+{
+  "cSpell.words": [
+    "Alireza",
+    "filemanager",
+    "hypershop",
+    "Karavi",
+    "Typscript"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#00c1e3",
+    "activityBar.background": "#00c1e3",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#4087ff",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#00c1e3",
+    "statusBar.background": "#00c1e3",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#00c1e3",
+    "statusBarItem.remoteBackground": "#00c1e3",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#00c1e3",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#00c1e399",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#00c1e3"
+}

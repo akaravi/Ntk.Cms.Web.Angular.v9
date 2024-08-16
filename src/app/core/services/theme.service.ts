@@ -19,8 +19,11 @@ export class ThemeService {
     if (storeSnapshot.themeStore)
       this.themeStore = storeSnapshot.themeStore;
   }
-  public onInitAppComponent() {
+  public onInitAppComponentStateOnChange() {
     this.cmsStoreService.getState((state) => {
+      if (environment.consoleLog)
+        console.log("onInitAppComponentStateOnChange:ThemeService");
+
       if (state.themeStore)
         this.themeStore = state.themeStore;
       else

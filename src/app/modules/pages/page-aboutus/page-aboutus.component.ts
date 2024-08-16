@@ -30,7 +30,7 @@ export class PageAboutusComponent implements OnInit {
       else
         this.SiteInfo(0);
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         if (this.tokenInfo.siteId > 0)

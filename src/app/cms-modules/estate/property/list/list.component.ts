@@ -270,7 +270,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     });
     this.tokenInfo.direction
     this.cmsApiStoreSubscribe = this.tokenHelper
-      .getCurrentTokenOnChange()
+      .geTokenInfoStateOnChange()
       .subscribe({
         next: (ret) => {
           this.tokenInfo = ret;

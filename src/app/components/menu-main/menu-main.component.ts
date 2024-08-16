@@ -38,13 +38,13 @@ export class MenuMainComponent implements OnInit {
         setTimeout(() => { this.DataGetCpMenu(); }, 1000);
       }
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
         setTimeout(() => { this.DataGetCpMenu(); }, 1000);
       }
     });
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });
   }

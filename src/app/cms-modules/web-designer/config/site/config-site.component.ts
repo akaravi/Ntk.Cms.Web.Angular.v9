@@ -63,7 +63,7 @@ export class WebDesignerConfigSiteComponent implements OnInit {
       this.tokenInfo = value;
       this.onLoadDate();
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         this.onLoadDate();

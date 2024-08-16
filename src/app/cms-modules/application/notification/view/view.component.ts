@@ -60,7 +60,7 @@ export class ApplicationLogNotificationViewComponent implements OnInit, OnDestro
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
       }

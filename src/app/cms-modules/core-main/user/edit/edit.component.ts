@@ -52,7 +52,7 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
       this.DataGetOneContent();
     });

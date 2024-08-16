@@ -31,7 +31,7 @@ export class AuthSingInComponent implements OnInit {
   ) {
     this.publicHelper.processService.cdr = this.cdr;
     this.firstRun = true;
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatusStore;
     });
     //**Token */

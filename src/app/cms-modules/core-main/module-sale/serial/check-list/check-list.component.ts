@@ -77,7 +77,7 @@ export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         if (this.requestSerial && this.requestSerial.length > 0) {
           this.DataCheckUseSerialForSite(this.requestSerial);

@@ -41,7 +41,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.link = '/estate/property-history';
 
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.onActionStatist();
       }

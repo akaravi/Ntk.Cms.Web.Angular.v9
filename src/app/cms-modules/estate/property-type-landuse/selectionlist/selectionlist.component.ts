@@ -50,7 +50,7 @@ export class EstatePropertyTypeLanduseSelectionlistComponent implements OnInit, 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.DataGetAll();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetAll();
       }

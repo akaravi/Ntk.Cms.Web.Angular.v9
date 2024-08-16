@@ -63,7 +63,7 @@ export class BiographyCategoryTreeComponent implements OnInit, OnDestroy {
   hasChild = (_: number, node: BiographyCategoryModel) => !!node.children && node.children.length > 0;
   ngOnInit(): void {
     this.DataGetAll();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });
   }

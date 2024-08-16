@@ -47,7 +47,7 @@ export class EstatePropertyHeaderComponent implements OnInit, OnDestroy {
       this.DataGetOneContent();
     }
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetOneContent();
       }

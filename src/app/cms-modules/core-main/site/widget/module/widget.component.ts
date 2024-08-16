@@ -42,7 +42,7 @@ export class CoreSiteWidgetModuleComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.link = '/core/site/modulelist';
 
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.onActionStatist();
       }

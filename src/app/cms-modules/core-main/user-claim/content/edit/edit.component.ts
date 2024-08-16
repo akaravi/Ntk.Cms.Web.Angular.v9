@@ -58,7 +58,7 @@ export class CoreUserClaimContentEditComponent extends EditBaseComponent<CoreUse
         this.ProfessionalData = false;
       }
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         if (!this.tokenInfo.userAccessAdminAllowToProfessionalData && this.tokenInfo.userAccessAdminAllowToAllData) {

@@ -94,7 +94,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
     this.getEstatePropertyType();
     this.getEstatePropertyTypeLanduse();
     this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
 
         this.DataGetAccess();

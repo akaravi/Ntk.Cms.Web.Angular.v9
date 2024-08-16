@@ -71,7 +71,7 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataDepartemenGetAll();
         this.tokenInfo = ret;

@@ -44,7 +44,7 @@ export class EstatePropertyExpertPriceHeaderComponent implements OnInit, OnDestr
       this.DataGetOneContent();
     }
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetOneContent();
       }

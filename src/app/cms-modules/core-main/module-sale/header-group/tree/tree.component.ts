@@ -67,7 +67,7 @@ export class CoreModuleSaleHeaderGroupTreeComponent implements OnInit, OnDestroy
 
   ngOnInit(): void {
     this.DataGetAll();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });
   }

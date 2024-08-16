@@ -99,7 +99,7 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.getEnumTicketStatus();
         this.tokenInfo = ret;

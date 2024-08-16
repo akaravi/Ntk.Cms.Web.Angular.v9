@@ -117,20 +117,8 @@ export class AppComponent implements OnInit {
       environment.cmsServerConfig.configApiServerPath &&
       environment.cmsServerConfig.configApiServerPath.length > 0
     ) {
-      this.coreAuthService.setConfig(
-        environment.cmsServerConfig.configApiServerPath
-      );
-      this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
-        next: (ret) => {
-          if (ret.siteId > 0 && ret.userId > 0 && environment.production)
-            this.getSupport();
-          if (ret.userId > 0) {
-            this.singlarService.login(ret.token);
-          } else {
-            this.singlarService.logout();
-          }
-        }
-      });
+      this.coreAuthService.setConfig( environment.cmsServerConfig.configApiServerPath);
+     
     }
 
     this.process$ = processService.processSubject;
@@ -143,8 +131,19 @@ export class AppComponent implements OnInit {
   cmsApiStoreSubscribe: Subscription;
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
-    this.themeService.onInitAppComponent();
-    //this.publicHelper.processService.onInitAppComponent();
+    this.themeService.onInitAppComponentStateOnChange();
+    
+    this.cmsApiStoreSubscribe = this.tokenHelper.onInitAppComponentStateOnChange().subscribe({
+      next: (state) => {
+        if (state.tokenInfoStore.siteId > 0 && state.tokenInfoStore.userId > 0 && environment.production)
+          this.getSupport();
+        if (state.tokenInfoStore.userId > 0) {
+          this.singlarService.login(state.tokenInfoStore.token);
+        } else {
+          this.singlarService.logout();
+        }
+      }
+    });
     const url = window.location.href;
     if (url.includes('?')) {
       const httpParams = new HttpParams({ fromString: url.split('?')[1] });

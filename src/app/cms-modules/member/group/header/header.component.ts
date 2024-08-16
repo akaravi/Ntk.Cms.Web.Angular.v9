@@ -45,7 +45,7 @@ export class MemberGroupHeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (this.optionId > 0) {
       this.DataGetOneContent();
-      this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+      this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
         next: (ret) => {
           this.DataGetOneContent();
         }

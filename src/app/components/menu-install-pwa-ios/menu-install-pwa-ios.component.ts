@@ -15,7 +15,7 @@ export class MenuInstallPwaIosComponent implements OnInit {
   themeStore = new ThemeStoreModel();
 
   ngOnInit(): void {
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });
   }

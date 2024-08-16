@@ -27,7 +27,7 @@ export class MenuProfileComponent implements OnInit {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
     });
 
@@ -43,7 +43,7 @@ export class MenuProfileComponent implements OnInit {
   themeStore = new ThemeStoreModel();
   ngOnInit(): void {
 
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });
 

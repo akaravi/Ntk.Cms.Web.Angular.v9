@@ -52,7 +52,7 @@ export class EstatePropertySelectorComponent implements OnInit, OnDestroy {
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     this.loadOptions();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.loadOptions();
       }

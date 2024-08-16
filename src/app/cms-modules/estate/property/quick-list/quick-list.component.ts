@@ -256,7 +256,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
     });
 
     this.cmsApiStoreSubscribe = this.tokenHelper
-      .getCurrentTokenOnChange()
+      .geTokenInfoStateOnChange()
       .subscribe({
         next: (ret) => {
           this.tokenInfo = ret;

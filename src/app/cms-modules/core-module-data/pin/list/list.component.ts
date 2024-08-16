@@ -104,7 +104,7 @@ export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModule
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         this.DataGetAll();

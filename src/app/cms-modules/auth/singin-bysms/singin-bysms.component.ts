@@ -42,7 +42,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     this.publicHelper.processService.cdr = this.cdr;
 
     this.RePasswordModel = '';
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatusStore;
     });
 

@@ -57,7 +57,7 @@ export class EstateCustomerCategorySelectorComponent implements OnInit, OnDestro
 
   ngOnInit(): void {
     this.loadOptions();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.loadOptions();
       }

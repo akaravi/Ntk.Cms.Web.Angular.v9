@@ -21,7 +21,7 @@ export class FooterBarComponent implements OnInit {
     this.tokenHelper.getCurrentToken().then((value) => {
       this.tokenInfo = value;
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
 
     });
@@ -30,7 +30,7 @@ export class FooterBarComponent implements OnInit {
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();
   ngOnInit(): void {
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });
   }

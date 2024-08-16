@@ -41,7 +41,7 @@ export class CatalogContentWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.link = '/catalog/content';
 
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Catalog');
         this.onActionStatist();

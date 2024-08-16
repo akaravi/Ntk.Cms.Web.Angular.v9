@@ -39,7 +39,7 @@ export class EstateConfigCheckUserComponent implements OnInit, OnDestroy {
       this.onLoadDate();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         this.onLoadDate();

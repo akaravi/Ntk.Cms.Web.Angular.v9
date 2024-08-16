@@ -62,7 +62,7 @@ export class WebDesignerMainPageDependencyTreeComponent implements OnInit, OnDes
   hasChild = (_: number, node: WebDesignerMainPageDependencyModel) => false;
   ngOnInit(): void {
     this.DataGetAll();
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });
   }

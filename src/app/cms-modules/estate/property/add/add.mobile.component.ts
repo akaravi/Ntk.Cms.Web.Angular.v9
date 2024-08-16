@@ -70,7 +70,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
       this.tokenInfo = value;
 
     });
-    this.publicHelper.getReducerCmsStoreOnChange().subscribe((value) => {
+    this.publicHelper.getStateOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatusStore;
     });
   }
@@ -131,7 +131,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
     this.getEstatePropertyType();
     this.getEstatePropertyTypeLanduse();
     this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
 
         this.DataGetAccess();

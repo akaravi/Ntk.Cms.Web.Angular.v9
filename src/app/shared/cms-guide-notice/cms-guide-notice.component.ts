@@ -51,7 +51,7 @@ export class CmsGuideNoticeComponent implements OnInit, OnDestroy {
       this.lang = value.language;
       this.onGetOne();
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.lang = ret.language;
         this.onGetOne();

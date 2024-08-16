@@ -16,7 +16,7 @@ import {
   ErrorExceptionResultBase, InfoEnumModel, TicketStatusEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { ConfigInterface, DownloadModeEnum, TreeModel } from 'ntk-cms-filemanager';
-import { Observable, firstValueFrom } from 'rxjs';
+import { firstValueFrom, Observable, Subscription } from 'rxjs';
 import { CmsAccessInfoComponent } from 'src/app/shared/cms-access-info/cms-access-info.component';
 import { environment } from 'src/environments/environment';
 import { ComponentLocalStorageModel } from '../models/componentLocalStorageModel';
@@ -52,7 +52,18 @@ export class PublicHelper {
     this.appClientVersion = environment.appVersion;
 
   }
+  cmsApiStoreSubscribe: Subscription;
 
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
+  getStateOnChange(): Observable<ReducerCmsStore> {
+    return this.cmsStoreService.getState((state) => {
+      if (environment.consoleLog)
+        console.log("getStateOnChange");
+      return state
+    });
+  }
   get isMobile() {
     if (window.innerWidth < environment.cmsViewConfig.mobileWindowInnerWidth)
       return true;
@@ -445,6 +456,7 @@ export class PublicHelper {
       .then((response) => {
         this.getEnumRecordStatusActionIndo = false;
         //todo: karavi fix bug
+        debugger
         //this.cmsStoreService.setState({ type: SET_Info_Enum, payload:  response });
         return response;
       });
@@ -484,11 +496,7 @@ export class PublicHelper {
       return storeSnapshot.themeStore;
     return new ThemeStoreModel();
   }
-  getReducerCmsStoreOnChange(): Observable<ReducerCmsStore> {
-    return this.cmsStoreService.getState((state) => {
-      return state
-    });
-  }
+
   StringRandomGenerator(passwordLength = 10, onlynumber = false): string {
     // const chars = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let chars = '0123456789abcdefghijklmnopqrstuvwxyz';

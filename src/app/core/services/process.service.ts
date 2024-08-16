@@ -20,6 +20,13 @@ export class ProcessService {
       this.process.infoAll = storeSnapshot.processInfoStore;
     }
     this.processSubject = new BehaviorSubject(this.process);
+    this.processSubject.subscribe(() => {
+      try {
+        setTimeout(() => this.cdr.detectChanges(), 100);
+      } catch (error) {
+        console.log('cdr error', error);
+      }
+    });
   }
 
   public cmsApiStoreSubscribe: Subscription;
@@ -30,19 +37,6 @@ export class ProcessService {
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
-  public onInitAppComponent(): void {
-    this.cmsApiStoreSubscribe = this.cmsStoreService.getState((state) => state.processInfoStore).subscribe((value) => {
-      if (this.cdr) {
-        //todo: karavi error
-        try {
-          setTimeout(() => this.cdr.detectChanges(), 100);
-        } catch (error) {
-          console.log('cdr error', error);
-        }
-      }
-    });
-  }
-
   getProcessInfoOnChange(): Observable<Map<string, ProcessInfoModel>> {
     return this.cmsStoreService.getState((state) => {
       if (environment.ProgressConsoleLog)

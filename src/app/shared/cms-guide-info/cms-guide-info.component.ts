@@ -33,7 +33,7 @@ export class CmsGuideinfoComponent implements OnInit, OnDestroy {
       this.lang = value.language;
 
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getCurrentTokenOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.lang = ret.language;
       }
