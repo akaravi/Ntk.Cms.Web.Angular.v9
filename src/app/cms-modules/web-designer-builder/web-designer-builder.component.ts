@@ -38,7 +38,6 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.DataGetOneContent();
-      this.tokenHelper.CheckIsAdmin();
     });
 
 
@@ -46,7 +45,7 @@ export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
       next: (ret) => {
         this.tokenInfo = ret;
         this.DataGetOneContent();
-        this.tokenHelper.CheckIsAdmin();
+
       }
     });
   }

@@ -27,14 +27,10 @@ export class TooltipGuideDirective {
   ) {
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.lang = value.language;
-
     });
-
   }
-
   lang = '';
   statusIsRun = false;
-
   @HostListener('mouseenter') onMouseEnter(): void {
     if (!this.tooltip) {
       this.tokenHelper.getTokenInfoState().then((value) => {

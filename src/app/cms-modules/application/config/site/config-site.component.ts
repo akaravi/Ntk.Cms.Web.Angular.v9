@@ -68,8 +68,6 @@ export class ApplicationConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-    this.onLoadDate();
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

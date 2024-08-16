@@ -98,13 +98,11 @@ export class LinkManagementTargetEditComponent extends EditBaseComponent<LinkMan
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.DataGetOne();
     });
-
-
-    this.getEnumSharingPriceType();
-    this.getEnumManagementContentSettingType();
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.DataGetOne();
     });
+    this.getEnumSharingPriceType();
+    this.getEnumManagementContentSettingType();
   }
   getEnumManagementContentSettingType(): void {
     this.linkManagementEnumService.ServiceManagementContentSettingTypeEnum().subscribe((res) => {

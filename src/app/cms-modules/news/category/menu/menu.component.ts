@@ -35,17 +35,17 @@ export class NewsCategoryMenuComponent implements OnInit {
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
-        setTimeout(() => {
+        //setTimeout(() => {
           this.loadData();
-        }, 100);
+        //}, 100);
       }
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
-        setTimeout(() => {
+        //setTimeout(() => {
           this.loadData();
-        }, 100);
+        //}, 100);
       }
     });
   }

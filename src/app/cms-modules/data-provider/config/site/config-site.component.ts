@@ -79,7 +79,6 @@ export class DataProviderConfigSiteComponent implements OnInit {
       }
     });
 
-    this.onLoadDate();
 
   }
   ngOnDestroy(): void {

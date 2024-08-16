@@ -6,7 +6,6 @@ import { AuthUserSignInModel, CaptchaModel, CoreAuthService, FormInfoModel } fro
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
-import { SET_TOKEN_DEVICE, SET_TOKEN_INFO } from 'src/app/core/reducers/reducer.factory';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
@@ -34,18 +33,6 @@ export class AuthSingInComponent implements OnInit {
     this.publicHelper.getStateOnChange().subscribe((value) => {
       this.connectionStatus = value.connectionStatusStore;
     });
-    //**Token */
-    this.coreAuthService.tokenInfoSubject.subscribe((value) => {
-      this.publicHelper.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
-      if (environment.ProgressConsoleLog)
-        console.log("SET_TOKEN_INFO");
-    })
-    this.coreAuthService.tokenDeviceSubject.subscribe((value) => {
-      this.publicHelper.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
-      if (environment.ProgressConsoleLog)
-        console.log("SET_TOKEN_DEVICE");
-    })
-    //**Token */
   }
 
   loadDemoTheme = environment.loadDemoTheme;
@@ -63,6 +50,7 @@ export class AuthSingInComponent implements OnInit {
   returnUrl: string;
   loginType = 'email';
   onCaptchaOrderInProcess = false;
+  onNavigate = false;
   ngOnInit(): void {
     this.onCaptchaOrder();
     // get return url from route parameters or default to '/'
@@ -91,10 +79,12 @@ export class AuthSingInComponent implements OnInit {
         if (res.isSuccess) {
           this.cmsToastrService.typeSuccessLogin();
           if (res.item.siteId > 0) {
-            setTimeout(() => this.router.navigate(['/dashboard']), 3000);
+            this.onNavigate = true;
+            setTimeout(() => this.router.navigate(['/dashboard']), 500);
           }
           else {
-            setTimeout(() => this.router.navigate(['/core/site/selection']), 3000);
+            this.onNavigate = true;
+            setTimeout(() => this.router.navigate(['/core/site/selection']), 500);
           }
         } else {
           this.firstRun = false;

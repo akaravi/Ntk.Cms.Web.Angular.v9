@@ -70,7 +70,6 @@ export class ArticleConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-    this.onLoadDate();
 
   }
   ngOnDestroy(): void {

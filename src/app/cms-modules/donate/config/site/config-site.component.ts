@@ -79,8 +79,6 @@ export class DonateConfigSiteComponent implements OnInit {
       }
     });
 
-    this.onLoadDate();
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

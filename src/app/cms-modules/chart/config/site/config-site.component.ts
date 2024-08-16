@@ -79,7 +79,6 @@ export class ChartConfigSiteComponent implements OnInit {
       }
     });
 
-    this.onLoadDate();
 
   }
   ngOnDestroy(): void {

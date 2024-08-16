@@ -70,7 +70,6 @@ export class BiographyConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-    this.onLoadDate();
 
   }
   ngOnDestroy(): void {

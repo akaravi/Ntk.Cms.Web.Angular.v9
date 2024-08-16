@@ -78,9 +78,6 @@ export class CatalogConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-
-    this.onLoadDate();
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

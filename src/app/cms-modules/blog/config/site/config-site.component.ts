@@ -79,7 +79,6 @@ export class BlogConfigSiteComponent implements OnInit {
       }
     });
 
-    this.onLoadDate();
 
   }
   ngOnDestroy(): void {

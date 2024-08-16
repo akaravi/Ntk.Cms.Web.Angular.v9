@@ -80,7 +80,6 @@ export class LinkManagementConfigMainAdminComponent implements OnInit, OnDestroy
       }
     });
 
-    this.onLoadDate();
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

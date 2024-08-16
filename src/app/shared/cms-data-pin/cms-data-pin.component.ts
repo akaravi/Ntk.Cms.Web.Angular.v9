@@ -53,10 +53,10 @@ export class CmsDataPinComponent implements OnInit {
 
   ngOnInit(): void {
     this.tokenHelper.getTokenInfoState().then((value) => {
+      this.DataGetAll();
 
     });
 
-    this.DataGetAll();
   }
 
   DataGetAll(): void {

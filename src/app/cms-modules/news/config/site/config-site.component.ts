@@ -72,8 +72,6 @@ export class NewsConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-    this.onLoadDate();
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

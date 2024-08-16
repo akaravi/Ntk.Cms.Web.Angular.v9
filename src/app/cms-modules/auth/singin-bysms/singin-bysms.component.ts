@@ -62,7 +62,7 @@ export class AuthSingInBySmsComponent implements OnInit {
   RePasswordModel = '';
   onCaptchaOrderInProcess = false;
   diffSeconds: number;
-
+  onNavigate=false;
   ngOnInit(): void {
     this.onCaptchaOrder();
     this.pageInfo.updateTitle(this.translate.instant('AUTH.SINGINBYSMS.TITLE'));
@@ -131,7 +131,7 @@ export class AuthSingInBySmsComponent implements OnInit {
               }
               this.cdr.detectChanges();
 
-            }, 1000)
+            }, 500)
             //TimeDown
           }
           else {
@@ -186,10 +186,12 @@ export class AuthSingInBySmsComponent implements OnInit {
             this.cmsToastrService.typeSuccessLogin();
             this.formInfo.buttonSubmittedEnabled = false;
             if (res.item.siteId > 0) {
-              setTimeout(() => this.router.navigate(['/dashboard']), 1000);
+              this.onNavigate = true;
+              setTimeout(() => this.router.navigate(['/dashboard']), 500);
             }
             else {
-              setTimeout(() => this.router.navigate(['/core/site/selection']), 1000);
+              this.onNavigate = true;
+              setTimeout(() => this.router.navigate(['/core/site/selection']), 500);
             }
           }
           else {
@@ -226,7 +228,7 @@ export class AuthSingInBySmsComponent implements OnInit {
       next: (ret) => {
         this.captchaModel = ret.item;
         this.onCaptchaOrderInProcess = false;
-        this.diffSecondsSubscribe = interval(1000).subscribe(x => {
+        this.diffSecondsSubscribe = interval(500).subscribe(x => {
           this.diffSeconds = new Date(this.captchaModel.expire).getTime() - new Date().getTime();
           if (this.diffSeconds < 0) {
             this.diffSecondsSubscribe.unsubscribe();

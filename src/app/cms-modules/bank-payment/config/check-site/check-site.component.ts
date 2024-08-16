@@ -42,7 +42,6 @@ export class BankPaymentConfigCheckSiteComponent implements OnInit, OnDestroy {
         this.onLoadDate();
       }
     });
-    this.onLoadDate();
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();

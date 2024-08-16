@@ -47,6 +47,8 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
   loginAuto = false;
   hidePassword = true;
   loadDemoTheme = environment.loadDemoTheme;
+  onNavigate = false;
+
   ngOnInit(): void {
     this.onCaptchaOrder();
     this.pageInfo.updateTitle(this.translate.instant('AUTH.REGISTER.SIGNUP'));
@@ -124,7 +126,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
           this.cmsToastrService.typeSuccessRegistery();
           this.formInfo.formErrorStatus = false;
           if (!this.loginAuto) {
-            setTimeout(() => this.router.navigate(['/']), 1000);
+            setTimeout(() => this.router.navigate(['/']), 500);
           }
           /** Login */
           if (this.loginAuto) {
@@ -144,15 +146,17 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
                 if (res.isSuccess) {
                   this.cmsToastrService.typeSuccessLogin();
                   if (res.item.siteId > 0) {
-                    setTimeout(() => this.router.navigate(['/dashboard']), 1000);
+                    this.onNavigate = true;
+                    setTimeout(() => this.router.navigate(['/dashboard']), 500);
                   }
                   else {
-                    setTimeout(() => this.router.navigate(['/core/site/selection']), 1000);
+                    this.onNavigate = true;
+                    setTimeout(() => this.router.navigate(['/core/site/selection']), 500);
                   }
                 } else {
                   this.formInfo.buttonSubmittedEnabled = true;
                   this.cmsToastrService.typeErrorLogin(res.errorMessage);
-                  setTimeout(() => this.router.navigate(['/']), 1000);
+                  setTimeout(() => this.router.navigate(['/']), 500);
                 }
                 this.publicHelper.processService.processStop(pName2);
               },

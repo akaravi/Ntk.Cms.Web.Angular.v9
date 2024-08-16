@@ -78,7 +78,6 @@ export class ContactConfigSiteComponent implements OnInit {
       }
     });
 
-    this.onLoadDate();
 
   }
   ngOnDestroy(): void {

@@ -57,7 +57,6 @@ export class TokenHelper {
     return this.cmsStoreService.getState((state) => {
       if (environment.consoleLog)
         console.log("onInitAppComponentStateOnChange:tokenhelper");
-      debugger
       this.tokenInfo = state.tokenInfoStore;
       this.setDirectionThemeBylanguage(this.tokenInfo.language);
       this.CheckIsAdmin();
@@ -72,15 +71,18 @@ export class TokenHelper {
     });
   }
   getTokenInfoStateOnChange(): Observable<TokenInfoModel> {
-    return this.cmsStoreService.getState((state) => {
-      if (environment.consoleLog)
-        console.log("getTokenInfoStateOnChange");
-      return state.tokenInfoStore;
-    });
+    return this.coreAuthService.tokenInfoSubject;
+  }
+  getTokenDeviceStateOnChange(): Observable<TokenDeviceModel> {
+    return this.coreAuthService.tokenDeviceSubject;
   }
   async getTokenInfoState(): Promise<TokenInfoModel> {
+    const token = this.coreAuthService.getUserToken();
+    if (!token || token.length === 0)
+      return new TokenInfoModel();
+
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.tokenInfoStore) {
+    if (storeSnapshot?.tokenInfoStore?.userId > 0) {
       this.tokenInfo = storeSnapshot.tokenInfoStore;
       return storeSnapshot.tokenInfoStore;
     }
@@ -92,6 +94,10 @@ export class TokenHelper {
       });
   }
   async getTokenDeviceState(): Promise<TokenDeviceModel> {
+    const token = this.coreAuthService.getDeviceToken();
+    if (!token || token.length === 0)
+      return new TokenDeviceModel();
+
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     if (storeSnapshot?.deviceTokenInfoStore) {
       this.deviceTokenInfo = storeSnapshot.deviceTokenInfoStore;

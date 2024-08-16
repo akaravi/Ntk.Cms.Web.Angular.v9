@@ -93,13 +93,13 @@
       </mat-error>
     </div>
 
-    <button type="submit"
+    <button type="submit" *ngIf="!onNavigate"
       [disabled]="vformEntryCode.invalid || !formInfo.buttonSubmittedEnabled|| !connectionStatus.internetConnection || !dataModelAuthUserSignInBySms.code|| dataModelAuthUserSignInBySms.code.length<4"
       style="width: 100%;" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       {{'AUTH.SINGINBYSMS.LOGIN' | translate}}
     </button>
 
-    <button type="button" (click)="onActionSubmitOrderCodeBySms()"
+    <button type="button" (click)="onActionSubmitOrderCodeBySms()" *ngIf="!onNavigate"
       [disabled]="buttonnResendSmsDisable|| !connectionStatus.internetConnection" style="width: 100%;"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       {{'AUTH.LOGIN.RESEND_SMS' | translate}} {{prorocess?.message}}
@@ -120,7 +120,7 @@
   </ng-template>
 
 
-  <div class="row pt-3 mb-0">
+  <div class="row pt-3 mb-0" *ngIf="!onNavigate">
     <div class="col-6 text-start">
       <a [routerLink]="['/auth/singin']" class="color-highlight">{{'AUTH.REGISTER.RETURN_TO_LOGIN' |
         translate}}</a>

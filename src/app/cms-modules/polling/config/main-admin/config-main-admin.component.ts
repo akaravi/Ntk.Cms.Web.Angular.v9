@@ -80,8 +80,6 @@ export class PollingConfigMainAdminComponent implements OnInit, OnDestroy {
         this.onLoadDate();
       }
     });
-
-    this.onLoadDate();
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

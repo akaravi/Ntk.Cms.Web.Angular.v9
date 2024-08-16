@@ -48,7 +48,6 @@ export class ChartConfigCheckSiteComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.onLoadDate();
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();

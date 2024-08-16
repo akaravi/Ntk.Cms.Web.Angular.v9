@@ -80,9 +80,6 @@ export class HyperShopConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-
-    this.onLoadDate();
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

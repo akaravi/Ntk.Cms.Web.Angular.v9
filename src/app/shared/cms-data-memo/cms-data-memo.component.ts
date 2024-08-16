@@ -55,11 +55,11 @@ export class CmsDataMemoComponent implements OnInit {
 
   ngOnInit(): void {
     this.tokenHelper.getTokenInfoState().then((value) => {
-
+      this.DataGetAll();
     });
     if (!this.service)
       this.dialogRef.close({ dialogChangedDate: true });
-    this.DataGetAll();
+ 
   }
 
   DataGetAll(): void {

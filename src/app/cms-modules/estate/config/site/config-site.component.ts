@@ -79,9 +79,6 @@ export class EstateConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-
-
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

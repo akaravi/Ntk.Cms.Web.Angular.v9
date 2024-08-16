@@ -79,7 +79,6 @@ export class EstateConfigMainAdminComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.onLoadDate();
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

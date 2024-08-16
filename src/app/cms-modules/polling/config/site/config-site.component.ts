@@ -80,8 +80,6 @@ export class PollingConfigSiteComponent implements OnInit {
       }
     });
 
-    this.onLoadDate();
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

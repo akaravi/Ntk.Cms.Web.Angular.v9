@@ -69,9 +69,10 @@ export class CmsSiteCreditViewComponent implements OnInit {
     }
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
+      this.DataGetOneContent();
+      this.DataModuleGetOne();
     });
-    this.DataGetOneContent();
-    this.DataModuleGetOne();
+
 
   }
 

@@ -79,8 +79,6 @@ export class LinkManagementConfigSiteComponent implements OnInit {
       }
     });
 
-    this.onLoadDate();
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

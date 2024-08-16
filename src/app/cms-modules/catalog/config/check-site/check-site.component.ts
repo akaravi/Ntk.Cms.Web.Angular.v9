@@ -48,7 +48,6 @@ export class CatalogConfigCheckSiteComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.onLoadDate();
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();

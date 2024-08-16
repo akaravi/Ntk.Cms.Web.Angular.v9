@@ -70,7 +70,6 @@ export class BankPaymentConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-    this.onLoadDate();
 
   }
   ngOnDestroy(): void {

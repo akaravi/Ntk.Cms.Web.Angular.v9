@@ -31,7 +31,8 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
     this.publicHelper.processService.cdr = this.cdr;
 
     this.tokenHelper.getTokenInfoState().then((value) => {
-      this.tokenInfo = value;
+      this.tokenInfo = value;  
+        this.DataGetInfo();
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
@@ -39,7 +40,7 @@ export class CoreInfoComponent implements OnInit, OnDestroy {
         this.DataGetInfo();
       }
     });
-    this.DataGetInfo();
+
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo: TokenInfoModel;

@@ -78,9 +78,6 @@ export class SmsConfigSiteComponent implements OnInit {
         this.onLoadDate();
       }
     });
-
-    this.onLoadDate();
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
