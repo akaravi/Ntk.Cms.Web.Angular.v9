@@ -73,10 +73,10 @@ export class ProcessService {
     this.process.inRunArea[model.infoAreaId] = true;
     /** processInRun */
     setTimeout(() => {
-      const aaa = this.process;
+      const retValue = this.process;
       if (environment.ProgressConsoleLog)
-        console.log("value in processStart ", aaa)
-      this.processSubject.next(aaa);
+        console.log("value in processStart ", retValue)
+      this.processSubject.next(retValue);
     }, 1);
 
     this.cmsStoreService.setState({ type: SET_Process_Info, payload: this.process.infoAll });
