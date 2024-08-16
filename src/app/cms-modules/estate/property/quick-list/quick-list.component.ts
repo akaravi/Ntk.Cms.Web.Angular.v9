@@ -512,7 +512,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-    this.onActionTableRowSelect(model);
+    //this.onActionTableRowSelect(model);
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||

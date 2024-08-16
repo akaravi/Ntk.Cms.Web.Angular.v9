@@ -1,19 +1,23 @@
-<div id="id" *ngIf="optionsInfoAreaId?.length>0 && inRunArea"
-  class="card card-style ms-0 me-0 rounded-0 preloader progressOverlay">
+<div id="id" *ngIf="optionsInfoAreaId?.length>0 && inRunArea" class="preloader progressOverlay">
   <div class="spinner-border color-highlight" role="status"></div>
-  <div class="content mt-5 mb-5 ms-5 me-5">
-    <!-- <p class="mb-2 color-highlight font-600">{{ 'optionsData.message'|translate }}</p>
-    <h2>لیست عملیات ها</h2> -->
-    <div *ngFor="let item of infoArea| keyvalue" class="form-check icon-check" style="background-color: rgba(0,0,0,0);">
-      <input class="font-14 form-check-input" type="checkbox" value="" disabled="disabled"
-        [(ngModel)]="item.value['isComplate']" id="{{item.value['guid']}}">
-      <label class="font-14 form-check-label" for="{{item.value['guid']}}">{{item.value['title']}}</label>
-      <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
-      <i class="font-17 icon-check-2 fa fa-check-square color-green-dark"></i>
-      <span *ngIf="item.value['isComplate']&&item.value['isSuccess']"
-        class="badge bg-green-dark float-end mt-2 p-1 font-8">.</span>
-      <span *ngIf="item.value['isComplate']&&!item.value['isSuccess']"
-        class="badge bg-blue-dark float-end mt-2 p-1 font-8">برروز خطا</span>
+  <div class="card card-style" style="background-color: rgba(0,0,0,0);">
+    <div class="content  mt-5 mb-5 ms-5 me-5">
+      <div *ngFor="let item of infoArea| keyvalue" class="col-12">
+        <div class="chip chip-s bg-gray-light">
+
+          <i class="fa fa-cog color-white bg-blue-dark" *ngIf="!item.value['isComplate']"></i>
+
+          <i class="fa fa-check color-white bg-green-dark"
+            *ngIf="item.value['isComplate'] && item.value['isSuccess']"></i>
+
+          <i class="fa fa-times color-white bg-red-dark"
+            *ngIf="item.value['isComplate'] && !item.value['isSuccess']"></i>
+
+          <strong class="color-black font-400">{{item.value['title']}}</strong>
+          <span *ngIf="item.value['isComplate'] && !item.value['isSuccess']"
+            class="badge bg-blue-dark float-end mt-2 p-1 font-8">برروز خطا</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
     <!--end::tree-->
   </div>
   <div [ngClass]="optionTreeDisplay && !this.tokenHelper.isMobile ?'col-xl-9':'col-xl-12'">
-    <div class="card card-style progressOverlayContainer">
+    <div class="card card-style loader-container">
       <app-progress-spinner *ngIf="optionsListInfoAreaId?.length>0" [optionsInfoAreaId]="optionsListInfoAreaId">
       </app-progress-spinner>
       <div class="content mb-0">

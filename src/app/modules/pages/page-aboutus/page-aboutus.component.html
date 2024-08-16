@@ -1,4 +1,4 @@
-<div class="card card-style progressOverlayContainer" *ngIf="!this.publicHelper.processService.process.inRunAll">
+<div class="card card-style loader-container" *ngIf="!this.publicHelper.processService.process.inRunAll">
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <div class="content">
     <p class="mb-0 font-600 color-highlight">{{dataModelResult.item?.title}}</p>

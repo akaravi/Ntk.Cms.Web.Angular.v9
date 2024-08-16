@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { ProcessInfoModel } from 'ntk-cms-api';
 import { ProcessService } from 'src/app/core/services/process.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-progress-spinner',
@@ -23,7 +24,8 @@ export class ProgressSpinnerComponent implements OnInit {
     processService.processSubject.subscribe((value) => {
       this.infoArea = value.infoArea[this.optionsInfoAreaId];
       this.inRunArea = value.inRunArea[this.optionsInfoAreaId];
-      console.log("infoArea", this.infoArea);
+      if (environment.ProgressConsoleLog)
+        console.log("ProgressSpinnerComponent infoArea", this.infoArea);
     });
   }
   @Input() optionsInfoAreaId: string = 'global';

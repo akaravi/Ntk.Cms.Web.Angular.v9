@@ -656,7 +656,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.cmsToastrService.typeErrorSelectedRow();
       return;
     }
-    this.onActionTableRowSelect(model);
+    //this.onActionTableRowSelect(model);
     this.tableRowSelected = model;
     if (
       this.dataModelResult == null ||

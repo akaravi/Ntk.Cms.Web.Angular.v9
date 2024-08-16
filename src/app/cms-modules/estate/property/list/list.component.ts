@@ -710,7 +710,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     }
     this.tableRowSelected = model;
 
-    this.onActionTableRowSelect(model);
+    //this.onActionTableRowSelect(model);
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||

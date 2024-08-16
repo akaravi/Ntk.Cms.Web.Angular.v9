@@ -3,7 +3,7 @@
   {{'TITLE.Transaction_status' | translate}}:{{requestId}}
   <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
 </div>
-<div class="ntk-cms-html-card-body progressOverlayContainer">
+<div class="ntk-cms-html-card-body loader-container">
   <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
   <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
   <div class="table" *ngIf="dataModelResult.item&& dataModelResult.item.id>0">

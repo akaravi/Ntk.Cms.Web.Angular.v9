@@ -56,8 +56,10 @@ export class ProcessService {
   /process info
   /
   */
-  public processStart(key: string, title: string = ' ', infoAreaId: string = 'global'): void {
+  public processStart(key: string, title: string = '', infoAreaId: string = 'global'): void {
     let model = new ProcessInfoModel();
+    if (!title || title.length === 0)
+      title = 'loading data';
     model.isComplate = false;
     model.title = title;
     model.infoAreaId = infoAreaId;
@@ -104,26 +106,15 @@ export class ProcessService {
         retOutInRunArea = true;
       }
     }
-    if (retOutInRunAll) {
-      this.process.inRunAll = retOutInRunAll;
-      this.process.inRunArea[model.infoAreaId] = retOutInRunArea;
-      setTimeout(() => {
-        const retValue = this.process;
-        if (environment.ProgressConsoleLog)
-          console.log("value in service ", retValue)
-        this.processSubject.next(retValue);
-      }, 1);
-    } else {
+    this.processSubject.next(this.process);
+    this.process.inRunAll = retOutInRunAll;
+    this.process.inRunArea[model.infoAreaId] = retOutInRunArea;
+    setTimeout(() => {
+      if (environment.ProgressConsoleLog)
+        console.log("value in service ", this.process)
       this.processSubject.next(this.process);
-      setTimeout(() => {
-        this.process.inRunAll = retOutInRunAll;
-        this.process.inRunArea[model.infoAreaId] = retOutInRunArea;
-        const retValue = this.process;
-        if (environment.ProgressConsoleLog)
-          console.log("value in processStop ", retValue)
-        this.processSubject.next(retValue);
-      }, 1000);
-    }
+    }, 1000);
+
     /** processInRun */
     this.cmsStoreService.setState({ type: SET_Process_Info, payload: this.process.infoAll });
   }

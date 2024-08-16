@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-.progressOverlayContainer {
+.loader-container {
   position: relative;
 
 }
@@ -131,11 +131,11 @@
 //   background: rgba(0, 0, 0, 0.050) !important;
 // }
 .theme-rtl {
-  direction: rtl ;
+  direction: rtl;
 }
 
 .theme-ltr {
-  direction: ltr ;
+  direction: ltr;
 }
 
 /*mat-table Color Settings*/
@@ -263,8 +263,6 @@
   color: #fff;
   background: #5f6a8b !important;
 }
-
-
 
 
 /*mat-tree Color Settings*/
