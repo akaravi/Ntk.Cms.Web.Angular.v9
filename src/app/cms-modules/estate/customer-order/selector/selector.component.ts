@@ -75,7 +75,7 @@ export class EstateCustomerOrderSelectorComponent implements OnInit {
   displayOption(model?: EstateCustomerOrderModel): string | undefined {
     return model ? model.title : undefined;
   }
-  async DataGetAll(text: string | any): Promise<EstateCustomerOrderModel[]> {
+  async DataGetAll(text: string | number | any): Promise<EstateCustomerOrderModel[]> {
     const filterModel = new EstateCustomerOrderFilterModel();
     filterModel.rowPerPage = 20;
     filterModel.accessLoad = true;
@@ -91,6 +91,21 @@ export class EstateCustomerOrderSelectorComponent implements OnInit {
       filter.propertyName = 'Id';
       filter.value = text;
       filter.searchType = FilterDataModelSearchTypesEnum.Equal;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+    }
+    if (text?.length > 0) {
+      filter = new FilterDataModel();
+      filter.propertyName = 'LinkCmsUserId';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'contactMobiles';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
     }

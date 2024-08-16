@@ -14,7 +14,7 @@ export class CmsAuthGuard implements OnDestroy {
     private cmsStoreService: CmsStoreService,
     private router: Router) {
   }
-  debugger
+  
   runSubscribe = false;
   subscriptions: Subscription;
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {

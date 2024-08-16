@@ -17,6 +17,7 @@ export class CmsSearchListComponent implements OnInit {
   public optionsData: ComponentOptionSearchModel = new ComponentOptionSearchModel();
   @Output() optionsChange: EventEmitter<ComponentOptionSearchModel> = new EventEmitter<ComponentOptionSearchModel>();
   @Input() set options(model: ComponentOptionSearchModel) {
+    
     if (!model) {
       model = new ComponentOptionSearchModel();
     }
@@ -51,6 +52,7 @@ export class CmsSearchListComponent implements OnInit {
 
   }
   setAccess(model: AccessModel): void {
+    
     this.optionsData.data.access = model;
     if (!this.filters || this.filters.length === 0) {
       this.setFields();

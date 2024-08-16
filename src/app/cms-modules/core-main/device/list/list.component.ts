@@ -155,9 +155,10 @@ export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService
 
           if (this.optionsStatist?.data?.show)
             this.onActionButtonStatist(true);
-          if (this.optionsSearch.childMethods) {
-            this.optionsSearch.childMethods.setAccess(ret.access);
-          }
+          setTimeout(() => {
+            if (this.optionsSearch.childMethods)
+              this.optionsSearch.childMethods.setAccess(ret.access);
+          }, 1000);
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }

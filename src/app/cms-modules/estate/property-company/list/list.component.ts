@@ -126,9 +126,10 @@ export class EstatePropertyCompanyListComponent extends ListBaseComponent<Estate
           this.tableSource.data = ret.listItems;
 
 
-          if (this.optionsSearch.childMethods) {
-            this.optionsSearch.childMethods.setAccess(ret.access);
-          }
+          setTimeout(() => {
+            if (this.optionsSearch.childMethods)
+              this.optionsSearch.childMethods.setAccess(ret.access);
+          }, 1000);
         } else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }

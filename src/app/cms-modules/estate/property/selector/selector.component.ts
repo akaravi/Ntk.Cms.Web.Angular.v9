@@ -90,6 +90,7 @@ export class EstatePropertySelectorComponent implements OnInit, OnDestroy {
     filterModel.rowPerPage = 20;
     filterModel.accessLoad = true;
     let filter = new FilterDataModel();
+
     filter.propertyName = 'Name';
     filter.value = text;
     filter.searchType = FilterDataModelSearchTypesEnum.Contains;
@@ -115,8 +116,31 @@ export class EstatePropertySelectorComponent implements OnInit, OnDestroy {
     filter.searchType = FilterDataModelSearchTypesEnum.Contains;
     filter.clauseType = ClauseTypeEnum.Or;
     filterModel.filters.push(filter);
+    if (text?.length > 0) {
 
-
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'LinkCmsUserId';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'aboutCustomerTel';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'aboutCustomerMobile';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+      /* */
+    }
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);

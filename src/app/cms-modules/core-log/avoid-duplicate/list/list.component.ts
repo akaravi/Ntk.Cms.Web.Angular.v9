@@ -144,9 +144,10 @@ export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseCompone
 
           if (this.optionsStatist?.data?.show)
             this.onActionButtonStatist(true);
-          if (this.optionsSearch.childMethods) {
-            this.optionsSearch.childMethods.setAccess(ret.access);
-          }
+          setTimeout(() => {
+            if (this.optionsSearch.childMethods)
+              this.optionsSearch.childMethods.setAccess(ret.access);
+          }, 1000);
         }
         this.publicHelper.processService.processStop(pName);
 

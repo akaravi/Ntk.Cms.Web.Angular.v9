@@ -379,9 +379,10 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
             if (this.optionsStatist?.data?.show)
               this.onActionButtonStatist(true);
-            if (this.optionsSearch.childMethods) {
-              this.optionsSearch.childMethods.setAccess(ret.access);
-            }
+            setTimeout(() => {
+              if (this.optionsSearch.childMethods)
+                this.optionsSearch.childMethods.setAccess(ret.access);
+            }, 1000);
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
@@ -409,9 +410,10 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
               this.tableSource.data = ret.listItems;
               if (this.optionsStatist?.data?.show)
                 this.onActionButtonStatist(true);
-              if (this.optionsSearch.childMethods) {
-                this.optionsSearch.childMethods.setAccess(ret.access);
-              }
+              setTimeout(() => {
+                if (this.optionsSearch.childMethods)
+                  this.optionsSearch.childMethods.setAccess(ret.access);
+              }, 1000);
             } else {
               this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
             }
@@ -444,9 +446,10 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
               this.tableSource.data = ret.listItems;
               if (this.optionsStatist?.data?.show)
                 this.onActionButtonStatist(true);
-              if (this.optionsSearch.childMethods) {
-                this.optionsSearch.childMethods.setAccess(ret.access);
-              }
+              setTimeout(() => {
+                if (this.optionsSearch.childMethods)
+                  this.optionsSearch.childMethods.setAccess(ret.access);
+              }, 1000);
             } else {
               this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
             }
@@ -479,9 +482,10 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
               this.tableSource.data = ret.listItems;
               if (this.optionsStatist?.data?.show)
                 this.onActionButtonStatist(true);
-              if (this.optionsSearch.childMethods) {
-                this.optionsSearch.childMethods.setAccess(ret.access);
-              }
+              setTimeout(() => {
+                if (this.optionsSearch.childMethods)
+                  this.optionsSearch.childMethods.setAccess(ret.access);
+              }, 1000);
             } else {
               this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
             }
@@ -530,9 +534,10 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
 
             if (this.optionsStatist?.data?.show)
               this.onActionButtonStatist(true);
-            if (this.optionsSearch.childMethods) {
-              this.optionsSearch.childMethods.setAccess(ret.access);
-            }
+            setTimeout(() => {
+              if (this.optionsSearch.childMethods)
+                this.optionsSearch.childMethods.setAccess(ret.access);
+            }, 1000);
           } else {
             this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
           }

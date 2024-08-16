@@ -117,9 +117,10 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
 
           if (this.optionsStatist?.data?.show)
             this.onActionButtonStatist(true);
-          if (this.optionsSearch.childMethods) {
-            this.optionsSearch.childMethods.setAccess(ret.access);
-          }
+          setTimeout(() => {
+            if (this.optionsSearch.childMethods)
+              this.optionsSearch.childMethods.setAccess(ret.access);
+          }, 1000);
         }
         this.publicHelper.processService.processStop(pName);
 

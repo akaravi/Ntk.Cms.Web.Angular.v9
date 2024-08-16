@@ -99,17 +99,32 @@ export class EstateAccountAgencySelectorComponent implements OnInit {
       filter.searchType = FilterDataModelSearchTypesEnum.Equal;
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
+
     }
-    /* */
-    if (typeof text === 'number' && text > 0) {
+
+    if (text?.length > 0) {
+      /* */
       filter = new FilterDataModel();
       filter.propertyName = 'LinkCmsUserId';
       filter.value = text;
       filter.searchType = FilterDataModelSearchTypesEnum.Equal;
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'mobileNumber';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'phoneNumber';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
     }
-
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {

@@ -143,9 +143,10 @@ export class HyperShopContentListComponent extends ListBaseComponent<HyperShopCo
 
           if (this.optionsStatist?.data?.show)
             this.onActionButtonStatist(true);
-          if (this.optionsSearch.childMethods) {
-            this.optionsSearch.childMethods.setAccess(ret.access);
-          }
+          setTimeout(() => {
+            if (this.optionsSearch.childMethods)
+              this.optionsSearch.childMethods.setAccess(ret.access);
+          }, 1000);
         }
         else {
           this.cmsToastrService.typeErrorGetAll(ret.errorMessage);

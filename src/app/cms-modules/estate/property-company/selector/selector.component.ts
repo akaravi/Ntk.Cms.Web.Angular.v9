@@ -87,6 +87,29 @@ export class EstatePropertyCompanySelectorComponent implements OnInit {
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
     }
+    if (text?.length > 0) {
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'LinkCmsUserId';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'mobileNumber';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'phoneNumber';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+    }
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);

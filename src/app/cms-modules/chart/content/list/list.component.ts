@@ -123,9 +123,10 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
 
             if (this.optionsStatist?.data?.show)
               this.onActionButtonStatist(true);
-            if (this.optionsSearch.childMethods) {
-              this.optionsSearch.childMethods.setAccess(ret.access);
-            }
+            setTimeout(() => {
+              if (this.optionsSearch.childMethods)
+                this.optionsSearch.childMethods.setAccess(ret.access);
+            }, 1000);
           } else {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
@@ -169,9 +170,10 @@ export class ChartContentListComponent extends ListBaseComponent<ChartContentSer
 
             if (this.optionsStatist?.data?.show)
               this.onActionButtonStatist(true);
-            if (this.optionsSearch.childMethods) {
-              this.optionsSearch.childMethods.setAccess(ret.access);
-            }
+            setTimeout(() => {
+              if (this.optionsSearch.childMethods)
+                this.optionsSearch.childMethods.setAccess(ret.access);
+            }, 1000);
           }
           this.publicHelper.processService.processStop(pName);
 
