@@ -48,7 +48,7 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
     this.publicHelper.processService.cdr = this.cdr;
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 

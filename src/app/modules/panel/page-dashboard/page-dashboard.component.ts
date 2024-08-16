@@ -32,13 +32,13 @@ export class PageDashboardComponent implements OnInit {
 
   checkModuleExist: Map<string, CoreModuleModel> = new Map<string, CoreModuleModel>();
   ngOnInit(): void {
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.getCurrentSiteModule();
       this.cdr.detectChanges();
     });
     this.cmsApiStoreSubscribe = this.tokenHelper
-      .geTokenInfoStateOnChange()
+      .getTokenInfoStateOnChange()
       .subscribe({
         next: (ret) => {
           this.tokenInfo = ret;

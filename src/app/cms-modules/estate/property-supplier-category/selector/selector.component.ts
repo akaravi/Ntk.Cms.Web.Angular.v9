@@ -55,7 +55,7 @@ export class EstatePropertySupplierCategorySelectorComponent implements OnInit, 
 
   ngOnInit(): void {
     this.loadOptions();
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.loadOptions();
       }

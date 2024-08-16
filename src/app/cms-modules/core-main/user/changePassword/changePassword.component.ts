@@ -68,11 +68,11 @@ export class CoreUserChangePasswordComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.formInfo.formTitle = 'تغییر کلمه عبور  ';
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
       }

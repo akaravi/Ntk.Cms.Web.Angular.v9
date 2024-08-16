@@ -77,11 +77,11 @@ export class EstatePropertyQuickViewComponent implements OnInit, OnDestroy {
     }
     this.DataGetOneContent();
     this.getEstateContractType();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         this.getEstateContractType();

@@ -50,7 +50,7 @@ export class EstatePropertyProjectEditComponent extends EditBaseComponent<Estate
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }

@@ -59,7 +59,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     this.publicHelper.processService.cdr = this.cdr;
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
 
     });

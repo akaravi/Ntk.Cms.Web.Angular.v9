@@ -61,7 +61,7 @@ export class WebDesignerMainPageTreeComponent implements OnInit, OnDestroy {
   hasChild = (_: number, node: WebDesignerMainPageModel) => false;
   ngOnInit(): void {
     this.DataGetAll();
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });
   }

@@ -78,12 +78,12 @@ export class DataProviderLogClientListComponent extends ListBaseComponent<DataPr
       this.filteModelContent.filters.push(filter);
     }
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         this.DataGetAll();

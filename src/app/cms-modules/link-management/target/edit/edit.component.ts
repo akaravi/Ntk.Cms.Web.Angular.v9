@@ -95,14 +95,14 @@ export class LinkManagementTargetEditComponent extends EditBaseComponent<LinkMan
       this.cmsToastrService.typeErrorEditRowIsNull();
       return;
     }
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.DataGetOne();
     });
 
 
     this.getEnumSharingPriceType();
     this.getEnumManagementContentSettingType();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.DataGetOne();
     });
   }

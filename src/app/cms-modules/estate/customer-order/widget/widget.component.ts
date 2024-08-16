@@ -67,7 +67,7 @@ export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.link = '/estate/customer-order';
 
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.onActionStatist();
       }

@@ -44,7 +44,7 @@ export class DataProviderSourceHeaderComponent implements OnInit, OnDestroy {
     if (this.optionId?.length > 0) {
       this.DataGetOneContent();
     }
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetOneContent();
       }

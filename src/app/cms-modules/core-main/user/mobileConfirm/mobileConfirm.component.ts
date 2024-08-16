@@ -69,7 +69,7 @@ export class CoreUserMobileConfirmComponent implements OnInit {
   ngOnInit(): void {
     this.onCaptchaOrder();
     this.formInfo.formTitle = this.translate.instant('ACTION.CONFIRMEMAIL');
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.dataModel.mobile = value.mobile;
       this.dataModel.linkUserId = value.userId;
 

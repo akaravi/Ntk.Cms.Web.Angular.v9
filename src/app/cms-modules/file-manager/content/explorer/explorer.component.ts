@@ -14,7 +14,7 @@ export class FileContentExplorerComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;
   constructor(public publicHelper: PublicHelper, private tokenHelper: TokenHelper) {
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.language = this.tokenInfo.language;
     });

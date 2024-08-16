@@ -137,7 +137,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   }
 
   ngOnInit(): void {
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       if (!this.tokenHelper.isAdminSite && !this.tokenHelper.isSupportSite) {
         this.tabledisplayedColumnsSource = this.publicHelper.listRemoveIfExist(this.tabledisplayedColumnsSource, 'scoreRushToBuy');
@@ -147,7 +147,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       }
       this.DataGetAll();
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         if (!this.tokenHelper.isAdminSite && this.tokenHelper.isSupportSite) {

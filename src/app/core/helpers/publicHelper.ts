@@ -16,14 +16,14 @@ import {
   ErrorExceptionResultBase, InfoEnumModel, TicketStatusEnum, TokenInfoModel
 } from 'ntk-cms-api';
 import { ConfigInterface, DownloadModeEnum, TreeModel } from 'ntk-cms-filemanager';
-import { firstValueFrom, Observable, Subscription } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { CmsAccessInfoComponent } from 'src/app/shared/cms-access-info/cms-access-info.component';
 import { environment } from 'src/environments/environment';
 import { ComponentLocalStorageModel } from '../models/componentLocalStorageModel';
 import { ConnectionStatusModel } from '../models/connectionStatusModel';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { ReducerCmsStore, SET_Core_Currency, SET_Core_Module, SET_Core_Site } from '../reducers/reducer.factory';
+import { ReducerCmsStore, SET_Core_Currency, SET_Core_Module, SET_Core_Site, SET_Info_Enum } from '../reducers/reducer.factory';
 import { CmsToastrService } from '../services/cmsToastr.service';
 import { PageInfoService } from '../services/page-info.service';
 import { ProcessService } from '../services/process.service';
@@ -52,11 +52,7 @@ export class PublicHelper {
     this.appClientVersion = environment.appVersion;
 
   }
-  cmsApiStoreSubscribe: Subscription;
 
-  ngOnDestroy(): void {
-    this.cmsApiStoreSubscribe.unsubscribe();
-  }
   getStateOnChange(): Observable<ReducerCmsStore> {
     return this.cmsStoreService.getState((state) => {
       if (environment.consoleLog)
@@ -455,9 +451,7 @@ export class PublicHelper {
     return await firstValueFrom(this.coreEnumService.ServiceRecordStatusEnum(1000000))
       .then((response) => {
         this.getEnumRecordStatusActionIndo = false;
-        //todo: karavi fix bug
-        debugger
-        //this.cmsStoreService.setState({ type: SET_Info_Enum, payload:  response });
+        this.cmsStoreService.setState({ type: SET_Info_Enum, payload: response });
         return response;
       });
 

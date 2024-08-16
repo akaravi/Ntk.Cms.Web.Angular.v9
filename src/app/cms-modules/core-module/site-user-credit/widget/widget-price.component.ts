@@ -59,7 +59,7 @@ export class CoreModuleSiteUserCreditWidgetPriceComponent implements OnInit, OnD
 
 
     this.DataGetAll();
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetAll();
       }

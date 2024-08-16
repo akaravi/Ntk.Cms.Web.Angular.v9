@@ -25,7 +25,7 @@ export class TooltipGuideDirective {
     private coreGuideService: CoreGuideService,
     private cmsToastrService: CmsToastrService,
   ) {
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.lang = value.language;
 
     });
@@ -37,7 +37,7 @@ export class TooltipGuideDirective {
 
   @HostListener('mouseenter') onMouseEnter(): void {
     if (!this.tooltip) {
-      this.tokenHelper.getCurrentToken().then((value) => {
+      this.tokenHelper.getTokenInfoState().then((value) => {
         this.lang = value.language;
       });
       this.show();

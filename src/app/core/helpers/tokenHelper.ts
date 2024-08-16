@@ -1,5 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreAuthService,
@@ -7,7 +6,7 @@ import {
   TokenDeviceModel,
   TokenInfoModel
 } from 'ntk-cms-api';
-import { Observable, Subscription, firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CmsStoreService } from '../reducers/cmsStore.service';
 import { ReducerCmsStore, SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
@@ -16,13 +15,12 @@ const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 @Injectable({
   providedIn: 'root',
 })
-export class TokenHelper implements OnDestroy {
+export class TokenHelper {
   constructor(
     public cmsStoreService: CmsStoreService,
     public coreAuthService: CoreAuthService,
     public translate: TranslateService,
     private themeService: ThemeService,
-    private router: Router,
   ) {
     this.consoleLog = environment.ProgressConsoleLog;
     //**Token */
@@ -47,14 +45,11 @@ export class TokenHelper implements OnDestroy {
   };
   tokenInfo: TokenInfoModel = new TokenInfoModel();
   deviceTokenInfo: TokenDeviceModel = new TokenDeviceModel();
-  cmsApiStoreSubscribe: Subscription;
+
   isAdminSite = false;
   isSupportSite = false;
 
 
-  ngOnDestroy(): void {
-    this.cmsApiStoreSubscribe.unsubscribe();
-  }
   /*
     /opny use on main page
     */
@@ -62,6 +57,7 @@ export class TokenHelper implements OnDestroy {
     return this.cmsStoreService.getState((state) => {
       if (environment.consoleLog)
         console.log("onInitAppComponentStateOnChange:tokenhelper");
+      debugger
       this.tokenInfo = state.tokenInfoStore;
       this.setDirectionThemeBylanguage(this.tokenInfo.language);
       this.CheckIsAdmin();
@@ -75,34 +71,27 @@ export class TokenHelper implements OnDestroy {
       return state
     });
   }
-  geTokenInfoStateOnChange(): Observable<TokenInfoModel> {
+  getTokenInfoStateOnChange(): Observable<TokenInfoModel> {
     return this.cmsStoreService.getState((state) => {
       if (environment.consoleLog)
-        console.log("geTokenInfoStateOnChange");
-      this.tokenInfo = state.tokenInfoStore;
+        console.log("getTokenInfoStateOnChange");
       return state.tokenInfoStore;
     });
   }
-  async getCurrentToken(): Promise<TokenInfoModel> {
+  async getTokenInfoState(): Promise<TokenInfoModel> {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     if (storeSnapshot?.tokenInfoStore) {
       this.tokenInfo = storeSnapshot.tokenInfoStore;
-      if (this.tokenInfo)
-        this.setDirectionThemeBylanguage(this.tokenInfo.language);
-      this.CheckIsAdmin();
       return storeSnapshot.tokenInfoStore;
     }
     return await firstValueFrom(this.coreAuthService.ServiceCurrentToken())
       .then((ret) => {
         this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: ret.item });
         this.tokenInfo = ret.item;
-        if (this.tokenInfo)
-          this.setDirectionThemeBylanguage(this.tokenInfo.language);
-        this.CheckIsAdmin();
         return ret.item;
       });
   }
-  async getCurrentDeviceToken(): Promise<TokenDeviceModel> {
+  async getTokenDeviceState(): Promise<TokenDeviceModel> {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     if (storeSnapshot?.deviceTokenInfoStore) {
       this.deviceTokenInfo = storeSnapshot.deviceTokenInfoStore;
@@ -153,43 +142,7 @@ export class TokenHelper implements OnDestroy {
     this.isSupportSite = false;
     return false;
   }
-  CheckRouteByToken(): void {
-    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.tokenInfoStore) {
-      this.tokenInfo = storeSnapshot.tokenInfoStore;
-    }
-    this.cmsApiStoreSubscribe = this.cmsStoreService.getState((state) => state.tokenInfoStore).subscribe((value) => {
-      this.tokenInfo = value;
 
-      if (!this.tokenInfo || !this.tokenInfo.token || this.tokenInfo.token.length === 0) {
-        if (this.router && this.router.url.indexOf('/auth/singin') < 0) {
-          this.router.navigate(['/auth/singin']);
-        }
-      } else if (this.tokenInfo.userId <= 0) {
-
-        if (this.router && this.router.url.indexOf('/auth/singin') < 0) {
-          this.router.navigate(['/auth/singin']);
-        }
-      } else if (this.tokenInfo.userId > 0 && this.tokenInfo.siteId <= 0) {
-        if (this.router && this.router.url.indexOf('/core/site/selection') < 0) {
-          this.router.navigate(['/core/site/selection']);
-        }
-      }
-      if (this.tokenInfo && this.tokenInfo.userId <= 0) {
-        if (this.router && this.router.url.indexOf('/auth/singin') < 0) {
-          this.router.navigate(['/auth/singin']);
-        }
-      }
-
-      if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId <= 0) {
-        if (this.router && this.router.url.indexOf('/core/site/selection') < 0) {
-          this.router.navigate(['/core/site/selection']);
-        }
-      }
-      // this.inputSiteId = this.tokenInfo.siteId;
-      // this.inputUserId = this.tokenInfo.userId;
-    });
-  }
 
 }
 function HostListener(arg0: string, arg1: string[]): (target: TokenHelper, propertyKey: "onResize", descriptor: TypedPropertyDescriptor<(event: any) => void>) => void | TypedPropertyDescriptor<(event: any) => void> {

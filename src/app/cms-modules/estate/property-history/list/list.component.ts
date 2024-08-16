@@ -169,13 +169,13 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
   ngOnInit(): void {
     this.filteModelContent.sortColumn = 'CreatedDate';
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.DataGetAll();
     });
 
     this.cmsApiStoreSubscribe = this.tokenHelper
-      .geTokenInfoStateOnChange()
+      .getTokenInfoStateOnChange()
       .subscribe({
         next: (ret) => {
           this.tokenInfo = ret;

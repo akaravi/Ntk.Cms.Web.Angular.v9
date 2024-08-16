@@ -60,7 +60,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     this.publicHelper.processService.cdr = this.cdr;
     this.requestId = this.activatedRoute.snapshot.paramMap.get('id');
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
     this.publicHelper.getStateOnChange().subscribe((value) => {
@@ -126,7 +126,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     this.getEstateContractType();
 
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetOne();
         this.getEstateContractType();

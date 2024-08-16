@@ -49,7 +49,7 @@ export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, Co
 
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       if (this.requestId > 0) {
         this.DataGetOne(this.requestId);
@@ -57,7 +57,7 @@ export class CoreSiteEditComponent extends EditBaseComponent<CoreSiteService, Co
         this.DataGetOne(this.tokenInfo.siteId);
       }
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         if (this.requestId > 0) {

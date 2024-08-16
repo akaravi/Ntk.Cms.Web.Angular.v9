@@ -48,7 +48,7 @@ export class ArticletHeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (this.optionId > 0) {
       this.DataGetOneContent();
-      this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+      this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
         next: (ret) => {
           this.DataGetOneContent();
         }

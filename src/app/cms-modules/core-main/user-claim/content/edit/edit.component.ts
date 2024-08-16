@@ -48,7 +48,7 @@ export class CoreUserClaimContentEditComponent extends EditBaseComponent<CoreUse
     }
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       if (!this.tokenInfo.userAccessAdminAllowToProfessionalData && this.tokenInfo.userAccessAdminAllowToAllData) {
         this.dataModel.linkUserId = this.tokenInfo.userId;
@@ -58,7 +58,7 @@ export class CoreUserClaimContentEditComponent extends EditBaseComponent<CoreUse
         this.ProfessionalData = false;
       }
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         if (!this.tokenInfo.userAccessAdminAllowToProfessionalData && this.tokenInfo.userAccessAdminAllowToAllData) {

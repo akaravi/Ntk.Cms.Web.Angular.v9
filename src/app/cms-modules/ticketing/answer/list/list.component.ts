@@ -89,12 +89,12 @@ export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAns
 
   ngOnInit(): void {
     this.requestLinkTaskId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkTaskId'));
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.getEnumAnswerStatus();
         this.tokenInfo = ret;

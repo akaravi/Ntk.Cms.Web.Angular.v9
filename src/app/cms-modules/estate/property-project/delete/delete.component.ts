@@ -39,7 +39,7 @@ export class EstatePropertyProjectDeleteComponent implements OnInit {
       this.requestId = data.id;
     }
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }

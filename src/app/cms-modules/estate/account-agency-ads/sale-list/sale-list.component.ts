@@ -69,11 +69,11 @@ export class EstateAccountAgencyAdsSaleListComponent implements OnInit, OnDestro
       this.router.navigate(['/estate/account-agency']);
       return;
     }
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
       }

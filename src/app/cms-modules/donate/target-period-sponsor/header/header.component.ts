@@ -43,7 +43,7 @@ export class DonateTargetPeriodSponserHeaderComponent implements OnInit, OnDestr
       this.DataGetOneContent();
     }
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetOneContent();
       }

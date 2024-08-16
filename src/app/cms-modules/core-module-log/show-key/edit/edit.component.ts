@@ -71,11 +71,11 @@ export class CoreModuleLogShowKeyEditComponent extends EditBaseComponent<CoreMod
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
       }

@@ -75,7 +75,7 @@ export class CmsExportListComponent implements OnInit {
     eum.description = 'FileManager';
     this.recieveMethodListItems.push(eum);
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 

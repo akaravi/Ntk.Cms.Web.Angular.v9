@@ -45,7 +45,7 @@ export class EstatePropertyExpertPriceAddComponent extends AddBaseComponent<Esta
     //   this.dataModel.linkTargetCategoryId = this.requestTargetCategoryId;
     // }
     // this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }

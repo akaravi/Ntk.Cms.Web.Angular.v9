@@ -45,7 +45,7 @@ export class EstatePropertyTypeUsageEditComponent extends EditBaseComponent<Esta
       this.requestId = data.id;
     }
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }

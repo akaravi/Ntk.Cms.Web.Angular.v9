@@ -47,7 +47,7 @@ export class CoreCpMainMenuEditComponent extends EditBaseComponent<CoreCpMainMen
     if (data) {
       this.requestId = +data.id || 0;
     }
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 

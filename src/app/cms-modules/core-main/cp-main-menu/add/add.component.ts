@@ -43,7 +43,7 @@ export class CoreCpMainMenuAddComponent extends AddBaseComponent<CoreCpMainMenuS
     if (this.requestParentId > 0) {
       this.dataModel.linkParentId = this.requestParentId;
     }
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 

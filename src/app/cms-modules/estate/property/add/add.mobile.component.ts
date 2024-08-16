@@ -66,7 +66,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
       this.dataModel.linkPropertyTypeUsageId = this.requestLinkPropertyTypeUsageId;
     }
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
 
     });
@@ -131,7 +131,7 @@ export class EstatePropertyAddMobileComponent implements OnInit {
     this.getEstatePropertyType();
     this.getEstatePropertyTypeLanduse();
     this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
 
         this.DataGetAccess();

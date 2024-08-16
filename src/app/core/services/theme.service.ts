@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
@@ -13,19 +14,23 @@ const themeLanguageSKey = 'theme_language';
 @Injectable({
   providedIn: 'root',
 })
-export class ThemeService {
+export class ThemeService implements OnDestroy {
   constructor(private cmsStoreService: CmsStoreService,) {
     const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     if (storeSnapshot.themeStore)
       this.themeStore = storeSnapshot.themeStore;
   }
+  cmsApiStoreSubscribe: Subscription;
+
+  ngOnDestroy(): void {
+    this.cmsApiStoreSubscribe.unsubscribe();
+  }
   public onInitAppComponentStateOnChange() {
-    this.cmsStoreService.getState((state) => {
+    this.cmsApiStoreSubscribe = this.cmsStoreService.getState((state) => state.themeStore).subscribe((value) => {
       if (environment.consoleLog)
         console.log("onInitAppComponentStateOnChange:ThemeService");
-
-      if (state.themeStore)
-        this.themeStore = state.themeStore;
+      if (value)
+        this.themeStore = value;
       else
         this.themeStore = new ThemeStoreModel();
     });

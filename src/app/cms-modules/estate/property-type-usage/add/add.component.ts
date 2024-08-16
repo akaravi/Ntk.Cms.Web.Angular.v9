@@ -36,7 +36,7 @@ export class EstatePropertyTypeUsageAddComponent extends AddBaseComponent<Estate
     super(estatePropertyTypeUsageService, new EstatePropertyTypeUsageModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }

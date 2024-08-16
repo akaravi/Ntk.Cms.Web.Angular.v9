@@ -52,7 +52,7 @@ export class CmsDataCommentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
 
     });
 

@@ -29,14 +29,12 @@ export class ProcessService {
     });
   }
 
-  public cmsApiStoreSubscribe: Subscription;
+
   public cdr: ChangeDetectorRef;
   public processSubject: BehaviorSubject<ProcessModel>;
   public process: ProcessModel;
 
-  ngOnDestroy(): void {
-    this.cmsApiStoreSubscribe.unsubscribe();
-  }
+
   getProcessInfoOnChange(): Observable<Map<string, ProcessInfoModel>> {
     return this.cmsStoreService.getState((state) => {
       if (environment.ProgressConsoleLog)

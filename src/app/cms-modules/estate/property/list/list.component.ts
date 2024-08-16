@@ -256,7 +256,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   step = 0;
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.GetServiceSiteConfig(this.tokenHelper.tokenInfo.siteId);
 
@@ -270,7 +270,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     });
     this.tokenInfo.direction
     this.cmsApiStoreSubscribe = this.tokenHelper
-      .geTokenInfoStateOnChange()
+      .getTokenInfoStateOnChange()
       .subscribe({
         next: (ret) => {
           this.tokenInfo = ret;

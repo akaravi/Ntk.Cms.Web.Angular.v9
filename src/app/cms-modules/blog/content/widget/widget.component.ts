@@ -41,7 +41,7 @@ export class BlogContentWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.link = '/blog/content';
 
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.onActionStatist();
       }

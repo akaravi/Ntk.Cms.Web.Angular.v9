@@ -23,14 +23,14 @@ export class PageAboutusComponent implements OnInit {
     public publicHelper: PublicHelper,
   ) {
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       if (this.tokenInfo.siteId > 0)
         this.SiteInfo(this.tokenInfo.siteId);
       else
         this.SiteInfo(0);
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
         if (this.tokenInfo.siteId > 0)

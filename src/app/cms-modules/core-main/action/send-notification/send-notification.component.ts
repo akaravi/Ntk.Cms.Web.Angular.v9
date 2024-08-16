@@ -41,7 +41,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
     this.publicHelper.processService.cdr = this.cdr;
 
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }

@@ -94,12 +94,12 @@ export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskS
     this.requestLinkCmsUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkCmsUserId'));
     if (this.activatedRoute.snapshot.paramMap.get('TicketStatus'))
       this.requestTicketStatus = + Number(this.activatedRoute.snapshot.paramMap.get('TicketStatus'));
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.DataGetAll();
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.getEnumTicketStatus();
         this.tokenInfo = ret;

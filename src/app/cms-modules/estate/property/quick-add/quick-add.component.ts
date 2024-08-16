@@ -46,7 +46,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
     super(estatePropertyTypeService, new EstatePropertyTypeModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }
@@ -94,7 +94,7 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
     this.getEstatePropertyType();
     this.getEstatePropertyTypeLanduse();
     this.dataModel.caseCode = this.publicHelper.StringRandomGenerator(5, true);
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
 
         this.DataGetAccess();

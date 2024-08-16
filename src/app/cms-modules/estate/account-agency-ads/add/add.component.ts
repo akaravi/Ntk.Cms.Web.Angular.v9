@@ -45,7 +45,7 @@ export class EstateAccountAgencyAdsAddComponent extends AddBaseComponent<EstateA
       this.dataModel.linkAccountAgencyId = this.requestLinkAccountAgencyId;
     }
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }

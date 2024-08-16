@@ -55,7 +55,7 @@ export class SmsActionSendMessageComponent implements OnInit {
       this.linkApiPathId = this.router.getCurrentNavigation().extras.state.LinkApiPathId;
       this.linkNumberId = this.router.getCurrentNavigation().extras.state.LinkNumberId;
     }
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.language = this.tokenInfo.language;
     });

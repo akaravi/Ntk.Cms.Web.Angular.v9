@@ -50,7 +50,7 @@ export class HeaderBarComponent implements OnInit {
     });
 
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
 
     });
@@ -73,7 +73,7 @@ export class HeaderBarComponent implements OnInit {
     this.bc$ = this.pageInfoService.breadcrumbs.asObservable();
 
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
     this.pageInfoService.contentService.asObservable().subscribe({

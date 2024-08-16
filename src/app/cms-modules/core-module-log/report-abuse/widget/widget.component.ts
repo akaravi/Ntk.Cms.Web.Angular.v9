@@ -35,7 +35,7 @@ export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestro
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/coremodulelog/report-abuse';
     this.onActionStatist();
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe({
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.onActionStatist();
       }

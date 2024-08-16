@@ -45,7 +45,7 @@ export class EstateContractTypeEditComponent extends EditBaseComponent<EstateCon
     }
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }

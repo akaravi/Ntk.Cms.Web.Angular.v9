@@ -48,11 +48,11 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
 
     this.requestId = + Number(this.activatedRoute.snapshot.paramMap.get('Id'));
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
 
-    this.cmsApiStoreSubscribe = this.tokenHelper.geTokenInfoStateOnChange().subscribe((value) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
       this.DataGetOneContent();
     });
@@ -152,7 +152,7 @@ export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, Co
           this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
           if (this.dataModel.id === this.tokenInfo.userId) {
-            this.tokenHelper.getCurrentToken();
+            this.tokenHelper.getTokenInfoState();
           }
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });

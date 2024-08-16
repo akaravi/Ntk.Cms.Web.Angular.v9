@@ -56,7 +56,7 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     this.tokenHelper.CheckIsAdmin();
     this.DataGetAccess();
 
-    this.tokenHelper.getCurrentToken().then((value) => {
+    this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
     });
   }
