@@ -366,7 +366,7 @@ export class LinkManagementTargetListComponent extends ListBaseComponent<LinkMan
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.contentService
-      .ServiceGetOneById(this.tableRowSelected.id)
+      .ServiceGetOneById(model.id)
       .subscribe({
         next: (ret) => {
           if (ret.isSuccess) {

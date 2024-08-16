@@ -355,7 +355,7 @@ export class BiographyContentListComponent extends ListBaseComponent<BiographyCo
     const pName = this.constructor.name + "ServiceGetOneById";
     this.publicHelper.processService.processStart(pName, this.translate.instant('MESSAGE.Get_biographical_information'), this.constructorInfoAreaId);
     this.contentService
-      .ServiceGetOneById(this.tableRowSelected.id)
+      .ServiceGetOneById(model.id)
       .subscribe({
         next: (ret) => {
           if (ret.isSuccess) {

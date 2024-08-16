@@ -390,7 +390,7 @@ export class EstateBillboardListComponent extends ListBaseComponent<EstateBillbo
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
     this.contentService
-      .ServiceGetOneById(this.tableRowSelected.id)
+      .ServiceGetOneById(model.id)
       .subscribe({
         next: (ret) => {
           if (ret.isSuccess) {

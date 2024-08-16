@@ -377,7 +377,7 @@ export class EstatePropertyProjectListComponent extends ListBaseComponent<Estate
     this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.contentService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.contentService
-      .ServiceGetOneById(this.tableRowSelected.id)
+      .ServiceGetOneById(model.id)
       .subscribe({
         next: (ret) => {
           if (ret.isSuccess) {

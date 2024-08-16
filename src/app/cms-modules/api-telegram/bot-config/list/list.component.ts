@@ -499,7 +499,7 @@ export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTele
     this.tableRowSelected = model;
     const pName = this.constructor.name + "ServiceGetOneById";
     this.translate.get('MESSAGE.get_state_information').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
-    this.contentService.ServiceGetOneById(this.tableRowSelected.id)
+    this.contentService.ServiceGetOneById(model.id)
       .subscribe({
         next: (ret) => {
           if (ret.isSuccess) {

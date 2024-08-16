@@ -4,18 +4,12 @@
     <div class="content  mt-5 mb-5 ms-5 me-5">
       <div *ngFor="let item of infoArea| keyvalue" class="col-12">
         <div class="chip chip-s bg-gray-light">
-
-          <i class="fa fa-cog color-white bg-blue-dark" *ngIf="!item.value['isComplate']"></i>
-
+          <i class="fa fa-sync color-white bg-blue-dark" *ngIf="!item.value['isComplate']"></i>
           <i class="fa fa-check color-white bg-green-dark"
             *ngIf="item.value['isComplate'] && item.value['isSuccess']"></i>
-
-          <i class="fa fa-times color-white bg-red-dark"
+          <i class="fa fa-exclamation-triangle color-white bg-red-dark"
             *ngIf="item.value['isComplate'] && !item.value['isSuccess']"></i>
-
           <strong class="color-black font-400">{{item.value['title']}}</strong>
-          <span *ngIf="item.value['isComplate'] && !item.value['isSuccess']"
-            class="badge bg-blue-dark float-end mt-2 p-1 font-8">برروز خطا</span>
         </div>
       </div>
     </div>
