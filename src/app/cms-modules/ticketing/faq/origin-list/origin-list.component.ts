@@ -15,7 +15,6 @@ import { ComponentOptionSearchModel } from 'src/app/core/cmsComponent/base/compo
 import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
@@ -56,7 +55,7 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
 
   tokenInfo = new TokenInfoModel();
 
-  loadingCat = new ProgressSpinnerModel();
+
   tableRowsSelected: Array<TicketingFaqModel> = [];
   tableRowSelected: TicketingFaqModel = new TicketingFaqModel();
   tableSource: MatTableDataSource<TicketingFaqModel> = new MatTableDataSource<TicketingFaqModel>();
@@ -126,7 +125,7 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
     );
   }
   DataDepartemenGetAll(): void {
-    this.loadingCat.Start('main');
+
 
     this.ticketingDepartemenService.ServiceGetAllOrigin(null).subscribe({
       next: (ret) => {
@@ -140,13 +139,13 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
           this.cmsToastrService.typeErrorGetAll(ret.errorMessage);
 
         }
-        this.loadingCat.Stop('main');
+
         this.cdr.detectChanges();
       },
       error: (err) => {
         this.cmsToastrService.typeError(err);
 
-        this.loadingCat.Stop('main');
+
       }
     }
     );

@@ -6,7 +6,6 @@ import 'ngx-ntk-pannellum/src/js/pannellum';
 import { File360TourDefaultModel, File360TourHotSpotModel, File360TourModel, File360TourScenesModel, File360ViewModel, FormInfoModel } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 // eslint-disable-next-line no-var
 declare var pannellum: any;
@@ -76,7 +75,7 @@ export class Cms360TourListComponent implements OnInit {
   privateDataImageModel: File360ViewModel[];
   formInfo: FormInfoModel = new FormInfoModel();
 
-  loadingOption = new ProgressSpinnerModel();
+
   tabledataSource = new MatTableDataSource<File360TourScenesModel>();
   tableHotSpotdataSource = new MatTableDataSource<File360TourHotSpotModel>();
   tabledisplayedColumns = ['linkFileId', 'panorama', 'Title', 'Action'];

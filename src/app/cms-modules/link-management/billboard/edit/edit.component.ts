@@ -17,7 +17,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 @Component({
   selector: 'app-linkmanagement-Billboard-edit',
@@ -42,7 +41,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
     super(linkManagementBillboardService, new LinkManagementBillboardModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.loadingOption.cdr = this.cdr;
+
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.optionActionTitle = this.translate.instant('ACTION.Add_To_List');
@@ -62,7 +61,7 @@ export class LinkManagementBillboardEditComponent extends EditBaseComponent<Link
 
 
 
-  loadingOption = new ProgressSpinnerModel();
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

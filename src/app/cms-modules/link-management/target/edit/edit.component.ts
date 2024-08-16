@@ -21,7 +21,6 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 @Component({
   selector: 'app-linkmanagement-target-edit',
@@ -49,7 +48,7 @@ export class LinkManagementTargetEditComponent extends EditBaseComponent<LinkMan
     super(linkManagementTargetService, new LinkManagementTargetModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.loadingOption.cdr = this.cdr;
+
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
     this.optionActionTitle = this.translate.instant('ACTION.Add_To_List');
@@ -69,7 +68,7 @@ export class LinkManagementTargetEditComponent extends EditBaseComponent<LinkMan
 
 
 
-  loadingOption = new ProgressSpinnerModel();
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];

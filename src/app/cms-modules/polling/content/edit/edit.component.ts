@@ -24,7 +24,6 @@ import { CoreLocationModel } from 'ntk-cms-api';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
-import { ProgressSpinnerModel } from 'src/app/core/models/progressSpinnerModel';
 
 @Component({
   selector: 'app-polling-content-edit',
@@ -49,7 +48,7 @@ export class PollingContentEditComponent extends EditBaseComponent<PollingConten
     super(pollingContentService, new PollingContentModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
-    this.loadingOption.cdr = this.cdr;
+
 
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
   }
@@ -70,7 +69,7 @@ export class PollingContentEditComponent extends EditBaseComponent<PollingConten
 
 
 
-  loadingOption = new ProgressSpinnerModel();
+
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
   selectFileTypePodcast = ['mp3'];
   selectFileTypeMovie = ['mp4', 'webm'];
@@ -184,7 +183,7 @@ export class PollingContentEditComponent extends EditBaseComponent<PollingConten
     this.formInfo.formSubmitAllow = false;
     this.formInfo.formAlert = this.translate.instant('MESSAGE.Receiving_Options_From_The_Server');
     this.formInfo.formError = '';
-    this.loadingOption.Start('main');
+
 
 
     const filterModel = new FilterModel();
@@ -197,7 +196,7 @@ export class PollingContentEditComponent extends EditBaseComponent<PollingConten
       .ServiceGetAll(filterModel)
       .subscribe({
         next: (ret) => {
-          this.loadingOption.Stop('main');
+
           this.formInfo.formSubmitAllow = true;
           this.dataOptionModelResult = ret;
           if (ret.isSuccess) {
@@ -208,7 +207,7 @@ export class PollingContentEditComponent extends EditBaseComponent<PollingConten
           }
         },
         error: (er) => {
-          this.loadingOption.Stop('main');
+
           this.formInfo.formSubmitAllow = true;
           this.cmsToastrService.typeErrorGetAll(er);
         }
