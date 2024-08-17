@@ -18,37 +18,39 @@
   </ng-container>
   <ng-container cms-action-header>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
-    <div class="d-flex justify-content-between flex-wrap">
-      <div class=" justify-content-end">
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="optionsSearch.data.show=!optionsSearch.data.show">
-          <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"
-            (click)="optionsSearch.data.show=!optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
-          translate}}
-        </a>
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-slide-toggle (click)="onActionButtonStatist()" [(ngModel)]="optionsStatist.data.show">
-          </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
-        </a>
-      </div>
-      <div class=" justify-content-start">
-        <a *ngIf="requestLinkPrivateConfigId?.length>0" type="button"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-          (click)="onActionBackToParent()" target="_blank">
-          <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
-        </a>
-        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
-          <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
-        </a>
-        <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="onActionButtonReload()" target="_blank">
-          <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
-        </a>
-      </div>
-    </div>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
-  </ng-container>
+</ng-container>
+<ng-container cms-action-header-start>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-start-->
+    <a *ngIf="requestLinkPrivateConfigId?.length>0" type="button"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+      (click)="onActionBackToParent()" target="_blank">
+      <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
+    </a>
+    <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+      (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
+      <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
+    </a>
+    <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+      (click)="onActionButtonReload()" target="_blank">
+      <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
+    </a>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-start-->
+</ng-container>
+<ng-container cms-action-header-end>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-end-->
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+    (click)="optionsSearch.data.show=!optionsSearch.data.show">
+    <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"
+      (click)="optionsSearch.data.show=!optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
+    translate}}
+  </a>
+  <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
+    <mat-slide-toggle (click)="onActionButtonStatist()" [(ngModel)]="optionsStatist.data.show">
+    </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
+  </a>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-end-->
+</ng-container>
   <ng-container cms-action-main>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
 

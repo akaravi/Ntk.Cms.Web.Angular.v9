@@ -16,6 +16,10 @@
   </ng-container>
   <ng-container cms-action-header>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
+  </ng-container>
+  <ng-container cms-action-header>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
     <div class="d-flex justify-content-between flex-wrap">
       <div class=" justify-content-end">
         <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
@@ -47,6 +51,21 @@
         </a>
       </div>
     </div>
+    <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
+  </ng-container>
+  <ng-container cms-action-header>
+    <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+      (click)="optionsSearch.data.show=!optionsSearch.data.show">
+      <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"
+        (click)="optionsSearch.data.show=!optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
+      translate}}
+    </a>
+    <a (click)="onActionButtonStatist()"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <mat-slide-toggle (click)="onActionButtonStatist()" [(ngModel)]="optionsStatist.data.show">
+      </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
+    </a>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
   </ng-container>
   <ng-container cms-action-main>
