@@ -608,7 +608,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['scoreEstateLocation']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" [ngClass]="'score-'+row.scoreEstateLocation">
+        <mat-cell *matCellDef="let row" [ngClass]="'cms-cell-score-'+row.scoreEstateLocation">
           {{row.scoreEstateLocation}} </mat-cell>
       </ng-container>
       <!-- scoreEstateBuild Column -->
@@ -616,7 +616,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['scoreEstateBuild']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" [ngClass]="'score-'+row.scoreEstateBuild"> {{row.scoreEstateBuild}}
+        <mat-cell *matCellDef="let row" [ngClass]="'cms-cell-score-'+row.scoreEstateBuild"> {{row.scoreEstateBuild}}
         </mat-cell>
       </ng-container>
       <!-- scoreEstatePrice Column -->
@@ -624,7 +624,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['scoreEstatePrice']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" [ngClass]="'score-'+row.scoreEstatePrice"> {{row.scoreEstatePrice}}
+        <mat-cell *matCellDef="let row" [ngClass]="'cms-cell-score-'+row.scoreEstatePrice"> {{row.scoreEstatePrice}}
         </mat-cell>
       </ng-container>
       <!-- CreatedDate Column -->

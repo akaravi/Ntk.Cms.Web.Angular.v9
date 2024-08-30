@@ -244,49 +244,37 @@
           <!-- score Field -->
           <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
             <!-- scoreEstateLocation Field -->
-            <div *ngIf="fieldsInfo['scoreEstateLocation']?.accessWatchField"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="range-slider bottom-15 range-slider-icons">
               <label for="dataModel.scoreEstateLocation" class="color-highlight">{{
                 fieldsInfo["scoreEstateLocation"]?.fieldTitle }}</label>
-              <select id="dataModel.scoreEstateLocation" [(ngModel)]="dataModel.scoreEstateLocation"
-                name="dataModel.scoreEstateLocation" #scoreEstateLocation="ngModel"
-                [disabled]="!fieldsInfo['scoreEstateLocation']?.accessAddField"
-                ngClass="recordStatus-{{ dataModel.scoreEstateLocation }}" class="form-control validate-name">
-                <option *ngFor="
-                     let number of numbers" [ngValue]="number">
-                  {{ number }}
-                </option>
-              </select>
+              <i class="fa fa-range-icon-1 fa-angle-down color-theme"></i>
+              <i class="fa fa-range-icon-2 fa-angle-up color-theme"></i>
+              <input class="ios-slider input-ltr" type="range" min="0" max="10" id="dataModel.scoreEstateLocation"
+                [(ngModel)]="dataModel.scoreEstateLocation" name="dataModel.scoreEstateLocation"
+                #scoreEstateLocation="ngModel" [disabled]="!fieldsInfo['scoreEstateLocation']?.accessEditField"
+                ngClass="cms-range-score-{{ dataModel.scoreEstateLocation }}">
             </div>
             <!-- scoreEstateBuild Field -->
-            <div *ngIf="fieldsInfo['scoreEstateBuild']?.accessWatchField"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="range-slider bottom-15 range-slider-icons">
               <label for="dataModel.scoreEstateBuild" class="color-highlight">{{
                 fieldsInfo["scoreEstateBuild"]?.fieldTitle }}</label>
-              <select id="dataModel.scoreEstateBuild" [(ngModel)]="dataModel.scoreEstateBuild"
-                name="dataModel.scoreEstateBuild" #scoreEstateBuild="ngModel"
+              <i class="fa fa-range-icon-1 fa-angle-down color-theme"></i>
+              <i class="fa fa-range-icon-2 fa-angle-up color-theme"></i>
+              <input class="ios-slider input-ltr" type="range" min="0" max="10" id="dataModel.scoreEstateBuild"
+                [(ngModel)]="dataModel.scoreEstateBuild" name="dataModel.scoreEstateBuild" #scoreEstateBuild="ngModel"
                 [disabled]="!fieldsInfo['scoreEstateBuild']?.accessEditField"
-                ngClass="score-{{ dataModel.scoreEstateBuild }}" class="form-control validate-name">
-                <option *ngFor="
-                      let number of numbers" [ngValue]="number">
-                  {{ number }}
-                </option>
-              </select>
+                ngClass="cms-range-score-{{ dataModel.scoreEstateBuild }}">
             </div>
             <!-- scoreEstatePrice Field -->
-            <div *ngIf="fieldsInfo['scoreEstatePrice']?.accessWatchField"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <div class="range-slider bottom-15 range-slider-icons">
               <label for="dataModel.scoreEstatePrice" class="color-highlight">{{
                 fieldsInfo["scoreEstatePrice"]?.fieldTitle }}</label>
-              <select id="dataModel.scoreEstatePrice" [(ngModel)]="dataModel.scoreEstatePrice"
-                name="dataModel.scoreEstatePrice" #scoreEstatePrice="ngModel"
+              <i class="fa fa-range-icon-1 fa-angle-down color-theme"></i>
+              <i class="fa fa-range-icon-2 fa-angle-up color-theme"></i>
+              <input class="ios-slider input-ltr" type="range" min="0" max="10" id="dataModel.scoreEstatePrice"
+                [(ngModel)]="dataModel.scoreEstatePrice" name="dataModel.scoreEstatePrice" #scoreEstatePrice="ngModel"
                 [disabled]="!fieldsInfo['scoreEstatePrice']?.accessEditField"
-                ngClass="score-{{ dataModel.scoreEstatePrice }}" class="form-control validate-name">
-                <option *ngFor="
-                      let number of numbers" [ngValue]="number">
-                  {{ number }}
-                </option>
-              </select>
+                ngClass="cms-range-score-{{ dataModel.scoreEstatePrice }}">
             </div>
           </div>
 
@@ -713,7 +701,7 @@
           </p>
           <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
           <!-- TABLE  -->
-          <div class="example-container mat-elevation-z8"  *ngIf="!this.publicHelper.processService.process.inRunAll">
+          <div class="example-container mat-elevation-z8" *ngIf="!this.publicHelper.processService.process.inRunAll">
             <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>
               <!-- LinkEstateContractTypeId Column -->
               <ng-container matColumnDef="LinkEstateContractTypeId">
