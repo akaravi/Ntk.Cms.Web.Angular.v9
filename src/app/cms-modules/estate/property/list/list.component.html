@@ -704,6 +704,10 @@
                 <td></td>
                 <td class="col-form-label"> {{row.title}} </td>
               </tr>
+              <tr>
+                <td>{{fieldsInfo['caseCode']?.fieldTitle}}</td>
+                <td class="col-form-label"> {{row.CaseCode}} </td>
+              </tr>
               <tr *ngIf="row.area && row.area>0">
                 <td class="col-form-label">{{'TITLE.SquareMeters'|translate}}</td>
                 <td class="col-form-label"> {{row.area}} </td>
