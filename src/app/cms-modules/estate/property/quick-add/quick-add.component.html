@@ -120,7 +120,7 @@
               *ngIf="fieldsInfo['area']?.accessWatchField">
               <label for="dataModel.area" class="color-highlight">{{fieldsInfo['area']?.fieldTitle}}</label>
               <input matInput [(ngModel)]="dataModel.area" name="dataModel.area" #Area type="text" currencyMask
-                class="form-control validate-name input-ltr" disabled="{{!fieldsInfo['area']?.accessAddField}}"
+                class="form-control validate-name input-ltr-center" disabled="{{!fieldsInfo['area']?.accessAddField}}"
                 placeholder="{{fieldsInfo['area']?.fieldTitle}}" id="dataModel.area" />
             </div>
 

@@ -310,7 +310,7 @@
             <label *ngIf=" contractTypeSelected?.hasSalePrice"
               class="cms-m-form-label">{{contractTypeSelected.titleSalePriceML}} {{'TITLE.Minimum'
               |translate}}</label>
-            <input *ngIf=" contractTypeSelected?.hasSalePrice" class="cms-m-form-input"
+            <input *ngIf=" contractTypeSelected?.hasSalePrice" class="cms-m-form-input input-ltr-center"
               [(ngModel)]="dataModel.salePriceMin" name="dataModel.salePriceMin" #SalePriceMin type="text"
               autocomplete="off" currencyMask />
 
@@ -319,7 +319,7 @@
               class="cms-m-form-label">{{contractTypeSelected.titleRentPriceML}}
               {{'TITLE.Minimum' |
               translate}}</label>
-            <input *ngIf=" contractTypeSelected?.hasRentPrice" class="cms-m-form-input"
+            <input *ngIf=" contractTypeSelected?.hasRentPrice" class="cms-m-form-input input-ltr-center"
               [(ngModel)]="dataModel.rentPriceMin" name="dataModel.rentPriceMin" #RentPriceMin type="text"
               autocomplete="off" currencyMask />
 
@@ -328,7 +328,7 @@
               class="cms-m-form-label">{{contractTypeSelected.titleDepositPriceML}}
               {{'TITLE.Minimum' |
               translate}}</label>
-            <input *ngIf="contractTypeSelected?.hasDepositPrice" class="cms-m-form-input"
+            <input *ngIf="contractTypeSelected?.hasDepositPrice" class="cms-m-form-input input-ltr-center"
               [(ngModel)]="dataModel.depositPriceMin" name="dataModel.depositPriceMin" #DepositPriceMin type="text"
               autocomplete="off" currencyMask />
             <!-- PeriodPriceMin Field -->
@@ -336,7 +336,7 @@
               class="cms-m-form-label">{{contractTypeSelected.titlePeriodPriceML}}
               {{'TITLE.Minimum' |
               translate}}</label>
-            <input *ngIf=" contractTypeSelected?.hasDepositPrice" class="cms-m-form-input"
+            <input *ngIf=" contractTypeSelected?.hasDepositPrice" class="cms-m-form-input input-ltr-center"
               [(ngModel)]="dataModel.periodPriceMin" name="dataModel.periodPriceMin" #PeriodPriceMin type="text"
               autocomplete="off" currencyMask />
 
@@ -345,7 +345,7 @@
               {{contractTypeSelected.titleSalePriceML}}
               {{'TITLE.Maximum' |
               translate}}</label>
-            <input *ngIf="contractTypeSelected?.hasSalePrice" class="cms-m-form-input"
+            <input *ngIf="contractTypeSelected?.hasSalePrice" class="cms-m-form-input input-ltr-center"
               [(ngModel)]="dataModel.salePriceMax" name="dataModel.salePriceMax" #SalePriceMax type="text"
               autocomplete="off" currencyMask />
 
@@ -354,7 +354,7 @@
               class="cms-m-form-label">{{contractTypeSelected.titleRentPriceML}}
               {{'TITLE.Maximum' |
               translate}}</label>
-            <input *ngIf=" contractTypeSelected?.hasRentPrice" class="cms-m-form-input"
+            <input *ngIf=" contractTypeSelected?.hasRentPrice" class="cms-m-form-input input-ltr-center"
               [(ngModel)]="dataModel.rentPriceMax" name="dataModel.rentPriceMax" #RentPriceMax type="text"
               autocomplete="off" currencyMask />
 
@@ -363,7 +363,7 @@
               class="cms-m-form-label">{{contractTypeSelected.titleDepositPriceML}}
               {{'TITLE.Maximum' |
               translate}}</label>
-            <input *ngIf=" contractTypeSelected?.hasDepositPrice" class="cms-m-form-input"
+            <input *ngIf=" contractTypeSelected?.hasDepositPrice" class="cms-m-form-input input-ltr-center"
               [(ngModel)]="dataModel.depositPriceMax" name="dataModel.depositPriceMax" #DepositPriceMax type="text"
               autocomplete="off" currencyMask />
 
@@ -372,7 +372,7 @@
               class="cms-m-form-label">{{contractTypeSelected.titlePeriodPriceML}}
               {{'TITLE.Maximum' |
               translate}}</label>
-            <input *ngIf=" contractTypeSelected?.hasDepositPrice" class="cms-m-form-input"
+            <input *ngIf=" contractTypeSelected?.hasDepositPrice" class="cms-m-form-input input-ltr-center"
               [(ngModel)]="dataModel.periodPriceMax" name="dataModel.periodPriceMax" #PeriodPriceMax type="text"
               autocomplete="off" currencyMask />
           </div>
