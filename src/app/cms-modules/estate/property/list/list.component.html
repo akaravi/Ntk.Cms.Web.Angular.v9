@@ -595,8 +595,8 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row"> <i [ngClass]="row.adsActive | boolclass"></i> </mat-cell>
       </ng-container>
-      <!-- CaseCode Column -->
-      <ng-container matColumnDef="CaseCode">
+      <!-- caseCode Column -->
+      <ng-container matColumnDef="caseCode">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['caseCode']?.fieldTitle}}
         </mat-header-cell>
@@ -706,7 +706,7 @@
               </tr>
               <tr>
                 <td>{{fieldsInfo['caseCode']?.fieldTitle}}</td>
-                <td class="col-form-label"> {{row.CaseCode}} </td>
+                <td class="col-form-label"> {{row.caseCode}} </td>
               </tr>
               <tr *ngIf="row.area && row.area>0">
                 <td class="col-form-label">{{'TITLE.SquareMeters'|translate}}</td>
