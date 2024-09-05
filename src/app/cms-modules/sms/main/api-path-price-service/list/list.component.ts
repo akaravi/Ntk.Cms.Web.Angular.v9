@@ -244,7 +244,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: { linkApiPathId: this.categoryModelSelected.id }
+      data: { linkApiPathId: this.categoryModelSelected?.id }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {

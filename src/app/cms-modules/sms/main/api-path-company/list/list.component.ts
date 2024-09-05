@@ -59,14 +59,14 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
   tabledisplayedColumnsSource: string[] = [
     //'Id',
     'RecordStatus',
-    // 'Title',
+    'Title',
     // 'Action'
   ];
 
   tabledisplayedColumnsMobileSource: string[] = [
     //'Id',
     'RecordStatus',
-    // 'Title',
+    'Title',
     // 'Action'
   ];
 
