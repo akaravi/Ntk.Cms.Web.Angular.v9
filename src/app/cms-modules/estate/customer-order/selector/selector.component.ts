@@ -81,10 +81,12 @@ export class EstateCustomerOrderSelectorComponent implements OnInit {
     filterModel.accessLoad = true;
 
     let filter = new FilterDataModel();
+
     if (text && text.length > 0) {
       filter.propertyName = 'Title';
       filter.value = text;
       filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
       /* */
       filter = new FilterDataModel();
@@ -93,8 +95,24 @@ export class EstateCustomerOrderSelectorComponent implements OnInit {
       filter.searchType = FilterDataModelSearchTypesEnum.Equal;
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
-    }
-    if (text?.length > 0) {
+
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'description';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+
+      /* */
+      filter = new FilterDataModel();
+      filter.propertyName = 'descriptionHidden';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+
+
       filter = new FilterDataModel();
       filter.propertyName = 'LinkCmsUserId';
       filter.value = text;
