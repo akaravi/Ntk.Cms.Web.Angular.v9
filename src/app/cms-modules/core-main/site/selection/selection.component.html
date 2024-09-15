@@ -23,33 +23,35 @@
 </ng-container>
 <ng-container
   *ngIf="!this.statusCheckExistWebSite && dataModelResult && dataModelResult.listItems && dataModelResult.listItems.length > 0">
-
-  <ng-container *ngFor="let item of dataModelResult.listItems">
-    <div *ngIf="selectSiteId===0 || selectSiteId===item.virtual_CmsSite.id" class="card card-style"
-      [ngStyle]="{'background-image': 'url('+ this.cmsImageThumbnailPipe.transform(item.virtual_CmsSite.mainImageSrc) + ')'}">
-      <div class="card-body p-3">
-        <p class="color-highlight font-500 mb-0">{{item.virtual_CmsUserGroup.titleML}}</p>
-        <h1 class="color-white">{{item.virtual_CmsSite.title}}</h1>
-        <ul class="color-white opacity-70 icon-list pt-4 pb-3">
-          <li><i class="fa fa-dollar-sign"></i>{{item.virtual_CmsSite.currentSiteDomainUrl}}</li>
-          <li><i class="fa fa-map-marker"></i> {{'TITLE.Accessibility' | translate}} :
-            {{item.virtual_CmsUserGroup.title}}
-          </li>
-          <li *ngIf="item.expireDate" [style.backgroundColor]="item.expireDate < today ? 'red':''"><i
-              class="fa fa-clock"></i>{{'TITLE.Expire_Date' | translate}} : {{item.expireDate|persianDate}}</li>
-        </ul>
-        <p class="color-white mt-2">
-          {{item.virtual_CmsSite.seoDescription}}
-        </p>
-        <a *ngIf="this.formInfo.buttonSubmittedEnabled " (click)="onActionClickSelectSite(item.virtual_CmsSite.id)"
-          class="btn btn-s rounded-s font-600 bg-highlight">{{'ACTION.LOGIN' |
-          translate}}</a>
-        <span *ngIf="!this.formInfo.buttonSubmittedEnabled &&  selectSiteId===item.virtual_CmsSite.id"
-          class="btn btn-s rounded-s font-600 bg-highlight">
-          {{"TITLE.Entering"|translate}} </span>
+  <div class="row">
+    <ng-container *ngFor="let item of dataModelResult.listItems">
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div *ngIf="selectSiteId===0 || selectSiteId===item.virtual_CmsSite.id" class="card card-style"
+          [ngStyle]="{'background-image': 'url('+ this.cmsImageThumbnailPipe.transform(item.virtual_CmsSite.mainImageSrc) + ')'}">
+          <div class="card-body p-3">
+            <p class="color-highlight font-500 mb-0">{{item.virtual_CmsUserGroup.titleML}}</p>
+            <h1 class="color-white">{{item.virtual_CmsSite.title}}</h1>
+            <ul class="color-white opacity-70 icon-list pt-4 pb-3">
+              <li><i class="fa fa-dollar-sign"></i>{{item.virtual_CmsSite.currentSiteDomainUrl}}</li>
+              <li><i class="fa fa-map-marker"></i> {{'TITLE.Accessibility' | translate}} :
+                {{item.virtual_CmsUserGroup.title}}
+              </li>
+              <li *ngIf="item.expireDate" [style.backgroundColor]="item.expireDate < today ? 'red':''"><i
+                  class="fa fa-clock"></i>{{'TITLE.Expire_Date' | translate}} : {{item.expireDate|persianDate}}</li>
+            </ul>
+            <p class="color-white mt-2">
+              {{item.virtual_CmsSite.seoDescription}}
+            </p>
+            <a *ngIf="this.formInfo.buttonSubmittedEnabled " (click)="onActionClickSelectSite(item.virtual_CmsSite.id)"
+              class="btn btn-s rounded-s font-600 bg-highlight">{{'ACTION.LOGIN' |
+              translate}}</a>
+            <span *ngIf="!this.formInfo.buttonSubmittedEnabled &&  selectSiteId===item.virtual_CmsSite.id"
+              class="btn btn-s rounded-s font-600 bg-highlight">
+              {{"TITLE.Entering"|translate}} </span>
+          </div>
+          <div class="card-overlay bg-black opacity-80"></div>
+        </div>
       </div>
-      <div class="card-overlay bg-black opacity-80"></div>
-    </div>
-  </ng-container>
-
+    </ng-container>
+  </div>
 </ng-container>
