@@ -67,7 +67,7 @@
         <label for="dataModel.serviceAvailableCredit" class="color-highlight">{{
           fieldsInfo["serviceAvailableCredit"]?.fieldTitle }}</label>
         <input matInput type="text" [(ngModel)]="dataModel.serviceAvailableCredit"
-          name="dataModel.serviceAvailableCredit" #ServiceAvailableCredit type="number" placeholder="0"
+          name="dataModel.serviceAvailableCredit" currencyMask #ServiceAvailableCredit type="number" placeholder="0"
           [disabled]="!fieldsInfo['serviceAvailableCredit']?.accessEditField" required
           class="form-control validate-name" id="dataModel.serviceAvailableCredit" />
         <i *ngIf="!ServiceAvailableCredit.value" class="fa fa-times  invalid color-red-dark"></i>
@@ -82,7 +82,7 @@
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.serviceSumCredit" class="color-highlight">{{ fieldsInfo["serviceSumCredit"]?.fieldTitle
           }}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.serviceSumCredit" name="dataModel.serviceSumCredit"
+        <input matInput type="text" [(ngModel)]="dataModel.serviceSumCredit" name="dataModel.serviceSumCredit" currencyMask
           #ServiceSumCredit type="number" placeholder="0" [disabled]="!fieldsInfo['serviceSumCredit']?.accessEditField"
           required class="form-control validate-name" id="dataModel.serviceSumCredit" />
         <i *ngIf="!ServiceSumCredit.value" class="fa fa-times  invalid color-red-dark"></i>
@@ -96,7 +96,7 @@
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.userAvailableCredit" class="color-highlight">{{
           fieldsInfo["userAvailableCredit"]?.fieldTitle }}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.userAvailableCredit" name="dataModel.userAvailableCredit"
+        <input matInput type="text" [(ngModel)]="dataModel.userAvailableCredit" name="dataModel.userAvailableCredit" currencyMask
           #UserAvailableCredit type="number" placeholder="0"
           [disabled]="!fieldsInfo['userAvailableCredit']?.accessEditField" required class="form-control validate-name"
           id="dataModel.userAvailableCredit" />
@@ -112,7 +112,7 @@
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
         <label for="dataModel.userSumCredit" class="color-highlight">{{ fieldsInfo["userSumCredit"]?.fieldTitle
           }}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.userSumCredit" name="dataModel.userSumCredit" #UserSumCredit
+        <input matInput type="text" [(ngModel)]="dataModel.userSumCredit" name="dataModel.userSumCredit" currencyMask #UserSumCredit
           type="number" placeholder="0" [disabled]="!fieldsInfo['userSumCredit']?.accessEditField" required
           class="form-control validate-name" id="dataModel.userSumCredit" />
         <i *ngIf="!UserSumCredit.value" class="fa fa-times  invalid color-red-dark"></i>

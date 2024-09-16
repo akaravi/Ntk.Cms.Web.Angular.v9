@@ -25,7 +25,7 @@
         <label for="dataModel.numberChar" class="color-highlight">{{ fieldsInfo["numberChar"]?.fieldTitle }}</label>
         <input matInput type="text" [(ngModel)]="dataModel.numberChar" name="dataModel.numberChar" #NumberChar
           placeholder="123" disabled="{{ !fieldsInfo['numberChar']?.accessAddField }}"
-          class="form-control validate-name" id="dataModel.numberChar" />
+          class="form-control validate-name input-ltr " id="dataModel.numberChar" />
         <em>{{ NumberChar.value.length }} / 100</em>
       </div>
       <!-- IsPublic Field -->
