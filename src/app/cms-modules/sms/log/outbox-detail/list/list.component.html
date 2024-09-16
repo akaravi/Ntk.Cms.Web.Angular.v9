@@ -113,24 +113,39 @@
           publicHelper.LocaleDateTime(row.createdDate)}}
         </mat-cell>
       </ng-container>
-      <!-- isSended Column -->
-      <ng-container matColumnDef="IsSended">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['isSended']?.fieldTitle}}
-        </mat-header-cell>
-        <mat-cell *matCellDef="let row"> <i [ngClass]="row.isSended|statusIconClass"></i> </mat-cell>
-      </ng-container>
+
       <!-- senderNumber Column -->
       <ng-container matColumnDef="SenderNumber">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['senderNumber']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.senderNumber}} </mat-cell>
+        <mat-cell *matCellDef="let row" class="input-ltr-center"> {{row.senderNumber}} </mat-cell>
       </ng-container>
       <!-- receiverNumber Column -->
       <ng-container matColumnDef="ReceiverNumber">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['receiverNumber']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.receiverNumber}} </mat-cell>
+        <mat-cell *matCellDef="let row" class="input-ltr-center"> {{row.receiverNumber}} </mat-cell>
       </ng-container>
+      <!-- isSended Column -->
+      <ng-container matColumnDef="IsSended">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['isSended']?.fieldTitle}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> <i [ngClass]="row.isSended|boolclass"></i></mat-cell>
+      </ng-container>
+
+      <!-- recordDetailStatus Column -->
+      <ng-container matColumnDef="recordDetailStatus">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['recordDetailStatus']?.fieldTitle}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.recordDetailStatusTitle}}</mat-cell>
+      </ng-container>
+      <!-- getApiDeliveryStatus Column -->
+      <ng-container matColumnDef="getApiDeliveryStatus">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['getApiDeliveryStatus']?.fieldTitle}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.getApiDeliveryStatusTitle}}</mat-cell>
+      </ng-container>
+
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">

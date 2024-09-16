@@ -15,7 +15,7 @@
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
         <div class="row">
 
-          <div class="col-6">
+          <div class="col-sm-12 col-md-6">
             <mat-accordion class="example-headers-align">
               <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
                 <mat-expansion-panel-header>
@@ -278,19 +278,19 @@
             </mat-accordion>
 
           </div>
-          <div class="col-6">
+          <div class="col-sm-12 col-md-6">
             <div class="message-box">
-              <div class="row" style="height:64px">
+              <div class="row" style="margin-bottom: 0px !important;height:90px">
 
               </div>
-              <div class="row" style="height:300px">
+              <div class="row" style="margin-bottom: 0px !important;height:283px">
                 <!-- Message Field -->
                 <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                   <label for="dataModel.message" class="color-highlight">{{'TITLE.Message_Text' |
                     translate}}</label>
                   <textarea matInput [(ngModel)]="dataModel.message" name="dataModel.message" #Message type="text"
                     placeholder="..." class="form-control validate-name" id="dataModel.message" minlength="1"
-                    maxlength="500" rows="9"></textarea>
+                    maxlength="500" rows="9" style="height:276px"></textarea>
                   <em>{{ Message.value.length }} / 500</em>
                   <mat-error *ngIf="Message.errors?.required">
                     {{'TITLE.Message_Text' | translate}} <strong>{{'MESSAGE.required' |
@@ -298,7 +298,7 @@
                   </mat-error>
                 </div>
               </div>
-              <div class="row" style="height:83px">
+              <div class="row" style="margin-bottom: 0px !important;height:140px;margin-top: 11px">
                 <!-- ToNumbers Field -->
                 <div
                   *ngIf="(!this.dataModel.toContactCategories ||this.dataModel.toContactCategories?.length === 0) && (!this.dataModel.toContactContents||this.dataModel.toContactContents?.length === 0)"
@@ -306,7 +306,8 @@
                   <label for="dataModel.toNumbers" class="color-highlight">{{'TITLE.Receiver_number' |
                     translate}}</label>
                   <textarea matInput [(ngModel)]="dataModel.toNumbers" name="dataModel.toNumbers"
-                    id="dataModel.toNumbers" #ToNumbers type="text" placeholder="0912" rows="2"></textarea>
+                    id="dataModel.toNumbers" #ToNumbers type="text" placeholder="0912" rows="2"
+                    style="height:138px"></textarea>
                   <em>
                     <strong
                       class="info-field-text">{{'TITLE.You_can_separate_the_number_of_the_recipient_of_the_message_with_an_inter'
@@ -316,14 +317,14 @@
                 </div>
               </div>
               <div class="row" *ngIf="formInfo.formSubmitAllow  "
-                style="height:140px;bottom: 4vh;justify-content: center;">
-                <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
+                style="margin-bottom: 0px !important;height:40px;bottom: 4vh;justify-content: center;">
                 <button type="submit" class="message-box-button" [disabled]="!vform.valid"
                   *ngIf="!this.publicHelper.processService.process.inRunAll">
                   <i class="fa fa-check-square-o"></i>
                   {{'ACTION.Send_Message' | translate}}
                 </button>
               </div>
+
             </div>
           </div>
         </div>

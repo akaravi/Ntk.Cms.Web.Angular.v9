@@ -82,6 +82,8 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
     'SenderNumber',
     'ReceiverNumber',
     'IsSended',
+    'recordDetailStatus',
+    'getApiDeliveryStatus',
     'action_menu'
 
   ];
@@ -91,6 +93,8 @@ export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOut
     'SenderNumber',
     'ReceiverNumber',
     'IsSended',
+    'recordDetailStatus',
+    'getApiDeliveryStatus',
     'action_menu'
 
   ];
