@@ -347,7 +347,6 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     this.filteModelContent.sortType = sortType;
     /*filter */
     this.categoryModelSelected = model;
-
     this.DataGetAll();
   }
 

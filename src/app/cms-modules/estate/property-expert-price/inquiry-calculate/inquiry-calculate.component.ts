@@ -84,9 +84,7 @@ export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnIni
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
-
-
-    this.estatePropertyExpertPriceService.servicePricePerPageInquiryCalculate(this.dataModel).subscribe({
+    this.estatePropertyExpertPriceService.ServicePriceInquiryCalculate(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
         this.dataModelResult = ret;

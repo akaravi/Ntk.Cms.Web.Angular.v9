@@ -5,7 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService,
   ErrorExceptionResult, InfoEnumModel,
-  SmsEnumService} from 'ntk-cms-api';
+  SmsEnumService
+} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
@@ -32,10 +33,10 @@ export class SmsOutBoxTypeEnumSelectionlistComponent implements OnInit, OnDestro
 
   dataModelResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelSelect: InfoEnumModel[] = [];
-  dataIdsSelect: string[] = [];
+  dataIdsSelect: number[] = [];
 
   formControl = new FormControl();
-  fieldsStatus: Map<string, boolean> = new Map<string, boolean>();
+  fieldsStatus: Map<number, boolean> = new Map<number, boolean>();
 
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
@@ -68,10 +69,10 @@ export class SmsOutBoxTypeEnumSelectionlistComponent implements OnInit, OnDestro
       next: (ret) => {
         if (ret.isSuccess) {
           this.dataModelResult = ret;
-          this.dataModelResult.listItems.forEach((el) => this.fieldsStatus.set(el.key, false));
+          this.dataModelResult.listItems.forEach((el) => this.fieldsStatus.set(el.value, false));
           this.dataIdsSelect.forEach((el) => this.fieldsStatus.set(el, true));
           this.dataModelResult.listItems.forEach((el) => {
-            if (this.fieldsStatus.get(el.key)) {
+            if (this.fieldsStatus.get(el.value)) {
               this.dataModelSelect.push(el);
             }
           });
@@ -88,12 +89,12 @@ export class SmsOutBoxTypeEnumSelectionlistComponent implements OnInit, OnDestro
     );
   }
   onActionSelect(value: InfoEnumModel): void {
-    if (this.fieldsStatus.get(value.key)) {
-      this.fieldsStatus.set(value.key, false);
+    if (this.fieldsStatus.get(value.value)) {
+      this.fieldsStatus.set(value.value, false);
       this.optionSelectRemoved.emit(value);
       this.dataModelSelect.splice(this.dataModelSelect.indexOf(value), 1);
     } else {
-      this.fieldsStatus.set(value.key, true);
+      this.fieldsStatus.set(value.value, true);
       this.optionSelectAdded.emit(value);
       this.dataModelSelect.push(value);
     }

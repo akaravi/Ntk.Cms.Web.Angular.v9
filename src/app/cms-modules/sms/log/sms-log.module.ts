@@ -38,6 +38,7 @@ import { SmsLogOutBoxEditComponent } from './outbox/edit/edit.component';
 import { SmsLogOutBoxHeaderComponent } from './outbox/header/header.component';
 import { SmsLogOutBoxListComponent } from './outbox/list/list.component';
 import { SmsLogOutBoxViewComponent } from './outbox/view/view.component';
+import { SmsSharedModule } from '../shared/sms.shared.module';
 
 
 @NgModule({
@@ -75,7 +76,7 @@ import { SmsLogOutBoxViewComponent } from './outbox/view/view.component';
     MatStepperModule,
     DynamicFormBuilderModule,
     NgxMaterialTimepickerModule,
-
+    SmsSharedModule,
   ],
   providers: [
     CoreModuleService,
