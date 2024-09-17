@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreSiteCategoryModel,
@@ -12,7 +13,7 @@ import {
   CoreUserGroupModel, CoreUserModel,
   ErrorExceptionResult,
   ErrorExceptionResultBase,
-  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, SmsEnumService, SmsMainApiPathModel, SmsMainApiPathPriceServiceModel, SmsMainApiPathPriceServiceService
+  FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum, MessageLengthPaginationModel, SmsEnumService, SmsMainApiPathModel, SmsMainApiPathPriceServiceModel, SmsMainApiPathPriceServiceService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
@@ -58,6 +59,9 @@ export class SmsMainApiPathPriceServiceEditComponent extends EditBaseComponent<S
 
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: SmsMainApiPathPriceServiceModel = new SmsMainApiPathPriceServiceModel();
+  messageLengthPaginationTabledisplayedColumns = ['pageCount', 'messageMinLength', 'messageMaxLength'];
+  serviceMessageLengthPaginationTabledataSource = new MatTableDataSource<MessageLengthPaginationModel>();
+  endUserMessageLengthPaginationTabledataSource = new MatTableDataSource<MessageLengthPaginationModel>();
 
   formInfo: FormInfoModel = new FormInfoModel();
 

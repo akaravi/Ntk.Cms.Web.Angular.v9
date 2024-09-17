@@ -53,23 +53,23 @@
           class="form-control validate-name" id="dataModel.regulatorNumber" />
         <em>{{ RegulatorNumber.value.length }} / 100</em>
       </div>
-      <!-- ServicePrice Field -->
-      <div *ngIf="fieldsInfo['servicePrice']?.accessWatchField"
+      <!-- servicePricePerPage Field -->
+      <div *ngIf="fieldsInfo['servicePricePerPage']?.accessWatchField"
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.servicePrice" class="color-highlight">{{ fieldsInfo["servicePrice"]?.fieldTitle
+        <label for="dataModel.servicePricePerPage" class="color-highlight">{{ fieldsInfo["servicePricePerPage"]?.fieldTitle
           }}</label>
-        <input matInput type="number" [(ngModel)]="dataModel.servicePrice" name="dataModel.servicePrice" #ServicePrice
-          placeholder="0" [disabled]="!fieldsInfo['servicePrice']?.accessAddField" class="form-control validate-name"
-          id="dataModel.servicePrice" />
+        <input matInput type="number" [(ngModel)]="dataModel.servicePricePerPage" name="dataModel.servicePricePerPage" #servicePricePerPage
+          placeholder="0" [disabled]="!fieldsInfo['servicePricePerPage']?.accessAddField" class="form-control validate-name"
+          id="dataModel.servicePricePerPage" />
       </div>
-      <!-- EndUserPrice Field -->
-      <div *ngIf="fieldsInfo['endUserPrice']?.accessWatchField"
+      <!-- endUserPricePerPage Field -->
+      <div *ngIf="fieldsInfo['endUserPricePerPage']?.accessWatchField"
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.endUserPrice" class="color-highlight">{{ fieldsInfo["endUserPrice"]?.fieldTitle
+        <label for="dataModel.endUserPricePerPage" class="color-highlight">{{ fieldsInfo["endUserPricePerPage"]?.fieldTitle
           }}</label>
-        <input matInput type="number" [(ngModel)]="dataModel.endUserPrice" name="dataModel.endUserPrice" #EndUserPrice
-          placeholder="0" [disabled]="!fieldsInfo['endUserPrice']?.accessAddField" class="form-control validate-name"
-          id="dataModel.endUserPrice" />
+        <input matInput type="number" [(ngModel)]="dataModel.endUserPricePerPage" name="dataModel.endUserPricePerPage" #endUserPricePerPage
+          placeholder="0" [disabled]="!fieldsInfo['endUserPricePerPage']?.accessAddField" class="form-control validate-name"
+          id="dataModel.endUserPricePerPage" />
       </div>
       <!-- MessageLength Field -->
       <div *ngIf="fieldsInfo['messageLength']?.accessWatchField"

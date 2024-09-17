@@ -15,6 +15,7 @@ import { SmsConfigCheckUserComponent } from './check-user/check-user.component';
 import { SmsConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { SmsConfigSiteComponent } from './site/config-site.component';
 import { SmsConfigRouting } from './sms-config.routing';
+import { SmsSharedModule } from '../shared/sms.shared.module';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { SmsConfigRouting } from './sms-config.routing';
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     SharedModule,
     AngularEditorModule,
+    SmsSharedModule
   ],
   providers: [
     CoreModuleService,

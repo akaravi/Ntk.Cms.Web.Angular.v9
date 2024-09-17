@@ -23,7 +23,7 @@ import {
 } from 'ntk-cms-api';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SmsMainModule } from '../main/sms-main.module';
-import { SmsSharedModule } from '../sms.shared.module';
+
 import { SmsActionSendMessageApiComponent } from './send-message-api/send-message-api.component';
 import { SmsActionSendMessageComponent } from './send-message/send-message.component';
 
@@ -51,7 +51,7 @@ import { SmsActionSendMessageComponent } from './send-message/send-message.compo
     MatIconModule,
     MatFormFieldModule,
     MatStepperModule,
-    SmsSharedModule,
+
   ],
   providers: [
     CoreModuleService,

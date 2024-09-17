@@ -122,23 +122,23 @@
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.regulatorNumber}} </mat-cell>
             </ng-container>
-            <!-- ServicePrice Column -->
-            <ng-container matColumnDef="ServicePrice">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['servicePrice']?.fieldTitle}}
+            <!-- servicePricePerPage Column -->
+            <ng-container matColumnDef="servicePricePerPage">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['servicePricePerPage']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.servicePrice}} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{row.servicePricePerPage}} </mat-cell>
             </ng-container>
-            <!-- EndUserPrice Column -->
-            <ng-container matColumnDef="EndUserPrice">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['endUserPrice']?.fieldTitle}}
+            <!-- endUserPricePerPage Column -->
+            <ng-container matColumnDef="endUserPricePerPage">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['endUserPricePerPage']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.endUserPrice}} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{row.endUserPricePerPage}} </mat-cell>
             </ng-container>
-            <!-- MessageLength Column -->
-            <ng-container matColumnDef="MessageLength">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['messageLength']?.fieldTitle}}
+            <!-- messageType Column -->
+            <ng-container matColumnDef="messageType">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['messageType']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.messageLength}} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{row.messageType | enums : dataModelSmsMessageTypeEnumResult.listItems}} </mat-cell>
             </ng-container>
             <!-- Action Column -->
             <ng-container matColumnDef="Action">

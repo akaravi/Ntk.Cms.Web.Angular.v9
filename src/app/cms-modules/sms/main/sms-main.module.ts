@@ -1,3 +1,4 @@
+import { share } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SmsMainComponent } from './sms-main.component';
@@ -33,10 +34,8 @@ import { SmsMainApiPathPriceServiceListComponent } from './api-path-price-servic
 import { SmsMainApiPathAddComponent } from './api-path/add/add.component';
 import { SmsMainApiPathEditComponent } from './api-path/edit/edit.component';
 import { SmsMainApiPathListComponent } from './api-path/list/list.component';
-
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { DynamicFormBuilderModule } from 'src/app/core/dynamic-form-builder/dynamic-form-builder.module';
-import { SmsSharedModule } from '../sms.shared.module';
 import { SmsMainApiNumberPermissionAddComponent } from './api-number-permission/add/add.component';
 import { SmsMainApiNumberPermissionEditComponent } from './api-number-permission/edit/edit.component';
 import { SmsMainApiNumberPermissionListComponent } from './api-number-permission/list/list.component';
@@ -65,8 +64,7 @@ import { SmsMainApiPathPublicConfigHeaderComponent } from './public-config/heade
 import { SmsMainApiPathPublicConfigListComponent } from './public-config/list/list.component';
 import { SmsMainApiPathPublicConfigSelectorComponent } from './public-config/selector/selector.component';
 import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tree.component';
-
-
+import { SmsSharedModule } from '../shared/sms.shared.module';
 
 
 @NgModule({
@@ -185,6 +183,7 @@ import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tr
     SmsMainMessageContentListComponent,
     SmsMainMessageContentSelectorComponent,
     /** */
+
   ],
   imports: [
     CommonModule,
@@ -197,7 +196,7 @@ import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tr
     CmsFileManagerModule,
     DynamicFormBuilderModule,
     NgxMaterialTimepickerModule,
-    SmsSharedModule,
+    SmsSharedModule
   ],
   providers: [
     CoreModuleService,

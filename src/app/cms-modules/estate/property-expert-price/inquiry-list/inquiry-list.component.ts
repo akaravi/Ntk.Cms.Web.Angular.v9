@@ -89,7 +89,7 @@ export class EstatePropertyExpertPriceInquiryListComponent implements OnInit {
     });
 
     this.dataModelResult = new ErrorExceptionResult<EstatePropertyExpertPriceModel>();
-    this.estatePropertyExpertPriceService.ServicePriceInquiryList(this.dataModel).subscribe({
+    this.estatePropertyExpertPriceService.servicePricePerPageInquiryList(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
 

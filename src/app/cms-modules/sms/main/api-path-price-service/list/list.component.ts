@@ -70,9 +70,9 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
     'RecordStatus',
     'LinkApiPathId',
     'RegulatorNumber',
-    'ServicePrice',
-    'EndUserPrice',
-    'MessageLength',
+    'servicePricePerPage',
+    'endUserPricePerPage',
+    'messageType',
     // 'Action'
   ];
   tabledisplayedColumnsMobileSource: string[] = [
@@ -80,9 +80,9 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
     'RecordStatus',
     'LinkApiPathId',
     'RegulatorNumber',
-    'ServicePrice',
-    'EndUserPrice',
-    'MessageLength',
+    'servicePricePerPage',
+    'endUserPricePerPage',
+    'messageType',
     // 'Action'
   ];
 

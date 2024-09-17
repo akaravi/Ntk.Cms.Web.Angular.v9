@@ -16,15 +16,14 @@ import {
   CoreEnumService, CoreModuleService, CoreModuleTagService, SmsEnumService, SmsMainApiPathPriceServiceService
 } from 'ntk-cms-api';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { SmsSharedModule } from './sms.shared.module';
-import { SmsMessageTypeEnumSelectionlistComponent } from './shared/sms-message-type-enum/selectionlist/selectionlist.component';
-import { SmsMessageTypeEnumSelectorComponent } from './shared/sms-message-type-enum/selector/selector.component';
-import { SmsOutBoxTypeEnumSelectionlistComponent } from './shared/sms-out-box-type-enum/selectionlist/selectionlist.component';
-import { SmsOutBoxTypeEnumSelectorComponent } from './shared/sms-out-box-type-enum/selector/selector.component';
+import { SmsMessageTypeEnumSelectionlistComponent } from './sms-message-type-enum/selectionlist/selectionlist.component';
+import { SmsMessageTypeEnumSelectorComponent } from './/sms-message-type-enum/selector/selector.component';
+import { SmsOutBoxTypeEnumSelectionlistComponent } from './sms-out-box-type-enum/selectionlist/selectionlist.component';
+import { SmsOutBoxTypeEnumSelectorComponent } from './sms-out-box-type-enum/selector/selector.component';
 
 @NgModule({
   declarations: [
-    SmsComponent,
+
     SmsMessageTypeEnumSelectionlistComponent,
     SmsMessageTypeEnumSelectorComponent,
     SmsOutBoxTypeEnumSelectionlistComponent,
@@ -32,7 +31,6 @@ import { SmsOutBoxTypeEnumSelectorComponent } from './shared/sms-out-box-type-en
   ],
   imports: [
     CommonModule,
-    SmsRoutes,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
 
@@ -48,15 +46,7 @@ import { SmsOutBoxTypeEnumSelectorComponent } from './shared/sms-out-box-type-en
   ],
   providers: [
     CoreModuleService,
-    CoreEnumService,
-    CoreAuthService,
-    /*Config*/
-    CmsConfirmationDialogService,
-    /*Config*/
-    CmsConfirmationDialogService,
     SmsEnumService,
-    CoreModuleTagService,
-    SmsMainApiPathPriceServiceService,
   ]
 })
-export class SmsModule { }
+export class SmsSharedModule { }
