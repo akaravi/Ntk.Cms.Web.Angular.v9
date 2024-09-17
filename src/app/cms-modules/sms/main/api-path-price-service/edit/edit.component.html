@@ -43,98 +43,52 @@
         [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField"
         [optionSelectForce]="dataModel.linkCoreSiteCategoryId" [optionPlaceholder]="'TITLE.Site_Type' | translate">
       </app-cms-sitecategory-selector>
-      <!-- RegulatorNumber Field -->
-      <div *ngIf="fieldsInfo['regulatorNumber']?.accessWatchField"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.regulatorNumber" class="color-highlight">{{ fieldsInfo["regulatorNumber"]?.fieldTitle
-          }}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.regulatorNumber" name="dataModel.regulatorNumber"
-          #RegulatorNumber placeholder="123" [disabled]="!fieldsInfo['regulatorNumber']?.accessEditField"
-          class="form-control validate-name" id="dataModel.regulatorNumber" />
-        <em>{{ RegulatorNumber.value.length }} / 100</em>
-      </div>
       <!-- servicePricePerPage Field -->
       <div *ngIf="fieldsInfo['servicePricePerPage']?.accessWatchField"
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.servicePricePerPage" class="color-highlight">{{ fieldsInfo["servicePricePerPage"]?.fieldTitle
+        <label for="dataModel.servicePricePerPage" class="color-highlight">{{
+          fieldsInfo["servicePricePerPage"]?.fieldTitle
           }}</label>
-        <input matInput type="number" [(ngModel)]="dataModel.servicePricePerPage" name="dataModel.servicePricePerPage" #servicePricePerPage
-          placeholder="0" [disabled]="!fieldsInfo['servicePricePerPage']?.accessEditField" class="form-control validate-name"
-          id="dataModel.servicePricePerPage" />
+        <input matInput type="number" [(ngModel)]="dataModel.servicePricePerPage" name="dataModel.servicePricePerPage"
+          #servicePricePerPage placeholder="0" [disabled]="!fieldsInfo['servicePricePerPage']?.accessEditField"
+          class="form-control validate-name" id="dataModel.servicePricePerPage" />
       </div>
       <!-- endUserPricePerPage Field -->
       <div *ngIf="fieldsInfo['endUserPricePerPage']?.accessWatchField"
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.endUserPricePerPage" class="color-highlight">{{ fieldsInfo["endUserPricePerPage"]?.fieldTitle
+        <label for="dataModel.endUserPricePerPage" class="color-highlight">{{
+          fieldsInfo["endUserPricePerPage"]?.fieldTitle
           }}</label>
-        <input matInput type="number" [(ngModel)]="dataModel.endUserPricePerPage" name="dataModel.endUserPricePerPage" #endUserPricePerPage
-          placeholder="0" [disabled]="!fieldsInfo['endUserPricePerPage']?.accessEditField" class="form-control validate-name"
-          id="dataModel.endUserPricePerPage" />
+        <input matInput type="number" [(ngModel)]="dataModel.endUserPricePerPage" name="dataModel.endUserPricePerPage"
+          #endUserPricePerPage placeholder="0" [disabled]="!fieldsInfo['endUserPricePerPage']?.accessEditField"
+          class="form-control validate-name" id="dataModel.endUserPricePerPage" />
       </div>
-      <!-- MessageLength Field -->
-       <div>
+      <!-- regulatorNumberList Field -->
+      <div>
+        پیش شماره ها
+        <br>
+        <div *ngFor="let itemPage of dataModel.regulatorNumberList ; index as i">
+          {{itemPage}}
+        </div>
+      </div>
+      <!-- serviceMessageLengthPaginationList Field -->
+      <div>
         صفحه بندی سرویس دهنده
         <br>
-       <div *ngFor="let itemPage of dataModel.serviceMessageLengthPaginationList ; index as i">
-   <!-- TABLE  -->
-   <div class="example-container mat-elevation-z8">
-    <mat-table [dataSource]="serviceMessageLengthPaginationTabledataSource">
-      <!-- pageCount Column -->
-      <ng-container matColumnDef="pageCount">
-        <mat-header-cell *matHeaderCellDef> {{'TITLE.pageCount' | translate}} </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.pageCount}} </mat-cell>
-      </ng-container>
-      <!-- Title Column -->
-      <ng-container matColumnDef="Title">
-        <mat-header-cell *matHeaderCellDef> {{'TITLE.title' | translate}} </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
-      </ng-container>
-      <!-- TypeId Column -->
-      <ng-container matColumnDef="TypeId">
-        <mat-header-cell *matHeaderCellDef> {{'TITLE.TypeId' | translate}} </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.typeId}} </mat-cell>
-      </ng-container>
-      <!-- Action Column -->
-      <ng-container matColumnDef="Action">
-        <mat-header-cell *matHeaderCellDef> {{'TITLE.OPTION' | translate}} </mat-header-cell>
-        <mat-cell *matCellDef="let row; let i = index" class='Action'>
-          <small (click)="onActionContentOtherInfoEditFromLIst(i)">
-            <mat-icon matTooltip="{{'ACTION.EDIT' | translate}}" matTooltipPosition="before" aria-hidden="false"
-              style="color: blue;">edit</mat-icon>
-          </small>|
-          <small (click)="onActionContentOtherInfoRemoveFromLIst(i)">
-            <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before"
-              aria-hidden="false" style="color: red;">delete</mat-icon>
-          </small>
-        </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="messageLengthPaginationTabledisplayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: messageLengthPaginationTabledisplayedColumns; let i = dataIndex;"
-        [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)"
-        [class.ntk-row-selected]="row.title === contentOtherInfoSelected.title">
-      </mat-row>
-    </mat-table>
-  </div>
-  <!-- TABLE  -->
-       </div>
-
+        <div *ngFor="let itemPage of dataModel.serviceMessageLengthPaginationList ; index as i">
+          {{itemPage}}
+        </div>
 
       </div>
+      <!-- endUserMessageLengthPaginationList Field -->
       <div>
         صفحه بندی سرویس گیرنده
         <br>
-       <div *ngFor="let itemPage of dataModel.endUserMessageLengthPaginationList ; index as i">
+        <div *ngFor="let itemPage of dataModel.endUserMessageLengthPaginationList ; index as i">
+          {{itemPage}}
+        </div>
+      </div>
 
-       </div>
-      </div>
-      <div *ngIf="fieldsInfo['messageLength']?.accessWatchField"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.messageLength" class="color-highlight">{{ fieldsInfo["messageLength"]?.fieldTitle
-          }}</label>
-        <input matInput type="number" [(ngModel)]="dataModel.messageLength" name="dataModel.messageLength"
-          #MessageLength placeholder="0" [disabled]="!fieldsInfo['messageLength']?.accessEditField"
-          class="form-control validate-name" id="dataModel.messageLength" />
-      </div>
       <!-- MessageType Field -->
       <app-cms-enum-x-selector *ngIf="fieldsInfo['messageType']?.accessWatchField"
         [optionDataListResult]="dataModelSmsMessageTypeEnumResult" [(model)]="dataModel.messageType"
@@ -142,10 +96,10 @@
         [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
 
       <!-- OutBoxType Field -->
-      <app-cms-enum-x-selector *ngIf="fieldsInfo['outBoxType']?.accessWatchField"
-        [optionDataListResult]="dataModelSmsOutBoxTypeEnumResult" [(model)]="dataModel.outBoxType"
+      <app-cms-enum-x-selectionlist *ngIf="fieldsInfo['outBoxType']?.accessWatchField"
+        [optionDataListResult]="dataModelSmsOutBoxTypeEnumResult" [(model)]="dataModel.outBoxTypeList"
         [optionDisabled]="false" [optionLabel]="this.fieldsInfo['outBoxType']?.fieldTitle" [optionRequired]="true"
-        [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
+        [optionSelectFirstItem]="true"></app-cms-enum-x-selectionlist>
 
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
