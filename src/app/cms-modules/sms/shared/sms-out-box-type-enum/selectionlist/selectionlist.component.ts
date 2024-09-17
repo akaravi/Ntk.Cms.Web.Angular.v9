@@ -5,8 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService,
   ErrorExceptionResult, InfoEnumModel,
-  SmsEnumService, FilterModel
-} from 'ntk-cms-api';
+  SmsEnumService} from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
