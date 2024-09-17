@@ -3,9 +3,8 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, O
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  ClauseTypeEnum,  ErrorExceptionResult, InfoEnumModel,
-  SmsEnumService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel
-} from 'ntk-cms-api';
+  ErrorExceptionResult, InfoEnumModel,
+  SmsEnumService} from 'ntk-cms-api';
 import { Observable, Subscription, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';

@@ -16,19 +16,10 @@ import {
   CoreEnumService, CoreModuleService, CoreModuleTagService, SmsEnumService, SmsMainApiPathPriceServiceService
 } from 'ntk-cms-api';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
-import { SmsSharedModule } from './sms.shared.module';
-import { SmsMessageTypeEnumSelectionlistComponent } from './shared/sms-message-type-enum/selectionlist/selectionlist.component';
-import { SmsMessageTypeEnumSelectorComponent } from './shared/sms-message-type-enum/selector/selector.component';
-import { SmsOutBoxTypeEnumSelectionlistComponent } from './shared/sms-out-box-type-enum/selectionlist/selectionlist.component';
-import { SmsOutBoxTypeEnumSelectorComponent } from './shared/sms-out-box-type-enum/selector/selector.component';
 
 @NgModule({
   declarations: [
     SmsComponent,
-    SmsMessageTypeEnumSelectionlistComponent,
-    SmsMessageTypeEnumSelectorComponent,
-    SmsOutBoxTypeEnumSelectionlistComponent,
-    SmsOutBoxTypeEnumSelectorComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +34,6 @@ import { SmsOutBoxTypeEnumSelectorComponent } from './shared/sms-out-box-type-en
     MatIconModule,
     MatFormFieldModule,
     MatStepperModule,
-    SmsSharedModule,
 
   ],
   providers: [
