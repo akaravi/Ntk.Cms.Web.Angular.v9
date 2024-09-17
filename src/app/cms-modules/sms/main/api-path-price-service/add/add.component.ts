@@ -1,9 +1,11 @@
 
+import { ENTER } from '@angular/cdk/keycodes';
 import {
   ChangeDetectorRef, Component, Inject, OnInit,
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -50,10 +52,7 @@ export class SmsMainApiPathPriceServiceAddComponent extends AddBaseComponent<Sms
 
   dataModelResult: ErrorExceptionResult<SmsMainApiPathPriceServiceModel> = new ErrorExceptionResult<SmsMainApiPathPriceServiceModel>();
   dataModel: SmsMainApiPathPriceServiceModel = new SmsMainApiPathPriceServiceModel();
-
-
   formInfo: FormInfoModel = new FormInfoModel();
-
   dataModelSmsMessageTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelSmsOutBoxTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
 
@@ -166,4 +165,64 @@ export class SmsMainApiPathPriceServiceAddComponent extends AddBaseComponent<Sms
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });
   }
+  /**
+* tag
+*/
+  addOnBlurTag = true;
+  readonly separatorKeysCodes = [ENTER] as const;
+  addTagRegulatorNumberList(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+    // Add our item
+    if (value) {
+      this.dataModel.regulatorNumberList.push(value);
+    }
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+  removeTagRegulatorNumberList(item: string): void {
+    const index = this.dataModel.regulatorNumberList.indexOf(item);
+
+    if (index >= 0) {
+      this.dataModel.regulatorNumberList.splice(index, 1);
+    }
+  }
+  /** */
+  addTagServicePagination(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+    // Add our item
+    if (typeof value === 'number' && value >= 0) {
+      this.dataModel.serviceMessageLengthPaginationList.push(value);
+    }
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  removeTagServicePagination(item: number): void {
+    const index = this.dataModel.endUserMessageLengthPaginationList.indexOf(item);
+
+    if (index >= 0) {
+      this.dataModel.endUserMessageLengthPaginationList.splice(index, 1);
+    }
+  }
+  /** */
+  addTagEndUserPagination(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+    // Add our item
+    if (typeof value === 'number' && value >= 0) {
+      this.dataModel.endUserMessageLengthPaginationList.push(value);
+    }
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  removeTagEndUserPagination(item: number): void {
+    const index = this.dataModel.endUserMessageLengthPaginationList.indexOf(item);
+
+    if (index >= 0) {
+      this.dataModel.endUserMessageLengthPaginationList.splice(index, 1);
+    }
+  }
+  /**
+   * tag
+   */
 }
