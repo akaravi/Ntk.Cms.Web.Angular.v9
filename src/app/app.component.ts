@@ -57,7 +57,6 @@ export class AppComponent implements OnInit {
     public pageInfo: PageInfoService,
     public processService: ProcessService,
   ) {
-    //debugger
     this.themeService.updateInnerSize();
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
@@ -117,8 +116,8 @@ export class AppComponent implements OnInit {
       environment.cmsServerConfig.configApiServerPath &&
       environment.cmsServerConfig.configApiServerPath.length > 0
     ) {
-      this.coreAuthService.setConfig( environment.cmsServerConfig.configApiServerPath);
-     
+      this.coreAuthService.setConfig(environment.cmsServerConfig.configApiServerPath);
+
     }
 
     this.process$ = processService.processSubject;
@@ -132,7 +131,7 @@ export class AppComponent implements OnInit {
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
   ngOnInit() {
     this.themeService.onInitAppComponentStateOnChange();
-    
+
     this.cmsApiStoreSubscribe = this.tokenHelper.onInitAppComponentStateOnChange().subscribe({
       next: (state) => {
         if (state.tokenInfoStore.siteId > 0 && state.tokenInfoStore.userId > 0 && environment.production)

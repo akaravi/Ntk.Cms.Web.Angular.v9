@@ -65,11 +65,12 @@
           class="form-control validate-name" id="dataModel.endUserPricePerPage" />
       </div>
       <!-- regulatorNumberList Field -->
+      <b>پیش شماره های قابل قبول</b>
       <mat-form-field style="width:100%" appearance="fill">
         <mat-label>پیش شماره های قابل قبول</mat-label>
-        <mat-chip-grid #chipListRegulatorNumberList aria-label="'TITLE.key_word'|translate">
+        <mat-chip-grid #chipListRegulatorNumberList aria-label="'TITLE.Number'|translate">
           <mat-chip *ngFor="let item of  dataModel.regulatorNumberList" (removed)="removeTagRegulatorNumberList(item)">
-            {{item}}
+            <div class="input-ltr">{{item}}</div>
             <button type="button" matChipRemove
               class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
               <mat-icon>cancel</mat-icon>
@@ -77,7 +78,7 @@
           </mat-chip>
           <input [placeholder]="'TITLE.key_word'|translate" #tagInput [matChipInputAddOnBlur]="addOnBlurTag"
             [matChipInputFor]="chipListRegulatorNumberList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            (matChipInputTokenEnd)="addTagRegulatorNumberList($event)">
+            (matChipInputTokenEnd)="addTagRegulatorNumberList($event)" class="input-ltr">
         </mat-chip-grid>
       </mat-form-field>
       <div>
@@ -87,11 +88,12 @@
           {{itemPage}}
         </div>
       </div>
-
+      <br>
       <!-- serviceMessageLengthPaginationList Field -->
+      <b>صفحه بندی سرویس دهنده</b>
       <mat-form-field style="width:100%" appearance="fill">
         <mat-label>صفحه بندی سرویس دهنده</mat-label>
-        <mat-chip-grid #chipListServicePagination aria-label="'TITLE.key_word'|translate">
+        <mat-chip-grid #chipListServicePagination aria-label="'TITLE.Number'|translate">
           <mat-chip *ngFor="let item of  dataModel.serviceMessageLengthPaginationList"
             (removed)="removeTagServicePagination(item)">
             {{item}}
@@ -107,17 +109,18 @@
       </mat-form-field>
       <div>
         صفحه بندی سرویس دهنده
-
         <br>
         <div *ngFor="let itemPage of dataModel.serviceMessageLengthPaginationList ; index as i">
-          {{itemPage}}
+          {{i+1}} - {{itemPage}}
         </div>
 
       </div>
+      <br>
       <!-- endUserMessageLengthPaginationList Field -->
+      <b>صفحه بندی سرویس گیرنده</b>
       <mat-form-field style="width:100%" appearance="fill">
-        <mat-label>صفحه بندی سرویس دهنده</mat-label>
-        <mat-chip-grid #chipListEndUserPagination aria-label="'TITLE.key_word'|translate">
+        <mat-label>صفحه بندی سرویس گیرنده</mat-label>
+        <mat-chip-grid #chipListEndUserPagination aria-label="'TITLE.Number'|translate">
           <mat-chip *ngFor="let item of  dataModel.endUserMessageLengthPaginationList"
             (removed)="removeTagEndUserPagination(item)">
             {{item}}
@@ -135,20 +138,20 @@
         صفحه بندی سرویس گیرنده
         <br>
         <div *ngFor="let itemPage of dataModel.endUserMessageLengthPaginationList ; index as i">
-          {{itemPage}}
+          {{i+1}} - {{itemPage}}
         </div>
       </div>
-
+      <br>
       <!-- MessageType Field -->
       <app-cms-enum-x-selector *ngIf="fieldsInfo['messageType']?.accessWatchField"
         [optionDataListResult]="dataModelSmsMessageTypeEnumResult" [(model)]="dataModel.messageType"
         [optionDisabled]="false" [optionLabel]="this.fieldsInfo['messageType']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
       <!-- OutBoxType Field -->
-      <app-cms-enum-x-selectionlist *ngIf="fieldsInfo['outBoxType']?.accessWatchField"
+      <app-cms-enum-x-selectionlist *ngIf="fieldsInfo['outBoxTypeJson']?.accessWatchField"
         [optionDataListResult]="dataModelSmsOutBoxTypeEnumResult" [(model)]="dataModel.outBoxTypeList"
-        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['outBoxType']?.fieldTitle" [optionRequired]="true"
-        [optionSelectFirstItem]="true"></app-cms-enum-x-selectionlist>
+        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['outBoxTypeJson']?.fieldTitle"
+        [optionRequired]="true"></app-cms-enum-x-selectionlist>
 
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"

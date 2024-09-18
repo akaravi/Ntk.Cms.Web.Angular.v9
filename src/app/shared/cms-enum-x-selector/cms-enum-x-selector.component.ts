@@ -9,14 +9,12 @@ import {
 @Component({
   selector: 'app-cms-enum-x-selector',
   templateUrl: './cms-enum-x-selector.component.html',
-
 })
 export class CmsEnumXSelectorComponent implements OnInit {
   static nextId = 0;
   id = ++CmsEnumXSelectorComponent.nextId;
   constructor(
     public translate: TranslateService,) {
-
   }
   @Input()
   set model(value: any) {

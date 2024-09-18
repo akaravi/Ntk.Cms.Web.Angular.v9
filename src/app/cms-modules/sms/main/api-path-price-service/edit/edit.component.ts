@@ -233,28 +233,31 @@ export class SmsMainApiPathPriceServiceEditComponent extends EditBaseComponent<S
   }
   /** */
   addTagServicePagination(event: MatChipInputEvent): void {
+
     const value = (event.value || '').trim();
     // Add our item
-    if (typeof value === 'number' && value >= 0) {
-      this.dataModel.serviceMessageLengthPaginationList.push(value);
+    var valueNum: number = +value || -1;
+    if (valueNum >= 0) {
+      this.dataModel.serviceMessageLengthPaginationList.push(valueNum);
     }
     // Clear the input value
     event.chipInput!.clear();
   }
 
   removeTagServicePagination(item: number): void {
-    const index = this.dataModel.endUserMessageLengthPaginationList.indexOf(item);
+    const index = this.dataModel.serviceMessageLengthPaginationList.indexOf(item);
 
     if (index >= 0) {
-      this.dataModel.endUserMessageLengthPaginationList.splice(index, 1);
+      this.dataModel.serviceMessageLengthPaginationList.splice(index, 1);
     }
   }
   /** */
   addTagEndUserPagination(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     // Add our item
-    if (typeof value === 'number' && value >= 0) {
-      this.dataModel.endUserMessageLengthPaginationList.push(value);
+    var valueNum: number = +value || -1;
+    if (valueNum >= 0) {
+      this.dataModel.endUserMessageLengthPaginationList.push(valueNum);
     }
     // Clear the input value
     event.chipInput!.clear();

@@ -1,21 +1,7 @@
-<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-  <label *ngIf="optionLabel?.length>0" for="cms-RecordStatusEnum-selector-{{id}}"
-    class="color-highlight">{{optionLabel}}</label>
-  <select [(ngModel)]="modelDate" name="cms-RecordStatusEnum-selector-{{id}}" #RecordStatus="ngModel"
-    ngClass="cms-RecordStatusEnum-selector-{{ modelDate}}" class="form-control validate-name"
-    [required]="optionRequired" [attr.disabled]="optionDisabled? true : null" id="cms-RecordStatusEnum-selector-{{id}}">
-    <option *ngFor="
-      let item of optionDataListResult.listItems;
-      index as i
-    " [ngValue]="item.value">
-      {{ item.description }}
-    </option>
-  </select>
-  <span><i class="fa fa-chevron-down"></i></span>
-  <i *ngIf="!RecordStatus.value" class="fa fa-times  invalid color-red-dark"></i>
-  <i *ngIf="RecordStatus.value" class="fa fa-check  valid color-green-dark"></i>
-  <em class="mt-n3"></em>
-  <mat-error *ngIf="RecordStatus.errors?.required">
-    <strong>{{ "MESSAGE.required" | translate }}</strong>
-  </mat-error>
-</div>
+<ul>
+  <li *ngFor="let item of dataModelResult.listItems,index as i ">
+    <mat-checkbox (change)="onActionSelect(item)" [checked]="fieldsStatus.get(item.value)" [disabled]="optionDisabled">
+      {{item.title}}
+    </mat-checkbox>
+  </li>
+</ul>
