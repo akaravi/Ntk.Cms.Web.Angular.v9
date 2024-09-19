@@ -87,72 +87,60 @@
         <!-- score Field -->
         <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
           <!-- scoreRushToBuy Field -->
-          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-            *ngIf="fieldsInfo['scoreRushToBuy']?.accessWatchField">
+          <div class="range-slider bottom-15 range-slider-icons">
             <label for="dataModel.scoreRushToBuy" class="color-highlight">{{
               "MESSAGE.POINT_HURRY" | translate
               }}</label>
-            <select id="dataModel.scoreRushToBuy" [(ngModel)]="dataModel.scoreRushToBuy"
-              [disabled]="!fieldsInfo['scoreRushToBuy']?.accessEditField" name="dataModel.scoreRushToBuy"
-              #ScoreRushToBuy="ngModel" ngClass="score-{{ dataModel.scoreRushToBuy }}"
-              class="form-control validate-name">
-              <option *ngFor="let number of numbers" [ngValue]="number">
-                {{ number }}
-              </option>
-            </select>
-            <span><i class="fa fa-chevron-down"></i></span>
-            <em></em>
+            <i class="fa fa-range-icon-1 fa-angle-down color-theme"></i>
+            <i class="fa fa-range-icon-2 fa-angle-up color-theme"></i>
+            <input class="ios-slider input-ltr" type="range" min="0" max="10" id="dataModel.scoreRushToBuy"
+              [(ngModel)]="dataModel.scoreRushToBuy" name="dataModel.scoreRushToBuy" #scoreRushToBuy="ngModel"
+              [disabled]="!fieldsInfo['scoreRushToBuy']?.accessEditField"
+              ngClass="cms-range-score-{{ dataModel.scoreRushToBuy }}">
           </div>
+
+
           <!-- scorePurchaseDecision Field -->
-          <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4"
-            *ngIf="fieldsInfo['scorePurchaseDecision']?.accessWatchField">
+          <div class="range-slider bottom-15 range-slider-icons">
             <label for="dataModel.scorePurchaseDecision" class="color-highlight">{{ "MESSAGE.POINT_DECIDE" | translate
               }}</label>
-            <select id="dataModel.scorePurchaseDecision" [(ngModel)]="dataModel.scorePurchaseDecision"
-              [disabled]="!fieldsInfo['scorePurchaseDecision']?.accessEditField" name="dataModel.scorePurchaseDecision"
-              #ScorePurchaseDecision="ngModel" ngClass="score-{{ dataModel.scorePurchaseDecision }}"
-              class="form-control validate-name">
-              <option *ngFor="let number of numbers" [ngValue]="number">
-                {{ number }}
-              </option>
-            </select>
-            <span><i class="fa fa-chevron-down"></i></span>
-            <em></em>
+            <i class="fa fa-range-icon-1 fa-angle-down color-theme"></i>
+            <i class="fa fa-range-icon-2 fa-angle-up color-theme"></i>
+            <input class="ios-slider input-ltr" type="range" min="0" max="10" id="dataModel.scorePurchaseDecision"
+              [(ngModel)]="dataModel.scorePurchaseDecision" name="dataModel.scorePurchaseDecision"
+              #scorePurchaseDecision="ngModel" [disabled]="!fieldsInfo['scorePurchaseDecision']?.accessEditField"
+              ngClass="cms-range-score-{{ dataModel.scorePurchaseDecision }}">
           </div>
+
+
+
           <!-- scoreLiquidityPower Field -->
-          <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4"
-            *ngIf="fieldsInfo['scoreLiquidityPower']?.accessWatchField">
-            <label for="dataModel.scoreLiquidityPower" class="color-highlight">{{
-              "MESSAGE.POINT_Liquidity" | translate
+          <div class="range-slider bottom-15 range-slider-icons">
+            <label for="dataModel.scoreLiquidityPower" class="color-highlight">{{ "MESSAGE.POINT_Liquidity" | translate
               }}</label>
-            <select id="dataModel.scoreLiquidityPower" [(ngModel)]="dataModel.scoreLiquidityPower"
-              [disabled]="!fieldsInfo['scoreLiquidityPower']?.accessEditField" name="dataModel.scoreLiquidityPower"
-              #ScoreLiquidityPower="ngModel" ngClass="score-{{ dataModel.scoreLiquidityPower }}"
-              class="form-control validate-name">
-              <option *ngFor="let number of numbers" [ngValue]="number">
-                {{ number }}
-              </option>
-            </select>
-            <span><i class="fa fa-chevron-down"></i></span>
-            <em></em>
+            <i class="fa fa-range-icon-1 fa-angle-down color-theme"></i>
+            <i class="fa fa-range-icon-2 fa-angle-up color-theme"></i>
+            <input class="ios-slider input-ltr" type="range" min="0" max="10" id="dataModel.scoreLiquidityPower"
+              [(ngModel)]="dataModel.scoreLiquidityPower" name="dataModel.scoreLiquidityPower"
+              #scoreLiquidityPower="ngModel" [disabled]="!fieldsInfo['scoreLiquidityPower']?.accessEditField"
+              ngClass="cms-range-score-{{ dataModel.scoreLiquidityPower }}">
           </div>
+
+
+
           <!-- scorePurchasingPower Field -->
-          <div class="input-style has-borders input-style-always-active validate-field no-icon mb-4"
-            *ngIf="fieldsInfo['scorePurchasingPower']?.accessWatchField">
-            <label for="dataModel.PurchasingPower" class="color-highlight">{{
-              "MESSAGE.POINT_BUYING" | translate
+          <div class="range-slider bottom-15 range-slider-icons">
+            <label for="dataModel.scorePurchasingPower" class="color-highlight">{{ "MESSAGE.POINT_BUYING" | translate
               }}</label>
-            <select id="dataModel.PurchasingPower" [(ngModel)]="dataModel.scorePurchasingPower"
-              [disabled]="!fieldsInfo['scorePurchasingPower']?.accessEditField" name="dataModel.scorePurchasingPower"
-              #ScorePurchasingPower="ngModel" ngClass="score-{{ dataModel.scorePurchasingPower }}"
-              class="form-control validate-name">
-              <option *ngFor="let number of numbers" [ngValue]="number">
-                {{ number }}
-              </option>
-            </select>
-            <span><i class="fa fa-chevron-down"></i></span>
-            <em></em>
+            <i class="fa fa-range-icon-1 fa-angle-down color-theme"></i>
+            <i class="fa fa-range-icon-2 fa-angle-up color-theme"></i>
+            <input class="ios-slider input-ltr" type="range" min="0" max="10" id="dataModel.scorePurchasingPower"
+              [(ngModel)]="dataModel.scorePurchasingPower" name="dataModel.scorePurchasingPower"
+              #scorePurchasingPower="ngModel" [disabled]="!fieldsInfo['scorePurchasingPower']?.accessEditField"
+              ngClass="cms-range-score-{{ dataModel.scorePurchasingPower }}">
           </div>
+
+
         </div>
 
         <!-- LinkCmsUserId Field -->

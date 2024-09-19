@@ -473,7 +473,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['scoreRushToBuy']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" [ngClass]="'score-'+row.scoreRushToBuy">
+        <mat-cell *matCellDef="let row" [ngClass]="'cms-cell-score-'+row.scoreRushToBuy">
           {{row.scoreRushToBuy}}
         </mat-cell>
       </ng-container>
@@ -482,7 +482,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['scorePurchaseDecision']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" [ngClass]="'score-'+row.scorePurchaseDecision">
+        <mat-cell *matCellDef="let row" [ngClass]="'cms-cell-score-'+row.scorePurchaseDecision">
           {{row.scorePurchaseDecision}}
         </mat-cell>
       </ng-container>
@@ -491,7 +491,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['scoreLiquidityPower']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" [ngClass]="'score-'+row.scoreLiquidityPower">
+        <mat-cell *matCellDef="let row" [ngClass]="'cms-cell-score-'+row.scoreLiquidityPower">
           {{row.scoreLiquidityPower}}
         </mat-cell>
       </ng-container>
@@ -500,7 +500,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label">
           {{fieldsInfo['scorePurchasingPower']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" [ngClass]="'score-'+row.scorePurchasingPower">
+        <mat-cell *matCellDef="let row" [ngClass]="'cms-cell-score-'+row.scorePurchasingPower">
           {{row.scorePurchasingPower}}
         </mat-cell>
       </ng-container>

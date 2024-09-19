@@ -86,6 +86,8 @@
               <mat-error *ngIf="Title.errors?.required">
                 {{ fieldsInfo["title"]?.fieldTitle }} <strong>{{ "MESSAGE.required" | translate }}</strong>
               </mat-error>
+              <mat-icon matSuffix class="pointer" *ngIf="dataModel.title"
+                (click)="onActionButtonQuickListSearchTitle()">find_replace</mat-icon>
             </div>
             <!-- CaseCode Field -->
             <div *ngIf="fieldsInfo['caseCode']?.accessWatchField"
@@ -345,6 +347,10 @@
               disabled="{{ !fieldsInfo['aboutCustomerMobile']?.accessAddField }}" minlength="0" maxlength="100"
               class="form-control validate-name" id="dataModel.title" />
             <em>{{ AboutCustomerMobile.value.length }} / 100</em>
+
+
+            <mat-icon matSuffix class="pointer" *ngIf="dataModel.aboutCustomerMobile"
+              (click)="onActionButtonQuickListSearchCustomerMobile()">find_replace</mat-icon>
           </div>
           <!-- AboutCustomerTel Field -->
           <div *ngIf="fieldsInfo['aboutCustomerTel']?.accessWatchField"
@@ -356,6 +362,8 @@
               disabled="{{ !fieldsInfo['aboutCustomerTel']?.accessAddField }}" minlength="0" maxlength="100"
               class="form-control validate-name" id="dataModel.title" />
             <em>{{ AboutCustomerTel.value.length }} / 100</em>
+            <mat-icon matSuffix class="pointer" *ngIf="dataModel.aboutCustomerTel"
+              (click)="onActionButtonQuickListSearchCustomerTel()">find_replace</mat-icon>
           </div>
           <!-- actionCreateCmsUserId Field -->
           <div class="d-flex mb-3"
@@ -568,8 +576,8 @@
                     class="color-highlight">contractTypeSelected.titleSalePriceML</label>
                   <input matInput type="text" [(ngModel)]="contractDataModel.salePrice"
                     name="contractDataModel.salePrice" currencyMask type="text" placeholder="0"
-                    [disabled]="contractDataModel.salePriceByAgreement" class="form-control validate-name input-ltr-center"
-                    id="contractDataModel.salePrice" />
+                    [disabled]="contractDataModel.salePriceByAgreement"
+                    class="form-control validate-name input-ltr-center" id="contractDataModel.salePrice" />
                 </div>
                 <div class="col-3">
                   <div *ngIf="contractTypeSelected.salePriceAllowAgreement" class="d-flex mb-3">
@@ -597,8 +605,8 @@
                     }}</label>
                   <input matInput type="text" [(ngModel)]="contractDataModel.depositPrice"
                     name="contractDataModel.depositPrice" currencyMask type="text" placeholder="0"
-                    [disabled]="contractDataModel.depositPriceByAgreement" class="form-control validate-name input-ltr-center"
-                    id="contractDataModel.depositPrice" />
+                    [disabled]="contractDataModel.depositPriceByAgreement"
+                    class="form-control validate-name input-ltr-center" id="contractDataModel.depositPrice" />
                 </div>
                 <div class="col-3">
                   <div *ngIf="contractTypeSelected.depositPriceAllowAgreement" class="d-flex mb-3">
@@ -625,8 +633,8 @@
                     class="color-highlight">contractTypeSelected.titleRentPriceML</label>
                   <input matInput type="text" [(ngModel)]="contractDataModel.rentPrice"
                     name="contractDataModel.rentPrice" currencyMask type="text" placeholder="0"
-                    [disabled]="contractDataModel.rentPriceByAgreement" class="form-control validate-name input-ltr-center"
-                    id="contractDataModel.rentPrice" />
+                    [disabled]="contractDataModel.rentPriceByAgreement"
+                    class="form-control validate-name input-ltr-center" id="contractDataModel.rentPrice" />
                 </div>
                 <div class="col-3">
                   <div *ngIf="contractTypeSelected.rentPriceAllowAgreement" class="d-flex mb-3">
@@ -653,8 +661,8 @@
                     class="color-highlight">contractTypeSelected.titlePeriodPriceML</label>
                   <input matInput type="text" [(ngModel)]="contractDataModel.periodPrice"
                     name="contractDataModel.periodPrice" currencyMask type="text" placeholder="0"
-                    [disabled]="contractDataModel.periodPriceByAgreement" class="form-control validate-name input-ltr-center"
-                    id="contractDataModel.periodPrice" />
+                    [disabled]="contractDataModel.periodPriceByAgreement"
+                    class="form-control validate-name input-ltr-center" id="contractDataModel.periodPrice" />
                 </div>
                 <div class="col-3">
                   <div *ngIf=" contractTypeSelected.hasPeriodPrice && contractTypeSelected.periodPriceAllowAgreement"
