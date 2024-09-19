@@ -17,7 +17,21 @@
         [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
-
+      <!-- Title Field -->
+      <div *ngIf="fieldsInfo['title']?.accessWatchField"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle
+          }}</label>
+        <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
+          placeholder="{{fieldsInfo['title']?.fieldTitle }}" [disabled]="!fieldsInfo['title']?.accessEditField"
+          minlength="3" maxlength="100" required class="form-control validate-name" id="dataModel.title" />
+        <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ Title.value.length }} / 100</em>
+        <mat-error *ngIf="Title.errors?.required">
+          Title is <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
 
       <!-- LinkApiPathId Field -->
       <app-sms-apipath-selector (optionChange)="onActionSelectorSelectLinkApiPathId($event)"

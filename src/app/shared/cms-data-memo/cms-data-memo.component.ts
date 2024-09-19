@@ -59,7 +59,7 @@ export class CmsDataMemoComponent implements OnInit {
     });
     if (!this.service)
       this.dialogRef.close({ dialogChangedDate: true });
- 
+
   }
 
   DataGetAll(): void {
@@ -77,6 +77,12 @@ export class CmsDataMemoComponent implements OnInit {
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           }
           this.publicHelper.processService.processStop(pName);
+          this.dataModel = new CoreModuleDataMemoDtoModel();
+          if (this.data) {
+            this.dataModel.moduleEntityId = this.data.id;
+            this.dataModel.subjectTitle = this.data.title;
+          }
+          this.formInfo.formAlert = "";
         },
         error: (er) => {
           this.cmsToastrService.typeError(er);

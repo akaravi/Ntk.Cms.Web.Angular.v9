@@ -48,8 +48,8 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
     };
 
     /*filter Sort*/
-    this.filteModelContent.sortColumn = 'Id';
-    this.filteModelContent.sortType = SortTypeEnum.Descending;
+    this.filteModelContent.sortColumn = 'LinkApiPathId';
+    this.filteModelContent.sortType = SortTypeEnum.Ascending;
   }
   comment: string;
   author: string;
@@ -68,8 +68,8 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
   tabledisplayedColumnsSource: string[] = [
     //  'Id',
     'RecordStatus',
+    'Title',
     'LinkApiPathId',
-    'RegulatorNumber',
     'servicePricePerPage',
     'endUserPricePerPage',
     'messageType',
@@ -78,8 +78,8 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
   tabledisplayedColumnsMobileSource: string[] = [
     //  'Id',
     'RecordStatus',
+    'Title',
     'LinkApiPathId',
-    'RegulatorNumber',
     'servicePricePerPage',
     'endUserPricePerPage',
     'messageType',
@@ -91,7 +91,7 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
   cmsApiStoreSubscribe: Subscription;
 
   ngOnInit(): void {
-    this.filteModelContent.sortColumn = 'Title';
+    this.filteModelContent.sortColumn = 'LinkApiPathId';
     if (this.activatedRoute.snapshot.paramMap.get('LinkApiPathId')) {
       this.requestLinkApiPathId = this.activatedRoute.snapshot.paramMap.get('LinkApiPathId');
     }
@@ -274,6 +274,40 @@ export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<S
     else
       panelClass = 'dialog-min';
     const dialogRef = this.dialog.open(SmsMainApiPathPriceServiceEditComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: { id: this.tableRowSelected.id }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.dialogChangedDate) {
+        this.DataGetAll();
+      }
+    });
+  }
+
+  onActionButtonCopyRow(model: SmsMainApiPathPriceServiceModel = this.tableRowSelected): void {
+
+    if (!model || !model.id || model.id.length == 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+    this.onActionTableRowSelect(model);
+    if (
+      this.dataModelResult == null ||
+      this.dataModelResult.access == null ||
+      !this.dataModelResult.access.accessEditRow
+    ) {
+      this.cmsToastrService.typeErrorAccessEdit();
+      return;
+    }
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(SmsMainApiPathPriceServiceAddComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
