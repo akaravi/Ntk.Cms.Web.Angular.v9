@@ -223,7 +223,7 @@
           {{'TITLE.Id'|translate}} : {{row.id}}
           <br>
           {{'TITLE.Message'|translate}} : {{ row.message }}
-          <br>
+          <hr>
           {{fieldsInfo['countRow']?.fieldTitle}} : {{ row.countRow }}
           <br>
           {{fieldsInfo['countSent']?.fieldTitle}} : {{ row.countSent }}
@@ -236,7 +236,9 @@
           <br>
           {{fieldsInfo['sumCreditBacked']?.fieldTitle}} : {{ row.sumCreditBacked }}
           <br>
-          {{fieldsInfo['CreditUserBefor']?.fieldTitle}} : {{ row.CreditUserBefor }}
+          {{fieldsInfo['creditOverPlus']?.fieldTitle}} : {{ row.creditOverPlus }}
+          <br>
+          {{fieldsInfo['creditUserBefor']?.fieldTitle}} : {{ row.creditUserBefor }}
         </mat-cell>
       </ng-container>
     </mat-table>
