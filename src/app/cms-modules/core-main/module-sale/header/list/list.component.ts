@@ -77,7 +77,7 @@ export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreMod
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    // 'Title',
+    'Title',
     'SalePrice',
     'HasDemo',
     'FromDate',
@@ -88,11 +88,11 @@ export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreMod
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     'LinkMainImageIdSrc',
-    'Id',
+    //'Id',
     'RecordStatus',
-    // 'Title',
+    'Title',
     'SalePrice',
-    'HasDemo',
+    //'HasDemo',
     'FromDate',
     'ExpireDate',
     'CreatedDate',

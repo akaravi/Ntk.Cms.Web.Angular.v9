@@ -173,6 +173,7 @@ import { OverlayService } from './overlay/overlay.service';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import { CmsEnumXSelectionListComponent } from './cms-enum-x-selectionlist/cms-enum-x-selectionlist.component';
+import { PrettyLinePipe } from '../core/pipe/prettyLine.pipe';
 
 
 @NgModule({
@@ -191,6 +192,7 @@ import { CmsEnumXSelectionListComponent } from './cms-enum-x-selectionlist/cms-e
     CmsModuleInfoPipe,
     CmsImageThumbnailPipe,
     PrettyjsonPipe,
+    PrettyLinePipe,
     RecordStatusIconClassPipe,
     RecordStatusCellClassPipe,
     SortTypeIconClassPipe,
@@ -435,6 +437,7 @@ import { CmsEnumXSelectionListComponent } from './cms-enum-x-selectionlist/cms-e
     CmsModuleInfoPipe,
     CmsImageThumbnailPipe,
     PrettyjsonPipe,
+    PrettyLinePipe,
     RecordStatusIconClassPipe,
     RecordStatusCellClassPipe,
     SortTypeIconClassPipe,

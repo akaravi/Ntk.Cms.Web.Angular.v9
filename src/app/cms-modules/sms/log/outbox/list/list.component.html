@@ -220,25 +220,29 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{'TITLE.Id'|translate}} : {{row.id}}
-          <br>
-          {{'TITLE.Message'|translate}} : {{ row.message }}
-          <hr>
-          {{fieldsInfo['countRow']?.fieldTitle}} : {{ row.countRow }}
-          <br>
-          {{fieldsInfo['countSent']?.fieldTitle}} : {{ row.countSent }}
-          <br>
-          {{fieldsInfo['countDelivery']?.fieldTitle}} : {{ row.countDelivery }}
-          <br>
-          {{fieldsInfo['countCreditBacked']?.fieldTitle}} : {{ row.countCreditBacked }}
-          <br>
-          {{fieldsInfo['sumCredit']?.fieldTitle}} : {{ row.sumCredit }}
-          <br>
-          {{fieldsInfo['sumCreditBacked']?.fieldTitle}} : {{ row.sumCreditBacked }}
-          <br>
-          {{fieldsInfo['creditOverPlus']?.fieldTitle}} : {{ row.creditOverPlus }}
-          <br>
-          {{fieldsInfo['creditUserBefor']?.fieldTitle}} : {{ row.creditUserBefor }}
+          <div class="col-sm-12 col-md-6">
+            {{'TITLE.Id'|translate}} : {{row.id}}
+            <br>
+            {{fieldsInfo['countRow']?.fieldTitle}} : {{ row.countRow }}
+            <br>
+            {{fieldsInfo['countSent']?.fieldTitle}} : {{ row.countSent }}
+            <br>
+            {{fieldsInfo['countDelivery']?.fieldTitle}} : {{ row.countDelivery }}
+            <br>
+            {{fieldsInfo['countCreditBacked']?.fieldTitle}} : {{ row.countCreditBacked }}
+            <br>
+            {{fieldsInfo['sumCredit']?.fieldTitle}} : {{ row.sumCredit }}
+            <br>
+            {{fieldsInfo['sumCreditBacked']?.fieldTitle}} : {{ row.sumCreditBacked }}
+            <br>
+            {{fieldsInfo['creditOverPlus']?.fieldTitle}} : {{ row.creditOverPlus }}
+            <br>
+            {{fieldsInfo['creditUserBefor']?.fieldTitle}} : {{ row.creditUserBefor }}
+          </div>
+          <div class="col-sm-12 col-md-6" [innerHTML]="row.message | prettyLine">
+
+          </div>
+
         </mat-cell>
       </ng-container>
     </mat-table>
