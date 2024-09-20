@@ -33,7 +33,9 @@ export class CmsDataPinComponent implements OnInit {
     if (data) {
       this.service = data.service;
       this.dataModel.moduleEntityId = data.id;
+      this.formInfo.formTitle = data.title;
     }
+    this.formInfo.formDescription = "سنجاق اطلاعات خود را مدیریت کنید";
 
     if (!this.service)
       this.dialogRef.close({ dialogChangedDate: true });
@@ -64,6 +66,7 @@ export class CmsDataPinComponent implements OnInit {
     this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
 
     /*filter CLone*/
+    this.dataModel.moduleEntityId = this.dataModel.moduleEntityId + "";
     if (this.dataModel.moduleEntityId && this.dataModel.moduleEntityId.length > 0) {
       this.service.ServicePinGetAllEntity(this.dataModel.moduleEntityId).subscribe({
         next: (ret) => {

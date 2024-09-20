@@ -35,7 +35,10 @@ export class CmsDataMemoComponent implements OnInit {
       this.service = data.service;
       this.dataModel.moduleEntityId = data.id;
       this.dataModel.subjectTitle = data.title;
+      this.formInfo.formTitle = data.title;
     }
+    this.formInfo.formDescription = "یادداشت خود را مدیریت کنید";
+
     ////
     if (!this.service)
       this.dialogRef.close({ dialogChangedDate: true });
@@ -65,8 +68,8 @@ export class CmsDataMemoComponent implements OnInit {
   DataGetAll(): void {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
-
     /*filter CLone*/
+    this.dataModel.moduleEntityId = this.dataModel.moduleEntityId + "";
     if (this.dataModel.moduleEntityId && this.dataModel.moduleEntityId.length > 0) {
       this.service.ServiceMemoGetAllEntity(this.dataModel.moduleEntityId).subscribe({
         next: (ret) => {
@@ -99,7 +102,11 @@ export class CmsDataMemoComponent implements OnInit {
             this.showFormAdd = false;
           if (!ret.isSuccess)
             this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-
+          this.dataModel = new CoreModuleDataMemoDtoModel();
+          if (this.data) {
+            this.dataModel.moduleEntityId = this.data.id;
+            this.dataModel.subjectTitle = this.data.title;
+          }
           this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {

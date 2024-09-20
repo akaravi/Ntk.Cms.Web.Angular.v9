@@ -39,6 +39,10 @@
   display: block;
 }
 
+.cell-ltr {
+  direction: ltr !important;
+}
+
 .input-ltr {
   direction: ltr !important;
 }
@@ -68,7 +72,7 @@
 .mat-option {
   word-wrap: break-word !important;
   white-space: normal !important;
-  font-family: "IRANSans","IRANYekan", Times, serif;
+  font-family: "IRANSans", "IRANYekan", Times, serif;
 }
 
 .mat-option-text {

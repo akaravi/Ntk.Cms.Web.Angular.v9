@@ -396,6 +396,26 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
 
 
   }
+  onActionButtonPermissionList(model: SmsMainApiNumberModel = this.tableRowSelected): void {
+    if (!model || !model.id || model.id.length == 0) {
+
+      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
+      return;
+    }
+    this.onActionTableRowSelect(model);
+
+    if (
+      this.dataModelResult == null ||
+      this.dataModelResult.access == null ||
+      !this.dataModelResult.access.accessDeleteRow
+    ) {
+      this.cmsToastrService.typeErrorSelected();
+      return;
+    }
+    this.router.navigate(['/sms/main/api-number-permission/LinkApiNumberId/', this.tableRowSelected.id]);
+
+
+  }
   onActionButtonSendList(model: SmsMainApiNumberModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length == 0) {
 

@@ -1,102 +1,113 @@
-<div class="ntk-cms-html-card-header" class="theme-rtl">
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-header-->
-  {{ formInfo.formTitle }}
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-header-->
-</div>
-<div class="ntk-cms-html-card-body" class="theme-rtl">
-  <table class="table table-hover" *ngIf="!showFormAdd">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">{{'TITLE.createdBy'|translate}}</th>
-        <th scope="col">{{'TITLE.createdDate'|translate}}</th>
-        <th scope="col">{{'TITLE.subjectTitle'|translate}}</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let item of dataModelResult.listItems ; let i = index">
-        <tr class="myDIV">
-          <th scope="row">{{ i+1 }}</th>
-          <td>{{ item.createdBy|cmsuserinfo|async }}</td>
-          <td>{{ publicHelper.LocaleDate(item.createdDate) }}</td>
-          <td>{{ item.subjectTitle }}</td>
-          <td>
-            <button type="button" mat-icon-button (click)="DataDeleteContent(item.id)"
-              class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-red">
-              <small>
-                <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before" aria-hidden="false"
-                  style="color: red;">delete</mat-icon>
-              </small>
-            </button>
-          </td>
-        </tr>
-        <tr class="hide">
-          <td></td>
-          <td colspan="3">
-            {{ item.subjectBody }}
-          </td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-  <form (ngSubmit)="onFormSubmit()" *ngIf="showFormAdd" #vform="ngForm">
-
-    <div class="ntk-cms-html-card-body loader-container">
-      <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-      <!-- subjectTitle Field -->
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.subjectTitle" class="color-highlight">{{'TITLE.subjectTitle'|translate}}</label>
-        <input type="text" [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle" #subjectTitle
-          placeholder="{{'TITLE.subjectTitle'|translate}}" minlength="3" maxlength="100"
-          class="form-control validate-name" id="dataModel.subjectTitle" />
-        <em>{{ subjectTitle.value.length }} / 100</em>
-      </div>
-
-      <!-- subjectBody Field -->
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.subjectBody" class="color-highlight">{{'TITLE.subjectBody'|translate}}</label>
-        <textarea matInput [(ngModel)]="dataModel.subjectBody" name="dataModel.subjectBody" #subjectBody type="text"
-          placeholder="{{'TITLE.subjectBody'|translate}}" minlength="1" maxlength="500" rows="5"
-          id="dataModel.subjectBody" class="form-control validate-name">
-              </textarea>
-        <em>{{ subjectBody.value.length }} / 500</em>
-        <mat-error *ngIf="subjectBody.errors?.required">
-          subjectBody is <strong>{{'MESSAGE.required' | translate}}</strong>
-        </mat-error>
-      </div>
-      <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
-    </div>
-    <div class="ntk-cms-html-card-message">
-      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
-      <div class="form-actions">
-        <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-        <small class="form-text text-muted danger">{{ formInfo.formError }}
-        </small>
-      </div>
-      <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
-    </div>
-
-    <br>
-    <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
-      <button type="submit" *ngIf="showFormAdd"
-        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
-        [disabled]="!vform.form.valid">
-        <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
-      </button>
+<div class="card card-style loader-container">
+  <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
+  <div class="menu-title">
+    <p class="color-highlight">{{ formInfo.formTitle }} </p>
+    <a class="close-menu" (click)="onFormCancel()"><i class="fa fa-times-circle"></i></a>
+    <hr>
+  </div>
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{ formInfo.formDescription }}
+    </p>
+    <!--Content-->
+    <div class="ntk-cms-html-card-header" class="theme-rtl">
       <button type="button" *ngIf="!showFormAdd" (click)="onActionAdd()"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-teal">{{'ACTION.ADD'
         |translate}}</button>
-      <button type="button" (click)="onFormCancel()"
-        class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-        <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-      </button>
     </div>
-  </form>
-</div>
-<div class="ntk-cms-html-card-footer">
-  <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <div class="ntk-cms-html-card-body" class="theme-rtl">
+      <table class="table table-hover" *ngIf="!showFormAdd">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">{{'TITLE.createdBy'|translate}}</th>
+            <th scope="col">{{'TITLE.subjectTitle'|translate}}</th>
+            <th scope="col">{{'TITLE.createdDate'|translate}}</th>
 
-  <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let item of dataModelResult.listItems ; let i = index">
+            <tr class="myDIV">
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{ item.createdBy|cmsuserinfo|async }}</td>
+              <td>{{ item.subjectTitle }}</td>
+              <td>{{ publicHelper.LocaleDateTime(item.createdDate) }}</td>
+              <td>
+                <small>
+                  <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before"
+                    (click)="DataDeleteContent(item.id)" aria-hidden="false" style="color: red;">delete</mat-icon>
+                </small>
+              </td>
+            </tr>
+            <tr class="hide">
+              <td></td>
+              <td colspan="3">
+                {{ item.subjectBody }}
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <form (ngSubmit)="onFormSubmit()" *ngIf="showFormAdd" #vform="ngForm">
+
+        <div class="ntk-cms-html-card-body">
+
+          <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
+          <!-- subjectTitle Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.subjectTitle" class="color-highlight">{{'TITLE.subjectTitle'|translate}}</label>
+            <input type="text" [(ngModel)]="dataModel.subjectTitle" name="dataModel.subjectTitle" #subjectTitle
+              placeholder="{{'TITLE.subjectTitle'|translate}}" minlength="3" maxlength="100"
+              class="form-control validate-name" id="dataModel.subjectTitle" />
+            <em>{{ subjectTitle.value.length }} / 100</em>
+          </div>
+
+          <!-- subjectBody Field -->
+          <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.subjectBody" class="color-highlight">{{'TITLE.subjectBody'|translate}}</label>
+            <textarea matInput [(ngModel)]="dataModel.subjectBody" name="dataModel.subjectBody" #subjectBody type="text"
+              placeholder="{{'TITLE.subjectBody'|translate}}" minlength="1" maxlength="500" rows="5"
+              id="dataModel.subjectBody" class="form-control validate-name">
+              </textarea>
+            <em>{{ subjectBody.value.length }} / 500</em>
+            <mat-error *ngIf="subjectBody.errors?.required">
+              subjectBody is <strong>{{'MESSAGE.required' | translate}}</strong>
+            </mat-error>
+          </div>
+          <!--end:::::::::::::::::::::::::::::::::::::::::cms-body-->
+        </div>
+        <div class="ntk-cms-html-card-message">
+          <!--begin:::::::::::::::::::::::::::::::::::::::::cms-message-->
+          <div class="form-actions">
+            <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
+            <small class="form-text text-muted danger">{{ formInfo.formError }}
+            </small>
+          </div>
+          <!--end:::::::::::::::::::::::::::::::::::::::::cms-message-->
+        </div>
+
+        <br>
+        <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
+          <button type="submit" *ngIf="showFormAdd"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
+            [disabled]="!vform.form.valid">
+            <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
+          </button>
+
+          <button type="button" (click)="onFormCancel()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+            <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="ntk-cms-html-card-footer">
+      <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+
+      <!--end:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    </div>
+    <!--Content-->
+  </div>
 </div>

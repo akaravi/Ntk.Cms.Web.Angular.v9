@@ -23,7 +23,7 @@
 
 body {
   font-size: 13px;
-  font-family: "IRANSans","IRANYekan", tahoma !important;
+  font-family: "IRANSans", "IRANYekan", tahoma !important;
   -moz-font-feature-settings: "ss02";
   -webkit-font-feature-settings: "ss02";
   font-feature-settings: "ss02";
@@ -40,7 +40,7 @@ h5,
 h6 {
   font-weight: 700;
   color: #1f1f1f;
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
   margin-bottom: 5px;
 }
 
@@ -1255,11 +1255,11 @@ body {
 
 /*--Header---*/
 .header-title span {
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
 }
 
 .footer-title span {
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
 }
 
 .header-logo {
@@ -1291,7 +1291,7 @@ body {
   color: #000;
   font-weight: 600;
   z-index: 1;
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
 }
 .header .header-logo {
   background-repeat: no-repeat;
@@ -1399,29 +1399,29 @@ body {
   color: #000;
 }
 
-.header-logo-center .header-icon-1 {
+.header-logo-center .header-icon-left-1 {
   left: 0px;
 }
-.header-logo-center .header-icon-2 {
+.header-logo-center .header-icon-left-2 {
   left: 45px;
 }
-.header-logo-center .header-icon-3 {
+.header-logo-center .header-icon-left-3 {
   left: 90px;
 }
-.header-logo-center .header-icon-4 {
+.header-logo-center .header-icon-left-4 {
   left: 135px;
 }
 
-.header-logo-center .header-icon-5 {
+.header-logo-center .header-icon-rigth-1 {
   right: 0px;
 }
-.header-logo-center .header-icon-6 {
+.header-logo-center .header-icon-rigth-2 {
   right: 45px;
 }
-.header-logo-center .header-icon-7 {
+.header-logo-center .header-icon-rigth-3 {
   right: 90px;
 }
-.header-logo-center .header-icon-8 {
+.header-logo-center .header-icon-rigth-4 {
   right: 135px;
 }
 
@@ -1439,16 +1439,16 @@ body {
   text-align: center;
 }
 
-.header-logo-left .header-icon-1 {
+.header-logo-left .header-icon-left-1 {
   right: 0px;
 }
-.header-logo-left .header-icon-2 {
+.header-logo-left .header-icon-left-2 {
   right: 45px;
 }
-.header-logo-left .header-icon-3 {
+.header-logo-left .header-icon-left-3 {
   right: 90px;
 }
-.header-logo-left .header-icon-4 {
+.header-logo-left .header-icon-left-4 {
   right: 135px;
 }
 .header-logo-left .header-logo {
@@ -1460,16 +1460,16 @@ body {
   margin-left: 0px !important;
 }
 
-.header-logo-right .header-icon-1 {
+.header-logo-right .header-icon-left-1 {
   left: 0px;
 }
-.header-logo-right .header-icon-2 {
+.header-logo-right .header-icon-left-2 {
   left: 45px;
 }
-.header-logo-right .header-icon-3 {
+.header-logo-right .header-icon-left-3 {
   left: 90px;
 }
-.header-logo-right .header-icon-4 {
+.header-logo-right .header-icon-left-4 {
   left: 135px;
 }
 .header-logo-right .header-logo {
@@ -1483,16 +1483,16 @@ body {
   margin-left: 0px !important;
 }
 
-.header-logo-app .header-icon-1 {
+.header-logo-app .header-icon-left-1 {
   right: 0px;
 }
-.header-logo-app .header-icon-2 {
+.header-logo-app .header-icon-left-2 {
   left: 2px;
 }
-.header-logo-app .header-icon-3 {
+.header-logo-app .header-icon-left-3 {
   left: 45px;
 }
-.header-logo-app .header-icon-4 {
+.header-logo-app .header-icon-left-4 {
   left: 90px;
 }
 .header-logo-app .header-logo {
@@ -1670,7 +1670,7 @@ body {
   font-weight: 500;
   margin-top: -6px;
   opacity: 0.7;
-  font-family: "IRANSans","IRANYekan", tahoma !important;
+  font-family: "IRANSans", "IRANYekan", tahoma !important;
 }
 #footer-bar a i {
   font-size: 18px;
@@ -2136,7 +2136,7 @@ body {
   color: #7e8793;
   font-size: 13px;
   font-weight: 500;
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
   line-height: 48px;
   display: block;
 }
@@ -2197,7 +2197,7 @@ body {
   color: #7e8793;
   font-size: 13px;
   font-weight: 500;
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
   line-height: 50px;
   display: block;
 }
@@ -2237,7 +2237,7 @@ body {
 }
 
 .list-menu {
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
   margin: 0px 10px 0px 25px;
 }
 
@@ -2857,7 +2857,7 @@ img.mx-auto {
 
 /*Buttons*/
 .btn {
-  font-family:"IRANSans", "IRANYekan", sans-serif;
+  font-family: "IRANSans", "IRANYekan", sans-serif;
   transition: all 300ms ease;
   color: #fff;
 }
@@ -5146,7 +5146,7 @@ input[type="number"] {
 .list-custom-large a {
   line-height: 70px;
   color: #1f1f1f;
-  font-family: "IRANSans","IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
   font-weight: 600;
   font-size: 13px;
   border-bottom: solid 1px rgba(0, 0, 0, 0.05);
@@ -5766,7 +5766,7 @@ input[type="number"] {
 }
 
 .tab-controls a {
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
   color: #1f1f1f;
   background-color: #fff;
   width: 100%;
@@ -5913,7 +5913,7 @@ input[type="number"] {
   font-size: 28px;
   text-align: center;
   font-weight: 900;
-  font-family: "IRANSans","IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
 }
 .footer .footer-logo {
   position: relative;
@@ -6729,7 +6729,7 @@ input[type="number"] {
   cursor: pointer;
   font-weight: 500;
   font-size: 13px;
-  font-family:"IRANSans", "IRANYekan", tahoma;
+  font-family: "IRANSans", "IRANYekan", tahoma;
   padding: 8px 40px 8px 15px;
 }
 

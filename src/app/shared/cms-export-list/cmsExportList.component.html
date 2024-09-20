@@ -1,9 +1,14 @@
-<div class="card card-style">
+<div class="card card-style loader-container">
+  <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
+  <div class="menu-title">
+    <p class="color-highlight">{{ formInfo.formTitle }} </p>
+    <a class="close-menu" (click)="onFormCancel()"><i class="fa fa-times-circle"></i></a>
+    <hr>
+  </div>
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
-      {{ formInfo.formTitle }}
+      {{ formInfo.formDescription }}
     </p>
-
 
     <p>
       {{'TITLE.Be_Careful_When_Entering_Information' | translate}}

@@ -62,6 +62,8 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
     'Id',
     'RecordStatus',
     'linkApiNumberId',
+    'CreatedDate',
+    'UpdatedDate',
     // 'Action'
   ];
 
@@ -181,12 +183,13 @@ export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<S
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
+
     const dialogRef = this.dialog.open(SmsMainApiNumberPermissionAddComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
       exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
-      data: {}
+      data: { linkApiNumberId: this.requestLinkApiNumberId }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {

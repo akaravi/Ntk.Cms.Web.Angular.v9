@@ -1,4 +1,3 @@
-import { share } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SmsMainComponent } from './sms-main.component';
@@ -7,6 +6,7 @@ import { SmsMainRoutes } from './sms-main.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {
   CoreEnumService,
   CoreModuleService,
@@ -18,8 +18,18 @@ import {
   SmsMainApiPathService, SmsMainCustomerCreditService, SmsMainMessageCategoryService, SmsMainMessageContentService
 } from 'ntk-cms-api';
 import { CmsFileManagerModule } from 'ntk-cms-filemanager';
+import { DynamicFormBuilderModule } from 'src/app/core/dynamic-form-builder/dynamic-form-builder.module';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SmsSharedModule } from '../shared/sms.shared.module';
+import { SmsMainApiNumberPermissionAddComponent } from './api-number-permission/add/add.component';
+import { SmsMainApiNumberPermissionEditComponent } from './api-number-permission/edit/edit.component';
+import { SmsMainApiNumberPermissionListComponent } from './api-number-permission/list/list.component';
+import { SmsMainApiNumberAddComponent } from './api-number/add/add.component';
+import { SmsMainApiNumberEditComponent } from './api-number/edit/edit.component';
+import { SmsMainApiNumberHeaderComponent } from './api-number/header/header.component';
+import { SmsMainApiNumberListComponent } from './api-number/list/list.component';
+import { SmsMainApiNumberSelectorComponent } from './api-number/selector/selector.component';
 import { SmsMainApiPathCompanyAddComponent } from './api-path-company/add/add.component';
 import { SmsMainApiPathCompanyEditComponent } from './api-path-company/edit/edit.component';
 import { SmsMainApiPathCompanyListComponent } from './api-path-company/list/list.component';
@@ -34,15 +44,6 @@ import { SmsMainApiPathPriceServiceListComponent } from './api-path-price-servic
 import { SmsMainApiPathAddComponent } from './api-path/add/add.component';
 import { SmsMainApiPathEditComponent } from './api-path/edit/edit.component';
 import { SmsMainApiPathListComponent } from './api-path/list/list.component';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-import { DynamicFormBuilderModule } from 'src/app/core/dynamic-form-builder/dynamic-form-builder.module';
-import { SmsMainApiNumberPermissionAddComponent } from './api-number-permission/add/add.component';
-import { SmsMainApiNumberPermissionEditComponent } from './api-number-permission/edit/edit.component';
-import { SmsMainApiNumberPermissionListComponent } from './api-number-permission/list/list.component';
-import { SmsMainApiNumberAddComponent } from './api-number/add/add.component';
-import { SmsMainApiNumberEditComponent } from './api-number/edit/edit.component';
-import { SmsMainApiNumberListComponent } from './api-number/list/list.component';
-import { SmsMainApiNumberSelectorComponent } from './api-number/selector/selector.component';
 import { SmsMainApiPathSelectionlistComponent } from './api-path/selectionlist/selectionlist.component';
 import { SmsMainApiPathSelectorComponent } from './api-path/selector/selector.component';
 import { SmsMainApiPathSendTestComponent } from './api-path/sendTest/sendTest.component';
@@ -64,7 +65,6 @@ import { SmsMainApiPathPublicConfigHeaderComponent } from './public-config/heade
 import { SmsMainApiPathPublicConfigListComponent } from './public-config/list/list.component';
 import { SmsMainApiPathPublicConfigSelectorComponent } from './public-config/selector/selector.component';
 import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tree.component';
-import { SmsSharedModule } from '../shared/sms.shared.module';
 
 
 @NgModule({
@@ -105,6 +105,7 @@ import { SmsSharedModule } from '../shared/sms.shared.module';
     SmsMainApiNumberAddComponent,
     SmsMainApiNumberEditComponent,
     SmsMainApiNumberSelectorComponent,
+    SmsMainApiNumberHeaderComponent,
     /*Permission*/
     SmsMainApiNumberPermissionListComponent,
     SmsMainApiNumberPermissionAddComponent,
@@ -162,6 +163,7 @@ import { SmsSharedModule } from '../shared/sms.shared.module';
     SmsMainApiNumberAddComponent,
     SmsMainApiNumberEditComponent,
     SmsMainApiNumberSelectorComponent,
+    SmsMainApiNumberHeaderComponent,
     /*Permission*/
     SmsMainApiNumberPermissionListComponent,
     SmsMainApiNumberPermissionAddComponent,

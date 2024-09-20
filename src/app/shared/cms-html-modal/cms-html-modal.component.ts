@@ -18,5 +18,5 @@ export class CmsHtmlModalComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+ 
 }

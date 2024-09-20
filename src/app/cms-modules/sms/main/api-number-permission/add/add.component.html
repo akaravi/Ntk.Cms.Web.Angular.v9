@@ -16,7 +16,13 @@
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
         [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
-
+      <!-- LinkApiNumberId Field -->
+      aaaa
+      {{dataModel.linkApiNumberId}}
+      bbb
+      <app-sms-api-number-selector (optionChange)="onActionSelectorSelectLinkApiNumberId($event)"
+        [optionSelectForce]="dataModel.linkApiNumberId" [optionPlaceholder]="'TITLE.No' | translate">
+      </app-sms-api-number-selector>
 
 
       <!-- LinkCoreUserId Field -->
@@ -39,10 +45,7 @@
         [optionDisabled]="!fieldsInfo['linkCoreSiteCategoryId']?.accessAddField"
         [optionSelectForce]="dataModel.linkCoreSiteCategoryId" [optionPlaceholder]="'TITLE.Site_Type' | translate">
       </app-cms-sitecategory-selector>
-      <!-- LinkApiNumberId Field -->
-      <app-sms-api-number-selector (optionChange)="onActionSelectorSelectLinkApiNumberId($event)"
-        [optionSelectForce]="dataModel.linkApiNumberId" [optionPlaceholder]="'TITLE.No' | translate">
-      </app-sms-api-number-selector>
+
       <!-- HasInherits Field -->
       <div *ngIf="fieldsInfo['hasInherits']?.accessWatchField" class="d-flex mb-3">
         <div class="pt-1">

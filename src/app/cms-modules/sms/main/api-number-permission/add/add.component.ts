@@ -36,6 +36,9 @@ export class SmsMainApiNumberPermissionAddComponent extends AddBaseComponent<Sms
     super(smsMainApiNumberPermissionService, new SmsMainApiNumberPermissionModel(), publicHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.fileManagerTree = this.publicHelper.GetfileManagerTreeConfig();
+    if (data && data.linkApiNumberId) {
+      this.dataModel.linkApiNumberId = data.linkApiNumberId;
+    }
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();

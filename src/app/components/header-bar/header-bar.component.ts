@@ -104,7 +104,6 @@ export class HeaderBarComponent implements OnInit {
     else
       panelClass = 'dialog-wide';
 
-    debugger
     const dialogRef = this.dialog.open(CmsDataMemoComponent, {
       height: "70%",
       panelClass: panelClass,

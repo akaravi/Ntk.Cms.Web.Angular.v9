@@ -22,28 +22,29 @@
 <div class="header header-auto-show header-fixed header-logo-center">
   <a *ngIf="title$ | async as title" class="header-title">{{title}}</a>
   <a (click)="themeStore?.dataMenu!=='menu-main' ? themeStore.dataMenu='menu-main':themeStore.dataMenu=''"
-    class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
+    class="header-icon header-icon-left-1"><i class="fas fa-bars"></i></a>
   <a *ngIf="themeStore.themeMode==='dark'" (click)="onActionThemeSwitch('light')" data-toggle-theme
-    class="header-icon header-icon-2 "><i class="fas fa-sun"></i></a>
+    class="header-icon header-icon-left-2 "><i class="fas fa-sun"></i></a>
   <a *ngIf="themeStore.themeMode!=='dark'" (click)="onActionThemeSwitch('dark')" data-toggle-theme
-    class="header-icon header-icon-2 "><i class="fas fa-moon"></i></a>
+    class="header-icon header-icon-left-2 "><i class="fas fa-moon"></i></a>
   <a (click)="themeStore?.dataMenu!=='menu-share' ? themeStore.dataMenu='menu-share':themeStore.dataMenu=''"
-    class="header-icon header-icon-3"><i class="fas fa-share-alt"></i></a>
+    class="header-icon header-icon-left-3"><i class="fas fa-share-alt"></i></a>
   <ng-container *ngIf="contentService">
-    <a (click)="onActionButtonMemo()" class="header-icon  header-icon-4" title="{{'ACTION.MEMO' | translate}}">
+    <a (click)="onActionButtonMemo()" class="header-icon  header-icon-rigth-1" title="{{'ACTION.MEMO' | translate}}">
       <i class="fas fa-book-open"></i>
     </a>
-    <a (click)="onActionButtonPin()" class="header-icon header-icon-5" title="{{'ACTION.PIN' | translate}}"><i
+    <a (click)="onActionButtonPin()" class="header-icon header-icon-rigth-2" title="{{'ACTION.PIN' | translate}}"><i
         class="fas fa-bookmark"></i>
     </a>
-    <a (click)="onActionButtonComment()" class="header-icon  header-icon-6" title="{{'ACTION.COMMENT' | translate}}">
+    <a (click)="onActionButtonComment()" class="header-icon  header-icon-rigth-3"
+      title="{{'ACTION.COMMENT' | translate}}">
       <i class="fas fa-comment"></i>
     </a>
-    <a (click)="onActionButtonTask()" class="header-icon  header-icon-7" title="{{'ACTION.TASK' | translate}}">
+    <a (click)="onActionButtonTask()" class="header-icon  header-icon-rigth-4" title="{{'ACTION.TASK' | translate}}">
       <i class="fas fa-tasks"></i>
     </a>
     <a (click)="onActionButtonShowKey()" *ngIf=" this.contentInfo?.id?.length>0 && this.contentInfo?.contentHidden"
-      class="header-icon  header-icon-8" title="{{'ACTION.SHOW_KEY' | translate}}">
+      class="header-icon  header-icon-rigth-5" title="{{'ACTION.SHOW_KEY' | translate}}">
       <i class="fas fa-key"></i>
 
     </a>
