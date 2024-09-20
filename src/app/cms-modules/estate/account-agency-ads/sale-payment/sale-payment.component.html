@@ -1,46 +1,62 @@
-<h2 mat-dialog-title>{{ formInfo.formTitle }}</h2>
-<mat-dialog-content>
-
-  <app-cms-bankpayment-grid [optionMasterItem]="true" (optionChange)="onActionSelectCalculate($event)">
-  </app-cms-bankpayment-grid>
-  <div *ngIf="viewCalculate">
-    <div *ngIf="dataModelCalculateResult.item?.feeTax>0">
-      {{ 'TITLE.FEETAX'|translate }}:
-      {{dataModelCalculateResult.item?.feeTax|currency:' '+dataModelCalculateResult.item?.currency+' '}}
-    </div>
-    <br>
-    <div *ngIf="dataModelCalculateResult.item?.amountPure>0">
-      {{ 'TITLE.Amount_pure'|translate }}:
-      {{dataModelCalculateResult.item?.amountPure|currency:' '+dataModelCalculateResult.item?.currency+' '}}
-    </div>
-    <br>
-    <div *ngIf="dataModelCalculateResult.item?.feeTransport>0">
-      {{ 'TITLE.Fee_transport'|translate }}:
-      {{dataModelCalculateResult.item?.feeTransport|currency:' '+dataModelCalculateResult.item?.currency+' '}}
-    </div>
+<div class="card card-style loader-container">
+  <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
+  <div class="menu-title">
+    <p class="color-highlight">{{ formInfo.formTitle }} </p>
+    <a class="close-menu" (click)="onFormCancel()"><i class="fa fa-times-circle"></i></a>
     <hr>
-    <div *ngIf="dataModelCalculateResult.item?.amount>0">
-      {{ 'TITLE.Final_Amount'|translate }}:
-      {{dataModelCalculateResult.item?.amount|currency:' '+dataModelCalculateResult.item?.currency+' '}}
-    </div>
   </div>
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{ formInfo.formDescription }}
+    </p>
 
-</mat-dialog-content>
-<mat-dialog-actions style="text-align: left;">
-  <div class="form-actions">
-    <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
-    <small class="form-text text-muted danger">{{ formInfo.formError }}
-    </small>
-  </div>
-  <div class="form-actions" *ngIf=" !this.publicHelper.processService.process.inRunAll">
-    <button type="button" (click)="onFormCancel()"
-      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
-      <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
-    </button>
+    <!--Content-->
+    <mat-dialog-content>
 
-    <button type="submit" *ngIf="formInfo.formSubmitAllow" (click)="onActionSelectBankPayment()"
-      [disabled]="!viewCalculate" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
-      <i class="fa fa-check-square-o"></i> {{'ACTION.PAYMENT' | translate}}
-    </button>
+      <app-cms-bankpayment-grid [optionMasterItem]="true" (optionChange)="onActionSelectCalculate($event)">
+      </app-cms-bankpayment-grid>
+      <div *ngIf="viewCalculate">
+        <div *ngIf="dataModelCalculateResult.item?.feeTax>0">
+          {{ 'TITLE.FEETAX'|translate }}:
+          {{dataModelCalculateResult.item?.feeTax|currency:' '+dataModelCalculateResult.item?.currency+' '}}
+        </div>
+        <br>
+        <div *ngIf="dataModelCalculateResult.item?.amountPure>0">
+          {{ 'TITLE.Amount_pure'|translate }}:
+          {{dataModelCalculateResult.item?.amountPure|currency:' '+dataModelCalculateResult.item?.currency+' '}}
+        </div>
+        <br>
+        <div *ngIf="dataModelCalculateResult.item?.feeTransport>0">
+          {{ 'TITLE.Fee_transport'|translate }}:
+          {{dataModelCalculateResult.item?.feeTransport|currency:' '+dataModelCalculateResult.item?.currency+' '}}
+        </div>
+        <hr>
+        <div *ngIf="dataModelCalculateResult.item?.amount>0">
+          {{ 'TITLE.Final_Amount'|translate }}:
+          {{dataModelCalculateResult.item?.amount|currency:' '+dataModelCalculateResult.item?.currency+' '}}
+        </div>
+      </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions style="text-align: left;">
+      <div class="form-actions">
+        <small class="form-text text-muted">{{ formInfo.formAlert }} </small>
+        <small class="form-text text-muted danger">{{ formInfo.formError }}
+        </small>
+      </div>
+      <div class="form-actions" *ngIf=" !this.publicHelper.processService.process.inRunAll">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+
+        <button type="submit" *ngIf="formInfo.formSubmitAllow" (click)="onActionSelectBankPayment()"
+          [disabled]="!viewCalculate"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green">
+          <i class="fa fa-check-square-o"></i> {{'ACTION.PAYMENT' | translate}}
+        </button>
+      </div>
+    </mat-dialog-actions>
+    <!--Content-->
   </div>
-</mat-dialog-actions>
+</div>
