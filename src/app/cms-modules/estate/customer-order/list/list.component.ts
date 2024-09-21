@@ -25,6 +25,7 @@ import { CmsLinkToComponent } from "src/app/shared/cms-link-to/cms-link-to.compo
 import { environment } from 'src/environments/environment';
 import { EstatePropertyHistoryAddComponent } from '../../property-history/add/add.component';
 import { EstateCustomerOrderAddToEditComponent } from '../add/add-to-edit.component';
+import { EstateCustomerOrderQuickViewComponent } from '../quick-view/quick-view.component';
 @Component({
   selector: 'app-estate-customer-order-list',
   templateUrl: './list.component.html',
@@ -102,13 +103,14 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     'scorePurchasingPower',
     "CaseCode",
     "LinkTo",
+    "QuickView",
     'action_menu',
   ];
   tabledisplayedColumnsMobileSource: string[] = [
     // 'Id',
     // 'LinkSiteId',
     'RecordStatus',
-    // 'Title',
+    'Title',
     // 'CreatedDate',
     // 'UpdatedDate',
     // 'scoreRushToBuy',
@@ -117,6 +119,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     // 'scorePurchasingPower',
     "CaseCode",
     "LinkTo",
+    "QuickView",
     'action_menu',
   ];
 
@@ -835,6 +838,47 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       }
     });
   }
+  onActionButtonQuickViewRow(model: EstateCustomerOrderModel = this.tableRowSelected): void {
+    if (!model || !model.id || model.id.length === 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+    this.tableRowSelected = model;
+
+    //this.onActionTableRowSelect(model);
+    if (
+      this.dataModelResult == null ||
+      this.dataModelResult.access == null ||
+      !this.dataModelResult.access.accessWatchRow
+    ) {
+      this.cmsToastrService.typeErrorAccessWatch();
+      return;
+    }
+    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelResult.listItems, this.tableRowSelected);
+    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelResult.listItems, this.tableRowSelected);
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstateCustomerOrderQuickViewComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      //enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      //exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {
+        id: this.tableRowSelected.id,
+        perviousItem: perviousItem,
+        nextItem: nextItem
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
+        this.onActionButtonQuickViewRow(result.onActionOpenItem)
+      }
+    });
+  }
+
   setStep(index: number): void {
     this.step = index;
   }

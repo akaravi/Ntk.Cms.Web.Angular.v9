@@ -26,6 +26,7 @@ export class PageMenuComponent implements OnInit {
     public translate: TranslateService,
     public publicHelper: PublicHelper,
   ) {
+    
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
       this.loadData();

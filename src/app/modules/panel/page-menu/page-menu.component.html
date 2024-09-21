@@ -7,6 +7,7 @@
       <p class="font-11 mt-n2 mb-0 color-highlight"><span>{{"TABLE.BackToTop"|translate}}</span></p>
     </a>
   </div>
+  
   <div class="row mb-0">
     <ng-container *ngFor="let item of dataListResult;index as i">
       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
@@ -16,6 +17,11 @@
           <h4 class="pt-3">{{item.titleML}}</h4>
           <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
         </a>
+        <i (click)="publicHelper.themeService.updateThemeMenuPinToggel(item.id)"
+          class="fa fa-thumb-tack font-20 icon-20"
+          [style.color]="publicHelper.themeService?.ThemeMenuPin[item.id] ? 'color-blue':'color-white'"
+          style="cursor: pointer;"></i>
+        {{publicHelper.themeService?.ThemeMenuPin[item.id]}}
       </div>
       <!-- <div *ngIf="i%2>0" class="w-100"></div> -->
     </ng-container>

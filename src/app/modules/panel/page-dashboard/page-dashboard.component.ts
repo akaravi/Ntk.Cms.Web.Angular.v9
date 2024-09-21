@@ -22,6 +22,7 @@ export class PageDashboardComponent implements OnInit {
     public pageInfo: PageInfoService,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
+    
 
   }
   tokenInfo = new TokenInfoModel();

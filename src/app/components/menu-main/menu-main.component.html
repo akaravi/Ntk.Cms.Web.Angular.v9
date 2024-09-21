@@ -30,7 +30,7 @@
     <a id="nav-welcome" href="/">
       <i class="fa fa-heart gradient-red color-white"></i>
       <span>{{"TITLE.Houses"|translate}}</span>
-      <!-- <i class="fa fa-angle-left"></i> -->
+      
     </a>
 
 
@@ -38,23 +38,24 @@
       style="cursor: pointer;">
       <i class="fa fa-home gradient-green color-white"></i>
       <span>{{"MENU.DASHBOARD"|translate}}</span>
-      <!-- <i class="fa fa-angle-left"></i> -->
+      
     </a>
     <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')"
       style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>{{"TITLE.Select_Site"|translate}}</span>
-      <!-- <i class="fa fa-angle-left"></i> -->
+      
     </a>
     <a *ngIf="!this.tokenInfo|| !this.tokenInfo.userId|| this.tokenInfo.userId<=0" id="nav-components"
       (click)="onActionCleanDataMenu('/auth/singinbysms')" style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>{{"ACTION.LOGIN"|translate}}</span>
-      <!-- <i class="fa fa-angle-left"></i> -->
+      
     </a>
 
 
-    <a *ngFor="let item of dataModelResult.listItems;" (click)="onActionClickMenu(item,$event)" style="cursor: pointer;">
+    <a *ngFor="let item of dataModelResult.listItems;" (click)="onActionClickMenu(item,$event)"
+      style="cursor: pointer;">
       <i class="{{item.icon}} " [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
       <span>{{item.titleML}}</span>
       <i class="fa fa-angle-left"></i>
@@ -63,16 +64,28 @@
     <a id="nav-contact" (click)="onActionCleanDataMenu('/page/aboutus')" style="cursor: pointer;">
       <i class="fa fa-envelope gradient-teal color-white"></i>
       <span>{{"ACTION.ABOUT"|translate}}</span>
-      <!-- <i class="fa fa-angle-left"></i> -->
+      
     </a>
     <a id="nav-contact" (click)="onActionCleanDataMenu('/page/contactus')" style="cursor: pointer;">
       <i class="fa fa-envelope gradient-teal color-white"></i>
       <span>{{"ACTION.GETINTOUCH"|translate}}</span>
-      <!-- <i class="fa fa-angle-left"></i> -->
+      
     </a>
   </div>
   <h6 class="menu-divider mt-4">{{"TITLE.Settings"|translate}}</h6>
   <div class="list-group list-custom-small list-menu">
+    <div>
+      <a (click)="this.publicHelper.themeService.updateThemeFontSize('default')" style="cursor: pointer;">
+        <i class="fa fa-sync-alt gradient-green color-white"></i>
+      </a>
+      <a (click)="this.publicHelper.themeService.updateThemeFontSize('increase')" style="cursor: pointer;">
+        <i class="fa fa-font gradient-green color-white font-18"></i>
+
+      </a>
+      <a (click)="this.publicHelper.themeService.updateThemeFontSize('decrease')" style="cursor: pointer;">
+        <i class="fa fa-font gradient-green color-white"></i>
+      </a>
+    </div>
     <a (click)="themeStore?.dataMenu!=='menu-colors' ? themeStore.dataMenu='menu-colors':themeStore.dataMenu=''"
       style="cursor: pointer;">
       <i class="fa fa-brush gradient-highlight color-white"></i>
@@ -99,7 +112,7 @@
     <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionLogout()" style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-red"></i>
       <span>{{"TITLE.Sign_Out"|translate}}</span>
-      <!-- <i class="fa fa-angle-left"></i> -->
+      
     </a>
   </div>
   <h6 class="menu-divider mt-4" *ngIf="this.env.loadDemoTheme">مخاطبین</h6>

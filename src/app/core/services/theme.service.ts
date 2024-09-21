@@ -6,10 +6,13 @@ import { CmsStoreService } from '../reducers/cmsStore.service';
 import { SET_Theme_STATE } from '../reducers/reducer.factory';
 export type ThemeModeType = 'dark' | 'light' | 'system';
 export type ThemeDirectionType = 'ltr' | 'rtl';
+export type ThemeFontChangeType = 'increase' | 'decrease' | 'default' | 'memory';
 const themeModeLSKey = 'theme_mode';
 const themeHighLightLSKey = 'theme_highlight';
 const themeDirectionSKey = 'theme_direction';
+const themeFontSizeSKey = 'theme_font_size';
 const themeLanguageSKey = 'theme_language';
+const themeMenuPinSKey = 'theme_MenuPin';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +42,8 @@ export class ThemeService implements OnDestroy {
     this.updateThemeHighLight(this.getThemeHighLightFromLocalStorage(), true);
     this.updateThemeDirection(this.getThemeDirectionFromLocalStorage(), true);
     this.updateThemeLanguage(this.getThemeLanguageFromLocalStorage(), true);
+    this.updateThemeFontSize('memory');
+    this.updateThemeMenuPin(this.getThemeMenuPinFromLocalStorage());
   }
   public afterViewInitAppComponent() {
     setTimeout(() => { this.htmlSelectorAddEvent(); }, 200);
@@ -107,6 +112,31 @@ export class ThemeService implements OnDestroy {
     }
     return data;
   }
+  private getThemeFontSizeFromLocalStorage(): number {
+    if (!localStorage) {
+      return 0;
+    }
+    const data = localStorage.getItem(themeFontSizeSKey);
+    if (!data) {
+      return 0;
+    }
+    return +data;
+  }
+  private getThemeMenuPinFromLocalStorage(): number[] {
+    if (!localStorage) {
+      return [];
+    }
+    const data = localStorage.getItem(themeMenuPinSKey);
+    if (!data) {
+      return [];
+    }
+    //JSON.stringify(data);
+    var ret: number[] = [];
+    ret = JSON.parse(data);
+    if (Array.isArray(ret))
+      return ret;
+    return [];
+  }
   private getThemeDirectionFromLocalStorage(): ThemeDirectionType {
     if (!localStorage)
       return 'ltr';
@@ -146,6 +176,7 @@ export class ThemeService implements OnDestroy {
       /**theme-dark */
     }, 10);
   }
+
   public updateThemeHighLight(colorStr: string, firstRun = false) {
     if (!colorStr || colorStr.length == 0)
       colorStr = 'blue';
@@ -209,11 +240,82 @@ export class ThemeService implements OnDestroy {
     this.themeStore.themeLanguage = model;
     this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
   }
+  private fontSize: number = 16; // اندازه پیشفرض فونت
+  getFontSize(): string {
+    return `${this.fontSize}px`;
+  }
+  public updateThemeFontSize(model: ThemeFontChangeType) {
+    var diffNum = 0;
+    if (model == 'increase') {
+      diffNum = 1;
+    }
+    else if (model == 'decrease') {
+      diffNum = -1;
+    }
+    else if (model == 'default') {
+      diffNum = -1 * this.themeStore.themeFontSize;
+    } else if (model = 'memory') {
+      diffNum = this.getThemeFontSizeFromLocalStorage();
+    }
+    this.themeStore.themeFontSize = this.themeStore.themeFontSize + diffNum;
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
+    if (localStorage)
+      localStorage.setItem(themeFontSizeSKey, this.themeStore.themeFontSize + '');
+    setTimeout(() => {
+      /**theme-font-changer */
+      this.fontSize += diffNum; // افزایش اندازه فونت
+      document.documentElement.style.setProperty('--font-size', this.getFontSize());
+      /**theme-font-changer */
+    }, 10);
 
-
-
-
-
+  }
+  ThemeMenuPin: boolean[] = [];
+  public updateThemeMenuPin(model: number[]): void {
+    if (!model)
+      return;
+    this.themeStore.themeMenuPin = model;
+    this.ThemeMenuPin = [];
+    this.themeStore.themeMenuPin.forEach(el => {
+      this.ThemeMenuPin[el] = true;
+    });
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
+  }
+  public updateThemeMenuPinToggel(model: number): void {
+    if (!model)
+      return;
+    var index = this.themeStore.themeMenuPin.indexOf(model);
+    if (index >= 0) {
+      this.themeStore.themeMenuPin.splice(index, 1);
+      this.ThemeMenuPin[model] = false;
+    }
+    else {
+      this.themeStore.themeMenuPin.push(model);
+      this.ThemeMenuPin[model] = true;
+    }
+    if (localStorage)
+      localStorage.setItem(themeMenuPinSKey, JSON.stringify(this.themeStore.themeMenuPin));
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
+  }
+  public updateThemeMenuPinAdd(model: number): void {
+    if (!model)
+      return;
+    this.themeStore.themeMenuPin.push(model);
+    this.ThemeMenuPin[model] = true;
+    if (localStorage)
+      localStorage.setItem(themeMenuPinSKey, JSON.stringify(this.themeStore.themeMenuPin));
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
+  }
+  public updateThemeMenuPinRemove(model: number): void {
+    if (!model)
+      return;
+    var index = this.themeStore.themeMenuPin.indexOf(model);
+    if (index >= 0)
+      this.themeStore.themeMenuPin.splice(index, 1);
+    this.ThemeMenuPin[model] = false;
+    if (localStorage)
+      localStorage.setItem(themeMenuPinSKey, JSON.stringify(this.themeStore.themeMenuPin));
+    this.cmsStoreService.setState({ type: SET_Theme_STATE, payload: this.themeStore });
+  }
 
 
 

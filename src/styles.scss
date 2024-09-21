@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --font-size: 16px;
+  /* اندازه پیشفرض فونت */
+}
+
+.theme-font-changer,
+.ntk-cms-html-card-body {
+  /* کلاس‌هایی که می‌خواهید اندازه فونت آن‌ها تغییر کند */
+  font-size: var(--font-size);
+}
+
+.theme-font-changer {
+  transition: font-size 0.3s;
+  /* انیمیشن تغییر اندازه فونت */
+}
 
 .loader-container {
   position: relative;
