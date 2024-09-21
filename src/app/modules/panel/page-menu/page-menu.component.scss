@@ -1,0 +1,23 @@
+ .scroll-wrapper {
+     width: 100vw;
+     /* عرض کامل صفحه نمایش */
+     overflow-x: auto;
+     /* فعال کردن اسکرول افقی در صورت نیاز */
+     white-space: nowrap;
+     /* جلوگیری از شکستن خطوط */
+     border: 1px solid #ccc;
+     /* برای دیدن بهتر کادر */
+     box-sizing: border-box;
+     /* شامل کردن حاشیه و پدینگ در سایز */
+ }
+
+ .scroll-wrapper div {
+     display: inline-block;
+     width: 300px;
+     /* عرض هر div */
+     height: 150px;
+     /* ارتفاع هر div */
+     margin-right: 10px;
+     background-color: #f0f0f0;
+     border: 1px solid #ccc;
+ }

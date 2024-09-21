@@ -5,10 +5,11 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   ClauseTypeEnum, CoreEnumService, ErrorExceptionResult,
   FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum,
   SmsMainApiNumberModel,
   SmsMainApiNumberService
 } from 'ntk-cms-api';
-import { Observable, firstValueFrom } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
@@ -42,6 +43,7 @@ export class SmsMainApiNumberSelectorComponent implements OnInit {
   @Input() optionSelectFirstItemOnChangeApi = false;
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
+  @Input() optionSelectForSendMessage = false;
   @Output() optionChange = new EventEmitter<SmsMainApiNumberModel>();
   @Input() optionReload = () => this.onActionButtonReload();
   @Input() set optionSelectForce(x: string | SmsMainApiNumberModel) {
@@ -107,6 +109,13 @@ export class SmsMainApiNumberSelectorComponent implements OnInit {
       filter.propertyName = 'ApiPathAndApiNumbers';
       filter.propertyAnyName = 'LinkApiPathId';
       filter.value = this.privateLinkApiPathId;
+      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
+      filterModel.filters.push(filter);
+    }
+    if (this.optionSelectForSendMessage) {
+      filter = new FilterDataModel();
+      filter.propertyName = "RecordStatus";
+      filter.value = RecordStatusEnum.Available;
       filter.searchType = FilterDataModelSearchTypesEnum.Equal;
       filterModel.filters.push(filter);
     }

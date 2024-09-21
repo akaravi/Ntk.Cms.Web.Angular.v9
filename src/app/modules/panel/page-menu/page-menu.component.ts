@@ -66,10 +66,11 @@ export class PageMenuComponent implements OnInit {
     }
   }
   DataPinListSelect() {
+
     this.dataPinListResult = [];
     if (this.publicHelper.themeService?.ThemeMenuPin?.length > 0) {
       this.dataModelResult.listItems.forEach((rowS1) => {
-        rowS1['parentTitle'] = '';
+        rowS1['parentTitle'] = '.';
         if (this.publicHelper.themeService?.ThemeMenuPin[rowS1.id])
           this.dataPinListResult.push(rowS1);
         rowS1.children.forEach((rowS2) => {
@@ -128,7 +129,7 @@ export class PageMenuComponent implements OnInit {
       } else {
         this.router.navigate(['/menu/LinkParentId/', item.id]);
       }
-      this.publicHelper.processService.processStop(pName);
+      setTimeout(() => this.publicHelper.processService.processStop(pName), 500);
       return;
     }
     if (item.routeAddressLink?.length > 0) {
@@ -137,7 +138,8 @@ export class PageMenuComponent implements OnInit {
       } else {
         this.router.navigate([item.routeAddressLink]);
       }
-      this.publicHelper.processService.processStop(pName);
+      setTimeout(() => this.publicHelper.processService.processStop(pName), 500);
+
       return;
     }
   }

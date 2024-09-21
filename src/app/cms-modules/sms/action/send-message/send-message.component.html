@@ -31,13 +31,13 @@
                 <!-- LinkPrivateSiteConfigId Field -->
                 <app-sms-apipath-selector (optionChange)="onActionSelectPrivateSiteConfig($event)"
                   [optionSelectForce]="dataModel.linkApiPathId" [optionPlaceholder]="'TITLE.Direction' | translate"
-                  [optionSelectFirstItem]="true">
+                  [optionSelectFirstItem]="true" [optionSelectForSendMessage]="true">
                 </app-sms-apipath-selector>
                 <app-sms-api-number-selector *ngIf="dataModel.linkApiPathId?.length>0"
                   (optionChange)="onActionSelectApiNumber($event)" [optionSelectForce]=""
                   [optionLinkApiPathId]="dataModel.linkApiPathId"
                   [optionPlaceholder]="'TITLE.sender_number' | translate " [optionSelectFirstItem]="true"
-                  [optionSelectFirstItemOnChangeApi]="true">
+                  [optionSelectForSendMessage]="true" [optionSelectFirstItemOnChangeApi]="true">
                 </app-sms-api-number-selector>
                 <mat-action-row>
                   <button type="button"

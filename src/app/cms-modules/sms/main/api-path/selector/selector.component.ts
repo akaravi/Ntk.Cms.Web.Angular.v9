@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   ClauseTypeEnum, CoreEnumService, ErrorExceptionResult,
   FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
+  RecordStatusEnum,
   SmsMainApiPathModel,
   SmsMainApiPathService
 } from 'ntk-cms-api';
@@ -40,6 +41,7 @@ export class SmsMainApiPathSelectorComponent implements OnInit {
   filteredOptions: Observable<SmsMainApiPathModel[]>;
   @Input() optionDisabled = false;
   @Input() optionSelectFirstItem = false;
+  @Input() optionSelectForSendMessage = false;
   @Input() optionPlaceholder = '';
   @Input() optionLabel = '';
   @Output() optionChange = new EventEmitter<SmsMainApiPathModel>();
@@ -94,6 +96,13 @@ export class SmsMainApiPathSelectorComponent implements OnInit {
       filter.value = text;
       filter.searchType = FilterDataModelSearchTypesEnum.Equal;
       filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+    }
+    if (this.optionSelectForSendMessage) {
+      filter = new FilterDataModel();
+      filter.propertyName = "RecordStatus";
+      filter.value = RecordStatusEnum.Available;
+      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
       filterModel.filters.push(filter);
     }
     this.publicHelper.processService.processStart('DataGetAll');
