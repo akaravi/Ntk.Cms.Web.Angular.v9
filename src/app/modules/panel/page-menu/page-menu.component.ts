@@ -26,7 +26,6 @@ export class PageMenuComponent implements OnInit {
     public translate: TranslateService,
     public publicHelper: PublicHelper,
   ) {
-    
     this.activatedRoute.params.subscribe((data) => {
       this.requestLinkParentId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkParentId'));
       this.loadData();
@@ -46,6 +45,7 @@ export class PageMenuComponent implements OnInit {
   tokenInfo = new TokenInfoModel();
   dataModelResult: ErrorExceptionResult<CoreCpMainMenuModel> = new ErrorExceptionResult<CoreCpMainMenuModel>();
   dataListResult: CoreCpMainMenuModel[] = [];
+  dataPinListResult: CoreCpMainMenuModel[] = [];
   ngOnInit(): void {
 
   }
@@ -63,6 +63,17 @@ export class PageMenuComponent implements OnInit {
           this.DataGetCpMenu();
         }
       }, 100);
+    }
+  }
+  DataPinListSelect() {
+    debugger
+    this.dataPinListResult = [];
+    if (this.publicHelper.themeService?.ThemeMenuPin?.length > 0) {
+      this.dataModelResult.listItems.forEach((row) => {
+        var id = row.id + "";
+        if (this.publicHelper.themeService?.ThemeMenuPin[id] === true)
+          this.dataPinListResult.push(row);
+      });
     }
   }
   DataGetCpMenu(): void {
@@ -87,6 +98,7 @@ export class PageMenuComponent implements OnInit {
     );
   }
   DataListSelect() {
+    this.DataPinListSelect();
     this.dataListResult = [];
     if (!this.requestLinkParentId || this.requestLinkParentId === 0) {
       this.dataListResult = this.dataModelResult.listItems;

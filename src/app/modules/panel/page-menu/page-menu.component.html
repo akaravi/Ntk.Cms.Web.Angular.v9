@@ -7,21 +7,43 @@
       <p class="font-11 mt-n2 mb-0 color-highlight"><span>{{"TABLE.BackToTop"|translate}}</span></p>
     </a>
   </div>
-  
+  <div class="row mb-0">
+    <ng-container *ngFor="let item of dataPinListResult;index as i">
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="card card-style rounded-m me-0 p-3 mb-3">
+          <i (click)="publicHelper.themeService.updateThemeMenuPinToggel(item.id)"
+            class="fa fa-thumb-tack font-20 icon-20"
+            [style.color]="publicHelper.themeService?.ThemeMenuPin[item.id] ? 'green':'gray'"
+            style="cursor: pointer;position:absolute;top:15px;left:15px;"></i>
+          <a (click)="onActionClickMenu(item,$event)" style="cursor: pointer;">
+            <i class="{{item.icon}} font-40 icon-50"
+              [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
+            <h4 class="pt-3">{{item.titleML}}</h4>
+            <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
+          </a>
+        </div>
+
+      </div>
+      <!-- <div *ngIf="i%2>0" class="w-100"></div> -->
+    </ng-container>
+  </div>
   <div class="row mb-0">
     <ng-container *ngFor="let item of dataListResult;index as i">
       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <a (click)="onActionClickMenu(item,$event)" class="card card-style rounded-m me-0 p-3 mb-3"
-          style="cursor: pointer;">
-          <i class="{{item.icon}} font-40 icon-50" [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
-          <h4 class="pt-3">{{item.titleML}}</h4>
-          <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
-        </a>
-        <i (click)="publicHelper.themeService.updateThemeMenuPinToggel(item.id)"
-          class="fa fa-thumb-tack font-20 icon-20"
-          [style.color]="publicHelper.themeService?.ThemeMenuPin[item.id] ? 'color-blue':'color-white'"
-          style="cursor: pointer;"></i>
-        {{publicHelper.themeService?.ThemeMenuPin[item.id]}}
+        <div class="card card-style rounded-m me-0 p-3 mb-3">
+          <i (click)="publicHelper.themeService.updateThemeMenuPinToggel(item.id)"
+            class="fa fa-thumb-tack font-20 icon-20"
+            [style.color]="publicHelper.themeService?.ThemeMenuPin[item.id] ? 'green':'gray'"
+            style="cursor: pointer;position:absolute;top:15px;left:15px;"></i>
+
+          <a (click)="onActionClickMenu(item,$event)" style="cursor: pointer;">
+            <i class="{{item.icon}} font-40 icon-50"
+              [style.color]="item.color?.length>0 ? item.color:'color-white'"></i>
+            <h4 class="pt-3">{{item.titleML}}</h4>
+            <p class="font-11 mt-n2 mb-0 color-highlight">:{{item.description}}</p>
+          </a>
+        </div>
+
       </div>
       <!-- <div *ngIf="i%2>0" class="w-100"></div> -->
     </ng-container>
