@@ -66,13 +66,22 @@ export class PageMenuComponent implements OnInit {
     }
   }
   DataPinListSelect() {
-    debugger
     this.dataPinListResult = [];
     if (this.publicHelper.themeService?.ThemeMenuPin?.length > 0) {
-      this.dataModelResult.listItems.forEach((row) => {
-        var id = row.id + "";
-        if (this.publicHelper.themeService?.ThemeMenuPin[id] === true)
-          this.dataPinListResult.push(row);
+      this.dataModelResult.listItems.forEach((rowS1) => {
+        rowS1['parentTitle'] = '';
+        if (this.publicHelper.themeService?.ThemeMenuPin[rowS1.id])
+          this.dataPinListResult.push(rowS1);
+        rowS1.children.forEach((rowS2) => {
+          rowS2['parentTitle'] = rowS1.titleML
+          if (this.publicHelper.themeService?.ThemeMenuPin[rowS2.id])
+            this.dataPinListResult.push(rowS2);
+          rowS2.children.forEach((rowS3) => {
+            rowS3['parentTitle'] = rowS2.titleML
+            if (this.publicHelper.themeService?.ThemeMenuPin[rowS3.id])
+              this.dataPinListResult.push(rowS3);
+          });
+        });
       });
     }
   }
@@ -134,5 +143,9 @@ export class PageMenuComponent implements OnInit {
   }
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: `smooth` });
+  }
+  updateThemeMenuPinToggel(id: number): void {
+    this.publicHelper.themeService.updateThemeMenuPinToggel(id);
+    this.DataPinListSelect()
   }
 }
