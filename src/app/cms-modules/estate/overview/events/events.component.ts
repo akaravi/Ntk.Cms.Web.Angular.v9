@@ -30,6 +30,7 @@ import {
   EstatePropertyProjectModel,
   EstatePropertyProjectService,
   EstatePropertyService, EstatePropertySupplierFilterModel, EstatePropertySupplierModel, EstatePropertySupplierService, FilterDataModel,
+  FilterDataModelSearchTypesEnum,
   RecordStatusEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -71,15 +72,23 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   ) {
     this.publicHelper.processService.cdr = this.cdr;
 
-
-
     this.filterChildrecordStatus = new FilterDataModel();
-    this.filterChildrecordStatus.propertyName = 'recordStatus';
-    this.filterChildrecordStatus.value = RecordStatusEnum.Available;
-
+    /** */
+    this.filterChildrecordStatusAvailable = new FilterDataModel();
+    this.filterChildrecordStatusAvailable.propertyName = 'recordStatus';
+    this.filterChildrecordStatusAvailable.value = RecordStatusEnum.Available;
+    this.filterChildrecordStatusAvailable.searchType = FilterDataModelSearchTypesEnum.Equal;
+    /** */
+    this.filterChildrecordStatusNotAvailable = new FilterDataModel();
+    this.filterChildrecordStatusNotAvailable.propertyName = 'recordStatus';
+    this.filterChildrecordStatusNotAvailable.value = RecordStatusEnum.Available;
+    this.filterChildrecordStatusNotAvailable.searchType = FilterDataModelSearchTypesEnum.NotEqual;
   }
+  filterChildrecordStatusAvailable: FilterDataModel;
+  filterChildrecordStatusNotAvailable: FilterDataModel;
   filterChildrecordStatus: FilterDataModel;
 
+  /** All*/
   dataModelPropertyResult: ErrorExceptionResult<EstatePropertyModel> = new ErrorExceptionResult<EstatePropertyModel>();
   dataModelCustomerOrderResult: ErrorExceptionResult<EstateCustomerOrderModel> = new ErrorExceptionResult<EstateCustomerOrderModel>();
   dataModelHistoryResult: ErrorExceptionResult<EstatePropertyHistoryModel> = new ErrorExceptionResult<EstatePropertyHistoryModel>();
@@ -88,6 +97,15 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
   dataModelPropertyCompanyResult: ErrorExceptionResult<EstatePropertyCompanyModel> = new ErrorExceptionResult<EstatePropertyCompanyModel>();
   dataModelPropertySupplierResult: ErrorExceptionResult<EstatePropertySupplierModel> = new ErrorExceptionResult<EstatePropertySupplierModel>();
   dataModelPropertyProjectResult: ErrorExceptionResult<EstatePropertyProjectModel> = new ErrorExceptionResult<EstatePropertyProjectModel>();
+  /** All*/
+  /** Available*/
+  dataModelPropertyResultAvailable: ErrorExceptionResult<EstatePropertyModel> = new ErrorExceptionResult<EstatePropertyModel>();
+  dataModelCustomerOrderResultAvailable: ErrorExceptionResult<EstateCustomerOrderModel> = new ErrorExceptionResult<EstateCustomerOrderModel>();
+  /** Available*/
+  /** Not Available*/
+  dataModelPropertyResultNotAvailable: ErrorExceptionResult<EstatePropertyModel> = new ErrorExceptionResult<EstatePropertyModel>();
+  dataModelCustomerOrderResultNotAvailable: ErrorExceptionResult<EstateCustomerOrderModel> = new ErrorExceptionResult<EstateCustomerOrderModel>();
+  /** Not Available*/
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
   cmsApiStoreSubscribe: Subscription;
@@ -153,6 +171,70 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     }
     );
   }
+  DataGetAllPropertyAvailable(): void {
+    const pName = this.constructor.name + 'DataGetAllPropertyAvailable';
+
+    let filterModelOnDay = new EstatePropertyFilterModel();
+    // filterModelOnDay = filterModel;
+    if (!this.checkingOnDayRange.controls.start?.value)
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
+    if (!this.checkingOnDayRange.controls.end?.value)
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
+    filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
+    filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
+    filterModelOnDay.countLoad = true;
+    if (this.linkCmsUserId > 0)
+      filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
+    filterModelOnDay.filters.push(this.filterChildrecordStatusAvailable);
+    this.publicHelper.processService.processStart(pName, "دریافت اطلاعات املاک", "dataModelPropertyResultAvailable");
+    /** Search On Select Day */
+    this.estatePropertyService.ServiceGetAll(filterModelOnDay).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        if (ret.isSuccess) {
+          this.dataModelPropertyResultAvailable = ret;
+          this.publicHelper.processService.processStop(pName);
+        }
+        error: (er) => {
+          this.cmsToastrService.typeError(er);
+          this.publicHelper.processService.processStop(pName, false);
+        }
+      }
+    }
+    );
+  }
+  DataGetAllPropertyNotAvailable(): void {
+    const pName = this.constructor.name + 'DataGetAllPropertyNotAvailable';
+
+    let filterModelOnDay = new EstatePropertyFilterModel();
+    // filterModelOnDay = filterModel;
+    if (!this.checkingOnDayRange.controls.start?.value)
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
+    if (!this.checkingOnDayRange.controls.end?.value)
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
+    filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
+    filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
+    filterModelOnDay.countLoad = true;
+    if (this.linkCmsUserId > 0)
+      filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
+    filterModelOnDay.filters.push(this.filterChildrecordStatusNotAvailable);
+    this.publicHelper.processService.processStart(pName, "دریافت اطلاعات املاک", "dataModelPropertyResultNotAvailable");
+    /** Search On Select Day */
+    this.estatePropertyService.ServiceGetAll(filterModelOnDay).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        if (ret.isSuccess) {
+          this.dataModelPropertyResultNotAvailable = ret;
+          this.publicHelper.processService.processStop(pName);
+        }
+        error: (er) => {
+          this.cmsToastrService.typeError(er);
+          this.publicHelper.processService.processStop(pName, false);
+        }
+      }
+    }
+    );
+  }
   DataGetAllCustomerOrder(): void {
     const pName = this.constructor.name + 'DataGetAllCustomerOrder';
     let filterModelOnDay = new EstateCustomerOrderFilterModel();
@@ -174,6 +256,68 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
         this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
         if (ret.isSuccess) {
           this.dataModelCustomerOrderResult = ret;
+          this.publicHelper.processService.processStop(pName);
+        }
+        error: (er) => {
+          this.cmsToastrService.typeError(er);
+          this.publicHelper.processService.processStop(pName, false);
+        }
+      }
+    }
+    );
+  }
+  DataGetAllCustomerOrderAvailable(): void {
+    const pName = this.constructor.name + 'DataGetAllCustomerOrderAvailable';
+    let filterModelOnDay = new EstateCustomerOrderFilterModel();
+    // filterModelOnDay = filterModel;
+    if (!this.checkingOnDayRange.controls.start?.value)
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
+    if (!this.checkingOnDayRange.controls.end?.value)
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
+    filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
+    filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
+    filterModelOnDay.countLoad = true;
+    if (this.linkCmsUserId > 0)
+      filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
+    filterModelOnDay.filters.push(this.filterChildrecordStatusAvailable);
+    this.publicHelper.processService.processStart(pName, "دریافت اطلاعات سفارشات", "dataModelCustomerOrderResultAvailable");
+    /** Search On Select Day */
+    this.estateCustomerOrderService.ServiceGetAll(filterModelOnDay).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        if (ret.isSuccess) {
+          this.dataModelCustomerOrderResultAvailable = ret;
+          this.publicHelper.processService.processStop(pName);
+        }
+        error: (er) => {
+          this.cmsToastrService.typeError(er);
+          this.publicHelper.processService.processStop(pName, false);
+        }
+      }
+    }
+    );
+  }
+  DataGetAllCustomerOrderNotAvailable(): void {
+    const pName = this.constructor.name + 'DataGetAllCustomerOrderNotAvailable';
+    let filterModelOnDay = new EstateCustomerOrderFilterModel();
+    // filterModelOnDay = filterModel;
+    if (!this.checkingOnDayRange.controls.start?.value)
+      this.checkingOnDayRange.controls.start.setValue(this.todayStart);
+    if (!this.checkingOnDayRange.controls.end?.value)
+      this.checkingOnDayRange.controls.end.setValue(this.todayEnd);
+    filterModelOnDay.onDateTimeFrom = this.checkingOnDayRange.controls.start.value;
+    filterModelOnDay.onDateTimeTo = this.checkingOnDayRange.controls.end.value;
+    filterModelOnDay.countLoad = true;
+    if (this.linkCmsUserId > 0)
+      filterModelOnDay.linkResponsibleUserId = this.linkCmsUserId;
+    filterModelOnDay.filters.push(this.filterChildrecordStatusNotAvailable);
+    this.publicHelper.processService.processStart(pName, "دریافت اطلاعات سفارشات", "dataModelCustomerOrderResultNotAvailable");
+    /** Search On Select Day */
+    this.estateCustomerOrderService.ServiceGetAll(filterModelOnDay).subscribe({
+      next: (ret) => {
+        this.fieldsInfo = this.publicHelper.fieldInfoConvertor(ret.access);
+        if (ret.isSuccess) {
+          this.dataModelCustomerOrderResultNotAvailable = ret;
           this.publicHelper.processService.processStop(pName);
         }
         error: (er) => {
@@ -388,8 +532,15 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       this.checkingOnDayRange.controls.end?.value &&
       this.checkingOnDayRange.controls.start.value?.toISOString() === this.checkingOnDayRange.controls.end.value?.toISOString())
       this.viewOnlyTime = true;
+    /** */
     this.DataGetAllProperty();
+    this.DataGetAllPropertyAvailable();
+    this.DataGetAllPropertyNotAvailable();
+    /** */
     this.DataGetAllCustomerOrder();
+    this.DataGetAllCustomerOrderAvailable();
+    this.DataGetAllCustomerOrderNotAvailable();
+    /** */
     this.DataGetAllPropertyHistory();
     this.DataGetAllAccountUser();
     this.DataGetAllAccountAgency();
@@ -435,13 +586,13 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     result.setDate(result.getDate() + days);
     return result;
   };
-  onActionButtonProperty(model: EstatePropertyModel, event?: MouseEvent): void {
+  onActionButtonProperty(model: EstatePropertyModel, listItems: EstatePropertyModel[], event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
-    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelPropertyResult.listItems, model);
-    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelPropertyResult.listItems, model);
+    var nextItem = this.publicHelper.InfoNextRowInList(listItems, model);
+    var perviousItem = this.publicHelper.InfoPerviousRowInList(listItems, model);
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
@@ -460,18 +611,18 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionButtonProperty(result.onActionOpenItem)
+        this.onActionButtonProperty(result.onActionOpenItem, listItems)
       }
     });
   }
-  onActionButtonCustomerOrder(model: EstateCustomerOrderModel, event?: MouseEvent): void {
+  onActionButtonCustomerOrder(model: EstateCustomerOrderModel, listItems: EstateCustomerOrderModel[], event?: MouseEvent): void {
     if (!model || !model.id || model.id.length === 0) {
       this.translate.get('MESSAGE.no_row_selected_to_display').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
 
-    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelCustomerOrderResult.listItems, model);
-    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelCustomerOrderResult.listItems, model);
+    var nextItem = this.publicHelper.InfoNextRowInList(listItems, model);
+    var perviousItem = this.publicHelper.InfoPerviousRowInList(listItems, model);
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
@@ -490,7 +641,7 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate && result.onActionOpenItem && result.onActionOpenItem.id.length > 0) {
-        this.onActionButtonCustomerOrder(result.onActionOpenItem)
+        this.onActionButtonCustomerOrder(result.onActionOpenItem, listItems)
       }
     });
   }
@@ -558,8 +709,8 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelCustomerOrderResult.listItems, model);
-    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelCustomerOrderResult.listItems, model);
+    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelPropertyProjectResult.listItems, model);
+    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelPropertyProjectResult.listItems, model);
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
@@ -588,8 +739,8 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelCustomerOrderResult.listItems, model);
-    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelCustomerOrderResult.listItems, model);
+    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelPropertySupplierResult.listItems, model);
+    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelPropertySupplierResult.listItems, model);
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';
@@ -618,8 +769,8 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelCustomerOrderResult.listItems, model);
-    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelCustomerOrderResult.listItems, model);
+    var nextItem = this.publicHelper.InfoNextRowInList(this.dataModelPropertyCompanyResult.listItems, model);
+    var perviousItem = this.publicHelper.InfoPerviousRowInList(this.dataModelPropertyCompanyResult.listItems, model);
     var panelClass = '';
     if (this.tokenHelper.isMobile)
       panelClass = 'dialog-fullscreen';

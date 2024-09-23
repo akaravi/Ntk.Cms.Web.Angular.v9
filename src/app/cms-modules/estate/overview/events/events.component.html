@@ -89,7 +89,7 @@
               {{'TITLE.Property'| translate}}
               <span class="text-muted fw-bold fs-7">{{dataModelPropertyResult.totalRowCount}}</span>
               {{'TITLE.Number'| translate}}
-              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelPropertyResult.totalRowCount>0"></i>
             </button>
             <!-- end::Header-->
             <!-- begin::List-->
@@ -105,8 +105,9 @@
                   {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
                   </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
-                <h4 (click)="onActionButtonProperty(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonProperty(item,$event)"
+                <h4 (click)="onActionButtonProperty(item,dataModelPropertyResult.listItems,$event)"
+                  style="cursor: pointer;"> {{item.title}}<i [ngClass]="item.recordStatus|statusIconClass"
+                    (click)="onActionButtonProperty(item,dataModelPropertyResult.listItems,$event)"
                     class="float-end"></i></h4>
                 <p>
                   {{item.description}}
@@ -134,6 +135,131 @@
     <!-- end::Row -->
   </div>
 
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
+    <!-- begin::Row -->
+    <div class="card card-style loader-container">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResultAvailable'"> </app-progress-spinner>
+      <div class="content">
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-1">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button type="button" class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse1">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Property_Available'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelPropertyResultAvailable.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelPropertyResultAvailable.totalRowCount>0"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse1" class="collapse" data-bs-parent="#accordion-1">
+              <ng-container *ngFor="let item of dataModelPropertyResultAvailable.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
+                <h4 (click)="onActionButtonProperty(item,dataModelPropertyResultAvailable.listItems,$event)"
+                  style="cursor: pointer;"> {{item.title}}<i [ngClass]="item.recordStatus|statusIconClass"
+                    (click)="onActionButtonProperty(item,dataModelPropertyResultAvailable.listItems,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
+      </div>
+    </div>
+    <!-- end::Row -->
+  </div>
+
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
+    <!-- begin::Row -->
+    <div class="card card-style loader-container">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResultNotAvailable'"> </app-progress-spinner>
+      <div class="content">
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-1">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button type="button" class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse1">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Property_NotAvailable'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelPropertyResultNotAvailable.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelPropertyResultNotAvailable.totalRowCount>0"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse1" class="collapse" data-bs-parent="#accordion-1">
+              <ng-container *ngFor="let item of dataModelPropertyResultNotAvailable.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
+                <h4 (click)="onActionButtonProperty(item,dataModelPropertyResultNotAvailable.listItems,$event)"
+                  style="cursor: pointer;"> {{item.title}}<i [ngClass]="item.recordStatus|statusIconClass"
+                    (click)="onActionButtonProperty(item,dataModelPropertyResultNotAvailable.listItems,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
+      </div>
+    </div>
+    <!-- end::Row -->
+  </div>
 
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
@@ -152,7 +278,7 @@
               {{'TITLE.Customer_Order'| translate}}
               <span class="text-muted fw-bold fs-7">{{dataModelCustomerOrderResult.totalRowCount}}</span>
               {{'TITLE.Number'| translate}}
-              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelCustomerOrderResult.totalRowCount>0"></i>
             </button>
             <!-- end::Header-->
             <!-- begin::List-->
@@ -169,8 +295,9 @@
                   </b> {{
                   publicHelper.getTime(item.updatedDate)}}</p>
 
-                <h4 (click)="onActionButtonCustomerOrder(item,$event)" style="cursor: pointer;"> {{item.title}}<i
-                    [ngClass]="item.recordStatus|statusIconClass" (click)="onActionButtonCustomerOrder(item,$event)"
+                <h4 (click)="onActionButtonCustomerOrder(item,dataModelCustomerOrderResult.listItems,$event)"
+                  style="cursor: pointer;"> {{item.title}}<i [ngClass]="item.recordStatus|statusIconClass"
+                    (click)="onActionButtonCustomerOrder(item,dataModelCustomerOrderResult.listItems,$event)"
                     class="float-end"></i></h4>
                 <p>
                   {{item.description}}
@@ -199,6 +326,133 @@
   </div>
 
 
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
+    <!-- begin::Row -->
+    <div class="card card-style loader-container">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelCustomerOrderResultAvailable'"> </app-progress-spinner>
+      <div class="content">
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-2">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button type="button" class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse2">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Customer_Order_Available'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelCustomerOrderResultAvailable.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelCustomerOrderResultAvailable.totalRowCount>0"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse2" class="collapse" data-bs-parent="#accordion-2">
+              <ng-container *ngFor="let item of dataModelCustomerOrderResultAvailable.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
+
+                <h4 (click)="onActionButtonCustomerOrder(item,dataModelCustomerOrderResultAvailable.listItems,$event)"
+                  style="cursor: pointer;"> {{item.title}}<i [ngClass]="item.recordStatus|statusIconClass"
+                    (click)="onActionButtonCustomerOrder(item,dataModelCustomerOrderResultAvailable.listItems,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
+      </div>
+    </div>
+    <!-- end::Row -->
+  </div>
+
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
+    <!-- begin::Row -->
+    <div class="card card-style loader-container">
+      <app-progress-spinner [optionsInfoAreaId]="'dataModelCustomerOrderResultNotAvailable'"> </app-progress-spinner>
+      <div class="content">
+        <!-- begin::accordion-->
+        <div class="accordion" id="accordion-2">
+          <div class="mb-2">
+            <!-- begin::Header-->
+            <button type="button" class="btn accordion-btn no-effect color-theme" data-bs-toggle="collapse"
+              data-bs-target="#collapse2">
+              <i class="fa fa-cloud color-blue-dark me-2"></i>
+              {{'TITLE.Customer_Order_NotAvailable'| translate}}
+              <span class="text-muted fw-bold fs-7">{{dataModelCustomerOrderResultNotAvailable.totalRowCount}}</span>
+              {{'TITLE.Number'| translate}}
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelCustomerOrderResultNotAvailable.totalRowCount>0"></i>
+            </button>
+            <!-- end::Header-->
+            <!-- begin::List-->
+            <div id="collapse2" class="collapse" data-bs-parent="#accordion-2">
+              <ng-container *ngFor="let item of dataModelCustomerOrderResultNotAvailable.listItems">
+                <div class="divider divider-margins bg-highlight"></div>
+                <p *ngIf="!item.updatedBy||item.updatedBy<=0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.ADD'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.createdDate)}}
+                  </b>
+                  {{
+                  publicHelper.getTime(item.createdDate)}}</p>
+                <p *ngIf="item.updatedBy>0" class="mb-0 color-highlight font-600 font-12">
+                  {{'TITLE.Edit'|translate}}:<b *ngIf="!viewOnlyTime">{{publicHelper.LocaleDate(item.updatedDate)}}
+                  </b> {{
+                  publicHelper.getTime(item.updatedDate)}}</p>
+
+                <h4
+                  (click)="onActionButtonCustomerOrder(item,dataModelCustomerOrderResultNotAvailable.listItems,$event)"
+                  style="cursor: pointer;"> {{item.title}}<i [ngClass]="item.recordStatus|statusIconClass"
+                    (click)="onActionButtonCustomerOrder(item,dataModelCustomerOrderResultNotAvailable.listItems,$event)"
+                    class="float-end"></i></h4>
+                <p>
+                  {{item.description}}
+                </p>
+                <p>
+                  {{'TITLE.USER'|translate}}:
+                  <b dir="ltr">
+                    {{item.createdBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+                <p *ngIf="item.updatedBy>0 && item.createdBy!==item.updatedBy">
+                  {{'TITLE.Edit'|translate}}:
+                  <b dir="ltr">
+                    {{item.updatedBy| cmsuserinfo |async}}
+                  </b>
+                </p>
+              </ng-container>
+            </div>
+            <!-- end::List-->
+          </div>
+        </div>
+        <!-- end::accordion-->
+      </div>
+    </div>
+    <!-- end::Row -->
+  </div>
 
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
@@ -217,7 +471,7 @@
               {{'TITLE.History'| translate}}
               <span class="text-muted fw-bold fs-7">{{dataModelHistoryResult.totalRowCount}}</span>
               {{'TITLE.Number'| translate}}
-              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelHistoryResult.totalRowCount>0"></i>
             </button>
             <!-- end::Header-->
             <!-- begin::List-->
@@ -284,7 +538,7 @@
               {{'TITLE.Property_agency'| translate}}
               <span class="text-muted fw-bold fs-7">{{dataModelAccountAgencyResult.totalRowCount}}</span>
               {{'TITLE.Number'| translate}}
-              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelAccountAgencyResult.totalRowCount>0"></i>
             </button>
             <!-- end::Header-->
             <!-- begin::List-->
@@ -349,7 +603,7 @@
               {{'TITLE.Property_expert'| translate}}
               <span class="text-muted fw-bold fs-7">{{dataModelAccountUserResult.totalRowCount}}</span>
               {{'TITLE.Number'| translate}}
-              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelAccountUserResult.totalRowCount>0"></i>
             </button>
             <!-- end::Header-->
             <!-- begin::List-->
@@ -418,7 +672,7 @@
               {{'TITLE.Property_Company'| translate}}
               <span class="text-muted fw-bold fs-7">{{dataModelPropertyCompanyResult.totalRowCount}}</span>
               {{'TITLE.Number'| translate}}
-              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelPropertyCompanyResult.totalRowCount>0"></i>
             </button>
             <!-- end::Header-->
             <!-- begin::List-->
@@ -486,7 +740,7 @@
               {{'TITLE.Property_Supplier'| translate}}
               <span class="text-muted fw-bold fs-7">{{dataModelPropertySupplierResult.totalRowCount}}</span>
               {{'TITLE.Number'| translate}}
-              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelPropertySupplierResult.totalRowCount>0"></i>
             </button>
             <!-- end::Header-->
             <!-- begin::List-->
@@ -553,7 +807,7 @@
               {{'TITLE.Property_Project'| translate}}
               <span class="text-muted fw-bold fs-7">{{dataModelPropertyProjectResult.totalRowCount}}</span>
               {{'TITLE.Number'| translate}}
-              <i class="fa fa-arrow-down font-10 accordion-icon"></i>
+              <i class="fa fa-arrow-down font-10 accordion-icon" *ngIf="dataModelPropertyProjectResult.totalRowCount>0"></i>
             </button>
             <!-- end::Header-->
             <!-- begin::List-->
