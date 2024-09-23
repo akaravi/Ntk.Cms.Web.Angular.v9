@@ -34,7 +34,9 @@ export class CmsLinkToComponent implements OnInit {
       this.optionLabel = data.title;
       this.optionurlViewContentQRCodeBase64 = data.urlViewContentQRCodeBase64;
       this.optionurlViewContent = data.urlViewContent;
+      this.formInfo.formTitle = data.title;
     }
+    this.formInfo.formDescription = "محتوا را اشتراک بگذارید";
   }
   dataModel: SmsApiSendMessageDtoModel = new SmsApiSendMessageDtoModel();
 
@@ -178,5 +180,9 @@ export class CmsLinkToComponent implements OnInit {
       this.router.createUrlTree([this.optionurlViewContent])
     );
     window.open(this.optionurlViewContent, '_blank');
+  }
+  onFormCancel(): void {
+    this.dialogRef.close({ dialogChangedDate: false });
+
   }
 }

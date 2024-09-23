@@ -1,16 +1,16 @@
 <app-cms-guide-notice [Key]="'linkto.content'"></app-cms-guide-notice>
-<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
-
-<div class="card card-style">
+<div class="card card-style loader-container">
+  <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
+  <div class="menu-title">
+    <p class="color-highlight">{{ formInfo.formTitle }} </p>
+    <a class="close-menu" (click)="onFormCancel()"><i class="fa fa-times-circle"></i></a>
+    <hr>
+  </div>
   <div class="content mb-0">
     <p class="mb-0 color-highlight font-600 font-12">
-      {{ formInfo.formTitle }}
+      {{ formInfo.formDescription }}
     </p>
 
-
-    <p>
-      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
-    </p>
     <!--Content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm" [ngStyle]="{'direction' : tokenInfo.direction }">
       <mat-tab-group>
@@ -104,18 +104,19 @@
               </app-cms-sms-api-number-selector>
 
             </div>
-
-            <div class="col-md-6 col-sm-6 col-xs-9">
+            <div class="col-sm-12 col-md-6">
               <div class="message-box">
-                <div class="row" style="height:300px;">
+                <div class="row" style="margin-bottom: 0px !important;height:90px">
+
+                </div>
+                <div class="row" style="margin-bottom: 0px !important;height:283px">
                   <!-- Message Field -->
                   <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.message" class="color-highlight">{{'TITLE.Message_Text' |
                       translate}}</label>
                     <textarea matInput [(ngModel)]="dataModel.message" name="dataModel.message" #Message type="text"
-                      placeholder="..." minlength="1" maxlength="500" rows="9" id="dataModel.message"
-                      class="form-control validate-name">
-                                                </textarea>
+                      placeholder="..." class="form-control validate-name" id="dataModel.message" minlength="1"
+                      maxlength="500" rows="9" style="height:276px"></textarea>
                     <em>{{ Message.value.length }} / 500</em>
                     <mat-error *ngIf="Message.errors?.required">
                       {{'TITLE.Message_Text' | translate}} <strong>{{'MESSAGE.required' |
@@ -123,34 +124,36 @@
                     </mat-error>
                   </div>
                 </div>
-                <br>
-                <div class="row" style="height:83px">
+                <div class="row" style="margin-bottom: 0px !important;height:140px;margin-top: 11px">
                   <!-- ToNumbers Field -->
                   <div
                     *ngIf="(!this.dataModel.toContactCategories ||this.dataModel.toContactCategories?.length === 0) && (!this.dataModel.toContactContents||this.dataModel.toContactContents?.length === 0)"
-                    class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+                    class="input-style has-borders  no-icon input-style-always-active validate-field mb-4">
                     <label for="dataModel.toNumbers" class="color-highlight">{{'TITLE.Receiver_number' |
                       translate}}</label>
-                    <textarea matInput [(ngModel)]="dataModel.toNumbers" name="dataModel.toNumbers" #ToNumbers
-                      type="text" placeholder="0912" minlength="1" maxlength="500" rows="2" id="dataModel.toNumbers"
-                      class="form-control validate-name">
-                                                </textarea>
-                    <em>{{'TITLE.You_can_separate_the_number_of_the_recipient_of_the_message_with_an_inter'
-                      | translate}}</em>
+                    <textarea matInput [(ngModel)]="dataModel.toNumbers" name="dataModel.toNumbers"
+                      id="dataModel.toNumbers" #ToNumbers type="text" placeholder="0912" rows="2"
+                      style="height:138px"></textarea>
+                    <em>
+                      <strong
+                        class="info-field-text">{{'TITLE.You_can_separate_the_number_of_the_recipient_of_the_message_with_an_inter'
+                        | translate}}</strong>
+                    </em>
+
                   </div>
                 </div>
-                <br>
                 <div class="row" *ngIf="formInfo.formSubmitAllow  "
-                  style="height:140px;bottom: 4vh;justify-content: center;">
-                  <button type="submit"
-                    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                    [disabled]="!vform.valid" *ngIf="!this.publicHelper.processService.process.inRunAll">
+                  style="margin-bottom: 0px !important;height:40px;bottom: 4vh;justify-content: center;">
+                  <button type="submit" class="message-box-button" [disabled]="!vform.valid"
+                    *ngIf="!this.publicHelper.processService.process.inRunAll">
                     <i class="fa fa-check-square-o"></i>
                     {{'ACTION.Send_Message' | translate}}
                   </button>
                 </div>
+
               </div>
             </div>
+
           </div>
         </mat-tab>
       </mat-tab-group>

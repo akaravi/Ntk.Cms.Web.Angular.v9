@@ -3,13 +3,13 @@
   <label *ngIf="optionLabel?.length>0" for="app-cms-site-selector-{{id}}"
     class="color-highlight">{{optionLabel}}</label>
   <input type="text" placeholder="{{optionPlaceholder}}" [attr.disabled]="optionDisabled? true : null" matInput
-    [formControl]="formControl" [matAutocomplete]="matauto" class="form-control validate-name"
+    [formControl]="formControl" [matAutocomplete]="matauto" class="form-control validate-name input-ltr-center"
     id="app-cms-site-selector-{{id}}">
   <mat-autocomplete #matauto="matAutocomplete" [displayWith]="displayFn"
     (optionSelected)="onActionSelect($event.option.value)">
     <mat-option *ngFor="let state of filteredOptions | async" [value]="state" [disabled]="optionDisabled"
       class="color-highlight">
-      <span>{{ displayOption(state) }}</span>
+      <span dir="ltr">{{ displayOption(state) }}</span>
     </mat-option>
   </mat-autocomplete>
   <mat-icon matSuffix *ngIf="dataModelSelect?.id" matSuffix mat-icon-button aria-label="Clear"
