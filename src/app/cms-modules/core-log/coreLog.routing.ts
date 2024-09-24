@@ -8,6 +8,7 @@ import { CoreLogMemberListComponent } from './member/list/list.component';
 import { CoreLogNotificationListComponent } from './notification/list/list.component';
 import { CoreLogReportDataListComponent } from './report-data/list/list.component';
 import { CoreLogSmsListComponent } from './sms/list/list.component';
+import { CoreLogEmailListComponent } from './email/list/list.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,11 @@ const routes: Routes = [
       {
         path: 'sms',
         component: CoreLogSmsListComponent,
+        data: { title: 'ROUTE.CORELOG' },
+      },
+      {
+        path: 'email',
+        component: CoreLogEmailListComponent,
         data: { title: 'ROUTE.CORELOG' },
       },
       {

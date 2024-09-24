@@ -1,0 +1,108 @@
+<div class="card card-style loader-container">
+  <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
+  <div class="content mb-0">
+    <p class="mb-0 color-highlight font-600 font-12">
+      {{ formInfo.formTitle }}
+    </p>
+
+
+    <p>
+      {{'TITLE.Be_Careful_When_Entering_Information' | translate}}
+    </p>
+    <!--Content-->
+    <form #vform="ngForm">
+      <!-- SendStatusType Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <select id="dataModel.sendStatusType" [(ngModel)]="dataModel.sendStatusType" name="dataModel.sendStatusType"
+          #SendStatusType="ngModel" class="form-control validate-name">
+          <option *ngFor="
+          let item of dataModelEnumSendEmailStatusTypeResult.listItems;
+          index as i" [value]="item.value">
+            {{ item.description }}
+          </option>
+        </select>
+        <em>{{'TITLE.SELECT_STATUS' | translate}}</em>
+        <mat-error *ngIf="SendStatusType.errors?.required">
+          SendStatusType is <strong>{{'content.required' | translate}}</strong>
+        </mat-error>
+      </div>
+      <!-- LinkUserId Field -->
+      <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
+        [optionPlaceholder]="'TITLE.SITE' | translate">
+      </app-cms-site-selector>
+      <!-- LinkUserId Field -->
+      <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
+        [optionPlaceholder]="'TITLE.USER' | translate">
+      </app-cms-user-selector>
+      <!-- LinkMemberId Field -->
+      <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
+        [optionPlaceholder]="'TITLE.Member' | translate">
+      </app-cms-member-selector>
+      <!-- ModuleName Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.moduleName" class="color-highlight">ModuleName</label>
+        <input matInput type="text" [(ngModel)]="dataModel.moduleName" name="dataModel.moduleName" #ModuleName
+          placeholder="ModuleName" class="form-control validate-name" id="dataModel.moduleName" />
+      </div>
+      <!-- ModuleEntityName Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.moduleEntityName" class="color-highlight">ModuleEntityName</label>
+        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityName" name="dataModel.moduleEntityName"
+          #ModuleEntityName placeholder="ModuleEntityName" class="form-control validate-name"
+          id="dataModel.moduleEntityName" />
+      </div>
+      <!-- ModuleEntityId Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.moduleEntityId" class="color-highlight">ModuleEntityId</label>
+        <input matInput type="text" [(ngModel)]="dataModel.moduleEntityId" name="dataModel.moduleEntityId"
+          #ModuleEntityId placeholder="ModuleEntityId" class="form-control validate-name"
+          id="dataModel.moduleEntityId" />
+      </div>
+
+           <!-- fromEmail Field -->
+           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.fromEmail" class="color-highlight">fromEmail</label>
+            <input matInput type="text" [(ngModel)]="dataModel.fromEmail" name="dataModel.fromEmail" #fromEmail
+              placeholder="fromEmail" class="form-control validate-name" id="dataModel.fromEmail" />
+          </div>
+      <!-- toEmail Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.toEmail" class="color-highlight">toEmail</label>
+        <input matInput type="text" [(ngModel)]="dataModel.toEmail" name="dataModel.toEmail" #toEmail
+          placeholder="toEmail" class="form-control validate-name" id="dataModel.toEmail" />
+      </div>
+
+      <!-- emailSubject Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.emailSubject" class="color-highlight">emailSubject</label>
+        <textarea matInput [(ngModel)]="dataModel.emailSubject" name="dataModel.emailSubject" #emailSubject type="text"
+          placeholder="emailSubject" id="dataModel.emailSubject" class="form-control validate-name">
+        </textarea>
+      </div>
+           <!-- emailBody Field -->
+           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.emailBody" class="color-highlight">emailBody</label>
+            <textarea matInput [(ngModel)]="dataModel.emailBody" name="dataModel.emailBody" #emailBody type="text"
+              placeholder="emailBody" id="dataModel.emailBody" class="form-control validate-name">
+            </textarea>
+          </div>
+      <!-- ReturnApi Field -->
+      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.returnApi" class="color-highlight">ReturnApi</label>
+        <textarea matInput [(ngModel)]="dataModel.returnApi" name="dataModel.returnApi" #ReturnApi type="text"
+          placeholder="ReturnApi" id="dataModel.returnApi" class="form-control validate-name">
+        </textarea>
+      </div>
+      <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData">
+        <div [innerHTML]="dataModel | prettyjson"></div>
+      </div>
+      <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
+        <button type="button" (click)="onFormCancel()"
+          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
+          <i class="ft-x"></i> {{'ACTION.CANCEL' | translate}}
+        </button>
+      </div>
+    </form>
+    <!--Content-->
+  </div>
+</div>

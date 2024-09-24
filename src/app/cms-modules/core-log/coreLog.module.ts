@@ -10,7 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import {
   CoreLogAvoidDuplicateDataEntryService, CoreLogCurrencyService,
-  CoreLogErrorService, CoreLogMemberService, CoreLogNotificationService, CoreLogReportDataService, CoreLogSmsService, CoreModuleService
+  CoreLogErrorService, CoreLogMemberService, CoreLogNotificationService, CoreLogReportDataService, CoreLogSmsService,CoreLogEmailService, CoreModuleService
 } from 'ntk-cms-api';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CoreLogAvoidDuplicateDataEntryEditComponent } from './avoid-duplicate/edit/edit.component';
@@ -31,7 +31,9 @@ import { CoreLogReportDataViewComponent } from './report-data/view/view.componen
 import { CoreLogSmsEditComponent } from './sms/edit/edit.component';
 import { CoreLogSmsListComponent } from './sms/list/list.component';
 import { CoreLogSmsViewComponent } from './sms/view/view.component';
-
+import { CoreLogEmailEditComponent } from './email/edit/edit.component';
+import { CoreLogEmailListComponent } from './email/list/list.component';
+import { CoreLogEmailViewComponent } from './email/view/view.component';
 
 @NgModule({
   imports: [
@@ -51,6 +53,10 @@ import { CoreLogSmsViewComponent } from './sms/view/view.component';
     CoreLogSmsListComponent,
     CoreLogSmsEditComponent,
     CoreLogSmsViewComponent,
+    /** */
+    CoreLogEmailListComponent,
+    CoreLogEmailEditComponent,
+    CoreLogEmailViewComponent,
     /** */
     CoreLogNotificationListComponent,
     CoreLogNotificationEditComponent,
@@ -80,6 +86,10 @@ import { CoreLogSmsViewComponent } from './sms/view/view.component';
     CoreLogSmsEditComponent,
     CoreLogSmsViewComponent,
     /** */
+    CoreLogEmailListComponent,
+    CoreLogEmailEditComponent,
+    CoreLogEmailViewComponent,
+    /** */
     CoreLogNotificationListComponent,
     CoreLogNotificationEditComponent,
     CoreLogNotificationViewComponent,
@@ -105,6 +115,7 @@ import { CoreLogSmsViewComponent } from './sms/view/view.component';
     CoreModuleService,
     CoreLogErrorService,
     CoreLogSmsService,
+    CoreLogEmailService,
     CoreLogNotificationService,
     CoreLogMemberService,
     CoreLogCurrencyService,

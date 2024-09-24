@@ -116,10 +116,15 @@ export class CoreUserEmailConfirmComponent implements OnInit {
           if (this.stepOne) {
             this.stepOne = false;
             this.stepTwo = true;
+            this.cmsToastrService.typeSuccessMessage("کد برای ایمیل شما ارسال شد");
           } else if (this.stepTwo) {
+            this.stepOne = false;
+            this.stepTwo = false;
+            this.cmsToastrService.typeSuccessMessage("ایمیل شما با موفقیت تایید شد");
             this.dialogRef.close({ dialogChangedDate: true });
           }
         } else {
+          debugger
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           this.firstRun = false;
           this.formInfo.buttonSubmittedEnabled = true;
