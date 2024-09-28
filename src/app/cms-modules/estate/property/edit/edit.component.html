@@ -919,6 +919,10 @@
   </div>
   <div class="ntk-cms-html-card-footer">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
+    <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+    (click)="onActionBackToParent()">
+    {{'ACTION.BACK_TO_PROPERTY_LIST' | translate}}
+  </button>
     <button type="button" (click)="onFormLoadEstateCustomerOrderResult()"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
       *ngIf="dataModel?.id?.length >0 && this.dataModel?.linkLocationId&&this.dataModel?.linkLocationId>0">

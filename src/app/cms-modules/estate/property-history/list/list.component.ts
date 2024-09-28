@@ -12,6 +12,7 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
+  ActivityStatusEnumEstate,
   ErrorExceptionResult,
   EstateActivityTypeModel,
   EstateActivityTypeService,
@@ -47,7 +48,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   requestLinkEstateUserId = '';
   requestLinkCustomerOrderId = '';
   requestLinkEstateAgencyId = '';
-
+  requestActivityStatus: ActivityStatusEnumEstate;
   constructorInfoAreaId = this.constructor.name;
   constructor(
     public contentService: EstatePropertyHistoryService,
@@ -81,19 +82,31 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       this.activatedRoute.snapshot.paramMap.get('Action')?.toLowerCase() ===
       'add';
     /**recordStatus */
-    this.requestRecordStatus =
-      RecordStatusEnum[
-      this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''
-      ];
+    this.requestRecordStatus =      RecordStatusEnum[      this.activatedRoute.snapshot.paramMap.get('RecordStatus') + ''      ];
     if (this.requestRecordStatus) {
       this.optionsSearch.data.show = true;
-      this.optionsSearch.data.defaultQuery =
-        '{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' +
-        this.requestRecordStatus +
-        '"}]}';
+      this.optionsSearch.data.defaultQuery ='{"condition":"and","rules":[{"field":"RecordStatus","type":"select","operator":"equal","value":"' +        this.requestRecordStatus +        '"}]}';
       this.requestRecordStatus = null;
     }
     /**recordStatus */
+
+
+        /**ActivityStatus */
+        this.requestActivityStatus = ActivityStatusEnumEstate[this.activatedRoute.snapshot.paramMap.get('ActivityStatus') + ''];
+        if (this.requestRecordStatus) {
+          if(this.requestActivityStatus==ActivityStatusEnumEstate.Planned)
+          {
+    this.searchInCheckingPlaned=true;
+          }else{
+          this.optionsSearch.data.show = true;
+          this.optionsSearch.data.defaultQuery ='{"condition":"and","rules":[{"field":"ActivityStatus","type":"select","operator":"equal","value":"' +        this.requestRecordStatus +        '"}]}';
+          this.requestActivityStatus = null;
+          }
+        }
+        /**ActivityStatus */
+
+
+
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
@@ -132,7 +145,11 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
   categoryModelSelected: EstateActivityTypeModel;
   searchInCheckingOnDay = false;
+  searchInCheckingPlaned = false;
+
   searchInCheckingOnDayChecked = false;
+  searchInCheckingPlanedChecked = false;
+
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
@@ -235,6 +252,12 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     /*filter CLone*/
     const filterModel = JSON.parse(JSON.stringify(this.filteModelContent));
     /*filter CLone*/
+    if (this.searchInCheckingPlaned) {
+      const filter = new FilterDataModel();
+      filter.propertyName = 'activityStatus';
+      filter.value = ActivityStatusEnumEstate.Planned;
+      filterModel.filters.push(filter);
+    }
 
     if (this.requestLinkPropertyId && this.requestLinkPropertyId.length > 0) {
       const filter = new FilterDataModel();
@@ -763,6 +786,12 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     } else {
       this.DataGetAll();
     }
+  }
+  onActionButtonInCheckingPlaned(model: boolean): void {
+    this.searchInCheckingPlaned = model;
+
+      this.DataGetAll();
+
   }
   onActionButtonInCheckingOnDateSearch() {
     if (this.searchInCheckingOnDay) this.DataGetAll();

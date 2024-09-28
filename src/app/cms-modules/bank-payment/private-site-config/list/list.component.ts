@@ -79,7 +79,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    // 'Title',
+    'Title',
     'LinkPublicConfigId',
     'UpdatedDate',
     // 'Action'
@@ -88,7 +88,7 @@ export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent
     'LinkMainImageIdSrc',
     'Id',
     'RecordStatus',
-    // 'Title',
+    'Title',
     'LinkPublicConfigId',
     'UpdatedDate',
     // 'Action'

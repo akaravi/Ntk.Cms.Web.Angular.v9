@@ -269,6 +269,11 @@ const routesNormal: Routes = [
         data: { title: 'ROUTE.ESTATE.HISTORY' },
       },
       {
+        path: 'property-history/activitystatus/:ActivityStatus',
+        component: EstatePropertyHistoryListComponent,
+        data: { title: 'ROUTE.ESTATE.HISTORY' },
+      },
+      {
         path: 'property-history/action/:Action',
         component: EstatePropertyHistoryListComponent,
         data: { title: 'ROUTE.ESTATE.HISTORY' },

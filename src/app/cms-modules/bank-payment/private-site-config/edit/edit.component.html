@@ -90,6 +90,9 @@
                     [disabled]="!fieldsInfo['percentFeeTransactionAmount']?.accessEditField"
                     class="form-control validate-name" id="dataModel.percentFeeTransactionAmount" />
             </div>
+                     <!-- privateConfigJsonFormatter Field -->
+          <dynamic-form-builder-cms [formGroup]="vform.form" [(jsonValue)]="dataModel.privateConfigJsonValues"
+          [propertiesInfos]="dataModel.privateConfigJsonFormatter"></dynamic-form-builder-cms>
             <!-- Memo Field -->
             <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
                 <label for="dataModel.memo" class="color-highlight">{{fieldsInfo['description']?.fieldTitle}}</label>

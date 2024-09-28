@@ -1287,6 +1287,8 @@
   "TITLE.Mobile": "موبایل",
   "TITLE.Email": "ایمیل",
   "TITLE.Name": "نام",
+  "TITLE.Planned":"برنامه ریزی شده",
+  "ACTION.Planned":"برنامه ریزی شده",
   "TITLE.EmailConfirmationRequired": "نیاز به تایید ایمیل",
   "TITLE.NeedConfirmation": "نیاز به تایید",
   "TITLE.ClickToConfirm": "برای تایید کلیک کنید",

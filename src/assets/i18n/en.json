@@ -22,6 +22,8 @@
   "ACTION.SEND_DOCUMENTS": "Send documents",
   "ACTION.BUY": "Buy",
   "ACTION.PRICE": "Price",
+  "TITLE.Planned":"Planned",
+  "ACTION.Planned":"Planned",
   "ACTION.DATA": "Data",
   "ACTION.TASK": "Task",
   "ACTION.PIN": "Pin",

@@ -1,7 +1,7 @@
 
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { EstatePropertyHistoryService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
+import { ActivityStatusEnumEstate, EstatePropertyHistoryFilterModel, EstatePropertyHistoryService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
@@ -58,10 +58,15 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     this.publicHelper.processService.processStart(this.constructor.name + 'InChecking');
     this.publicHelper.processService.processStart(this.constructor.name + 'Available');
     this.publicHelper.processService.processStart(this.constructor.name + 'All');
+    this.publicHelper.processService.processStart(this.constructor.name + 'Planned');
+    this.publicHelper.processService.processStart(this.constructor.name + 'PlannedToDay');
+
 
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('InChecking', 0, 0, ''));
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('Available', 1, 0, ''));
     this.widgetInfoModel.setItem(new WidgetContentInfoModel('All', 2, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('Planned', 3, 0, ''));
+    this.widgetInfoModel.setItem(new WidgetContentInfoModel('PlannedToDay', 4, 0, ''));
 
     this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
     this.service.ServiceGetCount(this.filteModelContent).subscribe({
@@ -97,6 +102,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
       }
     }
     );
+    /** */
     const filterStatist2 = JSON.parse(JSON.stringify(this.filteModelContent));
     fastfilter = new FilterDataModel();
     fastfilter.propertyName = 'RecordStatus';
@@ -124,6 +130,71 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
       }
     }
     );
+    /** */
+    let filterStatist3 = new EstatePropertyHistoryFilterModel();
+    filterStatist3 =   JSON.parse(JSON.stringify(this.filteModelContent));
+    fastfilter = new FilterDataModel();
+    fastfilter.propertyName = 'activityStatus';
+    fastfilter.value = ActivityStatusEnumEstate.Planned;
+    fastfilter.searchType = FilterDataModelSearchTypesEnum.Equal;
+    /** Search On Select Day */
+
+
+    filterStatist3.filters.push(fastfilter);
+    this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+    this.service.ServiceGetCount(filterStatist3).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          if (ret.totalRowCount > 0) {
+            this.widgetInfoModel.setItem(new WidgetContentInfoModel('Planned', 3, ret.totalRowCount, '/estate/property-history/activitystatus/0'));
+          }
+          else {
+            this.widgetInfoModel.link = '/estate/property-history';
+          }
+        } else {
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+        }
+        this.publicHelper.processService.processStop(this.constructor.name + 'Planned');
+      },
+      error: (er) => {
+        this.publicHelper.processService.processStop(this.constructor.name + 'Planned');
+      }
+    }
+    );
+    /** */
+     /** */
+     let filterStatist4 = new EstatePropertyHistoryFilterModel();
+     filterStatist4 =   JSON.parse(JSON.stringify(this.filteModelContent));
+     filterStatist4.onDateTimeFrom =     new Date(new Date().setHours(0, 0, 0, 0));
+     filterStatist4.onDateTimeTo =  new Date(new Date().setHours(23, 59, 59, 999));
+     fastfilter = new FilterDataModel();
+     fastfilter.propertyName = 'activityStatus';
+     fastfilter.value = ActivityStatusEnumEstate.Planned;
+     fastfilter.searchType = FilterDataModelSearchTypesEnum.Equal;
+     /** Search On Select Day */
+     filterStatist4.filters.push(fastfilter);
+     this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+     this.service.ServiceGetCount(filterStatist4).subscribe({
+       next: (ret) => {
+         if (ret.isSuccess) {
+           if (ret.totalRowCount > 0) {
+             this.widgetInfoModel.setItem(new WidgetContentInfoModel('PlannedToDay', 5, ret.totalRowCount, '/estate/property-history/activitystatus/0'));
+             this.cmsToastrService.typeWarningMessage("تعداد "+ret.totalRowCount +" عدد فعالیت برای امروز شما می باشد"," فعالیت برنامه ریزی شده برای شما");
+           }
+           else {
+             this.widgetInfoModel.link = '/estate/property-history';
+           }
+         } else {
+           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+         }
+         this.publicHelper.processService.processStop(this.constructor.name + 'PlannedToDay');
+       },
+       error: (er) => {
+         this.publicHelper.processService.processStop(this.constructor.name + 'PlannedToDay');
+       }
+     }
+     );
+     /** */
   }
   translateHelp(t: string, v: string): string {
     return t + v;
