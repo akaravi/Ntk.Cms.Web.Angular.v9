@@ -102,6 +102,7 @@ export class CoreModuleListComponent extends ListBaseComponent<CoreModuleService
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

@@ -89,6 +89,7 @@ export class TicketingDepartemenListComponent extends ListBaseComponent<Ticketin
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

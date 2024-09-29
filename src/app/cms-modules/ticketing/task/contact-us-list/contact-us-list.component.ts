@@ -100,6 +100,7 @@ export class TicketingTaskContactUsListComponent extends ListBaseComponent<Ticke
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

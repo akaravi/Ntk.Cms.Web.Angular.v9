@@ -1,8 +1,16 @@
 <div class="card card-style loader-container">
   <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
   <div class="content">
-    <h5 class="font-14 opacity-50">{{widgetInfoModel.title}} <a routerLink="{{widgetInfoModel.link}}"
-        routerLinkActive="active" class="float-end color-highlight">{{"TITLE.Show_All"|translate}}</a></h5>
+    <h5 class="font-14 opacity-50">{{widgetInfoModel.title}}
+
+      <a type="button" class="btn font-13 font-300 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        (click)="onActionButtonReload()" target="_blank">
+        <i class="fa fa-rotate-right gradient-blue color-white" (click)="onActionButtonReload()"></i>
+      </a>
+
+      <a routerLink="{{widgetInfoModel.link}}" routerLinkActive="active"
+        class="float-end color-highlight">{{"TITLE.Show_All"|translate}}</a>
+    </h5>
     <div class="divider mb-3"></div>
 
     <div class="list-group list-custom-small list-menu ms-0 me-2">

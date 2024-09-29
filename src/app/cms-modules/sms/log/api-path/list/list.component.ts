@@ -110,6 +110,7 @@ export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathS
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

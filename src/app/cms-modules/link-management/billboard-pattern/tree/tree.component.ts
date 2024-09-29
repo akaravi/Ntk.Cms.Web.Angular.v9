@@ -66,8 +66,12 @@ export class LinkManagementBillboardPatternTreeComponent implements OnInit, OnDe
   hasChild = (_: number, node: LinkManagementBillboardPatternModel) => false;
 
 
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });

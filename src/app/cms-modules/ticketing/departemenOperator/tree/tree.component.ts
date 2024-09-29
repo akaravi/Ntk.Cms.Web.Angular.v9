@@ -62,8 +62,12 @@ export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestr
   hasChild = (_: number, node: TicketingDepartemenOperatorModel) => false;
 
 
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });

@@ -62,6 +62,7 @@ export class BankPaymentTransactionLogViewComponent implements OnInit, OnDestroy
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
+
         this.tokenInfo = ret;
       }
     });

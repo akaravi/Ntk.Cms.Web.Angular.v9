@@ -358,13 +358,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       const filter1 = new FilterDataModel();
       filter1.propertyName = "RecordStatus";
       filter1.value = RecordStatusEnum.Pending;
-      //filter1.searchType = FilterDataModelSearchTypesEnum.NotEqual;
       filterModel.filters.push(filter1);
-      // const filter2 = new FilterDataModel();
-      // filter2.propertyName = "RecordStatus";
-      // filter2.value = RecordStatusEnum.DeniedConfirmed;
-      // filter2.searchType = FilterDataModelSearchTypesEnum.NotEqual;
-      // filterModel.filters.push(filter2);
     }
 
     if (setResponsibleUserId > 0) {

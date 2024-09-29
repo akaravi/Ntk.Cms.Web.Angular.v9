@@ -93,6 +93,7 @@ export class WebDesignerMainIntroListComponent extends ListBaseComponent<WebDesi
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

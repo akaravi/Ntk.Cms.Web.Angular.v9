@@ -78,6 +78,7 @@ export class CoreLogAvoidDuplicateDataEntryEditComponent extends EditBaseCompone
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+
       }
     });
 

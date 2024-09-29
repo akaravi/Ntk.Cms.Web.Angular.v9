@@ -131,6 +131,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

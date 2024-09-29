@@ -83,9 +83,14 @@ export class BiographyCategoryTreeSelectorComponent implements OnInit, OnDestroy
   checklistSelection = new SelectionModel<BiographyCategoryModel>(true /* multiple */);
   hasChild = (_: number, node: BiographyCategoryModel) => !!node.children && node.children.length > 0;
   hasNoContent = (_: number, nodeData: BiographyCategoryModel) => nodeData.children;
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
+      this.firstLoadDataRunned = true;
       this.DataGetAll();
     });
   }

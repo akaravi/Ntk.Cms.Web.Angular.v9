@@ -70,14 +70,24 @@ export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.description = this.translate.instant('TITLE.Introduction_of_your_property');
     this.widgetInfoModel.link = '/estate/property';
 
-    this.onActionStatist();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.onActionStatist();
+    }, 500);
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
+        this.firstLoadDataRunned = true;
         this.onActionStatist();
       }
     });
 
   }
+  firstLoadDataRunned = false;
+  onActionButtonReload(): void {
+    this.onActionStatist();
+  }
+
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }

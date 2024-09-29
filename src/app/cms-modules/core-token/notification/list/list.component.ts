@@ -130,6 +130,7 @@ export class CoreTokenNotificationListComponent extends ListBaseComponent<CoreTo
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

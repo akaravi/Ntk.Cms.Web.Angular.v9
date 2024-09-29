@@ -91,6 +91,7 @@ export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewS
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

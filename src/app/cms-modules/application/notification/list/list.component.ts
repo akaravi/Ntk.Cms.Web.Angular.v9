@@ -116,6 +116,7 @@ export class ApplicationLogNotificationListComponent extends ListBaseComponent<A
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

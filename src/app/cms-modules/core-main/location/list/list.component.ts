@@ -96,6 +96,7 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

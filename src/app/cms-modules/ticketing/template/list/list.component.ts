@@ -87,6 +87,7 @@ export class TicketingTemplateListComponent extends ListBaseComponent<TicketingT
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

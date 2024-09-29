@@ -83,8 +83,12 @@ export class EstatePropertySupplierCategoryTreeSelectorComponent implements OnIn
   checklistSelection = new SelectionModel<EstatePropertySupplierCategoryModel>(true /* multiple */);
   hasChild = (_: string, node: EstatePropertySupplierCategoryModel) => !!node.children && node.children.length > 0;
   hasNoContent = (_: string, nodeData: EstatePropertySupplierCategoryModel) => nodeData.children;
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });

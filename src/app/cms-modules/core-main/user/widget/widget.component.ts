@@ -57,6 +57,11 @@ export class CoreUserWidgetComponent implements OnInit, OnDestroy {
 
 
   }
+  firstLoadDataRunned = false;
+  onActionButtonReload(): void {
+    this.onActionStatist();
+  }
+
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
 

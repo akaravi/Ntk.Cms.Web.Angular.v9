@@ -1,12 +1,15 @@
 
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ActivityStatusEnumEstate, EstatePropertyHistoryFilterModel, EstatePropertyHistoryService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum } from 'ntk-cms-api';
+import { ActivityStatusEnumEstate, EstatePropertyHistoryFilterModel, EstatePropertyHistoryService, FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel, ManageUserAccessDataTypesEnum, RecordStatusEnum, TokenInfoModel } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-estate-property-history-widget',
@@ -21,8 +24,10 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
   constructor(
     private service: EstatePropertyHistoryService,
     private cmsToastrService: CmsToastrService,
+    private cmsConfirmationDialogService: CmsConfirmationDialogService,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef,
+    private router: Router,
     public publicHelper: PublicHelper,
     private tokenHelper: TokenHelper,
   ) {
@@ -33,28 +38,39 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
 
   widgetInfoModel = new WidgetInfoModel();
   cmsApiStoreSubscribe: Subscription;
-
-
+  tokenInfo = new TokenInfoModel();
+  firstLoadDataRunned = false;
   ngOnInit() {
     this.widgetInfoModel.title = this.translate.instant('ROUTE.ESTATE.HISTORY');
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/estate/property-history';
 
-    this.onActionStatist();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.onActionStatist();
+    }, 500);
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
+        this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.onActionStatist();
       }
     });
-
+    this.tokenHelper.getTokenInfoState().then((value) => {
+      this.tokenInfo = value;
+    });
 
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
 
   }
-
+  onActionButtonReload(): void {
+    this.onActionStatist();
+  }
   onActionStatist(): void {
+
     this.publicHelper.processService.processStart(this.constructor.name + 'InChecking');
     this.publicHelper.processService.processStart(this.constructor.name + 'Available');
     this.publicHelper.processService.processStart(this.constructor.name + 'All');
@@ -132,7 +148,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     );
     /** */
     let filterStatist3 = new EstatePropertyHistoryFilterModel();
-    filterStatist3 =   JSON.parse(JSON.stringify(this.filteModelContent));
+    filterStatist3 = JSON.parse(JSON.stringify(this.filteModelContent));
     fastfilter = new FilterDataModel();
     fastfilter.propertyName = 'activityStatus';
     fastfilter.value = ActivityStatusEnumEstate.Planned;
@@ -162,39 +178,62 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     }
     );
     /** */
-     /** */
-     let filterStatist4 = new EstatePropertyHistoryFilterModel();
-     filterStatist4 =   JSON.parse(JSON.stringify(this.filteModelContent));
-     filterStatist4.onDateTimeFrom =     new Date(new Date().setHours(0, 0, 0, 0));
-     filterStatist4.onDateTimeTo =  new Date(new Date().setHours(23, 59, 59, 999));
-     fastfilter = new FilterDataModel();
-     fastfilter.propertyName = 'activityStatus';
-     fastfilter.value = ActivityStatusEnumEstate.Planned;
-     fastfilter.searchType = FilterDataModelSearchTypesEnum.Equal;
-     /** Search On Select Day */
-     filterStatist4.filters.push(fastfilter);
-     this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-     this.service.ServiceGetCount(filterStatist4).subscribe({
-       next: (ret) => {
-         if (ret.isSuccess) {
-           if (ret.totalRowCount > 0) {
-             this.widgetInfoModel.setItem(new WidgetContentInfoModel('PlannedToDay', 5, ret.totalRowCount, '/estate/property-history/activitystatus/0'));
-             this.cmsToastrService.typeWarningMessage("تعداد "+ret.totalRowCount +" عدد فعالیت برای امروز شما می باشد"," فعالیت برنامه ریزی شده برای شما");
-           }
-           else {
-             this.widgetInfoModel.link = '/estate/property-history';
-           }
-         } else {
-           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
-         }
-         this.publicHelper.processService.processStop(this.constructor.name + 'PlannedToDay');
-       },
-       error: (er) => {
-         this.publicHelper.processService.processStop(this.constructor.name + 'PlannedToDay');
-       }
-     }
-     );
-     /** */
+    /** */
+    let filterStatist4 = new EstatePropertyHistoryFilterModel();
+    filterStatist4 = JSON.parse(JSON.stringify(this.filteModelContent));
+    //filterStatist4.onDateTimeFrom = new Date(new Date().setHours(0, 0, 0, 0));
+    filterStatist4.onDateTimeTo = new Date(new Date().setHours(23, 59, 59, 999));
+    filterStatist4.linkResponsibleUserId = this.tokenInfo.userId;
+    fastfilter = new FilterDataModel();
+    fastfilter.propertyName = 'activityStatus';
+    fastfilter.value = ActivityStatusEnumEstate.Planned;
+    fastfilter.searchType = FilterDataModelSearchTypesEnum.Equal;
+    /** Search On Select Day */
+    filterStatist4.filters.push(fastfilter);
+    this.service.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+    this.service.ServiceGetCount(filterStatist4).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          if (ret.totalRowCount > 0) {
+            this.widgetInfoModel.setItem(new WidgetContentInfoModel('PlannedToDay', 5, ret.totalRowCount, '/estate/property-history/activitystatus/0'));
+            this.cmsToastrService.typeWarningMessage("تعداد " + ret.totalRowCount + " عدد فعالیت برای امروز شما می باشد", " فعالیت برنامه ریزی شده برای شما");
+            this.confirmDialogPlanned(ret.totalRowCount);
+          }
+          else {
+            this.widgetInfoModel.link = '/estate/property-history';
+          }
+        } else {
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+        }
+        this.publicHelper.processService.processStop(this.constructor.name + 'PlannedToDay');
+      },
+      error: (er) => {
+        this.publicHelper.processService.processStop(this.constructor.name + 'PlannedToDay');
+      }
+    }
+    );
+    /** */
+  }
+  confirmDialogPlanned(count: number) {
+    var title = "";
+    var message = "";
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+      title = str['MESSAGE.Please_Confirm'];
+      message = str['MESSAGE.Do_you_want_to_delete_this_content'] + '?' + '<br> ( ' + count + ' ) ';
+    });
+    this.cmsConfirmationDialogService.confirm(title, message)
+      .then((confirmed) => {
+        if (confirmed) {
+
+          this.router.navigate(['/estate/property-history/activitystatus/0']);
+        }
+      }
+      )
+      .catch(() => {
+        if (environment.consoleLog)
+          console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)')
+      }
+      );
   }
   translateHelp(t: string, v: string): string {
     return t + v;

@@ -122,6 +122,7 @@ export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<Sm
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

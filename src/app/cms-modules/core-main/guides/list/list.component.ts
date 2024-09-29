@@ -93,6 +93,7 @@ export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, 
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

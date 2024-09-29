@@ -48,8 +48,12 @@ export class EstatePropertyTypeUsageSelectionlistComponent implements OnInit, On
     this.onActionSelectForce(x);
   }
   cmsApiStoreSubscribe: Subscription;
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.DataGetAll();

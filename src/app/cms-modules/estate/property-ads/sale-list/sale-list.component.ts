@@ -62,7 +62,7 @@ export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
   // expandedElement: CoreModuleSaleItemModel | null;
   cmsApiStoreSubscribe: Subscription;
   currency = '';
-
+  firstLoadDataRunned = false;
   ngOnInit(): void {
     if (!this.requestLinkPropertyId || this.requestLinkPropertyId.length === 0) {
       this.cmsToastrService.typeErrorComponentAction();
@@ -77,11 +77,16 @@ export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });
 
-    this.DataGetAll();
+    
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.DataGetCurrency();
     const transactionId = + localStorage.getItem('TransactionId');
     if (transactionId > 0) {

@@ -84,8 +84,12 @@ export class CmsContactCategoryTreeSelectorComponent implements OnInit, OnDestro
   checklistSelection = new SelectionModel<ContactCategoryModel>(true /* multiple */);
   hasChild = (_: string, node: ContactCategoryModel) => !!node.children && node.children.length > 0;
   hasNoContent = (_: string, nodeData: ContactCategoryModel) => nodeData.children;
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });

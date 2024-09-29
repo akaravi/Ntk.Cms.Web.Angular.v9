@@ -88,6 +88,7 @@ export class LinkManagementAccountingListComponent extends ListBaseComponent<Lin
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

@@ -92,8 +92,12 @@ export class LinkManagementCategoryTreeSelectorComponent implements OnInit, OnDe
   hasNoContent = (_: number, nodeData: LinkManagementCategoryModel) => nodeData.children;
 
 
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });

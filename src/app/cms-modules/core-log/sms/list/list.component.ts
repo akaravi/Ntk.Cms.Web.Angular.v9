@@ -130,6 +130,7 @@ export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

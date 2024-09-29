@@ -62,11 +62,14 @@ export class BankPaymentTransactionViewComponent implements OnInit, OnDestroy {
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
+        this.firstLoadDataRunned = true;
         this.tokenInfo = ret;
       }
     });
     this.getEnumSendSmsStatusType();
   }
+  firstLoadDataRunned = false;
+
   getEnumSendSmsStatusType(): void {
     this.coreEnumService.ServiceSendSmsStatusTypeEnum().subscribe({
       next: (ret) => {

@@ -8,14 +8,11 @@ import { EstateBillboardAddComponent } from './billboard/add/add.component';
 import { EstateBillboardEditComponent } from './billboard/edit/edit.component';
 import { EstateBillboardListComponent } from './billboard/list/list.component';
 import { EstateCategoryRackListComponent } from './category-rack/list/list.component';
-import { EstateCategoryRackListMobileComponent } from './category-rack/list/list.mobile.component';
 import { EstateCategoryZoneListComponent } from './category-zone/list/list.component';
 import { EstateContractTypeListComponent } from './contract-type/list/list.component';
 import { EstateCustomerOrderResultListComponent } from './customer-order-result/list/list.component';
 
-import { EstateCustomerOrderAddMobileComponent } from './customer-order/add/add.mobile.component';
 import { EstateCustomerOrderEditComponent } from './customer-order/edit/edit.component';
-import { EstateCustomerOrderEditMobileComponent } from './customer-order/edit/edit.mobile.component';
 import { EstateCustomerOrderListComponent } from './customer-order/list/list.component';
 import { EstateComponent } from './estate.component';
 import { EstateOverviewEventsComponent } from './overview/events/events.component';
@@ -25,6 +22,7 @@ import { EstatePropertyAdsSaleListComponent } from './property-ads/sale-list/sal
 import { EstatePropertyCompanyAddComponent } from './property-company/add/add.component';
 import { EstatePropertyCompanyEditComponent } from './property-company/edit/edit.component';
 
+import { EstatePropertyCompanyListComponent } from './property-company/list/list.component';
 import { EstatePropertyDetailGroupListComponent } from './property-detail-group/list/list.component';
 import { EstatePropertyDetailListComponent } from './property-detail/list/list.component';
 import { EstatePropertyExpertPriceListComponent } from './property-expert-price/list/list.component';
@@ -38,10 +36,8 @@ import { EstatePropertySupplierListComponent } from './property-supplier/list/li
 import { EstatePropertyTypeLanduseListComponent } from './property-type-landuse/list/list.component';
 import { EstatePropertyTypeUsageListComponent } from './property-type-usage/list/list.component';
 import { EstatePropertyAddComponent } from './property/add/add.component';
-import { EstatePropertyAddMobileComponent } from './property/add/add.mobile.component';
 import { EstatePropertyEditComponent } from './property/edit/edit.component';
 import { EstatePropertyListComponent } from './property/list/list.component';
-import { EstatePropertyCompanyListComponent } from './property-company/list/list.component';
 /**توجه این روت دو بخش داد باید در هر دو بخش روت ها اضفا شود */
 const routesNormal: Routes = [
   {
@@ -265,6 +261,11 @@ const routesNormal: Routes = [
       },
       {
         path: 'property-history/recordstatus/:RecordStatus',
+        component: EstatePropertyHistoryListComponent,
+        data: { title: 'ROUTE.ESTATE.HISTORY' },
+      },
+      {
+        path: 'property-history/responsibleUserId/:ResponsibleUserId',
         component: EstatePropertyHistoryListComponent,
         data: { title: 'ROUTE.ESTATE.HISTORY' },
       },

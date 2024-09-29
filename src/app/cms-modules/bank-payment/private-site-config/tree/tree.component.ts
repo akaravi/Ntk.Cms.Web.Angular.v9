@@ -60,9 +60,14 @@ export class BankPaymentPrivateSiteConfigTreeComponent implements OnInit, OnDest
   cmsApiStoreSubscribe: Subscription;
   @Input() optionReload = () => this.onActionButtonReload();
   hasChild = (_: number, node: BankPaymentPrivateSiteConfigModel) => false;
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
+      this.firstLoadDataRunned = true;
       this.DataGetAll();
     });
   }

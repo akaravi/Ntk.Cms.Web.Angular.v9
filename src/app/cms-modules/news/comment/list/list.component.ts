@@ -104,6 +104,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

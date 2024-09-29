@@ -83,8 +83,12 @@ export class NewsCategoryTreeSelectorComponent implements OnInit, OnDestroy {
   checklistSelection = new SelectionModel<NewsCategoryModel>(true /* multiple */);
   hasChild = (_: number, node: NewsCategoryModel) => !!node.children && node.children.length > 0;
   hasNoContent = (_: number, nodeData: NewsCategoryModel) => nodeData.children;
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.DataGetAll();
     });

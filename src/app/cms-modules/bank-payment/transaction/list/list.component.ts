@@ -122,6 +122,7 @@ export class BankPaymentTransactionListComponent extends ListBaseComponent<BankP
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

@@ -97,6 +97,7 @@ export class CatalogContentListComponent extends ListBaseComponent<CatalogConten
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

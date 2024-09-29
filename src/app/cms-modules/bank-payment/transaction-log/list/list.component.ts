@@ -101,6 +101,7 @@ export class BankPaymentTransactionLogListComponent extends ListBaseComponent<Ba
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

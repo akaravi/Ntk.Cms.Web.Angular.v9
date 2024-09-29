@@ -110,6 +110,7 @@ export class CoreSiteDomainAliasListComponent extends ListBaseComponent<CoreSite
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

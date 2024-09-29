@@ -27,7 +27,7 @@ export class ListBaseComponent<TService extends IApiCmsServerBase, TModel extend
   tableSource: MatTableDataSource<TModel> = new MatTableDataSource<TModel>();
   tokenInfo = new TokenInfoModel();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
-
+  firstLoadDataRunned = false;
   optionsSearch: ComponentOptionSearchModel = new ComponentOptionSearchModel();
   optionsStatist: ComponentOptionStatistModel = new ComponentOptionStatistModel();
   tableRowSelected: TModel;

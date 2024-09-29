@@ -91,6 +91,7 @@ export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopC
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

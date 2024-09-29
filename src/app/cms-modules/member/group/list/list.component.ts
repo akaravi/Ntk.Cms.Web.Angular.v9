@@ -78,6 +78,7 @@ export class MemberGroupListComponent extends ListBaseComponent<MemberGroupServi
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

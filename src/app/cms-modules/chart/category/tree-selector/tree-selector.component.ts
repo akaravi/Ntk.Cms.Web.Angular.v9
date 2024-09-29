@@ -91,9 +91,14 @@ export class ChartCategoryTreeSelectorComponent implements OnInit, OnDestroy {
   hasNoContent = (_: number, nodeData: ChartCategoryModel) => nodeData.children;
 
 
+  firstLoadDataRunned = false;
   ngOnInit(): void {
-    this.DataGetAll();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.DataGetAll();
+    }, 500);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
+      this.firstLoadDataRunned = true;
       this.DataGetAll();
     });
   }

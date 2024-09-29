@@ -84,6 +84,7 @@ export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagS
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

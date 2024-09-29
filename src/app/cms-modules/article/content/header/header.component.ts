@@ -43,19 +43,23 @@ export class ArticletHeaderComponent implements OnInit, OnDestroy {
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
 
 
+  firstLoadDataRunned = false;
 
   cmsApiStoreSubscribe: Subscription;
   ngOnInit(): void {
     if (this.optionId > 0) {
-      this.DataGetOneContent();
+
       this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
         next: (ret) => {
+          this.firstLoadDataRunned = true;
           this.DataGetOneContent();
         }
       });
+      setTimeout(() => {
+        if (!this.firstLoadDataRunned)
+          this.DataGetOneContent();
+      }, 500);
     }
-
-
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();

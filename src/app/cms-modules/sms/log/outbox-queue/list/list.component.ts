@@ -119,6 +119,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

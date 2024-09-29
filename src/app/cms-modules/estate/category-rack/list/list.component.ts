@@ -89,6 +89,7 @@ export class EstateCategoryRackListComponent extends ListBaseComponent<EstateCat
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

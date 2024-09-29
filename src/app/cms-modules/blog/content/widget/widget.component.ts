@@ -40,15 +40,25 @@ export class BlogContentWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/blog/content';
 
-    this.onActionStatist();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.onActionStatist();
+    }, 500);
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
+        this.firstLoadDataRunned = true;
         this.onActionStatist();
       }
     });
 
 
   }
+  firstLoadDataRunned = false;
+  onActionButtonReload(): void {
+    this.onActionStatist();
+  }
+
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
 

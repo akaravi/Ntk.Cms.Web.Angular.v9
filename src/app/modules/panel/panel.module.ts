@@ -27,6 +27,7 @@ import { TicketingTaskWidgetComponent } from 'src/app/cms-modules/ticketing/task
 
 import { WebDesignerLogMemberInfoWidgetComponent } from 'src/app/cms-modules/web-designer/log-member-info/widget/widget.component';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { CmsHtmlWidgetComponent } from 'src/app/shared/cms-html-widget/cms-html-widget.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PageDashboardComponent } from './page-dashboard/page-dashboard.component';
@@ -78,6 +79,7 @@ import { PagesPanelRoutingModule } from './panel.routing';
   ],
   exports: [RouterModule],
   providers: [
+    CmsConfirmationDialogService,
     CoreCpMainMenuService,
     CoreConfigurationService,
     WebDesignerLogMemberInfoService,

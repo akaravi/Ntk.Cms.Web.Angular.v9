@@ -37,15 +37,25 @@ export class ApplicationMemberInfoWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Member');
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/application/memberinfo';
-    this.onActionStatist();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.onActionStatist();
+    }, 500);
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Member');
+        this.firstLoadDataRunned = true;
         this.onActionStatist();
       }
     });
 
   }
+  firstLoadDataRunned = false;
+  onActionButtonReload(): void {
+    this.onActionStatist();
+  }
+
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }

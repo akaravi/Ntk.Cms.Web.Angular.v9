@@ -88,6 +88,7 @@ export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<Esta
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

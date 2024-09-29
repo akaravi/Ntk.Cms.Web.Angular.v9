@@ -88,6 +88,7 @@ export class EstateActivityTypeListComponent extends ListBaseComponent<EstateAct
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

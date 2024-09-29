@@ -35,15 +35,25 @@ export class ChartContentWidgetComponent implements OnInit, OnDestroy {
     this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Chart');
     this.widgetInfoModel.description = '';
     this.widgetInfoModel.link = '/chart/content';
-    this.onActionStatist();
+    setTimeout(() => {
+      if (!this.firstLoadDataRunned)
+        this.onActionStatist();
+    }, 500);
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Chart');
+        this.firstLoadDataRunned = true;
         this.onActionStatist();
       }
     });
 
   }
+  firstLoadDataRunned = false;
+  onActionButtonReload(): void {
+    this.onActionStatist();
+  }
+
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
   }

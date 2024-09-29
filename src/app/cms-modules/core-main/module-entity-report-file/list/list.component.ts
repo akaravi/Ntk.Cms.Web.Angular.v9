@@ -106,6 +106,7 @@ export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<C
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

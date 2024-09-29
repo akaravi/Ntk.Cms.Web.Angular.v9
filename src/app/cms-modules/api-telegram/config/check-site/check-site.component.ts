@@ -32,11 +32,16 @@ export class ApiTelegramConfigCheckSiteComponent implements OnInit, OnDestroy {
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
-      this.onLoadDate();
+      
+      setTimeout(() => {
+        if (!this.firstLoadDataRunned)
+          this.onLoadDate();
+      }, 500);
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.onLoadDate();
       }
     });
@@ -44,7 +49,7 @@ export class ApiTelegramConfigCheckSiteComponent implements OnInit, OnDestroy {
   }
   cmsApiStoreSubscribe: Subscription;
   tokenInfo = new TokenInfoModel();
-
+  firstLoadDataRunned = false;
   dataModelResult: ErrorExceptionResult<BaseModuleSiteCheckSiteModel> = new ErrorExceptionResult<BaseModuleSiteCheckSiteModel>();
   tableRowsSelected: Array<BaseModuleSiteCheckSiteModel> = [];
   tableRowSelected: BaseModuleSiteCheckSiteModel = new BaseModuleSiteCheckSiteModel();

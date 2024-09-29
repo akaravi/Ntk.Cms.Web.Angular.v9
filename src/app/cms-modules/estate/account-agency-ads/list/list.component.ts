@@ -104,6 +104,7 @@ export class EstateAccountAgencyAdsListComponent extends ListBaseComponent<Estat
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });

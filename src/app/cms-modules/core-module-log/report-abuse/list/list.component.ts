@@ -132,6 +132,7 @@ export class CoreModuleLogReportAbuseListComponent extends ListBaseComponent<Cor
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });
