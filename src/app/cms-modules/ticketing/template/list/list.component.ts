@@ -81,7 +81,10 @@ export class TicketingTemplateListComponent extends ListBaseComponent<TicketingT
     this.requestDepartemenId = + Number(this.activatedRoute.snapshot.paramMap.get('DepartemenId'));
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
-      this.DataGetAll();
+      setTimeout(() => {
+        if (!this.firstLoadDataRunned)
+          this.DataGetAll();
+      }, 500);
     });
 
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({

@@ -240,6 +240,12 @@ const routesNormal: Routes = [
         data: { title: 'ROUTE.ESTATE.HISTORY' },
       },
       {
+        path: 'property-history/InCheckingPlanedToDay/:InCheckingPlanedToDay',
+        component: EstatePropertyHistoryListComponent,
+        data: { title: 'ROUTE.ESTATE.HISTORY' },
+      },
+
+      {
         path: 'property-history/LinkPropertyId/:LinkPropertyId',
         component: EstatePropertyHistoryListComponent,
         data: { title: 'ROUTE.ESTATE.HISTORY' },

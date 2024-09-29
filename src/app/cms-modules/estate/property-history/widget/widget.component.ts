@@ -181,7 +181,8 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     /** */
     let filterStatist4 = new EstatePropertyHistoryFilterModel();
     filterStatist4 = JSON.parse(JSON.stringify(this.filteModelContent));
-    //filterStatist4.onDateTimeFrom = new Date(new Date().setHours(0, 0, 0, 0));
+    const hours = 48;
+    filterStatist4.onDateTimeFrom = new Date(new Date().setHours(0, 0, 0, 0) - (hours * 60 * 60 * 1000));
     filterStatist4.onDateTimeTo = new Date(new Date().setHours(23, 59, 59, 999));
     filterStatist4.linkResponsibleUserId = this.tokenInfo.userId;
     fastfilter = new FilterDataModel();
@@ -217,15 +218,14 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
   confirmDialogPlanned(count: number) {
     var title = "";
     var message = "";
-    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_delete_this_content']).subscribe((str: string) => {
+    this.translate.get(['MESSAGE.Please_Confirm', 'MESSAGE.Do_you_want_to_View']).subscribe((str: string) => {
       title = str['MESSAGE.Please_Confirm'];
-      message = str['MESSAGE.Do_you_want_to_delete_this_content'] + '?' + '<br> ( ' + count + ' ) ';
+      message = str['MESSAGE.Do_you_want_to_View'] + '?' + '<br> ( ' + "تعداد " + count + " عدد فعالیت برای امروز شما می باشد" + ' ) ';
     });
     this.cmsConfirmationDialogService.confirm(title, message)
       .then((confirmed) => {
         if (confirmed) {
-
-          this.router.navigate(['/estate/property-history/activitystatus/0']);
+          this.router.navigate(['/estate/property-history/InCheckingPlanedToDay/' + this.tokenInfo.userId]);
         }
       }
       )

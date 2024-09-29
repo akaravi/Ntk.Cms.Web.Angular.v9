@@ -678,6 +678,7 @@
   "MESSAGE.no_row_selected_to_delete": "No row selected to delete",
   "MESSAGE.no_row_selected_to_display": "No row selected for display",
   "MESSAGE.Do_you_want_to_delete_this_content": "Do you want to delete this content",
+  "MESSAGE.Do_you_want_to_View": "Do you want to view this content",
   "MESSAGE.Type_of_User_account_is_not_known": "User account information is unknown",
   "MESSAGE.Category_of_billboard_information_is_not_clear": "Category of billboard information is not clear",
   "MESSAGE.Type_of_property_transaction_is_not_known": "Type of property transaction is not known",

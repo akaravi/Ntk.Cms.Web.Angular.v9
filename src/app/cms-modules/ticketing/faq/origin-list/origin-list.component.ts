@@ -64,15 +64,20 @@ export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
   cmsApiStoreSubscribe: Subscription;
   DataDepartemanLinkSelect = 0;
   DataFaqLinkSelect = 0;
+  firstLoadDataRunned = false;
   ngOnInit(): void {
     this.DataDepartemenGetAll();
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
-      this.DataGetAll();
+      setTimeout(() => {
+        if (!this.firstLoadDataRunned)
+          this.DataGetAll();
+      }, 500);
     });
 
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
+        this.firstLoadDataRunned = true;
         this.DataDepartemenGetAll();
         this.tokenInfo = ret;
         this.DataGetAll();

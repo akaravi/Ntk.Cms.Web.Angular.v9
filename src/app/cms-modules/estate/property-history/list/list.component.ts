@@ -21,6 +21,7 @@ import {
   EstatePropertyHistoryModel,
   EstatePropertyHistoryService,
   FilterDataModel,
+  FilterDataModelSearchTypesEnum,
   FilterModel,
   InfoEnumModel,
   RecordStatusEnum,
@@ -95,25 +96,19 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
     /**ActivityStatus */
     this.requestActivityStatus = ActivityStatusEnumEstate[this.activatedRoute.snapshot.paramMap.get('ActivityStatus') + ''];
-    if (this.requestRecordStatus) {
-      if (this.requestActivityStatus == ActivityStatusEnumEstate.Planned) {
-        this.searchInCheckingPlaned = true;
-      } else {
-        this.optionsSearch.data.show = true;
-        this.optionsSearch.data.defaultQuery = '{"condition":"and","rules":[{"field":"ActivityStatus","type":"select","operator":"equal","value":"' + this.requestRecordStatus + '"}]}';
-        this.requestActivityStatus = null;
-      }
-    }
     /**ActivityStatus */
-
-
     this.optionsSearch.parentMethods = {
       onSubmit: (model) => this.onSubmitOptionsSearch(model),
     };
     if (this.activatedRoute.snapshot.paramMap.get('InCheckingOnDay')) {
-      this.searchInCheckingOnDay =
-        this.activatedRoute.snapshot.paramMap.get('InCheckingOnDay') === 'true';
+      this.searchInCheckingOnDay = this.activatedRoute.snapshot.paramMap.get('InCheckingOnDay') === 'true';
     }
+    if (this.activatedRoute.snapshot.paramMap.get('InCheckingPlanedToDay')) {
+      this.searchInCheckingPlanedToDay = true;
+      this.searchInCheckingPlanedToDayUserId = + this.activatedRoute.snapshot.paramMap.get('InCheckingPlanedToDay') | 0;
+
+    }
+
     /*filter Sort*/
     this.filteModelContent.sortColumn = 'CreatedDate';
     this.filteModelContent.sortType = SortTypeEnum.Descending;
@@ -145,10 +140,11 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
   categoryModelSelected: EstateActivityTypeModel;
   searchInCheckingOnDay = false;
-  searchInCheckingPlaned = false;
+  searchInCheckingPlanedToDay = false;
+  searchInCheckingPlanedToDayUserId = 0;
 
   searchInCheckingOnDayChecked = false;
-  searchInCheckingPlanedChecked = false;
+  searchInCheckingPlanedToDayChecked = false;
 
   searchInResponsible = false;
   searchInResponsibleChecked = false;
@@ -190,7 +186,10 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     this.filteModelContent.sortColumn = 'CreatedDate';
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
-      this.DataGetAll();
+      setTimeout(() => {
+        if (!this.firstLoadDataRunned)
+          this.DataGetAll();
+      }, 500);
     });
 
     this.cmsApiStoreSubscribe = this.tokenHelper
@@ -210,6 +209,9 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   ngAfterViewInit(): void {
     if (this.searchInCheckingOnDay) {
       this.searchInCheckingOnDayChecked = true;
+    }
+    if (this.searchInCheckingPlanedToDay) {
+      this.searchInCheckingPlanedToDayChecked = true;
     }
   }
   getEstateActivityStatusEnum(): void {
@@ -258,10 +260,25 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
 
 
-    if (this.searchInCheckingPlaned) {
+    if (this.requestActivityStatus != null) {
       const filter = new FilterDataModel();
       filter.propertyName = 'activityStatus';
       filter.value = ActivityStatusEnumEstate.Planned;
+      filterModel.filters.push(filter);
+    }
+
+    if (this.searchInCheckingPlanedToDay) {
+      const filter = new FilterDataModel();
+      const hours = 48;
+      filterModel.onDateTimeFrom = new Date(new Date().setHours(0, 0, 0, 0) - (hours * 60 * 60 * 1000));
+      filterModel.onDateTimeTo = new Date(new Date().setHours(23, 59, 59, 999));
+      if (this.searchInCheckingPlanedToDayUserId === 0)
+        filterModel.linkResponsibleUserId = this.tokenInfo.userId;
+      else
+        filterModel.linkResponsibleUserId = this.searchInCheckingPlanedToDayUserId;
+      filter.propertyName = 'activityStatus';
+      filter.value = ActivityStatusEnumEstate.Planned;
+      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
       filterModel.filters.push(filter);
     }
 
@@ -799,7 +816,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     }
   }
   onActionButtonInCheckingPlaned(model: boolean): void {
-    this.searchInCheckingPlaned = model;
+    this.searchInCheckingPlanedToDay = model;
 
     this.DataGetAll();
 

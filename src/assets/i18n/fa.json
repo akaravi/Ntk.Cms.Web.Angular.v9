@@ -685,6 +685,7 @@
   "MESSAGE.no_row_selected_to_delete": "ردیفی برای حذف انتخاب نشده است",
   "MESSAGE.no_row_selected_to_display": "ردیفی برای نمایش انتخاب نشده است",
   "MESSAGE.Do_you_want_to_delete_this_content": "آیا مایل به حذف این محتوا می باشید",
+  "MESSAGE.Do_you_want_to_View": "آیا مایل به مشاهده این محتوا می باشید",
   "MESSAGE.Type_of_User_account_is_not_known": "اطلاعات حساب کاربری مشخص نیست",
   "MESSAGE.Application_information_is_not_clear": "اطلاعات اپلیکیشن مشخص نیست",
   "MESSAGE.Application_is_not_clear": "اپلیکیشن مشخص نیست",

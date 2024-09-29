@@ -65,18 +65,22 @@ export class CoreModuleSaleItemListViewComponent implements OnInit, OnDestroy {
 
 
   cmsApiStoreSubscribe: Subscription;
-
+  firstLoadDataRunned = false;
   ngOnInit(): void {
     this.filteModelContent.sortColumn = 'Title';
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
-      this.DataGetAll();
+      setTimeout(() => {
+        if (!this.firstLoadDataRunned)
+          this.DataGetAll();
+      }, 500);
     });
 
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.getEnumCmsModuleSaleItemType();
         this.tokenInfo = ret;
+        this.firstLoadDataRunned = true;
         this.DataGetAll();
       }
     });
