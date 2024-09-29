@@ -53,7 +53,7 @@ export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDest
     setTimeout(() => {
       if (!this.firstLoadDataRunned)
         this.onActionStatist();
-    }, 500);
+    }, 1000);
 
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {

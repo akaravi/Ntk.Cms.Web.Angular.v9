@@ -38,7 +38,7 @@ export class ApplicationAppWidgetComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       if (!this.firstLoadDataRunned)
         this.onActionStatist();
-    }, 500);
+    }, 1000);
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
         this.widgetInfoModel.title = this.translate.instant('TITLE.Registered_Application');

@@ -37,7 +37,7 @@ export class CoreModuleLogReportAbuseWidgetComponent implements OnInit, OnDestro
     setTimeout(() => {
       if (!this.firstLoadDataRunned)
         this.onActionStatist();
-    }, 500);
+    }, 1000);
 
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {

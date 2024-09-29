@@ -48,7 +48,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       if (!this.firstLoadDataRunned)
         this.onActionStatist();
-    }, 500);
+    }, 1000);
 
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
@@ -196,9 +196,12 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
       next: (ret) => {
         if (ret.isSuccess) {
           if (ret.totalRowCount > 0) {
-            this.widgetInfoModel.setItem(new WidgetContentInfoModel('PlannedToDay', 5, ret.totalRowCount, '/estate/property-history/activitystatus/0'));
+            this.widgetInfoModel.setItem(new WidgetContentInfoModel('PlannedToDay', 5, ret.totalRowCount, '/estate/property-history/InCheckingPlanedToDay/' + this.tokenInfo.userId));
             this.cmsToastrService.typeWarningMessage("تعداد " + ret.totalRowCount + " عدد فعالیت برای امروز شما می باشد", " فعالیت برنامه ریزی شده برای شما");
-            this.confirmDialogPlanned(ret.totalRowCount);
+            setTimeout(() =>
+              this.confirmDialogPlanned(ret.totalRowCount)
+              , 2 * 60 * 1000);
+
           }
           else {
             this.widgetInfoModel.link = '/estate/property-history';

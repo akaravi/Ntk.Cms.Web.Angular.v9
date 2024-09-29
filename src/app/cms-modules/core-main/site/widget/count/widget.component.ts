@@ -43,7 +43,7 @@ export class CoreSiteWidgetCountComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       if (!this.firstLoadDataRunned)
         this.onActionStatist();
-    }, 500);
+    }, 1000);
 
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe({
       next: (ret) => {
