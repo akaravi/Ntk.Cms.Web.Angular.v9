@@ -200,7 +200,7 @@ export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {
             this.cmsToastrService.typeWarningMessage("تعداد " + ret.totalRowCount + " عدد فعالیت برای امروز شما می باشد", " فعالیت برنامه ریزی شده برای شما");
             setTimeout(() =>
               this.confirmDialogPlanned(ret.totalRowCount)
-              , 2 * 60 * 1000);
+              , 30 * 1000);
 
           }
           else {
