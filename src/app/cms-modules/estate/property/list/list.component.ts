@@ -26,6 +26,7 @@ import { environment } from "src/environments/environment";
 import { EstatePropertyHistoryAddComponent } from "../../property-history/add/add.component";
 import { EstatePropertyQuickAddComponent } from "../quick-add/quick-add.component";
 import { EstatePropertyQuickViewComponent } from "../quick-view/quick-view.component";
+import { EstatePropertyResponsibleUserListComponent } from "../responsible-user-list/responsible-user-list.component";
 
 
 @Component({
@@ -1204,7 +1205,32 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   }
   expandedElement: any;
 
-
+  onActionButtonResponsibleUserlistView(model: EstatePropertyModel = this.tableRowSelected): void {
+    if (!model || !model.id || model.id.length === 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+    this.tableRowSelected = model;
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstatePropertyResponsibleUserListComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {
+        title: this.tableRowSelected.title,
+        id: this.tableRowSelected.id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.dialogChangedDate) {
+      }
+    });
+  }
 
 
   setStep(index: number): void {

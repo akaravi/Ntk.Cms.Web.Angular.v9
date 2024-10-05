@@ -197,6 +197,7 @@ import { EstatePropertyActionComponent } from './property/action/action.componen
 import { EstatePropertyQuickAddComponent } from './property/quick-add/quick-add.component';
 import { EstatePropertyQuickListComponent } from './property/quick-list/quick-list.component';
 import { EstatePropertyQuickViewComponent } from './property/quick-view/quick-view.component';
+import { EstatePropertyResponsibleUserListComponent } from './property/responsible-user-list/responsible-user-list.component';
 
 
 @NgModule({
@@ -285,6 +286,7 @@ import { EstatePropertyQuickViewComponent } from './property/quick-view/quick-vi
     EstatePropertyActionComponent,
     EstatePropertyQuickViewComponent,
     EstatePropertyQuickListComponent,
+    EstatePropertyResponsibleUserListComponent,
     /* */
     EstatePropertyHistoryAddComponent,
     EstatePropertyHistoryAddMobileComponent,
