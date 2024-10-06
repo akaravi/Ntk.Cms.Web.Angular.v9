@@ -26,6 +26,7 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyHistoryAddComponent } from '../../property-history/add/add.component';
 import { EstateCustomerOrderAddToEditComponent } from '../add/add-to-edit.component';
 import { EstateCustomerOrderQuickViewComponent } from '../quick-view/quick-view.component';
+import { EstateCustomerOrderResponsibleUserListComponent } from '../responsible-user-list/responsible-user-list.component';
 @Component({
   selector: 'app-estate-customer-order-list',
   templateUrl: './list.component.html',
@@ -827,7 +828,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
       data: {
         linkActivityTypeId: this.categoryModelSelected?.id,
         linkPropertyId: null,
-        linkEstateUserId: null,
+        linkEstateExpertId: null,
         linkCustomerOrderId: model.id,
         linkEstateAgencyId: null
       }
@@ -879,6 +880,32 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     });
   }
 
+  onActionButtonResponsibleUserlistView(model: EstateCustomerOrderModel = this.tableRowSelected): void {
+    if (!model || !model.id || model.id.length === 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+    this.tableRowSelected = model;
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstateCustomerOrderResponsibleUserListComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {
+        title: this.tableRowSelected.title,
+        id: this.tableRowSelected.id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.dialogChangedDate) {
+      }
+    });
+  }
   setStep(index: number): void {
     this.step = index;
   }

@@ -59,6 +59,7 @@
       </mat-slide-toggle>
       {{'ACTION.InResponsible' | translate}}
     </a>
+
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-end-->
   </ng-container>
   <ng-container cms-action-main>
@@ -141,6 +142,13 @@
           style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'TITLE.LINKTO' | translate}}</p>
+    </div>
+    <div class="col-4">
+      <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        (click)="onActionButtonResponsibleUserlistView(tableRowSelected)" target="_blank"><i
+          class="fa-solid fa-share font-18" style="color: #ffffff;"></i><br>
+      </a>
+      <p class="font-11 text-center opacity-70">{{'TITLE.ResponsibleUsers' | translate}}</p>
     </div>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
@@ -547,17 +555,17 @@
           </button>
         </mat-cell>
       </ng-container>
-          <!-- QuickView Column -->
-          <ng-container matColumnDef="QuickView">
-            <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{'TITLE.QUICK_VIEW' |
-              translate}}
-            </mat-header-cell>
-            <mat-cell *matCellDef="let row">
-              <button type="button" mat-icon-button class="text-dark" (click)="onActionButtonQuickViewRow(row)">
-                <mat-icon style="color:#ff671f;">visibility</mat-icon>
-              </button>
-            </mat-cell>
-          </ng-container>
+      <!-- QuickView Column -->
+      <ng-container matColumnDef="QuickView">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{'TITLE.QUICK_VIEW' |
+          translate}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button type="button" mat-icon-button class="text-dark" (click)="onActionButtonQuickViewRow(row)">
+            <mat-icon style="color:#ff671f;">visibility</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">

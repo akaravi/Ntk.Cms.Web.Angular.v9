@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService,
   ErrorExceptionResult,
-  EstateAccountAgencyModel, EstateAccountUserModel, EstateActivityTypeModel, EstateCustomerOrderModel, EstateEnumService, EstatePropertyHistoryModel, EstatePropertyHistoryService, EstatePropertyModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
+  EstateAccountAgencyModel, EstateAccountExpertModel, EstateActivityTypeModel, EstateCustomerOrderModel, EstateEnumService, EstatePropertyHistoryModel, EstatePropertyHistoryService, EstatePropertyModel, FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
@@ -169,10 +169,10 @@ export class EstatePropertyHistoryEditComponent extends EditBaseComponent<Estate
     }
     );
   }
-  onActionSelectorEstateUser(model: EstateAccountUserModel | null): void {
-    this.dataModel.linkEstateUserId = null;
+  onActionSelectorEstateUser(model: EstateAccountExpertModel | null): void {
+    this.dataModel.linkEstateExpertId = null;
     if (model && model.id.length > 0) {
-      this.dataModel.linkEstateUserId = model.id;
+      this.dataModel.linkEstateExpertId = model.id;
     }
   }
   onActionSelectorProperty(model: EstatePropertyModel | null): void {

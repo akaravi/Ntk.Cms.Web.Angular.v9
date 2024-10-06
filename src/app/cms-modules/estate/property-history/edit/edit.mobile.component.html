@@ -189,12 +189,13 @@
     <div class="cms-m-container">
       <div class="cms-m-filter">
         <div class="cms-m-container-header"></div>
-        <!-- LinkEstateUserId Field -->
+        <!-- LinkEstateExpertId Field -->
         <div class="cms-m-container-body">
-          <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
-            *ngIf="fieldsInfo['linkEstateUserId']?.accessWatchField" [optionSelectForce]="dataModel.linkEstateUserId"
-            [optionPlaceholder]="'TITLE.USER' | translate" class="theme-rtl">
-          </app-estate-account-user-selector>
+          <app-estate-account-expert-selector (optionChange)="onActionSelectorEstateUser($event)"
+            *ngIf="fieldsInfo['linkEstateExpertId']?.accessWatchField"
+            [optionSelectForce]="dataModel.linkEstateExpertId" [optionPlaceholder]="'TITLE.USER' | translate"
+            class="theme-rtl">
+          </app-estate-account-expert-selector>
           <br />
           <!-- linkchooseFileId Field -->
           <app-estate-account-agency-selector *ngIf="fieldsInfo['linkEstateAgencyId']?.accessWatchField"

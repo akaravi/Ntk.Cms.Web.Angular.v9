@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel, CoreEnumService, CoreUserModel, DataFieldInfoModel,
-  ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractTypeModel, EstateContractTypeService, EstateCustomerCategoryModel, EstateCustomerOrderModel, EstateCustomerOrderService, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyService, EstatePropertyTypeLanduseModel,
+  ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountExpertModel, EstateContractTypeModel, EstateContractTypeService, EstateCustomerCategoryModel, EstateCustomerOrderModel, EstateCustomerOrderService, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyService, EstatePropertyTypeLanduseModel,
   EstatePropertyTypeUsageModel, FilterDataModel,
   FilterModel, FormInfoModel,
   InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum, SortTypeEnum
@@ -23,7 +23,7 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyListComponent } from '../../account-agency/list/list.component';
-import { EstateAccountUserListComponent } from '../../account-user/list/list.component';
+import { EstateAccountExpertListComponent } from '../../account-expert/list/list.component';
 import { EstatePropertyHistoryAddComponent } from '../../property-history/add/add.component';
 import { EstatePropertyHistoryListComponent } from '../../property-history/list/list.component';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
@@ -69,7 +69,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
   @ViewChild(EstatePropertyListComponent) estatePropertyHaveHistoryListComponent: EstatePropertyListComponent;
 
   @ViewChild(EstateAccountAgencyListComponent) estateAccountAgencyListComponent: EstateAccountAgencyListComponent;
-  @ViewChild(EstateAccountUserListComponent) estateAccountUserListComponent: EstateAccountUserListComponent;
+  @ViewChild(EstateAccountExpertListComponent) estateAccountExpertListComponent: EstateAccountExpertListComponent;
   @ViewChild(EstatePropertyHistoryListComponent) estatePropertyHistoryListComponent: EstatePropertyHistoryListComponent;
   allowActionSend = false;
 
@@ -328,12 +328,12 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
 
     this.cdr.detectChanges();
   }
-  onActionSelectorEstateUser(model: EstateAccountUserModel | null): void {
-    this.dataModel.linkEstateUserId = null;
+  onActionSelectorEstateUser(model: EstateAccountExpertModel | null): void {
+    this.dataModel.linkEstateExpertId = null;
     if (!model || !model.id || model.id.length <= 0) {
       return;
     }
-    this.dataModel.linkEstateUserId = model.id;
+    this.dataModel.linkEstateExpertId = model.id;
   }
 
   onActionSelectorEstateAgency(model: EstateAccountAgencyModel | null): void {
@@ -440,10 +440,10 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
     this.estateAccountAgencyListComponent.DataGetAll();
   }
   onFormLoadEstateUserResult(): void {
-    this.loadResult = 'estateAccountUserList';
+    this.loadResult = 'estateAccountExpertList';
     this.cdr.detectChanges();
-    this.estateAccountUserListComponent.optionloadComponent = true;
-    this.estateAccountUserListComponent.DataGetAll();
+    this.estateAccountExpertListComponent.optionloadComponent = true;
+    this.estateAccountExpertListComponent.DataGetAll();
   }
 
   onFormLoadEstateHistoryResult(): void {
@@ -476,7 +476,7 @@ export class EstateCustomerOrderEditComponent extends EditBaseComponent<EstateCu
       data: {
         linkActivityTypeId: null,
         linkPropertyId: null,
-        linkEstateUserId: null,
+        linkEstateExpertId: null,
         linkCustomerOrderId: this.dataModel.id,
         linkEstateAgencyId: null
       }

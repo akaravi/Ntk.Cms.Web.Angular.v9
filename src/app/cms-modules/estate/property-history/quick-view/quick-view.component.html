@@ -67,9 +67,9 @@
               <td>{{fieldsInfo['updatedBy']?.fieldTitle}}:</td>
               <td class="input-ltr-right">{{dataModel.updatedBy| cmsuserinfo |async}}</td>
             </tr>
-            <tr *ngIf="dataModel.linkEstateUserId?.length>0">
-              <td>{{fieldsInfo['linkEstateUserId']?.fieldTitle}}:</td>
-              <td class="input-ltr-right">{{dataModel.linkEstateUserId|estateAccountUserInfo |async}}</td>
+            <tr *ngIf="dataModel.linkEstateExpertId?.length>0">
+              <td>{{fieldsInfo['linkEstateExpertId']?.fieldTitle}}:</td>
+              <td class="input-ltr-right">{{dataModel.linkEstateExpertId|estateAccountExpertInfo |async}}</td>
             </tr>
             <tr *ngIf="dataModel.linkEstateAgencyId?.length>0">
               <td>{{fieldsInfo['linkEstateAgencyId']?.fieldTitle}}:</td>

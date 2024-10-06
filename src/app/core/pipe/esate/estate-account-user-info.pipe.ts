@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { EstateAccountUserService } from 'ntk-cms-api';
+import { EstateAccountExpertService } from 'ntk-cms-api';
 import { Observable, map } from 'rxjs';
 
-@Pipe({ name: 'estateAccountUserInfo' })
-export class estateAccountUserInfoPipe implements PipeTransform {
-  constructor(public service: EstateAccountUserService) {
+@Pipe({ name: 'estateAccountExpertInfo' })
+export class estateAccountExpertInfoPipe implements PipeTransform {
+  constructor(public service: EstateAccountExpertService) {
   }
   transform(value: string): Observable<string> {
     if (!value || value.length <= 0) {

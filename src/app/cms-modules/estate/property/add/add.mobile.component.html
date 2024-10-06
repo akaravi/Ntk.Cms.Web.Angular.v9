@@ -342,13 +342,13 @@
             [optionPlaceholder]="'TITLE.Property_agency'  | translate">
           </app-estate-account-agency-selector>
 
-          <!-- LinkEstateUserId Field -->
-          <app-estate-account-user-selector *ngIf="this.tokenHelper.isAdminSite"
+          <!-- LinkEstateExpertId Field -->
+          <app-estate-account-expert-selector *ngIf="this.tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorEstateUser($event)"
-            [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkEstateUserId"
+            [optionDisabled]="!fieldsInfo['linkEstateExpertId']?.accessAddField"
+            [optionSelectForce]="dataModel.linkEstateExpertId"
             [optionPlaceholder]="'TITLE.Property_personnel' | translate">
-          </app-estate-account-user-selector>
+          </app-estate-account-expert-selector>
 
           <!-- AboutAgentMobile Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
@@ -861,7 +861,7 @@
             <p>
               {{ "TITLE.List_Of_Transaction_Details_Of_This_Property" | translate }}
             </p>
-            <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
+
             <!-- TABLE  -->
             <div class="example-container mat-elevation-z8" *ngIf="!this.publicHelper.processService.process.inRunAll">
               <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>

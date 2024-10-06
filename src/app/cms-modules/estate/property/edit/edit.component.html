@@ -271,13 +271,13 @@
             [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
             [optionPlaceholder]="'TITLE.Property_agency'  | translate">
           </app-estate-account-agency-selector>
-          <!-- LinkEstateUserId Field -->
-          <app-estate-account-user-selector *ngIf="this.tokenHelper.isAdminSite"
+          <!-- LinkEstateExpertId Field -->
+          <app-estate-account-expert-selector *ngIf="this.tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorEstateUser($event)"
-            [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessEditField"
-            [optionSelectForce]="dataModel.linkEstateUserId"
+            [optionDisabled]="!fieldsInfo['linkEstateExpertId']?.accessEditField"
+            [optionSelectForce]="dataModel.linkEstateExpertId"
             [optionPlaceholder]="'TITLE.Property_personnel' | translate ">
-          </app-estate-account-user-selector>
+          </app-estate-account-expert-selector>
           <!-- AboutAgentMobile Field -->
           <div *ngIf="fieldsInfo['aboutAgentMobile']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -564,8 +564,8 @@
                     class="color-highlight">contractTypeSelected.titleSalePriceML</label>
                   <input matInput type="text" [(ngModel)]="contractDataModel.salePrice"
                     name="contractDataModel.salePrice" currencyMask type="text" placeholder="0"
-                    [disabled]="contractDataModel.salePriceByAgreement" class="form-control validate-name input-ltr-center"
-                    id="contractDataModel.salePrice" />
+                    [disabled]="contractDataModel.salePriceByAgreement"
+                    class="form-control validate-name input-ltr-center" id="contractDataModel.salePrice" />
                 </div>
                 <div class="col-3">
                   <div *ngIf="contractTypeSelected.salePriceAllowAgreement" class="d-flex mb-3">
@@ -593,8 +593,8 @@
                     }}</label>
                   <input matInput type="text" [(ngModel)]="contractDataModel.depositPrice"
                     name="contractDataModel.depositPrice" currencyMask type="text" placeholder="0"
-                    [disabled]="contractDataModel.depositPriceByAgreement" class="form-control validate-name input-ltr-center"
-                    id="contractDataModel.depositPrice" />
+                    [disabled]="contractDataModel.depositPriceByAgreement"
+                    class="form-control validate-name input-ltr-center" id="contractDataModel.depositPrice" />
                 </div>
                 <div class="col-3">
                   <div *ngIf="contractTypeSelected.depositPriceAllowAgreement" class="d-flex mb-3">
@@ -621,8 +621,8 @@
                     class="color-highlight">contractTypeSelected.titleRentPriceML</label>
                   <input matInput type="text" [(ngModel)]="contractDataModel.rentPrice"
                     name="contractDataModel.rentPrice" currencyMask type="text" placeholder="0"
-                    [disabled]="contractDataModel.rentPriceByAgreement" class="form-control validate-name input-ltr-center"
-                    id="contractDataModel.rentPrice" />
+                    [disabled]="contractDataModel.rentPriceByAgreement"
+                    class="form-control validate-name input-ltr-center" id="contractDataModel.rentPrice" />
                 </div>
                 <div class="col-3">
                   <div *ngIf="contractTypeSelected.rentPriceAllowAgreement" class="d-flex mb-3">
@@ -649,8 +649,8 @@
                     class="color-highlight">contractTypeSelected.titlePeriodPriceML</label>
                   <input matInput type="text" [(ngModel)]="contractDataModel.periodPrice"
                     name="contractDataModel.periodPrice" currencyMask type="text" placeholder="0"
-                    [disabled]="contractDataModel.periodPriceByAgreement" class="form-control validate-name input-ltr-center"
-                    id="contractDataModel.periodPrice" />
+                    [disabled]="contractDataModel.periodPriceByAgreement"
+                    class="form-control validate-name input-ltr-center" id="contractDataModel.periodPrice" />
                 </div>
                 <div class="col-3">
                   <div *ngIf=" contractTypeSelected.hasPeriodPrice && contractTypeSelected.periodPriceAllowAgreement"
@@ -693,7 +693,7 @@
           </div>
           <hr>
           <p> {{'TITLE.List_Of_Transaction_Details_Of_This_Property' | translate}} </p>
-          <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
+
           <!-- TABLE  -->
           <div class="example-container mat-elevation-z8" *ngIf="!this.publicHelper.processService.process.inRunAll">
             <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>
@@ -920,9 +920,9 @@
   <div class="ntk-cms-html-card-footer">
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-footer-->
     <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
-    (click)="onActionBackToParent()">
-    {{'ACTION.BACK_TO_PROPERTY_LIST' | translate}}
-  </button>
+      (click)="onActionBackToParent()">
+      {{'ACTION.BACK_TO_PROPERTY_LIST' | translate}}
+    </button>
     <button type="button" (click)="onFormLoadEstateCustomerOrderResult()"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
       *ngIf="dataModel?.id?.length >0 && this.dataModel?.linkLocationId&&this.dataModel?.linkLocationId>0">
@@ -976,10 +976,10 @@
       #estateAccountAgencyListComponent></app-estate-account-agency-list>
   </div>
 
-  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult==='estateAccountUserList'">
-    <app-estate-account-user-list [optionLinkLocationWorkAreaId]="dataModel.linkLocationId"
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult==='estateAccountExpertList'">
+    <app-estate-account-expert-list [optionLinkLocationWorkAreaId]="dataModel.linkLocationId"
       [optionloadComponent]="false" [optionloadByRoute]="false"
-      #estateAccountUserListComponent></app-estate-account-user-list>
+      #estateAccountExpertListComponent></app-estate-account-expert-list>
   </div>
   <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult==='estateCustomerOrderList'">
     <app-estate-customer-order-list [optionLinkPropertyId]="dataModel.id" [optionloadComponent]="false"

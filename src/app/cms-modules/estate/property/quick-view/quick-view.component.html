@@ -119,8 +119,7 @@
 
         <hr>
         <p> {{'TITLE.List_Of_Transaction_Details_Of_This_Property' | translate}} </p>
-        <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
-        <!-- TABLE  -->
+                <!-- TABLE  -->
         <div class="example-container mat-elevation-z8" *ngIf="!this.publicHelper.processService.process.inRunAll">
           <mat-table [dataSource]="optionTabledataSource" multiTemplateDataRows>
             <!-- LinkEstateContractTypeId Column -->

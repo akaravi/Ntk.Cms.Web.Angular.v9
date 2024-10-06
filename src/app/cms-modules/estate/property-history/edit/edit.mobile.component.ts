@@ -8,7 +8,7 @@ import {
   ErrorExceptionResult,
   ErrorExceptionResultBase,
   EstateAccountAgencyModel,
-  EstateAccountUserModel,
+  EstateAccountExpertModel,
   EstateActivityTypeModel,
   EstateActivityTypeService,
   EstateCustomerOrderModel,
@@ -235,10 +235,10 @@ export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<
       },
     });
   }
-  onActionSelectorEstateUser(model: EstateAccountUserModel | null): void {
-    this.dataModel.linkEstateUserId = null;
+  onActionSelectorEstateUser(model: EstateAccountExpertModel | null): void {
+    this.dataModel.linkEstateExpertId = null;
     if (model && model.id.length > 0) {
-      this.dataModel.linkEstateUserId = model.id;
+      this.dataModel.linkEstateExpertId = model.id;
     }
   }
   onActionSelectorProperty(model: EstatePropertyModel | null): void {

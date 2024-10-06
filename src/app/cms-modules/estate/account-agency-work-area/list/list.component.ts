@@ -19,7 +19,7 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyWorkAreaAddComponent } from '../add/add.component';
 @Component({
-  selector: 'app-estate-account-agency-type-user-list',
+  selector: 'app-estate-account-agency-work-area-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })

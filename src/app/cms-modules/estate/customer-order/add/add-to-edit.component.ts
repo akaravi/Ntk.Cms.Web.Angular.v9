@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService,
   CoreUserModel,
-  ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountUserModel, EstateCustomerCategoryModel,
+  ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountExpertModel, EstateCustomerCategoryModel,
   EstateCustomerOrderModel,
   EstateCustomerOrderService,
   FormInfoModel,
@@ -172,11 +172,11 @@ export class EstateCustomerOrderAddToEditComponent extends AddBaseComponent<Esta
     }
     this.dataModel.linkEstateAgencyId = model.id;
   }
-  onActionSelectorEstateUser(model: EstateAccountUserModel | null): void {
-    this.dataModel.linkEstateUserId = null;
+  onActionSelectorEstateUser(model: EstateAccountExpertModel | null): void {
+    this.dataModel.linkEstateExpertId = null;
     if (!model || !model.id || model.id.length <= 0) {
       return;
     }
-    this.dataModel.linkEstateUserId = model.id;
+    this.dataModel.linkEstateExpertId = model.id;
   }
 }

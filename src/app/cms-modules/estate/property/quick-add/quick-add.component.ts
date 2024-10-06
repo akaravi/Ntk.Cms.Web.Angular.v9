@@ -8,7 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 
 import {
-  CoreCurrencyModel, CoreEnumService, CoreLocationModel, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractModel, EstateContractTypeModel, EstateContractTypeService, EstatePropertyCompanyModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyModel, EstatePropertyProjectModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeLanduseService, EstatePropertyTypeModel,
+  CoreCurrencyModel, CoreEnumService, CoreLocationModel, CoreUserModel, DataFieldInfoModel, ErrorExceptionResult, EstateAccountAgencyModel, EstateAccountExpertModel, EstateContractModel, EstateContractTypeModel, EstateContractTypeService, EstatePropertyCompanyModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyModel, EstatePropertyProjectModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeLanduseService, EstatePropertyTypeModel,
   EstatePropertyTypeService, EstatePropertyTypeUsageModel, FilterDataModel,
   FilterModel, FormInfoModel,
   InputDataTypeEnum, TokenInfoModel
@@ -279,12 +279,12 @@ export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstateProp
     }
     this.dataModel.linkPropertyCompanyId = model.id;
   }
-  onActionSelectorEstateUser(model: EstateAccountUserModel | null): void {
-    this.dataModel.linkEstateUserId = null;
+  onActionSelectorEstateUser(model: EstateAccountExpertModel | null): void {
+    this.dataModel.linkEstateExpertId = null;
     if (!model || !model.id || model.id.length <= 0) {
       return;
     }
-    this.dataModel.linkEstateUserId = model.id;
+    this.dataModel.linkEstateExpertId = model.id;
   }
   onActionSelectorEstateAgency(model: EstateAccountAgencyModel | null): void {
     this.dataModel.linkEstateAgencyId = null;

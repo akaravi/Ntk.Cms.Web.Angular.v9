@@ -40,13 +40,14 @@ import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quic
 import { EstatePropertyHistoryAddComponent } from '../add/add.component';
 import { EstatePropertyHistoryEditComponent } from '../edit/edit.component';
 import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-view.component';
+import { EstatePropertyHistoryResponsibleUserListComponent } from '../responsible-user-list/responsible-user-list.component';
 @Component({
   selector: 'app-estate-property-history-list',
   templateUrl: './list.component.html',
 })
 export class EstatePropertyHistoryListComponent extends ListBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId = '';
-  requestLinkEstateUserId = '';
+  requestLinkEstateExpertId = '';
   requestLinkCustomerOrderId = '';
   requestLinkEstateAgencyId = '';
   responsibleUserId = 0;
@@ -73,8 +74,8 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
     this.requestLinkPropertyId =
       this.activatedRoute.snapshot.paramMap.get('LinkPropertyId');
-    this.requestLinkEstateUserId =
-      this.activatedRoute.snapshot.paramMap.get('LinkEstateUserId');
+    this.requestLinkEstateExpertId =
+      this.activatedRoute.snapshot.paramMap.get('LinkEstateExpertId');
     this.requestLinkCustomerOrderId = this.activatedRoute.snapshot.paramMap.get(
       'LinkCustomerOrderId'
     );
@@ -289,12 +290,12 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       filterModel.filters.push(filter);
     }
     if (
-      this.requestLinkEstateUserId &&
-      this.requestLinkEstateUserId.length > 0
+      this.requestLinkEstateExpertId &&
+      this.requestLinkEstateExpertId.length > 0
     ) {
       const filter = new FilterDataModel();
-      filter.propertyName = 'linkEstateUserId';
-      filter.value = this.requestLinkEstateUserId;
+      filter.propertyName = 'linkEstateExpertId';
+      filter.value = this.requestLinkEstateExpertId;
       filterModel.filters.push(filter);
     }
     if (
@@ -469,7 +470,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
           data: {
             linkActivityTypeId: this.categoryModelSelected?.id,
             linkPropertyId: this.requestLinkPropertyId,
-            linkEstateUserId: this.requestLinkEstateUserId,
+            linkEstateExpertId: this.requestLinkEstateExpertId,
             linkCustomerOrderId: this.requestLinkCustomerOrderId,
             linkEstateAgencyId: this.requestLinkEstateAgencyId,
           },
@@ -490,7 +491,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
         data: {
           linkActivityTypeId: this.categoryModelSelected?.id,
           linkPropertyId: this.requestLinkPropertyId,
-          linkEstateUserId: this.requestLinkEstateUserId,
+          linkEstateExpertId: this.requestLinkEstateExpertId,
           linkCustomerOrderId: this.requestLinkCustomerOrderId,
           linkEstateAgencyId: this.requestLinkEstateAgencyId,
         },
@@ -856,5 +857,32 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
     let result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
+  }
+
+  onActionButtonResponsibleUserlistView(model: EstatePropertyHistoryModel = this.tableRowSelected): void {
+    if (!model || !model.id || model.id.length === 0) {
+      this.cmsToastrService.typeErrorSelectedRow();
+      return;
+    }
+    this.tableRowSelected = model;
+    var panelClass = '';
+    if (this.tokenHelper.isMobile)
+      panelClass = 'dialog-fullscreen';
+    else
+      panelClass = 'dialog-min';
+    const dialogRef = this.dialog.open(EstatePropertyHistoryResponsibleUserListComponent, {
+      height: '90%',
+      panelClass: panelClass,
+      enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
+      exitAnimationDuration: environment.cmsViewConfig.exitAnimationDuration,
+      data: {
+        title: this.tableRowSelected.title,
+        id: this.tableRowSelected.id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.dialogChangedDate) {
+      }
+    });
   }
 }

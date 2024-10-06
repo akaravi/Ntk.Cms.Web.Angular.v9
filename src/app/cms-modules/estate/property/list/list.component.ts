@@ -43,7 +43,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   requestLinkCustomerOrderIdHaveHistory = "";
   requestLinkProjectId = "";
   requestLinkCompanyId = "";
-  requestLinkEstateUserId = "";
+  requestLinkEstateExpertId = "";
   requestLinkEstateAgencyId = "";
   requestLinkUserId = 0;
   requestInChecking = false;
@@ -85,8 +85,8 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     this.requestLinkCompanyId = this.activatedRoute.snapshot.paramMap.get(
       "LinkCompanyId"
     );
-    this.requestLinkEstateUserId = this.activatedRoute.snapshot.paramMap.get(
-      "LinkEstateUserId"
+    this.requestLinkEstateExpertId = this.activatedRoute.snapshot.paramMap.get(
+      "LinkEstateExpertId"
     );
     this.requestLinkEstateAgencyId = this.activatedRoute.snapshot.paramMap.get(
       "LinkEstateAgencyId"
@@ -158,10 +158,10 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       filter.value = this.requestLinkCompanyId;
       this.filteModelContent.filters.push(filter);
     }
-    if (this.requestLinkEstateUserId && this.requestLinkEstateUserId.length > 0) {
+    if (this.requestLinkEstateExpertId && this.requestLinkEstateExpertId.length > 0) {
       const filter = new FilterDataModel();
-      filter.propertyName = "linkEstateUserId";
-      filter.value = this.requestLinkEstateUserId;
+      filter.propertyName = "linkEstateExpertId";
+      filter.value = this.requestLinkEstateExpertId;
       this.filteModelContent.filters.push(filter);
     }
     if (this.requestLinkEstateAgencyId && this.requestLinkEstateAgencyId.length > 0) {
@@ -804,7 +804,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       data: {
         linkActivityTypeId: null,
         linkPropertyId: model.id,
-        linkEstateUserId: null,
+        linkEstateExpertId: null,
         linkCustomerOrderId: null,
         linkEstateAgencyId: null,
       }

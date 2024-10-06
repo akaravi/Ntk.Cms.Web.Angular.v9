@@ -12,8 +12,11 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   CoreEnumService, CoreLocationModel, CoreUserModel, DataFieldInfoModel,
-  ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountAgencyService, EstateAccountAgencyUserModel,
-  EstateAccountAgencyUserService, EstateAccountUserModel, EstateAccountUserService, FilterDataModel, FilterModel, FormInfoModel,
+  ErrorExceptionResultBase,
+  EstateAccountAgencyExpertModel,
+  EstateAccountAgencyExpertService,
+  EstateAccountAgencyModel, EstateAccountAgencyService,
+  EstateAccountExpertModel, EstateAccountExpertService, FilterDataModel, FilterModel, FormInfoModel,
   ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
@@ -38,9 +41,9 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     private dialogRef: MatDialogRef<EstateAccountAgencyEditComponent>,
     public coreEnumService: CoreEnumService,
     public estateAccountAgencyService: EstateAccountAgencyService,
-    private estateAccountUserService: EstateAccountUserService,
+    private estateAccountExpertService: EstateAccountExpertService,
     private cmsToastrService: CmsToastrService,
-    private estateAccountAgencyUserService: EstateAccountAgencyUserService,
+    private estateAccountAgencyExpertService: EstateAccountAgencyExpertService,
     public publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
@@ -71,14 +74,14 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
 
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: EstateAccountAgencyModel = new EstateAccountAgencyModel();
-  dataEstateAccountAgencyUserModel: EstateAccountAgencyUserModel = new EstateAccountAgencyUserModel();
+  dataEstateAccountAgencyExpertModel: EstateAccountAgencyExpertModel = new EstateAccountAgencyExpertModel();
   formInfo: FormInfoModel = new FormInfoModel();
 
   fileManagerOpenForm = false;
 
 
-  optionTabledataSource = new MatTableDataSource<EstateAccountAgencyUserModel>();
-  optionTabledisplayedColumns = ['LinkEstateAccountUserId', 'LinkEstateAccountAgencyId', 'AccessShareUserToAgency', 'AccessShareAgencyToUser', 'Action'];
+  optionTabledataSource = new MatTableDataSource<EstateAccountAgencyExpertModel>();
+  optionTabledisplayedColumns = ['LinkEstateExpertId', 'LinkEstateAccountAgencyId', 'AccessShareUserToAgency', 'AccessShareAgencyToUser', 'Action'];
 
   /** map */
   viewMap = false;
@@ -230,7 +233,7 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
       // }
     }
   }
-  dataEstateAccountUserModel: EstateAccountAgencyUserModel[] = [];
+  dataEstateAccountExpertModel: EstateAccountAgencyExpertModel[] = [];
   DataGetAllGroup(): void {
 
     if (this.requestId.length <= 0) {
@@ -251,10 +254,10 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     filter.value = this.requestId;
     filteModelContent.filters.push(filter);
 
-    this.estateAccountAgencyUserService.ServiceGetAll(filteModelContent).subscribe({
+    this.estateAccountAgencyExpertService.ServiceGetAll(filteModelContent).subscribe({
       next: (ret) => {
-        this.dataEstateAccountUserModel = ret.listItems;
-        this.optionTabledataSource.data = this.dataEstateAccountUserModel;
+        this.dataEstateAccountExpertModel = ret.listItems;
+        this.optionTabledataSource.data = this.dataEstateAccountExpertModel;
 
         if (ret.isSuccess) {
           this.formInfo.formAlert = '';
@@ -279,7 +282,7 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
-    this.estateAccountAgencyUserService.ServiceAdd(this.dataEstateAccountAgencyUserModel).subscribe({
+    this.estateAccountAgencyExpertService.ServiceAdd(this.dataEstateAccountAgencyExpertModel).subscribe({
       next: (ret) => {
 
         if (ret.isSuccess) {
@@ -300,12 +303,12 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     });
 
   }
-  onActionDataGetDeleteGroup(model: EstateAccountAgencyUserModel): void {
+  onActionDataGetDeleteGroup(model: EstateAccountAgencyExpertModel): void {
     const pName = this.constructor.name + 'onActionDataGetDeleteGroup';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
-    this.estateAccountAgencyUserService.ServiceDeleteEntity(model).subscribe({
+    this.estateAccountAgencyExpertService.ServiceDeleteEntity(model).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessRemove();
@@ -323,11 +326,11 @@ export class EstateAccountAgencyEditComponent extends EditBaseComponent<EstateAc
     );
   }
 
-  onActionSelectorAccountUser(model: EstateAccountUserModel | null): void {
-    this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId = null;
-    this.dataEstateAccountAgencyUserModel.linkEstateAccountAgencyId = this.requestId;
+  onActionSelectorAccountUser(model: EstateAccountExpertModel | null): void {
+    this.dataEstateAccountAgencyExpertModel.linkEstateExpertId = null;
+    this.dataEstateAccountAgencyExpertModel.linkEstateAccountAgencyId = this.requestId;
     if (model && model.id.length > 0) {
-      this.dataEstateAccountAgencyUserModel.linkEstateAccountUserId = model.id;
+      this.dataEstateAccountAgencyExpertModel.linkEstateExpertId = model.id;
     }
   }
   onActionSelectorLocation(model: CoreLocationModel | null): void {

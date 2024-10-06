@@ -60,11 +60,11 @@
       <app-estate-activity-type-selector (optionChange)="onActionSelectorSelect($event)"
         [optionSelectForce]="dataModel.linkActivityTypeId" [optionPlaceholder]="'TITLE.Category' | translate">
       </app-estate-activity-type-selector>
-      <!-- linkEstateUserId Field -->
-      <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
-        *ngIf="fieldsInfo['linkEstateUserId']?.accessAddField" [optionSelectForce]="dataModel.linkEstateUserId"
+      <!-- linkEstateExpertId Field -->
+      <app-estate-account-expert-selector (optionChange)="onActionSelectorEstateUser($event)"
+        *ngIf="fieldsInfo['linkEstateExpertId']?.accessAddField" [optionSelectForce]="dataModel.linkEstateExpertId"
         [optionPlaceholder]="'TITLE.USER' | translate">
-      </app-estate-account-user-selector>
+      </app-estate-account-expert-selector>
 
       <!-- linkEstateAgencyId Field -->
       <app-estate-account-agency-selector *ngIf="fieldsInfo['linkEstateAgencyId']?.accessWatchField"

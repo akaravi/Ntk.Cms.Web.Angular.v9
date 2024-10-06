@@ -11,7 +11,7 @@ import * as Leaflet from 'leaflet';
 import { Map as leafletMap } from 'leaflet';
 import {
   CoreCurrencyModel, CoreEnumService, CoreLocationModel, CoreUserModel,
-  ErrorExceptionResult, ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountUserModel, EstateContractModel, EstateContractTypeModel, EstateContractTypeService, EstatePropertyCompanyModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyModel, EstatePropertyProjectModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel, FilterModel, FormInfoModel,
+  ErrorExceptionResult, ErrorExceptionResultBase, EstateAccountAgencyModel, EstateAccountExpertModel, EstateContractModel, EstateContractTypeModel, EstateContractTypeService, EstatePropertyCompanyModel, EstatePropertyDetailGroupService, EstatePropertyDetailValueModel, EstatePropertyModel, EstatePropertyProjectModel, EstatePropertyService, EstatePropertyTypeLanduseModel, EstatePropertyTypeUsageModel, FilterDataModel, FilterModel, FormInfoModel,
   InputDataTypeEnum, ManageUserAccessDataTypesEnum, ManageUserAccessUserTypesEnum, RecordStatusEnum
 } from 'ntk-cms-api';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
@@ -26,7 +26,7 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsMapComponent } from 'src/app/shared/cms-map/cms-map.component';
 import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyListComponent } from '../../account-agency/list/list.component';
-import { EstateAccountUserListComponent } from '../../account-user/list/list.component';
+import { EstateAccountExpertListComponent } from '../../account-expert/list/list.component';
 import { EstateCustomerOrderListComponent } from '../../customer-order/list/list.component';
 import { EstatePropertyExpertPriceInquiryListComponent } from '../../property-expert-price/inquiry-list/inquiry-list.component';
 import { EstatePropertyHistoryAddComponent } from '../../property-history/add/add.component';
@@ -71,7 +71,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   @ViewChild(CmsMapComponent) childMap: CmsMapComponent;
   @ViewChild(EstateAccountAgencyListComponent) estateAccountAgencyListComponent: EstateAccountAgencyListComponent;
-  @ViewChild(EstateAccountUserListComponent) estateAccountUserListComponent: EstateAccountUserListComponent;
+  @ViewChild(EstateAccountExpertListComponent) estateAccountExpertListComponent: EstateAccountExpertListComponent;
   @ViewChild(EstateCustomerOrderListComponent) estateCustomerOrderListComponent: EstateCustomerOrderListComponent;
   @ViewChild(EstateCustomerOrderListComponent) estateCustomerOrderHaveHistoryListComponent: EstateCustomerOrderListComponent;
   @ViewChild(EstatePropertyHistoryListComponent) estatePropertyHistoryListComponent: EstatePropertyHistoryListComponent;
@@ -411,12 +411,12 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     }
     this.dataModel.linkPropertyCompanyId = model.id;
   }
-  onActionSelectorEstateUser(model: EstateAccountUserModel | null): void {
-    this.dataModel.linkEstateUserId = null;
+  onActionSelectorEstateUser(model: EstateAccountExpertModel | null): void {
+    this.dataModel.linkEstateExpertId = null;
     if (!model || !model.id || model.id.length <= 0) {
       return;
     }
-    this.dataModel.linkEstateUserId = model.id;
+    this.dataModel.linkEstateExpertId = model.id;
   }
   onActionSelectorEstateAgency(model: EstateAccountAgencyModel | null): void {
     this.dataModel.linkEstateAgencyId = null;
@@ -779,10 +779,10 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
     this.estateAccountAgencyListComponent.DataGetAll();
   }
   onFormLoadEstateUserResult(): void {
-    this.loadResult = 'estateAccountUserList';
+    this.loadResult = 'estateAccountExpertList';
     this.cdr.detectChanges();
-    this.estateAccountUserListComponent.optionloadComponent = true;
-    this.estateAccountUserListComponent.DataGetAll();
+    this.estateAccountExpertListComponent.optionloadComponent = true;
+    this.estateAccountExpertListComponent.DataGetAll();
   }
   onFormLoadEstateCustomerOrderResult(): void {
     this.loadResult = 'estateCustomerOrderList';
@@ -817,7 +817,7 @@ export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropert
       data: {
         linkActivityTypeId: null,
         linkPropertyId: this.dataModel.id,
-        linkEstateUserId: null,
+        linkEstateExpertId: null,
         linkCustomerOrderId: null,
         linkEstateAgencyId: null,
       }

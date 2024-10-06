@@ -73,12 +73,12 @@
         [optionPlaceholder]="'TITLE.Property_agency'  | translate">
       </app-estate-account-agency-selector>
 
-      <!-- LinkEstateUserId Field -->
-      <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
-        [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkEstateUserId"
+      <!-- LinkEstateExpertId Field -->
+      <app-estate-account-expert-selector (optionChange)="onActionSelectorEstateUser($event)"
+        [optionDisabled]="!fieldsInfo['linkEstateExpertId']?.accessAddField"
+        [optionSelectForce]="dataModel.linkEstateExpertId"
         [optionPlaceholder]="'TITLE.Real_estate_customer_personnel'  | translate">
-      </app-estate-account-user-selector>
+      </app-estate-account-expert-selector>
 
       <!-- ContactMobiles Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

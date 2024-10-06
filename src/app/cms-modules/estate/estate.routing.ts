@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EstateAccountAgencyListComponent } from './account-agency/list/list.component';
-import { EstateAccountUserListComponent } from './account-user/list/list.component';
+import { EstateAccountExpertListComponent } from './account-expert/list/list.component';
 import { EstateActivityTypeListComponent } from './activity-type/list/list.component';
 import { EstateAdsTypeListComponent } from './ads-type/list/list.component';
 import { EstateBillboardAddComponent } from './billboard/add/add.component';
@@ -117,7 +117,7 @@ const routesNormal: Routes = [
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },
       {
-        path: 'property/LinkEstateUserId/:LinkEstateUserId',
+        path: 'property/LinkEstateExpertId/:LinkEstateExpertId',
         component: EstatePropertyListComponent,
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },
@@ -251,7 +251,7 @@ const routesNormal: Routes = [
         data: { title: 'ROUTE.ESTATE.HISTORY' },
       },
       {
-        path: 'property-history/LinkEstateUserId/:LinkEstateUserId',
+        path: 'property-history/LinkEstateExpertId/:LinkEstateExpertId',
         component: EstatePropertyHistoryListComponent,
         data: { title: 'ROUTE.ESTATE.HISTORY' },
       },
@@ -310,12 +310,12 @@ const routesNormal: Routes = [
       },
       /**/ {
         path: 'account-user',
-        component: EstateAccountUserListComponent,
+        component: EstateAccountExpertListComponent,
         data: { title: 'ROUTE.ESTATE.ACCOUNTUSER' },
       },
       {
         path: 'account-user/LinkAccountAgencyId/:LinkAccountAgencyId',
-        component: EstateAccountUserListComponent,
+        component: EstateAccountExpertListComponent,
         data: { title: 'ROUTE.ESTATE.ACCOUNTUSER' },
       },
       /**/
@@ -508,7 +508,7 @@ const routesMobile: Routes = [
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },
       {
-        path: 'property/LinkEstateUserId/:LinkEstateUserId',
+        path: 'property/LinkEstateExpertId/:LinkEstateExpertId',
         component: EstatePropertyListComponent,
         data: { title: 'ROUTE.ESTATE.PROPERTY' },
       },
@@ -637,7 +637,7 @@ const routesMobile: Routes = [
         data: { title: 'ROUTE.ESTATE.HISTORY' },
       },
       {
-        path: 'property-history/LinkEstateUserId/:LinkEstateUserId',
+        path: 'property-history/LinkEstateExpertId/:LinkEstateExpertId',
         component: EstatePropertyHistoryListComponent,
         data: { title: 'ROUTE.ESTATE.HISTORY' },
       },
@@ -686,12 +686,12 @@ const routesMobile: Routes = [
       },
       /**/ {
         path: 'account-user',
-        component: EstateAccountUserListComponent,
+        component: EstateAccountExpertListComponent,
         data: { title: 'ROUTE.ESTATE.ACCOUNTUSER' },
       },
       {
         path: 'account-user/LinkAccountAgencyId/:LinkAccountAgencyId',
-        component: EstateAccountUserListComponent,
+        component: EstateAccountExpertListComponent,
         data: { title: 'ROUTE.ESTATE.ACCOUNTUSER' },
       },
       /**/

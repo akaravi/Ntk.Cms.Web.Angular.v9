@@ -7,10 +7,11 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {
   BankPaymentTransactionService, CoreAuthService,
-  CoreEnumService, CoreModuleService, CoreModuleTagService, EstateAccountAgencyAdsService, EstateAccountAgencyService,
-  EstateAccountAgencyUserService,
+  CoreEnumService, CoreModuleService, CoreModuleTagService, EstateAccountAgencyAdsService,
+  EstateAccountAgencyExpertService,
+  EstateAccountAgencyService,
   EstateAccountAgencyWorkAreaService,
-  EstateAccountUserService, EstateAccountUserWorkAreaService, EstateActivityTypeService, EstateAdsTypeService, EstateBillboardService, EstateCategoryRackService, EstateCategoryZoneService, EstateConfigurationService, EstateContractService, EstateContractTypeService, EstateCustomerCategoryService, EstateCustomerOrderResultService, EstateCustomerOrderService, EstateEnumService,
+  EstateAccountExpertService, EstateAccountExpertWorkAreaService, EstateActivityTypeService, EstateAdsTypeService, EstateBillboardService, EstateCategoryRackService, EstateCategoryZoneService, EstateConfigurationService, EstateContractService, EstateContractTypeService, EstateCustomerCategoryService, EstateCustomerOrderResultService, EstateCustomerOrderService, EstateEnumService,
   EstatePropertyAccountTypeUserService, EstatePropertyAdsService, EstatePropertyCompanyService, EstatePropertyDetailGroupService, EstatePropertyDetailService, EstatePropertyExpertPriceService, EstatePropertyHistoryService, EstatePropertyProjectService, EstatePropertyService, EstatePropertyShareAgencyService,
   EstatePropertyShareAgentService,
   EstatePropertyShareSiteService, EstatePropertySupplierCategoryService, EstatePropertySupplierService, EstatePropertyTypeLanduseService, EstatePropertyTypeService, EstatePropertyTypeUsageService, FileCategoryService
@@ -25,22 +26,22 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { IconPickerModule } from 'ngx-icon-picker';
 import { NgxMatColorPickerModule } from 'ngx-ntk-mat-color-picker';
 import { estateAccountAgencyInfoPipe } from 'src/app/core/pipe/esate/estate-account-agency-info.pipe';
-import { estateAccountUserInfoPipe } from 'src/app/core/pipe/esate/estate-account-user-info.pipe';
+import { estateAccountExpertInfoPipe } from 'src/app/core/pipe/esate/estate-account-user-info.pipe';
 import { estateCustomerOrderInfoPipe } from 'src/app/core/pipe/esate/estate-customer-order-info.pipe';
 import { estatePropertyCompanyInfoPipe } from 'src/app/core/pipe/esate/estate-property-company-info.pipe';
 import { estatePropertyInfoPipe } from 'src/app/core/pipe/esate/estate-property-info.pipe';
-import { EstateAccountAgencyUserAddComponent } from './account-agency-user/add/add.component';
-import { EstateAccountAgencyUserListComponent } from './account-agency-user/list/list.component';
+import { EstateAccountAgencyExpertAddComponent } from './account-agency-expert/add/add.component';
+import { EstateAccountAgencyExpertListComponent } from './account-agency-expert/list/list.component';
 import { EstateAccountAgencyAddComponent } from './account-agency/add/add.component';
 import { EstateAccountAgencyEditComponent } from './account-agency/edit/edit.component';
 import { EstateAccountAgencyListComponent } from './account-agency/list/list.component';
 import { EstateAccountAgencySelectorComponent } from './account-agency/selector/selector.component';
 import { EstateAccountAgencyTreeComponent } from './account-agency/tree/tree.component';
-import { EstateAccountUserAddComponent } from './account-user/add/add.component';
-import { EstateAccountUserEditComponent } from './account-user/edit/edit.component';
-import { EstateAccountUserListComponent } from './account-user/list/list.component';
-import { EstateAccountUserSelectorComponent } from './account-user/selector/selector.component';
-import { EstateAccountUserTreeComponent } from './account-user/tree/tree.component';
+import { EstateAccountExpertAddComponent } from './account-expert/add/add.component';
+import { EstateAccountExpertEditComponent } from './account-expert/edit/edit.component';
+import { EstateAccountExpertListComponent } from './account-expert/list/list.component';
+import { EstateAccountExpertSelectorComponent } from './account-expert/selector/selector.component';
+import { EstateAccountExpertTreeComponent } from './account-expert/tree/tree.component';
 import { EstateActivityTypeAddComponent } from './activity-type/add/add.component';
 import { EstateActivityTypeCompleteComponent } from './activity-type/autocomplete/autocomplete.component';
 import { EstateActivityTypeEditComponent } from './activity-type/edit/edit.component';
@@ -123,10 +124,10 @@ import { EstateAccountAgencyWorkAreaAddComponent } from './account-agency-work-a
 import { EstateAccountAgencyWorkAreaListComponent } from './account-agency-work-area/list/list.component';
 import { EstateAccountAgencyHeaderComponent } from './account-agency/header/header.component';
 import { EstateAccountAgencySelectionlistComponent } from './account-agency/selectionlist/selectionlist.component';
-import { EstateAccountUserWorkAreaAddComponent } from './account-user-work-area/add/add.component';
-import { EstateAccountUserWorkAreaListComponent } from './account-user-work-area/list/list.component';
-import { EstateAccountUserHeaderComponent } from './account-user/header/header.component';
-import { EstateAccountUserSelectionlistComponent } from './account-user/selectionlist/selectionlist.component';
+import { EstateAccountExpertHeaderComponent } from './account-expert/header/header.component';
+import { EstateAccountExpertSelectionlistComponent } from './account-expert/selectionlist/selectionlist.component';
+import { EstateAccountExpertWorkAreaAddComponent } from './account-expert-work-area/add/add.component';
+import { EstateAccountExpertWorkAreaListComponent } from './account-expert-work-area/list/list.component';
 import { EstateCategoryRackAddComponent } from './category-rack/add/add.component';
 import { EstateCategoryRackEditComponent } from './category-rack/edit/edit.component';
 import { EstateCategoryRackListComponent } from './category-rack/list/list.component';
@@ -158,6 +159,7 @@ import { EstatePropertyCompanyDeleteComponent } from './property-company/delete/
 import { EstatePropertyCompanyEditComponent } from './property-company/edit/edit.component';
 import { EstatePropertyCompanyHeaderComponent } from './property-company/header/header.component';
 
+import { EstateCustomerOrderResponsibleUserListComponent } from './customer-order/responsible-user-list/responsible-user-list.component';
 import { EstatePropertyCompanyListComponent } from './property-company/list/list.component';
 import { EstatePropertyCompanyQuickViewComponent } from './property-company/quick-view/quick-view.component';
 import { EstatePropertyCompanySelectorComponent } from './property-company/selector/selector.component';
@@ -171,6 +173,7 @@ import { EstatePropertyExpertPriceListComponent } from './property-expert-price/
 import { EstatePropertyHistoryAddMobileComponent } from './property-history/add/add.mobile.component';
 import { EstatePropertyHistoryEditMobileComponent } from './property-history/edit/edit.mobile.component';
 import { EstatePropertyHistoryQuickViewComponent } from './property-history/quick-view/quick-view.component';
+import { EstatePropertyHistoryResponsibleUserListComponent } from './property-history/responsible-user-list/responsible-user-list.component';
 import { EstatePropertyProjectAddComponent } from './property-project/add/add.component';
 import { EstatePropertyProjectDeleteComponent } from './property-project/delete/delete.component';
 import { EstatePropertyProjectEditComponent } from './property-project/edit/edit.component';
@@ -205,7 +208,7 @@ import { EstatePropertyResponsibleUserListComponent } from './property/responsib
     EstateComponent,
     /* */
     estateAccountAgencyInfoPipe,
-    estateAccountUserInfoPipe,
+    estateAccountExpertInfoPipe,
     estateCustomerOrderInfoPipe,
     estatePropertyInfoPipe,
     estatePropertyProjectInfoPipe,
@@ -294,7 +297,7 @@ import { EstatePropertyResponsibleUserListComponent } from './property/responsib
     EstatePropertyHistoryEditMobileComponent,
     EstatePropertyHistoryListComponent,
     EstatePropertyHistoryQuickViewComponent,
-
+    EstatePropertyHistoryResponsibleUserListComponent,
     /* */
     EstatePropertyAdsAddComponent,
     EstatePropertyAdsEditComponent,
@@ -331,6 +334,7 @@ import { EstatePropertyResponsibleUserListComponent } from './property/responsib
     EstateCustomerOrderHeaderComponent,
     EstateCustomerOrderActionComponent,
     EstateCustomerOrderQuickViewComponent,
+    EstateCustomerOrderResponsibleUserListComponent,
     /* */
     EstateCustomerOrderResultListComponent,
     EstateCustomerOrderResultViewComponent,
@@ -355,13 +359,13 @@ import { EstatePropertyResponsibleUserListComponent } from './property/responsib
     EstatePropertyExpertPriceInquiryListComponent,
     /* */
 
-    EstateAccountUserAddComponent,
-    EstateAccountUserEditComponent,
-    EstateAccountUserListComponent,
-    EstateAccountUserSelectorComponent,
-    EstateAccountUserTreeComponent,
-    EstateAccountUserHeaderComponent,
-    EstateAccountUserSelectionlistComponent,
+    EstateAccountExpertAddComponent,
+    EstateAccountExpertEditComponent,
+    EstateAccountExpertListComponent,
+    EstateAccountExpertSelectorComponent,
+    EstateAccountExpertTreeComponent,
+    EstateAccountExpertHeaderComponent,
+    EstateAccountExpertSelectionlistComponent,
     /* */
     EstateAccountAgencyAddComponent,
     EstateAccountAgencyEditComponent,
@@ -371,14 +375,14 @@ import { EstatePropertyResponsibleUserListComponent } from './property/responsib
     EstateAccountAgencyHeaderComponent,
     EstateAccountAgencySelectionlistComponent,
     /* */
-    EstateAccountAgencyUserAddComponent,
-    EstateAccountAgencyUserListComponent,
+    EstateAccountAgencyExpertAddComponent,
+    EstateAccountAgencyExpertListComponent,
     /* */
     EstateAccountAgencyWorkAreaAddComponent,
     EstateAccountAgencyWorkAreaListComponent,
     /* */
-    EstateAccountUserWorkAreaAddComponent,
-    EstateAccountUserWorkAreaListComponent,
+    EstateAccountExpertWorkAreaAddComponent,
+    EstateAccountExpertWorkAreaListComponent,
     /* */
     EstateAccountAgencyAdsAddComponent,
     EstateAccountAgencyAdsEditComponent,
@@ -434,10 +438,10 @@ import { EstatePropertyResponsibleUserListComponent } from './property/responsib
     /*Config*/
     /** */
     EstateAccountAgencyService,
-    EstateAccountAgencyUserService,
+    EstateAccountAgencyExpertService,
     EstateAccountAgencyWorkAreaService,
-    EstateAccountUserWorkAreaService,
-    EstateAccountUserService,
+    EstateAccountExpertWorkAreaService,
+    EstateAccountExpertService,
     EstateContractService,
     EstateContractTypeService,
     EstateEnumService,
@@ -475,7 +479,7 @@ import { EstatePropertyResponsibleUserListComponent } from './property/responsib
   ]
   , exports: [
     estateAccountAgencyInfoPipe,
-    estateAccountUserInfoPipe,
+    estateAccountExpertInfoPipe,
     estateCustomerOrderInfoPipe,
     estatePropertyInfoPipe,
     estatePropertyProjectInfoPipe,

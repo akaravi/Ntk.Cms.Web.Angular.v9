@@ -3,9 +3,9 @@
 <app-estate-customer-order-header *ngIf="this.requestLinkCustomerOrderId?.length>0"
   [optionId]="this.requestLinkCustomerOrderId">
 </app-estate-customer-order-header>
-<app-estate-account-user-header *ngIf="this.requestLinkEstateUserId?.length>0"
-  [optionId]="this.requestLinkEstateUserId">
-</app-estate-account-user-header>
+<app-estate-account-expert-header *ngIf="this.requestLinkEstateExpertId?.length>0"
+  [optionId]="this.requestLinkEstateExpertId">
+</app-estate-account-expert-header>
 <app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId"
   [optionGuideNoticeKey]="'estate.propertyhistory.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
   (optionOnActionButtonMemoRow)="onActionButtonMemoRow()" (optionOnActionButtonMemo)="onActionButtonMemo()"
@@ -72,11 +72,12 @@
       <mat-slide-toggle (click)="onActionButtonStatist()" [(ngModel)]="optionsStatist.data.show">
       </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
     </a>
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-          <mat-slide-toggle (click)="onActionButtonInResponsible(!searchInResponsible)" [checked]="searchInResponsibleChecked">
-          </mat-slide-toggle>
-          {{'ACTION.InResponsible' | translate}}
-        </a>
+    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <mat-slide-toggle (click)="onActionButtonInResponsible(!searchInResponsible)"
+        [checked]="searchInResponsibleChecked">
+      </mat-slide-toggle>
+      {{'ACTION.InResponsible' | translate}}
+    </a>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-end-->
   </ng-container>
   <ng-container cms-action-main>
@@ -107,7 +108,13 @@
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
     </div>
-
+    <div class="col-4">
+      <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+        (click)="onActionButtonResponsibleUserlistView(tableRowSelected)" target="_blank"><i
+          class="fa-solid fa-share font-18" style="color: #ffffff;"></i><br>
+      </a>
+      <p class="font-11 text-center opacity-70">{{'TITLE.ResponsibleUsers' | translate}}</p>
+    </div>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-row-->
   </ng-container>
   <ng-container cms-action-area>
@@ -292,11 +299,11 @@
                   </button>
                 </td>
               </tr>
-              <tr *ngIf="row.linkEstateUserId && row.linkEstateUserId.length>0">
+              <tr *ngIf="row.linkEstateExpertId && row.linkEstateExpertId.length>0">
                 <td>{{'TITLE.Expert_Id' | translate}}:</td>
                 <td> <span class="navi-icon pointer" [cdkCopyToClipboard]="row.linkCustomerOrderId"
                     (click)="onActionCopied()">
-                    {{row.linkEstateUserId |estateAccountUserInfo |async}}
+                    {{row.linkEstateExpertId |estateAccountExpertInfo |async}}
                     &nbsp;
                     <i class="flaticon2-copy brown-color"></i></span>
                 </td>

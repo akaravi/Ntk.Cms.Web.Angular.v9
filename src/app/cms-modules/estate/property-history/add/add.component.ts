@@ -8,7 +8,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreEnumService,
-  ErrorExceptionResult, EstateAccountUserModel, EstateActivityTypeModel, EstateCustomerOrderModel, EstateEnumService, EstatePropertyHistoryModel, EstatePropertyHistoryService, EstatePropertyModel, FormInfoModel, InfoEnumModel, TokenInfoModel
+  ErrorExceptionResult, EstateAccountExpertModel, EstateActivityTypeModel, EstateCustomerOrderModel, EstateEnumService, EstatePropertyHistoryModel, EstatePropertyHistoryService, EstatePropertyModel, FormInfoModel, InfoEnumModel, TokenInfoModel
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
@@ -49,7 +49,7 @@ export class EstatePropertyHistoryAddComponent extends AddBaseComponent<EstatePr
     if (data) {
       this.dataModel.linkActivityTypeId = data.linkActivityTypeId;
       this.dataModel.linkPropertyId = data.linkPropertyId;
-      this.dataModel.linkEstateUserId = data.linkEstateUserId;
+      this.dataModel.linkEstateExpertId = data.linkEstateExpertId;
       this.dataModel.linkCustomerOrderId = data.linkCustomerOrderId;
       this.dataModel.linkEstateAgencyId = data.linkEstateAgencyId;
     }
@@ -133,13 +133,13 @@ export class EstatePropertyHistoryAddComponent extends AddBaseComponent<EstatePr
     this.dataModel.linkActivityTypeId = model.id;
   }
 
-  onActionSelectorEstateUser(model: EstateAccountUserModel | null): void {
-    this.dataModel.linkEstateUserId = null;
+  onActionSelectorEstateUser(model: EstateAccountExpertModel | null): void {
+    this.dataModel.linkEstateExpertId = null;
     if (model && model.id.length > 0) {
-      this.dataModel.linkEstateUserId = model.id;
+      this.dataModel.linkEstateExpertId = model.id;
     }
   }
-  onActionSelectorEstateAgency(model: EstateAccountUserModel | null): void {
+  onActionSelectorEstateAgency(model: EstateAccountExpertModel | null): void {
     this.dataModel.linkEstateAgencyId = null;
     if (!model || !model.id || model.id.length <= 0) {
       return;

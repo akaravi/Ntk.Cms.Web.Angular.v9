@@ -6,7 +6,7 @@ import {
   CoreEnumService,
   DataFieldInfoModel,
   ErrorExceptionResult,
-  EstateAccountUserModel,
+  EstateAccountExpertModel,
   EstateActivityTypeModel,
   EstateActivityTypeService,
   EstateCustomerOrderModel,
@@ -55,7 +55,7 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
     if (data) {
       this.dataModel.linkActivityTypeId = data.linkActivityTypeId;
       this.dataModel.linkPropertyId = data.linkPropertyId;
-      this.dataModel.linkEstateUserId = data.linkEstateUserId;
+      this.dataModel.linkEstateExpertId = data.linkEstateExpertId;
       this.dataModel.linkCustomerOrderId = data.linkCustomerOrderId;
       this.dataModel.linkEstateAgencyId = data.linkEstateAgencyId;
     }
@@ -196,13 +196,13 @@ export class EstatePropertyHistoryAddMobileComponent implements OnInit {
     this.dataModel.linkActivityTypeId = model.id;
   }
 
-  onActionSelectorEstateUser(model: EstateAccountUserModel | null): void {
-    this.dataModel.linkEstateUserId = null;
+  onActionSelectorEstateUser(model: EstateAccountExpertModel | null): void {
+    this.dataModel.linkEstateExpertId = null;
     if (model && model.id.length > 0) {
-      this.dataModel.linkEstateUserId = model.id;
+      this.dataModel.linkEstateExpertId = model.id;
     }
   }
-  onActionSelectorEstateAgency(model: EstateAccountUserModel | null): void {
+  onActionSelectorEstateAgency(model: EstateAccountExpertModel | null): void {
     this.dataModel.linkEstateAgencyId = null;
     if (!model || !model.id || model.id.length <= 0) {
       return;

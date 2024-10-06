@@ -134,7 +134,7 @@ export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAc
     if (this.requestLinkAccountUserId && this.requestLinkAccountUserId.length > 0) {
       const filter = new FilterDataModel();
       filter.propertyAnyName = 'AccountAgencyUser';
-      filter.propertyName = 'linkEstateAccountUserId';
+      filter.propertyName = 'linkEstateExpertId';
       filter.value = this.requestLinkAccountUserId;
       this.filteModelContent.filters.push(filter);
     }

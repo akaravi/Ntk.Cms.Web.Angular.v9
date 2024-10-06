@@ -157,12 +157,12 @@
           [optionPlaceholder]="'TITLE.Property_agency'  | translate">
         </app-estate-account-agency-selector>
 
-        <!-- LinkEstateUserId Field -->
-        <app-estate-account-user-selector (optionChange)="onActionSelectorEstateUser($event)"
-          [optionDisabled]="!fieldsInfo['linkEstateUserId']?.accessEditField"
-          [optionSelectForce]="dataModel.linkEstateUserId"
+        <!-- LinkEstateExpertId Field -->
+        <app-estate-account-expert-selector (optionChange)="onActionSelectorEstateUser($event)"
+          [optionDisabled]="!fieldsInfo['linkEstateExpertId']?.accessEditField"
+          [optionSelectForce]="dataModel.linkEstateExpertId"
           [optionPlaceholder]="'TITLE.Real_estate_customer_personnel'  | translate">
-        </app-estate-account-user-selector>
+        </app-estate-account-expert-selector>
 
         <!-- ContactMobiles Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -775,10 +775,10 @@
       [optionloadComponent]="optionloadComponent" [optionloadByRoute]="false"
       #estateAccountAgencyListComponent></app-estate-account-agency-list>
   </div>
-  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateAccountUserList'">
-    <app-estate-account-user-list [optionLinkLocationWorkAreaIds]="dataModel.linkLocationIds"
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateAccountExpertList'">
+    <app-estate-account-expert-list [optionLinkLocationWorkAreaIds]="dataModel.linkLocationIds"
       [optionloadComponent]="optionloadComponent" [optionloadByRoute]="false"
-      #estateAccountUserListComponent></app-estate-account-user-list>
+      #estateAccountExpertListComponent></app-estate-account-expert-list>
   </div>
   <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateHistoryList'">
     <app-estate-property-history-list [optionLinkCustomerOrderId]="dataModel.id" [optionloadComponent]="false"
