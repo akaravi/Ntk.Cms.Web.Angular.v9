@@ -318,85 +318,94 @@
               class="form-control validate-name" id="dataModel.title" />
             <em>{{ AboutCustomerTel.value.length }} / 100</em>
           </div>
-          <!-- actionCreateNewCmsUser Field -->
-          <div *ngIf="fieldsInfo['actionCreateNewCmsUser']?.accessWatchField" class="blockquote">
 
 
-            <div class="d-flex mb-3">
-              <div class="pt-1">
-                <h5 data-trigger-switch="dataModel.actionCreateNewCmsUser" class="font-600 font-14">ساخت کاربر
-                  جدید</h5>
-              </div>
-              <div class="ms-auto me-3 pe-2">
-                <div class="custom-control ios-switch small-switch">
-                  <input type="checkbox" class="ios-input" id="dataModel.actionCreateNewCmsUser"
-                    [(ngModel)]="this.dataModel.actionCreateNewCmsUser" name="dataModel.actionCreateNewCmsUser">
-                  <label class="custom-control-label" for="dataModel.actionCreateNewCmsUser"></label>
-                </div>
-              </div>
-            </div>
-
-
-            <!-- LinkCmsUserId Field -->
-            <app-cms-user-selector *ngIf="!dataModel.actionCreateNewCmsUser"
-              (optionChange)="onActionSelectorCmsUser($event)"
-              [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessEditField"
-              [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.user'  | translate">
-            </app-cms-user-selector>
-
-            <!-- actionCreateNewCmsUserFirstName Field -->
-            <div *ngIf="dataModel.actionCreateNewCmsUser"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.actionCreateNewCmsUserFirstName" class="color-highlight">نام</label>
-              <input matInput type="text" [(ngModel)]="dataModel.actionCreateNewCmsUserFirstName"
-                name="dataModel.actionCreateNewCmsUserFirstName" #actionCreateNewCmsUserFirstName type="text"
-                placeholder="نام" minlength="3" maxlength="100" required class="form-control validate-name"
-                id="dataModel.actionCreateNewCmsUserFirstName" />
-              <i *ngIf="!actionCreateNewCmsUserFirstName.value" class="fa fa-times  invalid color-red-dark"></i>
-              <i *ngIf="actionCreateNewCmsUserFirstName.value" class="fa fa-check  valid color-green-dark"></i>
-              <em>{{ actionCreateNewCmsUserFirstName.value.length }} / 100</em>
-              <mat-error *ngIf="actionCreateNewCmsUserFirstName.errors?.required">
-                <strong>{{'MESSAGE.required' | translate}}</strong>
-              </mat-error>
-            </div>
-
-
-            <!-- actionCreateNewCmsUserLastName Field -->
-            <div *ngIf="dataModel.actionCreateNewCmsUser"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.actionCreateNewCmsUserLastName" class="color-highlight">نام خانوادگی</label>
-              <input matInput type="text" [(ngModel)]="dataModel.actionCreateNewCmsUserLastName"
-                name="dataModel.actionCreateNewCmsUserLastName" #actionCreateNewCmsUserLastName type="text"
-                placeholder="نام خانوادگی" minlength="3" maxlength="100" required class="form-control validate-name"
-                id="dataModel.actionCreateNewCmsUserLastName" />
-              <i *ngIf="!actionCreateNewCmsUserLastName.value" class="fa fa-times  invalid color-red-dark"></i>
-              <i *ngIf="actionCreateNewCmsUserLastName.value" class="fa fa-check  valid color-green-dark"></i>
-              <em>{{ actionCreateNewCmsUserLastName.value.length }} / 100</em>
-              <mat-error *ngIf="actionCreateNewCmsUserLastName.errors?.required">
-                <strong>{{'MESSAGE.required' | translate}}</strong>
-              </mat-error>
-            </div>
+     <!-- actionCreateNewCmsUser Field  -->
+     <div *ngIf="fieldsInfo['actionCreateNewCmsUser']?.accessWatchField" class="blockquote">
 
 
 
-            <!-- actionCreateNewCmsUserMobile Field -->
-            <div *ngIf="dataModel.actionCreateNewCmsUser"
-              class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-              <label for="dataModel.actionCreateNewCmsUserMobile" class="color-highlight">شماره همراه</label>
-              <input matInput type="text" [(ngModel)]="dataModel.actionCreateNewCmsUserMobile"
-                name="dataModel.actionCreateNewCmsUserMobile" #actionCreateNewCmsUserMobile type="text"
-                placeholder="0912" minlength="3" maxlength="100" required class="form-control validate-name"
-                id="dataModel.actionCreateNewCmsUserMobile" />
-              <i *ngIf="!actionCreateNewCmsUserMobile.value" class="fa fa-times  invalid color-red-dark"></i>
-              <i *ngIf="actionCreateNewCmsUserMobile.value" class="fa fa-check  valid color-green-dark"></i>
-              <em>{{ actionCreateNewCmsUserMobile.value.length }} / 100</em>
-              <mat-error *ngIf="actionCreateNewCmsUserMobile.errors?.required">
-                <strong>{{'MESSAGE.required' | translate}}</strong>
-              </mat-error>
-            </div>
-
-
+      <div class="d-flex mb-3">
+        <div class="pt-1">
+          <h5 data-trigger-switch="dataModel.actionCreateNewCmsUser" class="font-600 font-14">ساخت کاربر جدید
+          </h5>
+        </div>
+        <div class="ms-auto me-3 pe-2">
+          <div class="custom-control ios-switch small-switch">
+            <input type="checkbox" class="ios-input" id="dataModel.actionCreateNewCmsUser"
+              [(ngModel)]="this.dataModel.actionCreateNewCmsUser" name="dataModel.actionCreateNewCmsUser">
+            <label class="custom-control-label" for="dataModel.actionCreateNewCmsUser"></label>
           </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- LinkCmsUserId Field -->
+      <app-cms-user-selector *ngIf="!dataModel.actionCreateNewCmsUser"
+        (optionChange)="onActionSelectorCmsUser($event)"
+        [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessAddField" [optionSelectForce]="dataModel.linkCmsUserId"
+        [optionPlaceholder]="'TITLE.user'  | translate">
+      </app-cms-user-selector>
+
+      <!-- actionCreateNewCmsUserFirstName Field -->
+      <div *ngIf="dataModel.actionCreateNewCmsUser"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.actionCreateNewCmsUserFirstName" class="color-highlight">نام</label>
+        <input matInput type="text" [(ngModel)]="dataModel.actionCreateNewCmsUserFirstName"
+          name="dataModel.actionCreateNewCmsUserFirstName" #actionCreateNewCmsUserFirstName type="text"
+          placeholder="نام" minlength="3" maxlength="50"  class="form-control validate-name"
+          id="dataModel.actionCreateNewCmsUserFirstName" />
+        <i *ngIf="!actionCreateNewCmsUserFirstName.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="actionCreateNewCmsUserFirstName.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ actionCreateNewCmsUserFirstName.value.length }} / 50</em>
+        <mat-error *ngIf="actionCreateNewCmsUserFirstName.errors?.required">
+          <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+
+
+      <!-- actionCreateNewCmsUserLastName Field -->
+      <div *ngIf="dataModel.actionCreateNewCmsUser"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.actionCreateNewCmsUserLastName" class="color-highlight">نام خانوادگی</label>
+        <input matInput type="text" [(ngModel)]="dataModel.actionCreateNewCmsUserLastName"
+          name="dataModel.actionCreateNewCmsUserLastName" #actionCreateNewCmsUserLastName type="text"
+          placeholder="نام خانوادگی" minlength="3" maxlength="50"  class="form-control validate-name"
+          id="dataModel.actionCreateNewCmsUserLastName" />
+        <i *ngIf="!actionCreateNewCmsUserLastName.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="actionCreateNewCmsUserLastName.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ actionCreateNewCmsUserLastName.value.length }} / 50</em>
+        <mat-error *ngIf="actionCreateNewCmsUserLastName.errors?.required">
+          <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+
+
+
+      <!-- actionCreateNewCmsUserMobile Field -->
+      <div *ngIf="dataModel.actionCreateNewCmsUser"
+        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+        <label for="dataModel.actionCreateNewCmsUserMobile" class="color-highlight">شماره همراه</label>
+        <input matInput type="text" [(ngModel)]="dataModel.actionCreateNewCmsUserMobile"
+          name="dataModel.actionCreateNewCmsUserMobile" #actionCreateNewCmsUserMobile type="text" placeholder="0912"
+          minlength="3" maxlength="20"  class="form-control validate-name"
+          id="dataModel.actionCreateNewCmsUserMobile" />
+        <i *ngIf="!actionCreateNewCmsUserMobile.value" class="fa fa-times  invalid color-red-dark"></i>
+        <i *ngIf="actionCreateNewCmsUserMobile.value" class="fa fa-check  valid color-green-dark"></i>
+        <em>{{ actionCreateNewCmsUserMobile.value.length }} / 20</em>
+        <mat-error *ngIf="actionCreateNewCmsUserMobile.errors?.required">
+          <strong>{{'MESSAGE.required' | translate}}</strong>
+        </mat-error>
+      </div>
+
+
+    </div>
+
+
+
+
 
           <div class="form-actions" *ngIf="formInfo.formSubmitAllow ">
             <button type="button" matStepperPrevious
