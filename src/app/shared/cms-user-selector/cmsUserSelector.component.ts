@@ -130,16 +130,40 @@ export class CmsUserSelectorComponent implements OnInit {
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
 
-      if (text && typeof +text === 'number' && +text > 0) {
-        /*Filters */
-        filter = new FilterDataModel();
-        filter.propertyName = 'Id';
-        filter.value = text;
-        filter.searchType = FilterDataModelSearchTypesEnum.Equal;
-        filter.clauseType = ClauseTypeEnum.Or;
-        filterModel.filters.push(filter);
 
-      }
+      /*Filters */
+      filter = new FilterDataModel();
+      filter.propertyName = 'Id';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+
+      /*Filters */
+      filter = new FilterDataModel();
+      filter.propertyName = 'mobile';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+
+      /*Filters */
+      filter = new FilterDataModel();
+      filter.propertyName = 'tell';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+
+
+      /*Filters */
+      filter = new FilterDataModel();
+      filter.propertyName = 'companyName';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
+
     }
 
     const pName = this.constructor.name + 'main';
