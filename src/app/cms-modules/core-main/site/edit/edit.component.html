@@ -56,7 +56,7 @@
             <label for="dataModel.title" class="color-highlight">{{ fieldsInfo["title"]?.fieldTitle }}</label>
             <input matInput type="text" [(ngModel)]="dataModel.title" name="dataModel.title" #Title type="text"
               placeholder="{{fieldsInfo['title']?.fieldTitle }}" minlength="3" maxlength="100" required
-              [disabled]="!fieldsInfo['description']?.accessEditField" class="form-control validate-name"
+              [disabled]="!fieldsInfo['title']?.accessEditField" class="form-control validate-name"
               id="dataModel.title" />
             <i *ngIf="!Title.value" class="fa fa-times  invalid color-red-dark"></i>
             <i *ngIf="Title.value" class="fa fa-check  valid color-green-dark"></i>

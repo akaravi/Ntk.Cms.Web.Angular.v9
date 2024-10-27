@@ -126,12 +126,18 @@
                     </select>
                 </mat-cell>
             </ng-container>
-            <!-- Title Column -->
-            <ng-container matColumnDef="Title">
+            <!-- title Column -->
+            <ng-container matColumnDef="title">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
                     {{fieldsInfo['title']?.fieldTitle}}</mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.titleML}} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
             </ng-container>
+                   <!-- titleML Column -->
+                   <ng-container matColumnDef="titleML">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                      {{fieldsInfo['title']?.fieldTitle}} (ML)</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.titleML}} </mat-cell>
+                </ng-container>
             <!-- LocationType Column -->
             <ng-container matColumnDef="LocationType">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['locationType']?.fieldTitle }}

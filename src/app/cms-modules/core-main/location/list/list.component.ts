@@ -67,7 +67,8 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
     'LinkImageIdSrc',
     'Id',
     'RecordStatus',
-    // 'Title',
+    'title',
+    'titleML',
     'LocationType',
     // 'Action'
   ];
@@ -75,7 +76,8 @@ export class CoreLocationListComponent extends ListBaseComponent<CoreLocationSer
     'LinkImageIdSrc',
     'Id',
     'RecordStatus',
-    // 'Title',
+    'title',
+    'titleML',
     'LocationType',
     // 'Action'
   ];

@@ -114,10 +114,30 @@ export class PageMenuComponent implements OnInit {
       this.dataListResult = this.dataModelResult.listItems;
       return;
     }
-    var findRow = this.dataModelResult.listItems.filter(x => x.id === this.requestLinkParentId);
-    if (findRow && findRow.length > 0 && findRow[0].children && findRow[0].children.length > 0)
-      this.dataListResult = findRow[0].children;
-  }
+    this.findListInChild(this.dataModelResult.listItems);
+    // var findRow = this.dataModelResult.listItems.filter(x => x.id === this.requestLinkParentId);
+    // if (findRow && findRow.length > 0 && findRow[0].children && findRow[0].children.length > 0)
+    //   {
+    //     this.dataListResult = findRow[0].children;
+    //   }
+
+    }
+    findListInChild(items: CoreCpMainMenuModel[] ):boolean{
+      var findRow = items.filter(x => x.id === this.requestLinkParentId);
+      if (findRow && findRow.length > 0 && findRow[0].children && findRow[0].children.length > 0)
+        {
+          this.dataListResult = findRow[0].children;
+          return true;
+        }
+        else{
+          for (let index = 0; index < items.length; index++) {
+            if(this. findListInChild(items[index].children)            )
+            return true;
+          }
+
+        }
+        return false;
+    }
   onActionClickMenu(item: CoreCpMainMenuModel, event?: MouseEvent) {
     if (!item)
       return;
