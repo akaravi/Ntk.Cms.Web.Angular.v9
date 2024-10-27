@@ -56,7 +56,7 @@ export class AuthSingInBySmsComponent implements OnInit {
   diffSecondsSubscribe: Subscription;
   // private fields
   forgetState = 'sms';
-
+  countAutoCaptchaOrder = 1;
   formInfo: FormInfoModel = new FormInfoModel();
   passwordIsValid = false;
   RePasswordModel = '';
@@ -138,10 +138,11 @@ export class AuthSingInBySmsComponent implements OnInit {
             this.cmsToastrService.typeErrorMessage(res.errorMessage);
           }
           this.formInfo.buttonSubmittedEnabled = true;
+          if (this.countAutoCaptchaOrder < 10) {
           if (!this.captchaModel || this.diffSeconds < 2) {
             this.onCaptchaOrder();
           }
-
+        }
           this.publicHelper.processService.processStop(pName);
         },
         error: (er) => {
@@ -217,6 +218,7 @@ export class AuthSingInBySmsComponent implements OnInit {
     if (this.onCaptchaOrderInProcess) {
       return;
     }
+    this.countAutoCaptchaOrder = this.countAutoCaptchaOrder + 1;
     if (this.diffSecondsSubscribe)
       this.diffSecondsSubscribe.unsubscribe();
     this.dataModelAuthUserSignInBySms.captchaText = '';
@@ -230,7 +232,8 @@ export class AuthSingInBySmsComponent implements OnInit {
         this.onCaptchaOrderInProcess = false;
         this.diffSecondsSubscribe = interval(500).subscribe(x => {
           this.diffSeconds = new Date(this.captchaModel.expire).getTime() - new Date().getTime();
-          if (this.diffSeconds < 0) {
+
+          if (this.diffSeconds < 0 && this.countAutoCaptchaOrder < 10) {
             this.diffSecondsSubscribe.unsubscribe();
             this.onCaptchaOrder();
           }

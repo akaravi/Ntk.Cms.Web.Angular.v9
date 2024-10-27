@@ -45,7 +45,7 @@ export class AuthForgotPasswordComponent implements OnInit {
   captchaModel: CaptchaModel = new CaptchaModel();
   // private fields
   forgetState = 'sms';
-
+  countAutoCaptchaOrder = 1;
   formInfo: FormInfoModel = new FormInfoModel();
   passwordIsValid = false;
   RePasswordModel = '';
@@ -160,6 +160,8 @@ export class AuthForgotPasswordComponent implements OnInit {
     if (this.onCaptchaOrderInProcess) {
       return;
     }
+    this.countAutoCaptchaOrder = this.countAutoCaptchaOrder + 1;
+
     this.dataModelforgetPasswordBySms.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
 

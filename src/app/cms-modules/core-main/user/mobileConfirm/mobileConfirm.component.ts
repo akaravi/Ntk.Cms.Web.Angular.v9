@@ -41,7 +41,7 @@ export class CoreUserMobileConfirmComponent implements OnInit {
   }
   firstRun = true;
   expireDate: Date;
-  aoutoCaptchaOrder = 1;
+  countAutoCaptchaOrder = 1;
 
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase;
   dataModel: AuthMobileConfirmDtoModel = new AuthMobileConfirmDtoModel();
@@ -138,6 +138,7 @@ export class CoreUserMobileConfirmComponent implements OnInit {
     if (this.onCaptchaOrderInProcess) {
       return;
     }
+    this.countAutoCaptchaOrder = this.countAutoCaptchaOrder + 1;
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
     this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
@@ -151,8 +152,8 @@ export class CoreUserMobileConfirmComponent implements OnInit {
           const startDate = new Date();
           const endDate = new Date(ret.item.expire);
           const seconds = (endDate.getTime() - startDate.getTime());
-          if (this.aoutoCaptchaOrder < 10) {
-            this.aoutoCaptchaOrder = this.aoutoCaptchaOrder + 1;
+          if (this.countAutoCaptchaOrder < 10) {
+            this.countAutoCaptchaOrder = this.countAutoCaptchaOrder + 1;
             setTimeout(() => {
               if (!this.firstRun)
                 this.onCaptchaOrder();

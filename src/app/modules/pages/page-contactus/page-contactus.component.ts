@@ -71,7 +71,7 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
   mapOptonCenter = new PoinModel();
   captchaModel: CaptchaModel = new CaptchaModel();
   expireDate: Date;
-  aoutoCaptchaOrder = 1;
+  countAutoCaptchaOrder = 1;
   enumFormSubmitedStatus = FormSubmitedStatusEnum;
   onCaptchaOrderInProcess = false;
   ngOnInit(): void {
@@ -165,6 +165,7 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
     if (this.onCaptchaOrderInProcess) {
       return;
     }
+    this.countAutoCaptchaOrder = this.countAutoCaptchaOrder + 1;
     this.dataModel.captchaText = '';
     this.coreAuthService.ServiceCaptcha().subscribe({
       next: (ret) => {
@@ -174,8 +175,8 @@ export class PageContactusComponent extends AddBaseComponent<TicketingTaskServic
           const startDate = new Date();
           const endDate = new Date(ret.item.expire);
           const seconds = (endDate.getTime() - startDate.getTime());
-          if (this.aoutoCaptchaOrder < 10) {
-            this.aoutoCaptchaOrder = this.aoutoCaptchaOrder + 1;
+          if (this.countAutoCaptchaOrder < 10) {
+            this.countAutoCaptchaOrder = this.countAutoCaptchaOrder + 1;
             setTimeout(() => { this.onCaptchaOrder(); }, seconds);
           }
         } else {

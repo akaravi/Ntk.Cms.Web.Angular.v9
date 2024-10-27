@@ -44,7 +44,7 @@ export class AuthSingInComponent implements OnInit {
   dataModel: AuthUserSignInModel = new AuthUserSignInModel();
   captchaModel: CaptchaModel = new CaptchaModel();
   expireDate: Date;
-  aoutoCaptchaOrder = 1;
+  countAutoCaptchaOrder = 1;
   // KeenThemes mock, change it to:
   hasError: boolean;
   returnUrl: string;
@@ -112,6 +112,7 @@ export class AuthSingInComponent implements OnInit {
     if (this.onCaptchaOrderInProcess) {
       return;
     }
+    this.countAutoCaptchaOrder = this.countAutoCaptchaOrder + 1;
     this.dataModel.captchaText = '';
     const pName = this.constructor.name + '.ServiceCaptcha';
     this.translate.get('MESSAGE.get_security_photo_content').subscribe((str: string) => {
@@ -125,8 +126,7 @@ export class AuthSingInComponent implements OnInit {
           const startDate = new Date();
           const endDate = new Date(ret.item.expire);
           const seconds = (endDate.getTime() - startDate.getTime());
-          if (this.aoutoCaptchaOrder < 10) {
-            this.aoutoCaptchaOrder = this.aoutoCaptchaOrder + 1;
+          if (this.countAutoCaptchaOrder < 10) {
             setTimeout(() => {
               if (!this.firstRun)
                 this.onCaptchaOrder();
