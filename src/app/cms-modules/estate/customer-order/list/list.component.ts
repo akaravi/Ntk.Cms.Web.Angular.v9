@@ -72,7 +72,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   }
 
   responsibleUserId = 0;
-  searchInResponsible = false;
+  
   searchInResponsibleChecked = false;
 
   link: string;
@@ -191,7 +191,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
     }
     /** filter Category */
     var setResponsibleUserId = 0;
-    if (this.searchInResponsible) {
+    if (this.searchInResponsibleChecked) {
       setResponsibleUserId = this.tokenInfo.userId;
     } else if (this.responsibleUserId > 0) {
       setResponsibleUserId = this.responsibleUserId;
@@ -623,7 +623,7 @@ export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCu
   }
 
   onActionButtonInResponsible(model: boolean): void {
-    this.searchInResponsible = model;
+    this.searchInResponsibleChecked = model;
     this.DataGetAll();
   }
 

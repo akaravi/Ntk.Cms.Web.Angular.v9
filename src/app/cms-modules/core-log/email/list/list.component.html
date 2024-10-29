@@ -39,14 +39,15 @@
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-end-->
         <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
             (click)="optionsSearch.data.show=!optionsSearch.data.show">
-            <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"
+            <mat-slide-toggle [checked]="optionsSearch.data.show"
                 (click)="optionsSearch.data.show=!optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH'
             |
             translate}}
         </a>
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-            <mat-slide-toggle (click)="onActionButtonStatist()" [(ngModel)]="optionsStatist.data.show">
-            </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
+        <a (click)="onActionButtonStatist()"
+            class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+            <mat-slide-toggle [checked]="optionsStatist.data.show">
+            </mat-slide-toggle>{{'ACTION.STATIST' | translate }}
         </a>
         <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-end-->
     </ng-container>
@@ -152,13 +153,13 @@
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" class="grid-row-ltr"> {{row.toEmail}} </mat-cell>
             </ng-container>
-                        <!-- emailSubject Column -->
-                        <ng-container matColumnDef="emailSubject">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['emailSubject']?.fieldTitle}}
-                          </mat-header-cell>
-                          <mat-cell *matCellDef="let row"> {{row.emailSubject}} </mat-cell>
-                      </ng-container>
-                      <!-- toEmail Column -->
+            <!-- emailSubject Column -->
+            <ng-container matColumnDef="emailSubject">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['emailSubject']?.fieldTitle}}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.emailSubject}} </mat-cell>
+            </ng-container>
+            <!-- toEmail Column -->
             <!-- SendStatusType Column -->
             <ng-container matColumnDef="SendStatusType">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['sendStatusType']?.fieldTitle}}

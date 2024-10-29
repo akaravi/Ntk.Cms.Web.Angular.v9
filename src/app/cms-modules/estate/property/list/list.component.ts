@@ -96,7 +96,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
     ) | 0;
     this.requestAction = this.activatedRoute.snapshot.paramMap.get("Action");
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
-      this.searchInChecking =
+      this.searchInCheckingChecked =
         this.activatedRoute.snapshot.paramMap.get("InChecking") === "true";
     }
     this.optionsSearch.parentMethods = {
@@ -200,9 +200,9 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   dataSource: any;
   flag = false;
   tablePropertySelected = [];
-  searchInChecking = false;
+
   searchInCheckingChecked = false;
-  searchInResponsible = false;
+  
   searchInResponsibleChecked = false;
   filteModelContent = new EstatePropertyFilterModel();
   dataModelPropertyDetailGroups: EstatePropertyDetailGroupModel[] = [];
@@ -289,9 +289,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   }
 
   ngAfterViewInit(): void {
-    if (this.searchInChecking) {
-      this.searchInCheckingChecked = true;
-    }
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -327,7 +325,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       return;
     }
     var setResponsibleUserId = 0;
-    if (this.searchInResponsible) {
+    if (this.searchInResponsibleChecked) {
       setResponsibleUserId = this.tokenInfo.userId;
     } else if (this.responsibleUserId > 0) {
       setResponsibleUserId = this.responsibleUserId;
@@ -355,7 +353,7 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
       filter.value = this.categoryModelSelected.id;
       filterModel.filters.push(filter);
     }
-    if (this.searchInChecking) {
+    if (this.searchInCheckingChecked) {
       const filter1 = new FilterDataModel();
       filter1.propertyName = "RecordStatus";
       filter1.value = RecordStatusEnum.Pending;
@@ -1071,13 +1069,14 @@ export class EstatePropertyListComponent extends ListBaseComponent<EstatePropert
   actionbuttonExportOn = false;
 
 
-  onActionButtonInChecking(model: boolean): void {
-    this.searchInChecking = model;
+  onActionButtonInChecking(model: boolean = this.searchInCheckingChecked): void {
+
+    this.searchInCheckingChecked = model;
     this.DataGetAll();
   }
 
-  onActionButtonInResponsible(model: boolean): void {
-    this.searchInResponsible = model;
+  onActionButtonInResponsible(model: boolean = this.searchInResponsibleChecked): void {
+    this.searchInResponsibleChecked = model;
     this.DataGetAll();
   }
 

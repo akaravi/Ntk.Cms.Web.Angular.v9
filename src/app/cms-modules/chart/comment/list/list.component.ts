@@ -54,7 +54,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     this.publicHelper.processService.cdr = this.cdr;
 
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
-      this.searchInChecking =
+      this.searchInCheckingChecked =
         this.activatedRoute.snapshot.paramMap.get("InChecking") === "true";
     }
     this.optionsSearch.parentMethods = {
@@ -70,7 +70,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
   dataSource: any;
   flag = false;
   tableContentSelected = [];
-  searchInChecking = false;
+  
   searchInCheckingChecked = false;
   requestContentId = 0;
   filteModelContent = new FilterModel();
@@ -116,9 +116,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
     });
   }
   ngAfterViewInit(): void {
-    if (this.searchInChecking) {
-      this.searchInCheckingChecked = true;
-    }
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -145,7 +143,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
       filter.value = this.requestContentId;
       filterModel.filters.push(filter);
     }
-    if (this.searchInChecking) {
+    if (this.searchInCheckingChecked) {
       const filter = new FilterDataModel();
       filter.propertyName = "RecordStatus";
       filter.value = RecordStatusEnum.Available;
@@ -383,7 +381,7 @@ export class ChartCommentListComponent extends ListBaseComponent<ChartCommentSer
 
   }
   onActionButtonInChecking(model: boolean): void {
-    this.searchInChecking = model;
+    this.searchInCheckingChecked = model;
     this.DataGetAll();
   }
 

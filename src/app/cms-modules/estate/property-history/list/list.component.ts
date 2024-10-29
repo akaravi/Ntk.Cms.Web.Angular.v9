@@ -147,7 +147,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
   searchInCheckingOnDayChecked = false;
   searchInCheckingPlanedToDayChecked = false;
 
-  searchInResponsible = false;
+
   searchInResponsibleChecked = false;
 
   tabledisplayedColumns: string[] = [];
@@ -317,7 +317,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
       filterModel.filters.push(filter);
     }
 
-    if (this.searchInResponsible) {
+    if (this.searchInResponsibleChecked) {
       filterModel.linkResponsibleUserId = this.tokenInfo.userId;
     } else if (this.responsibleUserId > 0) {
       filterModel.linkResponsibleUserId = this.responsibleUserId;
@@ -823,7 +823,7 @@ export class EstatePropertyHistoryListComponent extends ListBaseComponent<Estate
 
   }
   onActionButtonInResponsible(model: boolean): void {
-    this.searchInResponsible = model;
+    this.searchInResponsibleChecked = model;
     this.DataGetAll();
   }
   onActionButtonInCheckingOnDateSearch() {

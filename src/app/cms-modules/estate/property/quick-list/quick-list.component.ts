@@ -89,7 +89,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       "LinkUserId"
     ) | 0;
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
-      this.searchInChecking =
+      this.searchInCheckingChecked =
         this.activatedRoute.snapshot.paramMap.get("InChecking") === "true";
     }
     this.optionsSearch.parentMethods = {
@@ -192,7 +192,6 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
   dataSource: any;
   flag = false;
   tablePropertySelected = [];
-  searchInChecking = false;
   searchInCheckingChecked = false;
   filteModelContent = new FilterModel();
   formInfo: FormInfoModel = new FormInfoModel();
@@ -267,9 +266,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
   }
 
   ngAfterViewInit(): void {
-    if (this.searchInChecking) {
-      this.searchInCheckingChecked = true;
-    }
+
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -298,7 +295,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
       filter.value = this.categoryModelSelected.id;
       filterModel.filters.push(filter);
     }
-    if (this.searchInChecking) {
+    if (this.searchInCheckingChecked) {
       const filter1 = new FilterDataModel();
       filter1.propertyName = "RecordStatus";
       filter1.value = RecordStatusEnum.Available;
@@ -740,7 +737,7 @@ export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePr
 
 
   onActionButtonInChecking(model: boolean): void {
-    this.searchInChecking = model;
+    this.searchInCheckingChecked = model;
     this.DataGetAll();
   }
 

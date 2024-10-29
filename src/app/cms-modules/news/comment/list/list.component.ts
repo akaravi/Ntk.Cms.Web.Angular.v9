@@ -51,7 +51,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     super(contentService, new NewsCommentModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
-      this.searchInChecking =
+      this.searchInCheckingChecked =
         this.activatedRoute.snapshot.paramMap.get("InChecking") === "true";
     }
     this.optionsSearch.parentMethods = {
@@ -68,7 +68,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
   dataSource: any;
   flag = false;
   tableContentSelected = [];
-  searchInChecking = false;
+  
   searchInCheckingChecked = false;
 
   filteModelContent = new FilterModel();
@@ -113,9 +113,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     });
   }
   ngAfterViewInit(): void {
-    if (this.searchInChecking) {
-      this.searchInCheckingChecked = true;
-    }
+  
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -142,7 +140,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
       filter.value = this.requestContentId;
       filterModel.filters.push(filter);
     }
-    if (this.searchInChecking) {
+    if (this.searchInCheckingChecked) {
       const filter = new FilterDataModel();
       filter.propertyName = "RecordStatus";
       filter.value = RecordStatusEnum.Available;
@@ -373,7 +371,7 @@ export class NewsCommentListComponent extends ListBaseComponent<NewsContentServi
     );
   }
   onActionButtonInChecking(model: boolean): void {
-    this.searchInChecking = model;
+    this.searchInCheckingChecked = model;
     this.DataGetAll();
   }
 

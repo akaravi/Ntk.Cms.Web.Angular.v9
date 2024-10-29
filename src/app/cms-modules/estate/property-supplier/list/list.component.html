@@ -20,46 +20,46 @@
   <ng-container cms-action-header>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-->
-</ng-container>
-<ng-container cms-action-header-start>
+  </ng-container>
+  <ng-container cms-action-header-start>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-start-->
     <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-    (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
-    <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
-  </a>
-  <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-    (click)="onActionButtonReload()" target="_blank">
-    <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
-  </a>
-  <a (click)=" onActionGridExpandRows(true)" target="_blank"
-    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-    <i class="fa-solid fa-maximize font-18" style="color: #ffffff;"></i>
-  </a>
-  <a (click)="onActionGridExpandRows(false)" target="_blank"
-    class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
-    <i class="fa-solid fa-minimize font-18" style="color: #ffffff;"></i>
-  </a>
+      (click)="viewGuideNotice=!viewGuideNotice" target="_blank">
+      <i class="fa-solid fa-info font-18" style="color: #ffffff;"></i>
+    </a>
+    <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
+      (click)="onActionButtonReload()" target="_blank">
+      <i class="fa-solid fa-rotate-right font-18" style="color: #ffffff;"></i>
+    </a>
+    <a (click)=" onActionGridExpandRows(true)" target="_blank"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <i class="fa-solid fa-maximize font-18" style="color: #ffffff;"></i>
+    </a>
+    <a (click)="onActionGridExpandRows(false)" target="_blank"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <i class="fa-solid fa-minimize font-18" style="color: #ffffff;"></i>
+    </a>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-start-->
-</ng-container>
-<ng-container cms-action-header-end>
+  </ng-container>
+  <ng-container cms-action-header-end>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-end-->
-    <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-          (click)="optionsSearch.data.show=!optionsSearch.data.show">
-          <mat-slide-toggle [(ngModel)]="optionsSearch.data.show"
-            (click)="optionsSearch.data.show=!optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
-          translate}}
-        </a>
-        <a class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-slide-toggle (click)="onActionButtonStatist()" [(ngModel)]="optionsStatist.data.show">
-          </mat-slide-toggle>{{'ACTION.STATIST' | translate}}
-        </a>
-        <a *ngIf="this.tableRowSelected?.id>0"
-          class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
-          <mat-slide-toggle (click)="onActionButtonWithHierarchy()"></mat-slide-toggle>{{'ACTION.BATCHVIEW' |
-          translate}}
-        </a>
+    <a (click)="optionsSearch.data.show = !optionsSearch.data.show"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <mat-slide-toggle [checked]="optionsSearch.data.show"></mat-slide-toggle>{{'ACTION.SEARCH' |
+      translate}}
+    </a>
+    <a (click)="onActionButtonStatist()"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
+      <mat-slide-toggle [checked]="optionsStatist.data.show">
+      </mat-slide-toggle>{{'ACTION.STATIST' | translate }}
+    </a>
+    <a *ngIf="this.tableRowSelected?.id>0"
+      class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
+      <mat-slide-toggle (click)="onActionButtonWithHierarchy()"></mat-slide-toggle>{{'ACTION.BATCHVIEW' |
+      translate}}
+    </a>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-action-header-end-->
-</ng-container>
+  </ng-container>
   <ng-container cms-action-main>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-->
     <div *ngIf="dataModelResult?.access?.accessAddRow " class="col-4">

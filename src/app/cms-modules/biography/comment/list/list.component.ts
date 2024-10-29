@@ -54,7 +54,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     this.publicHelper.processService.cdr = this.cdr;
 
     if (this.activatedRoute.snapshot.paramMap.get("InChecking")) {
-      this.searchInChecking =
+      this.searchInCheckingChecked =
         this.activatedRoute.snapshot.paramMap.get("InChecking") === "true";
     }
     this.optionsSearch.parentMethods = {
@@ -70,7 +70,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
   dataSource: any;
   flag = false;
   tableContentSelected = [];
-  searchInChecking = false;
+  
   searchInCheckingChecked = false;
   requestContentId = 0;
   filteModelContent = new FilterModel();
@@ -114,9 +114,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     });
   }
   ngAfterViewInit(): void {
-    if (this.searchInChecking) {
-      this.searchInCheckingChecked = true;
-    }
+  
   }
   ngOnDestroy(): void {
     this.cmsApiStoreSubscribe.unsubscribe();
@@ -143,7 +141,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
       filter.value = this.requestContentId;
       filterModel.filters.push(filter);
     }
-    if (this.searchInChecking) {
+    if (this.searchInCheckingChecked) {
       const filter = new FilterDataModel();
       filter.propertyName = "RecordStatus";
       filter.value = RecordStatusEnum.Available;
@@ -368,7 +366,7 @@ export class BiographyCommentListComponent extends ListBaseComponent<BiographyCo
     );
   }
   onActionButtonInChecking(model: boolean): void {
-    this.searchInChecking = model;
+    this.searchInCheckingChecked = model;
     this.DataGetAll();
   }
 
