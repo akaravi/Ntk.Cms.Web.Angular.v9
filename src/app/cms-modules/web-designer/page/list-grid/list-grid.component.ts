@@ -102,16 +102,16 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
     'LinkPageTemplateGuId',
     'PageDependencyIsDefaultPage',
     'PageDependencyIsDefaultPageLinkSiteCategoryId',
-    'Action'
+    //'Action'
   ];
   expandedElement: WebDesignerMainPageModel | null;
   cmsApiStoreSubscribe: Subscription;
-  
+
   ngOnInit(): void {
     this.filteModelContent.sortColumn = 'Title';
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
-      
+
       setTimeout(() => {
         if (!this.firstLoadDataRunned)
           this.DataGetAll();

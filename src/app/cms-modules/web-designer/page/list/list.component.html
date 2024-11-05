@@ -126,7 +126,7 @@
         </div> -->
                 <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
                 <div class="row">
-                    <div class="col-3" *ngFor="let row of dataModelResult.listItems">
+                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let row of dataModelResult.listItems">
                         <mat-card class="example-card" style="border:groove ;">
                             <mat-card-header>
                                 <mat-card-title>
@@ -138,7 +138,7 @@
                             </mat-card-header>
                             <img mat-card-image style="max-height: 300px" src="{{row.thumbnailImageSrc}}">
                             <mat-card-content>
-                                {{'Template title' | translate}} :
+                                {{'TITLE.Template' | translate}} :
                                 {{row.linkPageTemplateGuId | cmstitle :
                                 dataModelWebDesignerMainPageTemplateResult.listItems}}
                                 <br>
@@ -154,13 +154,11 @@
                             </mat-card-content>
                             <mat-card-actions>
                                 <!-- Action Menu -->
-                                <button type="button" mat-icon-button [matMenuTriggerFor]="actionMenu"
+                                <button type="button" mat-icon-button (click)="onActionTableRowSelect(row)"
                                     aria-label="Action Menu">
                                     <mat-icon>more_vert</mat-icon>
                                 </button>
-                                <mat-menu #actionMenu="matMenu">
 
-                                </mat-menu>
                             </mat-card-actions>
                         </mat-card>
                     </div>
