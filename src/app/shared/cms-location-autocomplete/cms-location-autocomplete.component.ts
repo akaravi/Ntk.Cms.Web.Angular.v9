@@ -84,20 +84,29 @@ export class CmsLocationCompleteComponent implements OnInit {
     const filterModel = new FilterModel();
     filterModel.rowPerPage = 20;
     filterModel.accessLoad = true;
+    /*Filters */
     let filter = new FilterDataModel();
     filter.propertyName = 'Title';
     filter.value = text;
     filter.searchType = FilterDataModelSearchTypesEnum.Contains;
     filter.clauseType = ClauseTypeEnum.Or;
     filterModel.filters.push(filter);
-    if (text && typeof +text === 'number' && +text > 0) {
-      filter = new FilterDataModel();
-      filter.propertyName = 'Id';
-      filter.value = text;
-      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
-      filter.clauseType = ClauseTypeEnum.Or;
-      filterModel.filters.push(filter);
-    }
+    /*Filters */
+    filter = new FilterDataModel();
+    filter.propertyName = 'TitleResourceLanguage';
+    filter.value = text;
+    filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+    filter.clauseType = ClauseTypeEnum.Or;
+    filterModel.filters.push(filter);
+    /*Filters */
+    filter = new FilterDataModel();
+    filter.propertyName = 'Id';
+    filter.value = text;
+    filter.searchType = FilterDataModelSearchTypesEnum.Equal;
+    filter.clauseType = ClauseTypeEnum.Or;
+    filterModel.filters.push(filter);
+
+
 
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {

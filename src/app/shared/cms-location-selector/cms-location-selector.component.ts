@@ -116,16 +116,21 @@ export class CmsLocationSelectorComponent implements OnInit {
       filter.clauseType = ClauseTypeEnum.Or;
       filterModel.filters.push(filter);
 
-      if (text && typeof +text === 'number' && +text > 0) {
-        /*Filters */
-        filter = new FilterDataModel();
-        filter.propertyName = 'Id';
-        filter.value = text;
-        filter.searchType = FilterDataModelSearchTypesEnum.Equal;
-        filter.clauseType = ClauseTypeEnum.Or;
-        filterModel.filters.push(filter);
+      /*Filters */
+      filter = new FilterDataModel();
+      filter.propertyName = 'TitleResourceLanguage';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Contains;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
 
-      }
+      /*Filters */
+      filter = new FilterDataModel();
+      filter.propertyName = 'Id';
+      filter.value = text;
+      filter.searchType = FilterDataModelSearchTypesEnum.Equal;
+      filter.clauseType = ClauseTypeEnum.Or;
+      filterModel.filters.push(filter);
     }
 
     const pName = this.constructor.name + 'main';
