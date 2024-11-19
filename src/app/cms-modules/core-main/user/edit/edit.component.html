@@ -270,7 +270,7 @@
                 aria-hidden src="{{dataModel.linkMainImageIdSrc | cmsthumbnail}}" height="50" width="50" />
             </a>
           </div>
-          <div *ngIf="fieldsInfo['linkImageId']?.accessWatchField"
+          <div *ngIf="fieldsInfo['linkMainImageId']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
             <input matInput type="text" [(ngModel)]="dataModel.linkMainImageId" name="dataModel.linkMainImageId"
               #LinkMainImageId placeholder="{{'TITLE.Icon_File_ID' | translate}}" autocomplete="off"

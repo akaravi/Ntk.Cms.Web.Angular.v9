@@ -110,6 +110,11 @@ export class EstateCustomerOrderAddToEditComponent extends AddBaseComponent<Esta
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
 
+    this.dataModel.scoreLiquidityPower=5;
+    this.dataModel.scorePurchaseDecision=5;
+    this.dataModel.scorePurchasingPower=5;
+    this.dataModel.scoreRushToBuy=5;
+
     this.estateCustomerOrderService.ServiceAdd(this.dataModel).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
