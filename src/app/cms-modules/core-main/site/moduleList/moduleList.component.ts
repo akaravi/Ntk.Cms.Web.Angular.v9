@@ -67,8 +67,8 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     };
 
     /*filter Sort*/
-    this.filteModelContent.sortColumn = 'Id';
-    this.filteModelContent.sortType = SortTypeEnum.Descending;
+    this.filteModelContent.sortColumn = 'LinkModuleId';
+    this.filteModelContent.sortType = SortTypeEnum.Ascending;
   }
   comment: string;
   author: string;
@@ -123,7 +123,7 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
   cmsApiStoreSubscribe: Subscription;
 
   ngOnInit(): void {
-    this.filteModelContent.sortColumn = 'CreatedDate';
+    this.filteModelContent.sortColumn = 'LinkModuleId';
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       setTimeout(() => {
@@ -431,21 +431,36 @@ export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSit
     }
     );
   }
-  onActionButtonConfigSiteRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonConfigSiteRow(event?: MouseEvent,model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
-    this.router.navigate([model.virtual_CmsModule.className.toLowerCase() + '/config/site/', model.linkSiteId]);
+
+    if (event?.ctrlKey) {
+      window.open(model.virtual_CmsModule.className.toLowerCase() + '/config/site/'+ model.linkSiteId, "_blank");
+    } else {
+      this.router.navigate([model.virtual_CmsModule.className.toLowerCase() + '/config/site/', model.linkSiteId]);
+      }
+
+
+    
   }
-  onActionButtonConfigMainAdminRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
+  onActionButtonConfigMainAdminRow(event?: MouseEvent,model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {
       this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
     }
     this.onActionTableRowSelect(model);
-    this.router.navigate([model.virtual_CmsModule.className.toLowerCase() + '/config/mainadmin/']);
+    if (event?.ctrlKey) {
+      window.open(model.virtual_CmsModule.className.toLowerCase() + '/config/mainadmin/', "_blank");
+    } else {
+      this.router.navigate([model.virtual_CmsModule.className.toLowerCase() + '/config/mainadmin/']);
+      }
+
+
+    
   }
   onActionButtonSiteCreditAccountRow(model: CoreModuleSiteModel = this.tableRowSelected): void {
     if (!model || !model.linkModuleId || model.linkModuleId === 0 || !model.linkSiteId || model.linkSiteId === 0) {

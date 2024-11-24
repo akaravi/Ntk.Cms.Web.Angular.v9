@@ -92,14 +92,14 @@
       <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
     </div>
     <div class="col-4">
-      <a mat-menu-item (click)="onActionButtonConfigSiteRow(tableRowSelected)"
+      <a mat-menu-item (click)="onActionButtonConfigSiteRow($event,tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
           class="fa-solid fa-gear font-18" style="color: #ffffff;"></i><br>
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.MODULE_SETTINGS' | translate}}</p>
     </div>
     <div *ngIf="tokenInfo.userAccessAdminAllowToProfessionalData" class="col-4">
-      <a mat-menu-item (click)="onActionButtonConfigMainAdminRow(tableRowSelected)"
+      <a mat-menu-item (click)="onActionButtonConfigMainAdminRow($event,tableRowSelected)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
           class="fa-solid fa-rectangle-ad font-18" style="color: #ffffff;"></i><br>
       </a>
