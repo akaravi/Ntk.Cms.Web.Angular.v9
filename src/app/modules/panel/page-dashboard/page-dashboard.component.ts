@@ -45,19 +45,18 @@ export class PageDashboardComponent implements OnInit {
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       this.getCurrentSiteModule();
+      if (!this.dataModelResult || !this.dataModelResult.listItems || this.dataModelResult.listItems.length === 0)
+        this.loadData();
       this.cdr.detectChanges();
     });
-    this.cmsApiStoreSubscribe = this.tokenHelper      .getTokenInfoStateOnChange()
-      .subscribe({
-        next: (ret) => {
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange()      .subscribe({        next: (ret) => {
           this.tokenInfo = ret;
           this.getCurrentSiteModule();
+          if (!this.dataModelResult || !this.dataModelResult.listItems || this.dataModelResult.listItems.length === 0)
           this.loadData();
           this.cdr.detectChanges();
         }
       });
-
-
     localStorage.removeItem('siteId');
     this.pageInfo.updateTitle(this.translate.instant('ROUTE.DASHBOARD'));
   }
@@ -71,6 +70,7 @@ export class PageDashboardComponent implements OnInit {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
   loadData() {
+
     if (this.tokenInfo && this.tokenInfo.userId > 0 && this.tokenInfo.siteId > 0) {
       setTimeout(() => {
         const storeSnapshot = this.cmsStoreService.getStateSnapshot();
