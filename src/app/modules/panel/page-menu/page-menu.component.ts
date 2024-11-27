@@ -163,11 +163,12 @@ export class PageMenuComponent implements OnInit {
       return;
     }
   }
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: `smooth` });
-  }
   updateThemeMenuPinToggel(id: number): void {
     this.publicHelper.themeService.updateThemeMenuPinToggel(id);
     this.DataPinListSelect()
   }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: `smooth` });
+  }
+
 }
