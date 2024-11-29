@@ -26,12 +26,9 @@ export class PageDashboardComponent implements OnInit {
     private coreCpMainMenuService: CoreCpMainMenuService,
     private cmsToastrService: CmsToastrService,
     private cmsStoreService: CmsStoreService,
-    private activatedRoute: ActivatedRoute,
     private router: Router,
   ) {
     this.publicHelper.processService.cdr = this.cdr;
-
-
   }
   tokenInfo = new TokenInfoModel();
   cmsApiStoreSubscribe: Subscription;
@@ -49,6 +46,7 @@ export class PageDashboardComponent implements OnInit {
         this.loadData();
       this.cdr.detectChanges();
     });
+
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange()      .subscribe({        next: (ret) => {
           this.tokenInfo = ret;
           this.getCurrentSiteModule();
@@ -88,7 +86,6 @@ export class PageDashboardComponent implements OnInit {
     this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.coreCpMainMenuService.ServiceGetAllMenu(null).subscribe({
       next: (ret) => {
-
         if (ret.isSuccess) {
           this.dataModelResult = ret;
         } else {
@@ -134,7 +131,6 @@ export class PageDashboardComponent implements OnInit {
     this.DataPinListSelect()
   }
   DataPinListSelect() {
-
     this.dataPinListResult = [];
     if (this.publicHelper.themeService?.ThemeMenuPin?.length > 0) {
       this.dataModelResult.listItems.forEach((rowS1) => {
