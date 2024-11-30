@@ -57,6 +57,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
 
   tabledisplayedColumns: string[] = [];
   tabledisplayedColumnsSource: string[] = [
+    'LinkMainImageIdSrc',
     //'Id',
     'RecordStatus',
     'Title',
@@ -64,6 +65,7 @@ export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMai
   ];
 
   tabledisplayedColumnsMobileSource: string[] = [
+    'LinkMainImageIdSrc',
     //'Id',
     'RecordStatus',
     'Title',

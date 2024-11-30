@@ -29,6 +29,8 @@
         [class.ntk-tree-even]="!(i % 2)" matTreeNodePadding (click)="onActionSelect(node)"
         [class.ntk-tree-selected]="dataModelSelect.id?.length>0 && dataModelSelect.id === node.id">
         <button type="button" mat-icon-button disabled></button>
+        <img style="vertical-align:middle;" class="ntk-hover-zoom" aria-hidden src="{{node.linkMainImageIdSrc }}"
+          height="40" width="40" />&nbsp;
         {{node.title}}
       </mat-tree-node>
       <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">

@@ -12,11 +12,10 @@ import {
   FormInfoModel,
   ManageUserAccessDataTypesEnum, SmsMainApiPathCompanyModel, SmsMainApiPathCompanyService
 } from 'ntk-cms-api';
-import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-
+import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 @Component({
   selector: 'app-sms-apipathcompany-edit',
   templateUrl: './edit.component.html',
@@ -132,7 +131,6 @@ export class SmsMainApiPathCompanyEditComponent extends EditBaseComponent<SmsMai
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
         }
         this.publicHelper.processService.processStop(pName);
-
       },
       error: (er) => {
         this.formInfo.formSubmitAllow = true;
@@ -142,7 +140,10 @@ export class SmsMainApiPathCompanyEditComponent extends EditBaseComponent<SmsMai
     }
     );
   }
-
+  onActionFileSelected(model: NodeInterface): void {
+    this.dataModel.linkMainImageId = model.id;
+    this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
+  }
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       return;

@@ -11,11 +11,10 @@ import {
   FormInfoModel,
   SmsMainApiPathCompanyModel, SmsMainApiPathCompanyService
 } from 'ntk-cms-api';
-import { TreeModel } from 'ntk-cms-filemanager';
 import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
-
+import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 @Component({
   selector: 'app-sms-apipathcompany-add',
   templateUrl: './add.component.html',
@@ -96,15 +95,16 @@ export class SmsMainApiPathCompanyAddComponent extends AddBaseComponent<SmsMainA
     }
     );
   }
+  onActionFileSelected(model: NodeInterface): void {
+    this.dataModel.linkMainImageId = model.id;
+    this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
+  }
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       return;
     }
     this.formInfo.formSubmitAllow = false;
-
     this.DataAddContent();
-
-
   }
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });

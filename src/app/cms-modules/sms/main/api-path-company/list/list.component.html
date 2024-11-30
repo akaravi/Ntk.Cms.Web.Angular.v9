@@ -93,6 +93,15 @@
   <ng-container cms-body>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
     <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)">
+            <!-- LinkMainImageIdSrc Column -->
+            <ng-container matColumnDef="LinkMainImageIdSrc">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TITLE.PICTURE' | translate}} </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <img *ngIf="row?.linkMainImageIdSrc?.length>0" style="vertical-align:middle;" class="ntk-hover-zoom"
+                  aria-hidden src="{{row.linkMainImageIdSrc }}" height="40" width="40" />
+      
+              </mat-cell>
+            </ng-container>
       <!-- ID Column -->
       <ng-container matColumnDef="Id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['id']?.fieldTitle}} </mat-header-cell>

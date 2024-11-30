@@ -104,16 +104,12 @@ export class SmsMainApiPathPublicConfigAddComponent extends AddBaseComponent<Sms
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
   }
-
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       return;
     }
     this.formInfo.formSubmitAllow = false;
-
     this.DataAddContent();
-
-
   }
   onFormCancel(): void {
     this.dialogRef.close({ dialogChangedDate: false });

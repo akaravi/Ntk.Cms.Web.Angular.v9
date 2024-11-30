@@ -47,19 +47,12 @@ export class SmsMainApiPathPublicConfigEditComponent extends EditBaseComponent<S
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
-
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
-
   fileManagerTree: TreeModel;
   appLanguage = 'fa';
-
-
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
   dataModel: SmsMainApiPathPublicConfigAliasJsonModel = new SmsMainApiPathPublicConfigAliasJsonModel();
-
   formInfo: FormInfoModel = new FormInfoModel();
-
-
   fileManagerOpenForm = false;
 
 
@@ -72,8 +65,6 @@ export class SmsMainApiPathPublicConfigEditComponent extends EditBaseComponent<S
       this.dialogRef.close({ dialogChangedDate: false });
       return;
     }
-
-
   }
 
   DataGetOneContent(): void {
@@ -150,7 +141,6 @@ export class SmsMainApiPathPublicConfigEditComponent extends EditBaseComponent<S
     this.dataModel.linkMainImageId = model.id;
     this.dataModel.linkMainImageIdSrc = model.downloadLinksrc;
   }
-
   onFormSubmit(): void {
     if (!this.formGroup.valid) {
       return;
