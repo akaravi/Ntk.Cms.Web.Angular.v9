@@ -72,11 +72,24 @@
   </div>
 
 </div>
-<div class="row ">
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+
+
+<div class="row "  *ngIf="dataModelPropertyProjectResult.totalRowCount>0 ||
+  dataModelPropertySupplierResult.totalRowCount>0 ||
+  dataModelPropertyCompanyResult.totalRowCount>0 ||
+  dataModelAccountUserResult.totalRowCount>0 ||
+  dataModelAccountAgencyResult.totalRowCount>0 ||
+  dataModelHistoryResult.totalRowCount>0 ||
+  dataModelCustomerOrderResultNotAvailable.totalRowCount>0 ||
+  dataModelCustomerOrderResultAvailable.totalRowCount>0 ||
+  dataModelCustomerOrderResult.totalRowCount>0 ||
+  dataModelPropertyResultNotAvailable.totalRowCount>0 ||
+  dataModelPropertyResultAvailable.totalRowCount>0 ||
+  dataModelPropertyResult.totalRowCount>0;else other_content">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelPropertyResult.totalRowCount>0">
 
     <!-- begin::Row -->
-    <div class="card card-style loader-container">
+    <div class="card card-style loader-container" >
       <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
@@ -136,7 +149,7 @@
   </div>
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelPropertyResultAvailable.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -200,7 +213,7 @@
   </div>
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelPropertyResultNotAvailable.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -264,7 +277,7 @@
   </div>
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelCustomerOrderResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -329,7 +342,7 @@
   </div>
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelCustomerOrderResultAvailable.totalRowCount>0"> 
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -394,7 +407,7 @@
   </div>
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelCustomerOrderResultNotAvailable.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -460,7 +473,7 @@
   </div>
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelHistoryResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -527,7 +540,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelAccountAgencyResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -593,7 +606,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelAccountUserResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -662,7 +675,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 "  *ngIf="dataModelPropertyCompanyResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -731,7 +744,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelPropertySupplierResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -799,7 +812,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 "   *ngIf="dataModelPropertyProjectResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -861,3 +874,24 @@
     </div>
     <!-- end::Row -->
   </div>
+</div>
+<ng-template #other_content>
+  <div class="row "  >
+    <div class="col-12 col-sm-12" >
+      <!-- begin::Row -->
+      <div class="card card-style loader-container">
+        <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResultNotAvailable'"> </app-progress-spinner>
+        <div class="content">
+          <!-- begin::accordion-->
+          <div class="accordion" id="accordion-1C">
+            <div class="mb-2">
+              اطلاعات آماری با مشخصات درخواستی شما یافت نشد
+            </div>
+          </div>
+          <!-- end::accordion-->
+        </div>
+      </div>
+      <!-- end::Row -->
+    </div>
+  </div>
+</ng-template>
