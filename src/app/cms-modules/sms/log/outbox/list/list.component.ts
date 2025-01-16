@@ -26,7 +26,7 @@ import { SmsLogOutBoxViewComponent } from '../view/view.component';
 })
 export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxService, SmsLogOutBoxModel, string> implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
-  requestLinkPrivateConfigId = '';
+  requestLinkApiPathId = '';
   requestLinkApiNumberId = '';
   constructorInfoAreaId = this.constructor.name;
   constructor(
@@ -76,7 +76,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
   tabledisplayedColumnsSource: string[] = [
     // 'Id',
     'IsAccepted',
-    // 'LinkPrivateConfigId',
+    // 'LinkApiPathId',
     // 'Message',
     'CreatedDate',
     'SendDate',
@@ -87,7 +87,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
   tabledisplayedColumnsMobileSource: string[] = [
     // 'Id',
     'IsAccepted',
-    // 'LinkPrivateConfigId',
+    // 'LinkApiPathId',
     // 'Message',
     'CreatedDate',
     'SendDate',
@@ -103,16 +103,16 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     if (this.activatedRoute.snapshot.paramMap.get('LinkSiteId')) {
       this.requestLinkSiteId = +this.activatedRoute.snapshot.paramMap.get('LinkSiteId') || 0;
     }
-    if (this.activatedRoute.snapshot.paramMap.get('LinkPrivateConfigId')) {
-      this.requestLinkPrivateConfigId = this.activatedRoute.snapshot.paramMap.get('LinkPrivateConfigId');
+    if (this.activatedRoute.snapshot.paramMap.get('LinkApiPathId')) {
+      this.requestLinkApiPathId = this.activatedRoute.snapshot.paramMap.get('LinkApiPathId');
     }
     if (this.activatedRoute.snapshot.paramMap.get('LinkApiNumberId')) {
       this.requestLinkApiNumberId = this.activatedRoute.snapshot.paramMap.get('LinkApiNumberId');
     }
     const filter = new FilterDataModel();
-    if (this.requestLinkPrivateConfigId?.length > 0) {
-      filter.propertyName = 'LinkPrivateConfigId';
-      filter.value = this.requestLinkPrivateConfigId;
+    if (this.requestLinkApiPathId?.length > 0) {
+      filter.propertyName = 'LinkApiPathId';
+      filter.value = this.requestLinkApiPathId;
       this.filteModelContent.filters.push(filter);
     }
     if (this.requestLinkApiNumberId?.length > 0) {
@@ -173,7 +173,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
     /** filter Category */
     if (this.categoryModelSelected && this.categoryModelSelected.id.length > 0) {
       let fastfilter = new FilterDataModel();
-      fastfilter.propertyName = 'LinkPrivateConfigId';
+      fastfilter.propertyName = 'LinkApiPathId';
       fastfilter.value = this.categoryModelSelected.id;
       filterModel.filters.push(fastfilter);
     }

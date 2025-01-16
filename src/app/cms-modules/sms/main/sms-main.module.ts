@@ -65,6 +65,7 @@ import { SmsMainApiPathPublicConfigHeaderComponent } from './public-config/heade
 import { SmsMainApiPathPublicConfigListComponent } from './public-config/list/list.component';
 import { SmsMainApiPathPublicConfigSelectorComponent } from './public-config/selector/selector.component';
 import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tree.component';
+import { SmsMainApiPathHeaderComponent } from './api-path/header/header.component';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tr
     SmsMainApiPathAddComponent,
     SmsMainApiPathEditComponent,
     SmsMainApiPathSelectorComponent,
-
+    SmsMainApiPathHeaderComponent,
+    
     SmsMainApiPathSendTestComponent,
     SmsMainApiPathSelectionlistComponent,
     /*Permission*/
@@ -147,7 +149,7 @@ import { SmsMainApiPathPublicConfigTreeComponent } from './public-config/tree/tr
     SmsMainApiPathAddComponent,
     SmsMainApiPathEditComponent,
     SmsMainApiPathSelectorComponent,
-
+    SmsMainApiPathHeaderComponent,
     SmsMainApiPathSendTestComponent,
     SmsMainApiPathSelectionlistComponent,
     /*Permission*/

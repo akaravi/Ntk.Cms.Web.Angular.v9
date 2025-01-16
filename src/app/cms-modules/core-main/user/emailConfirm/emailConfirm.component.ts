@@ -124,7 +124,7 @@ export class CoreUserEmailConfirmComponent implements OnInit {
             this.dialogRef.close({ dialogChangedDate: true });
           }
         } else {
-          debugger
+          
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
           this.firstRun = false;
           this.formInfo.buttonSubmittedEnabled = true;

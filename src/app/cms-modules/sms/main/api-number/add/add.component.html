@@ -28,124 +28,7 @@
           class="form-control validate-name input-ltr " id="dataModel.numberChar" />
         <em>{{ NumberChar.value.length }} / 100</em>
       </div>
-      <!-- IsPublic Field -->
-      <div *ngIf="fieldsInfo['isPublic']?.accessWatchField" class="d-flex mb-3">
-        <div class="pt-1">
-          <h5 data-trigger-switch="dataModel.isPublic" class="font-600 font-14">
-            {{fieldsInfo['isPublic']?.fieldTitle}}</h5>
-        </div>
-        <div class="ms-auto me-3 pe-2">
-          <div class="custom-control ios-switch small-switch">
-            <input type="checkbox" class="ios-input" id="dataModel.isPublic" [(ngModel)]="this.dataModel.isPublic"
-              name="dataModel.isPublic">
-            <label class="custom-control-label" for="dataModel.isPublic"></label>
-          </div>
-        </div>
-      </div>
-      <!-- SaleStatus Field -->
-      <div *ngIf="fieldsInfo['saleStatus']?.accessWatchField" class="d-flex mb-3">
-        <div class="pt-1">
-          <h5 data-trigger-switch="dataModel.saleStatus" class="font-600 font-14">
-            {{fieldsInfo['saleStatus']?.fieldTitle}}</h5>
-        </div>
-        <div class="ms-auto me-3 pe-2">
-          <div class="custom-control ios-switch small-switch">
-            <input type="checkbox" class="ios-input" id="dataModel.saleStatus" [(ngModel)]="this.dataModel.saleStatus"
-              name="dataModel.saleStatus">
-            <label class="custom-control-label" for="dataModel.saleStatus"></label>
-          </div>
-        </div>
-      </div>
-      <!-- Priority Field -->
-      <div *ngIf="fieldsInfo['priority']?.accessWatchField"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.priority" class="color-highlight">{{ fieldsInfo["priority"]?.fieldTitle }}</label>
-        <input matInput type="number" [(ngModel)]="dataModel.priority" name="dataModel.priority" #Priority
-          placeholder="1" disabled="{{ !fieldsInfo['priority']?.accessEditField }}" class="form-control validate-name"
-          id="dataModel.priority" />
-        <em>{{ Priority.value.length }} / 100</em>
-      </div>
-      <!-- DeliveryRelayStatus Field -->
-      <div *ngIf="fieldsInfo['deliveryRelayStatus']?.accessWatchField" class="d-flex mb-3">
-        <div class="pt-1">
-          <h5 data-trigger-switch="dataModel.deliveryRelayStatus" class="font-600 font-14">
-            {{fieldsInfo['deliveryRelayStatus']?.fieldTitle}}</h5>
-        </div>
-        <div class="ms-auto me-3 pe-2">
-          <div class="custom-control ios-switch small-switch">
-            <input type="checkbox" class="ios-input" id="dataModel.deliveryRelayStatus"
-              [(ngModel)]="this.dataModel.deliveryRelayStatus" name="dataModel.deliveryRelayStatus">
-            <label class="custom-control-label" for="dataModel.deliveryRelayStatus"></label>
-          </div>
-        </div>
-      </div>
-      <!-- DeliveryRelayUrl Field -->
-      <div *ngIf="fieldsInfo['deliveryRelayUrl']?.accessWatchField && dataModel.deliveryRelayStatus"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.deliveryRelayUrl" class="color-highlight">{{ fieldsInfo["deliveryRelayUrl"]?.fieldTitle
-          }}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.deliveryRelayUrl" name="dataModel.deliveryRelayUrl"
-          #DeliveryRelayUrl placeholder="1" [disabled]="!fieldsInfo['deliveryRelayUrl']?.accessAddField"
-          class="form-control validate-name" id="dataModel.deliveryRelayUrl" />
-        <em>{{ DeliveryRelayUrl.value.length }} / 100</em>
-      </div>
-      <!-- SmsRelayStatus Field -->
-      <div *ngIf="fieldsInfo['smsRelayStatus']?.accessWatchField" class="d-flex mb-3">
-        <div class="pt-1">
-          <h5 data-trigger-switch="dataModel.smsRelayStatus" class="font-600 font-14">
-            {{fieldsInfo['smsRelayStatus']?.fieldTitle}}</h5>
-        </div>
-        <div class="ms-auto me-3 pe-2">
-          <div class="custom-control ios-switch small-switch">
-            <input type="checkbox" class="ios-input" id="dataModel.smsRelayStatus"
-              [(ngModel)]="this.dataModel.smsRelayStatus" name="dataModel.smsRelayStatus">
-            <label class="custom-control-label" for="dataModel.smsRelayStatus"></label>
-          </div>
-        </div>
-      </div>
-      <!-- SmsRelayUrl Field -->
-      <div *ngIf="fieldsInfo['smsRelayUrl']?.accessWatchField && dataModel.smsRelayStatus"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.smsRelayUrl" class="color-highlight">{{ fieldsInfo["smsRelayUrl"]?.fieldTitle }}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.smsRelayUrl" name="dataModel.smsRelayUrl" #SmsRelayUrl
-          placeholder="1" [disabled]="!fieldsInfo['smsRelayUrl']?.accessAddField" class="form-control validate-name"
-          id="dataModel.smsRelayUrl" />
-        <em>{{ SmsRelayUrl.value.length }} / 100</em>
-      </div>
-      <!-- FirstSubmit Field -->
-      <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.firstSubmit" class="color-highlight">{{ fieldsInfo["firstSubmit"]?.fieldTitle }}</label>
-        <input matInput [matDatepicker]="FirstSubmit" type="text" [(ngModel)]="dataModel.firstSubmit"
-          name="dataModel.firstSubmit" class="form-control validate-name" id="dataModel.firstSubmit" />
-        <mat-datepicker-toggle matSuffix [for]="FirstSubmit"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #FirstSubmit></mat-datepicker>
-      </div>
-      <!-- UsanceDate Field -->
-      <div *ngIf="fieldsInfo['usanceDate']?.accessWatchField"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.usanceDate" class="color-highlight">{{ fieldsInfo["usanceDate"]?.fieldTitle }}</label>
-        <input matInput [matDatepicker]="UsanceDate" type="text" [(ngModel)]="dataModel.usanceDate"
-          name="dataModel.usanceDate" class="form-control validate-name" id="dataModel.usanceDate" />
-        <mat-datepicker-toggle matSuffix [for]="UsanceDate"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #UsanceDate></mat-datepicker>
-      </div>
-      <!-- ExpireDate Field -->
-      <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.expireDate" class="color-highlight">{{fieldsInfo['expireDate']?.fieldTitle}}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.expireDate" [matDatepicker]="ExpireDate"
-          name="dataModel.expireDate" class="form-control validate-name" id="dataModel.expireDate" />
-        <mat-datepicker-toggle matSuffix [for]="ExpireDate"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #ExpireDate></mat-datepicker>
-      </div>
-      <!-- ActionMemo Field -->
-      <div *ngIf="fieldsInfo['actionMemo']?.accessWatchField"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.actionMemo" class="color-highlight">{{ fieldsInfo["actionMemo"]?.fieldTitle }}</label>
-        <input matInput type="text" [(ngModel)]="dataModel.actionMemo" #ActionMemo name="dataModel.actionMemo"
-          [disabled]="!fieldsInfo['actionMemo']?.accessEditField" placeholder="1" class="form-control validate-name"
-          id="dataModel.actionMemo" />
-      </div>
+     
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"
           class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray">
@@ -156,11 +39,6 @@
           <i class="fa fa-check-square-o"></i> {{'ACTION.SAVE' | translate}}
         </button>
       </div>
-
-
-
-
-
 
     </form>
 

@@ -2,7 +2,7 @@
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"
   (optionOnActionButtonPrintRow)="onActionButtonPrintRow()" [optionTreeDisplay]="false"
-  [optionTreeDisplay]="!requestLinkPrivateConfigId || requestLinkPrivateConfigId.length===0"
+  [optionTreeDisplay]="!requestLinkApiPathId || requestLinkApiPathId.length===0"
   [optionActionRowId]="tableRowSelected?.id" [optionActionRowDisplayMenu]="tableRowSelectDoubleClick"
   [optionSelectRowItemTitle]="tableRowSelected?.message">
   <ng-container cms-tree>
@@ -22,7 +22,7 @@
   </ng-container>
   <ng-container cms-action-header-start>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-start-->
-    <a *ngIf="requestLinkPrivateConfigId?.length>0" type="button"
+    <a *ngIf="requestLinkApiPathId?.length>0" type="button"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray" (click)="onActionBackToParent()"
       target="_blank">
       <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
@@ -159,11 +159,11 @@
         <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
       </ng-container>
 
-      <!-- LinkPrivateConfigId Column -->
-      <ng-container matColumnDef="LinkPrivateConfigId">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['linkPrivateConfigId']?.fieldTitle}}
+      <!-- LinkApiPathId Column -->
+      <ng-container matColumnDef="LinkApiPathId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['linkApiPathId']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.linkPrivateConfigId | cmstitle: dataModelPrivateResult.listItems}}
+        <mat-cell *matCellDef="let row"> {{row.linkApiPathId | cmstitle: dataModelPrivateResult.listItems}}
         </mat-cell>
       </ng-container>
 

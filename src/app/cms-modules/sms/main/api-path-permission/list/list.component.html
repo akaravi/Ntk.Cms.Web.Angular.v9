@@ -1,3 +1,5 @@
+<app-sms-apipath-header *ngIf="this.requestLinkApiPathId?.length>0" [optionId]="this.requestLinkApiPathId">
+</app-sms-apipath-header>
 <app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId" [optionGuideNoticeKey]="''"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"
   (optionOnActionButtonMemo)="onActionButtonMemo()" (optionOnActionButtonExport)="onActionButtonExport()"

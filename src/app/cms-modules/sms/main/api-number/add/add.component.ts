@@ -80,6 +80,7 @@ export class SmsMainApiNumberAddComponent extends AddBaseComponent<SmsMainApiNum
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
         this.dataModelResult = ret;
+        
         if (ret.isSuccess) {
           this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessAdd();

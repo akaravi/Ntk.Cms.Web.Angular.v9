@@ -233,6 +233,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.dialogChangedDate) {
+        
         this.onActionButtonEditRow(result.model);
         this.DataGetAll();
       }
@@ -246,6 +247,7 @@ export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiN
       return;
     }
     this.onActionTableRowSelect(model);
+    this.tableRowSelected = model;
     if (
       this.dataModelResult == null ||
       this.dataModelResult.access == null ||
