@@ -112,23 +112,15 @@
           [disabled]="!fieldsInfo['smsRelayUrl']?.accessEditField" class="form-control validate-name"
           id="dataModel.smsRelayUrl" />
       </div>
-      <!-- FirstSubmit Field -->
+      <!-- accessUseStartDate Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.firstSubmit" class="color-highlight">{{ fieldsInfo["firstSubmit"]?.fieldTitle }}</label>
-        <input matInput [matDatepicker]="FirstSubmit" type="text" [(ngModel)]="dataModel.firstSubmit"
-          name="dataModel.firstSubmit" class="form-control validate-name" id="dataModel.firstSubmit" />
-        <mat-datepicker-toggle matSuffix [for]="FirstSubmit"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #FirstSubmit></mat-datepicker>
+        <label for="dataModel.accessUseStartDate" class="color-highlight">{{ fieldsInfo["accessUseStartDate"]?.fieldTitle }}</label>
+        <input matInput [matDatepicker]="accessUseStartDate" type="text" [(ngModel)]="dataModel.accessUseStartDate"
+          name="dataModel.accessUseStartDate" class="form-control validate-name" id="dataModel.accessUseStartDate" />
+        <mat-datepicker-toggle matSuffix [for]="accessUseStartDate"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #accessUseStartDate></mat-datepicker>
       </div>
-      <!-- UsanceDate Field -->
-      <div *ngIf="fieldsInfo['usanceDate']?.accessWatchField"
-        class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-        <label for="dataModel.usanceDate" class="color-highlight">{{ fieldsInfo["usanceDate"]?.fieldTitle }}</label>
-        <input matInput [matDatepicker]="UsanceDate" type="text" [(ngModel)]="dataModel.usanceDate"
-          name="dataModel.usanceDate" class="form-control validate-name" id="dataModel.usanceDate" />
-        <mat-datepicker-toggle matSuffix [for]="UsanceDate"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #UsanceDate></mat-datepicker>
-      </div>
+
       <!-- ExpireDate Field -->
       <div *ngIf="fieldsInfo['expireDate']?.accessWatchField"
         class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

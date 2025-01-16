@@ -142,17 +142,17 @@
         <mat-cell *matCellDef="let row"> <i [ngClass]="row.saleStatus|statusIconClass"></i> </mat-cell>
       </ng-container>
 
-      <!-- FirstSubmit Column -->
-      <ng-container matColumnDef="FirstSubmit">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['firstSubmit']?.fieldTitle}}
+      <!-- accessUseStartDate Column -->
+      <ng-container matColumnDef="accessUseStartDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['accessUseStartDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.firstSubmit) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.accessUseStartDate) }} </mat-cell>
       </ng-container>
-      <!-- UsanceDate Column -->
-      <ng-container matColumnDef="UsanceDate">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['usanceDate']?.fieldTitle}}
+      <!-- lastUseOfDate Column -->
+      <ng-container matColumnDef="lastUseOfDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['lastUseOfDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.usanceDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.lastUseOfDate) }} </mat-cell>
       </ng-container>
       <!-- CreatedDate Column -->
       <ng-container matColumnDef="CreatedDate">
