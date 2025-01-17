@@ -59,7 +59,13 @@ export class SmsActionSendMessageComponent implements OnInit {
       this.tokenInfo = value;
       this.language = this.tokenInfo.language;
     });
+
+    this.dateTime = new Date();
+    this.dateTimeUTC = new Date(this.dateTime.getTime() + this.dateTime.getTimezoneOffset() * 60000);
   }
+
+  dateTime = new Date();
+  dateTimeUTC = new Date();
   tokenInfo = new TokenInfoModel();
   language = 'en';
   @ViewChild('vform', { static: false }) formGroup: FormGroup;

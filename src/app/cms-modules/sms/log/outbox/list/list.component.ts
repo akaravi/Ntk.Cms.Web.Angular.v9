@@ -62,8 +62,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
 
   filteModelContent = new FilterModel();
   dataModelCoreCurrencyResult: ErrorExceptionResult<CoreCurrencyModel> = new ErrorExceptionResult<CoreCurrencyModel>();
-  // dataModelCompanyResult: ErrorExceptionResult<SmsMainApiPathCompanyModel> = new ErrorExceptionResult<SmsMainApiPathCompanyModel>();
-  // dataModelPublicResult: ErrorExceptionResult<SmsMainApiPathPublicConfigModel> = new ErrorExceptionResult<SmsMainApiPathPublicConfigModel>();
+  
   dataModelPrivateResult: ErrorExceptionResult<SmsMainApiPathModel> = new ErrorExceptionResult<SmsMainApiPathModel>();
   categoryModelSelected: SmsMainApiPathModel;
 
@@ -76,7 +75,7 @@ export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxSer
   tabledisplayedColumnsSource: string[] = [
     // 'Id',
     'IsAccepted',
-    // 'LinkApiPathId',
+    'LinkApiPathId',
     // 'Message',
     'CreatedDate',
     'SendDate',

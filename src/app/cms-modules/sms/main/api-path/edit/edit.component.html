@@ -161,7 +161,7 @@
               name="dataModel.perriodStartWorkTime" type="number" [format]="24" class="form-control validate-name"
               id="dataModel.perriodStartWorkTime" />
             <ngx-material-timepicker-toggle matSuffix [for]="PerriodStartWorkTime"></ngx-material-timepicker-toggle>
-            <ngx-material-timepicker touchUi #PerriodStartWorkTime></ngx-material-timepicker>
+            <ngx-material-timepicker touchUi #PerriodStartWorkTime  class ='timepicker'></ngx-material-timepicker>
           </div>
           <!-- PerriodEndWorkTime Field -->
           <div *ngIf="fieldsInfo['perriodEndWorkTime']?.accessWatchField"
@@ -172,7 +172,7 @@
               name="dataModel.perriodEndWorkTime" type="number" [format]="24" class="form-control validate-name"
               id="dataModel.perriodEndWorkTime" />
             <ngx-material-timepicker-toggle matSuffix [for]="PerriodEndWorkTime"></ngx-material-timepicker-toggle>
-            <ngx-material-timepicker touchUi #PerriodEndWorkTime></ngx-material-timepicker>
+            <ngx-material-timepicker touchUi #PerriodEndWorkTime  class ='timepicker'></ngx-material-timepicker>
           </div>
           <!-- Description Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
