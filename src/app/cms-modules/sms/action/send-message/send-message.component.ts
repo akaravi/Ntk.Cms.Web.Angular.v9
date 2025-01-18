@@ -60,12 +60,10 @@ export class SmsActionSendMessageComponent implements OnInit {
       this.language = this.tokenInfo.language;
     });
 
-    this.dateTime = new Date();
-    this.dateTimeUTC = new Date(this.dateTime.getTime() + this.dateTime.getTimezoneOffset() * 60000);
+    let dateTime = new Date();
+    this.timezoneOffset=dateTime.getTimezoneOffset()*-1;
   }
-
-  dateTime = new Date();
-  dateTimeUTC = new Date();
+  timezoneOffset=0;
   tokenInfo = new TokenInfoModel();
   language = 'en';
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -252,6 +250,10 @@ export class SmsActionSendMessageComponent implements OnInit {
 
     this.formInfo.formAlert = '';
     this.formInfo.formError = '';
+    this.dataModel.scheduleSendStart.setMinutes(this.dataModel.scheduleSendStart.getMinutes() + this.timezoneOffset);
+    this.dataModel.scheduleSendExpire.setMinutes(this.dataModel.scheduleSendExpire.getMinutes() + this.timezoneOffset);
+
+    
     this.smsMainApiPathService.ServiceSendMessage(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
