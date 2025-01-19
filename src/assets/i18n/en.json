@@ -593,6 +593,7 @@
   "MESSAGE.Period_amount_is_not_entered_correctly": "Period amount is not entered correctly",
   "MESSAGE.Payment_request_was_successfully_registered": "Payment request was successfully registered",
   "MESSAGE.Submit_request_was_successfully_registered": "Submit request was successfully registered",
+  "MESSAGE.Warning_ClockStart_Bigger_Than_ClockExpire":"Warning ClockStart Bigger Than ClockExpire",
   "MESSAGE.Payment_portal_is_not_active": "Payment portal is not active",
   "MESSAGE.Reminder.by.SMS": "Reminder by SMS",
   "MESSAGE.Reminders.by.email": "Reminders by email",

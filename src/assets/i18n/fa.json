@@ -594,6 +594,7 @@
   "MESSAGE.Period_amount_is_not_entered_correctly": "مبلغ اقساط به درستی  وارد نشده است",
   "MESSAGE.Payment_request_was_successfully_registered": "درخواست پرداخت با موفقیت ثبت شد",
   "MESSAGE.Submit_request_was_successfully_registered": "درخواست ارسال با موفقیت ثبت شد",
+  "MESSAGE.Warning_ClockStart_Bigger_Than_ClockExpire":"هشدار زمان شروع از زمان پایان بزرگتر است",
   "MESSAGE.Payment_portal_is_not_active": "درگاهی برای پرداخت فعال نمی باشد",
   "MESSAGE.Reminder.by.SMS": "یادآوری با پیامک",
   "MESSAGE.Reminders.by.email": "یادآوری از طریق ایمیل",

@@ -61,9 +61,9 @@ export class SmsActionSendMessageComponent implements OnInit {
     });
 
     let dateTime = new Date();
-    this.timezoneOffset=dateTime.getTimezoneOffset()*-1;
+    this.timezoneOffset = dateTime.getTimezoneOffset();
   }
-  timezoneOffset=0;
+  timezoneOffset = 0;
   tokenInfo = new TokenInfoModel();
   language = 'en';
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
@@ -138,24 +138,41 @@ export class SmsActionSendMessageComponent implements OnInit {
   }
   onActionScheduleSendCheck() {
     /**Start */
-    const now = new Date();
-    if (!this.dataModelDateByClockStart.clock)
-      this.dataModelDateByClockStart.clock = now.getHours() + ':' + now.getMinutes();
+    var now = new Date();
     if (!this.dataModelDateByClockStart.date)
       this.dataModelDateByClockStart.date = now;
+    if (!this.dataModelDateByClockStart.clock)
+      this.dataModelDateByClockStart.clock = now.getHours() + ':' + now.getMinutes();
+
     this.dataModelDateByClockStart.date = new Date(this.dataModelDateByClockStart.date);
     this.dataModelDateByClockStart.date.setHours(+this.dataModelDateByClockStart.clock.split(':')[0] | 0, +this.dataModelDateByClockStart.clock.split(':')[1] | 0)
 
     this.dataModel.scheduleSendStart = this.dataModelDateByClockStart.date;
+    if (this.dataModel.scheduleSendStart > this.dataModel.scheduleSendExpire)
+      now = this.dataModel.scheduleSendStart;
     /**Expire */
-    if (!this.dataModelDateByClockExpire.clock)
-      this.dataModelDateByClockExpire.clock = now.getHours() + ':' + now.getMinutes();
-    if (!this.dataModelDateByClockExpire.date)
+
+    now.setMinutes(now.getMinutes() + 60 * 3);
+    if (!this.dataModelDateByClockExpire.date || this.dataModel.scheduleSendStart > this.dataModel.scheduleSendExpire)
       this.dataModelDateByClockExpire.date = now;
+    if (!this.dataModelDateByClockExpire.clock || this.dataModel.scheduleSendStart > this.dataModel.scheduleSendExpire)
+      this.dataModelDateByClockExpire.clock = now.getHours() + ':' + now.getMinutes();
+
     this.dataModelDateByClockExpire.date = new Date(this.dataModelDateByClockExpire.date);
     this.dataModelDateByClockExpire.date.setHours(+this.dataModelDateByClockExpire.clock.split(':')[0] | 0, +this.dataModelDateByClockExpire.clock.split(':')[1] | 0)
 
     this.dataModel.scheduleSendExpire = this.dataModelDateByClockExpire.date;
+
+    if (this.dataModel.scheduleSendStart > this.dataModel.scheduleSendExpire) {
+      now = this.dataModel.scheduleSendStart;
+      now.setMinutes(now.getMinutes() + 60 * 3);
+      this.dataModelDateByClockExpire.date = now;
+      this.dataModelDateByClockExpire.clock = now.getHours() + ':' + now.getMinutes();
+      this.dataModelDateByClockExpire.date = new Date(this.dataModelDateByClockExpire.date);
+      this.dataModelDateByClockExpire.date.setHours(+this.dataModelDateByClockExpire.clock.split(':')[0] | 0, +this.dataModelDateByClockExpire.clock.split(':')[1] | 0);
+      this.dataModel.scheduleSendExpire = this.dataModelDateByClockExpire.date;
+      this.cmsToastrService.typeWarningMessage(this.translate.instant('MESSAGE.Warning_ClockStart_Bigger_Than_ClockExpire'));
+    }
   }
   readClipboardFromDevTools() {
     return new Promise((resolve, reject) => {
@@ -250,10 +267,11 @@ export class SmsActionSendMessageComponent implements OnInit {
 
     this.formInfo.formAlert = '';
     this.formInfo.formError = '';
-    this.dataModel.scheduleSendStart.setMinutes(this.dataModel.scheduleSendStart.getMinutes() + this.timezoneOffset);
-    this.dataModel.scheduleSendExpire.setMinutes(this.dataModel.scheduleSendExpire.getMinutes() + this.timezoneOffset);
+    // this.dataModel.scheduleSendStart.setMinutes(this.dataModel.scheduleSendStart.getMinutes() + this.timezoneOffset);
+    // this.dataModel.scheduleSendExpire.setMinutes(this.dataModel.scheduleSendExpire.getMinutes() + this.timezoneOffset);
+    //this.dataModel.scheduleSendStart=new Date(this.dataModel.scheduleSendStart.getTime() + this.timezoneOffset*60*1000);
+    //this.dataModel.scheduleSendExpire=new Date(this.dataModel.scheduleSendExpire.getTime() + this.timezoneOffset*60*1000);
 
-    
     this.smsMainApiPathService.ServiceSendMessage(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
