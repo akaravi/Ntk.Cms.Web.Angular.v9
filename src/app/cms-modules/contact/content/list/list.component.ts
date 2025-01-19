@@ -72,6 +72,7 @@ export class ContactContentListComponent extends ListBaseComponent<ContactConten
     'Id',
     'RecordStatus',
     'Title',
+    'countNumber',
     'CreatedDate',
     'UpdatedDate',
     // 'Action'

@@ -119,6 +119,12 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
       </ng-container>
+      <!-- countNumber Column -->
+      <ng-container matColumnDef="countNumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['countNumber']?.fieldTitle}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.countNumber}} </mat-cell>
+      </ng-container>
       <!-- CreatedDate Column -->
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
