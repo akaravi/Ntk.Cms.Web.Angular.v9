@@ -74,7 +74,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     'Id',
     'RecordStatus',
     'IsFlash',
-    'Message',
+    //'Message',
     'QueueCompleted',
     'QueueCompleteDate',
     'ScheduleSendStart',
@@ -86,7 +86,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     'Id',
     'RecordStatus',
     'IsFlash',
-    'Message',
+    //'Message',
     'QueueCompleted',
     'QueueCompleteDate',
     'ScheduleSendStart',
@@ -402,96 +402,7 @@ export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutB
     );
 
   }
-  onActionButtonSuperSedersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id.length === 0) {
 
-      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
-      return;
-    }
-    this.onActionTableRowSelect(model);
-
-    if (
-      this.dataModelResult == null ||
-      this.dataModelResult.access == null ||
-      !this.dataModelResult.access.accessWatchRow
-    ) {
-      this.cmsToastrService.typeErrorSelected();
-      return;
-    }
-    this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
-  }
-  onActionButtonMustSuperSedersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id.length === 0) {
-
-      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
-      return;
-    }
-    this.onActionTableRowSelect(model);
-
-    if (
-      this.dataModelResult == null ||
-      this.dataModelResult.access == null ||
-      !this.dataModelResult.access.accessWatchRow
-    ) {
-      this.cmsToastrService.typeErrorSelected();
-      return;
-    }
-    this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
-  }
-  onActionButtonNumbersList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id.length === 0) {
-
-      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
-      return;
-    }
-    this.onActionTableRowSelect(model);
-
-    if (
-      this.dataModelResult == null ||
-      this.dataModelResult.access == null ||
-      !this.dataModelResult.access.accessWatchRow
-    ) {
-      this.cmsToastrService.typeErrorSelected();
-      return;
-    }
-    this.router.navigate(['/bankpayment/privatesiteconfig/LinkPrivateConfigId', this.tableRowSelected.id]);
-  }
-  onActionButtonPermitionList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id.length === 0) {
-
-      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
-      return;
-    }
-    this.onActionTableRowSelect(model);
-
-    if (
-      this.dataModelResult == null ||
-      this.dataModelResult.access == null ||
-      !this.dataModelResult.access.accessWatchRow
-    ) {
-      this.cmsToastrService.typeErrorSelected();
-      return;
-    }
-    this.router.navigate(['/sms/main/api-path-permission/LinkApiPathId', this.tableRowSelected.id]);
-  }
-  onActionButtonPriceServicesList(model: SmsLogOutBoxQueueModel = this.tableRowSelected): void {
-    if (!model || !model.id || model.id.length === 0) {
-
-      this.translate.get('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
-      return;
-    }
-    this.onActionTableRowSelect(model);
-
-    if (
-      this.dataModelResult == null ||
-      this.dataModelResult.access == null ||
-      !this.dataModelResult.access.accessWatchRow
-    ) {
-      this.cmsToastrService.typeErrorSelected();
-      return;
-    }
-    this.router.navigate(['/sms/main/api-path-price-service/LinkApiPathId', this.tableRowSelected.id]);
-  }
 
 
 

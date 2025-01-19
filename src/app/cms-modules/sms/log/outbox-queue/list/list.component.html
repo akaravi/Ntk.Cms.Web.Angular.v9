@@ -66,41 +66,8 @@
             </a>
             <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' | translate}}</p>
         </div>
-        <div class="col-4">
-            <a (click)="onActionButtonSuperSedersList(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-route font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.BACKUP_ROUTES' | translate}}</p>
-        </div>
-        <div class="col-4">
-            <a (click)="onActionButtonMustSuperSedersList(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-route font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.SUPPORTED_ROUTES' | translate}}</p>
-        </div>
-        <div class="col-4">
-            <a (click)="onActionButtonNumbersList(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-phone font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.SPECIFIC_NUMBERS' | translate}}</p>
-        </div>
-        <div class="col-4">
-            <a (click)="onActionButtonPriceServicesList(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-list font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.PRICE_LIST' | translate}}</p>
-        </div>
-        <div class="col-4">
-            <a (click)="onActionButtonPermitionList(tableRowSelected)"
-                class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
-                target="_blank"><i class="fa-solid fa-universal-access font-18" style="color: #ffffff;"></i><br>
-            </a>
-            <p class="font-11 text-center opacity-70">{{'ACTION.ACEESS' | translate}}</p>
-        </div>
+
+
         <div *ngIf="dataModelResult?.access?.accessWatchRow && tableRowSelected?.id?.length>0" class="col-4">
             <a (click)="onActionButtonViewRow(tableRowSelected)" type="button"
                 class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"
@@ -120,7 +87,8 @@
     </ng-container>
     <ng-container cms-body>
         <!--begin:::::::::::::::::::::::::::::::::::::::::cms-body-->
-        <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)">
+        <mat-table [dataSource]="tableSource" matSort #tableSort="matSort" (matSortChange)="onTableSortData(tableSort)"
+            multiTemplateDataRows>
 
             <!-- ID Column -->
             <ng-container matColumnDef="Id">
@@ -147,12 +115,7 @@
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row"> <i [ngClass]="row.isFlash|statusIconClass"></i> </mat-cell>
             </ng-container>
-            <!-- Message Column -->
-            <ng-container matColumnDef="Message">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['message']?.fieldTitle}}
-                </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.message}} </mat-cell>
-            </ng-container>
+
             <!-- QueueCompleted Column -->
             <ng-container matColumnDef="QueueCompleted">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['queueCompleted']?.fieldTitle}}
@@ -166,7 +129,12 @@
                 <mat-cell *matCellDef="let row" style="direction:ltr"> {{
                     publicHelper.LocaleDateTime(row.queueCompleteDate) }}</mat-cell>
             </ng-container>
-
+            <!-- Message Column -->
+            <ng-container matColumnDef="Message">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['message']?.fieldTitle}}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.message}} </mat-cell>
+            </ng-container>
             <!-- ScheduleSendStart Column -->
             <ng-container matColumnDef="ScheduleSendStart">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['scheduleSendStart']?.fieldTitle}}
@@ -204,9 +172,20 @@
                     </mat-menu>
                 </mat-cell>
             </ng-container>
+            <!--expandedTitle-->
+            <ng-container matColumnDef="expandedTitle">
+                <mat-cell *matCellDef="let row">
+                    <div [innerHTML]="row.message | prettyLine"></div>
+                </mat-cell>
+            </ng-container>
             <mat-header-row *matHeaderRowDef="tabledisplayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: tabledisplayedColumns; let i = dataIndex;"
                 [class.ntk-row-odd]="i % 2" [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
+                [class.ntk-row-selected]="row.id === tableRowSelected?.id">
+            </mat-row>
+            <mat-row *matRowDef="let row; columns: ['expandedTitle']; let i = dataIndex;" [class.ntk-row-odd]="i % 2"
+                [class.ntk-row-even]="!(i % 2)" (click)="onActionTableRowSelect(row)"
+                (mouseenter)="onActionTableRowMouseEnter(row)" (mouseleave)="onActionTableRowMouseLeave(row)"
                 [class.ntk-row-selected]="row.id === tableRowSelected?.id">
             </mat-row>
         </mat-table>
