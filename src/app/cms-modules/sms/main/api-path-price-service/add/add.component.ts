@@ -219,6 +219,8 @@ export class SmsMainApiPathPriceServiceAddComponent extends AddBaseComponent<Sms
   readonly separatorKeysCodes = [ENTER] as const;
   addTagRegulatorNumberList(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
+    if(!this.dataModel.regulatorNumberList)
+      this.dataModel.regulatorNumberList=[];
     // Add our item
     if (value) {
       this.dataModel.regulatorNumberList.push(value);
@@ -235,10 +237,12 @@ export class SmsMainApiPathPriceServiceAddComponent extends AddBaseComponent<Sms
   }
   /** */
   addTagServicePagination(event: MatChipInputEvent): void {
-
     const value = (event.value || '').trim();
     // Add our item
     var valueNum: number = +value || -1;
+    if(!this.dataModel.serviceMessageLengthPaginationList)
+      this.dataModel.serviceMessageLengthPaginationList=[];
+
     if (valueNum >= 0) {
       this.dataModel.serviceMessageLengthPaginationList.push(valueNum);
     }
@@ -257,6 +261,9 @@ export class SmsMainApiPathPriceServiceAddComponent extends AddBaseComponent<Sms
   addTagEndUserPagination(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     // Add our item
+    if(!this.dataModel.endUserMessageLengthPaginationList)
+      this.dataModel.endUserMessageLengthPaginationList=[];
+
     var valueNum: number = +value || -1;
     if (valueNum >= 0) {
       this.dataModel.endUserMessageLengthPaginationList.push(valueNum);

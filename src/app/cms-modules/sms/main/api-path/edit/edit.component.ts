@@ -13,7 +13,7 @@ import {
   CoreEnumService,
   ErrorExceptionResultBase,
   FormInfoModel,
-  ManageUserAccessDataTypesEnum, SmsApiGetBalanceDtoModel, SmsMainApiPathAliasJsonModel, SmsMainApiPathCompanyModel, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathService
+  ManageUserAccessDataTypesEnum,  SmsMainApiPathAliasJsonModel, SmsMainApiPathCompanyModel, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
@@ -159,15 +159,36 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
     );
   }
 
+  onActionButtonGetToken(): any {
+    const pName = this.constructor.name + 'GetToken';
+    this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
+      this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
+    });
+
+    this.smsMainApiPathService.ServiceGetToken(this.requestId).subscribe({
+      next: (ret) => {
+        if (ret.isSuccess) {
+          this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " ");
+        }
+        else {
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+        }
+        this.publicHelper.processService.processStop(pName);
+      },
+      error: (er) => {
+        this.cmsToastrService.typeError(er);
+        this.publicHelper.processService.processStop(pName, false);
+      }
+    }
+    );
+  }
   onActionButtonGetBalance(): any {
     const pName = this.constructor.name + 'GetBalance';
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
-    var modelData = new SmsApiGetBalanceDtoModel();
-    modelData.linkApiPathId = this.requestId;
 
-    this.smsMainApiPathService.ServiceGetBalance(modelData).subscribe({
+    this.smsMainApiPathService.ServiceGetBalance(this.requestId).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " ");

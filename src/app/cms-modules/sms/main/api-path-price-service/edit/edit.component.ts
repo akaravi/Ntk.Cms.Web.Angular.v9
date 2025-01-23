@@ -218,6 +218,8 @@ export class SmsMainApiPathPriceServiceEditComponent extends EditBaseComponent<S
   addTagRegulatorNumberList(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     // Add our item
+    if(!this.dataModel.regulatorNumberList)
+      this.dataModel.regulatorNumberList=[];
     if (value) {
       this.dataModel.regulatorNumberList.push(value);
     }
@@ -236,6 +238,9 @@ export class SmsMainApiPathPriceServiceEditComponent extends EditBaseComponent<S
 
     const value = (event.value || '').trim();
     // Add our item
+    if(!this.dataModel.serviceMessageLengthPaginationList)
+      this.dataModel.serviceMessageLengthPaginationList=[];
+
     var valueNum: number = +value || -1;
     if (valueNum >= 0) {
       this.dataModel.serviceMessageLengthPaginationList.push(valueNum);
@@ -255,6 +260,9 @@ export class SmsMainApiPathPriceServiceEditComponent extends EditBaseComponent<S
   addTagEndUserPagination(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     // Add our item
+    if(!this.dataModel.endUserMessageLengthPaginationList)
+      this.dataModel.endUserMessageLengthPaginationList=[];
+
     var valueNum: number = +value || -1;
     if (valueNum >= 0) {
       this.dataModel.endUserMessageLengthPaginationList.push(valueNum);

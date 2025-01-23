@@ -283,6 +283,14 @@ code --list-extensions | % { "code --install-extension $_" }
 #
 #
 *MEMO*************************************************
+.extension remove all
+*MEMO*************************************************
+code --list-extensions | % { code --uninstall-extension $_ --force }
+#END#################################################
+#
+#
+#
+*MEMO*************************************************
 .extension import
 *MEMO*************************************************
 code --install-extension 1tontech.angular-material

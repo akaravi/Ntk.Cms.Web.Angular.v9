@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel,
-  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum, SmsApiGetBalanceDtoModel, SmsMainApiPathCompanyModel,
+  ErrorExceptionResult, FilterDataModel, FilterModel, RecordStatusEnum,  SmsMainApiPathCompanyModel,
   SmsMainApiPathCompanyService, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathPublicConfigService, SmsMainApiPathService, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -431,10 +431,9 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     this.translate.get('MESSAGE.Receiving_information').subscribe((str: string) => {
       this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId);
     });
-    var modelData = new SmsApiGetBalanceDtoModel();
-    modelData.linkApiPathId = model.id;
 
-    this.contentService.ServiceGetBalance(modelData).subscribe({
+
+    this.contentService.ServiceGetBalance(model.id).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " ");
