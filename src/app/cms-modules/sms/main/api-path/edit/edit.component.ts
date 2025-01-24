@@ -51,7 +51,7 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
   }
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
-
+  complatedView = false;
   selectFileTypeMainImage = ['jpg', 'jpeg', 'png'];
 
   fileManagerTree: TreeModel;
@@ -192,10 +192,10 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
     this.smsMainApiPathService.ServiceGetBalance(this.requestId).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " ");
+          this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " "+ ret.item.credit);
         }
         else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage+ret.item.info + " " + ret.item.status);
         }
         this.publicHelper.processService.processStop(pName);
       },

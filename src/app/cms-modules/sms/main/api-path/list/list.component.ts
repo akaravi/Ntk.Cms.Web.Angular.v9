@@ -50,8 +50,8 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     };
 
     /*filter Sort*/
-    this.filteModelContent.sortColumn = 'Id';
-    this.filteModelContent.sortType = SortTypeEnum.Descending;
+    this.filteModelContent.sortColumn = 'priority';
+    this.filteModelContent.sortType = SortTypeEnum.Ascending;
   }
   comment: string;
   author: string;
@@ -125,7 +125,7 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
       filter.value = this.requestLinkSiteId;
       this.filteModelContent.filters.push(filter);
     }
-    this.filteModelContent.sortColumn = 'Title';
+    this.filteModelContent.sortColumn = 'priority';
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
       setTimeout(() => {
@@ -436,10 +436,10 @@ export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPat
     this.contentService.ServiceGetBalance(model.id).subscribe({
       next: (ret) => {
         if (ret.isSuccess) {
-          this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " ");
+          this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " "+ ret.item.credit);
         }
         else {
-          this.cmsToastrService.typeErrorMessage(ret.errorMessage);
+          this.cmsToastrService.typeErrorMessage(ret.errorMessage+ret.item.info + " " + ret.item.status);
         }
         this.publicHelper.processService.processStop(pName);
       },

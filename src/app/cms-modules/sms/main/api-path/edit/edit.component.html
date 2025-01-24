@@ -431,7 +431,7 @@
           </div>
         </mat-step>
 
-        <mat-step label="{{'TITLE.Status_receiving_variables' | translate}}" state="seo">
+        <mat-step *ngIf="complatedView" label="{{'TITLE.Status_receiving_variables' | translate}}" state="seo">
           <p>{{'TITLE.Set_acess' | translate}}</p>
 
 
@@ -578,7 +578,7 @@
         </mat-step>
 
 
-        <mat-step label="{{'TITLE.Receiving_variables' | translate}}" state="seo">
+        <mat-step *ngIf="complatedView" label="{{'TITLE.Receiving_variables' | translate}}" state="seo">
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
               (click)="onActionBackToParent()">
@@ -598,8 +598,7 @@
             </button>
           </div>
         </mat-step>
-<!-- 
-        <mat-step label="{{'TITLE.Check_validity' | translate}}" state="seo">
+        <mat-step *ngIf="complatedView" label="{{'TITLE.Check_validity' | translate}}" state="seo">
 
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
@@ -628,9 +627,9 @@
               {{'ACTION.SAVE' | translate}}
             </button>
           </div>
-        </mat-step> -->
+        </mat-step> 
 
-        <mat-step label=" {{'TITLE.Variables_for_sending_voice_messagesy' | translate}}" state="seo">
+        <mat-step *ngIf="complatedView" label=" {{'TITLE.Variables_for_sending_voice_messagesy' | translate}}" state="seo">
 
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
@@ -652,7 +651,7 @@
           </div>
         </mat-step>
 
-        <mat-step label="{{'TITLE.Error_variables' | translate}}" state="seo">
+        <mat-step *ngIf="complatedView" label="{{'TITLE.Error_variables' | translate}}" state="seo">
 
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
