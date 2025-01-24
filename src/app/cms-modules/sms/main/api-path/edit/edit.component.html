@@ -215,6 +215,19 @@
           <dynamic-form-builder-cms [formGroup]="vform.form" [(jsonValue)]="dataModel.privateConfigJsonValues"
             [propertiesInfos]="dataModel.privateConfigJsonFormatter"></dynamic-form-builder-cms>
           <div *ngIf="formInfo.formSubmitAllow  " class="ntk-button-row">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-yellow"
+            (click)="onActionButtonGetToken()">
+            {{'بررسی توکن مسیر' | translate}}
+          </button>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-yellow"
+              (click)="onActionButtonGetBalance()">
+              {{'بررسی اعتبار مسیر' | translate}}
+            </button>
+            <br>
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -399,6 +412,10 @@
             </div>
           </div>
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -419,6 +436,10 @@
 
 
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -537,6 +558,10 @@
               id="dataModel.statusNotStableRunForMin" />
           </div>
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -555,6 +580,10 @@
 
         <mat-step label="{{'TITLE.Receiving_variables' | translate}}" state="seo">
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -569,10 +598,14 @@
             </button>
           </div>
         </mat-step>
-
+<!-- 
         <mat-step label="{{'TITLE.Check_validity' | translate}}" state="seo">
 
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -595,11 +628,15 @@
               {{'ACTION.SAVE' | translate}}
             </button>
           </div>
-        </mat-step>
+        </mat-step> -->
 
         <mat-step label=" {{'TITLE.Variables_for_sending_voice_messagesy' | translate}}" state="seo">
 
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
@@ -618,6 +655,11 @@
         <mat-step label="{{'TITLE.Error_variables' | translate}}" state="seo">
 
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
+            <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
+              (click)="onActionBackToParent()">
+              {{'ACTION.BACK' | translate}}
+            </button>
+            
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}

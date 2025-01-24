@@ -20,10 +20,13 @@ export class DynamicFormBuilderCmsComponent implements OnInit, AfterViewInit {
   @Input() set jsonValue(model: string) {
     if (model && model.length > 0) {
       this.privateJsonValue = JSON.parse(model);
+      this.theKeys = Object.getOwnPropertyNames(this.privateJsonValue).toString();
+      // or var theKeys = Object.keys(theObject);
       this.actionSetValue();
     }
   }
   privatePropertiesInfos: GetPropertiesInfoModel[] = [];
+  theKeys:any;
   privateJsonValue: any;
   @Input() set propertiesInfos(model: GetPropertiesInfoModel[]) {
     this.privatePropertiesInfos = model;
@@ -52,10 +55,6 @@ export class DynamicFormBuilderCmsComponent implements OnInit, AfterViewInit {
         if (this.privatePropertiesInfos && this.privatePropertiesInfos.length > 0) {
           this.privatePropertiesInfos.forEach(x => {
             if ((update[x.fieldName] || update[x.fieldName] === '')) {
-              // if (this.formValues && (this.formValues[x.fieldName] || this.formValues[x.fieldName] == '')) {
-              //   this.formValues[x.fieldName] = update[x.fieldName];
-              //   this.jsonValueChange.emit(JSON.stringify(this.formValues));
-              // }
               this.formValues[x.fieldName] = update[x.fieldName];
             }
             this.jsonValueChange.emit(JSON.stringify(this.formValues));
@@ -72,9 +71,6 @@ export class DynamicFormBuilderCmsComponent implements OnInit, AfterViewInit {
         if (this.formValues && this.formValues[x.fieldName]) {
           fValue = this.formValues[x.fieldName];
         }
-
-
-
         switch (x.fieldTypeString) {
           case 'System.String':
             this.fields.push({
@@ -130,12 +126,14 @@ export class DynamicFormBuilderCmsComponent implements OnInit, AfterViewInit {
   }
   actionSetValue(): void {
     if (this.privateJsonValue && this.privatePropertiesInfos && this.privatePropertiesInfos.length > 0) {
+
+      
       this.privatePropertiesInfos.forEach(x => {
         if (!this.formValues) {
           this.formValues = {};
         }
-        if (this.privateJsonValue[x.fieldName]) {
-          this.formValues[x.fieldName] = this.privateJsonValue[x.fieldName];
+        if (this.getPropValue(x.fieldName)) {
+          this.formValues[x.fieldName] =this.getPropValue(x.fieldName);// this.privateJsonValue[x.fieldName];
         } else {
           this.formValues[x.fieldName] = '';
         }
@@ -146,6 +144,10 @@ export class DynamicFormBuilderCmsComponent implements OnInit, AfterViewInit {
         }
       });
     }
+  }
+  getPropValue(prop:string):any {
+    var match = new RegExp(prop, 'i').exec(this.theKeys);
+    return match && match.length > 0 ? this.privateJsonValue[match[0]] : '';
   }
   ngDistroy(): void {
     this.unsubcribe();

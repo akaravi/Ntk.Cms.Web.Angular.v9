@@ -13,7 +13,7 @@ import {
   CoreEnumService,
   ErrorExceptionResultBase,
   FormInfoModel,
-  ManageUserAccessDataTypesEnum,  SmsMainApiPathAliasJsonModel, SmsMainApiPathCompanyModel, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathService
+  ManageUserAccessDataTypesEnum, SmsMainApiPathAliasJsonModel, SmsMainApiPathCompanyModel, SmsMainApiPathModel, SmsMainApiPathPublicConfigModel, SmsMainApiPathService
 } from 'ntk-cms-api';
 import { TreeModel } from 'ntk-cms-filemanager';
 import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
@@ -142,7 +142,7 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
         if (ret.isSuccess) {
           this.translate.get('MESSAGE.registration_completed_successfully').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.cmsToastrService.typeSuccessEdit();
-          setTimeout(() => this.router.navigate(['/sms/main/api-path/list']), 1000);
+          //setTimeout(() => this.router.navigate(['/sms/main/api-path/list']), 1000);
         } else {
           this.translate.get('ERRORMESSAGE.MESSAGE.typeError').subscribe((str: string) => { this.formInfo.formAlert = str; });
           this.formInfo.formError = ret.errorMessage;
@@ -169,6 +169,7 @@ export class SmsMainApiPathEditComponent extends EditBaseComponent<SmsMainApiPat
       next: (ret) => {
         if (ret.isSuccess) {
           this.cmsToastrService.typeSuccessMessage(ret.item.info + " " + ret.item.status + " ");
+          setTimeout(() => this.DataGetOneContent(), 2000);
         }
         else {
           this.cmsToastrService.typeErrorMessage(ret.errorMessage);
