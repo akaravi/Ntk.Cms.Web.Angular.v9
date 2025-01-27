@@ -7,7 +7,8 @@ import {
   FilterDataModel, FilterDataModelSearchTypesEnum, FilterModel,
   RecordStatusEnum,
   SmsMainApiPathModel,
-  SmsMainApiPathService
+  SmsMainApiPathService,
+  SortTypeEnum
 } from 'ntk-cms-api';
 import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
@@ -106,6 +107,9 @@ export class SmsMainApiPathSelectorComponent implements OnInit {
       filterModel.filters.push(filter);
     }
     this.publicHelper.processService.processStart('DataGetAll');
+    /*filter Sort*/
+    filterModel.sortColumn = 'priority';
+    filterModel.sortType = SortTypeEnum.Ascending;
     return await firstValueFrom(this.categoryService.ServiceGetAll(filterModel))
       .then(
         (response) => {

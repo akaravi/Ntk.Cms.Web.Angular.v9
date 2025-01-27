@@ -73,15 +73,31 @@
               type="text" placeholder="1" [disabled]="!fieldsInfo['apiReceiveKey']?.accessEditField"
               class="form-control validate-name" id="dataModel.apiReceiveKey" />
           </div>
-          <!-- HookAddressAPIById Field -->
-          <div *ngIf="fieldsInfo['hookAddressAPIById']?.accessWatchField"
+          <!-- hookAddressReceiveMessageAPIById Field -->
+          <div *ngIf="fieldsInfo['hookAddressReceiveMessageAPIById']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-            <label for="dataModel.hookAddressAPIById" class="color-highlight">{{
-              fieldsInfo["hookAddressAPIById"]?.fieldTitle }}</label>
-            <input matInput [(ngModel)]="dataModel.hookAddressAPIById" name="dataModel.hookAddressAPIById"
-              placeholder="https://" #HookAddressAPIById type="text" readonly placeholder="1"
-              class="form-control validate-name input-ltr" id="dataModel.hookAddressAPIById" />
+            <label for="dataModel.hookAddressReceiveMessageAPIById" class="color-highlight">{{
+              fieldsInfo["hookAddressReceiveMessageAPIById"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.hookAddressReceiveMessageAPIById"
+              name="dataModel.hookAddressReceiveMessageAPIById" placeholder="https://" #hookAddressReceiveMessageAPIById
+              type="text" readonly placeholder="1" class="form-control validate-name input-ltr"
+              id="dataModel.hookAddressReceiveMessageAPIById" />
           </div>
+
+
+
+          <!-- hookAddressReceiveDeliveryStatusAPIById Field -->
+          <div *ngIf="fieldsInfo['hookAddressReceiveDeliveryStatusAPIById']?.accessWatchField"
+            class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
+            <label for="dataModel.hookAddressReceiveDeliveryStatusAPIById" class="color-highlight">{{
+              fieldsInfo["hookAddressReceiveDeliveryStatusAPIById"]?.fieldTitle }}</label>
+            <input matInput [(ngModel)]="dataModel.hookAddressReceiveDeliveryStatusAPIById"
+              name="dataModel.hookAddressReceiveDeliveryStatusAPIById" placeholder="https://"
+              #hookAddressReceiveDeliveryStatusAPIById type="text" readonly placeholder="1"
+              class="form-control validate-name input-ltr" id="dataModel.hookAddressReceiveDeliveryStatusAPIById" />
+          </div>
+
+
           <!-- apiAbilityLengthMinToSend Field -->
           <div *ngIf="fieldsInfo['apiAbilityLengthMinToSend']?.accessWatchField"
             class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -161,7 +177,7 @@
               name="dataModel.perriodStartWorkTime" type="number" [format]="24" class="form-control validate-name"
               id="dataModel.perriodStartWorkTime" />
             <ngx-material-timepicker-toggle matSuffix [for]="PerriodStartWorkTime"></ngx-material-timepicker-toggle>
-            <ngx-material-timepicker touchUi #PerriodStartWorkTime  class ='timepicker'></ngx-material-timepicker>
+            <ngx-material-timepicker touchUi #PerriodStartWorkTime class='timepicker'></ngx-material-timepicker>
           </div>
           <!-- PerriodEndWorkTime Field -->
           <div *ngIf="fieldsInfo['perriodEndWorkTime']?.accessWatchField"
@@ -172,7 +188,7 @@
               name="dataModel.perriodEndWorkTime" type="number" [format]="24" class="form-control validate-name"
               id="dataModel.perriodEndWorkTime" />
             <ngx-material-timepicker-toggle matSuffix [for]="PerriodEndWorkTime"></ngx-material-timepicker-toggle>
-            <ngx-material-timepicker touchUi #PerriodEndWorkTime  class ='timepicker'></ngx-material-timepicker>
+            <ngx-material-timepicker touchUi #PerriodEndWorkTime class='timepicker'></ngx-material-timepicker>
           </div>
           <!-- Description Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -216,9 +232,9 @@
             [propertiesInfos]="dataModel.privateConfigJsonFormatter"></dynamic-form-builder-cms>
           <div *ngIf="formInfo.formSubmitAllow  " class="ntk-button-row">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-yellow"
-            (click)="onActionButtonGetToken()">
-            {{'بررسی توکن مسیر' | translate}}
-          </button>
+              (click)="onActionButtonGetToken()">
+              {{'بررسی توکن مسیر' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-yellow"
               (click)="onActionButtonGetBalance()">
               {{'بررسی اعتبار مسیر' | translate}}
@@ -614,9 +630,9 @@
               {{'ACTION.NEXT' | translate}}
             </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-yellow"
-            (click)="onActionButtonGetToken()">
-            {{'بررسی توکن مسیر' | translate}}
-          </button>
+              (click)="onActionButtonGetToken()">
+              {{'بررسی توکن مسیر' | translate}}
+            </button>
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-yellow"
               (click)="onActionButtonGetBalance()">
               {{'بررسی اعتبار مسیر' | translate}}
@@ -627,9 +643,10 @@
               {{'ACTION.SAVE' | translate}}
             </button>
           </div>
-        </mat-step> 
+        </mat-step>
 
-        <mat-step *ngIf="complatedView" label=" {{'TITLE.Variables_for_sending_voice_messagesy' | translate}}" state="seo">
+        <mat-step *ngIf="complatedView" label=" {{'TITLE.Variables_for_sending_voice_messagesy' | translate}}"
+          state="seo">
 
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-gray"
@@ -658,7 +675,7 @@
               (click)="onActionBackToParent()">
               {{'ACTION.BACK' | translate}}
             </button>
-            
+
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>
               {{'ACTION.BEFOR' | translate}}
