@@ -33,7 +33,7 @@
               <th scope="row">{{ i+1 }}</th>
               <td>{{ item.createdBy|cmsuserinfo|async }}</td>
               <td>{{ item.subjectTitle }}</td>
-              <td>{{ publicHelper.LocaleDateTime(item.createdDate) }}</td>
+              <td>{{ item.createdDate|localeDateTime }}</td>
               <td>
                 <small>
                   <mat-icon matTooltip="{{'ACTION.DELETE' | translate}}" matTooltipPosition="before"

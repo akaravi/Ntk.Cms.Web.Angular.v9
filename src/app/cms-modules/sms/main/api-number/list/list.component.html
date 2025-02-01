@@ -146,25 +146,25 @@
       <ng-container matColumnDef="accessUseStartDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['accessUseStartDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.accessUseStartDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.accessUseStartDate|localeDate  }} </mat-cell>
       </ng-container>
       <!-- lastUseOfDate Column -->
       <ng-container matColumnDef="lastUseOfDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['lastUseOfDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.lastUseOfDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.lastUseOfDate|localeDate  }} </mat-cell>
       </ng-container>
       <!-- CreatedDate Column -->
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.createdDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.createdDate|localeDate }} </mat-cell>
       </ng-container>
       <!-- UpdatedDate Column -->
       <ng-container matColumnDef="UpdatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['updatedDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.updatedDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.updatedDate|localeDate }} </mat-cell>
       </ng-container>
 
 

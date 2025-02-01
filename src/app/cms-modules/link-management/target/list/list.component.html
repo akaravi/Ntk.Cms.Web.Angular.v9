@@ -179,13 +179,13 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
         <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-          publicHelper.LocaleDateTime(row.createdDate)}} </mat-cell>
+          row.createdDate|localeDateTime}} </mat-cell>
       </ng-container>
       <!-- UpdatedDate Column -->
       <ng-container matColumnDef="UpdatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['updatedDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.updatedDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.updatedDate|localeDate }} </mat-cell>
       </ng-container>
       <!-- Action Column -->
       <ng-container matColumnDef="Action">
@@ -213,7 +213,7 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{"TITLE.CreationDate"|translate}} : {{publicHelper.LocaleDateTime(row.createdDate)}}
+          {{"TITLE.CreationDate"|translate}} : {{row.createdDate|localeDateTime}}
           <br>
           {{"TITLE.CurrentNumberOfClicks"|translate}} : {{row.currentClickCount}}
           <br>

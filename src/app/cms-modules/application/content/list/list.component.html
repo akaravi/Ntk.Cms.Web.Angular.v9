@@ -214,20 +214,20 @@
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.createdDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.createdDate|localeDate }} </mat-cell>
       </ng-container>
       <!-- UpdatedDate Column -->
       <ng-container matColumnDef="UpdatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['updatedDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.updatedDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.updatedDate|localeDate }} </mat-cell>
       </ng-container>
       <!-- LastSuccessfullyBuildDate Column -->
       <ng-container matColumnDef="LastSuccessfullyBuildDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header>{{fieldsInfo['lastSuccessfullyBuildDate']?.fieldTitle
           }}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.lastSuccessfullyBuildDate) }}
+        <mat-cell *matCellDef="let row"> {{ row.lastSuccessfullyBuildDate|localeDate  }}
         </mat-cell>
       </ng-container>
       <!-- Action Column -->
@@ -251,11 +251,11 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{'TITLE.CreationDate'|translate}} : {{ publicHelper.LocaleDate(row.createdDate) }}
+          {{'TITLE.CreationDate'|translate}} : {{ row.createdDate|localeDate }}
           <br>
-          {{'TITLE.DateOfUpdate'|translate}} : {{ publicHelper.LocaleDate(row.updatedDate) }}
+          {{'TITLE.DateOfUpdate'|translate}} : {{ row.updatedDate|localeDate }}
           <br>
-          <!-- {{'TITLE.Expire_Date'|translate}} : {{publicHelper.LocaleDate(row.expireDate) }} -->
+          
         </mat-cell>
       </ng-container>
     </mat-table>

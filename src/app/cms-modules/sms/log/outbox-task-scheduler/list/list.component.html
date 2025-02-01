@@ -130,38 +130,37 @@
             <ng-container matColumnDef="ScheduleSendStart">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['scheduleSendStart']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-                    publicHelper.LocaleDateTime(row.scheduleSendStart) }}</mat-cell>
+                <mat-cell *matCellDef="let row" style="direction:ltr"> {{row.scheduleSendStart|localeDateTime
+                    }}</mat-cell>
             </ng-container>
             <!-- ScheduleSendExpire Column -->
             <ng-container matColumnDef="ScheduleSendExpire">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['scheduleSendExpire']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-                    publicHelper.LocaleDateTime(row.scheduleSendExpire) }}</mat-cell>
+                <mat-cell *matCellDef="let row" style="direction:ltr"> {{row.scheduleSendExpire|localeDateTime
+                    }}</mat-cell>
             </ng-container>
             <!-- ScheduleSendAllowNextRun Column -->
             <ng-container matColumnDef="ScheduleSendAllowNextRun">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
                     {{fieldsInfo['scheduleSendAllowNextRun']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-                    publicHelper.LocaleDateTime(row.scheduleSendAllowNextRun) }}</mat-cell>
+                <mat-cell *matCellDef="let row" style="direction:ltr"> {{ row.scheduleSendAllowNextRun|localeDateTime
+                    }}</mat-cell>
             </ng-container>
             <!-- CreatedDate Column -->
             <ng-container matColumnDef="CreatedDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-                    publicHelper.LocaleDateTime(row.createdDate)
+                    row.createdDate|localeDateTime
                     }}</mat-cell>
             </ng-container>
             <!-- UpdatedDate Column -->
             <ng-container matColumnDef="UpdatedDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['updatedDate']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-                    publicHelper.LocaleDate(row.updatedDate) }}
+                <mat-cell *matCellDef="let row" style="direction:ltr"> {{ row.updatedDate|localeDate }}
                     {{ publicHelper.getTime(row.updatedDate) }} </mat-cell>
             </ng-container>
 

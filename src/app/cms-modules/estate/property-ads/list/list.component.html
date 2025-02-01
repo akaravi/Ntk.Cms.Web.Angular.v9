@@ -145,7 +145,7 @@
       <ng-container matColumnDef="ExpireDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['expireDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.expireDate|persianDate}} </mat-cell>
+        <mat-cell *matCellDef="let row" [ngStyle]="{'background':publicHelper.RowStyleExpireDate(row.expireDate) }"> {{row.expireDate|persianDate}} </mat-cell>
       </ng-container>
       <!-- Action Column -->
       <ng-container matColumnDef="Action">

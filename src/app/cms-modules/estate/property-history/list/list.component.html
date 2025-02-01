@@ -199,20 +199,20 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
         <mat-cell *matCellDef="let row" style="direction: ltr; justify-content: center; text-align: center;">
-          {{ publicHelper.LocaleDateTime(row.createdDate)}} </mat-cell>
+          {{ row.createdDate|localeDateTime}} </mat-cell>
       </ng-container>
       <!-- AppointmentDateFrom Column -->
       <ng-container matColumnDef="AppointmentDateFrom">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['appointmentDateFrom']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.appointmentDateFrom) }}
+        <mat-cell *matCellDef="let row"> {{ row.appointmentDateFrom|localeDate  }}
           {{ publicHelper.getTime(row.appointmentDateFrom) }}</mat-cell>
       </ng-container>
       <!-- AppointmentDateTo Column -->
       <ng-container matColumnDef="AppointmentDateTo">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['appointmentDateTo']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.appointmentDateTo) }}
+        <mat-cell *matCellDef="let row"> {{ row.appointmentDateTo|localeDate  }}
           {{ publicHelper.getTime(row.appointmentDateTo) }} </mat-cell>
       </ng-container>
       <!-- LinkActivityTypeId Column -->

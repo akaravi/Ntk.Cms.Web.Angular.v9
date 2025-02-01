@@ -143,7 +143,7 @@
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.createdDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.createdDate|localeDate }} </mat-cell>
       </ng-container>
       <!-- Action Column -->
       <ng-container matColumnDef="Action">
@@ -171,8 +171,7 @@
             <table>
               <tr *ngIf="row.updatedDate">
                 <td></td>
-                <td> {{fieldsInfo['updatedDate']?.fieldTitle}} : {{
-                  publicHelper.LocaleDate(row.updatedDate) }}</td>
+                <td> {{fieldsInfo['updatedDate']?.fieldTitle}} : {{ row.updatedDate|localeDate }} </td>
               </tr>
               <tr>
                 <td></td>

@@ -191,7 +191,7 @@
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDateTime(row.createdDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row" style="direction:ltr"> {{ row.createdDate|localeDateTime }} </mat-cell>
       </ng-container>
       <!-- Action Column -->
       <ng-container matColumnDef="Action">
@@ -223,7 +223,7 @@
           <br>
           {{'TITLE.User_Id'|translate}} : {{row.linkUserId | cmsuserinfo |async}}
           <br>
-          {{'TITLE.CreationDate'|translate}} : {{ publicHelper.LocaleDateTime(row.createdDate) }}
+          {{'TITLE.CreationDate'|translate}} : {{ row.createdDate|localeDateTime }}
         </mat-cell>
       </ng-container>
     </mat-table>

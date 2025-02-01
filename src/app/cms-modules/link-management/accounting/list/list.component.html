@@ -153,13 +153,13 @@
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.createdDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.createdDate|localeDate }} </mat-cell>
       </ng-container>
       <!-- UpdatedDate Column -->
       <ng-container matColumnDef="UpdatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['updatedDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.updatedDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.updatedDate|localeDate }} </mat-cell>
       </ng-container>
       <!-- Debtor Column -->
       <ng-container matColumnDef="Debtor">
@@ -189,10 +189,9 @@
       <!--expandedTitle-->
       <ng-container matColumnDef="expandedTitle">
         <mat-cell *matCellDef="let row">
-          {{'TITLE.CreationDate'|translate}} : {{
-          publicHelper.LocaleDate(row.createdDate)}}
+          {{'TITLE.CreationDate'|translate}} : {{  row.createdDate|localeDate }}
           <br>
-          {{'TITLE.DateOfUpdate'|translate}} : {{ publicHelper.LocaleDate(row.updatedDate) }}
+          {{'TITLE.DateOfUpdate'|translate}} : {{ row.updatedDate|localeDate }}
         </mat-cell>
       </ng-container>
       <!--expandedDetail-->
@@ -216,12 +215,11 @@
               </tr>
               <tr *ngIf="row.beginDate">
                 <td></td>
-                <td> {{fieldsInfo['beginDate']?.fieldTitle}} : {{ publicHelper.LocaleDate(row.beginDate)
-                  }} </td>
+                <td> {{fieldsInfo['beginDate']?.fieldTitle}} : {{ row.beginDate|localeDate                   }} </td>
               </tr>
               <tr *ngIf="row.endDate">
                 <td></td>
-                <td> {{fieldsInfo['endDate']?.fieldTitle}} : {{ publicHelper.LocaleDate(row.endDate) }}
+                <td> {{fieldsInfo['endDate']?.fieldTitle}} : {{ row.endDate|localeDate  }}
                 </td>
               </tr>
               <tr>

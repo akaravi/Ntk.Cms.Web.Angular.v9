@@ -107,7 +107,7 @@
             <ng-container matColumnDef="DonateTargetId">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['donateTargetId']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.donateTargetId) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.donateTargetId|localeDate  }} </mat-cell>
             </ng-container>
             <!-- DeviceId Column -->
             <ng-container matColumnDef="DeviceId">
@@ -119,7 +119,7 @@
             <ng-container matColumnDef="VisitDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['visitDate']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.visitDate) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.visitDate|localeDate  }} </mat-cell>
             </ng-container>
             <!-- Action Column -->
             <ng-container matColumnDef="Action">

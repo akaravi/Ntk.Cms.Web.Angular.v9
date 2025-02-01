@@ -55,11 +55,11 @@
             </tr>
             <tr>
               <td>{{fieldsInfo['createdDate']?.fieldTitle}}:</td>
-              <td>{{ publicHelper.LocaleDateTime(dataModel.createdDate)}}</td>
+              <td>{{ dataModel.createdDate|localeDateTime}}</td>
             </tr>
             <tr *ngIf="fieldsInfo['descriptionHidden']?.accessWatchField">
               <td>{{fieldsInfo['createdDate']?.fieldTitle}}:</td>
-              <td>{{ publicHelper.LocaleDateTime(dataModel.updatedDate)}}</td>
+              <td>{{ dataModel.updatedDate|localeDateTime}}</td>
             </tr>
             <tr>
               <td>{{fieldsInfo['createdBy']?.fieldTitle}}:</td>

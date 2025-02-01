@@ -641,7 +641,7 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row" class="col-form-label"
           style="direction: ltr; justify-content: center; text-align: center;">
-          {{ publicHelper.LocaleDateTime(row.createdDate)}} </mat-cell>
+          {{ row.createdDate|localeDateTime}} </mat-cell>
       </ng-container>
       <!-- UpdatedDate Column -->
       <ng-container matColumnDef="UpdatedDate">
@@ -650,7 +650,7 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let row" class="col-form-label"
           style="direction: ltr; justify-content: center; text-align: center;">
-          {{ publicHelper.LocaleDateTime(row.updatedDate) }}
+          {{ row.updatedDate|localeDateTime }}
         </mat-cell>
       </ng-container>
       <!-- Action Column -->

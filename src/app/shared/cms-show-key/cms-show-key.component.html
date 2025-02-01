@@ -29,8 +29,8 @@
                     <tr class="myDIV">
                         <th scope="row">{{ i+1 }}</th>
                         <td>{{ item.createdBy }}</td>
-                        <td>{{ publicHelper.LocaleDateTime(item.createdDate) }}</td>
-                        <td>{{ publicHelper.LocaleDateTime(item.expireDateTime) }}</td>
+                        <td>{{ item.createdDate|localeDateTime }}</td>
+                        <td>{{ item.expireDateTime|localeDateTime }}</td>
                         <td>{{item.showKey}}</td>
                         <td>{{this.requestContentUrl+'/'+ item.showKey}}</td>
                     </tr>

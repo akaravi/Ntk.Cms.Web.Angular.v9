@@ -167,19 +167,19 @@
             <ng-container matColumnDef="DatePeriodStart">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['datePeriodStart']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.datePeriodStart) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{row.datePeriodStart|localeDate  }} </mat-cell>
             </ng-container>
             <!-- UpdatedDate Column -->
             <ng-container matColumnDef="UpdatedDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['updatedDate']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.updatedDate) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.updatedDate|localeDate }} </mat-cell>
             </ng-container>
             <!-- DatePeriodEnd Column -->
             <ng-container matColumnDef="DatePeriodEnd">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['datePeriodEnd']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.datePeriodEnd) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.datePeriodEnd|localeDate  }} </mat-cell>
             </ng-container>
             <!-- Action Column -->
             <ng-container matColumnDef="Action">

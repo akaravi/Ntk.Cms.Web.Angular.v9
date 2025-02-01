@@ -628,7 +628,7 @@
         <td colspan="1">اتاق:{{item.partition}} </td>
       </tr>
       <tr *ngIf="item?.createdDate?.length>0">
-        <td colspan="2">ثبت: {{publicHelper.LocaleDateTime(item.createdDate)}} </td>
+        <td colspan="2">ثبت: {{item.createdDate|localeDateTime}} </td>
       </tr>
       <tr *ngIf="item?.propertyTypeLanduse?.title?.length>0">
         <td colspan="2">نوع ملک:{{item.propertyTypeLanduse.title}}

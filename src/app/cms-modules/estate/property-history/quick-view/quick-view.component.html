@@ -53,11 +53,11 @@
 
             <tr *ngIf="dataModel.appointmentDateFrom">
               <td>{{fieldsInfo['appointmentDateFrom']?.fieldTitle}}:</td>
-              <td>{{ publicHelper.LocaleDateTime(dataModel.appointmentDateFrom)}}</td>
+              <td>{{ dataModel.appointmentDateFrom|localeDateTime}}</td>
             </tr>
             <tr *ngIf="dataModel.appointmentDateTo">
               <td>{{fieldsInfo['appointmentDateTo']?.fieldTitle}}:</td>
-              <td>{{ publicHelper.LocaleDateTime(dataModel.appointmentDateTo)}}</td>
+              <td>{{ dataModel.appointmentDateTo|localeDateTime}}</td>
             </tr>
             <tr>
               <td>{{fieldsInfo['createdBy']?.fieldTitle}}:</td>

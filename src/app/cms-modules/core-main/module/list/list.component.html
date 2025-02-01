@@ -179,13 +179,13 @@
             <ng-container matColumnDef="CreatedDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.createdDate) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.createdDate|localeDate }} </mat-cell>
             </ng-container>
             <!-- UpdatedDate Column -->
             <ng-container matColumnDef="UpdatedDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['updatedDate']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.updatedDate) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.updatedDate|localeDate }} </mat-cell>
             </ng-container>
             <!-- ExpireDate Column -->
             <ng-container matColumnDef="ExpireDate">
@@ -193,7 +193,7 @@
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row"
                     [ngStyle]="{'background':publicHelper.RowStyleExpireDate(row.expireDate) }">
-                    {{ publicHelper.LocaleDate(row.expireDate) }} </mat-cell>
+                    {{row.expireDate|persianDate}}</mat-cell>
             </ng-container>
             <!-- Action Column -->
             <ng-container matColumnDef="Action">

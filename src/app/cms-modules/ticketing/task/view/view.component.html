@@ -42,11 +42,11 @@
     </tr>
     <tr>
       <td>{{fieldsInfo['createdDate']?.fieldTitle}}</td>
-      <td>{{ publicHelper.LocaleDate(dataModel.createdDate) }}</td>
+      <td>{{ dataModel.createdDate|localeDate }}</td>
     </tr>
     <tr>
       <td>{{fieldsInfo['updatedDate']?.fieldTitle}}</td>
-      <td>{{ publicHelper.LocaleDate(dataModel.updatedDate) }}</td>
+      <td>{{ dataModel.updatedDate|localeDate }}</td>
     </tr>
     <tr>
       <td>{{fieldsInfo['email']?.fieldTitle}}</td>

@@ -193,16 +193,14 @@
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-          publicHelper.LocaleDate(row.createdDate) }}
+        <mat-cell *matCellDef="let row" style="direction:ltr"> {{row.createdDate|localeDate }}
           {{ publicHelper.getTime(row.createdDate) }} </mat-cell>
       </ng-container>
       <!-- UpdatedDate Column -->
       <ng-container matColumnDef="UpdatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['updatedDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-          publicHelper.LocaleDate(row.updatedDate) }}
+        <mat-cell *matCellDef="let row" style="direction:ltr"> {{ row.updatedDate|localeDate }}
           {{ publicHelper.getTime(row.updatedDate) }} </mat-cell>
       </ng-container>
 
@@ -232,9 +230,9 @@
           {{'TITLE.LinkPrivateConfigurationId'|translate}} : {{row.linkPrivateConfigId | cmstitle:
           dataModelPrivateResult.listItems}}
           <br>
-          {{'TITLE.CreationDate'|translate}} : {{ publicHelper.LocaleDate(row.createdDate) }}
+          {{'TITLE.CreationDate'|translate}} : {{ row.createdDate|localeDate }}
           <br>
-          {{'TITLE.DateOfUpdate'|translate}} : {{ publicHelper.LocaleDate(row.updatedDate) }}
+          {{'TITLE.DateOfUpdate'|translate}} : {{ row.updatedDate|localeDate }}
           <br>
         </mat-cell>
       </ng-container>

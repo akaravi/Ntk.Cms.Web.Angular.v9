@@ -209,7 +209,7 @@
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.createdDate) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.createdDate|localeDate }} </mat-cell>
       </ng-container>
 
       <!-- Action Column -->
@@ -230,7 +230,7 @@
         <mat-cell *matCellDef="let row">
           {{"TITLE.LocationId"|translate}} : {{row.linkLocationIdTitle}} / {{row.linkLocationIdParentTitle}}
           <br>
-          {{"TITLE.CreationDate"|translate}} : {{ publicHelper.LocaleDate(row.createdDate) }}
+          {{"TITLE.CreationDate"|translate}} : {{ row.createdDate|localeDate }}
           <br>
           {{"TITLE.LinkAgreementTypeIdentifier"|translate}} :
           {{row.linkContractTypeId|cmstitle:dataModelEstateContractTypeResult.listItems}}

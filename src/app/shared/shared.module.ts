@@ -174,6 +174,8 @@ import { PasswordStrengthComponent } from './password-strength/password-strength
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import { CmsEnumXSelectionListComponent } from './cms-enum-x-selectionlist/cms-enum-x-selectionlist.component';
 import { PrettyLinePipe } from '../core/pipe/prettyLine.pipe';
+import { LocaleDate } from '../core/pipe/local-date.pipe';
+import { LocaleDateTime } from '../core/pipe/local-date-Time.pipe';
 
 
 @NgModule({
@@ -192,6 +194,8 @@ import { PrettyLinePipe } from '../core/pipe/prettyLine.pipe';
     CmsModuleInfoPipe,
     CmsImageThumbnailPipe,
     PrettyjsonPipe,
+    LocaleDate,
+    LocaleDateTime,
     PrettyLinePipe,
     RecordStatusIconClassPipe,
     RecordStatusCellClassPipe,
@@ -437,6 +441,8 @@ import { PrettyLinePipe } from '../core/pipe/prettyLine.pipe';
     CmsModuleInfoPipe,
     CmsImageThumbnailPipe,
     PrettyjsonPipe,
+    LocaleDate,
+    LocaleDateTime,
     PrettyLinePipe,
     RecordStatusIconClassPipe,
     RecordStatusCellClassPipe,

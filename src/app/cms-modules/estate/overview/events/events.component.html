@@ -59,11 +59,11 @@
 
     <div class="col-12 col-sm-12 col-md-6 col-lg-6 loader-container" *ngIf="checkingOnDayRange?.controls?.start?.value">
       {{'TITLE.From_Date'| translate}}
-      {{ publicHelper.LocaleDateTime(this.checkingOnDayRange.controls.start.value)}}
+      {{ this.checkingOnDayRange.controls.start.value|localeDateTime}}
       -
       {{'TITLE.To_Date'| translate}}
 
-      {{ publicHelper.LocaleDateTime(this.checkingOnDayRange.controls.end.value)}}
+      {{ this.checkingOnDayRange.controls.end.value|localeDateTime}}
     </div>
     <div class="col-12 col-sm-12 col-md-6 col-lg-6 loader-container" *ngIf="this.linkCmsUserId>0 ">
       {{this.linkCmsUserId | cmsuserinfo |async}}
@@ -74,7 +74,7 @@
 </div>
 
 
-<div class="row "  *ngIf="dataModelPropertyProjectResult.totalRowCount>0 ||
+<div class="row " *ngIf="dataModelPropertyProjectResult.totalRowCount>0 ||
   dataModelPropertySupplierResult.totalRowCount>0 ||
   dataModelPropertyCompanyResult.totalRowCount>0 ||
   dataModelAccountUserResult.totalRowCount>0 ||
@@ -89,7 +89,7 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelPropertyResult.totalRowCount>0">
 
     <!-- begin::Row -->
-    <div class="card card-style loader-container" >
+    <div class="card card-style loader-container">
       <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResult'"> </app-progress-spinner>
       <div class="content">
         <!-- begin::accordion-->
@@ -342,7 +342,7 @@
   </div>
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelCustomerOrderResultAvailable.totalRowCount>0"> 
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelCustomerOrderResultAvailable.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -675,7 +675,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 "  *ngIf="dataModelPropertyCompanyResult.totalRowCount>0">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelPropertyCompanyResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -812,7 +812,7 @@
 
 
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 "   *ngIf="dataModelPropertyProjectResult.totalRowCount>0">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 " *ngIf="dataModelPropertyProjectResult.totalRowCount>0">
 
     <!-- begin::Row -->
     <div class="card card-style loader-container">
@@ -876,8 +876,8 @@
   </div>
 </div>
 <ng-template #other_content>
-  <div class="row "  >
-    <div class="col-12 col-sm-12" >
+  <div class="row ">
+    <div class="col-12 col-sm-12">
       <!-- begin::Row -->
       <div class="card card-style loader-container">
         <app-progress-spinner [optionsInfoAreaId]="'dataModelPropertyResultNotAvailable'"> </app-progress-spinner>

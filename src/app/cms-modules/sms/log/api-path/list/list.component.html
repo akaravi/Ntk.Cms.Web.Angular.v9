@@ -104,7 +104,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
         <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-          publicHelper.LocaleDateTime(row.createdDate)}}
+          row.createdDate|localeDateTime}}
         </mat-cell>
       </ng-container>
       <!-- StatusOutOfServiceActive Column -->
@@ -120,8 +120,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           {{fieldsInfo['statusOutOfServiceExpire']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" style="direction:ltr"> {{
-          publicHelper.LocaleDateTime(row.statusOutOfServiceExpire)}}
+        <mat-cell *matCellDef="let row" style="direction:ltr"> {{ row.statusOutOfServiceExpire|localeDateTime}}
         </mat-cell>
       </ng-container>
       <!-- StatusNotStableActive Column -->
@@ -135,7 +134,7 @@
       <ng-container matColumnDef="StatusNotStableExpire">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['statusNotStableExpire']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.statusNotStableExpire) }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{ row.statusNotStableExpire|localeDate }} </mat-cell>
       </ng-container>
       <!-- StatusNotStableCount Column -->
       <ng-container matColumnDef="StatusNotStableCount">

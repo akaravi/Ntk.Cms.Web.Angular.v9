@@ -150,7 +150,7 @@
             <ng-container matColumnDef="SupportRequiredPayment">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['supportRequiredPayment']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.supportRequiredPayment) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.supportRequiredPayment }} </mat-cell>
             </ng-container>
             <!-- LinkTargeId Column -->
             <ng-container matColumnDef="LinkTargeId">
@@ -162,13 +162,13 @@
             <ng-container matColumnDef="ShareBeginDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['shareBeginDate']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.shareBeginDate) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.shareBeginDate|localeDate }} </mat-cell>
             </ng-container>
             <!-- ShareExpireDate Column -->
             <ng-container matColumnDef="ShareExpireDate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{fieldsInfo['shareExpireDate']?.fieldTitle}}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDate(row.shareExpireDate) }} </mat-cell>
+                <mat-cell *matCellDef="let row"> {{ row.shareExpireDate|localeDate }} </mat-cell>
             </ng-container>
             <!-- CurrentClickCount Column -->
             <ng-container matColumnDef="CurrentClickCount">

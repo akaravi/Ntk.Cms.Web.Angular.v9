@@ -481,7 +481,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{fieldsInfo['createdDate']?.fieldTitle}}
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          {{ publicHelper.LocaleDateTime(row.createdDate)}} </mat-cell>
+          {{ row.createdDate|localeDateTime}} </mat-cell>
       </ng-container>
       <!-- scoreRushToBuy Column -->
       <ng-container matColumnDef="scoreRushToBuy">
@@ -523,7 +523,7 @@
       <ng-container matColumnDef="UpdatedDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{fieldsInfo['updatedDate']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ publicHelper.LocaleDateTime(row.updatedDate) }}
+        <mat-cell *matCellDef="let row" style="direction:ltr"> {{ row.updatedDate|localeDateTime }}
         </mat-cell>
       </ng-container>
       <!-- CaseCode Column -->
