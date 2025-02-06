@@ -14,4 +14,13 @@ export class PanelComponent implements OnInit {
 
   }
 
+  onDoubleClick(event: MouseEvent): void {
+    const element = event.target as HTMLElement;
+    element.classList.add('allow-select-text');
+
+    // حذف کلاس بعد از 5 ثانیه
+    setTimeout(() => {
+      element.classList.remove('allow-select-text');
+    }, 10000);
+  }
 }

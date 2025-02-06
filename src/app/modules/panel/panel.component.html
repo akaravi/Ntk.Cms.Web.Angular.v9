@@ -1,5 +1,5 @@
 <div class="page-content">
-  <div class="content">
+  <div class="content" (dblclick)="onDoubleClick($event)" >
     <router-outlet></router-outlet>
   </div>
   <app-menu-footer *ngIf="this.env.loadDemoTheme"></app-menu-footer>
