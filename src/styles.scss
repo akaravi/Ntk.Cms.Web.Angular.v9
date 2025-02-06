@@ -142,7 +142,7 @@
 
   font-size: large;
 }
-*:not(input,.allow-select-text) {
+*:not(input,.ntk-allow-select-text) {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -152,7 +152,7 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-.allow-select-text{
+.ntk-allow-select-text{
   -webkit-touch-callout: text !important;
   -webkit-user-select: text !important;
   -khtml-user-select: text !important;

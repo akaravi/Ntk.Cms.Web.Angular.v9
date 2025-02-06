@@ -544,7 +544,7 @@
       <ng-container matColumnDef="Id">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="form-label"> {{fieldsInfo['id']?.fieldTitle}}
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" class="allow-select-text"> {{row.id}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
       </ng-container>
       <!-- LinkSiteId Column -->
       <ng-container matColumnDef="LinkSiteId">

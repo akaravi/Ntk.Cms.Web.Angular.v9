@@ -341,6 +341,18 @@ export class AppComponent implements OnInit {
 
   }
 
+    @HostListener('document:dblclick', ['$event'])
+    onDoubleClick(event: MouseEvent): void {
+      const element = event.target as HTMLElement;
+      // بررسی می‌کنیم که آیا المان یا والدین آن کلاس مورد نظر را دارند
+      if (element.closest('.ntk-allow-text-selection')) {
+        element.classList.add('ntk-allow-select-text');
+        setTimeout(() => {
+          element.classList.remove('ntk-allow-select-text');
+        }, 5000);
+      }
+    }
+
   ngOnDestroy() {
     this.cmsApiStoreSubscribe.unsubscribe();
   }
