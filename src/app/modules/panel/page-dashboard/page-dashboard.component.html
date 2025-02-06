@@ -24,7 +24,7 @@
   <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
   <div class="row mb-0 " *ngIf="!this.tokenHelper.isMobile">
     <ng-container *ngFor="let item of dataPinListResult;index as i">
-      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-1">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
         <div class="card card-style rounded-m me-0 p-2 mb-3">
           <i (click)="updateThemeMenuPinToggel(item.id)" class="fa fa-thumb-tack font-15 icon-15"
             [style.color]="publicHelper.themeService?.ThemeMenuPin[item.id] ? 'green':'gray'"
