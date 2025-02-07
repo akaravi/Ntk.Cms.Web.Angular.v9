@@ -17,9 +17,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-user-email-confirm',
-  templateUrl: './emailConfirm.component.html',
-
+    selector: 'app-core-user-email-confirm',
+    templateUrl: './emailConfirm.component.html',
+    standalone: false
 })
 export class CoreUserEmailConfirmComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

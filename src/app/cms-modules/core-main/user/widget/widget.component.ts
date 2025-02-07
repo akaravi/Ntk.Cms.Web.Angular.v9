@@ -13,8 +13,9 @@ import { CoreUserEmailConfirmComponent } from '../emailConfirm/emailConfirm.comp
 import { CoreUserMobileConfirmComponent } from '../mobileConfirm/mobileConfirm.component';
 
 @Component({
-  selector: 'app-core-user-widget',
-  templateUrl: './widget.component.html',
+    selector: 'app-core-user-widget',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 export class CoreUserWidgetComponent implements OnInit, OnDestroy {
   tokenInfo = new TokenInfoModel();

@@ -18,8 +18,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-donate-transaction-view',
-  templateUrl: './view.component.html'
+    selector: 'app-donate-transaction-view',
+    templateUrl: './view.component.html',
+    standalone: false
 })
 export class DonateTransactionViewComponent implements OnInit, OnDestroy {
   requestId = 0;

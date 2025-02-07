@@ -21,9 +21,9 @@ import { CoreModuleDataMemoEditComponent } from '../edit/edit.component';
 import { CoreModuleDataMemoViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodule-data-memo-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodule-data-memo-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleDataMemoListComponent extends ListBaseComponent<CoreModuleDataMemoService, CoreModuleDataMemoModel, string>
   implements OnInit, OnDestroy {

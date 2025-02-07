@@ -16,8 +16,9 @@ import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-webdesigner-intro-add',
-  templateUrl: './add.component.html',
+    selector: 'app-webdesigner-intro-add',
+    templateUrl: './add.component.html',
+    standalone: false
 })
 export class WebDesignerMainIntroAddComponent extends AddBaseComponent<WebDesignerMainIntroService, WebDesignerMainIntroModel, string> implements OnInit {
   requestLinkPageId = '';

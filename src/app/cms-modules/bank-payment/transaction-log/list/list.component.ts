@@ -24,8 +24,9 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 import { BankPaymentTransactionLogViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-bankpayment-transactionlog-list',
-  templateUrl: './list.component.html',
+    selector: 'app-bankpayment-transactionlog-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class BankPaymentTransactionLogListComponent extends ListBaseComponent<BankPaymentTransactionLogService, BankPaymentTransactionLogModel, number> implements OnInit, OnDestroy {
   requestLinkTransactionId = 0;

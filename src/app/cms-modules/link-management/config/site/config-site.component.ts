@@ -24,8 +24,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-linkmanagement-config-site',
-  templateUrl: './config-site.component.html',
+    selector: 'app-linkmanagement-config-site',
+    templateUrl: './config-site.component.html',
+    standalone: false
 })
 export class LinkManagementConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

@@ -18,8 +18,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-data-provider-client-delete',
-  templateUrl: './delete.component.html',
+    selector: 'app-data-provider-client-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class DataProviderClientDeleteComponent implements OnInit {
   requestId = 0;

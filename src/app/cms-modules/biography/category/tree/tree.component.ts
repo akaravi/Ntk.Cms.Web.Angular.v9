@@ -29,8 +29,9 @@ import { BiographyCategoryAddComponent } from '../add/add.component';
 import { BiographyCategoryDeleteComponent } from '../delete/delete.component';
 import { BiographyCategoryEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-biography-category-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-biography-category-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class BiographyCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

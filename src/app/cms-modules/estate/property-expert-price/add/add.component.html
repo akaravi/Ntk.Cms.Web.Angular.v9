@@ -15,14 +15,14 @@
 
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
       <!-- ExpertPriceType Field -->
       <app-cms-enum-x-selector *ngIf="fieldsInfo['expertPriceType']?.accessWatchField"
         [optionDataListResult]="dataModelEstatePropertyExpertPriceTypeEnumResult" [(model)]="dataModel.expertPriceType"
-        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['expertPriceType']?.fieldTitle" [optionRequired]="true"
+        [optionDisabled]="false" [optionLabel]="fieldsInfo['expertPriceType']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
       <!-- LinkLocationId Field -->
       <app-cms-location-selector (optionChange)="onActionSelectorLocation($event)"

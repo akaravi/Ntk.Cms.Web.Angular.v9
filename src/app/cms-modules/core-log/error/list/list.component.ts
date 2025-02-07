@@ -18,8 +18,9 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { CoreLogErrorEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-log-error-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-log-error-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLogErrorListComponent extends ListBaseComponent<CoreLogErrorService, CoreLogErrorModel, string>
   implements OnInit, OnDestroy {

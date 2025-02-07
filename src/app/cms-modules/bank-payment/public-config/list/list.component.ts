@@ -22,8 +22,9 @@ import { environment } from 'src/environments/environment';
 import { BankPaymentPublicConfigAddComponent } from '../add/add.component';
 import { BankPaymentPublicConfigEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-bankpayment-publicconfig-list',
-  templateUrl: './list.component.html',
+    selector: 'app-bankpayment-publicconfig-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class BankPaymentPublicConfigListComponent extends ListBaseComponent<BankPaymentPublicConfigService, BankPaymentPublicConfigModel, number>
   implements OnInit, OnDestroy {

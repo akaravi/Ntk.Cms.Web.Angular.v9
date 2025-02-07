@@ -17,8 +17,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coremodule-data-memo-view',
-  templateUrl: './view.component.html',
+    selector: 'app-coremodule-data-memo-view',
+    templateUrl: './view.component.html',
+    standalone: false
 })
 export class CoreModuleDataMemoViewComponent implements OnInit, OnDestroy {
   requestId = '';

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-estate',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-estate',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class EstateComponent implements OnInit {
 

@@ -16,9 +16,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
 
 @Component({
-  selector: 'app-estate-billboard-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-estate-billboard-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class EstateBillboardAddComponent extends AddBaseComponent<EstateBillboardService, EstateBillboardModel, string> implements OnInit {
   requestId = '';

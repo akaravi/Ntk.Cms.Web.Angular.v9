@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreModuleEntityReportFileAddComponent } from '../add/add.component';
 import { CoreModuleEntityReportFileEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-module-entity-report-file-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-module-entity-report-file-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleEntityReportFileListComponent extends ListBaseComponent<CoreModuleEntityReportFileService, CoreModuleEntityReportFileModel, string>
   implements OnInit, OnDestroy {

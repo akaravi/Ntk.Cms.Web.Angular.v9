@@ -19,9 +19,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-linkmanagement-target-billboard-log-delete',
-  templateUrl: './delete.component.html',
-  styleUrls: ['./delete.component.scss']
+    selector: 'app-linkmanagement-target-billboard-log-delete',
+    templateUrl: './delete.component.html',
+    styleUrls: ['./delete.component.scss'],
+    standalone: false
 })
 export class LinkManagementTargetBillboardLogDeleteComponent implements OnInit {
   requestId = '';

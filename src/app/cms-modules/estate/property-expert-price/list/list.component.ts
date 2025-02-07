@@ -24,9 +24,10 @@ import { EstatePropertyExpertPriceInquiryCalculateComponent } from '../inquiry-c
 import { EstatePropertyExpertPriceInquiryListComponent } from '../inquiry-list/inquiry-list.component';
 
 @Component({
-  selector: 'app-estate-property-expert-price-list',
-  templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+    selector: 'app-estate-property-expert-price-list',
+    templateUrl: './list.component.html',
+    styleUrls: ["./list.component.scss"],
+    standalone: false
 })
 export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<EstatePropertyExpertPriceService, EstatePropertyExpertPriceModel, string> implements OnInit, OnDestroy {
 

@@ -23,9 +23,10 @@ import { EstatePropertyListComponent } from '../../property/list/list.component'
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
 
 @Component({
-  selector: 'app-estate-customer-order-add-mobile',
-  templateUrl: './add.mobile.component.html',
-  styleUrls: ['./add.mobile.component.scss'],
+    selector: 'app-estate-customer-order-add-mobile',
+    templateUrl: './add.mobile.component.html',
+    styleUrls: ['./add.mobile.component.scss'],
+    standalone: false
 })
 export class EstateCustomerOrderAddMobileComponent implements OnInit {
   requestId = '';

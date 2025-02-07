@@ -25,10 +25,11 @@ import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-catalog-content-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'
-  ]
+    selector: 'app-catalog-content-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'
+    ],
+    standalone: false
 })
 export class CatalogContentEditComponent extends EditBaseComponent<CatalogContentService, CatalogContentModel, string>
   implements OnInit {

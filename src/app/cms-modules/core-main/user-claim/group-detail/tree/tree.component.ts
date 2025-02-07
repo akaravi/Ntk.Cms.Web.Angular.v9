@@ -29,9 +29,10 @@ import { CoreUserClaimGroupDetailEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-core-userclaimgroupdetail-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-core-userclaimgroupdetail-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class CoreUserClaimGroupDetailTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

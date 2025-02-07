@@ -28,8 +28,9 @@ import { environment } from 'src/environments/environment';
 import { BankPaymentPublicConfigAddComponent } from '../add/add.component';
 import { BankPaymentPublicConfigEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-bankpayment-publicconfig-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-bankpayment-publicconfig-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class BankPaymentPublicConfigTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -20,10 +20,11 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 
 @Component({
-  selector: 'app-linkmanagement-target-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'
-  ]
+    selector: 'app-linkmanagement-target-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'
+    ],
+    standalone: false
 })
 export class LinkManagementTargetAddComponent extends AddBaseComponent<LinkManagementTargetService, LinkManagementTargetModel, number> implements OnInit {
   requestLinkBillboardPatternId = 0;

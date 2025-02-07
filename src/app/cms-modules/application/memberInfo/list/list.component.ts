@@ -24,9 +24,9 @@ import { environment } from 'src/environments/environment';
 import { ApplicationLogNotificationActionSendComponent } from '../../notification/action-send/action-send.component';
 import { ApplicationMemberInfoViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-application-memberinfo-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-application-memberinfo-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApplicationMemberInfoListComponent extends ListBaseComponent<ApplicationMemberInfoService, ApplicationMemberInfoModel, string>
   implements OnInit, OnDestroy {

@@ -33,9 +33,10 @@ import { SmsMainMessageCategoryAddComponent } from '../add/add.component';
 
 
 @Component({
-  selector: 'app-sms-main-message-category-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-sms-main-message-category-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class SmsMainMessageCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

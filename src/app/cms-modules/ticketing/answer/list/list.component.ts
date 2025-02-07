@@ -22,8 +22,9 @@ import { TicketingAnswerAddComponent } from '../add/add.component';
 import { TicketingAnswerEditComponent } from '../edit/edit.component';
 import { TicketingAnswerViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-ticketing-answer-list',
-  templateUrl: './list.component.html'
+    selector: 'app-ticketing-answer-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class TicketingAnswerListComponent extends ListBaseComponent<TicketingAnswerService, TicketingAnswerModel, number> implements OnInit, OnDestroy {
   requestLinkTaskId = 0;

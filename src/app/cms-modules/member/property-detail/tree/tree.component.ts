@@ -30,9 +30,10 @@ import { environment } from 'src/environments/environment';
 import { MemberPropertyDetailAddComponent } from '../add/add.component';
 import { MemberPropertyDetailEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-member-propertydetail-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-member-propertydetail-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class MemberPropertyDetailTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -13,9 +13,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-ads-type-selector',
-  templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
+    selector: 'app-estate-ads-type-selector',
+    templateUrl: './selector.component.html',
+    styleUrls: ['./selector.component.scss'],
+    standalone: false
 })
 export class EstateAdsTypeSelectorComponent implements OnInit {
   static nextId = 0;

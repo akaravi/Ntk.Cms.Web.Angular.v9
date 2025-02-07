@@ -22,8 +22,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-chart-config-site',
-  templateUrl: './config-site.component.html',
+    selector: 'app-chart-config-site',
+    templateUrl: './config-site.component.html',
+    standalone: false
 })
 export class ChartConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

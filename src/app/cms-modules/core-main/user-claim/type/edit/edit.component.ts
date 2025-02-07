@@ -19,9 +19,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-userclaimtype-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-core-userclaimtype-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreUserClaimTypeEditComponent extends EditBaseComponent<CoreUserClaimTypeService, CoreUserClaimTypeModel, number>
   implements OnInit {

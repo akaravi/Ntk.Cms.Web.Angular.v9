@@ -20,9 +20,9 @@ import { ApiTelegramActionSendMessageComponent } from '../../action/send-message
 
 
 @Component({
-  selector: 'app-apitelegram-bot-config-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-apitelegram-bot-config-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApiTelegramLogOutputListComponent extends ListBaseComponent<ApiTelegramLogOutputService, ApiTelegramLogOutputModel, string> implements OnInit, OnDestroy {
   requestLinkBotConfigId = 0;

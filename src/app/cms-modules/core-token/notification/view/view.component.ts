@@ -17,9 +17,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coretoken-notification-view',
-  templateUrl: './view.component.html',
-  styleUrls: ['./view.component.scss']
+    selector: 'app-coretoken-notification-view',
+    templateUrl: './view.component.html',
+    styleUrls: ['./view.component.scss'],
+    standalone: false
 })
 export class CoreTokenNotificationViewComponent implements OnInit, OnDestroy {
   requestId = '';

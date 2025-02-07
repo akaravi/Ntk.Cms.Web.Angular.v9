@@ -29,9 +29,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyHistoryEditComponent } from './edit.component';
 
 @Component({
-  selector: 'app-estate-property-history-edit-mobile',
-  templateUrl: './edit.mobile.component.html',
-  styleUrls: ['./edit.mobile.component.scss'],
+    selector: 'app-estate-property-history-edit-mobile',
+    templateUrl: './edit.mobile.component.html',
+    styleUrls: ['./edit.mobile.component.scss'],
+    standalone: false
 })
 export class EstatePropertyHistoryEditMobileComponent extends EditBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string>
   implements OnInit {

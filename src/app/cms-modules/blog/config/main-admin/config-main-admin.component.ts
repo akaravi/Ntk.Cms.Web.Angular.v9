@@ -21,8 +21,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-blog-config-mainadmin',
-  templateUrl: './config-main-admin.component.html',
+    selector: 'app-blog-config-mainadmin',
+    templateUrl: './config-main-admin.component.html',
+    standalone: false
 })
 export class BlogConfigMainAdminComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

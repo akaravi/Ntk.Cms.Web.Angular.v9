@@ -13,8 +13,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
-  selector: 'app-page-contactus',
-  templateUrl: './page-contactus.component.html',
+    selector: 'app-page-contactus',
+    templateUrl: './page-contactus.component.html',
+    standalone: false
 })
 
 export class PageContactusComponent extends AddBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit {

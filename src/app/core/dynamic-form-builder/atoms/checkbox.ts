@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'checkbox',
-  template: `
+    selector: 'checkbox',
+    template: `
         <div [formGroup]="optionFormGroup" >
           <div *ngFor="let opt of field.options" class="form-check form-check ">
           <label class="form-check-label">
@@ -11,7 +11,8 @@ import { FormGroup } from '@angular/forms';
              {{opt.label}}</label>
           </div>
       </div>
-    `
+    `,
+    standalone: false
 })
 export class CheckBoxComponent {
   @Input() field: any = {};

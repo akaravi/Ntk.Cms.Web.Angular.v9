@@ -19,8 +19,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-bankpayment-config-mainadmin',
-  templateUrl: './config-main-admin.component.html',
+    selector: 'app-bankpayment-config-mainadmin',
+    templateUrl: './config-main-admin.component.html',
+    standalone: false
 })
 export class BankPaymentConfigMainAdminComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

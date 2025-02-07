@@ -5,7 +5,8 @@ import { AbstractControl, NG_VALIDATORS, Validator } from '@angular/forms';
     selector: '[cmsPhone]',
     providers: [
         { provide: NG_VALIDATORS, useExisting: PhoneDirective, multi: true }
-    ]
+    ],
+    standalone: false
 })
 export class PhoneDirective implements Validator {
     constructor() { }

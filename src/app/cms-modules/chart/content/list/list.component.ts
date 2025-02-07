@@ -25,8 +25,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { ChartContentDeleteComponent } from '../delete/delete.component';
 
 @Component({
-  selector: 'app-chart-content-list',
-  templateUrl: './list.component.html',
+    selector: 'app-chart-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ChartContentListComponent extends ListBaseComponent<ChartContentService, ChartContentModel, number>
   implements OnInit, OnDestroy {

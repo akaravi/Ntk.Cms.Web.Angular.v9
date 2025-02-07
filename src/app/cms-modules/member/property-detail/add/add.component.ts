@@ -19,9 +19,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-member-propertydetail-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-member-propertydetail-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class MemberPropertyDetailAddComponent extends AddBaseComponent<MemberPropertyDetailService, MemberPropertyDetailModel, number> implements OnInit {
   requestLinkPropertyTypeId = 0;

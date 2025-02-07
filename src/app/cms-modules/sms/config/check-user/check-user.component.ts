@@ -13,8 +13,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-sms-config-checkuser',
-  templateUrl: './check-user.component.html'
+    selector: 'app-sms-config-checkuser',
+    templateUrl: './check-user.component.html',
+    standalone: false
 })
 export class SmsConfigCheckUserComponent implements OnInit, OnDestroy {
   requestLinkUserId = 0;

@@ -20,9 +20,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coretoken-microservice-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-coretoken-microservice-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreTokenMicroServiceEditComponent extends EditBaseComponent<CoreTokenMicroServiceService, CoreTokenMicroServiceModel, string>
   implements OnInit, OnDestroy {

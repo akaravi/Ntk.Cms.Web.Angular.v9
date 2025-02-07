@@ -31,9 +31,10 @@ import { SmsMainApiPathCompanyEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-sms-apipathcompany-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-sms-apipathcompany-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class SmsMainApiPathCompanyTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

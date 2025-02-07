@@ -14,8 +14,9 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-webdesigner-intro-edit',
-  templateUrl: './edit.component.html',
+    selector: 'app-webdesigner-intro-edit',
+    templateUrl: './edit.component.html',
+    standalone: false
 })
 export class WebDesignerMainIntroEditComponent extends EditBaseComponent<WebDesignerMainIntroService, WebDesignerMainIntroModel, string>
   implements OnInit {

@@ -19,9 +19,10 @@ import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-tag-category-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-tag-category-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreModuleTagEditComponent extends EditBaseComponent<CoreModuleTagService, CoreModuleTagModel, number>
   implements OnInit {

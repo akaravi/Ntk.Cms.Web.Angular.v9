@@ -13,9 +13,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-property-selector',
-  templateUrl: './selector.component.html',
-
+    selector: 'app-estate-property-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class EstatePropertySelectorComponent implements OnInit, OnDestroy {
   static nextId = 0;

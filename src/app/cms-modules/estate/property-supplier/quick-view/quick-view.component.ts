@@ -19,8 +19,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-property-supplier-quick-view',
-  templateUrl: './quick-view.component.html',
+    selector: 'app-estate-property-supplier-quick-view',
+    templateUrl: './quick-view.component.html',
+    standalone: false
 })
 export class EstatePropertySupplierQuickViewComponent implements OnInit, OnDestroy {
   requestId = '';

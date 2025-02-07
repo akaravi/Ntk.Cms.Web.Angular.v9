@@ -20,9 +20,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coretoken-notification-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-coretoken-notification-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreTokenNotificationEditComponent extends EditBaseComponent<CoreTokenNotificationService, CoreTokenNotificationModel, string>
   implements OnInit, OnDestroy {

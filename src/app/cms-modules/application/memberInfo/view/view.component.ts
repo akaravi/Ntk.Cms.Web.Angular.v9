@@ -16,8 +16,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-application-memberinfo-view',
-  templateUrl: './view.component.html',
+    selector: 'app-application-memberinfo-view',
+    templateUrl: './view.component.html',
+    standalone: false
 })
 export class ApplicationMemberInfoViewComponent implements OnInit, OnDestroy {
   requestId = '';

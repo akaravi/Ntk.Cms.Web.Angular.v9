@@ -22,8 +22,9 @@ import { environment } from 'src/environments/environment';
 import { CoreUserClaimGroupDetailAddComponent } from '../add/add.component';
 import { CoreUserClaimGroupDetailEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-userclaimgroupdetail-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-userclaimgroupdetail-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreUserClaimGroupDetailListComponent extends ListBaseComponent<CoreUserClaimGroupDetailService, CoreUserClaimGroupDetailModel, number>
   implements OnInit, OnDestroy {

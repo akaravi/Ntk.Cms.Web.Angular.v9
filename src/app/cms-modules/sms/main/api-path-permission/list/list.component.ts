@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { SmsMainApiPathPermissionAddComponent } from '../add/add.component';
 import { SmsMainApiPathPermissionEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-sms-apipathpermission-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-apipathpermission-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainApiPathPermissionListComponent extends ListBaseComponent<SmsMainApiPathPermissionService, SmsMainApiPathPermissionModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';

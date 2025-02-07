@@ -18,9 +18,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-property-type-landuse-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-estate-property-type-landuse-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class EstatePropertyTypeLanduseEditComponent extends EditBaseComponent<EstatePropertyTypeLanduseService, EstatePropertyTypeLanduseModel, string>
   implements OnInit {

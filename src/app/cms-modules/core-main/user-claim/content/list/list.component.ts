@@ -22,9 +22,9 @@ import { environment } from 'src/environments/environment';
 import { CoreUserClaimContentAddComponent } from '../add/add.component';
 import { CoreUserClaimContentEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-userclaimcontent-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-userclaimcontent-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreUserClaimContentListComponent extends ListBaseComponent<CoreUserClaimContentService, CoreUserClaimContentModel, number>
   implements OnInit, OnDestroy {

@@ -16,9 +16,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-account-expert-work-area-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-estate-account-expert-work-area-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class EstateAccountExpertWorkAreaAddComponent extends AddBaseComponent<EstateAccountExpertWorkAreaService, EstateAccountExpertWorkAreaModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

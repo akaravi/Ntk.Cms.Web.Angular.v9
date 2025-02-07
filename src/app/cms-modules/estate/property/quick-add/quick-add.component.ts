@@ -22,9 +22,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
 @Component({
-  selector: 'app-estate-property-quick-add',
-  templateUrl: './quick-add.component.html',
-  styleUrls: ["./quick-add.component.scss"],
+    selector: 'app-estate-property-quick-add',
+    templateUrl: './quick-add.component.html',
+    styleUrls: ["./quick-add.component.scss"],
+    standalone: false
 })
 export class EstatePropertyQuickAddComponent extends AddBaseComponent<EstatePropertyTypeService, EstatePropertyTypeModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

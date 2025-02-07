@@ -15,8 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-linkmanagement-billboard-pattern-delete',
-  templateUrl: './delete.component.html',
+    selector: 'app-linkmanagement-billboard-pattern-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class LinkManagementBillboardPatternDeleteComponent implements OnInit {
   requestId = 0;

@@ -20,9 +20,9 @@ import { environment } from 'src/environments/environment';
 import { CoreTokenUserLogEditComponent } from '../edit/edit.component';
 import { CoreTokenUserLogViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-coretoken-user-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coretoken-user-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUserLogService, CoreTokenUserLogModel, string>
   implements OnInit, OnDestroy {

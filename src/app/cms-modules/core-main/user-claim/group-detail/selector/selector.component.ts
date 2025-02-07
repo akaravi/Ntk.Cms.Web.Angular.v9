@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-userclaimgroupdetail-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-core-userclaimgroupdetail-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreUserClaimGroupDetailSelectorComponent implements OnInit {
   static nextId = 0;

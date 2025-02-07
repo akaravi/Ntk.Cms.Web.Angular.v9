@@ -12,9 +12,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-cms-link-to',
-  templateUrl: './cms-link-to.component.html',
-  styleUrls: ['./cms-link-to.component.scss']
+    selector: 'app-cms-link-to',
+    templateUrl: './cms-link-to.component.html',
+    styleUrls: ['./cms-link-to.component.scss'],
+    standalone: false
 })
 export class CmsLinkToComponent implements OnInit {
   static nextId = 0;

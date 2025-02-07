@@ -7,8 +7,9 @@ import {
 } from 'ntk-cms-api';
 
 @Component({
-  selector: 'app-cms-enum-x-selectionlist',
-  templateUrl: './cms-enum-x-selectionlist.component.html',
+    selector: 'app-cms-enum-x-selectionlist',
+    templateUrl: './cms-enum-x-selectionlist.component.html',
+    standalone: false
 })
 export class CmsEnumXSelectionListComponent implements OnInit {
   static nextId = 0;

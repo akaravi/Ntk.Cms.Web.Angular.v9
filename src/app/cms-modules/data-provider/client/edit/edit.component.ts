@@ -24,9 +24,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 
 @Component({
-  selector: 'app-data-provider-client-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-data-provider-client-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class DataProviderClientEditComponent extends EditBaseComponent<DataProviderClientService, DataProviderClientModel, number>
   implements OnInit {

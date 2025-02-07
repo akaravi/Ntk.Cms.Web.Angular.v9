@@ -1,6 +1,9 @@
 import { Directive, ElementRef, OnInit } from '@angular/core';
 
-@Directive({ selector: '[runScripts]' })
+@Directive({
+    selector: '[runScripts]',
+    standalone: false
+})
 export class RunScriptsDirective implements OnInit {
     constructor(private elementRef: ElementRef) { }
     ngOnInit(): void {

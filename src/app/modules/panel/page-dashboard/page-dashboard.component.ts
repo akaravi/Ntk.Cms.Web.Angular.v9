@@ -11,9 +11,10 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-page-dashboard',
-  templateUrl: './page-dashboard.component.html',
-  styleUrls: ['./page-dashboard.component.scss']
+    selector: 'app-page-dashboard',
+    templateUrl: './page-dashboard.component.html',
+    styleUrls: ['./page-dashboard.component.scss'],
+    standalone: false
 })
 export class PageDashboardComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

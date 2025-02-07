@@ -20,9 +20,9 @@ import { CoreModuleLogSiteUserCreditEditComponent } from '../edit/edit.component
 import { CoreModuleLogSiteUserCreditViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodulelog-site-user-credit--list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodulelog-site-user-credit--list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleLogSiteUserCreditListComponent extends ListBaseComponent<CoreModuleLogSiteUserCreditService, CoreModuleLogSiteUserCreditModel, string>
   implements OnInit, OnDestroy {

@@ -30,8 +30,9 @@ import { InlineSVGComponent } from './inline-svg.component';
 import { InlineSVGService } from '../services/inline-svg.service';
 
 @Directive({
-  selector: '[inlineSVG]',
-  providers: [SVGCacheService]
+    selector: '[inlineSVG]',
+    providers: [SVGCacheService],
+    standalone: false
 })
 export class InlineSVGDirective implements OnInit, OnChanges, OnDestroy {
   @Input() inlineSVG: string;

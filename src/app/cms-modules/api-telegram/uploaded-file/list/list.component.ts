@@ -19,9 +19,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 @Component({
-  selector: 'app-apitelegram-bot-config-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-apitelegram-bot-config-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApiTelegramUploadedFileListComponent extends ListBaseComponent<ApiTelegramUploadedFileService, ApiTelegramUploadedFileModel, number> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

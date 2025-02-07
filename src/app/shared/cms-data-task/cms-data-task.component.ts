@@ -10,9 +10,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-data-task',
-  templateUrl: './cms-data-task.component.html',
-  styleUrls: ['./cms-data-task.component.scss']
+    selector: 'app-cms-data-task',
+    templateUrl: './cms-data-task.component.html',
+    styleUrls: ['./cms-data-task.component.scss'],
+    standalone: false
 })
 export class CmsDataTaskComponent implements OnInit {
   static nextId = 0;

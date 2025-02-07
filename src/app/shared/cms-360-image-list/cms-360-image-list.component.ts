@@ -16,8 +16,9 @@ export class PostionViewModel {
   clickGetPitch: 0;
 }
 @Component({
-  selector: 'app-cms-360-image-list',
-  templateUrl: './cms-360-image-list.component.html'
+    selector: 'app-cms-360-image-list',
+    templateUrl: './cms-360-image-list.component.html',
+    standalone: false
 })
 export class Cms360ImageListComponent implements OnInit {
   static nextId = 0;

@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'field-builder',
-  template: `
+    selector: 'field-builder',
+    template: `
   <div class="form-group row" [formGroup]="formGroup">
     <label class="col-md-3 form-control-label" [attr.for]="field.label">
       {{field.label}}
@@ -19,7 +19,8 @@ import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
       <div class="alert alert-danger my-1 p-2 fadeInDown animated" *ngIf="!isValid && isDirty">{{field.label}} is required</div>
     </div>
   </div>
-  `
+  `,
+    standalone: false
 })
 export class FieldBuilderComponent implements OnInit {
   @Input() field: any;

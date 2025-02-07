@@ -22,8 +22,9 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 
 @Component({
-  selector: 'app-application-source-list',
-  templateUrl: './list.component.html',
+    selector: 'app-application-source-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApplicationSourceListComponent extends ListBaseComponent<ApplicationSourceService, ApplicationSourceModel, number>
   implements OnInit, OnDestroy {

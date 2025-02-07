@@ -9,7 +9,7 @@
   <ng-container cms-tree>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-tree-->
     <app-news-category-tree (optionChange)="onActionSelectorSelect($event)"
-      [optionSelectForce]="this.requestLinkCategoryId">
+      [optionSelectForce]="requestLinkCategoryId">
     </app-news-category-tree>
     <!--end:::::::::::::::::::::::::::::::::::::::::cms-tree-->
   </ng-container>
@@ -53,7 +53,7 @@
       <mat-slide-toggle [checked]="optionsStatist.data.show">
       </mat-slide-toggle>{{'ACTION.STATIST' | translate }}
     </a>
-    <a *ngIf="this.categoryModelSelected?.id>0"
+    <a *ngIf="categoryModelSelected?.id>0"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
       <mat-slide-toggle (click)="onActionButtonWithHierarchy()"></mat-slide-toggle>{{'ACTION.BATCHVIEW' |
       translate}}

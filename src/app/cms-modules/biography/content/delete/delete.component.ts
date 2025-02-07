@@ -18,8 +18,9 @@ import {
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-biography-content-delete',
-  templateUrl: './delete.component.html',
+    selector: 'app-biography-content-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class BiographyContentDeleteComponent implements OnInit {
   requestId = 0;

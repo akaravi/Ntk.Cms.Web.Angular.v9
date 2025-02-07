@@ -25,8 +25,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { BlogContentDeleteComponent } from '../delete/delete.component';
 
 @Component({
-  selector: 'app-blog-content-list',
-  templateUrl: './list.component.html',
+    selector: 'app-blog-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class BlogContentListComponent extends ListBaseComponent<BlogContentService, BlogContentModel, number> implements OnInit, OnDestroy {
 

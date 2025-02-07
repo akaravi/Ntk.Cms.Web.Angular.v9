@@ -23,10 +23,11 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 
 @Component({
-  selector: 'app-linkmanagement-target-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'
-  ]
+    selector: 'app-linkmanagement-target-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'
+    ],
+    standalone: false
 })
 export class LinkManagementTargetEditComponent extends EditBaseComponent<LinkManagementTargetService, LinkManagementTargetModel, number>
   implements OnInit {

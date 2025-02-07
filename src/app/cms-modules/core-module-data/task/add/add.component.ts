@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coremodule-data-task-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-coremodule-data-task-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class CoreModuleDataTaskAddComponent extends AddBaseComponent<CoreModuleDataTaskService, CoreModuleDataTaskModel, string> implements OnInit {
   requestLinkSiteId = 0;

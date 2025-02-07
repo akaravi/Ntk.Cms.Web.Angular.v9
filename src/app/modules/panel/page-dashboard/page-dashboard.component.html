@@ -62,7 +62,7 @@
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
       <app-coremodule-site-credit-widget-price style="cursor: pointer;" [routerLink]="'/coremodule/site-credit'"
-        *ngIf="this.tokenHelper.isAdminSite">
+        *ngIf="tokenHelper.isAdminSite">
       </app-coremodule-site-credit-widget-price>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
@@ -86,7 +86,7 @@
       </app-application-memberinfo-widget>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6" *ngIf="checkModuleExist['core']">
-      <app-ReportAbuse-widget *ngIf="this.tokenHelper.isAdminSite">
+      <app-ReportAbuse-widget *ngIf="tokenHelper.isAdminSite">
       </app-ReportAbuse-widget>
 
     </div>

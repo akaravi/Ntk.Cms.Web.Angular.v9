@@ -24,9 +24,9 @@ import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { NewsContentDeleteComponent } from '../delete/delete.component';
 @Component({
-  selector: 'app-news-content-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-news-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class NewsContentListComponent extends ListBaseComponent<NewsContentService, NewsContentModel, number> implements OnInit, OnDestroy {
   requestLinkCategoryId = 0;

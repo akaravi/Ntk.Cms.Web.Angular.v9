@@ -6,9 +6,10 @@ import { environment } from 'src/environments/environment';
 
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+    selector: 'app-auth',
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.scss'],
+    standalone: false
 })
 export class AuthComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

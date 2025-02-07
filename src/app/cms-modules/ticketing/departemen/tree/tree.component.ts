@@ -31,9 +31,10 @@ import { TicketingDepartemenEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-ticketing-departemen-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-ticketing-departemen-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class TicketingDepartemenTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

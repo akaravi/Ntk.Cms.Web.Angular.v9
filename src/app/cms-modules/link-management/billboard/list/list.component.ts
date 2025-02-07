@@ -20,8 +20,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { LinkManagementBillboardDeleteComponent } from '../delete/delete.component';
 
 @Component({
-  selector: 'app-linkmanagement-Billboard-list',
-  templateUrl: './list.component.html',
+    selector: 'app-linkmanagement-Billboard-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class LinkManagementBillboardListComponent extends ListBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number> implements OnInit, OnDestroy {
   requestLinkBillboardPatternId = 0;

@@ -22,8 +22,9 @@ import { EstateCustomerOrderQuickViewComponent } from '../../customer-order/quic
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
 
 @Component({
-  selector: 'app-estate-property-history-quick-view',
-  templateUrl: './quick-view.component.html',
+    selector: 'app-estate-property-history-quick-view',
+    templateUrl: './quick-view.component.html',
+    standalone: false
 })
 export class EstatePropertyHistoryQuickViewComponent implements OnInit, OnDestroy {
   requestId = '';

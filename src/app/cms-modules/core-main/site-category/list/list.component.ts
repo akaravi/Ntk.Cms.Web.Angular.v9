@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreSiteCategoryAddComponent } from '../add/add.component';
 import { CoreSiteCategoryEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-sitecategory-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-sitecategory-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreSiteCategoryListComponent extends ListBaseComponent<CoreSiteCategoryService, CoreSiteCategoryModel, number>
   implements OnInit, OnDestroy {

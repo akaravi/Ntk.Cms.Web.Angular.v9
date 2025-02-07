@@ -28,9 +28,10 @@ import { environment } from 'src/environments/environment';
 import { EstateCategoryRackAddComponent } from '../add/add.component';
 import { EstateCategoryRackEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-category-rack-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-estate-category-rack-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class EstateCategoryRackTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

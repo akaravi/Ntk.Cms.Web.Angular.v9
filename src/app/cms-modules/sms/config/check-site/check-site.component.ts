@@ -13,8 +13,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-sms-config-checksite',
-  templateUrl: './check-site.component.html'
+    selector: 'app-sms-config-checksite',
+    templateUrl: './check-site.component.html',
+    standalone: false
 })
 export class SmsConfigCheckSiteComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

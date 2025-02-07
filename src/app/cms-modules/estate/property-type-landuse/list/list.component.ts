@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyTypeLanduseAddComponent } from '../add/add.component';
 import { EstatePropertyTypeLanduseEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-property-type-landuse-list',
-  templateUrl: './list.component.html'
+    selector: 'app-estate-property-type-landuse-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstatePropertyTypeLanduseListComponent extends ListBaseComponent<EstatePropertyTypeLanduseService, EstatePropertyTypeLanduseModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

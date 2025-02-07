@@ -19,8 +19,9 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { SmsLogOutBoxDetailViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-sms-log-outboxdetail-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-log-outboxdetail-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsLogOutBoxDetailListComponent extends ListBaseComponent<SmsLogOutBoxDetailService, SmsLogOutBoxDetailModel, string> implements OnInit, OnDestroy {
   requestLinkOutBoxId = '';

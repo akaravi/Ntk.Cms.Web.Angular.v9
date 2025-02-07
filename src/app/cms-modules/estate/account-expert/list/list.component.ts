@@ -19,8 +19,9 @@ import { environment } from 'src/environments/environment';
 import { EstateAccountExpertAddComponent } from '../add/add.component';
 import { EstateAccountExpertEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-account-expert-list',
-  templateUrl: './list.component.html',
+    selector: 'app-estate-account-expert-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstateAccountExpertListComponent extends ListBaseComponent<EstateAccountExpertService, EstateAccountExpertModel, string> implements OnInit, OnDestroy {
   requestLinkAccountAgencyId = '';

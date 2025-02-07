@@ -21,9 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreUserSupportAccessAddComponent } from '../add/add.component';
 import { CoreUserSupportAccessEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-user-support-access-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-user-support-access-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreUserSupportAccessListComponent extends ListBaseComponent<CoreUserSupportAccessService, CoreUserSupportAccessModel, number>
   implements OnInit, OnDestroy {

@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-donate-target-category-delete',
-  templateUrl: './delete.component.html'
+    selector: 'app-donate-target-category-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class DonateTargetCategoryDeleteComponent implements OnInit {
   requestId = 0;

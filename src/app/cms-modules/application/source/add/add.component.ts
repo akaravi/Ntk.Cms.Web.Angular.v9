@@ -18,8 +18,9 @@ import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-aplication-source-add',
-  templateUrl: './add.component.html',
+    selector: 'app-aplication-source-add',
+    templateUrl: './add.component.html',
+    standalone: false
 })
 export class ApplicationSourceAddComponent extends AddBaseComponent<ApplicationSourceService, ApplicationSourceModel, number> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

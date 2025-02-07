@@ -22,8 +22,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-blog-config-site',
-  templateUrl: './config-site.component.html',
+    selector: 'app-blog-config-site',
+    templateUrl: './config-site.component.html',
+    standalone: false
 })
 export class BlogConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

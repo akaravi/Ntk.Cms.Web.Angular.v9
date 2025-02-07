@@ -12,8 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-data-provider-plan-price-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-data-provider-plan-price-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class DataProviderPlanPriceSelectorComponent implements OnInit {
   static nextId = 0;

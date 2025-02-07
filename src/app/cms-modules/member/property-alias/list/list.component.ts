@@ -22,9 +22,9 @@ import { MemberPropertyAliasAddComponent } from '../add/add.component';
 import { MemberPropertyAliasDeleteComponent } from '../delete/delete.component';
 import { MemberPropertyAliasEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-member-propertyalias-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-member-propertyalias-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class MemberPropertyAliasListComponent extends ListBaseComponent<MemberPropertyAliasService, MemberPropertyAliasModel, number> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

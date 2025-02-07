@@ -20,9 +20,9 @@ import { environment } from 'src/environments/environment';
 import { CoreTokenMicroServiceLogEditComponent } from '../edit/edit.component';
 import { CoreTokenMicroServiceLogViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-coretoken-microservicelog-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coretoken-microservicelog-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<CoreTokenMicroServiceLogService, CoreTokenMicroServiceLogModel, string>
   implements OnInit, OnDestroy {

@@ -9,8 +9,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coremodule-site-credit-direct-add',
-  templateUrl: './charge-direct.component.html',
+    selector: 'app-coremodule-site-credit-direct-add',
+    templateUrl: './charge-direct.component.html',
+    standalone: false
 })
 export class CoreModuleSiteCreditChargeDirectComponent implements OnInit {
   requestModel: CoreModuleSiteCreditModel;

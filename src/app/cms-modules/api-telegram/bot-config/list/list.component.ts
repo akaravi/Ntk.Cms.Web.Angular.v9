@@ -25,8 +25,9 @@ import { ApiTelegramActionSendMessageComponent } from '../../action/send-message
 import { ApiTelegramBotConfigAddComponent } from '../add/add.component';
 import { ApiTelegramBotConfigEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-apitelegram-bot-config-list',
-  templateUrl: './list.component.html',
+    selector: 'app-apitelegram-bot-config-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApiTelegramBotConfigListComponent extends ListBaseComponent<ApiTelegramBotConfigService, ApiTelegramBotConfigModel, number> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

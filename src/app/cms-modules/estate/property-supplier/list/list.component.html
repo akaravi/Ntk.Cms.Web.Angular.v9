@@ -1,4 +1,4 @@
-<app-estate-property-project-header *ngIf="this.requestLinkProjectId?.length>0" [optionId]="this.requestLinkProjectId">
+<app-estate-property-project-header *ngIf="requestLinkProjectId?.length>0" [optionId]="requestLinkProjectId">
 </app-estate-property-project-header>
 <app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId"
   [optionGuideNoticeKey]="'estate.propertysupplier.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"
@@ -53,7 +53,7 @@
       <mat-slide-toggle [checked]="optionsStatist.data.show">
       </mat-slide-toggle>{{'ACTION.STATIST' | translate }}
     </a>
-    <a *ngIf="this.tableRowSelected?.id>0"
+    <a *ngIf="tableRowSelected?.id>0"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank">
       <mat-slide-toggle (click)="onActionButtonWithHierarchy()"></mat-slide-toggle>{{'ACTION.BATCHVIEW' |
       translate}}

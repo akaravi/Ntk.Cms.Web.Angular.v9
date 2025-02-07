@@ -11,8 +11,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-web-designer-config-checkuser',
-  templateUrl: './check-user.component.html',
+    selector: 'app-web-designer-config-checkuser',
+    templateUrl: './check-user.component.html',
+    standalone: false
 })
 export class WebDesignerConfigCheckUserComponent implements OnInit, OnDestroy {
   requestLinkUserId = 0;

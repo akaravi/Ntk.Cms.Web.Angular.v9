@@ -2,8 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GetPropertiesInfoModel } from 'ntk-cms-api';
 
 @Component({
-  selector: 'app-cms-form-builder-properties',
-  templateUrl: './cms-form-builder-properties.component.html',
+    selector: 'app-cms-form-builder-properties',
+    templateUrl: './cms-form-builder-properties.component.html',
+    standalone: false
 })
 export class CmsFormBuilderPropertiesComponent implements OnInit {
   static nextId = 0;

@@ -20,9 +20,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-domainalias-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-core-site-domainalias-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreTokenUserLogEditComponent extends EditBaseComponent<CoreTokenUserLogService, CoreTokenUserLogModel, string>
   implements OnInit, OnDestroy {

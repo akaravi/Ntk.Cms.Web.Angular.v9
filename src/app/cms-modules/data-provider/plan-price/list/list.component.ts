@@ -23,8 +23,9 @@ import { DataProviderPlanPriceDeleteComponent } from '../delete/delete.component
 import { DataProviderPlanPriceEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-data-provider-plan-price-list',
-  templateUrl: './list.component.html',
+    selector: 'app-data-provider-plan-price-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DataProviderPlanPriceListComponent extends ListBaseComponent<DataProviderPlanPriceService, DataProviderPlanPriceModel, number>
   implements OnInit, OnDestroy {

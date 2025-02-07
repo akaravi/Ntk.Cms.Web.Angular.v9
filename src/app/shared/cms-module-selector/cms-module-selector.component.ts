@@ -12,8 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-cms-module-selector',
-  templateUrl: './cms-module-selector.component.html',
+    selector: 'app-cms-module-selector',
+    templateUrl: './cms-module-selector.component.html',
+    standalone: false
 })
 export class CmsModuleSelectorComponent implements OnInit {
   static nextId = 0;

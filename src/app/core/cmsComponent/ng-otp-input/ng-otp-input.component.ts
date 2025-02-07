@@ -11,10 +11,11 @@ import { OtpInputModel } from '../../models/otpInputModel';
 import { KeysPipe } from '../../pipe/keys.pipe';
 
 @Component({
-  // tslint:disable-next-line: component-selector
-  selector: 'ng-otp-input',
-  templateUrl: './ng-otp-input.component.html',
-  styleUrls: ['./ng-otp-input.component.scss']
+    // tslint:disable-next-line: component-selector
+    selector: 'ng-otp-input',
+    templateUrl: './ng-otp-input.component.html',
+    styleUrls: ['./ng-otp-input.component.scss'],
+    standalone: false
 })
 export class NgOtpInputComponent implements OnInit, AfterViewInit {
   @Input() config: OtpInputModel = { length: 4 };

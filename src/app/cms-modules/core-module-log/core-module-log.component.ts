@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-coremodulelog',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-coremodulelog',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class CoreModuleLogComponent implements OnInit {
 

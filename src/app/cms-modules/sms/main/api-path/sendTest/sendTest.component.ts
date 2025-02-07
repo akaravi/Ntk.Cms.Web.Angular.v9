@@ -17,9 +17,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-sms-privateconfig-sendtest',
-  templateUrl: './sendTest.component.html',
-  styleUrls: ['./sendTest.component.scss'],
+    selector: 'app-sms-privateconfig-sendtest',
+    templateUrl: './sendTest.component.html',
+    styleUrls: ['./sendTest.component.scss'],
+    standalone: false
 })
 export class SmsMainApiPathSendTestComponent implements OnInit {
   requestLinkApiPathId = '';

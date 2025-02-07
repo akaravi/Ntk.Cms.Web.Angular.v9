@@ -13,8 +13,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-account-expert-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-estate-account-expert-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class EstateAccountExpertSelectorComponent implements OnInit {
 

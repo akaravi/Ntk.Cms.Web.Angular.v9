@@ -20,9 +20,9 @@ import { environment } from 'src/environments/environment';
 import { CoreTokenMicroServiceEditComponent } from '../edit/edit.component';
 import { CoreTokenMicroServiceViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-coretoken-microservice-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coretoken-microservice-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreTokenMicroServiceListComponent extends ListBaseComponent<CoreTokenMicroServiceService, CoreTokenMicroServiceModel, string>
   implements OnInit, OnDestroy {

@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-userclaimtype-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-core-userclaimtype-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class CoreUserClaimTypeAddComponent extends AddBaseComponent<CoreUserClaimTypeService, CoreUserClaimTypeModel, number> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

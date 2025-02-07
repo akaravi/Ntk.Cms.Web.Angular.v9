@@ -19,8 +19,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-apitelegram-config-site',
-  templateUrl: './config-site.component.html',
+    selector: 'app-apitelegram-config-site',
+    templateUrl: './config-site.component.html',
+    standalone: false
 })
 export class ApiTelegramConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

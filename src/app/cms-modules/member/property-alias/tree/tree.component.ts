@@ -30,8 +30,9 @@ import { environment } from 'src/environments/environment';
 import { MemberPropertyAliasAddComponent } from '../add/add.component';
 import { MemberPropertyAliasEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-member-propertyalias-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-member-propertyalias-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class MemberPropertyAliasTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

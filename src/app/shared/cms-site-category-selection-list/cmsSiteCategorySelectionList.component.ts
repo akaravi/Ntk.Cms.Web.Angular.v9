@@ -7,8 +7,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-sitecategory-selectionlist',
-  templateUrl: './cmsSiteCategorySelectionList.component.html',
+    selector: 'app-cms-sitecategory-selectionlist',
+    templateUrl: './cmsSiteCategorySelectionList.component.html',
+    standalone: false
 })
 export class CmsSiteCategorySelectionListComponent implements OnInit {
   static nextId = 0;

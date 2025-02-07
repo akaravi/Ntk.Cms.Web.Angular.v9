@@ -17,9 +17,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-linkmanagement-accounting-detail-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-linkmanagement-accounting-detail-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class LinkManagementAccountingDetailAddComponent extends AddBaseComponent<LinkManagementAccountingDetailService, LinkManagementAccountingDetailModel, number> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

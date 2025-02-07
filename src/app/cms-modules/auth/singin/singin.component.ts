@@ -10,9 +10,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 @Component({
-  selector: 'app-auth-singin',
-  templateUrl: './singin.component.html',
-
+    selector: 'app-auth-singin',
+    templateUrl: './singin.component.html',
+    standalone: false
 })
 export class AuthSingInComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

@@ -9,9 +9,10 @@ import { CmsStoreService } from 'src/app/core/reducers/cmsStore.service';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-page-menu',
-  templateUrl: './page-menu.component.html',
-  styleUrls: ['./page-menu.component.scss']
+    selector: 'app-page-menu',
+    templateUrl: './page-menu.component.html',
+    styleUrls: ['./page-menu.component.scss'],
+    standalone: false
 })
 export class PageMenuComponent implements OnInit {
   requestLinkParentId = 0;

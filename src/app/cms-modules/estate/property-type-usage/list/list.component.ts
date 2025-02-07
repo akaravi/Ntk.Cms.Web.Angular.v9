@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyTypeUsageAddComponent } from '../add/add.component';
 import { EstatePropertyTypeUsageEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-hstate-propertytypeusage-list',
-  templateUrl: './list.component.html'
+    selector: 'app-hstate-propertytypeusage-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstatePropertyTypeUsageListComponent extends ListBaseComponent<EstatePropertyTypeUsageService, EstatePropertyTypeUsageModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

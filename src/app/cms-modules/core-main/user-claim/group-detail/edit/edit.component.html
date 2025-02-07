@@ -23,7 +23,7 @@
         <!-- RecordStatus Field -->
         <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
@@ -31,14 +31,14 @@
 
         <!-- LinkUserClaimGroupId Field -->
         <app-core-userclaimgroup-selector (optionChange)="onActionSelectClaimGroup($event)"
-            [optionSelectForce]="this.dataModel.linkUserClaimGroupId"
+            [optionSelectForce]="dataModel.linkUserClaimGroupId"
             [optionPlaceholder]="'TITLE.DOCUMENT_GROUP'  | translate"
             [optionDisabled]="!fieldsInfo['linkUserClaimGroupId']?.accessEditField">
         </app-core-userclaimgroup-selector>
 
         <!-- LinkUserClaimTypeId Field -->
         <app-core-userclaimtype-selector (optionChange)="onActionSelectClaimType($event)"
-            [optionSelectForce]="this.dataModel.linkUserClaimTypeId"
+            [optionSelectForce]="dataModel.linkUserClaimTypeId"
             [optionPlaceholder]="'TITLE.DOCUMENT_CATEGORY'  | translate"
             [optionDisabled]="!fieldsInfo['linkUserClaimTypeId']?.accessEditField">
         </app-core-userclaimtype-selector>

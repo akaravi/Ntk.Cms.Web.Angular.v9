@@ -14,9 +14,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-polling-category-delete',
-  templateUrl: './delete.component.html',
-  styleUrls: ['./delete.component.scss']
+    selector: 'app-polling-category-delete',
+    templateUrl: './delete.component.html',
+    styleUrls: ['./delete.component.scss'],
+    standalone: false
 })
 export class PollingCategoryDeleteComponent implements OnInit {
   requestId = 0;

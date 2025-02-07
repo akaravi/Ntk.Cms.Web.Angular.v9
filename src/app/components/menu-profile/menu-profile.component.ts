@@ -9,8 +9,9 @@ import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-menu-profile',
-  templateUrl: './menu-profile.component.html',
+    selector: 'app-menu-profile',
+    templateUrl: './menu-profile.component.html',
+    standalone: false
 })
 export class MenuProfileComponent implements OnInit {
   static nextId = 0;

@@ -21,8 +21,9 @@ import { TicketingDepartemenDeleteComponent } from '../delete/delete.component';
 import { TicketingDepartemenEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-ticketing-departemen-list',
-  templateUrl: './list.component.html'
+    selector: 'app-ticketing-departemen-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class TicketingDepartemenListComponent extends ListBaseComponent<TicketingDepartemenService, TicketingDepartemenModel, number> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

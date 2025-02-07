@@ -13,8 +13,9 @@ import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'r
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-member-propertyalias-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-member-propertyalias-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class MemberPropertyAliasSelectorComponent implements OnInit {
   static nextId = 0;

@@ -15,9 +15,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-ticketing-template-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+    selector: 'app-ticketing-template-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class TicketingTemplateAddComponent extends AddBaseComponent<TicketingTemplateService, TicketingTemplateModel, number> implements OnInit {
   requestParentId = 0;

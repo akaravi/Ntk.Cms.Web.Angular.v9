@@ -14,7 +14,7 @@
       <!-- RecordStatus Field -->
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
@@ -36,7 +36,7 @@
         </div>
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
-            <input type="checkbox" class="ios-input" id="dataModel.isPublic" [(ngModel)]="this.dataModel.isPublic"
+            <input type="checkbox" class="ios-input" id="dataModel.isPublic" [(ngModel)]="dataModel.isPublic"
               name="dataModel.isPublic">
             <label class="custom-control-label" for="dataModel.isPublic"></label>
           </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
-            <input type="checkbox" class="ios-input" id="dataModel.saleStatus" [(ngModel)]="this.dataModel.saleStatus"
+            <input type="checkbox" class="ios-input" id="dataModel.saleStatus" [(ngModel)]="dataModel.saleStatus"
               name="dataModel.saleStatus">
             <label class="custom-control-label" for="dataModel.saleStatus"></label>
           </div>
@@ -74,7 +74,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.deliveryRelayStatus"
-              [(ngModel)]="this.dataModel.deliveryRelayStatus" name="dataModel.deliveryRelayStatus">
+              [(ngModel)]="dataModel.deliveryRelayStatus" name="dataModel.deliveryRelayStatus">
             <label class="custom-control-label" for="dataModel.deliveryRelayStatus"></label>
           </div>
         </div>
@@ -98,7 +98,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.smsRelayStatus"
-              [(ngModel)]="this.dataModel.smsRelayStatus" name="dataModel.smsRelayStatus">
+              [(ngModel)]="dataModel.smsRelayStatus" name="dataModel.smsRelayStatus">
             <label class="custom-control-label" for="dataModel.smsRelayStatus"></label>
           </div>
         </div>

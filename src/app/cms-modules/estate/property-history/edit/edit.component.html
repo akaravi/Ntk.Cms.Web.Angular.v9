@@ -53,7 +53,7 @@
       <!-- activityStatus Field -->
       <app-cms-enum-x-selector *ngIf="fieldsInfo['activityStatus']?.accessWatchField"
         [optionDataListResult]="dataModelEstateActivityStatusEnumResult" [(model)]="dataModel.activityStatus"
-        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['activityStatus']?.fieldTitle" [optionRequired]="true"
+        [optionDisabled]="false" [optionLabel]="fieldsInfo['activityStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
       <!-- LinkCategoryId Field -->
       <app-estate-activity-type-selector (optionChange)="onActionSelectorSelect($event)"
@@ -69,7 +69,7 @@
       <!-- linkEstateAgencyId Field -->
       <app-estate-account-agency-selector *ngIf="fieldsInfo['linkEstateAgencyId']?.accessWatchField"
         (optionChange)="onActionSelectorEstateAgency($event)" [optionSelectForce]="dataModel.linkEstateAgencyId"
-        [optionSelectUserId]="this.tokenInfo.userId" [optionPlaceholder]="'TITLE.Property_agency'  | translate">
+        [optionSelectUserId]="tokenInfo.userId" [optionPlaceholder]="'TITLE.Property_agency'  | translate">
       </app-estate-account-agency-selector>
 
       <!-- LinkPropertyId Field -->

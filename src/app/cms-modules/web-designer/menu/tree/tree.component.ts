@@ -26,8 +26,9 @@ import { environment } from 'src/environments/environment';
 import { WebDesignerMainMenuAddComponent } from '../add/add.component';
 import { WebDesignerMainMenuEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-webdesigner-menu-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-webdesigner-menu-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class WebDesignerMainMenuTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

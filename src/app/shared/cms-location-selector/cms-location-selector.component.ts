@@ -12,8 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-cms-location-selector',
-  templateUrl: './cms-location-selector.component.html',
+    selector: 'app-cms-location-selector',
+    templateUrl: './cms-location-selector.component.html',
+    standalone: false
 })
 export class CmsLocationSelectorComponent implements OnInit {
   static nextId = 0;

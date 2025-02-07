@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-cms-html-widget',
-  templateUrl: './cms-html-widget.component.html',
+    selector: 'app-cms-html-widget',
+    templateUrl: './cms-html-widget.component.html',
+    standalone: false
 })
 export class CmsHtmlWidgetComponent implements OnInit {
   static nextId = 0;

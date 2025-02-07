@@ -28,8 +28,9 @@ import { environment } from 'src/environments/environment';
 import { BankPaymentPrivateSiteConfigAddComponent } from '../add/add.component';
 import { BankPaymentPrivateSiteConfigEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-bankpayment-privatesiteconfig-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-bankpayment-privatesiteconfig-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class BankPaymentPrivateSiteConfigTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

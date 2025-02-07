@@ -17,9 +17,10 @@ export class CompModel {
   ChatIds: string;
 }
 @Component({
-  selector: 'app-apitelegram-action-send-message',
-  templateUrl: './send-message.component.html',
-  styleUrls: ['./send-message.component.scss'],
+    selector: 'app-apitelegram-action-send-message',
+    templateUrl: './send-message.component.html',
+    styleUrls: ['./send-message.component.scss'],
+    standalone: false
 })
 export class ApiTelegramActionSendMessageComponent implements OnInit {
   requestLinkBotConfigId = 0;

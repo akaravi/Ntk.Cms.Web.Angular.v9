@@ -19,9 +19,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
-  selector: 'app-estate-property-history-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-estate-property-history-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class EstatePropertyHistoryEditComponent extends EditBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit {
   requestId = '';

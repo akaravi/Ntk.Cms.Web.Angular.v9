@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-input-textarea',
-  templateUrl: './text-area.component.html',
-  styleUrls: ['./text-area.component.scss']
+    selector: 'app-input-textarea',
+    templateUrl: './text-area.component.html',
+    styleUrls: ['./text-area.component.scss'],
+    standalone: false
 })
 export class TextAreaComponent implements OnInit {
   static nextId = 0;

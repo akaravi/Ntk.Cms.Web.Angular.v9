@@ -28,8 +28,9 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyTypeUsageAddComponent } from '../add/add.component';
 import { EstatePropertyTypeUsageEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-property-type-usage-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-estate-property-type-usage-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class EstatePropertyTypeUsageTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

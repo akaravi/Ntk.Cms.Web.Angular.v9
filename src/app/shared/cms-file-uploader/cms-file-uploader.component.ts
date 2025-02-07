@@ -5,9 +5,10 @@ import { FileUploaderPickerAdapter } from './fileUploaderPickerAdapter';
 import { FilePreviewModel } from 'ngx-ntk-file-picker';
 
 @Component({
-  selector: 'app-cms-file-uploader',
-  templateUrl: './cms-file-uploader.component.html',
-  styleUrls: ['./cms-file-uploader.component.scss'],
+    selector: 'app-cms-file-uploader',
+    templateUrl: './cms-file-uploader.component.html',
+    styleUrls: ['./cms-file-uploader.component.scss'],
+    standalone: false
 })
 export class CmsFileUploaderComponent implements OnInit {
   static nextId = 0;

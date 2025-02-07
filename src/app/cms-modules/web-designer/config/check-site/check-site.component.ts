@@ -11,8 +11,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-web-designer-config-checksite',
-  templateUrl: './check-site.component.html',
+    selector: 'app-web-designer-config-checksite',
+    templateUrl: './check-site.component.html',
+    standalone: false
 })
 export class WebDesignerConfigCheckSiteComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

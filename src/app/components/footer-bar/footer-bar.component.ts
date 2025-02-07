@@ -7,9 +7,10 @@ import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
-  selector: 'app-footer-bar',
-  templateUrl: './footer-bar.component.html',
-  styleUrls: ['./footer-bar.component.scss']
+    selector: 'app-footer-bar',
+    templateUrl: './footer-bar.component.html',
+    styleUrls: ['./footer-bar.component.scss'],
+    standalone: false
 })
 export class FooterBarComponent implements OnInit {
 

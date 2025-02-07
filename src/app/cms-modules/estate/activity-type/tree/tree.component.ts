@@ -28,9 +28,10 @@ import { environment } from 'src/environments/environment';
 import { EstateActivityTypeAddComponent } from '../add/add.component';
 import { EstateActivityTypeEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-activity-type-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-estate-activity-type-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class EstateActivityTypeTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

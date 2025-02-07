@@ -19,9 +19,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { CoreModuleTagAddBulkComponent } from '../add-bulk/add-bulk.component';
 import { CoreModuleTagEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-tag-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-tag-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleTagListComponent extends ListBaseComponent<CoreModuleTagService, CoreModuleTagModel, number>
   implements OnInit, OnDestroy {

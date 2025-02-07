@@ -28,8 +28,9 @@ import { environment } from 'src/environments/environment';
 import { WebDesignerMainPageAddComponent } from '../add/add.component';
 import { WebDesignerMainPageEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-webdesigner-page-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-webdesigner-page-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class WebDesignerMainPageTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-donate-target-period-sponser-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-donate-target-period-sponser-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class DonateTargetPeriodSponserAddComponent extends AddBaseComponent<DonateTargetPeriodSponsorService, DonateTargetPeriodSponsorModel, number> implements OnInit {
   requestLinkTargetPeriodId = 0;

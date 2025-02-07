@@ -19,9 +19,10 @@ import { WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coremodule-site-user-credit-widget-price',
-  templateUrl: './widget-price.component.html',
-  styleUrls: ['./widget-price.component.scss']
+    selector: 'app-coremodule-site-user-credit-widget-price',
+    templateUrl: './widget-price.component.html',
+    styleUrls: ['./widget-price.component.scss'],
+    standalone: false
 })
 export class CoreModuleSiteUserCreditWidgetPriceComponent implements OnInit, OnDestroy {
 

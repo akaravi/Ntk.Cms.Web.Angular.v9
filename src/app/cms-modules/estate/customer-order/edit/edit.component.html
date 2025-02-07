@@ -17,7 +17,7 @@
       <div class="mt-5 mb-3">
         <!-- RecordStatus Field -->
         <app-cms-enum-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-          [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+          [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
           [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
         <!-- Title Field -->
@@ -85,7 +85,7 @@
         </div>
 
         <!-- score Field -->
-        <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
+        <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
           <!-- scoreRushToBuy Field -->
           <div class="range-slider bottom-15 range-slider-icons">
             <label for="dataModel.scoreRushToBuy" class="color-highlight">{{
@@ -146,10 +146,10 @@
 
 
         <!-- linkEstateAgencyId Field -->
-        <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
+        <app-estate-account-agency-selector *ngIf="tokenHelper.isAdminSite"
           (optionChange)="onActionSelectorEstateAgency($event)"
           [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessEditField"
-          [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
+          [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="tokenInfo.userId"
           [optionPlaceholder]="'TITLE.Property_agency'  | translate">
         </app-estate-account-agency-selector>
 
@@ -190,7 +190,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.actionCreateNewCmsUser"
-              [(ngModel)]="this.dataModel.actionCreateNewCmsUser" name="dataModel.actionCreateNewCmsUser">
+              [(ngModel)]="dataModel.actionCreateNewCmsUser" name="dataModel.actionCreateNewCmsUser">
             <label class="custom-control-label" for="dataModel.actionCreateNewCmsUser"></label>
           </div>
         </div>
@@ -263,7 +263,7 @@
 
 
         <!-- includeAllSite Field -->
-        <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+        <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
           <div class="pt-1">
             <h5 data-trigger-switch="dataModel.includeAllSite" class="font-600 font-14">{{
               fieldsInfo["includeAllSite"]?.fieldTitle }}</h5>
@@ -271,7 +271,7 @@
           <div class="ms-auto me-3 pe-2">
             <div class="custom-control ios-switch small-switch">
               <input type="checkbox" class="ios-input" id="dataModel.includeAllSite"
-                [(ngModel)]="this.dataModel.includeAllSite" name="dataModel.includeAllSite">
+                [(ngModel)]="dataModel.includeAllSite" name="dataModel.includeAllSite">
               <label class="custom-control-label" for="dataModel.includeAllSite"></label>
             </div>
           </div>
@@ -310,7 +310,7 @@
         <!-- LinkPropertyIds Field -->
         <app-estate-property-autocomplete (optionChange)="onActionSelectorProperty($event)"
           [optionDisabled]="!fieldsInfo['linkPropertyIds']?.accessEditField"
-          [optionPlaceholder]="'TITLE.Property'  | translate" [optionSelectForce]="this.dataModel.linkPropertyIds">
+          [optionPlaceholder]="'TITLE.Property'  | translate" [optionSelectForce]="dataModel.linkPropertyIds">
         </app-estate-property-autocomplete>
 
         <br />
@@ -643,7 +643,7 @@
           <app-estate-property-autocomplete (optionChange)="onActionSelectorPropertyIgnored($event)" [optionDisabled]="
             !fieldsInfo['linkPropertyIdsIgnored']?.accessEditField
           " [optionPlaceholder]="'TITLE.Property'  | translate"
-            [optionSelectForce]="this.dataModel.linkPropertyIdsIgnored">
+            [optionSelectForce]="dataModel.linkPropertyIdsIgnored">
           </app-estate-property-autocomplete>
 
           <div>
@@ -826,27 +826,27 @@
 </div>
 
 <div class="row alert alert-custom alert-white alert-shadow gutter-b">
-  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estatePropertyList'">
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="loadResult === 'estatePropertyList'">
     <app-estate-property-list [optionLinkCustomerOrderId]="dataModel.id" [optionloadComponent]="optionloadComponent"
       [optionsortType]="dataModel.resultSortType" [optionloadByRoute]="false"
       #estatePropertyListComponent></app-estate-property-list>
   </div>
-  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estatePropertyHaveHistoryList'">
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="loadResult === 'estatePropertyHaveHistoryList'">
     <app-estate-property-list [optionLinkCustomerOrderIdHaveHistory]="dataModel.id"
       [optionloadComponent]="optionloadComponent" [optionsortType]="dataModel.resultSortType"
       [optionloadByRoute]="false" #estatePropertyHaveHistoryListComponent></app-estate-property-list>
   </div>
-  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateAccountAgencyList'">
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="loadResult === 'estateAccountAgencyList'">
     <app-estate-account-agency-list [optionLinkLocationWorkAreaIds]="dataModel.linkLocationIds"
       [optionloadComponent]="optionloadComponent" [optionloadByRoute]="false"
       #estateAccountAgencyListComponent></app-estate-account-agency-list>
   </div>
-  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateAccountExpertList'">
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="loadResult === 'estateAccountExpertList'">
     <app-estate-account-expert-list [optionLinkLocationWorkAreaIds]="dataModel.linkLocationIds"
       [optionloadComponent]="optionloadComponent" [optionloadByRoute]="false"
       #estateAccountExpertListComponent></app-estate-account-expert-list>
   </div>
-  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="this.loadResult === 'estateHistoryList'">
+  <div class="col-md-12 col-sm-12 col-xs-18" *ngIf="loadResult === 'estateHistoryList'">
     <app-estate-property-history-list [optionLinkCustomerOrderId]="dataModel.id" [optionloadComponent]="false"
       [optionloadByRoute]="false" #estatePropertyHistoryListComponent></app-estate-property-history-list>
   </div>

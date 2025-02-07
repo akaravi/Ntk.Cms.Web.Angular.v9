@@ -18,9 +18,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-ticketing-faq-originlist',
-  templateUrl: './origin-list.component.html',
-
+    selector: 'app-ticketing-faq-originlist',
+    templateUrl: './origin-list.component.html',
+    standalone: false
 })
 export class TicketingFaqOriginListComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

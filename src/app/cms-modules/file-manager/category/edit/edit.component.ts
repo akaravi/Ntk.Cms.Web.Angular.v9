@@ -18,9 +18,10 @@ import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-file-category-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-file-category-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class FileCategoryEditComponent extends EditBaseComponent<FileCategoryService, FileCategoryModel, number>
   implements OnInit {

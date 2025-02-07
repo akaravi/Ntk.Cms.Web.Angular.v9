@@ -20,9 +20,9 @@ import { CoreLogSmsEditComponent } from '../edit/edit.component';
 import { CoreLogSmsViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-core-log-sms-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-log-sms-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLogSmsListComponent extends ListBaseComponent<CoreLogSmsService, CoreLogSmsModel, string>
   implements OnInit, OnDestroy {

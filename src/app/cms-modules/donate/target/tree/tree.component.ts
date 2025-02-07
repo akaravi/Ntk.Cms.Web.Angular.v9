@@ -30,8 +30,9 @@ import { DonateTargetEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-donate-target-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-donate-target-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class DonateTargetTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

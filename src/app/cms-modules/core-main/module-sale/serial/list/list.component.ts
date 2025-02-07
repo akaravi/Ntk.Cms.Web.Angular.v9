@@ -22,8 +22,9 @@ import { environment } from 'src/environments/environment';
 import { CoreModuleSaleSerialAddComponent } from '../add/add.component';
 import { CoreModuleSaleSerialEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-modulesaleserial-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-modulesaleserial-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleSaleSerialListComponent extends ListBaseComponent<CoreModuleSaleSerialService, CoreModuleSaleSerialModel, number>
   implements OnInit, OnDestroy {

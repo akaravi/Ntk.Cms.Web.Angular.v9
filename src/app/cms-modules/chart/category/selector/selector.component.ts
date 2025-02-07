@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-chart-category-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-chart-category-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class ChartCategorySelectorComponent implements OnInit {
   static nextId = 0;

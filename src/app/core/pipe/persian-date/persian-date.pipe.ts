@@ -9,7 +9,8 @@ import { PersianCalendarService } from './persian-date.service';
 */
 // tslint:disable-next-line: use-pipe-transform-interface
 @Pipe({
-  name: 'persianDate'
+    name: 'persianDate',
+    standalone: false
 })
 @Injectable()
 export class PersianDate {

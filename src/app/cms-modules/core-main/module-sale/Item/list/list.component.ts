@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreModuleSaleItemAddComponent } from '../add/add.component';
 import { CoreModuleSaleItemEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-modulesaleitem-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-modulesaleitem-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleSaleItemListComponent extends ListBaseComponent<CoreModuleSaleItemService, CoreModuleSaleItemModel, number>
   implements OnInit, OnDestroy {

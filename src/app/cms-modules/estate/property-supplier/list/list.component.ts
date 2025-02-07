@@ -20,9 +20,9 @@ import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { EstatePropertySupplierDeleteComponent } from '../delete/delete.component';
 @Component({
-  selector: 'app-estate-property-supplier-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-estate-property-supplier-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstatePropertySupplierListComponent extends ListBaseComponent<EstatePropertySupplierService, EstatePropertySupplierModel, string> implements OnInit, OnDestroy {
   requestLinkProjectId = '';

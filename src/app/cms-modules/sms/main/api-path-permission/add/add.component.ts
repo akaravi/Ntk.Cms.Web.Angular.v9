@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-sms-apipathpermission-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-sms-apipathpermission-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class SmsMainApiPathPermissionAddComponent extends AddBaseComponent<SmsMainApiPathPermissionService, SmsMainApiPathPermissionModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

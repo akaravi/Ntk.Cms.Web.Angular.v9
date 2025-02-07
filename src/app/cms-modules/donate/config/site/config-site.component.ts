@@ -23,8 +23,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-hypershop-config-site',
-  templateUrl: './config-site.component.html'
+    selector: 'app-hypershop-config-site',
+    templateUrl: './config-site.component.html',
+    standalone: false
 })
 export class DonateConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

@@ -22,8 +22,9 @@ import { CoreSiteCategoryCmsModuleAddComponent } from '../add/add.component';
 import { CoreSiteCategoryCmsModuleEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-core-sitecategorycmsmodule-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-sitecategorycmsmodule-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreSiteCategoryCmsModuleListComponent extends ListBaseComponent<CoreSiteCategoryCmsModuleService, CoreSiteCategoryCmsModuleModel, number>
   implements OnInit, OnDestroy {

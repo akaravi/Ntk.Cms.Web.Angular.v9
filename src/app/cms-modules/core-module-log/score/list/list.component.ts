@@ -21,9 +21,9 @@ import { CoreModuleLogScoreEditComponent } from '../edit/edit.component';
 import { CoreModuleLogScoreViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodulelog-score-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodulelog-score-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleLogScoreListComponent extends ListBaseComponent<CoreModuleLogScoreService, CoreModuleLogScoreModel, string>
   implements OnInit, OnDestroy {

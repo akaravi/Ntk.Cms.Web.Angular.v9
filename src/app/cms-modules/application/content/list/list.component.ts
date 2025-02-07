@@ -28,8 +28,9 @@ import { ApplicationAppUploadAppComponent } from '../uploadApp/uploadApp.compone
 import { ApplicationAppUploadUpdateComponent } from '../uploadUpdate/uploadUpdate.component';
 
 @Component({
-  selector: 'app-application-app-list',
-  templateUrl: './list.component.html',
+    selector: 'app-application-app-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApplicationAppListComponent extends ListBaseComponent<ApplicationAppService, ApplicationAppModel, number> implements OnInit, OnDestroy {
   requestLinkSourceId = 0;

@@ -17,9 +17,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-sms-main-message-category-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-sms-main-message-category-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class SmsMainMessageCategoryAddComponent extends AddBaseComponent<SmsMainMessageCategoryService, SmsMainMessageCategoryModel, string> implements OnInit {
   requestParentId = '';

@@ -14,9 +14,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-property-expert-price-inquiry-calculate',
-  templateUrl: './inquiry-calculate.component.html',
-  styleUrls: ['./inquiry-calculate.component.scss'],
+    selector: 'app-estate-property-expert-price-inquiry-calculate',
+    templateUrl: './inquiry-calculate.component.html',
+    styleUrls: ['./inquiry-calculate.component.scss'],
+    standalone: false
 })
 export class EstatePropertyExpertPriceInquiryCalculateComponent implements OnInit {
 

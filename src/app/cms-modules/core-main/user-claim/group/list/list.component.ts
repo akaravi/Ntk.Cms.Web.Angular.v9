@@ -22,9 +22,9 @@ import { environment } from 'src/environments/environment';
 import { CoreUserClaimGroupAddComponent } from '../add/add.component';
 import { CoreUserClaimGroupEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-userclaimgroup-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-userclaimgroup-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreUserClaimGroupListComponent extends ListBaseComponent<CoreUserClaimGroupService, CoreUserClaimGroupModel, number>
   implements OnInit, OnDestroy {

@@ -31,8 +31,9 @@ import { BlogCategoryEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-blog-category-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-blog-category-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class BlogCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

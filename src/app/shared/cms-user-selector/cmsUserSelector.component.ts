@@ -12,8 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-cms-user-selector',
-  templateUrl: './cmsUserSelector.component.html',
+    selector: 'app-cms-user-selector',
+    templateUrl: './cmsUserSelector.component.html',
+    standalone: false
 })
 export class CmsUserSelectorComponent implements OnInit {
   static nextId = 0;

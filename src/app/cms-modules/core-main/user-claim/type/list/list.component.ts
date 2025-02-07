@@ -21,9 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreUserClaimTypeAddComponent } from '../add/add.component';
 import { CoreUserClaimTypeEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-userclaimtype-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-userclaimtype-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreUserClaimTypeListComponent extends ListBaseComponent<CoreUserClaimTypeService, CoreUserClaimTypeModel, number>
   implements OnInit, OnDestroy {

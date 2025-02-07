@@ -21,9 +21,10 @@ export class DateByClock {
 }
 
 @Component({
-  selector: 'app-core-main-action-send-notification',
-  templateUrl: './send-notification.component.html',
-  styleUrls: ['./send-notification.component.scss'],
+    selector: 'app-core-main-action-send-notification',
+    templateUrl: './send-notification.component.html',
+    styleUrls: ['./send-notification.component.scss'],
+    standalone: false
 })
 export class CoreMainActionSendNotificationComponent implements OnInit {
 

@@ -21,8 +21,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DonateLogViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-donate-log-view-list',
-  templateUrl: './list.component.html',
+    selector: 'app-donate-log-view-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DonateLogViewListComponent extends ListBaseComponent<DonateLogViewService, DonateLogViewModel, string> implements OnInit, OnDestroy {
   requestId = 0;

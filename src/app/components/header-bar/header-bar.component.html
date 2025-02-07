@@ -1,9 +1,9 @@
 <div class="page-title page-title-fixed">
   <h3 *ngIf="title$ | async as thisTitle">{{thisTitle}}</h3>
-  <a *ngIf="this.tokenInfo?.siteId>0 && this.tokenInfo?.userId>0" [routerLink]="['/core/site/selection']"
+  <a *ngIf="tokenInfo?.siteId>0 && this.tokenInfo?.userId>0" [routerLink]="['/core/site/selection']"
     class="page-title-icon shadow-xl bg-theme color-theme"
     style="width: auto;padding-left: 10px;padding-right: 10px;">{{tokenInfo?.title}}</a>
-  <a *ngIf="this.publicHelper.env.loadDemoTheme"
+  <a *ngIf="publicHelper.env.loadDemoTheme"
     (click)="themeStore?.dataMenu!=='menu-share' ? themeStore.dataMenu='menu-share':themeStore.dataMenu=''"
     class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-share-alt"></i></a>
   <a *ngIf="themeStore.themeMode!=='dark'" (click)="onActionThemeSwitch('dark')"
@@ -11,7 +11,7 @@
   <a *ngIf="themeStore.themeMode==='dark'" (click)="onActionThemeSwitch('light')"
     class="page-title-icon shadow-xl bg-theme color-theme " data-toggle-theme><i
       class="fa fa-lightbulb color-yellow-dark"></i></a>
-  <a *ngIf="this.tokenInfo?.userId>0"
+  <a *ngIf="tokenInfo?.userId>0"
     (click)="themeStore?.dataMenu!=='menu-profile' ? themeStore.dataMenu='menu-profile':themeStore.dataMenu=''"
     class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-user"></i></a>
   <a class="page-title-icon shadow-xl bg-theme color-theme"

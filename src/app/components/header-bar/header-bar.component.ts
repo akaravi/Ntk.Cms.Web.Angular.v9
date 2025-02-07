@@ -18,9 +18,10 @@ import { CmsShowKeyComponent } from 'src/app/shared/cms-show-key/cms-show-key.co
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-header-bar',
-  templateUrl: './header-bar.component.html',
-  styleUrls: ['./header-bar.component.scss']
+    selector: 'app-header-bar',
+    templateUrl: './header-bar.component.html',
+    styleUrls: ['./header-bar.component.scss'],
+    standalone: false
 })
 export class HeaderBarComponent implements OnInit {
 

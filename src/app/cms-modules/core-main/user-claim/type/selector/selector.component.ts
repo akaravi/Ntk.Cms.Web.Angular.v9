@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-userclaimtype-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-core-userclaimtype-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreUserClaimTypeSelectorComponent implements OnInit {
   static nextId = 0;

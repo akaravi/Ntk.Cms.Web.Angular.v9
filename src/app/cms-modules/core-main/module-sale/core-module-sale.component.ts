@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-module-sale',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-module-sale',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class CoreModuleSaleComponent implements OnInit {
 

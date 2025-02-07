@@ -24,8 +24,9 @@ import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { BiographyContentDeleteComponent } from '../delete/delete.component';
 @Component({
-  selector: 'app-biography-content-list',
-  templateUrl: './list.component.html',
+    selector: 'app-biography-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class BiographyContentListComponent extends ListBaseComponent<BiographyContentService, BiographyContentModel, number> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

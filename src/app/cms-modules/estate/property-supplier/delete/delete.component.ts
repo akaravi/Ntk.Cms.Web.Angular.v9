@@ -16,8 +16,9 @@ import {
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-estate-property-supplier-delete',
-  templateUrl: './delete.component.html',
+    selector: 'app-estate-property-supplier-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class EstatePropertySupplierDeleteComponent implements OnInit {
   requestId = '';

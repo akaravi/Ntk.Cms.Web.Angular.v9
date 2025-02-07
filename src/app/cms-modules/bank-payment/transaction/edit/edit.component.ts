@@ -17,9 +17,10 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-bankpayment-transaction-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-bankpayment-transaction-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class BankPaymentTransactionEditComponent extends EditBaseComponent<BankPaymentTransactionService, BankPaymentTransactionModel, number>
   implements OnInit {

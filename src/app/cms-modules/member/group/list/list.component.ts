@@ -22,9 +22,9 @@ import { MemberGroupAddComponent } from '../add/add.component';
 import { MemberGroupDeleteComponent } from '../delete/delete.component';
 import { MemberGroupEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-member-group-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-member-group-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class MemberGroupListComponent extends ListBaseComponent<MemberGroupService, MemberGroupModel, number> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

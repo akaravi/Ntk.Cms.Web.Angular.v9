@@ -22,8 +22,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-catalog-config-site',
-  templateUrl: './config-site.component.html',
+    selector: 'app-catalog-config-site',
+    templateUrl: './config-site.component.html',
+    standalone: false
 })
 export class CatalogConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

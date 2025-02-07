@@ -17,9 +17,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-user-add',
-  templateUrl: './userAdd.component.html',
-  styleUrls: ['./userAdd.component.scss'],
+    selector: 'app-core-site-user-add',
+    templateUrl: './userAdd.component.html',
+    styleUrls: ['./userAdd.component.scss'],
+    standalone: false
 })
 export class CoreSiteUserAddComponent extends AddBaseComponent<CoreSiteUserService, CoreSiteUserModel, number> implements OnInit {
   requestLinkSiteId = 0;

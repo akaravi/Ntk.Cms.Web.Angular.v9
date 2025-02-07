@@ -12,9 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-core-currency-selector',
-  templateUrl: './selector.component.html',
-
+    selector: 'app-core-currency-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreCurrencySelectorComponent implements OnInit {
   static nextId = 0;

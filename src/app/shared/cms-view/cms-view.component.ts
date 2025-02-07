@@ -4,8 +4,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-cms-view',
-  templateUrl: './cms-view.component.html',
+    selector: 'app-cms-view',
+    templateUrl: './cms-view.component.html',
+    standalone: false
 })
 export class CmsViewComponent implements OnInit, OnDestroy {
   static nextId = 0;

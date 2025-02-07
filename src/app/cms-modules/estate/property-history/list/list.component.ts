@@ -42,8 +42,9 @@ import { EstatePropertyHistoryEditComponent } from '../edit/edit.component';
 import { EstatePropertyHistoryQuickViewComponent } from '../quick-view/quick-view.component';
 import { EstatePropertyHistoryResponsibleUserListComponent } from '../responsible-user-list/responsible-user-list.component';
 @Component({
-  selector: 'app-estate-property-history-list',
-  templateUrl: './list.component.html',
+    selector: 'app-estate-property-history-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstatePropertyHistoryListComponent extends ListBaseComponent<EstatePropertyHistoryService, EstatePropertyHistoryModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId = '';

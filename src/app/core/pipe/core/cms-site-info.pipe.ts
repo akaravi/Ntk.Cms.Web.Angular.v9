@@ -2,7 +2,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { CoreSiteService } from 'ntk-cms-api';
 import { Observable, map } from 'rxjs';
 
-@Pipe({ name: 'cmssiteinfo' })
+@Pipe({
+    name: 'cmssiteinfo',
+    standalone: false
+})
 export class CmsSiteInfoPipe implements PipeTransform {
   constructor(public service: CoreSiteService) {
 

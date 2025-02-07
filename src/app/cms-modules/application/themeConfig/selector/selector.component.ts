@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-application-themeconfig-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-application-themeconfig-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class ApplicationThemeConfigSelectorComponent implements OnInit {
   static nextId = 0;

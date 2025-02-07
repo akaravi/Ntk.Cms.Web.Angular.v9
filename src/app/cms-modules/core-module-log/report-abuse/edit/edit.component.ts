@@ -19,9 +19,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coremodulelog-report-abuse-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-coremodulelog-report-abuse-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreModuleLogReportAbuseEditComponent extends EditBaseComponent<CoreModuleLogReportAbuseService, CoreModuleLogReportAbuseModel, string>
   implements OnInit, OnDestroy {

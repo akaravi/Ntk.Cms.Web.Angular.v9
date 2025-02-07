@@ -29,9 +29,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-linkmanagement-category-treeselector',
-  templateUrl: './tree-selector.component.html',
-  styleUrls: ['./tree-selector.component.scss'],
+    selector: 'app-linkmanagement-category-treeselector',
+    templateUrl: './tree-selector.component.html',
+    styleUrls: ['./tree-selector.component.scss'],
+    standalone: false
 })
 export class LinkManagementCategoryTreeSelectorComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

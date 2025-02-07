@@ -22,8 +22,9 @@ import { ApplicationThemeConfigAddComponent } from '../add/add.component';
 import { ApplicationThemeConfigEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-application-app-list',
-  templateUrl: './list.component.html',
+    selector: 'app-application-app-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApplicationThemeConfigListComponent extends ListBaseComponent<ApplicationThemeConfigService, ApplicationThemeConfigModel, number>
   implements OnInit, OnDestroy {

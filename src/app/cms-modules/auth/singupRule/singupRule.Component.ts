@@ -5,8 +5,9 @@ import { CoreConfigurationService, ErrorExceptionResult } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-auth-singup-rule',
-  templateUrl: './singupRule.Component.html',
+    selector: 'app-auth-singup-rule',
+    templateUrl: './singupRule.Component.html',
+    standalone: false
 })
 export class SingupRuleComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

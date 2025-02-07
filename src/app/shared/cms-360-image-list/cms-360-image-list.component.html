@@ -220,7 +220,7 @@
                   translate}}</button>
                 <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-green"
                   matTooltip="ثبت آخرین نقطه کلیک شده" [disabled]="editdisabled"
-                  *ngIf="this.editHotspot.pitch !==postionView?.clickGetPitch && this.editHotspot.yaw!==postionView?.clickGetYaw"
+                  *ngIf="editHotspot.pitch !==postionView?.clickGetPitch && this.editHotspot.yaw!==postionView?.clickGetYaw"
                   (click)="onActionPannellumClickLastPoint()">نقطه</button>
               </ng-container>
             </span>
@@ -267,7 +267,7 @@
 
 </div>
 
-<app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+<app-progress-spinner [optionsInfoAreaId]="constructor.name"> </app-progress-spinner>
 <!-- TABLE View360 -->
 <div class="example-container mat-elevation-z8" *ngIf="!showAddView360">
   <mat-table [dataSource]="tabledataSource" multiTemplateDataRows>

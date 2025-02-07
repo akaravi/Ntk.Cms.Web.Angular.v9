@@ -12,6 +12,7 @@ import { DataProviderClientChargePaymentComponent } from '../charge-payment/char
 @Component({
     selector: 'app-data-provider-client-charge',
     templateUrl: './charge.component.html',
+    standalone: false
 })
 export class DataProviderClientChargeComponent implements OnInit {
     requestLinkClientId = 0;

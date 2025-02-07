@@ -14,13 +14,13 @@
       <!-- RecordStatus Field -->
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
 
       <app-ticketing-departemen-selector (optionChange)="onActionSelectSource($event)"
-        [optionSelectForce]="this.dataModel.linkTicketingDepartemenId"
+        [optionSelectForce]="dataModel.linkTicketingDepartemenId"
         [optionPlaceholder]="'TITLE.Department' | translate"
         [optionDisabled]="!fieldsInfo['linkTicketingDepartemenId']?.accessEditField">
       </app-ticketing-departemen-selector>

@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-member-propertyalias-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-member-propertyalias-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class MemberPropertyAliasAddComponent extends AddBaseComponent<MemberPropertyAliasService, MemberPropertyAliasModel, number> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-activity-type-selector',
-  templateUrl: './selector.component.html'
+    selector: 'app-estate-activity-type-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class EstateActivityTypeSelectorComponent implements OnInit, OnDestroy {
 

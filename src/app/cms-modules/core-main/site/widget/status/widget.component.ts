@@ -16,9 +16,9 @@ import { PersianCalendarService } from 'src/app/core/pipe/persian-date/persian-d
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-widget-status',
-  templateUrl: './widget.component.html',
-
+    selector: 'app-core-site-widget-status',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 export class CoreSiteWidgetStatusComponent implements OnInit, OnDestroy {
   tokenInfoModel = new TokenInfoModel();

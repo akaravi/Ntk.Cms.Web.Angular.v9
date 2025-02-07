@@ -29,8 +29,9 @@ import { EstatePropertyExpertPriceInquiryListComponent } from '../../property-ex
 import { EstatePropertyActionComponent } from '../action/action.component';
 import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
 @Component({
-  selector: 'app-estate-property-add',
-  templateUrl: './add.component.html',
+    selector: 'app-estate-property-add',
+    templateUrl: './add.component.html',
+    standalone: false
 })
 export class EstatePropertyAddComponent extends AddBaseComponent<EstatePropertyService, EstatePropertyModel, string> implements OnInit {
   requestLinkPropertyTypeLanduseId = '';

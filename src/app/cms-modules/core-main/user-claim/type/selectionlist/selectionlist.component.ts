@@ -8,9 +8,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-userclaimtype-selectionlist',
-  templateUrl: './selectionlist.component.html',
-  styleUrls: ['./selectionlist.component.scss']
+    selector: 'app-core-userclaimtype-selectionlist',
+    templateUrl: './selectionlist.component.html',
+    styleUrls: ['./selectionlist.component.scss'],
+    standalone: false
 })
 export class CoreUserClaimTypeSelectionlistComponent implements OnInit {
 

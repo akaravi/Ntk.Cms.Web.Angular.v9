@@ -22,7 +22,8 @@ const LOADING_ICON = 'https://replit.com/public/images/loading_dots.gif';
  * Ideally to be used with the Select element(not limitted to)
  */
 @Directive({
-  selector: '[cmsRecordStatusSelfSave]'
+    selector: '[cmsRecordStatusSelfSave]',
+    standalone: false
 })
 export class CmsRecordStatusSelfSaveDirective {
   @Input('row')

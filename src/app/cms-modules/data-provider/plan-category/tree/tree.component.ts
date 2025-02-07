@@ -30,9 +30,10 @@ import { DataProviderPlanCategoryEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-data-provider-plan-category-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-data-provider-plan-category-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class DataProviderPlanCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

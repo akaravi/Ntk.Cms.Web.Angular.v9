@@ -19,9 +19,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-polling-vote-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-polling-vote-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class PollingVoteEditComponent extends EditBaseComponent<PollingVoteService, PollingVoteModel, string>
   implements OnInit {

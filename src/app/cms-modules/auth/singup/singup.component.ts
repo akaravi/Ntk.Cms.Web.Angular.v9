@@ -12,8 +12,9 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 import { SingupRuleComponent } from '../singupRule/singupRule.Component';
 @Component({
-  selector: 'app-auth-singup',
-  templateUrl: './singup.component.html',
+    selector: 'app-auth-singup',
+    templateUrl: './singup.component.html',
+    standalone: false
 })
 export class AuthSingUpComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

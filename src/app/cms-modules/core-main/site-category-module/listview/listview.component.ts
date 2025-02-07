@@ -17,8 +17,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-sitecategorycmsmodule-listview',
-  templateUrl: './listview.component.html',
+    selector: 'app-core-sitecategorycmsmodule-listview',
+    templateUrl: './listview.component.html',
+    standalone: false
 })
 export class CoreSiteCategoryCmsModuleListViewComponent implements OnInit, OnDestroy {
   @Input() set optionSiteCategoryId(x: number) {

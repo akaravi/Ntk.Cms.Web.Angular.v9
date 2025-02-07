@@ -23,8 +23,9 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyDetailAddComponent } from '../add/add.component';
 import { EstatePropertyDetailEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-property-detail-list',
-  templateUrl: './list.component.html'
+    selector: 'app-estate-property-detail-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstatePropertyDetailListComponent extends ListBaseComponent<EstatePropertyDetailService, EstatePropertyDetailModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyTypeLanduseId = '';

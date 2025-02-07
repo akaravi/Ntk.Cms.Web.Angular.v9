@@ -6,7 +6,8 @@ import { TokenHelper } from '../helpers/tokenHelper';
 import { CmsToastrService } from '../services/cmsToastr.service';
 
 @Directive({
-  selector: '[cmsTooltipGuide]'
+    selector: '[cmsTooltipGuide]',
+    standalone: false
 })
 export class TooltipGuideDirective {
   @Input() tooltipGuide: string;

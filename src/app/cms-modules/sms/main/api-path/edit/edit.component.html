@@ -15,7 +15,7 @@
           <!-- RecordStatus Field -->
           <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
@@ -270,7 +270,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.apiSendMessageIsOn"
-                  [(ngModel)]="this.dataModel.apiSendMessageIsOn" name="dataModel.apiSendMessageIsOn">
+                  [(ngModel)]="dataModel.apiSendMessageIsOn" name="dataModel.apiSendMessageIsOn">
                 <label class="custom-control-label" for="dataModel.apiSendMessageIsOn"></label>
               </div>
             </div>
@@ -337,7 +337,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendUnicodeMessage"
-                  [(ngModel)]="this.dataModel.apiAbilitySendUnicodeMessage"
+                  [(ngModel)]="dataModel.apiAbilitySendUnicodeMessage"
                   name="dataModel.apiAbilitySendUnicodeMessage">
                 <label class="custom-control-label" for="dataModel.apiAbilitySendUnicodeMessage"></label>
               </div>
@@ -352,7 +352,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendNormalMessage"
-                  [(ngModel)]="this.dataModel.apiAbilitySendNormalMessage" name="dataModel.apiAbilitySendNormalMessage">
+                  [(ngModel)]="dataModel.apiAbilitySendNormalMessage" name="dataModel.apiAbilitySendNormalMessage">
                 <label class="custom-control-label" for="dataModel.apiAbilitySendNormalMessage"></label>
               </div>
             </div>
@@ -366,7 +366,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.apiAllowSuperSeder"
-                  [(ngModel)]="this.dataModel.apiAllowSuperSeder" name="dataModel.apiAllowSuperSeder">
+                  [(ngModel)]="dataModel.apiAllowSuperSeder" name="dataModel.apiAllowSuperSeder">
                 <label class="custom-control-label" for="dataModel.apiAllowSuperSeder"></label>
               </div>
             </div>
@@ -380,7 +380,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.apiAbilityUseWebservice"
-                  [(ngModel)]="this.dataModel.apiAbilityUseWebservice" name="dataModel.apiAbilityUseWebservice">
+                  [(ngModel)]="dataModel.apiAbilityUseWebservice" name="dataModel.apiAbilityUseWebservice">
                 <label class="custom-control-label" for="dataModel.apiAbilityUseWebservice"></label>
               </div>
             </div>
@@ -394,7 +394,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.apiAbilityUseInside"
-                  [(ngModel)]="this.dataModel.apiAbilityUseInside" name="dataModel.apiAbilityUseInside">
+                  [(ngModel)]="dataModel.apiAbilityUseInside" name="dataModel.apiAbilityUseInside">
                 <label class="custom-control-label" for="dataModel.apiAbilityUseInside"></label>
               </div>
             </div>
@@ -408,7 +408,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendByQueue"
-                  [(ngModel)]="this.dataModel.apiAbilitySendByQueue" name="dataModel.apiAbilitySendByQueue">
+                  [(ngModel)]="dataModel.apiAbilitySendByQueue" name="dataModel.apiAbilitySendByQueue">
                 <label class="custom-control-label" for="dataModel.apiAbilitySendByQueue"></label>
               </div>
             </div>
@@ -422,7 +422,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.apiAbilitySendByDirect"
-                  [(ngModel)]="this.dataModel.apiAbilitySendByDirect" name="dataModel.apiAbilitySendByDirect">
+                  [(ngModel)]="dataModel.apiAbilitySendByDirect" name="dataModel.apiAbilitySendByDirect">
                 <label class="custom-control-label" for="dataModel.apiAbilitySendByDirect"></label>
               </div>
             </div>
@@ -494,7 +494,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.statusOutOfServiceActive"
-                  [(ngModel)]="this.dataModel.statusOutOfServiceActive" name="dataModel.statusOutOfServiceActive">
+                  [(ngModel)]="dataModel.statusOutOfServiceActive" name="dataModel.statusOutOfServiceActive">
                 <label class="custom-control-label" for="dataModel.statusOutOfServiceActive"></label>
               </div>
             </div>
@@ -528,7 +528,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.statusNotStableActive"
-                  [(ngModel)]="this.dataModel.statusNotStableActive" name="dataModel.statusNotStableActive">
+                  [(ngModel)]="dataModel.statusNotStableActive" name="dataModel.statusNotStableActive">
                 <label class="custom-control-label" for="dataModel.statusNotStableActive"></label>
               </div>
             </div>

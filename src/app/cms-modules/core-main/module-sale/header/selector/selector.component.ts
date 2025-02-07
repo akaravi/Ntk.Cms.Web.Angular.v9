@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-modulesaleheader-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-core-modulesaleheader-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreModuleSaleHeaderSelectorComponent implements OnInit {
 

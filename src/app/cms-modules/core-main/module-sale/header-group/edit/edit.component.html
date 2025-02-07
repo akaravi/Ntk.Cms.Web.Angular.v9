@@ -15,17 +15,17 @@
       <!-- RecordStatus Field -->
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true">
       </app-cms-enum-record-status-selector>
       <!-- LinkUserGroupId Field -->
       <app-cms-usergroup-selector (optionChange)="onActionSelectUserGroup($event)"
-        [optionSelectForce]="this.dataModel.linkUserGroupId" [optionPlaceholder]="'TITLE.USER_CATEGORY' | translate"
+        [optionSelectForce]="dataModel.linkUserGroupId" [optionPlaceholder]="'TITLE.USER_CATEGORY' | translate"
         [optionDisabled]="!fieldsInfo['linkUserGroupId']?.accessEditField">
       </app-cms-usergroup-selector>
       <!-- LinkCmsSiteCategoryId Field -->
       <app-cms-sitecategory-selector (optionChange)="onActionSelectSiteCategory($event)"
-        [optionSelectForce]="this.dataModel.linkCmsSiteCategoryId"
+        [optionSelectForce]="dataModel.linkCmsSiteCategoryId"
         [optionPlaceholder]="'TITLE.SITE_CATEGORY' | translate"
         [optionDisabled]="!fieldsInfo['linkCmsSiteCategoryId']?.accessEditField">
       </app-cms-sitecategory-selector>

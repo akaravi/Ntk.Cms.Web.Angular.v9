@@ -12,7 +12,10 @@ import {
 import { IClipboardResponse } from '../models/ngx-clipboardModel';
 import { ClipboardService } from '../services/ngx-clipboard.service';
 
-@Directive({ selector: '[ngxClipboard]' })
+@Directive({
+    selector: '[ngxClipboard]',
+    standalone: false
+})
 export class ClipboardDirective implements OnInit, OnDestroy {
     // https://github.com/maxisam/ngx-clipboard/issues/239#issuecomment-623330624
     // eslint-disable-next-line @angular-eslint/no-input-rename

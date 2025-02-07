@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-tag-category-add-bulk',
-  templateUrl: './add-bulk.component.html',
-  styleUrls: ['./add-bulk.component.scss'],
+    selector: 'app-tag-category-add-bulk',
+    templateUrl: './add-bulk.component.html',
+    styleUrls: ['./add-bulk.component.scss'],
+    standalone: false
 })
 export class CoreModuleTagAddBulkComponent extends AddBaseComponent<CoreModuleTagService, CoreModuleTagModel, number> implements OnInit {
   requestParentId = 0;

@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-data-provider-plan-category-delete',
-  templateUrl: './delete.component.html'
+    selector: 'app-data-provider-plan-category-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class DataProviderPlanCategoryDeleteComponent implements OnInit {
   requestId = 0;

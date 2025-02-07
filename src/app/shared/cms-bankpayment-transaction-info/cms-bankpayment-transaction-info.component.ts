@@ -11,9 +11,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-cms-bankpayment-transaction-info',
-  templateUrl: './cms-bankpayment-transaction-info.component.html',
-  styleUrls: ['./cms-bankpayment-transaction-info.component.scss'],
+    selector: 'app-cms-bankpayment-transaction-info',
+    templateUrl: './cms-bankpayment-transaction-info.component.html',
+    styleUrls: ['./cms-bankpayment-transaction-info.component.scss'],
+    standalone: false
 })
 export class CmsBankpaymentTransactionInfoComponent implements OnInit {
   static nextId = 0;

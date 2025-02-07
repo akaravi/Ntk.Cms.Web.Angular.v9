@@ -23,9 +23,9 @@ import { LinkManagementMemberDeleteComponent } from '../delete/delete.component'
 import { LinkManagementMemberEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-linkmanagement-member-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-linkmanagement-member-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class LinkManagementMemberListComponent extends ListBaseComponent<LinkManagementMemberService, LinkManagementMemberModel, number> implements OnInit, OnDestroy {
 

@@ -29,8 +29,9 @@ import { CoreModuleSaleItemEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-core-modulesaleitem-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-core-modulesaleitem-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class CoreModuleSaleItemTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

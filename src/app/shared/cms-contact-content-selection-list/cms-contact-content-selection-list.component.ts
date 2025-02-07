@@ -8,8 +8,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-contact-content-selection-list',
-  templateUrl: './cms-contact-content-selection-list.component.html',
+    selector: 'app-cms-contact-content-selection-list',
+    templateUrl: './cms-contact-content-selection-list.component.html',
+    standalone: false
 })
 export class CmsContactContentSelectionListComponent implements OnInit {
   static nextId = 0;

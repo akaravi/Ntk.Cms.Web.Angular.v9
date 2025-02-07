@@ -17,9 +17,10 @@ import { CmsBankpaymentTransactionInfoComponent } from 'src/app/shared/cms-bankp
 import { CoreModuleSaleHeaderSalePaymentComponent } from '../sale-payment/sale-payment.component';
 
 @Component({
-  selector: 'app-core-modulesaleheader-sale-list',
-  templateUrl: './sale-list.component.html',
-  styleUrls: ['./sale-list.component.scss']
+    selector: 'app-core-modulesaleheader-sale-list',
+    templateUrl: './sale-list.component.html',
+    styleUrls: ['./sale-list.component.scss'],
+    standalone: false
 })
 export class CoreModuleSaleHeaderSaleListComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

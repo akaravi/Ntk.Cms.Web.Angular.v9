@@ -16,8 +16,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-catalog-content-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-catalog-content-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CatalogContentSelectorComponent implements OnInit {
   static nextId = 0;

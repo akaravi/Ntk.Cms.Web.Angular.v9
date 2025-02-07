@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { SmsMainApiNumberPermissionAddComponent } from '../add/add.component';
 import { SmsMainApiNumberPermissionEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-sms-api-number-permission-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-api-number-permission-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainApiNumberPermissionListComponent extends ListBaseComponent<SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string> implements OnInit, OnDestroy {
   requestLinkApiNumberId = '';

@@ -1,5 +1,5 @@
 <div [ngClass]="themeStore.dataMenu==='menu-profile'?'menu-active':''" class="menu menu-box-bottom rounded-m bg-theme"
-  [style.height]="this.themeStore.innerHeight>480?'480px':this.themeStore.innerHeight-50+'px'">
+  [style.height]="themeStore.innerHeight>480?'480px':this.themeStore.innerHeight-50+'px'">
   <div class="menu-title">
     <p class="color-highlight">{{'TITLE.User_Profile'| translate}} </p>
     <h1 class="font-800">{{ tokenInfo.name}} {{ tokenInfo.lastName }}</h1>
@@ -61,7 +61,7 @@
       <!-- LinkCmsSiteId Field -->
       <div class="menu-item px-2  ps-2 pe-2">
         <app-cms-site-selector (optionChange)="onActionSiteSelect($event)" [optionDisabled]="false"
-          [optionSelectForce]="this.tokenInfo.siteId"
+          [optionSelectForce]="tokenInfo.siteId"
           [optionPlaceholder]="'TITLE.WEBSITE' | translate"></app-cms-site-selector>
       </div>
       <div class="divider">

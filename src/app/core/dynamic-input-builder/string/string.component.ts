@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-input-string',
-  templateUrl: './string.component.html',
-  styleUrls: ['./string.component.scss']
+    selector: 'app-input-string',
+    templateUrl: './string.component.html',
+    styleUrls: ['./string.component.scss'],
+    standalone: false
 })
 export class StringComponent implements OnInit {
   static nextId = 0;

@@ -22,8 +22,9 @@ import { environment } from 'src/environments/environment';
 import { TicketingTaskViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-ticketing-task-contact-us-list',
-  templateUrl: './contact-us-list.component.html'
+    selector: 'app-ticketing-task-contact-us-list',
+    templateUrl: './contact-us-list.component.html',
+    standalone: false
 })
 export class TicketingTaskContactUsListComponent extends ListBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;

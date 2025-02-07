@@ -1,5 +1,5 @@
 <div class="input-style has-borders has-icon  input-style-always-active validate-field mb-4 loader-container">
-  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="constructor.name"> </app-progress-spinner>
   <label *ngIf="optionLabel?.length>0" for="app-cms-site-selector-{{id}}"
     class="color-highlight">{{optionLabel}}</label>
   <span matPrefix><img class="ntk-hover-zoom" *ngIf="dataModelSelect && dataModelSelect?.linkMainImageIdSrc"

@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-donate-target-category-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-donate-target-category-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class DonateTargetCategorySelectorComponent implements OnInit {
   static nextId = 0;

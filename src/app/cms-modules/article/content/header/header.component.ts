@@ -19,9 +19,10 @@ import { environment } from 'src/environments/environment';
 
 
 @Component({
-  selector: 'app-article-content-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-article-content-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class ArticletHeaderComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

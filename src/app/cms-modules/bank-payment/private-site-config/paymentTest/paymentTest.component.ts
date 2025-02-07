@@ -13,9 +13,10 @@ import {
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-bankpayment-privateconfig-paymenttest',
-  templateUrl: './paymentTest.component.html',
-  styleUrls: ['./paymentTest.component.scss'],
+    selector: 'app-bankpayment-privateconfig-paymenttest',
+    templateUrl: './paymentTest.component.html',
+    styleUrls: ['./paymentTest.component.scss'],
+    standalone: false
 })
 export class BankPaymentPrivateSiteConfigPaymentTestComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

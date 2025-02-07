@@ -38,7 +38,7 @@
           </div>
           <!-- sitecategory Field -->
           <app-core-sitecategory-selector (optionChange)="onActionSelectorSelect($event)" [optionSelectFirstItem]="true"
-            [optionSelectForce]="this.dataModel.linkSiteCategoryId"
+            [optionSelectForce]="dataModel.linkSiteCategoryId"
             [optionPlaceholder]="'TITLE.System_Type' | translate " [optionDisabled]="siteTypeId>0">
           </app-core-sitecategory-selector>
 
@@ -68,10 +68,10 @@
           </div>
         </mat-step>
         <mat-step label="{{'TITLE.System_agreement' | translate}}" state="rule"
-          *ngIf="this.modelDateSiteCategory?.ruleHtmlBody && this.modelDateSiteCategory?.ruleHtmlBody.length>0">
+          *ngIf="modelDateSiteCategory?.ruleHtmlBody && this.modelDateSiteCategory?.ruleHtmlBody.length>0">
           <p>{{'TITLE.Depending_on_the_type_of_system_you_choose_these_facilities_are _provided_to_this_system' |
             translate}}</p>
-          <div [innerHTML]="this.modelDateSiteCategory.ruleHtmlBody"></div>
+          <div [innerHTML]="modelDateSiteCategory.ruleHtmlBody"></div>
           <div *ngIf="formInfo.formSubmitAllow  " class="form-actions">
             <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-blue"
               matStepperPrevious>

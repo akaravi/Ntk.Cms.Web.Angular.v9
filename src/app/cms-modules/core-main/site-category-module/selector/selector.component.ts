@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-sitecategorycmsmodule-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-core-sitecategorycmsmodule-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreSiteCategoryCmsModuleSelectorComponent implements OnInit {
   static nextId = 0;

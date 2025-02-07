@@ -29,8 +29,9 @@ import { DataProviderClientDeleteComponent } from '../delete/delete.component';
 import { DataProviderClientEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-data-provider-client-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-data-provider-client-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class DataProviderClientTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

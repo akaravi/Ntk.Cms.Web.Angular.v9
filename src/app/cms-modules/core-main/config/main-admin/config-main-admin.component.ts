@@ -20,8 +20,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-config-mainadmin',
-  templateUrl: './config-main-admin.component.html',
+    selector: 'app-core-config-mainadmin',
+    templateUrl: './config-main-admin.component.html',
+    standalone: false
 })
 export class CoreConfigMainAdminComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

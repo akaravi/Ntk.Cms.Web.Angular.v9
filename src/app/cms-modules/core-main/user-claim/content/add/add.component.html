@@ -14,7 +14,7 @@
       <!-- RecordStatus Field -->
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true">
       </app-cms-enum-record-status-selector>
       <!-- Title Field -->
@@ -48,20 +48,20 @@
         </mat-error>
       </div>
       <!-- LinkUserId Field -->
-      <app-cms-user-selector (optionChange)="onActionSelectUser($event)" [optionSelectForce]="this.dataModel.linkUserId"
+      <app-cms-user-selector (optionChange)="onActionSelectUser($event)" [optionSelectForce]="dataModel.linkUserId"
         *ngIf="ProfessionalData" [optionPlaceholder]="'TITLE.USER' | translate"
         [optionDisabled]="!fieldsInfo['linkUserId']?.accessAddField">
       </app-cms-user-selector>
 
       <!-- LinkSiteId Field -->
-      <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [optionSelectForce]="this.dataModel.linkSiteId"
+      <app-cms-site-selector (optionChange)="onActionSelectSite($event)" [optionSelectForce]="dataModel.linkSiteId"
         *ngIf="ProfessionalData" [optionPlaceholder]="'TITLE.SITE' | translate"
         [optionDisabled]="!fieldsInfo['linkSiteId']?.accessAddField">
       </app-cms-site-selector>
 
       <!-- LinkUserClaimTypeId Field -->
       <app-core-userclaimtype-selector (optionChange)="onActionSelectClaimType($event)"
-        [optionSelectForce]="this.dataModel.linkUserClaimTypeId"
+        [optionSelectForce]="dataModel.linkUserClaimTypeId"
         [optionPlaceholder]="'TITLE.DOCUMENT_CATEGORY'  | translate"
         [optionDisabled]="!fieldsInfo['linkUserClaimTypeId']?.accessAddField || (requestLinkUserClaimTypeId && requestLinkUserClaimTypeId>0)">
       </app-core-userclaimtype-selector>

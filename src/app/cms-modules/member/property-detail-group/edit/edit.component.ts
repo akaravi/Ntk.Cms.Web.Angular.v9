@@ -19,9 +19,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-member-propertydetailgroup-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-member-propertydetailgroup-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class MemberPropertyDetailGroupEditComponent extends EditBaseComponent<MemberPropertyDetailGroupService, MemberPropertyDetailGroupModel, number>
   implements OnInit {

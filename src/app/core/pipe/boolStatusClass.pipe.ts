@@ -3,7 +3,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 
 @Pipe({
-  name: 'boolclass'
+    name: 'boolclass',
+    standalone: false
 })
 export class BoolStatusClassPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) { }

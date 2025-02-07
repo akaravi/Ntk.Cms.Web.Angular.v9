@@ -23,8 +23,9 @@ import { DonateTargetPeriodDeleteComponent } from '../delete/delete.component';
 import { DonateTargetPeriodEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-donate-target-period-list',
-  templateUrl: './list.component.html',
+    selector: 'app-donate-target-period-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DonateTargetPeriodListComponent extends ListBaseComponent<DonateTargetPeriodService, DonateTargetPeriodModel, number> implements OnInit, OnDestroy {
   requestLinkTargeId = 0;

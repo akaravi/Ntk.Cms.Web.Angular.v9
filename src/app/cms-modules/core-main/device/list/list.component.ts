@@ -20,9 +20,9 @@ import { environment } from 'src/environments/environment';
 import { CoreDeviceAddComponent } from '../add/add.component';
 import { CoreDeviceEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-sitecategory-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-sitecategory-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreDeviceListComponent extends ListBaseComponent<CoreDeviceService, CoreDeviceModel, number>
   implements OnInit, OnDestroy {

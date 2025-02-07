@@ -24,8 +24,9 @@ import { environment } from 'src/environments/environment';
 import { WebDesignerMainPageAddComponent } from '../add/add.component';
 import { WebDesignerMainPageEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-webdesigner-page-list-grid',
-  templateUrl: './list-grid.component.html',
+    selector: 'app-webdesigner-page-list-grid',
+    templateUrl: './list-grid.component.html',
+    standalone: false
 })
 export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebDesignerMainPageService, WebDesignerMainPageModel, string> implements OnInit, OnDestroy {
   requestLinkPageParentGuId = '';

@@ -24,8 +24,9 @@ import { DonateTargetPeriodSponserEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-donate-target-period-sponser-list',
-  templateUrl: './list.component.html',
+    selector: 'app-donate-target-period-sponser-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DonateTargetPeriodSponserListComponent extends ListBaseComponent<DonateTargetPeriodSponsorService, DonateTargetPeriodSponsorModel, number> implements OnInit, OnDestroy {
   requestLinkSponserId = 0;

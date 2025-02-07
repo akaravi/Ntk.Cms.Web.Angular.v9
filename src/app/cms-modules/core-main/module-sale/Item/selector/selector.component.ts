@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-modulesaleitem-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-core-modulesaleitem-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreModuleSaleItemSelectorComponent implements OnInit {
   static nextId = 0;

@@ -15,11 +15,11 @@
           <!-- RecordStatus Field -->
           <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
           <!-- LinkApplicationId Field -->
           <app-application-app-selector (optionChange)="onActionSelectApplication($event)"
-            [optionSelectForce]="this.dataModel.linkApplicationId" [optionPlaceholder]="'TITLE.Application' | translate"
+            [optionSelectForce]="dataModel.linkApplicationId" [optionPlaceholder]="'TITLE.Application' | translate"
             [optionDisabled]="!fieldsInfo['linkApplicationId']?.accessEditField"></app-application-app-selector>
           <!-- Title Field -->
           <div *ngIf="fieldsInfo['title']?.accessWatchField"

@@ -29,8 +29,9 @@ import { CoreCpMainMenuEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-core-cpmainmenu-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-core-cpmainmenu-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class CoreCpMainMenuTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

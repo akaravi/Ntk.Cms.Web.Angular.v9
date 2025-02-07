@@ -23,10 +23,10 @@ import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-linkmanagement-target-list',
-  templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
-
+    selector: 'app-linkmanagement-target-list',
+    templateUrl: './list.component.html',
+    styleUrls: ["./list.component.scss"],
+    standalone: false
 })
 export class LinkManagementTargetListComponent extends ListBaseComponent<LinkManagementTargetService, LinkManagementTargetModel, number> implements OnInit, OnDestroy {
   requestLinkBillboardPatternId = 0;

@@ -16,9 +16,10 @@ import { AddBaseComponent } from 'src/app/core/cmsComponent/addBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-bankpayment-privateconfig-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-bankpayment-privateconfig-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class BankPaymentPrivateSiteConfigAddComponent extends AddBaseComponent<BankPaymentPrivateSiteConfigService, BankPaymentPrivateSiteConfigModel, number> implements OnInit {
   requestLinkPublicConfigId = 0;

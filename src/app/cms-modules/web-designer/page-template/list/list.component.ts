@@ -20,8 +20,9 @@ import { WebDesignerMainPageTemplateAddComponent } from '../add/add.component';
 import { WebDesignerMainPageTemplateEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-webdesigner-pagetemplate-list',
-  templateUrl: './list.component.html',
+    selector: 'app-webdesigner-pagetemplate-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class WebDesignerMainPageTemplateListComponent extends ListBaseComponent<WebDesignerMainPageTemplateService, WebDesignerMainPageTemplateModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

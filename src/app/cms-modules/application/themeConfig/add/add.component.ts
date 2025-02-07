@@ -19,9 +19,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 type NewType = MatDialog;
 
 @Component({
-  selector: 'app-core-sitecategorycmsmodule-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-core-sitecategorycmsmodule-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class ApplicationThemeConfigAddComponent extends AddBaseComponent<ApplicationThemeConfigService, ApplicationThemeConfigModel, number> implements OnInit {
   requestLinkSourceId = 0;

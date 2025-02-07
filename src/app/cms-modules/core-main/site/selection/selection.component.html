@@ -1,6 +1,6 @@
 <app-progress-spinner [optionsInfoAreaId]="constructorInfoAreaId"> </app-progress-spinner>
 
-<ng-container *ngIf="this.statusCheckExistWebSite">
+<ng-container *ngIf="statusCheckExistWebSite">
 
   <div class="card card-style">
     <div class="content">
@@ -41,7 +41,7 @@
             <p class="color-white mt-2">
               {{item.virtual_CmsSite.seoDescription}}
             </p>
-            <a *ngIf="this.formInfo.buttonSubmittedEnabled " (click)="onActionClickSelectSite(item.virtual_CmsSite.id)"
+            <a *ngIf="formInfo.buttonSubmittedEnabled " (click)="onActionClickSelectSite(item.virtual_CmsSite.id)"
               class="btn btn-s rounded-s font-600 bg-highlight">{{'ACTION.LOGIN' |
               translate}}</a>
             <span *ngIf="!this.formInfo.buttonSubmittedEnabled &&  selectSiteId===item.virtual_CmsSite.id"

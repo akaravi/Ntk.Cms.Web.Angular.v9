@@ -23,8 +23,9 @@ import { DataProviderPlanSourceDeleteComponent } from '../delete/delete.componen
 import { DataProviderPlanSourceEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-data-provider-plan-source-list',
-  templateUrl: './list.component.html',
+    selector: 'app-data-provider-plan-source-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DataProviderPlanSourceListComponent extends ListBaseComponent<DataProviderPlanSourceService, DataProviderPlanSourceModel, number>
   implements OnInit, OnDestroy {

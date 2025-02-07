@@ -20,9 +20,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-sms-api-number-permission-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-sms-api-number-permission-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class SmsMainApiNumberPermissionEditComponent extends EditBaseComponent<SmsMainApiNumberPermissionService, SmsMainApiNumberPermissionModel, string>
   implements OnInit {

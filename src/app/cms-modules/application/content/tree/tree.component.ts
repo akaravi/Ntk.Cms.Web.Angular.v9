@@ -27,8 +27,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-application-app-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-application-app-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class ApplicationAppTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

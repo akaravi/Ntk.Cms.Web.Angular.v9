@@ -27,9 +27,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-application-app-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-application-app-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class TicketingDepartemenOperatorTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

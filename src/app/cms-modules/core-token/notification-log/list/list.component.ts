@@ -19,9 +19,9 @@ import { environment } from 'src/environments/environment';
 import { CoreTokenNotificationLogEditComponent } from '../edit/edit.component';
 import { CoreTokenNotificationLogViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-coretoken-notificationlog-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coretoken-notificationlog-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreTokenNotificationLogListComponent extends ListBaseComponent<CoreTokenNotificationLogService, CoreTokenNotificationLogModel, string>
   implements OnInit, OnDestroy {

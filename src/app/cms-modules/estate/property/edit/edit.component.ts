@@ -34,8 +34,9 @@ import { EstatePropertyHistoryListComponent } from '../../property-history/list/
 import { EstatePropertyActionComponent } from '../action/action.component';
 import { EstatePropertyQuickListComponent } from '../quick-list/quick-list.component';
 @Component({
-  selector: 'app-estate-property-edit',
-  templateUrl: './edit.component.html',
+    selector: 'app-estate-property-edit',
+    templateUrl: './edit.component.html',
+    standalone: false
 })
 export class EstatePropertyEditComponent extends EditBaseComponent<EstatePropertyService, EstatePropertyModel, string>
   implements OnInit, OnDestroy {

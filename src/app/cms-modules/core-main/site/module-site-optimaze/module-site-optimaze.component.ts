@@ -17,9 +17,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-site-module-site-optimaze',
-  templateUrl: './module-site-optimaze.component.html',
-  styleUrls: ['./module-site-optimaze.component.scss'],
+    selector: 'app-core-site-module-site-optimaze',
+    templateUrl: './module-site-optimaze.component.html',
+    styleUrls: ['./module-site-optimaze.component.scss'],
+    standalone: false
 })
 export class CoreSiteModuleSiteOptimazeComponent implements OnInit {
   requestLinkSiteId = 0;

@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { WebDesignerMainMenuAddComponent } from '../add/add.component';
 import { WebDesignerMainMenuEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-webdesigner-menu-list',
-  templateUrl: './list.component.html',
+    selector: 'app-webdesigner-menu-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class WebDesignerMainMenuListComponent extends ListBaseComponent<WebDesignerMainMenuService, WebDesignerMainMenuModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

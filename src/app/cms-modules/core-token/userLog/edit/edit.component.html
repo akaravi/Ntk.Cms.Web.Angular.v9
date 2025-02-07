@@ -12,7 +12,7 @@
         <!--Content-->
         <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true">
         </app-cms-enum-record-status-selector>
         <!-- LinkMemberId Field -->
@@ -46,15 +46,15 @@
             </mat-error>
         </div>
         <!-- LinkSiteId Field -->
-        <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
+        <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="dataModel.linkSiteId"
             [optionPlaceholder]="'TITLE.WEBSITE' | translate">
         </app-cms-site-selector>
 
         <!-- LinkUserId Field -->
-        <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkUserId"
+        <app-cms-user-selector [optionDisabled]="true" [optionSelectForce]="dataModel.linkUserId"
             [optionPlaceholder]="'TITLE.USER' | translate"></app-cms-user-selector>
         <!-- linkMemberId Field -->
-        <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkMemberId"
+        <app-cms-member-selector [optionDisabled]="true" [optionSelectForce]="dataModel.linkMemberId"
             [optionPlaceholder]="'TITLE.Member' | translate">
         </app-cms-member-selector>
         <!-- UserAccessAdminAllowToAllData Field -->

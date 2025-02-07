@@ -20,9 +20,10 @@ import { environment } from 'src/environments/environment';
 import { EstateContractTypeAddComponent } from '../add/add.component';
 import { EstateContractTypeEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-contract-type-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-estate-contract-type-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class EstateContractTypeListComponent extends ListBaseComponent<EstateContractTypeService, EstateContractTypeModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

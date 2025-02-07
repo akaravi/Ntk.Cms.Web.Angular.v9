@@ -29,8 +29,9 @@ import { CoreModuleTagCategoryEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-coremodule-tag-category-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-coremodule-tag-category-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class CoreModuleTagCategoryTreeComponent implements OnInit, OnDestroy {
 

@@ -16,9 +16,10 @@ import { TreeModel } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-webdesigner-pagedependency-autoaddpage',
-  templateUrl: './auto-add-page.component.html',
-  styleUrls: ['./auto-add-page.component.scss'],
+    selector: 'app-webdesigner-pagedependency-autoaddpage',
+    templateUrl: './auto-add-page.component.html',
+    styleUrls: ['./auto-add-page.component.scss'],
+    standalone: false
 })
 export class WebDesignerMainPageDependencyAutoAddPageComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

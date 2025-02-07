@@ -17,9 +17,10 @@ import { environment } from 'src/environments/environment';
 
 
 @Component({
-  selector: 'app-estate-customer-order-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-estate-customer-order-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class EstateCustomerOrderHeaderComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

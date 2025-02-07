@@ -79,7 +79,7 @@
             <!-- RecordStatus Field -->
             <app-cms-enum-record-status-selector *ngIf="dataProfessional&& fieldsInfo['recordStatus']?.accessWatchField"
               [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-              [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+              [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
               [optionSelectFirstItem]="true">
             </app-cms-enum-record-status-selector>
 
@@ -261,14 +261,14 @@
 
           <app-cms-enum-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
             [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false" [optionLa
-            bel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
+            bel]="fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true">
           </app-cms-enum-record-status-selector>
 
 
 
           <!-- score Field -->
-          <div class="content" *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
+          <div class="content" *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
             <div class="row">
               <div class="col-lg-3 col-md-12 ">
                 <!-- scoreEstateLocation Field -->
@@ -331,15 +331,15 @@
 
 
           <!-- linkEstateAgencyId Field -->
-          <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
+          <app-estate-account-agency-selector *ngIf="tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorEstateAgency($event)"
             [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
+            [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="tokenInfo.userId"
             [optionPlaceholder]="'TITLE.Property_agency'  | translate">
           </app-estate-account-agency-selector>
 
           <!-- LinkEstateExpertId Field -->
-          <app-estate-account-expert-selector *ngIf="this.tokenHelper.isAdminSite"
+          <app-estate-account-expert-selector *ngIf="tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorEstateUser($event)"
             [optionDisabled]="!fieldsInfo['linkEstateExpertId']?.accessAddField"
             [optionSelectForce]="dataModel.linkEstateExpertId"
@@ -414,7 +414,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.actionCreateNewCmsUser"
-              [(ngModel)]="this.dataModel.actionCreateNewCmsUser" name="dataModel.actionCreateNewCmsUser">
+              [(ngModel)]="dataModel.actionCreateNewCmsUser" name="dataModel.actionCreateNewCmsUser">
             <label class="custom-control-label" for="dataModel.actionCreateNewCmsUser"></label>
           </div>
         </div>
@@ -514,12 +514,12 @@
           </p>
 
           <!-- LinkPropertyCompanyId Field -->
-          <app-estate-property-company-selector *ngIf="this.tokenHelper.isAdminSite"
+          <app-estate-property-company-selector *ngIf="tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorCompany($event)" [optionSelectForce]="dataModel.linkPropertyCompanyId"
             [optionPlaceholder]="'TITLE.Company' | translate ">
           </app-estate-property-company-selector>
           <!-- LinkPropertyProjectId Field -->
-          <app-estate-property-project-selector *ngIf="this.tokenHelper.isAdminSite"
+          <app-estate-property-project-selector *ngIf="tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorProject($event)" [optionSelectForce]="dataModel.linkPropertyProjectId"
             [optionPlaceholder]="'TITLE.Project' | translate ">
           </app-estate-property-project-selector>

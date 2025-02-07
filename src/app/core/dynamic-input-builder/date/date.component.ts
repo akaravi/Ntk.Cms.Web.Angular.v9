@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-input-date',
-  templateUrl: './date.component.html',
-  styleUrls: ['./date.component.scss']
+    selector: 'app-input-date',
+    templateUrl: './date.component.html',
+    styleUrls: ['./date.component.scss'],
+    standalone: false
 })
 export class DateComponent implements OnInit {
 

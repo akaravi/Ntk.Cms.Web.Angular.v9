@@ -13,8 +13,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-application-app-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-application-app-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class TicketingDepartemenOperatorSelectorComponent implements OnInit {
 

@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 @Component({
-  selector: 'app-sms-apipathcompany-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-sms-apipathcompany-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class SmsMainApiPathCompanyAddComponent extends AddBaseComponent<SmsMainApiPathCompanyService, SmsMainApiPathCompanyModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

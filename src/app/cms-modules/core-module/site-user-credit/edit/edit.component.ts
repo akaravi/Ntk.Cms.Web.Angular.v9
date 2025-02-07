@@ -19,9 +19,10 @@ import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coremodule-site-user-credit-list',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-coremodule-site-user-credit-list',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreModuleSiteUserCreditEditComponent extends EditBaseComponent<CoreModuleSiteUserCreditService, CoreModuleSiteUserCreditModel, number>
   implements OnInit {

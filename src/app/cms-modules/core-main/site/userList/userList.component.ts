@@ -24,8 +24,9 @@ import { CoreUserChangePasswordComponent } from '../../user/changePassword/chang
 import { CoreSiteUserAddComponent } from '../userAdd/userAdd.component';
 import { CoreSiteUserEditComponent } from '../userEdit/userEdit.component';
 @Component({
-  selector: 'app-core-site-user-list',
-  templateUrl: './userList.component.html',
+    selector: 'app-core-site-user-list',
+    templateUrl: './userList.component.html',
+    standalone: false
 })
 export class CoreSiteUserListComponent extends ListBaseComponent<CoreSiteUserService, CoreSiteUserModel, number>
   implements OnInit, OnDestroy {

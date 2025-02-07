@@ -12,8 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-cms-usergroup-selector',
-  templateUrl: './cmsUserGroupSelector.component.html',
+    selector: 'app-cms-usergroup-selector',
+    templateUrl: './cmsUserGroupSelector.component.html',
+    standalone: false
 })
 export class CmsUserGroupSelectorComponent implements OnInit {
   static nextId = 0;

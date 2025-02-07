@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { MemberPropertyDetailGroupAddComponent } from '../add/add.component';
 import { MemberPropertyDetailGroupEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-member-propertydetailgroup-list',
-  templateUrl: './list.component.html'
+    selector: 'app-member-propertydetailgroup-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class MemberPropertyDetailGroupListComponent extends ListBaseComponent<MemberPropertyDetailGroupService, MemberPropertyDetailGroupModel, number> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

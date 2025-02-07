@@ -23,8 +23,9 @@ import { CoreModuleSaleHeaderAddComponent } from '../add/add.component';
 import { CoreModuleSaleHeaderEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-core-modulesaleheader-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-modulesaleheader-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleSaleHeaderListComponent extends ListBaseComponent<CoreModuleSaleHeaderService, CoreModuleSaleHeaderModel, number>
   implements OnInit, OnDestroy {

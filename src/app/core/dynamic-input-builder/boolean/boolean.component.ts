@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-input-boolean',
-  templateUrl: './boolean.component.html',
-  styleUrls: ['./boolean.component.scss']
+    selector: 'app-input-boolean',
+    templateUrl: './boolean.component.html',
+    styleUrls: ['./boolean.component.scss'],
+    standalone: false
 })
 export class BooleanComponent implements OnInit {
   static nextId = 0;

@@ -17,9 +17,9 @@ import { CoreUserClaimContentAddComponent } from '../add/add.component';
 import { CoreUserClaimContentEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-core-userclaimcontent-widget-status',
-  templateUrl: './widget-status.component.html',
-
+    selector: 'app-core-userclaimcontent-widget-status',
+    templateUrl: './widget-status.component.html',
+    standalone: false
 })
 export class CoreUserClaimContentWidgetStatusComponent implements OnInit, OnDestroy {
 

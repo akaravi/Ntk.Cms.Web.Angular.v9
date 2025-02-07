@@ -30,8 +30,9 @@ import { environment } from 'src/environments/environment';
 import { HyperShopCategoryAddComponent } from '../add/add.component';
 import { HyperShopCategoryEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-hypershop-category-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-hypershop-category-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class HyperShopCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -79,7 +79,7 @@
       <!-- InputDataType Field -->
       <app-cms-enum-x-selector *ngIf="fieldsInfo['inputDataType']?.accessWatchField"
         [optionDataListResult]="dataModelInputDataTypeEnumResult" [(model)]="dataModel.inputDataType"
-        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['inputDataType']?.fieldTitle" [optionRequired]="true"
+        [optionDisabled]="false" [optionLabel]="fieldsInfo['inputDataType']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-x-selector>
       <!-- Unit Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -120,7 +120,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.invisibleForEndUser"
-              [(ngModel)]="this.dataModel.invisibleForEndUser" name="dataModel.invisibleForEndUser">
+              [(ngModel)]="dataModel.invisibleForEndUser" name="dataModel.invisibleForEndUser">
             <label class="custom-control-label" for="dataModel.invisibleForEndUser"></label>
           </div>
         </div>
@@ -134,7 +134,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.invisibleForSubmiter"
-              [(ngModel)]="this.dataModel.invisibleForSubmiter" name="dataModel.invisibleForSubmiter">
+              [(ngModel)]="dataModel.invisibleForSubmiter" name="dataModel.invisibleForSubmiter">
             <label class="custom-control-label" for="dataModel.invisibleForSubmiter"></label>
           </div>
         </div>
@@ -147,7 +147,7 @@
         </div>
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
-            <input type="checkbox" class="ios-input" id="dataModel.required" [(ngModel)]="this.dataModel.required"
+            <input type="checkbox" class="ios-input" id="dataModel.required" [(ngModel)]="dataModel.required"
               name="dataModel.required">
             <label class="custom-control-label" for="dataModel.required"></label>
           </div>
@@ -162,7 +162,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.isHistoryable"
-              [(ngModel)]="this.dataModel.isHistoryable" name="dataModel.isHistoryable">
+              [(ngModel)]="dataModel.isHistoryable" name="dataModel.isHistoryable">
             <label class="custom-control-label" for="dataModel.isHistoryable"></label>
           </div>
         </div>
@@ -176,7 +176,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.showInFastSearch"
-              [(ngModel)]="this.dataModel.showInFastSearch" name="dataModel.showInFastSearch">
+              [(ngModel)]="dataModel.showInFastSearch" name="dataModel.showInFastSearch">
             <label class="custom-control-label" for="dataModel.showInFastSearch"></label>
           </div>
         </div>
@@ -190,7 +190,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.configValueForceUseDefaultValue"
-              [(ngModel)]="this.dataModel.configValueForceUseDefaultValue"
+              [(ngModel)]="dataModel.configValueForceUseDefaultValue"
               name="dataModel.configValueForceUseDefaultValue">
             <label class="custom-control-label" for="dataModel.configValueForceUseDefaultValue"></label>
           </div>
@@ -207,7 +207,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.configValueMultipleChoice"
-              [(ngModel)]="this.dataModel.configValueMultipleChoice" name="dataModel.configValueMultipleChoice">
+              [(ngModel)]="dataModel.configValueMultipleChoice" name="dataModel.configValueMultipleChoice">
             <label class="custom-control-label" for="dataModel.configValueMultipleChoice"></label>
           </div>
         </div>

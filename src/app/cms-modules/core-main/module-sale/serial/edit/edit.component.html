@@ -14,7 +14,7 @@
 
             <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
                 [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+                [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
                 [optionSelectFirstItem]="true">
             </app-cms-enum-record-status-selector>
             <!-- SerialNumber Field -->
@@ -43,7 +43,7 @@
             </div>
             <!-- LinkModuleSaleHeaderId Field -->
             <app-core-modulesaleheader-selector (optionChange)="onActionSelectHeader($event)"
-                [optionSelectForce]="this.dataModel.linkModuleSaleHeaderId"
+                [optionSelectForce]="dataModel.linkModuleSaleHeaderId"
                 [optionPlaceholder]="'TITLE.Category' | translate"
                 [optionDisabled]="!fieldsInfo['linkModuleSaleHeaderId']?.accessEditField">
             </app-core-modulesaleheader-selector>

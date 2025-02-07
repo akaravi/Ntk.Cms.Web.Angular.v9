@@ -17,9 +17,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-user-mobile-confirm',
-  templateUrl: './mobileConfirm.component.html',
-
+    selector: 'app-core-user-mobile-confirm',
+    templateUrl: './mobileConfirm.component.html',
+    standalone: false
 })
 export class CoreUserMobileConfirmComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

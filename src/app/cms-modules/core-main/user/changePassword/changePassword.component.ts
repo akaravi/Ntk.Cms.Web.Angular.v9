@@ -20,9 +20,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-user-changepassword',
-  templateUrl: './changePassword.component.html',
-  styleUrls: ['./changePassword.component.scss'],
+    selector: 'app-core-user-changepassword',
+    templateUrl: './changePassword.component.html',
+    styleUrls: ['./changePassword.component.scss'],
+    standalone: false
 })
 export class CoreUserChangePasswordComponent implements OnInit, OnDestroy {
   requestLinkUserId = 0;

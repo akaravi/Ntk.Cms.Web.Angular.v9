@@ -6,9 +6,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-cms-map',
-  templateUrl: './cms-map.component.html',
-  styleUrls: ['./cms-map.component.scss']
+    selector: 'app-cms-map',
+    templateUrl: './cms-map.component.html',
+    styleUrls: ['./cms-map.component.scss'],
+    standalone: false
 })
 export class CmsMapComponent implements OnInit, OnDestroy {
   static nextId = 0;

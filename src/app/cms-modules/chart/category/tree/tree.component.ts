@@ -31,8 +31,9 @@ import { ChartCategoryEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-chart-category-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-chart-category-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class ChartCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -9,9 +9,10 @@ import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pip
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-news-category-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+    selector: 'app-news-category-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.scss'],
+    standalone: false
 })
 export class NewsCategoryMenuComponent implements OnInit {
   requestLinkParentId = 0;

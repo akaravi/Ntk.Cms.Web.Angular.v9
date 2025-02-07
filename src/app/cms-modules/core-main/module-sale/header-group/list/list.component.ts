@@ -23,8 +23,9 @@ import { environment } from 'src/environments/environment';
 import { CoreModuleSaleHeaderGroupAddComponent } from '../add/add.component';
 import { CoreModuleSaleHeaderGroupEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-modulesaleheadergroup-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-modulesaleheadergroup-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleSaleHeaderGroupListComponent extends ListBaseComponent<CoreModuleSaleHeaderGroupService, CoreModuleSaleHeaderGroupModel, number>
   implements OnInit, OnDestroy {

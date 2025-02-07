@@ -21,8 +21,9 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { WebDesignerLogMemberInfoViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-webdesigner-logmemberinfo-list',
-  templateUrl: './list.component.html',
+    selector: 'app-webdesigner-logmemberinfo-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class WebDesignerLogMemberInfoListComponent extends ListBaseComponent<WebDesignerLogMemberInfoService, WebDesignerLogMemberInfoModel, string> implements OnInit, OnDestroy {
   requestLinkMemberId = 0;

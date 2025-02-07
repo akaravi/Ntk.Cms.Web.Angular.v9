@@ -15,9 +15,10 @@ import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyAdsSalePaymentComponent } from '../sale-payment/sale-payment.component';
 
 @Component({
-  selector: 'app-estate-account-agency-ads-salelist',
-  templateUrl: './sale-list.component.html',
-  styleUrls: ['./sale-list.component.scss']
+    selector: 'app-estate-account-agency-ads-salelist',
+    templateUrl: './sale-list.component.html',
+    styleUrls: ['./sale-list.component.scss'],
+    standalone: false
 })
 export class EstateAccountAgencyAdsSaleListComponent implements OnInit, OnDestroy {
   requestLinkAccountAgencyId = '';

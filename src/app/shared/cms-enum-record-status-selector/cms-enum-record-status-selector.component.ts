@@ -9,9 +9,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-cms-enum-record-status-selector',
-  templateUrl: './cms-enum-record-status-selector.component.html',
-
+    selector: 'app-cms-enum-record-status-selector',
+    templateUrl: './cms-enum-record-status-selector.component.html',
+    standalone: false
 })
 export class CmsEnumRecordStatusSelectorComponent implements OnInit {
   static nextId = 0;

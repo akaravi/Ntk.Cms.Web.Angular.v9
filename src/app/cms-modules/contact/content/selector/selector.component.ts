@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-contact-content-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-contact-content-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class ContactContentSelectorComponent implements OnInit {
   static nextId = 0;

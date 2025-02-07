@@ -15,8 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-linkmanagement-accounting-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-linkmanagement-accounting-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class LinkManagementAccountingSelectorComponent implements OnInit {
   static nextId = 0;

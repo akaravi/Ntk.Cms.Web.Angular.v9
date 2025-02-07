@@ -14,7 +14,7 @@
           <!-- RecordStatus Field -->
           <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true">
           </app-cms-enum-record-status-selector>
           <!-- OwnerSiteSetStatus Field -->
@@ -41,13 +41,13 @@
           </div>
           <!-- LinkSiteCategoryId Field -->
           <app-core-sitecategory-selector (optionChange)="onActionSelectCategory($event)" [optionSelectFirstItem]="true"
-            [optionSelectForce]="this.dataModel.linkSiteCategoryId"
+            [optionSelectForce]="dataModel.linkSiteCategoryId"
             [optionPlaceholder]="'TITLE.Website_Type' | translate"
             [optionDisabled]="!fieldsInfo['linkSiteCategoryId']?.accessAddField">
           </app-core-sitecategory-selector>
           <!-- linkCreatedBySiteId Field -->
           <app-core-site-selector (optionChange)="onActionSelectCategory($event)"
-            [optionSelectForce]="this.dataModel.linkCreatedBySiteId"
+            [optionSelectForce]="dataModel.linkCreatedBySiteId"
             [optionPlaceholder]="'TITLE.Parent_Site' | translate"
             [optionDisabled]="!fieldsInfo['linkCreatedBySiteId']?.accessAddField">
           </app-core-site-selector>

@@ -32,8 +32,9 @@ import { NewsCategoryEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-news-category-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-news-category-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class NewsCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

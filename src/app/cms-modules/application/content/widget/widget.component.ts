@@ -7,9 +7,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 @Component({
-  selector: 'app-application-app-widget',
-  templateUrl: './widget.component.html',
-
+    selector: 'app-application-app-widget',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 export class ApplicationAppWidgetComponent implements OnInit, OnDestroy {
 

@@ -11,9 +11,9 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-widget-module',
-  templateUrl: './widget.component.html',
-
+    selector: 'app-core-site-widget-module',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 export class CoreSiteWidgetModuleComponent implements OnInit, OnDestroy {
   filteModelContent = new FilterModel();

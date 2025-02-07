@@ -7,10 +7,11 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { HtmlBuilderModel } from 'src/app/core/models/htmlBuilderModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-web-designer-builder',
-  //template: '<router-outlet></router-outlet>',
-  templateUrl: './web-designer-builder.component.html',
-  styleUrls: ['./web-designer-builder.component.scss'],
+    selector: 'app-web-designer-builder',
+    //template: '<router-outlet></router-outlet>',
+    templateUrl: './web-designer-builder.component.html',
+    styleUrls: ['./web-designer-builder.component.scss'],
+    standalone: false
 })
 export class WebDesignerBuilderComponent implements OnInit, OnDestroy {
   requestId = '';

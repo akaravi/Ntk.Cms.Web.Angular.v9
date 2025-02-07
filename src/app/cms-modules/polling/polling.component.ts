@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-polling',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-polling',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class PollingComponent implements OnInit {
 

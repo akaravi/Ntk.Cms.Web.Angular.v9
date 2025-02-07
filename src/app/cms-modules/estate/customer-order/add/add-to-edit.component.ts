@@ -21,8 +21,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-customer-order-add-to-edit',
-  templateUrl: './add-to-edit.component.html',
+    selector: 'app-estate-customer-order-add-to-edit',
+    templateUrl: './add-to-edit.component.html',
+    standalone: false
 })
 export class EstateCustomerOrderAddToEditComponent extends AddBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

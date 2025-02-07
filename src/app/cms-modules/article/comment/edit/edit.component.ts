@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { ComponentActionEnum } from 'src/app/core/models/component-action-enum';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-article-comment-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-article-comment-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class ArticleCommentEditComponent extends EditBaseComponent<ArticleCommentService, ArticleCommentModel, number>
   implements OnInit {
