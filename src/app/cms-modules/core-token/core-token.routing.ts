@@ -9,6 +9,7 @@ import { CoreTokenNotificationListComponent } from './notification/list/list.com
 import { CoreTokenUserListComponent } from './user/list/list.component';
 import { CoreTokenUserBadLoginListComponent } from './userBadLogin/list/list.component';
 import { CoreTokenUserLogListComponent } from './userLog/list/list.component';
+import { CoreTokenNotificationListOnlineComponent } from './notification/list-online/list-online.component';
 
 const routes: Routes = [
   {
@@ -103,6 +104,13 @@ const routes: Routes = [
         component: CoreTokenNotificationListComponent,
         data: { title: 'ROUTE.CORETOKEN.NOTIFICATION' },
       },
+      /** */
+      {
+        path: 'online',
+        component: CoreTokenNotificationListOnlineComponent,
+        data: { title: 'ROUTE.CORETOKEN.NOTIFICATION' },
+      },
+      
       /** */
       {
         path: 'notificationlog',

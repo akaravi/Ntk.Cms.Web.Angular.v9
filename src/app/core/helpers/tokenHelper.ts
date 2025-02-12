@@ -9,7 +9,7 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { ReducerCmsStore, SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
+import { ProcessOrderModel, ReducerCmsStore, SET_Process_Order, SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
 import { ThemeService } from '../services/theme.service';
 const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 @Injectable({
@@ -70,12 +70,15 @@ export class TokenHelper {
       return state
     });
   }
+
+
   getTokenInfoStateOnChange(): Observable<TokenInfoModel> {
     return this.coreAuthService.tokenInfoSubject;
   }
   getTokenDeviceStateOnChange(): Observable<TokenDeviceModel> {
     return this.coreAuthService.tokenDeviceSubject;
   }
+ 
   async getTokenInfoState(): Promise<TokenInfoModel> {
     const token = this.coreAuthService.getUserToken();
     if (!token || token.length === 0)

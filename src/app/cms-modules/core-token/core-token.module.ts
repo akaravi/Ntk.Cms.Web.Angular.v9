@@ -32,6 +32,7 @@ import { CoreTokenNotificationLogListComponent } from './notification-log/list/l
 import { CoreTokenNotificationLogViewComponent } from './notification-log/view/view.component';
 import { CoreTokenNotificationEditComponent } from './notification/edit/edit.component';
 import { CoreTokenNotificationListComponent } from './notification/list/list.component';
+import { CoreTokenNotificationListOnlineComponent } from './notification/list-online/list-online.component';
 import { CoreTokenNotificationViewComponent } from './notification/view/view.component';
 import { CoreTokenUserEditComponent } from './user/edit/edit.component';
 import { CoreTokenUserListComponent } from './user/list/list.component';
@@ -84,6 +85,7 @@ import { CoreTokenUserLogViewComponent } from './userLog/view/view.component';
 
     /** */
     CoreTokenNotificationListComponent,
+    CoreTokenNotificationListOnlineComponent,
     CoreTokenNotificationEditComponent,
     CoreTokenNotificationViewComponent,
     /** */

@@ -3,6 +3,9 @@ import * as signalR from "@microsoft/signalr";
 import { ToastrService } from 'ngx-toastr';
 import { CmsNotificationModel, ErrorExceptionResultBase } from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
+import { CmsStoreService } from '../reducers/cmsStore.service';
+import { ProcessOrderModel, SET_Process_Order, SET_Theme_STATE } from '../reducers/reducer.factory';
+import { PublicHelper } from '../helpers/publicHelper';
 
 // import {Notification} from '../models/notification';
 //karavi import { ProductService } from './product.service';
@@ -14,6 +17,8 @@ import { environment } from 'src/environments/environment';
 })
 export class CmsSignalrService {
   constructor(private toastr: ToastrService,
+    private cmsStoreService: CmsStoreService,
+    private publicHelper: PublicHelper
   ) {
 
   }
@@ -52,44 +57,46 @@ export class CmsSignalrService {
 
   public addListenerMessage = (xFunc: any) => {
     this.hubConnection.on('ActionSendMessageToClient', (notification: CmsNotificationModel) => {
-      notification.title = notification.title + " " + new Date().toLocaleTimeString();
-      switch (notification.icon) {
-        case 'info':
-          this.toastr.info(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
-          break;
-        case 'warning':
-          this.toastr.warning(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
-          break;
-        case 'success':
-          this.toastr.success(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
-          break;
-        case 'show':
-          this.toastr.show(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
-          break;
-        case 'error':
-          this.toastr.error(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
-          break;
-        default:
-          this.toastr.info(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
-          break;
+      if (notification.title?.length > 0) {
+        notification.title = notification.title + " " + new Date().toLocaleTimeString();
+        switch (notification.icon) {
+          case 'info':
+            this.toastr.info(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
+            break;
+          case 'warning':
+            this.toastr.warning(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
+            break;
+          case 'success':
+            this.toastr.success(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
+            break;
+          case 'show':
+            this.toastr.show(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
+            break;
+          case 'error':
+            this.toastr.error(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
+            break;
+          default:
+            this.toastr.info(notification.content, notification.title, { positionClass: 'toast-top-center', timeOut: 0 });
+            break;
+        }
       }
       // web-push generate-vapid-keys --json
       //{"publicKey":"BKxkwx4CTSU2psDIs5LDX08P7hEwsbgDZa2hjJqLjUj_gmjg0cOD1vSkqMtBfBZ52RvFXl1R55FIVrj5eUMbx1Q","privateKey":"El0I7GEeskNmXn5qrPppzz80_LCEF0zkcCt76_R_SEo"}
-      if (notification.contentJson?.length > 0) {
-        try {
-          var actionConfig = JSON.parse(notification.contentJson);
-          if (actionConfig && actionConfig.action?.length > 0) {
-            if (actionConfig.action == 'UpadteOnlineList') {
-
-            }
-          }
-        }
-        catch {
-
-        }
+      if (notification.contentAction?.length > 0) {
+        console.log(notification.contentAction);
+        this.publicHelper.setProcessOrder({
+          id: this.publicHelper.getGuid(),
+          isComplate: false,
+          isRun: false,
+          isSuccess: false,
+          contentAction: notification.contentAction,
+          contentJson: notification.contentJson,
+          contentClassName: notification.contentClassName,
+        });
+       
       }
 
-      if (!xFunc)
+      if (xFunc)
         xFunc;
     });
   }

@@ -23,7 +23,7 @@ import { ComponentLocalStorageModel } from '../models/componentLocalStorageModel
 import { ConnectionStatusModel } from '../models/connectionStatusModel';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { ReducerCmsStore, SET_Core_Currency, SET_Core_Module, SET_Core_Site, SET_Info_Enum } from '../reducers/reducer.factory';
+import { ProcessOrderModel, ReducerCmsStore, SET_Core_Currency, SET_Core_Module, SET_Core_Site, SET_Info_Enum, SET_Process_Order } from '../reducers/reducer.factory';
 import { CmsToastrService } from '../services/cmsToastr.service';
 import { PageInfoService } from '../services/page-info.service';
 import { ProcessService } from '../services/process.service';
@@ -489,6 +489,29 @@ export class PublicHelper {
     if (storeSnapshot?.themeStore)
       return storeSnapshot.themeStore;
     return new ThemeStoreModel();
+  }
+  async getProcessOrderState(): Promise<ProcessOrderModel[]> {
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    if (storeSnapshot?.processOrderStore?.length > 0) {
+      return storeSnapshot.processOrderStore.filter(x => !x.isRun);
+    }
+    return [];
+  }
+  setProcessOrder(model: ProcessOrderModel): void {
+    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    var items: ProcessOrderModel[] = [];
+    if (storeSnapshot?.processOrderStore?.length > 0)
+      items = storeSnapshot.processOrderStore.filter(x => x.id != model.id);
+    items = items.filter(x => !x.isComplate);
+    items.push(model);
+    this.cmsStoreService.setState({ type: SET_Process_Order, payload: items });
+  }
+  getProcessOrderOnChange(): Observable<ProcessOrderModel[]> {
+    return this.cmsStoreService.getState((state) => {
+      if (environment.consoleLog)
+        console.log("getProcessOrderOnChange");
+      return state.processOrderStore;
+    });
   }
 
   StringRandomGenerator(passwordLength = 10, onlynumber = false): string {

@@ -22,8 +22,8 @@ export const environment = {
     configApiServerPath: 'https://localhost:2390/api/v2/', // Test Api
     //configApiServerPath: 'https://6f4pj689-7130.euw.devtunnels.ms/api/v2/', // Test Api
     //configApiServerPath: 'https://localhost:44342/api/v2/', // Test Api Docer
-    configHubServerPath: 'https://apicms.ir/hub/',
-    //configHubServerPath: 'https://localhost:2390/hub/',
+    //configHubServerPath: 'https://apicms.ir/hub/',
+    configHubServerPath: 'https://localhost:2390/hub/',
     configFileServerPath: 'https://apifile.ir/api/v2/',
     configQDocServerPath: 'https://qdoc.ir/api/chat',
     configCompanyWebSite: 'https://ntk.ir',
