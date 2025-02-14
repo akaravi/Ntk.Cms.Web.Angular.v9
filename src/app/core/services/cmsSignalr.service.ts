@@ -22,12 +22,7 @@ export class CmsSignalrService {
   ) {
 
   }
-  //public hubConnectionState :HubConnectionState= this.hubConnection.HubConnectionState;
-
   private hubConnection!: signalR.HubConnection;
-
-
-
   public async initiateSignalrConnection(): Promise<void> {
     const userToken = localStorage.getItem('userToken');
     const deviceToken = localStorage.getItem('deviceToken');
@@ -45,12 +40,12 @@ export class CmsSignalrService {
           }
         )
         .withAutomaticReconnect()
-        .configureLogging(signalR.LogLevel.Information)
+        .configureLogging(signalR.LogLevel.Error)
         .build();
 
-        this.hubConnection.onreconnected(()=>{
-          console.log('signalR Reconnected');
-        });
+      this.hubConnection.onreconnected(() => {
+        console.log('signalR Reconnected');
+      });
 
       await this.hubConnection
         .start()
@@ -79,7 +74,7 @@ export class CmsSignalrService {
   }
 
   public addListenerMessage = (xFunc: any) => {
-    if (this.hubConnection && this.hubConnection.state == HubConnectionState.Connected)
+    if (this.hubConnection)
       this.hubConnection.on('ActionSendMessageToClient', (notification: CmsNotificationModel) => {
         if (notification.title?.length > 0) {
           notification.title = notification.title + " " + new Date().toLocaleTimeString();
@@ -125,7 +120,7 @@ export class CmsSignalrService {
       });
   }
   public addListenerActionLogin = () => {
-    if (this.hubConnection && this.hubConnection.state == HubConnectionState.Connected)
+    if (this.hubConnection)
       this.hubConnection.on('ActionLogin', (model: any) => {
         console.log('ActionLogin');
         console.log(model);
@@ -133,7 +128,7 @@ export class CmsSignalrService {
       });
   }
   public addListenerActionLogout = () => {
-    if (this.hubConnection && this.hubConnection.state == HubConnectionState.Connected)
+    if (this.hubConnection)
       this.hubConnection.on('ActionLogout', (model: ErrorExceptionResultBase) => {
         console.log('ActionLogout');
         console.log(model);
