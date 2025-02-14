@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreTokenMicroServiceLogModel, CoreTokenMicroServiceLogService, DataFieldInfoModel, ErrorExceptionResult,
+  CoreEnumService, CoreLogTokenMicroServiceModel, CoreLogTokenMicroServiceService, DataFieldInfoModel, ErrorExceptionResult,
   FormInfoModel, InfoEnumModel, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -21,14 +21,14 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
     templateUrl: './view.component.html',
     standalone: false
 })
-export class CoreTokenMicroServiceLogViewComponent implements OnInit, OnDestroy {
+export class CoreLogTokenMicroServiceViewComponent implements OnInit, OnDestroy {
   requestId = '';
   constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CoreTokenMicroServiceLogViewComponent>,
+    private dialogRef: MatDialogRef<CoreLogTokenMicroServiceViewComponent>,
     public coreEnumService: CoreEnumService,
-    public coreTokenMicroServiceLogService: CoreTokenMicroServiceLogService,
+    public coreLogTokenMicroServiceService: CoreLogTokenMicroServiceService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
@@ -43,8 +43,8 @@ export class CoreTokenMicroServiceLogViewComponent implements OnInit, OnDestroy 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   tokenInfo = new TokenInfoModel();
 
-  dataModelResult: ErrorExceptionResult<CoreTokenMicroServiceLogModel> = new ErrorExceptionResult<CoreTokenMicroServiceLogModel>();
-  dataModel: CoreTokenMicroServiceLogModel = new CoreTokenMicroServiceLogModel();
+  dataModelResult: ErrorExceptionResult<CoreLogTokenMicroServiceModel> = new ErrorExceptionResult<CoreLogTokenMicroServiceModel>();
+  dataModel: CoreLogTokenMicroServiceModel = new CoreLogTokenMicroServiceModel();
   formInfo: FormInfoModel = new FormInfoModel();
   dataModelEnumSendSmsStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -93,9 +93,9 @@ export class CoreTokenMicroServiceLogViewComponent implements OnInit, OnDestroy 
     });
 
     /*َAccess Field*/
-    this.coreTokenMicroServiceLogService.setAccessLoad();
+    this.coreLogTokenMicroServiceService.setAccessLoad();
 
-    this.coreTokenMicroServiceLogService.ServiceGetOneById(this.requestId).subscribe({
+    this.coreLogTokenMicroServiceService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {
         /*َAccess Field*/
         // this.dataAccessModel = next.access;

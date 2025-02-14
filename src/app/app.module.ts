@@ -1,5 +1,5 @@
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import {  HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { MAT_CHIPS_DEFAULT_OPTIONS } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
@@ -23,6 +23,7 @@ import { appInitializerFactory } from './core/i18n/app.initializer.factory';
 import { CmsStoreModule } from './core/reducers/cmsStore.module';
 import { CmsAuthService } from './core/services/cmsAuth.service';
 import { SharedModule } from './shared/shared.module';
+import { CmsSignalrService } from './core/services/cmsSignalr.service';
 declare module "@angular/core" {
   interface ModuleWithProviders<T = any> {
     ngModule: Type<T>;
@@ -74,7 +75,16 @@ export function TranslateHttpLoaderFactory(http: HttpClient) {
     },
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
     { provide: MAT_COLOR_FORMATS, useValue: CUSTOM_MAT_COLOR_FORMATS },
-
+    CmsSignalrService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (signalrService: CmsSignalrService) => () => {
+        signalrService.initiateSignalrConnection();
+        signalrService.addListenerMessage(null);
+      },
+      deps: [CmsSignalrService],
+      multi: true,
+    }
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -84,7 +94,7 @@ export function TranslateHttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory:TranslateHttpLoaderFactory,// (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
+        useFactory: TranslateHttpLoaderFactory,// (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
         deps: [HttpClient]
       },
     }),
@@ -117,7 +127,7 @@ export function TranslateHttpLoaderFactory(http: HttpClient) {
   ],
 
   exports: [
-    
+
   ]
 })
 export class AppModule { }

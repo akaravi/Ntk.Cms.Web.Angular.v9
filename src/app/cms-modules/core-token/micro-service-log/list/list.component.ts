@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreSiteModel, CoreTokenMicroServiceLogModel, CoreTokenMicroServiceLogService,
+  CoreSiteModel, CoreLogTokenMicroServiceModel, CoreLogTokenMicroServiceService,
   ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -17,21 +17,21 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { environment } from 'src/environments/environment';
-import { CoreTokenMicroServiceLogEditComponent } from '../edit/edit.component';
-import { CoreTokenMicroServiceLogViewComponent } from '../view/view.component';
+import { CoreLogTokenMicroServiceEditComponent } from '../edit/edit.component';
+import { CoreLogTokenMicroServiceViewComponent } from '../view/view.component';
 @Component({
     selector: 'app-coretoken-microservicelog-list',
     templateUrl: './list.component.html',
     standalone: false
 })
-export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<CoreTokenMicroServiceLogService, CoreTokenMicroServiceLogModel, string>
+export class CoreLogTokenMicroServiceListComponent extends ListBaseComponent<CoreLogTokenMicroServiceService, CoreLogTokenMicroServiceModel, string>
   implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
   constructorInfoAreaId = this.constructor.name;
   constructor(
-    public contentService: CoreTokenMicroServiceLogService,
+    public contentService: CoreLogTokenMicroServiceService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
@@ -43,7 +43,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreTokenMicroServiceLogModel(), publicHelper, tokenHelper, translate);
+    super(contentService, new CoreLogTokenMicroServiceModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
@@ -145,7 +145,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
   DataGetAll(): void {
     this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     this.tableRowsSelected = [];
-    this.onActionTableRowSelect(new CoreTokenMicroServiceLogModel());
+    this.onActionTableRowSelect(new CoreLogTokenMicroServiceModel());
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.filteModelContent.accessLoad = true;
@@ -211,7 +211,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
   }
 
 
-  onActionButtonViewRow(model: CoreTokenMicroServiceLogModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogTokenMicroServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -231,7 +231,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CoreTokenMicroServiceLogViewComponent, {
+    const dialogRef = this.dialog.open(CoreLogTokenMicroServiceViewComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -245,7 +245,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
     });
   }
 
-  onActionButtonEditRow(model: CoreTokenMicroServiceLogModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogTokenMicroServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -265,7 +265,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CoreTokenMicroServiceLogEditComponent, {
+    const dialogRef = this.dialog.open(CoreLogTokenMicroServiceEditComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -278,7 +278,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
       }
     });
   }
-  onActionButtonDeleteRow(model: CoreTokenMicroServiceLogModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogTokenMicroServiceModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.translate.get('MESSAGE.no_row_selected_to_delete').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
@@ -390,7 +390,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
 
   }
 
-  onActionButtonViewUserRow(model: CoreTokenMicroServiceLogModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogTokenMicroServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -405,7 +405,7 @@ export class CoreTokenMicroServiceLogListComponent extends ListBaseComponent<Cor
   }
 
 
-  onActionButtonViewSiteRow(model: CoreTokenMicroServiceLogModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreLogTokenMicroServiceModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();

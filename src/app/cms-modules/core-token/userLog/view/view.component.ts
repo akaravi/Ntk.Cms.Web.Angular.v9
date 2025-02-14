@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreTokenUserLogModel, CoreTokenUserLogService, DataFieldInfoModel, ErrorExceptionResult,
+  CoreEnumService, CoreLogTokenUserModel, CoreLogTokenUserService, DataFieldInfoModel, ErrorExceptionResult,
   FormInfoModel, InfoEnumModel, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -22,14 +22,14 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
     styleUrls: ['./view.component.scss'],
     standalone: false
 })
-export class CoreTokenUserLogViewComponent implements OnInit, OnDestroy {
+export class CoreLogTokenUserViewComponent implements OnInit, OnDestroy {
   requestId = '';
   constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CoreTokenUserLogViewComponent>,
+    private dialogRef: MatDialogRef<CoreLogTokenUserViewComponent>,
     public coreEnumService: CoreEnumService,
-    public coreTokenUserLogService: CoreTokenUserLogService,
+    public coreLogTokenUserService: CoreLogTokenUserService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
@@ -45,8 +45,8 @@ export class CoreTokenUserLogViewComponent implements OnInit, OnDestroy {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   tokenInfo = new TokenInfoModel();
 
-  dataModelResult: ErrorExceptionResult<CoreTokenUserLogModel> = new ErrorExceptionResult<CoreTokenUserLogModel>();
-  dataModel: CoreTokenUserLogModel = new CoreTokenUserLogModel();
+  dataModelResult: ErrorExceptionResult<CoreLogTokenUserModel> = new ErrorExceptionResult<CoreLogTokenUserModel>();
+  dataModel: CoreLogTokenUserModel = new CoreLogTokenUserModel();
   formInfo: FormInfoModel = new FormInfoModel();
   dataModelEnumSendSmsStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -95,9 +95,9 @@ export class CoreTokenUserLogViewComponent implements OnInit, OnDestroy {
     });
 
     /*َAccess Field*/
-    this.coreTokenUserLogService.setAccessLoad();
+    this.coreLogTokenUserService.setAccessLoad();
 
-    this.coreTokenUserLogService.ServiceGetOneById(this.requestId).subscribe({
+    this.coreLogTokenUserService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {
         /*َAccess Field*/
         // this.dataAccessModel = next.access;

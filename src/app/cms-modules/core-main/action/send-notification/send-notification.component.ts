@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import {
   CmsNotificationSendDtoModel,
-  CoreEnumService, CoreTokenNotificationModel, CoreTokenNotificationService, ErrorExceptionResult, FormInfoModel, SmsMainApiPathModel, SmsMainMessageCategoryModel,
+  CoreEnumService, CoreTokenConnectionModel, CoreTokenConnectionService, ErrorExceptionResult, FormInfoModel, SmsMainApiPathModel, SmsMainMessageCategoryModel,
   SmsMainMessageContentModel,
   TokenInfoModel
 } from 'ntk-cms-api';
@@ -31,7 +31,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;
   constructor(
     public coreEnumService: CoreEnumService,
-    public coreTokenNotificationService: CoreTokenNotificationService,
+    public coreTokenConnectionService: CoreTokenConnectionService,
     private activatedRoute: ActivatedRoute,
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
@@ -55,7 +55,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
 
   dataModelParentSelected: SmsMainApiPathModel = new SmsMainApiPathModel();
   dataModel: CmsNotificationSendDtoModel = new CmsNotificationSendDtoModel();
-  dataModelResult: ErrorExceptionResult<CoreTokenNotificationModel> = new ErrorExceptionResult<CoreTokenNotificationModel>();
+  dataModelResult: ErrorExceptionResult<CoreTokenConnectionModel> = new ErrorExceptionResult<CoreTokenConnectionModel>();
   formInfo: FormInfoModel = new FormInfoModel();
   clipboardText = '';
 
@@ -145,7 +145,7 @@ export class CoreMainActionSendNotificationComponent implements OnInit {
 
     this.formInfo.formAlert = '';
     this.formInfo.formError = '';
-    this.coreTokenNotificationService.ServiceSendNotification(this.dataModel).subscribe({
+    this.coreTokenConnectionService.ServiceSendNotification(this.dataModel).subscribe({
       next: (ret) => {
         this.formInfo.formSubmitAllow = true;
         this.dataModelResult = ret;

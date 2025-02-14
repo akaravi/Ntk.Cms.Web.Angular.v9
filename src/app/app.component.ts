@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     public publicHelper: PublicHelper,
     public tokenHelper: TokenHelper,
     private cmsTranslationService: CmsTranslationService,
-    private singlarService: CmsSignalrService,
+    private signalrService: CmsSignalrService,
     private swPush: SwPush,
     private cmsToastrService: CmsToastrService,
     private cmsStoreService: CmsStoreService,
@@ -79,12 +79,12 @@ export class AppComponent implements OnInit {
       }
     });
 
-    /**singlarService */
-    this.singlarService.startConnection(null);
-    this.singlarService.addListenerMessage(null);
-    //this.singlarService.addListenerActionLogin();
-    //this.singlarService.addListenerActionLogout();
-    /**singlarService */
+    /**signalrService */
+    //this.signalrService.startConnection();
+    //this.signalrService.addListenerMessage();
+    //this.signalrService.addListenerActionLogin();
+    //this.signalrService.addListenerActionLogout();
+    /**signalrService */
     this.publicHelper.processService.cdr = this.cdr;
     //start change title when route happened
     this.router.events
@@ -137,9 +137,9 @@ export class AppComponent implements OnInit {
         if (state.tokenInfoStore.siteId > 0 && state.tokenInfoStore.userId > 0 && environment.production)
           this.getSupport();
         if (state.tokenInfoStore.userId > 0) {
-          this.singlarService.login(state.tokenInfoStore.token);
+          this.signalrService.login(state.tokenInfoStore.token);
         } else {
-          this.singlarService.logout();
+          this.signalrService.logout();
         }
       }
     });

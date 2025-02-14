@@ -129,12 +129,10 @@ export class EstateOverviewEventsComponent implements OnInit, OnDestroy {
         if (Number.isFinite(lStorlinkCmsUserId) && +lStorlinkCmsUserId >= 0)
           this.linkCmsUserId = +lStorlinkCmsUserId;
         this.onActionButtonOnDateSearch();
-        //this.singlarService.login(ret.token);
       }
     });
     if (this.tokenHelper?.tokenInfo?.userId > 0) {
       this.linkCmsUserId = this.tokenHelper.tokenInfo.userId
-      //this.singlarService.login(this.tokenHelper.tokenInfo.token);
     }
     if (Number.isFinite(lStorlinkCmsUserId) && +lStorlinkCmsUserId >= 0)
       this.linkCmsUserId = +lStorlinkCmsUserId;

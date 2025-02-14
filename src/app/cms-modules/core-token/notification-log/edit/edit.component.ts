@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreTokenNotificationLogModel, CoreTokenNotificationLogService,
+  CoreEnumService, CoreLogTokenConnectionModel, CoreLogTokenConnectionService,
   ErrorExceptionResult,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
@@ -24,22 +24,22 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
     styleUrls: ['./edit.component.scss'],
     standalone: false
 })
-export class CoreTokenNotificationLogEditComponent extends EditBaseComponent<CoreTokenNotificationLogService, CoreTokenNotificationLogModel, string>
+export class CoreLogTokenConnectionEditComponent extends EditBaseComponent<CoreLogTokenConnectionService, CoreLogTokenConnectionModel, string>
   implements OnInit, OnDestroy {
   requestId = '';
   constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CoreTokenNotificationLogEditComponent>,
+    private dialogRef: MatDialogRef<CoreLogTokenConnectionEditComponent>,
     public coreEnumService: CoreEnumService,
-    public coreTokenNotificationLogService: CoreTokenNotificationLogService,
+    public coreLogTokenConnectionService: CoreLogTokenConnectionService,
     private cmsToastrService: CmsToastrService,
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(coreTokenNotificationLogService, new CoreTokenNotificationLogModel(), publicHelper, translate);
+    super(coreLogTokenConnectionService, new CoreLogTokenConnectionModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     if (data) {
@@ -53,8 +53,8 @@ export class CoreTokenNotificationLogEditComponent extends EditBaseComponent<Cor
 
 
 
-  dataModelResult: ErrorExceptionResult<CoreTokenNotificationLogModel> = new ErrorExceptionResult<CoreTokenNotificationLogModel>();
-  dataModel: CoreTokenNotificationLogModel = new CoreTokenNotificationLogModel();
+  dataModelResult: ErrorExceptionResult<CoreLogTokenConnectionModel> = new ErrorExceptionResult<CoreLogTokenConnectionModel>();
+  dataModel: CoreLogTokenConnectionModel = new CoreLogTokenConnectionModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
 
@@ -122,9 +122,9 @@ export class CoreTokenNotificationLogEditComponent extends EditBaseComponent<Cor
     });
 
     /*َAccess Field*/
-    this.coreTokenNotificationLogService.setAccessLoad();
-    this.coreTokenNotificationLogService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.coreTokenNotificationLogService.ServiceGetOneById(this.requestId).subscribe({
+    this.coreLogTokenConnectionService.setAccessLoad();
+    this.coreLogTokenConnectionService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+    this.coreLogTokenConnectionService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {
         /*َAccess Field*/
         //  this.dataAccessModel = next.access;

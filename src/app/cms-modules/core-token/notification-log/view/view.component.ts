@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreTokenNotificationLogModel, CoreTokenNotificationLogService, DataFieldInfoModel, ErrorExceptionResult,
+  CoreEnumService, CoreLogTokenConnectionModel, CoreLogTokenConnectionService, DataFieldInfoModel, ErrorExceptionResult,
   FormInfoModel, InfoEnumModel, TokenInfoModel
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -21,14 +21,14 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
     templateUrl: './view.component.html',
     standalone: false
 })
-export class CoreTokenNotificationLogViewComponent implements OnInit, OnDestroy {
+export class CoreLogTokenConnectionViewComponent implements OnInit, OnDestroy {
   requestId = '';
   constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CoreTokenNotificationLogViewComponent>,
+    private dialogRef: MatDialogRef<CoreLogTokenConnectionViewComponent>,
     public coreEnumService: CoreEnumService,
-    public coreTokenNotificationLogService: CoreTokenNotificationLogService,
+    public coreLogTokenConnectionService: CoreLogTokenConnectionService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
@@ -43,8 +43,8 @@ export class CoreTokenNotificationLogViewComponent implements OnInit, OnDestroy 
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
   tokenInfo = new TokenInfoModel();
 
-  dataModelResult: ErrorExceptionResult<CoreTokenNotificationLogModel> = new ErrorExceptionResult<CoreTokenNotificationLogModel>();
-  dataModel: CoreTokenNotificationLogModel = new CoreTokenNotificationLogModel();
+  dataModelResult: ErrorExceptionResult<CoreLogTokenConnectionModel> = new ErrorExceptionResult<CoreLogTokenConnectionModel>();
+  dataModel: CoreLogTokenConnectionModel = new CoreLogTokenConnectionModel();
   formInfo: FormInfoModel = new FormInfoModel();
   dataModelEnumSendSmsStatusTypeResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   fieldsInfo: Map<string, DataFieldInfoModel> = new Map<string, DataFieldInfoModel>();
@@ -93,9 +93,9 @@ export class CoreTokenNotificationLogViewComponent implements OnInit, OnDestroy 
     });
 
     /*َAccess Field*/
-    this.coreTokenNotificationLogService.setAccessLoad();
+    this.coreLogTokenConnectionService.setAccessLoad();
 
-    this.coreTokenNotificationLogService.ServiceGetOneById(this.requestId).subscribe({
+    this.coreLogTokenConnectionService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {
         /*َAccess Field*/
         // this.dataAccessModel = next.access;
