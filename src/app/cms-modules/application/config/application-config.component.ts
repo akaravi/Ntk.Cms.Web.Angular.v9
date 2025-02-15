@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-core-config',
+  selector: 'app-application-config',
   template: '<router-outlet></router-outlet>',
 })
 export class ApplicationConfigComponent implements OnInit {

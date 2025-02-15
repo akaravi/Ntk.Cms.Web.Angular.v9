@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'app-edit',
+  selector: 'app-application-memberinfo-edit',
   templateUrl: './edit.component.html',
 })
 export class EditComponent implements OnInit {

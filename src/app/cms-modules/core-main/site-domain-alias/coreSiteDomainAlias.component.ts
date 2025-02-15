@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-site',
+  selector: 'app-core-site-domainalias',
   template: '<router-outlet></router-outlet>',
 })
 export class CoreSiteDomainAliasComponent implements OnInit {
