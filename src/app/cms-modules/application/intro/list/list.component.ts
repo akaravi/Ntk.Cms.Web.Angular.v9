@@ -22,8 +22,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 @Component({
-  selector: 'app-application-intro-list',
-  templateUrl: './list.component.html',
+    selector: 'app-application-intro-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApplicationIntroListComponent extends ListBaseComponent<ApplicationIntroService, ApplicationIntroModel, number> implements OnInit, OnDestroy {
   requestLinkApplicationId = 0;

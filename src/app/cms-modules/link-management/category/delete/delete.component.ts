@@ -15,9 +15,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-linkmanagement-category-delete',
-  templateUrl: './delete.component.html',
-  styleUrls: ['./delete.component.scss']
+    selector: 'app-linkmanagement-category-delete',
+    templateUrl: './delete.component.html',
+    styleUrls: ['./delete.component.scss'],
+    standalone: false
 })
 export class LinkManagementCategoryDeleteComponent implements OnInit {
   requestId = 0;

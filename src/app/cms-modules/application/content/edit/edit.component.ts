@@ -20,8 +20,9 @@ import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsMapComponent } from 'src/app/shared/cms-map/cms-map.component';
 @Component({
-  selector: 'app-aplication-app-edit',
-  templateUrl: './edit.component.html',
+    selector: 'app-aplication-app-edit',
+    templateUrl: './edit.component.html',
+    standalone: false
 })
 export class ApplicationAppEditComponent extends EditBaseComponent<ApplicationAppService, ApplicationAppModel, number>
   implements OnInit {

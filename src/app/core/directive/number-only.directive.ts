@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[numberOnly]'
+    selector: '[numberOnly]',
+    standalone: false
 })
 export class NumberOnlyDirective {
   @Input() disabledNumberOnly: boolean;

@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { SmsMainApiPathCompanyAddComponent } from '../add/add.component';
 import { SmsMainApiPathCompanyEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-sms-apipathcompany-list',
-  templateUrl: './list.component.html',
+    selector: 'app-sms-apipathcompany-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainApiPathCompanyListComponent extends ListBaseComponent<SmsMainApiPathCompanyService, SmsMainApiPathCompanyModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { SmsMainApiPathPublicConfigAddComponent } from '../add/add.component';
 import { SmsMainApiPathPublicConfigEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-sms-publicconfig-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-publicconfig-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainApiPathPublicConfigListComponent extends ListBaseComponent<SmsMainApiPathPublicConfigService, SmsMainApiPathPublicConfigModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

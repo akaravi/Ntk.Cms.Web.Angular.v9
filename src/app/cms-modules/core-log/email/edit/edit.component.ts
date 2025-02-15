@@ -19,8 +19,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-log-email-edit',
-  templateUrl: './edit.component.html',
+    selector: 'app-core-log-email-edit',
+    templateUrl: './edit.component.html',
+    standalone: false
 })
 export class CoreLogEmailEditComponent extends EditBaseComponent<CoreLogEmailService, CoreLogEmailModel, string>
   implements OnInit, OnDestroy {

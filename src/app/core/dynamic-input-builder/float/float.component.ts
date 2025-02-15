@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-input-float',
-  templateUrl: './float.component.html',
-  styleUrls: ['./float.component.scss']
+    selector: 'app-input-float',
+    templateUrl: './float.component.html',
+    styleUrls: ['./float.component.scss'],
+    standalone: false
 })
 export class FloatComponent implements OnInit {
   static nextId = 0;

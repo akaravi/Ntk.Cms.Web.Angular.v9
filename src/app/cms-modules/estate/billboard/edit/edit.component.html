@@ -76,12 +76,12 @@
       <!-- LinkPropertyIds Field -->
       <app-estate-property-autocomplete (optionChange)="onActionSelectorProperty($event)"
         [optionDisabled]="!fieldsInfo['linkPropertyIds']?.accessEditField"
-        [optionPlaceholder]="'TITLE.Property'  | translate" [optionSelectForce]="this.dataModel.linkPropertyIds">
+        [optionPlaceholder]="'TITLE.Property'  | translate" [optionSelectForce]="dataModel.linkPropertyIds">
       </app-estate-property-autocomplete>
       <p>{{'MESSAGE.Selecting_specific_property_will_remove_all_search_fields' | translate}}</p>
       <hr>
       <!-- includeAllSite Field -->
-      <div class="d-flex mb-3"> <!--*ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite"-->
+      <div class="d-flex mb-3"> <!--*ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite"-->
         <div class="pt-1">
           <h5 data-trigger-switch="dataModel.includeAllSite" class="font-600 font-14">
             {{fieldsInfo['includeAllSite']?.fieldTitle}}</h5>
@@ -89,7 +89,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.includeAllSite"
-              [(ngModel)]="this.dataModel.includeAllSite" name="dataModel.includeAllSite">
+              [(ngModel)]="dataModel.includeAllSite" name="dataModel.includeAllSite">
             <label class="custom-control-label" for="dataModel.includeAllSite"></label>
           </div>
         </div>
@@ -214,7 +214,7 @@
 </div>
 
 
-<div class="row alert alert-custom alert-white alert-shadow gutter-b" *ngIf="this.loadResult==='estatePropertyList'">
+<div class="row alert alert-custom alert-white alert-shadow gutter-b" *ngIf="loadResult==='estatePropertyList'">
   <div class="col-md-12 col-sm-12 col-xs-18">
   </div>
 </div>

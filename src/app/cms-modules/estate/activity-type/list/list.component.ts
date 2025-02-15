@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { EstateActivityTypeAddComponent } from '../add/add.component';
 import { EstateActivityTypeEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-activity-type-list',
-  templateUrl: './list.component.html'
+    selector: 'app-estate-activity-type-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstateActivityTypeListComponent extends ListBaseComponent<EstateActivityTypeService, EstateActivityTypeModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

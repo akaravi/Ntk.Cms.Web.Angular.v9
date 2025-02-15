@@ -28,9 +28,10 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyDetailAddComponent } from '../add/add.component';
 import { EstatePropertyDetailEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-property-detail-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-estate-property-detail-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class EstatePropertyDetailTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

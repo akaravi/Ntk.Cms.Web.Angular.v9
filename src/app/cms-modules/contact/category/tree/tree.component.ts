@@ -33,9 +33,10 @@ import { ContactCategoryAddComponent } from '../add/add.component';
 
 
 @Component({
-  selector: 'app-contact-category-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-contact-category-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class ContactCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -9,9 +9,10 @@ import { HtmlBuilderModel } from 'src/app/core/models/htmlBuilderModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-web-designer-builder-html-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-web-designer-builder-html-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class WebDesignerBuilderHtmlHeaderComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

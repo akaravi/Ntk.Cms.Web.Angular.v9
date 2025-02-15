@@ -25,8 +25,9 @@ import { environment } from 'src/environments/environment';
 import { BankPaymentTransactionEditComponent } from '../edit/edit.component';
 import { BankPaymentTransactionViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-bankpayment-transaction-list',
-  templateUrl: './list.component.html',
+    selector: 'app-bankpayment-transaction-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class BankPaymentTransactionListComponent extends ListBaseComponent<BankPaymentTransactionService, BankPaymentTransactionModel, number>
   implements OnInit, OnDestroy {

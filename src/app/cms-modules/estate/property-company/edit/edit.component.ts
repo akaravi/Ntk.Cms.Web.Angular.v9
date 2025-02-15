@@ -23,10 +23,11 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-estate-property-company-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'
-  ]
+    selector: 'app-estate-property-company-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'
+    ],
+    standalone: false
 })
 export class EstatePropertyCompanyEditComponent extends EditBaseComponent<EstatePropertyCompanyService, EstatePropertyCompanyModel, string>
   implements OnInit {

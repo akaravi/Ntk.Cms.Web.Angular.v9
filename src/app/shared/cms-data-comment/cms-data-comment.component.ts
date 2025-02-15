@@ -10,9 +10,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-data-comment',
-  templateUrl: './cms-data-comment.component.html',
-  styleUrls: ['./cms-data-comment.component.scss']
+    selector: 'app-cms-data-comment',
+    templateUrl: './cms-data-comment.component.html',
+    styleUrls: ['./cms-data-comment.component.scss'],
+    standalone: false
 })
 export class CmsDataCommentComponent implements OnInit {
   static nextId = 0;

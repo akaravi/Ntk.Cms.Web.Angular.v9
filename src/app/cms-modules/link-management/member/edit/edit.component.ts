@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-linkmanagement-member-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-linkmanagement-member-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class LinkManagementMemberEditComponent extends EditBaseComponent<LinkManagementMemberService, LinkManagementMemberModel, number>
   implements OnInit {

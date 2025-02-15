@@ -4,9 +4,10 @@ import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
-  selector: 'app-menu-colors',
-  templateUrl: './menu-colors.component.html',
-  styleUrls: ['./menu-colors.component.scss']
+    selector: 'app-menu-colors',
+    templateUrl: './menu-colors.component.html',
+    styleUrls: ['./menu-colors.component.scss'],
+    standalone: false
 })
 export class MenuColorsComponent implements OnInit {
 

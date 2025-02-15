@@ -3,7 +3,7 @@
   <a [routerLink]="['/core/site/info']"><i class="fa fa-image"></i><span>{{"ROUTE.CORE.ADDRESS"|translate}}</span></a>
   <a [routerLink]="['/']" class="circle-nav active-nav"><i
       class="fa fa-home"></i><span>{{"TITLE.Houses"|translate}}</span></a>
-  <a *ngIf="this.tokenInfo?.userId>0" [routerLink]="['/menu']" (click)="onActionCleanDataMenu()"><i
+  <a *ngIf="tokenInfo?.userId>0" [routerLink]="['/menu']" (click)="onActionCleanDataMenu()"><i
       class="fa fa-layer-group"></i><span>{{"TITLE.Possibilitiesatures"|translate}}</span></a>
   <a *ngIf="!this.tokenInfo||!this.tokenInfo.userId||this.tokenInfo.userId<=0" [routerLink]="['/auth/singinbysms']"
     (click)="onActionCleanDataMenu()"><i class="fa fa-layer-group"></i><span>{{"ACTION.LOGIN"|translate}}</span></a>

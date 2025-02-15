@@ -24,8 +24,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-sms-config-site',
-  templateUrl: './config-site.component.html'
+    selector: 'app-sms-config-site',
+    templateUrl: './config-site.component.html',
+    standalone: false
 })
 export class SmsConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

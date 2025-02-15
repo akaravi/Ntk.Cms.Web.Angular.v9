@@ -15,8 +15,9 @@ class chipModel {
   value: string;
 }
 @Component({
-  selector: 'app-estate-activity-type-autocomplete',
-  templateUrl: './autocomplete.component.html'
+    selector: 'app-estate-activity-type-autocomplete',
+    templateUrl: './autocomplete.component.html',
+    standalone: false
 })
 export class EstateActivityTypeCompleteComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

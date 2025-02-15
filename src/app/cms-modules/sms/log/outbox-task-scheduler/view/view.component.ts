@@ -19,8 +19,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-sms-log-outbox-task-scheduler-view',
-  templateUrl: './view.component.html',
+    selector: 'app-sms-log-outbox-task-scheduler-view',
+    templateUrl: './view.component.html',
+    standalone: false
 })
 export class SmsLogOutBoxTaskSchedulerViewComponent implements OnInit, OnDestroy {
   requestId = '';

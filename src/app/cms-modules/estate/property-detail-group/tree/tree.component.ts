@@ -29,8 +29,9 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyDetailGroupAddComponent } from '../add/add.component';
 import { EstatePropertyDetailGroupEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-property-detail-group-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-estate-property-detail-group-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class EstatePropertyDetailGroupTreeComponent implements OnInit, OnDestroy {
   requestLinkPropertyTypeLanduseId = '';

@@ -25,8 +25,9 @@ import { LinkManagementBillboardPatternDeleteComponent } from '../delete/delete.
 import { LinkManagementBillboardPatternEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-linkmanagement-billboard-pattern-list',
-  templateUrl: './list.component.html',
+    selector: 'app-linkmanagement-billboard-pattern-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class LinkManagementBillboardPatternListComponent extends ListBaseComponent<LinkManagementBillboardPatternService, LinkManagementBillboardPatternModel, number> implements OnInit, OnDestroy {
 

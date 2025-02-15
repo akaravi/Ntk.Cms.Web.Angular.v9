@@ -20,9 +20,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyListComponent } from '../../property/list/list.component';
 
 @Component({
-  selector: 'app-estate-billboard-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-estate-billboard-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class EstateBillboardEditComponent extends EditBaseComponent<EstateBillboardService, EstateBillboardModel, string>
   implements OnInit {

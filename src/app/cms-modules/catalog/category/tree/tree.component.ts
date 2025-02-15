@@ -31,8 +31,9 @@ import { CatalogCategoryEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-catalog-category-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-catalog-category-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class CatalogCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

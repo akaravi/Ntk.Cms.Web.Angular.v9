@@ -11,8 +11,9 @@ import {
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-core-site-delete',
-  templateUrl: './delete.component.html',
+    selector: 'app-core-site-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class CoreSiteDeleteComponent implements OnInit {
   requestId = 0;

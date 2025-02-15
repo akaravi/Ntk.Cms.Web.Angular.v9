@@ -23,9 +23,10 @@ import { CoreUserClaimContentAddComponent } from '../add/add.component';
 import { CoreUserClaimContentEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-core-userclaimcontent-checklist',
-  templateUrl: './check-list.component.html',
-  styleUrls: ['./check-list.component.scss']
+    selector: 'app-core-userclaimcontent-checklist',
+    templateUrl: './check-list.component.html',
+    styleUrls: ['./check-list.component.scss'],
+    standalone: false
 })
 export class CoreUserClaimContentCheckListComponent implements OnInit, OnDestroy {
 

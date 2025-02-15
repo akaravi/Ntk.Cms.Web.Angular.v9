@@ -28,8 +28,9 @@ import { ArticleCategoryAddComponent } from '../add/add.component';
 import { ArticleCategoryDeleteComponent } from '../delete/delete.component';
 import { ArticleCategoryEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-article-category-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-article-category-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class ArticleCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

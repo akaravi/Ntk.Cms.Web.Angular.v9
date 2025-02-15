@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-cms-html-notice',
-  templateUrl: './cms-html-notice.component.html',
+    selector: 'app-cms-html-notice',
+    templateUrl: './cms-html-notice.component.html',
+    standalone: false
 })
 export class CmsHtmlNoticeComponent implements OnInit {
   static nextId = 0;

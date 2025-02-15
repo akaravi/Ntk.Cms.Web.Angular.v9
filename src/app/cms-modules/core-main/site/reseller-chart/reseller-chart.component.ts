@@ -27,9 +27,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-site-reseller-chart',
-  templateUrl: './reseller-chart.component.html',
-  styleUrls: ['./reseller-chart.component.scss'],
+    selector: 'app-core-site-reseller-chart',
+    templateUrl: './reseller-chart.component.html',
+    styleUrls: ['./reseller-chart.component.scss'],
+    standalone: false
 })
 export class CoreSiteResellerChartComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

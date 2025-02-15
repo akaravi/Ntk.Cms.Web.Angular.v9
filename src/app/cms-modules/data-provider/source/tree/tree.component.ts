@@ -29,8 +29,9 @@ import { DataProviderSourceDeleteComponent } from '../delete/delete.component';
 import { DataProviderSourceEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-data-provider-source-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-data-provider-source-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class DataProviderSourceTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

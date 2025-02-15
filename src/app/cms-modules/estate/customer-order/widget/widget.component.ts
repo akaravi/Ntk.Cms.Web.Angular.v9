@@ -10,8 +10,9 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-customer-order-widget',
-  templateUrl: './widget.component.html'
+    selector: 'app-estate-customer-order-widget',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 
 export class EstateCustomerOrderWidgetComponent implements OnInit, OnDestroy {

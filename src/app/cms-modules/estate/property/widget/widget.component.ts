@@ -10,9 +10,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-property-widget',
-  templateUrl: './widget.component.html',
-
+    selector: 'app-estate-property-widget',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 
 export class EstatePropertyWidgetComponent implements OnInit, OnDestroy {

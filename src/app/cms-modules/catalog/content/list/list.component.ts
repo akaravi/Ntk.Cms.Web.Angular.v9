@@ -25,8 +25,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { CatalogContentDeleteComponent } from '../delete/delete.component';
 
 @Component({
-  selector: 'app-catalog-content-list',
-  templateUrl: './list.component.html',
+    selector: 'app-catalog-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CatalogContentListComponent extends ListBaseComponent<CatalogContentService, CatalogContentModel, string>
   implements OnInit, OnDestroy {

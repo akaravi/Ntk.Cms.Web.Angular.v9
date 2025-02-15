@@ -13,8 +13,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-sms-message-type-enum-selector',
-  templateUrl: './selector.component.html'
+    selector: 'app-sms-message-type-enum-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class SmsMessageTypeEnumSelectorComponent implements OnInit, OnDestroy {
 

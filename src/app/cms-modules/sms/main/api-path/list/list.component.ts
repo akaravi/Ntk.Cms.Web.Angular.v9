@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { SmsMainApiPathAddComponent } from '../add/add.component';
 import { SmsMainApiPathSendTestComponent } from '../sendTest/sendTest.component';
 @Component({
-  selector: 'app-sms-apipath-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-apipath-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainApiPathListComponent extends ListBaseComponent<SmsMainApiPathService, SmsMainApiPathModel, string> implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

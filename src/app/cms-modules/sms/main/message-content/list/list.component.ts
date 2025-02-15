@@ -21,8 +21,9 @@ import { SmsMainMessageContentAddComponent } from '../add/add.component';
 import { SmsMainMessageContentEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-sms-main-message-content-list',
-  templateUrl: './list.component.html',
+    selector: 'app-sms-main-message-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainMessageContentListComponent extends ListBaseComponent<SmsMainMessageContentService, SmsMainMessageContentModel, string> implements OnInit, OnDestroy {
   requestLinkCategoryId = '';

@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreTokenActivationListComponent } from './activation/list/list.component';
 import { CoreTokenComponent } from './core-token.component';
-import { CoreTokenMicroServiceLogListComponent } from './micro-service-log/list/list.component';
+import { CoreLogTokenMicroServiceListComponent } from './micro-service-log/list/list.component';
 import { CoreTokenMicroServiceListComponent } from './micro-service/list/list.component';
-import { CoreTokenNotificationLogListComponent } from './notification-log/list/list.component';
-import { CoreTokenNotificationListComponent } from './notification/list/list.component';
+import { CoreLogTokenConnectionListComponent } from './notification-log/list/list.component';
+import { CoreTokenConnectionListComponent } from './notification/list/list.component';
 import { CoreTokenUserListComponent } from './user/list/list.component';
 import { CoreTokenUserBadLoginListComponent } from './userBadLogin/list/list.component';
-import { CoreTokenUserLogListComponent } from './userLog/list/list.component';
+import { CoreLogTokenUserListComponent } from './userLog/list/list.component';
+import { CoreTokenConnectionListOnlineComponent } from './notification/list-online/list-online.component';
 
 const routes: Routes = [
   {
@@ -40,22 +41,22 @@ const routes: Routes = [
       /** */
       {
         path: 'userlog',
-        component: CoreTokenUserLogListComponent,
+        component: CoreLogTokenUserListComponent,
         data: { title: 'ROUTE.CORETOKEN.USERLOG' },
       },
       {
         path: 'userlog/LinkSiteId/:LinkSiteId',
-        component: CoreTokenUserLogListComponent,
+        component: CoreLogTokenUserListComponent,
         data: { title: 'ROUTE.CORETOKEN.USERLOG' },
       },
       {
         path: 'userlog/LinkUserId/:LinkUserId',
-        component: CoreTokenUserLogListComponent,
+        component: CoreLogTokenUserListComponent,
         data: { title: 'ROUTE.CORETOKEN.USERLOG' },
       },
       {
         path: 'userlog/LinkDeviceId/:LinkDeviceId',
-        component: CoreTokenUserLogListComponent,
+        component: CoreLogTokenUserListComponent,
         data: { title: 'ROUTE.CORETOKEN.USERLOG' },
       },
       /** */
@@ -94,19 +95,26 @@ const routes: Routes = [
       /** */
       {
         path: 'microservicelog',
-        component: CoreTokenMicroServiceLogListComponent,
+        component: CoreLogTokenMicroServiceListComponent,
         data: { title: 'ROUTE.CORETOKEN.MICROSERVICELOG' },
       },
       /** */
       {
         path: 'notification',
-        component: CoreTokenNotificationListComponent,
+        component: CoreTokenConnectionListComponent,
         data: { title: 'ROUTE.CORETOKEN.NOTIFICATION' },
       },
       /** */
       {
+        path: 'online',
+        component: CoreTokenConnectionListOnlineComponent,
+        data: { title: 'ROUTE.CORETOKEN.NOTIFICATION' },
+      },
+      
+      /** */
+      {
         path: 'notificationlog',
-        component: CoreTokenNotificationLogListComponent,
+        component: CoreLogTokenConnectionListComponent,
         data: { title: 'ROUTE.CORETOKEN.NOTIFICATIONLOG' },
       },
     ],

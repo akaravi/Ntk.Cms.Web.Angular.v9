@@ -2,9 +2,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 @Component({
-  selector: 'app-scroll-top',
-  templateUrl: './scroll-top.component.html',
-  styleUrls: ['./scroll-top.component.scss']
+    selector: 'app-scroll-top',
+    templateUrl: './scroll-top.component.html',
+    styleUrls: ['./scroll-top.component.scss'],
+    standalone: false
 })
 export class ScrollTopComponent implements OnInit {
   constructor(public publicHelper: PublicHelper,

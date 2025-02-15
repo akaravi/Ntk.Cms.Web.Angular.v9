@@ -13,8 +13,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-file-content-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-file-content-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class FileContentSelectorComponent implements OnInit {
   static nextId = 0;

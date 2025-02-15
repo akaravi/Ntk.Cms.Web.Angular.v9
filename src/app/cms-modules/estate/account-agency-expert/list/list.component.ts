@@ -19,9 +19,10 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyExpertAddComponent } from '../add/add.component';
 @Component({
-  selector: 'app-estate-account-agency-expert-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-estate-account-agency-expert-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class EstateAccountAgencyExpertListComponent extends ListBaseComponent<EstateAccountAgencyExpertService, EstateAccountAgencyExpertModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

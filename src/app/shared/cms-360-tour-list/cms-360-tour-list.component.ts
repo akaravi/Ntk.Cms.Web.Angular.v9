@@ -16,8 +16,9 @@ export class PostionViewModel {
   clickGetPitch: 0;
 }
 @Component({
-  selector: 'app-cms-360-tour-list',
-  templateUrl: './cms-360-tour-list.component.html'
+    selector: 'app-cms-360-tour-list',
+    templateUrl: './cms-360-tour-list.component.html',
+    standalone: false
 })
 export class Cms360TourListComponent implements OnInit {
   static nextId = 0;

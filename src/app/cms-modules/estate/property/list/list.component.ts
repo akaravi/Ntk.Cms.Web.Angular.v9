@@ -30,8 +30,9 @@ import { EstatePropertyResponsibleUserListComponent } from "../responsible-user-
 
 
 @Component({
-  selector: "app-estate-property-list",
-  templateUrl: "./list.component.html",
+    selector: "app-estate-property-list",
+    templateUrl: "./list.component.html",
+    standalone: false
 })
 export class EstatePropertyListComponent extends ListBaseComponent<EstatePropertyService, EstatePropertyModel, string>
   implements OnInit, OnDestroy, AfterViewInit {

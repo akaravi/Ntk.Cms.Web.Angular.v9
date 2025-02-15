@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-module-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-core-module-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreModuleEditComponent extends EditBaseComponent<CoreModuleService, CoreModuleModel, number>
   implements OnInit {

@@ -22,8 +22,9 @@ import { ContactContentAddComponent } from '../add/add.component';
 import { ContactContentEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-contact-content-list',
-  templateUrl: './list.component.html',
+    selector: 'app-contact-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ContactContentListComponent extends ListBaseComponent<ContactContentService, ContactContentModel, string>
   implements OnInit, OnDestroy {

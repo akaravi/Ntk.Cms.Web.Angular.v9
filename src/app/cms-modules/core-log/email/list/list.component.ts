@@ -20,9 +20,9 @@ import { CoreLogEmailEditComponent } from '../edit/edit.component';
 import { CoreLogEmailViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-core-log-email-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-log-email-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLogEmailListComponent extends ListBaseComponent<CoreLogEmailService, CoreLogEmailModel, string>
   implements OnInit, OnDestroy {

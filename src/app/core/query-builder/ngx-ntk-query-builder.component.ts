@@ -5,14 +5,15 @@ import { QueryBuilderFieldMap, QueryBuilderSettings, QueryField, QueryRule, Quer
 import { OperatorsService } from './services/operators.service';
 
 @Component({
-  selector: 'ngx-ntk-query-builder',
-  templateUrl: './ngx-ntk-query-builder.component.html',
-  styleUrls: ['./ngx-ntk-query-builder.component.scss'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NgxQueryBuilderComponent),
-    multi: true
-  }]
+    selector: 'ngx-ntk-query-builder',
+    templateUrl: './ngx-ntk-query-builder.component.html',
+    styleUrls: ['./ngx-ntk-query-builder.component.scss'],
+    providers: [{
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => NgxQueryBuilderComponent),
+            multi: true
+        }],
+    standalone: false
 })
 export class NgxQueryBuilderComponent implements OnInit, ControlValueAccessor {
   @Input() fieldMap: QueryBuilderFieldMap = {};

@@ -30,8 +30,9 @@ import { DonateSponserEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-donate-sponser-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-donate-sponser-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class DonateSponserTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

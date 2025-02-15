@@ -9,9 +9,9 @@ import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/wid
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-catalog-content-widget',
-  templateUrl: './widget.component.html',
-
+    selector: 'app-catalog-content-widget',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 
 export class CatalogContentWidgetComponent implements OnInit, OnDestroy {

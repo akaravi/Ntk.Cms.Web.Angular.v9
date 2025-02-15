@@ -12,8 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-cms-sitecategory-selector',
-  templateUrl: './cmsSiteCategorySelector.component.html',
+    selector: 'app-cms-sitecategory-selector',
+    templateUrl: './cmsSiteCategorySelector.component.html',
+    standalone: false
 })
 export class CmsSiteCategorySelectorComponent implements OnInit {
   static nextId = 0;

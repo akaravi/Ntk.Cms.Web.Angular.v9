@@ -15,9 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-sms-action-send-message-api',
-  templateUrl: './send-message-api.component.html',
-
+    selector: 'app-sms-action-send-message-api',
+    templateUrl: './send-message-api.component.html',
+    standalone: false
 })
 export class SmsActionSendMessageApiComponent implements OnInit {
   static nextId = 0;

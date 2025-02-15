@@ -23,9 +23,9 @@ import { LinkManagementAccountingDeleteComponent } from '../delete/delete.compon
 import { LinkManagementAccountingEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-linkmanagement-accounting-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-linkmanagement-accounting-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class LinkManagementAccountingListComponent extends ListBaseComponent<LinkManagementAccountingService, LinkManagementAccountingModel, number> implements OnInit, OnDestroy {
 

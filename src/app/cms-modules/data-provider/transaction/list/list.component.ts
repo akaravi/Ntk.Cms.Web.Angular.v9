@@ -21,8 +21,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderTransactionViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-donate-transaction-list',
-  templateUrl: './list.component.html',
+    selector: 'app-donate-transaction-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DataProviderTransactionListComponent extends ListBaseComponent<DataProviderTransactionService, DataProviderTransactionModel, number>
   implements OnInit, OnDestroy {

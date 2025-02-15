@@ -22,15 +22,16 @@ import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.compo
 import { environment } from 'src/environments/environment';
 import { NewsCommentEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-news-comment-list',
-  templateUrl: './list.component.html',
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+    selector: 'app-news-comment-list',
+    templateUrl: './list.component.html',
+    animations: [
+        trigger('detailExpand', [
+            state('collapsed', style({ height: '0px', minHeight: '0' })),
+            state('expanded', style({ height: '*' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+    standalone: false
 })
 export class NewsCommentListComponent extends ListBaseComponent<NewsContentService, NewsCommentModel, number> implements OnInit, OnDestroy {
   requestContentId = 0;

@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreSiteModel, CoreTokenUserLogModel, CoreTokenUserLogService,
+  CoreSiteModel, CoreLogTokenUserModel, CoreLogTokenUserService,
   ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
@@ -17,21 +17,21 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { environment } from 'src/environments/environment';
-import { CoreTokenUserLogEditComponent } from '../edit/edit.component';
-import { CoreTokenUserLogViewComponent } from '../view/view.component';
+import { CoreLogTokenUserEditComponent } from '../edit/edit.component';
+import { CoreLogTokenUserViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-coretoken-user-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coretoken-user-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
-export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUserLogService, CoreTokenUserLogModel, string>
+export class CoreLogTokenUserListComponent extends ListBaseComponent<CoreLogTokenUserService, CoreLogTokenUserModel, string>
   implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
   constructorInfoAreaId = this.constructor.name;
   constructor(
-    private contentService: CoreTokenUserLogService,
+    private contentService: CoreLogTokenUserService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
@@ -43,7 +43,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreTokenUserLogModel(), publicHelper, tokenHelper, translate);
+    super(contentService, new CoreLogTokenUserModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
@@ -148,7 +148,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
   DataGetAll(): void {
     this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     this.tableRowsSelected = [];
-    this.onActionTableRowSelect(new CoreTokenUserLogModel());
+    this.onActionTableRowSelect(new CoreLogTokenUserModel());
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.filteModelContent.accessLoad = true;
@@ -214,7 +214,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
   }
 
 
-  onActionButtonViewRow(model: CoreTokenUserLogModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogTokenUserModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -234,7 +234,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CoreTokenUserLogViewComponent, {
+    const dialogRef = this.dialog.open(CoreLogTokenUserViewComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -248,7 +248,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
     });
   }
 
-  onActionButtonEditRow(model: CoreTokenUserLogModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogTokenUserModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -268,7 +268,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CoreTokenUserLogEditComponent, {
+    const dialogRef = this.dialog.open(CoreLogTokenUserEditComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -281,7 +281,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
       }
     });
   }
-  onActionButtonDeleteRow(model: CoreTokenUserLogModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogTokenUserModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.translate.get('MESSAGE.no_row_selected_to_delete').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
@@ -392,7 +392,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
 
   }
 
-  onActionButtonViewUserRow(model: CoreTokenUserLogModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogTokenUserModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -406,7 +406,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
     this.router.navigate(['/core/user/edit', this.tableRowSelected.linkUserId]);
   }
 
-  onActionButtonViewMemberRow(model: CoreTokenUserLogModel = this.tableRowSelected): void {
+  onActionButtonViewMemberRow(model: CoreLogTokenUserModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -420,7 +420,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
     this.router.navigate(['/member/user/edit', this.tableRowSelected.linkMemberId]);
   }
 
-  onActionButtonViewSiteRow(model: CoreTokenUserLogModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreLogTokenUserModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -433,7 +433,7 @@ export class CoreTokenUserLogListComponent extends ListBaseComponent<CoreTokenUs
     }
     this.router.navigate(['/core/site/edit', this.tableRowSelected.linkSiteId]);
   }
-  onActionButtonViewDeviceRow(model: CoreTokenUserLogModel = this.tableRowSelected): void {
+  onActionButtonViewDeviceRow(model: CoreLogTokenUserModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();

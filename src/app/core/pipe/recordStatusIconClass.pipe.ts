@@ -3,7 +3,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { RecordStatusEnum } from 'ntk-cms-api';
 
 @Pipe({
-  name: 'statusIconClass'
+    name: 'statusIconClass',
+    standalone: false
 })
 export class RecordStatusIconClassPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) { }

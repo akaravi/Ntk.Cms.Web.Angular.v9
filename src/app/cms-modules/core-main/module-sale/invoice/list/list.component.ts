@@ -21,8 +21,9 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { CoreModuleSaleInvoiceViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-core-modulesaleinvoice-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-modulesaleinvoice-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleSaleInvoiceListComponent extends ListBaseComponent<CoreModuleSaleInvoiceService, CoreModuleSaleInvoiceModel, number>
   implements OnInit, OnDestroy {

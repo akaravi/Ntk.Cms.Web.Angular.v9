@@ -23,8 +23,9 @@ import { SmsLogOutBoxQueueEditComponent } from '../edit/edit.component';
 import { SmsLogOutBoxQueueViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-sms-log-outboxqueue-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-log-outboxqueue-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsLogOutBoxQueueListComponent extends ListBaseComponent<SmsLogOutBoxQueueService, SmsLogOutBoxQueueModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';

@@ -21,9 +21,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-add-first',
-  templateUrl: './addFirst.component.html',
-  styleUrls: ['./addFirst.component.scss']
+    selector: 'app-core-site-add-first',
+    templateUrl: './addFirst.component.html',
+    styleUrls: ['./addFirst.component.scss'],
+    standalone: false
 })
 export class CoreSiteAddFirstComponent implements OnInit {
 

@@ -23,8 +23,9 @@ import { SmsLogOutBoxTaskSchedulerEditComponent } from '../edit/edit.component';
 import { SmsLogOutBoxTaskSchedulerViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-sms-log-outbox-task-scheduler-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-log-outbox-task-scheduler-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsLogOutBoxTaskSchedulerListComponent extends ListBaseComponent<SmsLogOutBoxTaskSchedulerService, SmsLogOutBoxTaskSchedulerModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';

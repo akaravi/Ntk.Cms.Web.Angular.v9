@@ -23,8 +23,9 @@ import { environment } from 'src/environments/environment';
 import { CoreSiteModuleAddComponent } from '../moduleAdd/moduleAdd.component';
 import { CoreSiteModuleEditComponent } from '../moduleEdit/moduleEdit.component';
 @Component({
-  selector: 'app-core-site-module-list',
-  templateUrl: './moduleList.component.html',
+    selector: 'app-core-site-module-list',
+    templateUrl: './moduleList.component.html',
+    standalone: false
 })
 export class CoreSiteModuleListComponent extends ListBaseComponent<CoreModuleSiteService, CoreModuleSiteModel, number>
   implements OnInit, OnDestroy {

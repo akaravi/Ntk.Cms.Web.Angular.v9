@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreGuideAddComponent } from '../add/add.component';
 import { CoreGuideEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-guide-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-guide-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreGuideListComponent extends ListBaseComponent<CoreGuideService, CoreGuideModel, number>
   implements OnInit, OnDestroy {

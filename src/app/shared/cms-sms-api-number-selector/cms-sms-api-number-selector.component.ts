@@ -15,8 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-sms-api-number-selector',
-  templateUrl: './cms-sms-api-number-selector.component.html',
+    selector: 'app-cms-sms-api-number-selector',
+    templateUrl: './cms-sms-api-number-selector.component.html',
+    standalone: false
 })
 export class CmsSmsMainApiNumberSelectorComponent implements OnInit {
   static nextId = 0;

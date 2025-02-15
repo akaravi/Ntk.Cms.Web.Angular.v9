@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-module-entity-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-core-module-entity-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreModuleEntitySelectorComponent implements OnInit {
   static nextId = 0;

@@ -8,8 +8,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-search-list',
-  templateUrl: './cms-search-list.component.html',
+    selector: 'app-cms-search-list',
+    templateUrl: './cms-search-list.component.html',
+    standalone: false
 })
 export class CmsSearchListComponent implements OnInit {
   static nextId = 0;

@@ -23,8 +23,9 @@ import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { ArticleContentDeleteComponent } from '../delete/delete.component';
 @Component({
-  selector: 'app-article-content-list',
-  templateUrl: './list.component.html',
+    selector: 'app-article-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ArticleContentListComponent extends ListBaseComponent<ArticleContentService, ArticleContentModel, number>
   implements OnInit, OnDestroy {

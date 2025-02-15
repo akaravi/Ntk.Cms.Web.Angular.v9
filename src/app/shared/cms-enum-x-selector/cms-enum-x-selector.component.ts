@@ -7,8 +7,9 @@ import {
 
 
 @Component({
-  selector: 'app-cms-enum-x-selector',
-  templateUrl: './cms-enum-x-selector.component.html',
+    selector: 'app-cms-enum-x-selector',
+    templateUrl: './cms-enum-x-selector.component.html',
+    standalone: false
 })
 export class CmsEnumXSelectorComponent implements OnInit {
   static nextId = 0;

@@ -17,8 +17,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-tag-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-tag-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreModuleTagSelectorComponent implements OnInit {
   static nextId = 0;

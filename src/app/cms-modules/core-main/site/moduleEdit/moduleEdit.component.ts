@@ -17,9 +17,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-module-edit',
-  templateUrl: './moduleEdit.component.html',
-  styleUrls: ['./moduleEdit.component.scss'],
+    selector: 'app-core-site-module-edit',
+    templateUrl: './moduleEdit.component.html',
+    styleUrls: ['./moduleEdit.component.scss'],
+    standalone: false
 })
 export class CoreSiteModuleEditComponent extends EditBaseComponent<CoreModuleSiteService, CoreModuleSiteModel, number>
   implements OnInit {

@@ -21,8 +21,9 @@ import { SmsMainApiPathPriceServiceAddComponent } from '../add/add.component';
 import { SmsMainApiPathPriceServiceEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-sms-apipathpriceservice-list',
-  templateUrl: './list.component.html',
+    selector: 'app-sms-apipathpriceservice-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainApiPathPriceServiceListComponent extends ListBaseComponent<SmsMainApiPathPriceServiceService, SmsMainApiPathPriceServiceModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';

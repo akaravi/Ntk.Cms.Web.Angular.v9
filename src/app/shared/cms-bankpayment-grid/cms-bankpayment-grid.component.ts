@@ -10,8 +10,9 @@ import { NodeInterface } from 'ntk-cms-filemanager';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 @Component({
-  selector: 'app-cms-bankpayment-grid',
-  templateUrl: './cms-bankpayment-grid.component.html',
+    selector: 'app-cms-bankpayment-grid',
+    templateUrl: './cms-bankpayment-grid.component.html',
+    standalone: false
 })
 export class CmsBankpaymentGridComponent implements OnInit {
   static nextId = 0;

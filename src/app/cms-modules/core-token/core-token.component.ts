@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-core-token',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-core-token',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class CoreTokenComponent implements OnInit {
 

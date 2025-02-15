@@ -21,8 +21,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { FileContentDeleteComponent } from '../delete/delete.component';
 
 @Component({
-  selector: 'app-file-content-list',
-  templateUrl: './list.component.html',
+    selector: 'app-file-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class FileContentListComponent extends ListBaseComponent<FileContentService, FileContentModel, number> implements OnInit, OnDestroy {
 

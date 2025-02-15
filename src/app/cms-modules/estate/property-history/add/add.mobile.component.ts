@@ -26,9 +26,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { EstatePropertyHistoryAddComponent } from './add.component';
 
 @Component({
-  selector: 'app-estate-property-history-add-mobile',
-  templateUrl: './add.mobile.component.html',
-  styleUrls: ['./add.mobile.component.scss'],
+    selector: 'app-estate-property-history-add-mobile',
+    templateUrl: './add.mobile.component.html',
+    styleUrls: ['./add.mobile.component.scss'],
+    standalone: false
 })
 export class EstatePropertyHistoryAddMobileComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

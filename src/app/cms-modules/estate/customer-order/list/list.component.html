@@ -175,7 +175,7 @@
         </P>
 
         <!-- linkResponsibleUserId Field -->
-        <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite"
+        <app-cms-user-selector *ngIf="tokenHelper.isAdminSite"
           (optionChange)="filteModelContent.linkResponsibleUserId=$event?.id"
           [optionPlaceholder]="'TITLE.InResponsibleTo'  | translate">
         </app-cms-user-selector>
@@ -222,7 +222,7 @@
         <br>
         <!-- CreatedYaer Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-          *ngIf="this.filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titleCreatedYaer?.length>1">
+          *ngIf="filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titleCreatedYaer?.length>1">
           <label for="filteModelContent.createdYaer"
             class="color-highlight">{{PropertyTypeSelected.titleCreatedYaer}}</label>
           <input matInput [(ngModel)]="filteModelContent.createdYaer" name="filteModelContent.createdYaer" #CreatedYaer
@@ -231,7 +231,7 @@
         </div>
         <!-- Partition Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-          *ngIf="this.filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titlePartition?.length>1">
+          *ngIf="filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titlePartition?.length>1">
           <label for="filteModelContent.partition"
             class="color-highlight">{{PropertyTypeSelected.titlePartition}}</label>
           <input matInput [(ngModel)]="filteModelContent.partition" name="filteModelContent.partition" #Partition

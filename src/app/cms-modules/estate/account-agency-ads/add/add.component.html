@@ -27,7 +27,7 @@
       <!-- LinkPropertyId Field -->
       <app-estate-account-agency-selector (optionChange)="onActionSelectorSelectLinkAccountAgencyId($event)"
         [optionDisabled]="!fieldsInfo['linkPropertyId']?.accessAddField"
-        [optionSelectForce]="dataModel.linkAccountAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
+        [optionSelectForce]="dataModel.linkAccountAgencyId" [optionSelectUserId]="tokenInfo.userId"
         [optionPlaceholder]="'TITLE.Agency_ID' | translate ">
       </app-estate-account-agency-selector>
       <!-- LinkAdsTypeId Field -->

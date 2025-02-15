@@ -20,9 +20,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-data-provider-plan-source-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-data-provider-plan-source-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class DataProviderPlanSourceEditComponent extends EditBaseComponent<DataProviderPlanSourceService, DataProviderPlanSourceModel, number>
   implements OnInit {

@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-module-entity-report-file-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-core-module-entity-report-file-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class CoreModuleEntityReportFileAddComponent extends AddBaseComponent<CoreModuleEntityReportFileService, CoreModuleEntityReportFileModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

@@ -13,8 +13,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-ticketing-template-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-ticketing-template-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class TicketingTemplateSelectorComponent implements OnInit {
   static nextId = 0;

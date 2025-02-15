@@ -3,12 +3,13 @@ import { FormControl } from '@angular/forms';
 
 // text,email,tel,textarea,password,
 @Component({
-  selector: 'textbox',
-  template: `
+    selector: 'textbox',
+    template: `
         <input *ngIf="!field.multiline" [attr.type]="field.type" class="form-control input-ltr"  [id]="field.name" [name]="field.name" [formControl]="optionFormControl">
         <textarea *ngIf="field.multiline" [class.is-invalid]="isDirty && !isValid" [formControl]="optionFormControl" [id]="field.name"
         rows="9" class="form-control input-ltr" [placeholder]="field.placeholder"></textarea>
-    `
+    `,
+    standalone: false
 })
 export class TextBoxComponent {
   @Input() field: any = {};

@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-modulesaleheader-sale-payment',
-  templateUrl: './sale-payment.component.html',
-  styleUrls: ['./sale-payment.component.scss'],
+    selector: 'app-core-modulesaleheader-sale-payment',
+    templateUrl: './sale-payment.component.html',
+    styleUrls: ['./sale-payment.component.scss'],
+    standalone: false
 })
 export class CoreModuleSaleHeaderSalePaymentComponent implements OnInit {
   requestLinkHeaderId = 0;

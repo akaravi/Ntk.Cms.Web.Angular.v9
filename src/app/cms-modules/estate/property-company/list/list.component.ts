@@ -25,8 +25,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { EstatePropertyCompanyDeleteComponent } from '../delete/delete.component';
 
 @Component({
-  selector: 'app-estate-property-company-list',
-  templateUrl: './list.component.html',
+    selector: 'app-estate-property-company-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstatePropertyCompanyListComponent extends ListBaseComponent<EstatePropertyCompanyService, EstatePropertyCompanyModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

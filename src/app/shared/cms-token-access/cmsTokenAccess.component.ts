@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit ,ChangeDetectorRef} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AuthRenewTokenModel,
@@ -9,9 +9,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-cms-token-access',
-  templateUrl: './cmsTokenAccess.component.html',
-
+    selector: 'app-cms-token-access',
+    templateUrl: './cmsTokenAccess.component.html',
+    standalone: false
 })
 export class CmsTokenAccessComponent implements OnInit, OnDestroy {
   static nextId = 0;
@@ -20,13 +20,16 @@ export class CmsTokenAccessComponent implements OnInit, OnDestroy {
     public coreAuthService: CoreAuthService,
     public translate: TranslateService,
     private cmsToastrService: CmsToastrService,
+    private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
   ) {
     this.tokenHelper.getTokenInfoState().then((value) => {
       this.tokenInfo = value;
+      this.cdr.detectChanges();
     });
     this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
       this.tokenInfo = value;
+      this.cdr.detectChanges();
     });
   }
 

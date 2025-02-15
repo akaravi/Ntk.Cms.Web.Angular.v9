@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-domainalias-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-core-site-domainalias-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class CoreSiteDomainAliasAddComponent extends AddBaseComponent<CoreSiteDomainAliasService, CoreSiteDomainAliasModel, number> implements OnInit {
   requestId = 0;

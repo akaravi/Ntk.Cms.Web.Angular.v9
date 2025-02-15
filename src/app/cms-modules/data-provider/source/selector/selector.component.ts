@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-data-provider-source-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-data-provider-source-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class DataProviderSourceSelectorComponent implements OnInit {
   static nextId = 0;

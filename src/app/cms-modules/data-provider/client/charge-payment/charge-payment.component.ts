@@ -17,9 +17,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-data-provider-client-charge-payment',
-  templateUrl: './charge-payment.component.html',
-  styleUrls: ['./charge-payment.component.scss'],
+    selector: 'app-data-provider-client-charge-payment',
+    templateUrl: './charge-payment.component.html',
+    styleUrls: ['./charge-payment.component.scss'],
+    standalone: false
 })
 export class DataProviderClientChargePaymentComponent implements OnInit {
   requestLinkPlanPriceId = 0;

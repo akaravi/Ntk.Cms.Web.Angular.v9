@@ -14,9 +14,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-account-expert-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-estate-account-expert-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class EstateAccountExpertHeaderComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

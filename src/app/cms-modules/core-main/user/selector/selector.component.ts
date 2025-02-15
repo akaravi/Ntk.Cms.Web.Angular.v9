@@ -12,8 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-core-user-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-core-user-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreUserSelectorComponent implements OnInit {
   static nextId = 0;

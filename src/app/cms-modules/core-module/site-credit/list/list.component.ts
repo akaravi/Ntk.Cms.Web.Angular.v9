@@ -21,8 +21,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { CoreModuleSiteCreditChargeDirectComponent } from '../charge-direct/charge-direct.component';
 import { CoreModuleSiteCreditEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-coremodule-site-credit-list',
-  templateUrl: './list.component.html',
+    selector: 'app-coremodule-site-credit-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleSiteCreditListComponent extends ListBaseComponent<CoreModuleSiteCreditService, CoreModuleSiteCreditModel, number>
   implements OnInit, OnDestroy {

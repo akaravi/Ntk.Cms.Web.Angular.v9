@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-data-provider',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-data-provider',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class DataProviderComponent implements OnInit {
 

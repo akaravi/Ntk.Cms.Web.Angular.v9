@@ -26,8 +26,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-cms-contact-category-tree-selector',
-  templateUrl: './cms-contact-category-tree-selector.component.html',
+    selector: 'app-cms-contact-category-tree-selector',
+    templateUrl: './cms-contact-category-tree-selector.component.html',
+    standalone: false
 })
 export class CmsContactCategoryTreeSelectorComponent implements OnInit, OnDestroy {
   static nextId = 0;

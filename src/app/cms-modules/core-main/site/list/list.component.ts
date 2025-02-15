@@ -22,8 +22,9 @@ import { CoreSiteModuleSiteInfoComponent } from '../module-site-info/module-site
 import { CoreSiteModuleSiteOptimazeComponent } from '../module-site-optimaze/module-site-optimaze.component';
 
 @Component({
-  selector: 'app-core-site-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-site-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreSiteListComponent extends ListBaseComponent<CoreSiteService, CoreSiteModel, number>
   implements OnInit, OnDestroy {

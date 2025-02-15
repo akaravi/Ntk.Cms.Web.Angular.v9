@@ -9,8 +9,9 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-page-aboutus',
-  templateUrl: './page-aboutus.component.html',
+    selector: 'app-page-aboutus',
+    templateUrl: './page-aboutus.component.html',
+    standalone: false
 })
 export class PageAboutusComponent implements OnInit {
 

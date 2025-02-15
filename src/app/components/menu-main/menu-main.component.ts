@@ -13,9 +13,9 @@ import { ThemeModeType, ThemeService } from 'src/app/core/services/theme.service
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-menu-main',
-  templateUrl: './menu-main.component.html',
-
+    selector: 'app-menu-main',
+    templateUrl: './menu-main.component.html',
+    standalone: false
 })
 export class MenuMainComponent implements OnInit {
   env = environment;

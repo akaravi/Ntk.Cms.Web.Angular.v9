@@ -22,8 +22,9 @@ import { environment } from 'src/environments/environment';
 import { CoreCurrencyAddComponent } from '../add/add.component';
 import { CoreCurrencyEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-currency-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-currency-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreCurrencyListComponent extends ListBaseComponent<CoreCurrencyService, CoreCurrencyModel, number>
   implements OnInit, OnDestroy {

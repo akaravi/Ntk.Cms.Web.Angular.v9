@@ -12,7 +12,7 @@
     <!--Content-->
     <form #vform="ngForm">
       <!-- LinkUserId Field -->
-      <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="this.dataModel.linkSiteId"
+      <app-cms-site-selector [optionDisabled]="true" [optionSelectForce]="dataModel.linkSiteId"
         [optionPlaceholder]="'TITLE.SITE' | translate"></app-cms-site-selector>
       <div class="form-actions" *ngIf="formInfo.formSubmitAllow  ">
         <button type="button" (click)="onFormCancel()"

@@ -11,9 +11,10 @@ export type LayoutDirection = 'ltr' | 'rtl';
  * components can listen on changes of direction.
  */
 @Directive({
-  selector: '[cmsDir]',
-  // TODO(hansl): maybe `$implicit` isn't the best option here, but for now that's the best we got.
-  exportAs: '$implicit'
+    selector: '[cmsDir]',
+    // TODO(hansl): maybe `$implicit` isn't the best option here, but for now that's the best we got.
+    exportAs: '$implicit',
+    standalone: false
 })
 export class DirDirective {
   @Input('dir') _dir: LayoutDirection = 'ltr';

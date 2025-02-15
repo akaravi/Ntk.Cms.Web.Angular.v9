@@ -5,8 +5,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-cms-qdoc',
-  templateUrl: './cms-qdoc.component.html',
+    selector: 'app-cms-qdoc',
+    templateUrl: './cms-qdoc.component.html',
+    standalone: false
 })
 export class CmsQDocComponent implements OnInit {
   static nextId = 0;

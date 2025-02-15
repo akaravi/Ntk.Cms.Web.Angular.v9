@@ -23,9 +23,10 @@ import { DataProviderPlanDeleteComponent } from '../delete/delete.component';
 import { DataProviderPlanEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-data-provider-plan-list',
-  templateUrl: './list.component.html',
-  styleUrls: ["./list.component.scss"],
+    selector: 'app-data-provider-plan-list',
+    templateUrl: './list.component.html',
+    styleUrls: ["./list.component.scss"],
+    standalone: false
 })
 export class DataProviderPlanListComponent extends ListBaseComponent<DataProviderPlanService, DataProviderPlanModel, number>
   implements OnInit, OnDestroy {

@@ -15,8 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-blog-category-delete',
-  templateUrl: './delete.component.html',
+    selector: 'app-blog-category-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class BlogCategoryDeleteComponent implements OnInit {
   requestId = 0;

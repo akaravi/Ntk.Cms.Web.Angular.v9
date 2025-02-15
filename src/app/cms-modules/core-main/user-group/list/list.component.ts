@@ -21,9 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreUserGroupAddComponent } from '../add/add.component';
 import { CoreUserGroupEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-usergroup-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-usergroup-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreUserGroupListComponent extends ListBaseComponent<CoreUserGroupService, CoreUserGroupModel, number>
   implements OnInit, OnDestroy {

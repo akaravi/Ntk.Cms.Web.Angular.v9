@@ -18,8 +18,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 @Component({
-  selector: 'app-sms-log-apipath-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-log-apipath-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsLogApiPathListComponent extends ListBaseComponent<SmsLogApiPathService, SmsLogApiPathModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';

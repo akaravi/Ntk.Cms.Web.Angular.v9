@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ChangeDetectorRef} from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthRenewTokenModel, CoreAuthService, CoreSiteModel, TokenInfoModel } from 'ntk-cms-api';
@@ -9,8 +9,9 @@ import { ThemeStoreModel } from 'src/app/core/models/themeStoreModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-menu-profile',
-  templateUrl: './menu-profile.component.html',
+    selector: 'app-menu-profile',
+    templateUrl: './menu-profile.component.html',
+    standalone: false
 })
 export class MenuProfileComponent implements OnInit {
   static nextId = 0;
@@ -22,14 +23,9 @@ export class MenuProfileComponent implements OnInit {
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
     public publicHelper: PublicHelper,
+    private cdr: ChangeDetectorRef,
     private router: Router
   ) {
-    this.tokenHelper.getTokenInfoState().then((value) => {
-      this.tokenInfo = value;
-    });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
-      this.tokenInfo = value;
-    });
 
   }
 
@@ -42,7 +38,14 @@ export class MenuProfileComponent implements OnInit {
   disabledAllow = false;
   themeStore = new ThemeStoreModel();
   ngOnInit(): void {
-
+    this.tokenHelper.getTokenInfoState().then((value) => {
+      this.tokenInfo = value;
+      this.cdr.detectChanges();
+    });
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
+      this.tokenInfo = value;
+      this.cdr.detectChanges();
+    });
     this.publicHelper.getStateOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });

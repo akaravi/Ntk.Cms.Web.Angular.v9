@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-linkmanagement-accounting-detail-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-linkmanagement-accounting-detail-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class LinkManagementAccountingDetailEditComponent extends EditBaseComponent<LinkManagementAccountingDetailService, LinkManagementAccountingDetailModel, number>
   implements OnInit {

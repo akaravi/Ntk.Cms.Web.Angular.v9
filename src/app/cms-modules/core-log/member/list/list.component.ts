@@ -21,9 +21,9 @@ import { CoreLogMemberEditComponent } from '../edit/edit.component';
 import { CoreLogMemberViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-core-log-member-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-log-member-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLogMemberListComponent extends ListBaseComponent<CoreLogMemberService, CoreLogMemberModel, string>
   implements OnInit, OnDestroy {

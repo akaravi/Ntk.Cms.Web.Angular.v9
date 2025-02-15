@@ -2,7 +2,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { EstatePropertyService } from 'ntk-cms-api';
 import { Observable, map } from 'rxjs';
 
-@Pipe({ name: 'estatePropertyInfo' })
+@Pipe({
+    name: 'estatePropertyInfo',
+    standalone: false
+})
 export class estatePropertyInfoPipe implements PipeTransform {
   constructor(public service: EstatePropertyService) {
 

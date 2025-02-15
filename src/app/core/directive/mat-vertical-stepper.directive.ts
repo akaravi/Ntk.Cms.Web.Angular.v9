@@ -2,7 +2,8 @@ import { Directive, HostListener } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 
 @Directive({
-  selector: 'mat-vertical-stepper',
+    selector: 'mat-vertical-stepper',
+    standalone: false
 })
 export class MatVerticalStepperScrollerDirective {
   constructor(private stepper: MatStepper) { }

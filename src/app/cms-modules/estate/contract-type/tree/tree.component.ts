@@ -28,9 +28,10 @@ import { environment } from 'src/environments/environment';
 import { EstateContractTypeAddComponent } from '../add/add.component';
 import { EstateContractTypeEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-contract-type-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-estate-contract-type-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class EstateContractTypeTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

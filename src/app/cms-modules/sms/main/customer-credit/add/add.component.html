@@ -14,7 +14,7 @@
       <!-- RecordStatus Field -->
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
@@ -75,7 +75,7 @@
         </div>
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
-            <input type="checkbox" class="ios-input" id="dataModel.isAccepted" [(ngModel)]="this.dataModel.isAccepted"
+            <input type="checkbox" class="ios-input" id="dataModel.isAccepted" [(ngModel)]="dataModel.isAccepted"
               name="dataModel.isAccepted">
             <label class="custom-control-label" for="dataModel.isAccepted"></label>
           </div>
@@ -90,7 +90,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.isBankAccepted"
-              [(ngModel)]="this.dataModel.isBankAccepted" name="dataModel.isBankAccepted">
+              [(ngModel)]="dataModel.isBankAccepted" name="dataModel.isBankAccepted">
             <label class="custom-control-label" for="dataModel.isBankAccepted"></label>
           </div>
         </div>

@@ -12,9 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-cms-currency-selector',
-  templateUrl: './cms-currency-selector.component.html',
-
+    selector: 'app-cms-currency-selector',
+    templateUrl: './cms-currency-selector.component.html',
+    standalone: false
 })
 export class CmsCurrencySelectorComponent implements OnInit {
   static nextId = 0;

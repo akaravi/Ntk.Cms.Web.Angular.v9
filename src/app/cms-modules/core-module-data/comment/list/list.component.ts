@@ -21,9 +21,9 @@ import { CoreModuleDataCommentEditComponent } from '../edit/edit.component';
 import { CoreModuleDataCommentViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodule-data-comment-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodule-data-comment-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleDataCommentListComponent extends ListBaseComponent<CoreModuleDataCommentService, CoreModuleDataCommentModel, string>
   implements OnInit, OnDestroy {

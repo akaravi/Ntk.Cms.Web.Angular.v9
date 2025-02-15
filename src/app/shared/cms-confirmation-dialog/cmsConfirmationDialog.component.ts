@@ -4,8 +4,9 @@ import { ConfirmDialogModel } from './cmsConfirmationDialog.service';
 
 
 @Component({
-  selector: 'app-confirmation-dialog',
-  templateUrl: './cmsConfirmationDialog.component.html',
+    selector: 'app-confirmation-dialog',
+    templateUrl: './cmsConfirmationDialog.component.html',
+    standalone: false
 })
 export class ConfirmationDialogComponent implements OnInit {
   static nextId = 0;

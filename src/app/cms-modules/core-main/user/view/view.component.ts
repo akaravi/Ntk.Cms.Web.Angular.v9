@@ -17,9 +17,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-application-memberinfo-view',
-  templateUrl: './view.component.html',
-  styleUrls: ['./view.component.scss']
+    selector: 'app-application-memberinfo-view',
+    templateUrl: './view.component.html',
+    styleUrls: ['./view.component.scss'],
+    standalone: false
 })
 export class CoreUserViewComponent implements OnInit, OnDestroy {
   requestId = 0;

@@ -20,9 +20,10 @@ import { environment } from 'src/environments/environment';
 import { HyperShopCategoryAddComponent } from '../add/add.component';
 import { HyperShopCategoryEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-hypershop-category-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-hypershop-category-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class HyperShopCategoryListComponent extends ListBaseComponent<HyperShopCategoryService, HyperShopCategoryModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

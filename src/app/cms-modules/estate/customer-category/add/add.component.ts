@@ -15,9 +15,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-customer-category-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-estate-customer-category-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class EstateCustomerCategoryAddComponent extends AddBaseComponent<EstateCustomerCategoryService, EstateCustomerCategoryModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

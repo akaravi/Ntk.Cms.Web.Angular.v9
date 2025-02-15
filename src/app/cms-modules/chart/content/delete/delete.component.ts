@@ -14,8 +14,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-news-content-delete',
-  templateUrl: './delete.component.html',
+    selector: 'app-news-content-delete',
+    templateUrl: './delete.component.html',
+    standalone: false
 })
 export class ChartContentDeleteComponent implements OnInit {
   requestId = 0;

@@ -25,8 +25,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-application-source-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-application-source-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class ApplicationSourceTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

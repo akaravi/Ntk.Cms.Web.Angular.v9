@@ -182,10 +182,10 @@
           <label class="cms-m-form-label">متراژ</label>
           <input type="number" [(ngModel)]="dataModel.area" name="dataModel.area" class="cms-m-form-input"
             autocomplete="off" />
-          <label *ngIf="this.PropertyTypeSelected?.createdYearActive" class="cms-m-form-label">سال
+          <label *ngIf="PropertyTypeSelected?.createdYearActive" class="cms-m-form-label">سال
             ساخت
           </label>
-          <select *ngIf="this.PropertyTypeSelected?.createdYearActive" [(ngModel)]="dataModel.createdYaer"
+          <select *ngIf="PropertyTypeSelected?.createdYearActive" [(ngModel)]="dataModel.createdYaer"
             name="dataModel.createdYaer" class="cms-m-form-input">
             <option value="1402">1402</option>
             <option value="1401">1401</option>
@@ -201,9 +201,9 @@
             <option value="1391">1391</option>
             <option value="1390">1390</option>
           </select>
-          <label *ngIf="this.PropertyTypeSelected?.partitionActive"
+          <label *ngIf="PropertyTypeSelected?.partitionActive"
             class="cms-m-form-label">{{this.PropertyTypeSelected?.titlePartitionML}}</label>
-          <input *ngIf="this.PropertyTypeSelected?.partitionActive" type="number" [(ngModel)]="dataModel.partition"
+          <input *ngIf="PropertyTypeSelected?.partitionActive" type="number" [(ngModel)]="dataModel.partition"
             name="dataModel.partition" class="cms-m-form-input" autocomplete="off" />
         </div>
 

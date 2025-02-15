@@ -13,8 +13,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-sms-out-box-type-enum-selector',
-  templateUrl: './selector.component.html'
+    selector: 'app-sms-out-box-type-enum-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class SmsOutBoxTypeEnumSelectorComponent implements OnInit, OnDestroy {
 

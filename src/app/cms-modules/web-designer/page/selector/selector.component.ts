@@ -10,8 +10,9 @@ import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 @Component({
-  selector: 'app-webdesigner-page-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-webdesigner-page-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class WebDesignerMainPageSelectorComponent implements OnInit {
   static nextId = 0;

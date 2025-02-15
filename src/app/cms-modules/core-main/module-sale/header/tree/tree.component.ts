@@ -29,8 +29,9 @@ import { CoreModuleSaleHeaderEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-core-modulesaleheader-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-core-modulesaleheader-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class CoreModuleSaleHeaderTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

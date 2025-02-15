@@ -6,13 +6,14 @@ import {
 import { debounceTime } from 'rxjs/operators';
 // https://stackblitz.com/edit/angular-dynamic-form-builder-9nybhu?file=app%2Fapp.component.html
 @Component({
-  // tslint:disable-next-line: component-selector
-  selector: 'dynamic-form-builder-cms',
-  template: `
+    // tslint:disable-next-line: component-selector
+    selector: 'dynamic-form-builder-cms',
+    template: `
       <div *ngFor="let field of fields">
           <field-builder [field]="field" [formGroup]="formGroup"></field-builder>
       </div>
   `,
+    standalone: false
 })
 export class DynamicFormBuilderCmsComponent implements OnInit, AfterViewInit {
 

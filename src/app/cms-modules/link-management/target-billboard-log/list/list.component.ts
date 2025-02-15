@@ -22,9 +22,9 @@ import { LinkManagementTargetBillboardLogDeleteComponent } from '../delete/delet
 import { LinkManagementTargetBillboardLogEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-linkmanagement-target-billboard-log-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-linkmanagement-target-billboard-log-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class LinkManagementTargetBillboardLogListComponent extends ListBaseComponent<LinkManagementTargetBillboardLogService, LinkManagementTargetBillboardLogModel, string> implements OnInit, OnDestroy {
   requestLinkManagementBillboardId = 0;

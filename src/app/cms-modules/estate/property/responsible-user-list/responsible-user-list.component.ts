@@ -25,8 +25,9 @@ import { PageInfoService } from "src/app/core/services/page-info.service";
 
 
 @Component({
-  selector: 'app-estate-property-responsible-user-list',
-  templateUrl: './responsible-user-list.component.html',
+    selector: 'app-estate-property-responsible-user-list',
+    templateUrl: './responsible-user-list.component.html',
+    standalone: false
 })
 export class EstatePropertyResponsibleUserListComponent extends ListBaseComponent<EstatePropertyService, CoreUserModel, number>
   implements OnInit, OnDestroy, AfterViewInit {

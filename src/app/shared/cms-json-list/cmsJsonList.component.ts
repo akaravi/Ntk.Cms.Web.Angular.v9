@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-cms-json-list',
-  templateUrl: './cmsJsonList.component.html',
-  styleUrls: ['./cmsJsonList.component.scss']
+    selector: 'app-cms-json-list',
+    templateUrl: './cmsJsonList.component.html',
+    styleUrls: ['./cmsJsonList.component.scss'],
+    standalone: false
 })
 export class CmsJsonListComponent implements OnInit {
   static nextId = 0;

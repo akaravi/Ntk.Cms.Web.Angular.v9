@@ -15,8 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-sms-main-message-content-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-sms-main-message-content-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class SmsMainMessageContentSelectorComponent implements OnInit {
   static nextId = 0;

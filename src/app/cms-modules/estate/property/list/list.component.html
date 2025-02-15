@@ -1,26 +1,26 @@
-<app-estate-billboard-header *ngIf="this.requestLinkBillboardId?.length>0" [optionId]="this.requestLinkBillboardId">
+<app-estate-billboard-header *ngIf="requestLinkBillboardId?.length>0" [optionId]="requestLinkBillboardId">
 </app-estate-billboard-header>
-<app-estate-contract-type-header *ngIf="this.requestLinkContractTypeId?.length>0"
-  [optionId]="this.requestLinkContractTypeId">
+<app-estate-contract-type-header *ngIf="requestLinkContractTypeId?.length>0"
+  [optionId]="requestLinkContractTypeId">
 
 </app-estate-contract-type-header>
-<app-estate-customer-order-header *ngIf="this.requestLinkCustomerOrderId?.length>0"
-  [optionId]="this.requestLinkCustomerOrderId">
+<app-estate-customer-order-header *ngIf="requestLinkCustomerOrderId?.length>0"
+  [optionId]="requestLinkCustomerOrderId">
 
 </app-estate-customer-order-header>
-<app-estate-property-type-landuse-header *ngIf="this.requestLinkPropertyTypeLanduseId?.length>0"
-  [optionId]="this.requestLinkPropertyTypeLanduseId">
+<app-estate-property-type-landuse-header *ngIf="requestLinkPropertyTypeLanduseId?.length>0"
+  [optionId]="requestLinkPropertyTypeLanduseId">
 
 </app-estate-property-type-landuse-header>
-<app-estate-property-type-usage-header *ngIf="this.requestLinkPropertyTypeUsageId?.length>0"
-  [optionId]="this.requestLinkPropertyTypeUsageId">
+<app-estate-property-type-usage-header *ngIf="requestLinkPropertyTypeUsageId?.length>0"
+  [optionId]="requestLinkPropertyTypeUsageId">
 
 </app-estate-property-type-usage-header>
 
-<app-estate-property-project-header *ngIf="this.requestLinkProjectId?.length>0" [optionId]="this.requestLinkProjectId">
+<app-estate-property-project-header *ngIf="requestLinkProjectId?.length>0" [optionId]="requestLinkProjectId">
 </app-estate-property-project-header>
 
-<app-estate-property-company-header *ngIf="this.requestLinkCompanyId?.length>0" [optionId]="this.requestLinkCompanyId">
+<app-estate-property-company-header *ngIf="requestLinkCompanyId?.length>0" [optionId]="requestLinkCompanyId">
 </app-estate-property-company-header>
 
 <app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId" [optionGuideNoticeKey]="'estate.property.list'"
@@ -148,7 +148,7 @@
       <p class="font-11 text-center opacity-70">{{'ACTION.DELETE' |
         translate}}</p>
     </div>
-    <div *ngIf="this.tokenHelper.isAdminSite && optionloadByRoute&& tableRowSelected?.id?.length>0" class="col-4">
+    <div *ngIf="tokenHelper.isAdminSite && optionloadByRoute&& tableRowSelected?.id?.length>0" class="col-4">
       <a type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
         (click)="onActionButtonActionSendSmsToCustomerOrder()" target="_blank"><i
           class="fa-light fa-message-lines font-18" style="color: #ffffff;"></i><br>
@@ -242,7 +242,7 @@
         </P>
 
         <!-- linkResponsibleUserId Field -->
-        <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite"
+        <app-cms-user-selector *ngIf="tokenHelper.isAdminSite"
           (optionChange)="filteModelContent.linkResponsibleUserId=$event?.id"
           [optionPlaceholder]="'TITLE.InResponsibleTo'  | translate">
         </app-cms-user-selector>
@@ -291,7 +291,7 @@
         <br>
         <!-- CreatedYaer Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-          *ngIf="this.filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titleCreatedYaer?.length>1">
+          *ngIf="filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titleCreatedYaer?.length>1">
           <label for="filteModelContent.createdYaer"
             class="color-highlight">{{PropertyTypeSelected.titleCreatedYaer}}</label>
           <input matInput [(ngModel)]="filteModelContent.createdYaer" name="filteModelContent.createdYaer" #CreatedYaer
@@ -300,7 +300,7 @@
         </div>
         <!-- Partition Field -->
         <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4"
-          *ngIf="this.filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titlePartition?.length>1">
+          *ngIf="filteModelContent.linkPropertyTypeLanduseId && PropertyTypeSelected?.titlePartition?.length>1">
           <label for="filteModelContent.partition"
             class="color-highlight">{{PropertyTypeSelected.titlePartition}}</label>
           <input matInput [(ngModel)]="filteModelContent.partition" name="filteModelContent.partition" #Partition

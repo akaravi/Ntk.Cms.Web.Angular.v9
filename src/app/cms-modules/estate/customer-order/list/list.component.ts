@@ -28,8 +28,9 @@ import { EstateCustomerOrderAddToEditComponent } from '../add/add-to-edit.compon
 import { EstateCustomerOrderQuickViewComponent } from '../quick-view/quick-view.component';
 import { EstateCustomerOrderResponsibleUserListComponent } from '../responsible-user-list/responsible-user-list.component';
 @Component({
-  selector: 'app-estate-customer-order-list',
-  templateUrl: './list.component.html',
+    selector: 'app-estate-customer-order-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstateCustomerOrderListComponent extends ListBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId: string;

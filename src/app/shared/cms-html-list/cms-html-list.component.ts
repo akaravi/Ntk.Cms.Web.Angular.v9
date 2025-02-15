@@ -3,8 +3,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 @Component({
-  selector: 'app-cms-html-list',
-  templateUrl: './cms-html-list.component.html',
+    selector: 'app-cms-html-list',
+    templateUrl: './cms-html-list.component.html',
+    standalone: false
 })
 export class CmsHtmlListComponent implements OnInit {
   static nextId = 0;

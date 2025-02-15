@@ -19,8 +19,9 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { CoreLogAvoidDuplicateDataEntryEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-log-avoid-duplicate-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-log-avoid-duplicate-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLogAvoidDuplicateDataEntryListComponent extends ListBaseComponent<CoreLogAvoidDuplicateDataEntryService, CoreLogAvoidDuplicateDataEntryModel, string>
   implements OnInit, OnDestroy {

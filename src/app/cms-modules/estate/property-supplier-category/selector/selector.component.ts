@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-property-supplier-category-selector',
-  templateUrl: './selector.component.html'
+    selector: 'app-estate-property-supplier-category-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class EstatePropertySupplierCategorySelectorComponent implements OnInit, OnDestroy {
 

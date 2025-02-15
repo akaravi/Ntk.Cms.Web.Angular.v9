@@ -65,7 +65,7 @@
 
       {{ this.checkingOnDayRange.controls.end.value|localeDateTime}}
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 loader-container" *ngIf="this.linkCmsUserId>0 ">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 loader-container" *ngIf="linkCmsUserId>0 ">
       {{this.linkCmsUserId | cmsuserinfo |async}}
     </div>
 

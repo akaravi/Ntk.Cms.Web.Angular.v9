@@ -9,9 +9,10 @@ import { HtmlBuilderModel } from 'src/app/core/models/htmlBuilderModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-web-designer-builder-module-ticketing',
-  templateUrl: './ticketing.component.html',
-  styleUrls: ['./ticketing.component.scss'],
+    selector: 'app-web-designer-builder-module-ticketing',
+    templateUrl: './ticketing.component.html',
+    styleUrls: ['./ticketing.component.scss'],
+    standalone: false
 })
 export class WebDesignerBuilderModuleTicketingComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

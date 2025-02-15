@@ -4,15 +4,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthUserSignInModel, CaptchaModel, CoreAuthService, FormInfoModel } from 'ntk-cms-api';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
+import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { ConnectionStatusModel } from 'src/app/core/models/connectionStatusModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 @Component({
-  selector: 'app-auth-singin',
-  templateUrl: './singin.component.html',
-
+    selector: 'app-auth-singin',
+    templateUrl: './singin.component.html',
+    standalone: false
 })
 export class AuthSingInComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;
@@ -26,6 +27,7 @@ export class AuthSingInComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
     public pageInfo: PageInfoService,
+    public tokenHelper: TokenHelper,
 
   ) {
     this.publicHelper.processService.cdr = this.cdr;

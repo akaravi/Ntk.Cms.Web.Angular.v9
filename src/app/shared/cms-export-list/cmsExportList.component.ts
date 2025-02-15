@@ -7,8 +7,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-cms-export-list',
-  templateUrl: './cmsExportList.component.html',
+    selector: 'app-cms-export-list',
+    templateUrl: './cmsExportList.component.html',
+    standalone: false
 })
 export class CmsExportListComponent implements OnInit {
   static nextId = 0;

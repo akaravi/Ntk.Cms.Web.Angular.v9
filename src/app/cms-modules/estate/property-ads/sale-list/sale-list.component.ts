@@ -15,9 +15,10 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyAdsSalePaymentComponent } from '../sale-payment/sale-payment.component';
 
 @Component({
-  selector: 'app-estate-property-ads-salelist',
-  templateUrl: './sale-list.component.html',
-  styleUrls: ['./sale-list.component.scss']
+    selector: 'app-estate-property-ads-salelist',
+    templateUrl: './sale-list.component.html',
+    styleUrls: ['./sale-list.component.scss'],
+    standalone: false
 })
 export class EstatePropertyAdsSaleListComponent implements OnInit, OnDestroy {
   requestLinkPropertyId = '';

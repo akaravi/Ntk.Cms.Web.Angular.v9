@@ -21,8 +21,9 @@ import { SmsMainApiNumberAddComponent } from '../add/add.component';
 import { SmsMainApiNumberEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-sms-api-number-list',
-  templateUrl: './list.component.html',
+    selector: 'app-sms-api-number-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainApiNumberListComponent extends ListBaseComponent<SmsMainApiNumberService, SmsMainApiNumberModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';

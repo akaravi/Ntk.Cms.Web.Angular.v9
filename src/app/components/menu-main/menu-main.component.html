@@ -1,6 +1,6 @@
 <div [ngClass]="themeStore.dataMenu==='menu-main'?'menu-active':''" class="menu menu-box-right rounded-0 "
   data-menu-width="280" data-menu-active="nav-pages">
-  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="constructor.name"> </app-progress-spinner>
 
   <div class="card rounded-0" data-card-height="150" style="background-repeat: no-repeat;background-size: contain;"
     [ngStyle]="{'background-image': this.tokenInfo?.linkMainImageIdSrc?.length>0?'url('+this.tokenInfo?.linkMainImageIdSrc+')':'url(/assets/images/pictures/17.jpg)'}">
@@ -10,7 +10,7 @@
       <a (click)="themeStore.dataMenu=''" class="close-menu float-end me-2 text-center mt-3 icon-40 notch-clear"><i
           class="fa fa-times color-white"></i></a>
     </div>
-    <div *ngIf="this.tokenInfo?.userId>0" class="card-bottom">
+    <div *ngIf="tokenInfo?.userId>0" class="card-bottom">
       <a (click)="themeStore?.dataMenu!=='menu-profile' ? themeStore.dataMenu='menu-profile':themeStore.dataMenu=''">
         <h1 class="color-white ps-3 mb-0 font-28">{{ tokenInfo.name}} {{ tokenInfo.lastName }}</h1>
         <p class="mb-2 ps-3 font-12 color-white opacity-50">{{tokenInfo.userAccessUserTypeTitle}}</p>
@@ -34,13 +34,13 @@
     </a>
 
 
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-homepages" (click)="onActionCleanDataMenu('/dashboard')"
+    <a *ngIf="tokenInfo?.userId>0" id="nav-homepages" (click)="onActionCleanDataMenu('/dashboard')"
       style="cursor: pointer;">
       <i class="fa fa-home gradient-green color-white"></i>
       <span>{{"MENU.DASHBOARD"|translate}}</span>
       
     </a>
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')"
+    <a *ngIf="tokenInfo?.userId>0" id="nav-components" (click)="onActionCleanDataMenu('/core/site/selection')"
       style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-white"></i>
       <span>{{"TITLE.Select_Site"|translate}}</span>
@@ -75,14 +75,14 @@
   <h6 class="menu-divider mt-4">{{"TITLE.Settings"|translate}}</h6>
   <div class="list-group list-custom-small list-menu">
     <div>
-      <a (click)="this.publicHelper.themeService.updateThemeFontSize('default')" style="cursor: pointer;">
+      <a (click)="publicHelper.themeService.updateThemeFontSize('default')" style="cursor: pointer;">
         <i class="fa fa-sync-alt gradient-green color-white"></i>
       </a>
-      <a (click)="this.publicHelper.themeService.updateThemeFontSize('increase')" style="cursor: pointer;">
+      <a (click)="publicHelper.themeService.updateThemeFontSize('increase')" style="cursor: pointer;">
         <i class="fa fa-font gradient-green color-white font-18"></i>
 
       </a>
-      <a (click)="this.publicHelper.themeService.updateThemeFontSize('decrease')" style="cursor: pointer;">
+      <a (click)="publicHelper.themeService.updateThemeFontSize('decrease')" style="cursor: pointer;">
         <i class="fa fa-font gradient-green color-white"></i>
       </a>
     </div>
@@ -109,14 +109,14 @@
       </div>
     </a>
 
-    <a *ngIf="this.tokenInfo?.userId>0" id="nav-components" (click)="onActionLogout()" style="cursor: pointer;">
+    <a *ngIf="tokenInfo?.userId>0" id="nav-components" (click)="onActionLogout()" style="cursor: pointer;">
       <i class="fa fa-cog gradient-blue color-red"></i>
       <span>{{"TITLE.Sign_Out"|translate}}</span>
       
     </a>
   </div>
-  <h6 class="menu-divider mt-4" *ngIf="this.env.loadDemoTheme">مخاطبین</h6>
-  <div class="list-group list-custom-small list-menu ps-2" *ngIf="this.env.loadDemoTheme">
+  <h6 class="menu-divider mt-4" *ngIf="env.loadDemoTheme">مخاطبین</h6>
+  <div class="list-group list-custom-small list-menu ps-2" *ngIf="env.loadDemoTheme">
     <a>
       <img src="assets/images/pictures/1s.jpg">
       <span>زانیار مدنی</span>

@@ -32,9 +32,10 @@ import { LinkManagementCategoryEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-linkmanagement-category-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-linkmanagement-category-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class LinkManagementCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -14,9 +14,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-property-expert-price-inquiry-list',
-  templateUrl: './inquiry-list.component.html',
-  styleUrls: ['./inquiry-list.component.scss'],
+    selector: 'app-estate-property-expert-price-inquiry-list',
+    templateUrl: './inquiry-list.component.html',
+    styleUrls: ['./inquiry-list.component.scss'],
+    standalone: false
 })
 export class EstatePropertyExpertPriceInquiryListComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

@@ -15,8 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-sms-publicconfig-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-sms-publicconfig-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class SmsMainApiPathPublicConfigSelectorComponent implements OnInit {
   static nextId = 0;

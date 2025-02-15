@@ -14,12 +14,12 @@
       <!-- RecordStatus Field -->
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true">
       </app-cms-enum-record-status-selector>
       <!-- LinkCategoryId Field -->
       <app-contact-category-selector (optionChange)="onActionSelectCategory($event)"
-        [optionSelectForce]="this.dataModel.linkCategoryId" [optionPlaceholder]="'TITLE.Category' | translate">
+        [optionSelectForce]="dataModel.linkCategoryId" [optionPlaceholder]="'TITLE.Category' | translate">
       </app-contact-category-selector>
       <!-- Title Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

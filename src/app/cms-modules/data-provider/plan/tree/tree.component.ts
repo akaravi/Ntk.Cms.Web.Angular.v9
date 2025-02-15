@@ -30,8 +30,9 @@ import { DataProviderPlanEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-data-provider-plan-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-data-provider-plan-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class DataProviderPlanTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

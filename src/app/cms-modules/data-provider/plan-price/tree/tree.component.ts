@@ -29,8 +29,9 @@ import { DataProviderPlanPriceDeleteComponent } from '../delete/delete.component
 import { DataProviderPlanPriceEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-data-provider-plan-price-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-data-provider-plan-price-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class DataProviderPlanPriceTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

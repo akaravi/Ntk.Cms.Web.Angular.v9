@@ -17,9 +17,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-ticketing-template-add',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+    selector: 'app-ticketing-template-add',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class TicketingTemplateEditComponent extends EditBaseComponent<TicketingTemplateService, TicketingTemplateModel, number>
   implements OnInit {

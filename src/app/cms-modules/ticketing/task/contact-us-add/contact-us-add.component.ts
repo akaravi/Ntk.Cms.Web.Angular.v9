@@ -17,8 +17,9 @@ import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-ticketing-task-contactus',
-  templateUrl: './contact-us-add.component.html',
+    selector: 'app-ticketing-task-contactus',
+    templateUrl: './contact-us-add.component.html',
+    standalone: false
 })
 export class TicketingTaskContactUsAddComponent extends AddBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit {
   requestLinkDepartemenId = 0;

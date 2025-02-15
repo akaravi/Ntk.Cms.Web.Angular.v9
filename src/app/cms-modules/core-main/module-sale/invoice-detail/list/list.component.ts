@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { CoreModuleSaleInvoiceDetailViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-core-modulesaleinvoicedetail-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-modulesaleinvoicedetail-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleSaleInvoiceDetailListComponent extends ListBaseComponent<CoreModuleSaleInvoiceDetailService, CoreModuleSaleInvoiceDetailModel, number>
   implements OnInit, OnDestroy {

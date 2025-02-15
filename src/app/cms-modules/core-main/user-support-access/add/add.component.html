@@ -14,16 +14,16 @@
 
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true">
       </app-cms-enum-record-status-selector>
       <!-- LinkSiteId Field -->
       <app-cms-site-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField"
-        [optionSelectForce]="this.dataModel.linkSiteId" [optionPlaceholder]="'TITLE.WEBSITE' | translate">
+        [optionSelectForce]="dataModel.linkSiteId" [optionPlaceholder]="'TITLE.WEBSITE' | translate">
       </app-cms-site-selector>
       <!-- LinkUserId Field -->
       <app-cms-user-selector [optionDisabled]="!fieldsInfo['moduleName']?.accessAddField"
-        [optionSelectForce]="this.dataModel.linkUserId" [optionPlaceholder]="'TITLE.USER' | translate">
+        [optionSelectForce]="dataModel.linkUserId" [optionPlaceholder]="'TITLE.USER' | translate">
       </app-cms-user-selector>
       <!-- module-entity Field -->
       <app-core-module-entity-selector (optionChange)="onActionSelectorModuleEntitySelect($event)"

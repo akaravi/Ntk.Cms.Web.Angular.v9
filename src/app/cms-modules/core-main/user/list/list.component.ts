@@ -22,9 +22,9 @@ import { CoreUserChangePasswordComponent } from '../changePassword/changePasswor
 import { CoreUserEmailConfirmComponent } from '../emailConfirm/emailConfirm.component';
 import { CoreUserViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-core-user-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-user-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreUserListComponent extends ListBaseComponent<CoreUserService, CoreUserModel, number>
   implements OnInit, OnDestroy {

@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreTokenUserLogModel, CoreTokenUserLogService,
+  CoreEnumService, CoreLogTokenUserModel, CoreLogTokenUserService,
   ErrorExceptionResult,
   ErrorExceptionResultBase,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
@@ -20,26 +20,27 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-domainalias-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-core-site-domainalias-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
-export class CoreTokenUserLogEditComponent extends EditBaseComponent<CoreTokenUserLogService, CoreTokenUserLogModel, string>
+export class CoreLogTokenUserEditComponent extends EditBaseComponent<CoreLogTokenUserService, CoreLogTokenUserModel, string>
   implements OnInit, OnDestroy {
   requestId = '';
   constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CoreTokenUserLogEditComponent>,
+    private dialogRef: MatDialogRef<CoreLogTokenUserEditComponent>,
     public coreEnumService: CoreEnumService,
-    public coreTokenUserLogService: CoreTokenUserLogService,
+    public coreLogTokenUserService: CoreLogTokenUserService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreTokenUserLogService, new CoreTokenUserLogModel(), publicHelper, translate);
+    super(coreLogTokenUserService, new CoreLogTokenUserModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     if (data) {
@@ -54,7 +55,7 @@ export class CoreTokenUserLogEditComponent extends EditBaseComponent<CoreTokenUs
 
 
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModel: CoreTokenUserLogModel = new CoreTokenUserLogModel();
+  dataModel: CoreLogTokenUserModel = new CoreLogTokenUserModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
 
@@ -122,9 +123,9 @@ export class CoreTokenUserLogEditComponent extends EditBaseComponent<CoreTokenUs
     });
 
     /*َAccess Field*/
-    this.coreTokenUserLogService.setAccessLoad();
-    this.coreTokenUserLogService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.coreTokenUserLogService.ServiceGetOneById(this.requestId).subscribe({
+    this.coreLogTokenUserService.setAccessLoad();
+    this.coreLogTokenUserService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+    this.coreLogTokenUserService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {
         /*َAccess Field*/
         //  this.dataAccessModel = next.access;

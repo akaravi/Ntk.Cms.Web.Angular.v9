@@ -9,8 +9,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-cms-export-entity',
-  templateUrl: './cms-export-entity.component.html'
+    selector: 'app-cms-export-entity',
+    templateUrl: './cms-export-entity.component.html',
+    standalone: false
 })
 export class CmsExportEntityComponent implements OnInit {
   static nextId = 0;

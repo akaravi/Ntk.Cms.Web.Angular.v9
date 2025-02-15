@@ -15,9 +15,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-account-agency-ads-salepayment',
-  templateUrl: './sale-payment.component.html',
-  styleUrls: ['./sale-payment.component.scss'],
+    selector: 'app-estate-account-agency-ads-salepayment',
+    templateUrl: './sale-payment.component.html',
+    styleUrls: ['./sale-payment.component.scss'],
+    standalone: false
 })
 export class EstateAccountAgencyAdsSalePaymentComponent implements OnInit {
   requestLinkAccountAgencyId = '';

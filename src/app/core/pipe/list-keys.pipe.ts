@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'listkeys' })
+@Pipe({
+    name: 'listkeys',
+    standalone: false
+})
 export class ListKeysPipe implements PipeTransform {
   transform(value, optionFields: Map<string, string>): any {
     if (!value) {

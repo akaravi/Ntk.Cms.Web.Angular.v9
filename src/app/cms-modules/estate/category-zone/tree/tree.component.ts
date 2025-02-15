@@ -28,9 +28,10 @@ import { environment } from 'src/environments/environment';
 import { EstateCategoryZoneAddComponent } from '../add/add.component';
 import { EstateCategoryZoneEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-category-zone-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-estate-category-zone-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class EstateCategoryZoneTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-apitelegram',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-apitelegram',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class ApiTelegramComponent implements OnInit {
 

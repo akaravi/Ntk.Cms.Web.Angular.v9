@@ -1,10 +1,10 @@
-<app-estate-property-header *ngIf="this.requestLinkPropertyId?.length>0" [optionId]="this.requestLinkPropertyId">
+<app-estate-property-header *ngIf="requestLinkPropertyId?.length>0" [optionId]="requestLinkPropertyId">
 </app-estate-property-header>
-<app-estate-customer-order-header *ngIf="this.requestLinkCustomerOrderId?.length>0"
-  [optionId]="this.requestLinkCustomerOrderId">
+<app-estate-customer-order-header *ngIf="requestLinkCustomerOrderId?.length>0"
+  [optionId]="requestLinkCustomerOrderId">
 </app-estate-customer-order-header>
-<app-estate-account-expert-header *ngIf="this.requestLinkEstateExpertId?.length>0"
-  [optionId]="this.requestLinkEstateExpertId">
+<app-estate-account-expert-header *ngIf="requestLinkEstateExpertId?.length>0"
+  [optionId]="requestLinkEstateExpertId">
 </app-estate-account-expert-header>
 <app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId"
   [optionGuideNoticeKey]="'estate.propertyhistory.list'" [(optionActionGuideNoticeDisplay)]="viewGuideNotice"

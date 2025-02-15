@@ -21,9 +21,10 @@ import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-account-expert-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-estate-account-expert-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class EstateAccountExpertAddComponent extends AddBaseComponent<EstateAccountExpertService, EstateAccountExpertModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

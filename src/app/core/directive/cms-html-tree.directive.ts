@@ -1,7 +1,8 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[cmsHtmlTreeHeader]'
+    selector: '[cmsHtmlTreeHeader]',
+    standalone: false
 })
 export class CmsHtmlTreeHeaderDirective {
   constructor(
@@ -12,7 +13,8 @@ export class CmsHtmlTreeHeaderDirective {
   }
 }
 @Directive({
-  selector: '[cmsHtmlTreeAction]'
+    selector: '[cmsHtmlTreeAction]',
+    standalone: false
 })
 export class CmsHtmlTreeActionDirective {
   constructor(
@@ -23,7 +25,8 @@ export class CmsHtmlTreeActionDirective {
   }
 }
 @Directive({
-  selector: '[cmsHtmlTreeBody]'
+    selector: '[cmsHtmlTreeBody]',
+    standalone: false
 })
 export class CmsHtmlTreeBodyDirective {
   constructor(
@@ -34,7 +37,8 @@ export class CmsHtmlTreeBodyDirective {
   }
 }
 @Directive({
-  selector: '[cmsHtmlTreeFooter]'
+    selector: '[cmsHtmlTreeFooter]',
+    standalone: false
 })
 export class CmsHtmlTreeFooterDirective {
   constructor(

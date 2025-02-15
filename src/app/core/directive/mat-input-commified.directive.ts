@@ -4,15 +4,16 @@ import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
 // import {numberWithCommas} from './helpers';
 
 @Directive({
-  selector: 'input[matInputCommified]',
-  providers: [
-    { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: MatInputCommifiedDirective },
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => MatInputCommifiedDirective),
-      multi: true,
-    }
-  ]
+    selector: 'input[matInputCommified]',
+    providers: [
+        { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: MatInputCommifiedDirective },
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => MatInputCommifiedDirective),
+            multi: true,
+        }
+    ],
+    standalone: false
 })
 export class MatInputCommifiedDirective {
   // tslint:disable-next-line:variable-name

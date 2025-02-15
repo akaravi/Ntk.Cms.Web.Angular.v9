@@ -20,9 +20,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsViewComponent } from 'src/app/shared/cms-view/cms-view.component';
 
 @Component({
-  selector: 'app-core-module-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-core-module-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class ApiTelegramBotConfigEditComponent extends EditBaseComponent<ApiTelegramBotConfigService, ApiTelegramBotConfigModel, number>
   implements OnInit {

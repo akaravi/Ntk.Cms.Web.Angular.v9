@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreSiteModel, CoreTokenNotificationLogModel, CoreTokenNotificationLogService, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
+  CoreSiteModel, CoreLogTokenConnectionModel, CoreLogTokenConnectionService, ErrorExceptionResult, FilterDataModel, FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
 import { Subscription } from 'rxjs';
 import { ListBaseComponent } from 'src/app/core/cmsComponent/listBaseComponent';
@@ -16,21 +16,21 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { environment } from 'src/environments/environment';
-import { CoreTokenNotificationLogEditComponent } from '../edit/edit.component';
-import { CoreTokenNotificationLogViewComponent } from '../view/view.component';
+import { CoreLogTokenConnectionEditComponent } from '../edit/edit.component';
+import { CoreLogTokenConnectionViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-coretoken-notificationlog-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coretoken-notificationlog-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
-export class CoreTokenNotificationLogListComponent extends ListBaseComponent<CoreTokenNotificationLogService, CoreTokenNotificationLogModel, string>
+export class CoreLogTokenConnectionListComponent extends ListBaseComponent<CoreLogTokenConnectionService, CoreLogTokenConnectionModel, string>
   implements OnInit, OnDestroy {
   requestLinkSiteId = 0;
   requestLinkUserId = 0;
   requestLinkDeviceId = 0;
   constructorInfoAreaId = this.constructor.name;
   constructor(
-    public contentService: CoreTokenNotificationLogService,
+    public contentService: CoreLogTokenConnectionService,
     private cmsToastrService: CmsToastrService,
     private cmsConfirmationDialogService: CmsConfirmationDialogService,
     private activatedRoute: ActivatedRoute,
@@ -42,7 +42,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
     public publicHelper: PublicHelper,
     public dialog: MatDialog,
   ) {
-    super(contentService, new CoreTokenNotificationLogModel(), publicHelper, tokenHelper, translate);
+    super(contentService, new CoreLogTokenConnectionModel(), publicHelper, tokenHelper, translate);
     this.publicHelper.processService.cdr = this.cdr;
     this.requestLinkSiteId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkSiteId'));
     this.requestLinkUserId = + Number(this.activatedRoute.snapshot.paramMap.get('LinkUserId'));
@@ -147,7 +147,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
   DataGetAll(): void {
     this.tabledisplayedColumns = this.publicHelper.TableDisplayedColumns(this.tabledisplayedColumnsSource, this.tabledisplayedColumnsMobileSource, [], this.tokenInfo);
     this.tableRowsSelected = [];
-    this.onActionTableRowSelect(new CoreTokenNotificationLogModel());
+    this.onActionTableRowSelect(new CoreLogTokenConnectionModel());
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     this.filteModelContent.accessLoad = true;
@@ -213,7 +213,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
   }
 
 
-  onActionButtonViewRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewRow(model: CoreLogTokenConnectionModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -233,7 +233,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CoreTokenNotificationLogViewComponent, {
+    const dialogRef = this.dialog.open(CoreLogTokenConnectionViewComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -247,7 +247,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
     });
   }
 
-  onActionButtonEditRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonEditRow(model: CoreLogTokenConnectionModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -267,7 +267,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
       panelClass = 'dialog-fullscreen';
     else
       panelClass = 'dialog-min';
-    const dialogRef = this.dialog.open(CoreTokenNotificationLogEditComponent, {
+    const dialogRef = this.dialog.open(CoreLogTokenConnectionEditComponent, {
       height: '90%',
       panelClass: panelClass,
       enterAnimationDuration: environment.cmsViewConfig.enterAnimationDuration,
@@ -280,7 +280,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
       }
     });
   }
-  onActionButtonDeleteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonDeleteRow(model: CoreLogTokenConnectionModel = this.tableRowSelected): void {
     if (!model || !model.id || model.id.length === 0) {
       this.translate.get('MESSAGE.no_row_selected_to_delete').subscribe((str: string) => { this.cmsToastrService.typeErrorSelected(str); });
       return;
@@ -392,7 +392,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
 
   }
 
-  onActionButtonViewUserRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewUserRow(model: CoreLogTokenConnectionModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();
@@ -407,7 +407,7 @@ export class CoreTokenNotificationLogListComponent extends ListBaseComponent<Cor
   }
 
 
-  onActionButtonViewSiteRow(model: CoreTokenNotificationLogModel = this.tableRowSelected): void {
+  onActionButtonViewSiteRow(model: CoreLogTokenConnectionModel = this.tableRowSelected): void {
 
     if (!model || !model.id || model.id.length === 0) {
       this.cmsToastrService.typeErrorSelectedRow();

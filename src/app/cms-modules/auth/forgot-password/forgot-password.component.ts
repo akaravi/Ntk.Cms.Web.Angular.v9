@@ -16,9 +16,10 @@ enum ErrorStates {
   NoError,
 }
 @Component({
-  selector: 'app-auth-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss'],
+    selector: 'app-auth-forgot-password',
+    templateUrl: './forgot-password.component.html',
+    styleUrls: ['./forgot-password.component.scss'],
+    standalone: false
 })
 export class AuthForgotPasswordComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

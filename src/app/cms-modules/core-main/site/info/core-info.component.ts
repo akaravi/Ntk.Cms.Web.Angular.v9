@@ -11,8 +11,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 
 @Component({
-  selector: 'app-core-info',
-  templateUrl: './core-info.component.html'
+    selector: 'app-core-info',
+    templateUrl: './core-info.component.html',
+    standalone: false
 })
 export class CoreInfoComponent implements OnInit, OnDestroy {
 

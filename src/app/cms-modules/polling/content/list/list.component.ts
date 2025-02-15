@@ -21,9 +21,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { PollingContentDeleteComponent } from '../delete/delete.component';
 
 @Component({
-  selector: 'app-polling-content-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-polling-content-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class PollingContentListComponent extends ListBaseComponent<PollingContentService, PollingContentModel, number> implements OnInit, OnDestroy {
 

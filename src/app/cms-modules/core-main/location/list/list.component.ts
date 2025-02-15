@@ -22,8 +22,9 @@ import { CoreLocationAddBulkComponent } from '../add-bulk/add-bulk.component';
 import { CoreLocationAddComponent } from '../add/add.component';
 import { CoreLocationEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-location-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-location-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLocationListComponent extends ListBaseComponent<CoreLocationService, CoreLocationModel, number>
   implements OnInit, OnDestroy {

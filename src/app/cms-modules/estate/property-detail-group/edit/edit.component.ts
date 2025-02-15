@@ -17,9 +17,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-property-detail-group-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-estate-property-detail-group-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class EstatePropertyDetailGroupEditComponent extends EditBaseComponent<EstatePropertyDetailGroupService, EstatePropertyDetailGroupModel, string>
   implements OnInit {

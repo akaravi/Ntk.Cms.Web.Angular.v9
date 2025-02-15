@@ -24,9 +24,10 @@ import { EstatePropertyListComponent } from '../../property/list/list.component'
 import { EstatePropertyQuickViewComponent } from '../../property/quick-view/quick-view.component';
 
 @Component({
-  selector: 'app-estate-customer-order-edit-mobile',
-  templateUrl: './edit.mobile.component.html',
-  styleUrls: ['./edit.mobile.component.scss'],
+    selector: 'app-estate-customer-order-edit-mobile',
+    templateUrl: './edit.mobile.component.html',
+    styleUrls: ['./edit.mobile.component.scss'],
+    standalone: false
 })
 export class EstateCustomerOrderEditMobileComponent extends EditBaseComponent<EstateCustomerOrderService, EstateCustomerOrderModel, string>
   implements OnInit {

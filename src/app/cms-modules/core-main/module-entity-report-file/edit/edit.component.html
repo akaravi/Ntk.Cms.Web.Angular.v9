@@ -11,7 +11,7 @@
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true">
       </app-cms-enum-record-status-selector>
       <!-- Title Field -->
@@ -52,7 +52,7 @@
       <!-- ReportFileType Field -->
       <app-cms-enum-x-selector *ngIf="fieldsInfo['reportFileType']?.accessWatchField"
         [optionDataListResult]="dataModelReportFileTypeEnumResult" [(model)]="dataModel.reportFileType"
-        [optionDisabled]="false" [optionLabel]="this.fieldsInfo['reportFileType']?.fieldTitle" [optionRequired]="true"
+        [optionDisabled]="false" [optionLabel]="fieldsInfo['reportFileType']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true">
       </app-cms-enum-x-selector>
       <!-- Description Field -->

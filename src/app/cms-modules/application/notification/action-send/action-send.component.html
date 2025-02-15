@@ -14,7 +14,7 @@
 
       <!-- AppId Field -->
       <app-application-app-selector (optionChange)="onActionSelectApp($event)" *ngIf="LinkMemberId.length===0"
-        [optionSelectForce]="this.dataModel.appId"
+        [optionSelectForce]="dataModel.appId"
         [optionPlaceholder]="'TITLE.Application' | translate"></app-application-app-selector>
       <!-- AppId Field -->
       <app-application-memberinfo-selector (optionChange)="onActionSelectMemberInfo($event)"

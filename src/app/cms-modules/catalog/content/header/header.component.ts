@@ -16,9 +16,10 @@ import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.compo
 
 
 @Component({
-  selector: 'app-catalog-content-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-catalog-content-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class CatalogContentHeaderComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

@@ -20,8 +20,9 @@ import { PublicHelper } from '../../../../core/helpers/publicHelper';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { EstatePropertyProjectDeleteComponent } from '../delete/delete.component';
 @Component({
-  selector: 'app-estate-property-project-list',
-  templateUrl: './list.component.html',
+    selector: 'app-estate-property-project-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstatePropertyProjectListComponent extends ListBaseComponent<EstatePropertyProjectService, EstatePropertyProjectModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-contact-category-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-contact-category-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class ContactCategoryAddComponent extends AddBaseComponent<ContactCategoryService, ContactCategoryModel, string> implements OnInit {
   requestParentId = '';

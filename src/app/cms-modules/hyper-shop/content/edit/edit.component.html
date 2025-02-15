@@ -13,7 +13,7 @@
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
       <!-- LinkCategoryId Field -->
       <app-hypershop-category-selector (optionChange)="onActionSelectorSelect($event)"
-        [optionSelectForce]="this.dataModel.categoryCode" [optionPlaceholder]="'TITLE.Category' | translate">
+        [optionSelectForce]="dataModel.categoryCode" [optionPlaceholder]="'TITLE.Category' | translate">
       </app-hypershop-category-selector>
       <!-- Name Field -->
       <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">

@@ -9,9 +9,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-show-key',
-  templateUrl: './cms-show-key.component.html',
-  styleUrls: ['./cms-show-key.component.scss']
+    selector: 'app-cms-show-key',
+    templateUrl: './cms-show-key.component.html',
+    styleUrls: ['./cms-show-key.component.scss'],
+    standalone: false
 })
 export class CmsShowKeyComponent implements OnInit {
   static nextId = 0;

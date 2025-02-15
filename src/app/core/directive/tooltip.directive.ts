@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[cmsTooltip]'
+    selector: '[cmsTooltip]',
+    standalone: false
 })
 export class TooltipDirective {
   @Input('cmsTooltip')

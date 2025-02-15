@@ -18,9 +18,10 @@ import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-ticketing-answer-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+    selector: 'app-ticketing-answer-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class TicketingAnswerAddComponent extends AddBaseComponent<TicketingAnswerService, TicketingAnswerModel, number> implements OnInit {
   requestLinkTaskId = 0;

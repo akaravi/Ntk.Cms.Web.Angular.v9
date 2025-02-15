@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { TicketingFaqAddComponent } from '../add/add.component';
 import { TicketingFaqEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-application-app-list',
-  templateUrl: './list.component.html'
+    selector: 'app-application-app-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class TicketingFaqListComponent extends ListBaseComponent<TicketingFaqService, TicketingFaqModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;

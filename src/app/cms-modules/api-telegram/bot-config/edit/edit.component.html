@@ -10,7 +10,7 @@
     <!--content-->
     <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
       <app-cms-enum-record-status-selector [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true">
       </app-cms-enum-record-status-selector>
       <!-- Title Field -->
@@ -77,7 +77,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.statusWebhook"
-              [(ngModel)]="this.dataModel.statusWebhook" name="dataModel.statusWebhook">
+              [(ngModel)]="dataModel.statusWebhook" name="dataModel.statusWebhook">
             <label class="custom-control-label" for="dataModel.statusWebhook"></label>
           </div>
         </div>

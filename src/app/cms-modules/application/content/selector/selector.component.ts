@@ -11,8 +11,9 @@ import { Observable, firstValueFrom } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 @Component({
-  selector: 'app-application-app-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-application-app-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class ApplicationAppSelectorComponent implements OnInit {
   static nextId = 0;

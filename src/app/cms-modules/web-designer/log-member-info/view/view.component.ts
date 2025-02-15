@@ -17,8 +17,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-webdesigner-logmemberinfo-view',
-  templateUrl: './view.component.html',
+    selector: 'app-webdesigner-logmemberinfo-view',
+    templateUrl: './view.component.html',
+    standalone: false
 })
 export class WebDesignerLogMemberInfoViewComponent implements OnInit, OnDestroy {
   requestId = '';

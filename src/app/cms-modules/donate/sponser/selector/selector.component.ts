@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-donate-sponser-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-donate-sponser-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class DonateSponserSelectorComponent implements OnInit {
   static nextId = 0;

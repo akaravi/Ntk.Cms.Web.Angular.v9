@@ -21,8 +21,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DataProviderLogSourceViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-data-provider-log-source-list',
-  templateUrl: './list.component.html',
+    selector: 'app-data-provider-log-source-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DataProviderLogSourceListComponent extends ListBaseComponent<DataProviderLogSourceService, DataProviderLogSourceModel, string>
   implements OnInit, OnDestroy {

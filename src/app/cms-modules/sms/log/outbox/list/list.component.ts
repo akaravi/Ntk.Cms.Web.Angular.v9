@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { SmsLogOutBoxEditComponent } from '../edit/edit.component';
 import { SmsLogOutBoxViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-sms-log-outbox-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-log-outbox-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsLogOutBoxListComponent extends ListBaseComponent<SmsLogOutBoxService, SmsLogOutBoxModel, string> implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

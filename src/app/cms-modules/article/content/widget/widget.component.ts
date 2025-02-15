@@ -8,9 +8,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { WidgetContentInfoModel, WidgetInfoModel } from 'src/app/core/models/widget-info-model';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-article-content-widget',
-  templateUrl: './widget.component.html',
-
+    selector: 'app-article-content-widget',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 export class ArticleContentWidgetComponent implements OnInit, OnDestroy {
 

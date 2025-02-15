@@ -15,9 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-sms-apipath-selector',
-  templateUrl: './cms-sms-apipath-selector.component.html',
-
+    selector: 'app-cms-sms-apipath-selector',
+    templateUrl: './cms-sms-apipath-selector.component.html',
+    standalone: false
 })
 export class CmsSmsMainApiPathSelectorComponent implements OnInit {
   static nextId = 0;

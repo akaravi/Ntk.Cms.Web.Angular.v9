@@ -20,8 +20,9 @@ import { CmsLinkToComponent } from "src/app/shared/cms-link-to/cms-link-to.compo
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-estate-billboard-list',
-  templateUrl: './list.component.html',
+    selector: 'app-estate-billboard-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstateBillboardListComponent extends ListBaseComponent<EstateBillboardService, EstateBillboardModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -15,12 +15,12 @@
             <!-- RecordStatus Field -->
             <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
                 [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-                [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+                [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
                 [optionSelectFirstItem]="true">
             </app-cms-enum-record-status-selector>
             <!-- LinkModuleSaleHeaderGroupId Field -->
             <app-core-modulesaleheadergroup-selector (optionChange)="onActionSelectHeaderGroup($event)"
-                [optionSelectForce]="this.dataModel.linkModuleSaleHeaderGroupId"
+                [optionSelectForce]="dataModel.linkModuleSaleHeaderGroupId"
                 [optionPlaceholder]="'TITLE.Category' | translate"
                 [optionDisabled]="!fieldsInfo['linkModuleSaleHeaderGroupId']?.accessEditField">
             </app-core-modulesaleheadergroup-selector>

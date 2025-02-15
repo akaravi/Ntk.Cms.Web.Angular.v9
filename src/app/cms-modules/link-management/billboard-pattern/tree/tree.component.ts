@@ -32,8 +32,9 @@ import { LinkManagementBillboardPatternEditComponent } from '../edit/edit.compon
 
 
 @Component({
-  selector: 'app-linkmanagement-billboard-pattern-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-linkmanagement-billboard-pattern-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class LinkManagementBillboardPatternTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

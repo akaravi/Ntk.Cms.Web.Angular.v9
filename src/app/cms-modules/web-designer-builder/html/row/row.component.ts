@@ -7,9 +7,10 @@ import { HtmlBuilderModel } from 'src/app/core/models/htmlBuilderModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-web-designer-builder-html-row',
-  templateUrl: './row.component.html',
-  styleUrls: ['./row.component.scss'],
+    selector: 'app-web-designer-builder-html-row',
+    templateUrl: './row.component.html',
+    styleUrls: ['./row.component.scss'],
+    standalone: false
 })
 export class WebDesignerBuilderHtmlRowComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

@@ -13,9 +13,10 @@ import { InlineSVGDirective } from './inline-svg.directive';
 //import { InlineSVGService } from './inline-svg.service';
 
 @Component({
-  selector: 'inline-svg',
-  template: '',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'inline-svg',
+    template: '',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class InlineSVGComponent implements AfterViewInit, OnChanges {
   @Input() context: InlineSVGDirective;

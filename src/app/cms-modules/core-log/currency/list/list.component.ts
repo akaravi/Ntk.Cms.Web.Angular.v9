@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreLogCurrencyViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-core-log-currency-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-log-currency-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLogCurrencyListComponent extends ListBaseComponent<CoreLogCurrencyService, CoreLogCurrencyModel, string>
   implements OnInit, OnDestroy {

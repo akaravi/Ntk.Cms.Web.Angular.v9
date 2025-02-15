@@ -24,9 +24,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CoreUserChangePasswordComponent } from '../changePassword/changePassword.component';
 
 @Component({
-  selector: 'app-core-user-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-core-user-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreUserEditComponent extends EditBaseComponent<CoreUserService, CoreUserModel, number>
   implements OnInit, OnDestroy {

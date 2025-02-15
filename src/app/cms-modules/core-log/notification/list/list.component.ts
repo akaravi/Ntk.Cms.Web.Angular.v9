@@ -21,9 +21,9 @@ import { CoreLogNotificationEditComponent } from '../edit/edit.component';
 import { CoreLogNotificationViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-core-log-notification-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-log-notification-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLogNotificationListComponent extends ListBaseComponent<CoreLogNotificationService, CoreLogNotificationModel, string>
   implements OnInit, OnDestroy {

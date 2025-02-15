@@ -19,9 +19,10 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyWorkAreaAddComponent } from '../add/add.component';
 @Component({
-  selector: 'app-estate-account-agency-work-area-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-estate-account-agency-work-area-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class EstateAccountAgencyWorkAreaListComponent extends ListBaseComponent<EstateAccountAgencyWorkAreaService, EstateAccountAgencyWorkAreaModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -19,10 +19,11 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-estate-property-project-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'
-  ]
+    selector: 'app-estate-property-project-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'
+    ],
+    standalone: false
 })
 export class EstatePropertyProjectAddComponent extends AddBaseComponent<EstatePropertyProjectService, EstatePropertyProjectModel, string> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

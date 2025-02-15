@@ -20,8 +20,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-bankpayment-config-site',
-  templateUrl: './config-site.component.html',
+    selector: 'app-bankpayment-config-site',
+    templateUrl: './config-site.component.html',
+    standalone: false
 })
 export class BankPaymentConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

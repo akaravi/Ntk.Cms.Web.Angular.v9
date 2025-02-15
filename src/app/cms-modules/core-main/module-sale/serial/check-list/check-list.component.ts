@@ -16,8 +16,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-modulesaleserial-check-list',
-  templateUrl: './check-list.component.html',
+    selector: 'app-core-modulesaleserial-check-list',
+    templateUrl: './check-list.component.html',
+    standalone: false
 })
 export class CoreModuleSaleSerialCheckListComponent implements OnInit, OnDestroy {
   requestSerial = '';

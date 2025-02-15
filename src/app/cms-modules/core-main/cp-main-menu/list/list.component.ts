@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { CoreCpMainMenuAddComponent } from '../add/add.component';
 import { CoreCpMainMenuEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-user-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-user-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreCpMainMenuListComponent extends ListBaseComponent<CoreCpMainMenuService, CoreCpMainMenuModel, number>
   implements OnInit, OnDestroy {

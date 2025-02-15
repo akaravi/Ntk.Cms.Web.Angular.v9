@@ -15,7 +15,7 @@
           <!-- RecordStatus Field -->
           <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
           <!-- Lang Field -->
           <div *ngIf="fieldsInfo['lang']?.accessWatchField"
@@ -36,13 +36,13 @@
           </div>
           <!-- LinkSourceId Field -->
           <app-application-source-selector (optionChange)="onActionSelectSource($event)"
-            [optionSelectForce]="this.dataModel.linkSourceId"
+            [optionSelectForce]="dataModel.linkSourceId"
             [optionPlaceholder]="'TITLE.Application_Source' | translate"
             [optionDisabled]="!fieldsInfo['linkSourceId']?.accessEditField"></app-application-source-selector>
           <!-- LinkThemeConfigId Field -->
           <app-application-themeconfig-selector (optionChange)="onActionSelectTheme($event)"
-            [optionSelectForce]="this.dataModel.linkThemeConfigId"
-            [optionSelectParentForce]="this.dataModel.linkSourceId"
+            [optionSelectForce]="dataModel.linkThemeConfigId"
+            [optionSelectParentForce]="dataModel.linkSourceId"
             [optionPlaceholder]="'TITLE.Application_Template' | translate "
             [optionDisabled]="!fieldsInfo['linkThemeConfigId']?.accessEditField">
           </app-application-themeconfig-selector>

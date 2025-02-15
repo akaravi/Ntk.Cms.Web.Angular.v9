@@ -29,8 +29,9 @@ import { CoreModuleEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-core-module-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-core-module-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class CoreModuleTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -28,8 +28,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-blog-category-treeselector',
-  templateUrl: './tree-selector.component.html',
+    selector: 'app-blog-category-treeselector',
+    templateUrl: './tree-selector.component.html',
+    standalone: false
 })
 export class BlogCategoryTreeSelectorComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

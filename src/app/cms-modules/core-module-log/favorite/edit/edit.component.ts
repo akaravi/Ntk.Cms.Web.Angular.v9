@@ -19,9 +19,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coremodulelog-favorite-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-coremodulelog-favorite-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreModuleLogFavoriteEditComponent extends EditBaseComponent<CoreModuleLogFavoriteService, CoreModuleLogFavoriteModel, string>
   implements OnInit, OnDestroy {

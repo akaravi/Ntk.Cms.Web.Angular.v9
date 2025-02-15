@@ -15,8 +15,9 @@ class chipModel {
   value: string;
 }
 @Component({
-  selector: 'app-estate-property-type-landuse-autocomplete',
-  templateUrl: './autocomplete.component.html'
+    selector: 'app-estate-property-type-landuse-autocomplete',
+    templateUrl: './autocomplete.component.html',
+    standalone: false
 })
 export class EstatePropertyTypeLanduseCompleteComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

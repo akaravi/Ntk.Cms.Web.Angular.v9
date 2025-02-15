@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'cmstitle' })
+@Pipe({
+    name: 'cmstitle',
+    standalone: false
+})
 export class CmsTitlePipe implements PipeTransform {
   transform(value, args: any[], argTitle: string = 'title', argTitleML: string = 'titleML'): any {
     if (!value || !args || args.length === 0) {

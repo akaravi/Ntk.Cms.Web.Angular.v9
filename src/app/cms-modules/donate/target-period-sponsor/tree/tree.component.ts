@@ -29,8 +29,9 @@ import { DonateTargetPeriodSponserDeleteComponent } from '../delete/delete.compo
 import { DonateTargetPeriodSponserEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-donate-target-period-sponser-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-donate-target-period-sponser-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class DonateTargetPeriodSponserTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

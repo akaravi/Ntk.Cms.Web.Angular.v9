@@ -23,8 +23,9 @@ import { DonateTargetDeleteComponent } from '../delete/delete.component';
 import { DonateTargetEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-donate-target-list',
-  templateUrl: './list.component.html',
+    selector: 'app-donate-target-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DonateTargetListComponent extends ListBaseComponent<DonateTargetService, DonateTargetModel, number> implements OnInit, OnDestroy {
 

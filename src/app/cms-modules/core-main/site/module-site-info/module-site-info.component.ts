@@ -17,9 +17,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-site-module-site-info',
-  templateUrl: './module-site-info.component.html',
-  styleUrls: ['./module-site-info.component.scss'],
+    selector: 'app-core-site-module-site-info',
+    templateUrl: './module-site-info.component.html',
+    styleUrls: ['./module-site-info.component.scss'],
+    standalone: false
 })
 export class CoreSiteModuleSiteInfoComponent implements OnInit {
   requestLinkSiteId = 0;

@@ -28,9 +28,10 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyTypeLanduseAddComponent } from '../add/add.component';
 import { EstatePropertyTypeLanduseEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-property-type-landuse-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-estate-property-type-landuse-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class EstatePropertyTypeLanduseTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

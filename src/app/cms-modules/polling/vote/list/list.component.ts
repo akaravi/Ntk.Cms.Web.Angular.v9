@@ -20,15 +20,16 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { PollingVoteEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-polling-vote-list',
-  templateUrl: './list.component.html',
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+    selector: 'app-polling-vote-list',
+    templateUrl: './list.component.html',
+    animations: [
+        trigger('detailExpand', [
+            state('collapsed', style({ height: '0px', minHeight: '0' })),
+            state('expanded', style({ height: '*' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+    standalone: false
 })
 export class PollingVoteListComponent extends ListBaseComponent<PollingVoteService, PollingVoteModel, string> implements OnInit, OnDestroy {
   requestContentId = 0;

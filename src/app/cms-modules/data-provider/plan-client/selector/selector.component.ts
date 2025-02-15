@@ -13,8 +13,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-data-provider-plan-client-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-data-provider-plan-client-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class DataProviderPlanClientSelectorComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

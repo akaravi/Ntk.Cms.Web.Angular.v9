@@ -21,9 +21,9 @@ import { CoreModuleLogShowKeyEditComponent } from '../edit/edit.component';
 import { CoreModuleLogShowKeyViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodule-data-memo-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodule-data-memo-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleLogShowKeyListComponent extends ListBaseComponent<CoreModuleLogShowKeyService, CoreModuleLogShowKeyModel, string>
   implements OnInit, OnDestroy {

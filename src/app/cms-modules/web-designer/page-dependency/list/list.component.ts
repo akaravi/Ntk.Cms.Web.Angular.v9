@@ -24,8 +24,9 @@ import { WebDesignerMainPageDependencyAddComponent } from '../add/add.component'
 import { WebDesignerMainPageDependencyAutoAddPageComponent } from '../auto-add-page/auto-add-page.component';
 import { WebDesignerMainPageDependencyEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-webdesigner-pagedependency-list',
-  templateUrl: './list.component.html',
+    selector: 'app-webdesigner-pagedependency-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class WebDesignerMainPageDependencyListComponent extends ListBaseComponent<WebDesignerMainPageDependencyService, WebDesignerMainPageDependencyModel, string> implements OnInit, OnDestroy {
   requestLinkModuleId = 0;

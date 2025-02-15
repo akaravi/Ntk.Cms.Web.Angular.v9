@@ -16,8 +16,9 @@ class chipModel {
 }
 
 @Component({
-  selector: 'app-cms-tag-autocomplete',
-  templateUrl: './cms-tag-autocomplete.component.html',
+    selector: 'app-cms-tag-autocomplete',
+    templateUrl: './cms-tag-autocomplete.component.html',
+    standalone: false
 })
 export class CmsTagAutocompleteComponent implements OnInit {
   static nextId = 0;

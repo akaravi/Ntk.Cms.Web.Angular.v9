@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-customer-order-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-estate-customer-order-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class EstateCustomerOrderSelectorComponent implements OnInit {
   static nextId = 0;

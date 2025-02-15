@@ -29,8 +29,9 @@ import { CoreGuideEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-core-guide-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-core-guide-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class CoreGuideTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

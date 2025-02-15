@@ -17,9 +17,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-donate-target-period-charge-payment',
-  templateUrl: './charge-payment.component.html',
-  styleUrls: ['./charge-payment.component.scss'],
+    selector: 'app-donate-target-period-charge-payment',
+    templateUrl: './charge-payment.component.html',
+    styleUrls: ['./charge-payment.component.scss'],
+    standalone: false
 })
 export class DonateTargetPeriodChargePaymentComponent implements OnInit {
   requestsupportPayment = 0;

@@ -21,8 +21,9 @@ import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
 import { DonateTransactionViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-donate-transaction-list',
-  templateUrl: './list.component.html',
+    selector: 'app-donate-transaction-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DonateTransactionListComponent extends ListBaseComponent<DonateTransactionService, DonateTransactionModel, number> implements OnInit, OnDestroy {
   LinkCmsUserId = 0;

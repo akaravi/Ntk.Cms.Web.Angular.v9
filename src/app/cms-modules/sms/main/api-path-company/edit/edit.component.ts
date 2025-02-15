@@ -17,9 +17,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { NodeInterface, TreeModel } from 'ntk-cms-filemanager';
 @Component({
-  selector: 'app-sms-apipathcompany-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-sms-apipathcompany-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class SmsMainApiPathCompanyEditComponent extends EditBaseComponent<SmsMainApiPathCompanyService, SmsMainApiPathCompanyModel, string>
   implements OnInit {

@@ -22,17 +22,17 @@
   </ng-container>
   <ng-container cms-action-header-start>
     <!--begin:::::::::::::::::::::::::::::::::::::::::cms-action-header-start-->
-    <a *ngIf="this.requestLinkUserGroupId>0" type="button"
+    <a *ngIf="requestLinkUserGroupId>0" type="button"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
       (click)="onActionBackToParentUserGroupList()" target="_blank">
       <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
     </a>
-    <a *ngIf="this.requestLinkUserId>0" type="button"
+    <a *ngIf="requestLinkUserId>0" type="button"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
       (click)="onActionBackToParentUserList()" target="_blank">
       <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
     </a>
-    <a *ngIf="this.requestLinkSiteId>0" type="button"
+    <a *ngIf="requestLinkSiteId>0" type="button"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
       (click)="onActionBackToParentSiteList()" target="_blank">
       <i class="fa-solid fa-arrow-left font-18" style="color: #ffffff;"></i>
@@ -135,7 +135,7 @@
       </a>
       <p class="font-11 text-center opacity-70">{{'ACTION.CHANGE_PASSWORD' | translate}}</p>
     </div>
-    <div *ngIf="this.tokenHelper.isAdminSite" class="col-4">
+    <div *ngIf="tokenHelper.isAdminSite" class="col-4">
       <a mat-menu-item (click)="onActionButtonUserSupportList(tableRowSelected,$event)"
         class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight" target="_blank"><i
           class="fa-solid fa-universal-access font-18" style="color: #ffffff;"></i>

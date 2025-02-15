@@ -21,9 +21,9 @@ import { CoreModuleDataPinEditComponent } from '../edit/edit.component';
 import { CoreModuleDataPinViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodule-data-pin-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodule-data-pin-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleDataPinListComponent extends ListBaseComponent<CoreModuleDataPinService, CoreModuleDataPinModel, string>
   implements OnInit, OnDestroy {

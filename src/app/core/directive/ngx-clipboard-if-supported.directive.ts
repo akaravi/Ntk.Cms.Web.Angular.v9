@@ -4,7 +4,8 @@ import { ClipboardService } from '../services/ngx-clipboard.service';
 
 
 @Directive({
-    selector: '[ngxClipboardIfSupported]'
+    selector: '[ngxClipboardIfSupported]',
+    standalone: false
 })
 export class ClipboardIfSupportedDirective implements OnInit {
     constructor(

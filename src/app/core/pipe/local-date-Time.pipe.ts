@@ -10,7 +10,8 @@ import { PersianCalendarService } from './persian-date/persian-date.service';
 */
 // tslint:disable-next-line: use-pipe-transform-interface
 @Pipe({
-  name: 'localeDateTime'
+    name: 'localeDateTime',
+    standalone: false
 })
 @Injectable()
 export class LocaleDateTime {

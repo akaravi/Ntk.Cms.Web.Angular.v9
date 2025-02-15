@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-data-provider-plan-price-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-data-provider-plan-price-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class DataProviderPlanPriceAddComponent extends AddBaseComponent<DataProviderPlanPriceService, DataProviderPlanPriceModel, number> implements OnInit {
   requestLinkPlanId = 0;

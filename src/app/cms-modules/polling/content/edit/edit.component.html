@@ -19,7 +19,7 @@
           <!-- RecordStatus Field -->
           < <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
@@ -98,7 +98,7 @@
               <div class="ms-auto me-3 pe-2">
                 <div class="custom-control ios-switch small-switch">
                   <input type="checkbox" class="ios-input" id="dataModel.viewStatisticsAfterVote"
-                    [(ngModel)]="this.dataModel.viewStatisticsAfterVote" name="dataModel.viewStatisticsAfterVote">
+                    [(ngModel)]="dataModel.viewStatisticsAfterVote" name="dataModel.viewStatisticsAfterVote">
                   <label class="custom-control-label" for="dataModel.viewStatisticsAfterVote"></label>
                 </div>
               </div>
@@ -112,7 +112,7 @@
               <div class="ms-auto me-3 pe-2">
                 <div class="custom-control ios-switch small-switch">
                   <input type="checkbox" class="ios-input" id="dataModel.viewStatisticsBeforeVote"
-                    [(ngModel)]="this.dataModel.viewStatisticsBeforeVote" name="dataModel.viewStatisticsBeforeVote">
+                    [(ngModel)]="dataModel.viewStatisticsBeforeVote" name="dataModel.viewStatisticsBeforeVote">
                   <label class="custom-control-label" for="dataModel.viewStatisticsBeforeVote"></label>
                 </div>
               </div>
@@ -174,7 +174,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="optionSelected.isCorrectAnswer"
-                  [(ngModel)]="this.optionSelected.isCorrectAnswer" name="optionSelected.isCorrectAnswer">
+                  [(ngModel)]="optionSelected.isCorrectAnswer" name="optionSelected.isCorrectAnswer">
                 <label class="custom-control-label" for="optionSelected.isCorrectAnswer"></label>
               </div>
             </div>

@@ -20,8 +20,9 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { ApiTelegramActionSendMessageComponent } from '../../action/send-message/send-message.component';
 
 @Component({
-  selector: 'app-apitelegram-log-input-list',
-  templateUrl: './list.component.html',
+    selector: 'app-apitelegram-log-input-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApiTelegramLogInputListComponent extends ListBaseComponent<ApiTelegramLogInputService, ApiTelegramLogInputModel, string> implements OnInit, OnDestroy {
   requestLinkBotConfigId = 0;

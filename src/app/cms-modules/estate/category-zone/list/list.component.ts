@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { EstateCategoryZoneAddComponent } from '../add/add.component';
 import { EstateCategoryZoneEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-category-zone-list',
-  templateUrl: './list.component.html'
+    selector: 'app-estate-category-zone-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstateCategoryZoneListComponent extends ListBaseComponent<EstateCategoryZoneService, EstateCategoryZoneModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

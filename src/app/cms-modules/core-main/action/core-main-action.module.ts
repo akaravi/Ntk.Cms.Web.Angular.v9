@@ -9,7 +9,7 @@ import {
   CoreAuthService,
   CoreEnumService,
   CoreModuleService,
-  CoreTokenNotificationService
+  CoreTokenConnectionService
 } from 'ntk-cms-api';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -44,7 +44,7 @@ import { CoreMainActionSendNotificationComponent } from './send-notification/sen
     CoreEnumService,
     CoreAuthService,
     CmsConfirmationDialogService,
-    CoreTokenNotificationService,
+    CoreTokenConnectionService,
   ]
 })
 export class CoreMainActionModule { }

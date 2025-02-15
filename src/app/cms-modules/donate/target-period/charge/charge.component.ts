@@ -12,6 +12,7 @@ import { DonateTargetPeriodChargePaymentComponent } from '../charge-payment/char
 @Component({
     selector: 'app-donate-target-period-charge',
     templateUrl: './charge.component.html',
+    standalone: false
 })
 export class DonateTargetPeriodChargeComponent implements OnInit {
     requestLinkTargetPeriodId = 0;

@@ -19,10 +19,11 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { PoinModel } from 'src/app/core/models/pointModel';
 
 @Component({
-  selector: 'app-linkmanagement-Billboard-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'
-  ]
+    selector: 'app-linkmanagement-Billboard-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'
+    ],
+    standalone: false
 })
 export class LinkManagementBillboardEditComponent extends EditBaseComponent<LinkManagementBillboardService, LinkManagementBillboardModel, number>
   implements OnInit {

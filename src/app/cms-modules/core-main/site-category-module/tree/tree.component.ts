@@ -26,8 +26,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 
 @Component({
-  selector: 'app-core-sitecategorycmsmodule-tree',
-  templateUrl: './tree.component.html',
+    selector: 'app-core-sitecategorycmsmodule-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class CoreSiteCategoryCmsModuleTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -23,8 +23,9 @@ import { SmsLogInBoxEditComponent } from '../edit/edit.component';
 import { SmsLogInBoxViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-sms-log-inbox-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-log-inbox-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsLogInBoxListComponent extends ListBaseComponent<SmsLogInBoxService, SmsLogInBoxModel, string> implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

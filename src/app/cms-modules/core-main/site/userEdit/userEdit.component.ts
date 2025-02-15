@@ -15,9 +15,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-site-user-edit',
-  templateUrl: './userEdit.component.html',
-  styleUrls: ['./userEdit.component.scss'],
+    selector: 'app-core-site-user-edit',
+    templateUrl: './userEdit.component.html',
+    styleUrls: ['./userEdit.component.scss'],
+    standalone: false
 })
 export class CoreSiteUserEditComponent extends EditBaseComponent<CoreSiteUserService, CoreSiteUserModel, number>
   implements OnInit {

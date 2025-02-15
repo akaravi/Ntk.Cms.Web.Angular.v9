@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-core-guide-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-core-guide-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class CoreGuideSelectorComponent implements OnInit {
   static nextId = 0;

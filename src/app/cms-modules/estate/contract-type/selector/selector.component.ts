@@ -14,9 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-contract-type-selector',
-  templateUrl: './selector.component.html',
-
+    selector: 'app-estate-contract-type-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class EstateContractTypeSelectorComponent implements OnInit, OnDestroy {
 

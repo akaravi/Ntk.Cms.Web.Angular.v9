@@ -25,8 +25,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-estate-property-supplier-category-treeselector',
-  templateUrl: './tree-selector.component.html',
+    selector: 'app-estate-property-supplier-category-treeselector',
+    templateUrl: './tree-selector.component.html',
+    standalone: false
 })
 export class EstatePropertySupplierCategoryTreeSelectorComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

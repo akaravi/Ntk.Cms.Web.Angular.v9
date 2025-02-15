@@ -20,9 +20,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-userclaimcontent-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-core-userclaimcontent-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class CoreUserClaimContentAddComponent extends AddBaseComponent<CoreUserClaimContentService, CoreUserClaimContentModel, number> implements OnInit, OnDestroy {
   requestLinkUserClaimTypeId = 0;

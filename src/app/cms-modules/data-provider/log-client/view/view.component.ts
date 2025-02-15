@@ -18,8 +18,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-data-provider-log-client-view',
-  templateUrl: './view.component.html'
+    selector: 'app-data-provider-log-client-view',
+    templateUrl: './view.component.html',
+    standalone: false
 })
 export class DataProviderLogClientViewComponent implements OnInit, OnDestroy {
   requestId = '';

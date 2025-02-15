@@ -21,9 +21,9 @@ import { CoreModuleLogLikeEditComponent } from '../edit/edit.component';
 import { CoreModuleLogLikeViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodulelog-like-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodulelog-like-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleLogLikeListComponent extends ListBaseComponent<CoreModuleLogLikeService, CoreModuleLogLikeModel, string>
   implements OnInit, OnDestroy {

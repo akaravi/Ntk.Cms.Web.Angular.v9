@@ -20,9 +20,9 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-dialog/cmsConfirmationDialog.service';
 import { environment } from 'src/environments/environment';
 @Component({
-  selector: 'app-apitelegram-bot-config-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-apitelegram-bot-config-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApiTelegramMemberInfoListComponent extends ListBaseComponent<ApiTelegramMemberInfoService, ApiTelegramMemberInfoModel, number> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-blog-category-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-blog-category-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class BlogCategorySelectorComponent implements OnInit {
   static nextId = 0;

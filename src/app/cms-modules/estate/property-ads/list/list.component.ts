@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { EstatePropertyAdsAddComponent } from '../add/add.component';
 import { EstatePropertyAdsEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-property-ads-list',
-  templateUrl: './list.component.html'
+    selector: 'app-estate-property-ads-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstatePropertyAdsListComponent extends ListBaseComponent<EstatePropertyAdsService, EstatePropertyAdsModel, string> implements OnInit, OnDestroy {
   requestLinkPropertyId = '';

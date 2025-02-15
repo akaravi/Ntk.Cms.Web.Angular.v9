@@ -20,9 +20,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-userclaim-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-core-userclaim-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class CoreUserClaimContentEditComponent extends EditBaseComponent<CoreUserClaimContentService, CoreUserClaimContentModel, number>
   implements OnInit, OnDestroy {

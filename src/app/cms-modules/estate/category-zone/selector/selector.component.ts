@@ -14,8 +14,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-category-zone-selector',
-  templateUrl: './selector.component.html'
+    selector: 'app-estate-category-zone-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class EstateCategoryZoneSelectorComponent implements OnInit, OnDestroy {
 

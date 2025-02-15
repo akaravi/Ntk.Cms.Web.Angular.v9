@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-input-int',
-  templateUrl: './int.component.html',
-  styleUrls: ['./int.component.scss']
+    selector: 'app-input-int',
+    templateUrl: './int.component.html',
+    styleUrls: ['./int.component.scss'],
+    standalone: false
 })
 export class IntComponent implements OnInit {
   static nextId = 0;

@@ -2,8 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ComponentOptionStatistModel } from 'src/app/core/cmsComponent/base/componentOptionStatistModel';
 
 @Component({
-  selector: 'app-cms-statist-list',
-  templateUrl: './cms-statist-list.component.html',
+    selector: 'app-cms-statist-list',
+    templateUrl: './cms-statist-list.component.html',
+    standalone: false
 })
 export class CmsStatistListComponent implements OnInit {
   static nextId = 0;

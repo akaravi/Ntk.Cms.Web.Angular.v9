@@ -16,9 +16,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-sms-log-outbox-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-sms-log-outbox-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class SmsLogOutBoxHeaderComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -10,9 +10,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-data-memo',
-  templateUrl: './cms-data-memo.component.html',
-  styleUrls: ['./cms-data-memo.component.scss']
+    selector: 'app-cms-data-memo',
+    templateUrl: './cms-data-memo.component.html',
+    styleUrls: ['./cms-data-memo.component.scss'],
+    standalone: false
 })
 export class CmsDataMemoComponent implements OnInit {
   static nextId = 0;

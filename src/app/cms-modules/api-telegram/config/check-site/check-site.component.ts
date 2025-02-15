@@ -11,8 +11,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-apitelegram-config-checksite',
-  templateUrl: './check-site.component.html',
+    selector: 'app-apitelegram-config-checksite',
+    templateUrl: './check-site.component.html',
+    standalone: false
 })
 export class ApiTelegramConfigCheckSiteComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

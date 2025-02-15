@@ -12,8 +12,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 
 
 @Component({
-  selector: 'app-cms-site-selector',
-  templateUrl: './cmsSiteSelector.component.html',
+    selector: 'app-cms-site-selector',
+    templateUrl: './cmsSiteSelector.component.html',
+    standalone: false
 })
 
 export class CmsSiteSelectorComponent implements OnInit {

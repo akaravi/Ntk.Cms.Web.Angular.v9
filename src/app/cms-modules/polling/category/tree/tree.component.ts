@@ -34,9 +34,10 @@ import { PollingCategoryAddComponent } from '../add/add.component';
 
 
 @Component({
-  selector: 'app-polling-category-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-polling-category-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class PollingCategoryTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

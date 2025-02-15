@@ -10,9 +10,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-cms-data-pin',
-  templateUrl: './cms-data-pin.component.html',
-  styleUrls: ['./cms-data-pin.component.scss']
+    selector: 'app-cms-data-pin',
+    templateUrl: './cms-data-pin.component.html',
+    styleUrls: ['./cms-data-pin.component.scss'],
+    standalone: false
 })
 export class CmsDataPinComponent implements OnInit {
   static nextId = 0;

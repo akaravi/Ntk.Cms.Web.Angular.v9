@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-user-support-access-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-core-user-support-access-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class CoreUserSupportAccessAddComponent extends AddBaseComponent<CoreUserSupportAccessService, CoreUserSupportAccessModel, number> implements OnInit {
   constructorInfoAreaId = this.constructor.name;

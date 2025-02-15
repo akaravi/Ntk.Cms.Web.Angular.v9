@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { MemberPropertyDetailAddComponent } from '../add/add.component';
 import { MemberPropertyDetailEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-member-propertydetail-list',
-  templateUrl: './list.component.html'
+    selector: 'app-member-propertydetail-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class MemberPropertyDetailListComponent extends ListBaseComponent<MemberPropertyDetailService, MemberPropertyDetailModel, number> implements OnInit, OnDestroy {
   requestLinkPropertyTypeId = 0;

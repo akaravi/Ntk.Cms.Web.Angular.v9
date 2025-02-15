@@ -16,9 +16,10 @@ import { EditBaseComponent } from 'src/app/core/cmsComponent/editBaseComponent';
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-article-category-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-article-category-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class ArticleCategoryEditComponent extends EditBaseComponent<ArticleCategoryService, ArticleCategoryModel, number>
   implements OnInit {

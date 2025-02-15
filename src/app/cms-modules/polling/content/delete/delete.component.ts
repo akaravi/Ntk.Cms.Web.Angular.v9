@@ -18,9 +18,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-polling-content-delete',
-  templateUrl: './delete.component.html',
-  styleUrls: ['./delete.component.scss']
+    selector: 'app-polling-content-delete',
+    templateUrl: './delete.component.html',
+    styleUrls: ['./delete.component.scss'],
+    standalone: false
 })
 export class PollingContentDeleteComponent implements OnInit {
   requestId = 0;

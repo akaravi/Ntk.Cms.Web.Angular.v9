@@ -24,8 +24,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-aplication-source-edit',
-  templateUrl: './edit.component.html',
+    selector: 'app-aplication-source-edit',
+    templateUrl: './edit.component.html',
+    standalone: false
 })
 export class ApplicationSourceEditComponent extends EditBaseComponent<ApplicationSourceService, ApplicationSourceModel, number>
   implements OnInit {

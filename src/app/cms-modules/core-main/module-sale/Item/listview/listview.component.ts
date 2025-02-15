@@ -20,8 +20,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-core-modulesaleitem-listview',
-  templateUrl: './listview.component.html',
+    selector: 'app-core-modulesaleitem-listview',
+    templateUrl: './listview.component.html',
+    standalone: false
 })
 export class CoreModuleSaleItemListViewComponent implements OnInit, OnDestroy {
   @Input() set optionHeaderId(x: number) {

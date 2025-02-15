@@ -16,8 +16,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-chart-content-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-chart-content-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class ChartContentSelectorComponent implements OnInit {
   static nextId = 0;

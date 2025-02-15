@@ -28,9 +28,10 @@ import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyAddComponent } from '../add/add.component';
 import { EstateAccountAgencyEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-account-agency-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-estate-account-agency-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class EstateAccountAgencyTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

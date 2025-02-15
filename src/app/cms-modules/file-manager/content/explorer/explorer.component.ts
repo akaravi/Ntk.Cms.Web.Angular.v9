@@ -5,9 +5,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 
 @Component({
-  selector: 'app-file-content-explorer',
-  templateUrl: './explorer.component.html',
-  styleUrls: ['./explorer.component.scss']
+    selector: 'app-file-content-explorer',
+    templateUrl: './explorer.component.html',
+    styleUrls: ['./explorer.component.scss'],
+    standalone: false
 })
 export class FileContentExplorerComponent implements OnInit {
 

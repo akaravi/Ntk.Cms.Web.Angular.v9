@@ -24,8 +24,9 @@ export class processModel {
   message: string;
 }
 @Component({
-  selector: 'app-auth-singin-bysms',
-  templateUrl: './singin-bysms.component.html',
+    selector: 'app-auth-singin-bysms',
+    templateUrl: './singin-bysms.component.html',
+    standalone: false
 })
 export class AuthSingInBySmsComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

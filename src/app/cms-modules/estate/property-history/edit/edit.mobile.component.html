@@ -200,7 +200,7 @@
           <!-- linkchooseFileId Field -->
           <app-estate-account-agency-selector *ngIf="fieldsInfo['linkEstateAgencyId']?.accessWatchField"
             (optionChange)="onActionSelectorEstateAgency($event)" [optionSelectForce]="dataModel.linkEstateAgencyId"
-            [optionSelectUserId]="this.tokenInfo.userId" [optionPlaceholder]="'TITLE.Property_agency' | translate"
+            [optionSelectUserId]="tokenInfo.userId" [optionPlaceholder]="'TITLE.Property_agency' | translate"
             class="theme-rtl">
           </app-estate-account-agency-selector>
           <br />

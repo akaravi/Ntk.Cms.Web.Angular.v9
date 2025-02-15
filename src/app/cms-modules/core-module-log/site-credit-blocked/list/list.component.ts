@@ -21,9 +21,9 @@ import { CoreModuleLogSiteCreditBlockedEditComponent } from '../edit/edit.compon
 import { CoreModuleLogSiteCreditBlockedViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodulelog-site-credit-blocked-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodulelog-site-credit-blocked-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleLogSiteCreditBlockedListComponent extends ListBaseComponent<CoreModuleLogSiteCreditBlockedService, CoreModuleLogSiteCreditBlockedModel, string>
   implements OnInit, OnDestroy {

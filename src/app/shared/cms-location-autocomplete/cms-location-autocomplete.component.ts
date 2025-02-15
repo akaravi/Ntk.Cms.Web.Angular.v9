@@ -17,8 +17,9 @@ class chipModel {
   value: number;
 }
 @Component({
-  selector: 'app-cms-location-autocomplete',
-  templateUrl: './cms-location-autocomplete.component.html',
+    selector: 'app-cms-location-autocomplete',
+    templateUrl: './cms-location-autocomplete.component.html',
+    standalone: false
 })
 export class CmsLocationCompleteComponent implements OnInit {
   static nextId = 0;

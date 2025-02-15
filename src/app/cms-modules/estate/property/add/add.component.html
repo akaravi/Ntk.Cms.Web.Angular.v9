@@ -52,7 +52,7 @@
           <br>
           <br>
           <div *ngIf=" dataModel.linkPropertyTypeLanduseId && dataModel.linkPropertyTypeLanduseId.length > 0">
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+            <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
               <div class="pt-1">
                 <h5 data-trigger-switch="dataProfessional" class="font-600 font-14">
                   {{"TITLE.Would_you_like_to_complete_your_information" | translate}}</h5>
@@ -69,7 +69,7 @@
             <!-- RecordStatus Field -->
             <app-cms-enum-record-status-selector *ngIf="dataProfessional &&fieldsInfo['recordStatus']?.accessWatchField"
               [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-              [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+              [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
               [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
@@ -103,7 +103,7 @@
               </mat-error>
             </div>
             <!-- ViewConfigHiddenInList Field -->
-            <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+            <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
               <div class="pt-1">
                 <h5 data-trigger-switch="dataModel.viewConfigHiddenInList" class="font-600 font-14">{{
                   fieldsInfo["viewConfigHiddenInList"]?.fieldTitle }}</h5>
@@ -222,7 +222,7 @@
             </div>
           </div>
           <!-- siteAdminViewContentHidden Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.siteAdminViewContentHidden" class="font-600 font-14"> {{
                 fieldsInfo["siteAdminViewContentHidden"]?.fieldTitle }}</h5>
@@ -239,12 +239,12 @@
           <!-- MainAdminRecordStatus Field -->
           <app-cms-enum-record-status-selector *ngIf="fieldsInfo['mainAdminRecordStatus']?.accessWatchField"
             [(model)]="dataModel.mainAdminRecordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="false"
+            [optionLabel]="fieldsInfo['mainAdminRecordStatus']?.fieldTitle" [optionRequired]="false"
             [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
           <!-- score Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite">
             <!-- scoreEstateLocation Field -->
             <div class="range-slider bottom-15 range-slider-icons">
               <label for="dataModel.scoreEstateLocation" class="color-highlight">{{
@@ -297,15 +297,15 @@
 
 
           <!-- linkEstateAgencyId Field -->
-          <app-estate-account-agency-selector *ngIf="this.tokenHelper.isAdminSite"
+          <app-estate-account-agency-selector *ngIf="tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorEstateAgency($event)"
             [optionDisabled]="!fieldsInfo['linkEstateAgencyId']?.accessAddField"
-            [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="this.tokenInfo.userId"
+            [optionSelectForce]="dataModel.linkEstateAgencyId" [optionSelectUserId]="tokenInfo.userId"
             [optionPlaceholder]="'TITLE.Property_agency'  | translate">
           </app-estate-account-agency-selector>
 
           <!-- LinkEstateExpertId Field -->
-          <app-estate-account-expert-selector *ngIf="this.tokenHelper.isAdminSite"
+          <app-estate-account-expert-selector *ngIf="tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorEstateUser($event)"
             [optionDisabled]="!fieldsInfo['linkEstateExpertId']?.accessAddField"
             [optionSelectForce]="dataModel.linkEstateExpertId"
@@ -376,7 +376,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.actionCreateNewCmsUser"
-              [(ngModel)]="this.dataModel.actionCreateNewCmsUser" name="dataModel.actionCreateNewCmsUser">
+              [(ngModel)]="dataModel.actionCreateNewCmsUser" name="dataModel.actionCreateNewCmsUser">
             <label class="custom-control-label" for="dataModel.actionCreateNewCmsUser"></label>
           </div>
         </div>
@@ -467,12 +467,12 @@
           *ngIf="dataModel.propertyDetailGroups && dataModel.propertyDetailGroups.length > 0">
           <p>{{ "TITLE.Property_details_according_to_the_type_of_property"| translate}}</p>
           <!-- LinkPropertyCompanyId Field -->
-          <app-estate-property-company-selector *ngIf="this.tokenHelper.isAdminSite"
+          <app-estate-property-company-selector *ngIf="tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorCompany($event)" [optionSelectForce]="dataModel.linkPropertyCompanyId"
             [optionPlaceholder]="'TITLE.Company' | translate ">
           </app-estate-property-company-selector>
           <!-- LinkPropertyProjectId Field -->
-          <app-estate-property-project-selector *ngIf="this.tokenHelper.isAdminSite"
+          <app-estate-property-project-selector *ngIf="tokenHelper.isAdminSite"
             (optionChange)="onActionSelectorProject($event)" [optionSelectForce]="dataModel.linkPropertyProjectId"
             [optionPlaceholder]="'TITLE.Project' | translate ">
           </app-estate-property-project-selector>

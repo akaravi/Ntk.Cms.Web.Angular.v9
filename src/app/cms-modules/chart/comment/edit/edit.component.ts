@@ -18,9 +18,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-chart-comment-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-chart-comment-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class ChartCommentEditComponent extends EditBaseComponent<ChartCommentService, ChartCommentModel, number>
   implements OnInit {

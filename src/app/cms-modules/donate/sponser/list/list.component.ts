@@ -23,8 +23,9 @@ import { DonateSponserDeleteComponent } from '../delete/delete.component';
 import { DonateSponserEditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-donate-sponser-list',
-  templateUrl: './list.component.html',
+    selector: 'app-donate-sponser-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class DonateSponserListComponent extends ListBaseComponent<DonateSponsorService, DonateSponsorModel, number> implements OnInit, OnDestroy {
 

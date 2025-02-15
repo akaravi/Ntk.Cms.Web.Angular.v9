@@ -22,9 +22,9 @@ import { CoreLogReportDataViewComponent } from '../view/view.component';
 
 
 @Component({
-  selector: 'app-core-log-report-data-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-core-log-report-data-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreLogReportDataListComponent extends ListBaseComponent<CoreLogReportDataService, CoreLogReportDataModel, string>
   implements OnInit, OnDestroy {

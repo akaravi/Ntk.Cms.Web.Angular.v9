@@ -17,9 +17,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-ticketing-departemenlog-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+    selector: 'app-ticketing-departemenlog-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
 export class TicketingDepartemenLogEditComponent extends EditBaseComponent<TicketingDepartemenLogService, TicketingDepartemenLogModel, number>
   implements OnInit, OnDestroy {

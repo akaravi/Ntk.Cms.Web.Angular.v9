@@ -29,9 +29,10 @@ import { CoreUserGroupEditComponent } from '../edit/edit.component';
 
 
 @Component({
-  selector: 'app-core-usercategory-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.scss'],
+    selector: 'app-core-usercategory-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.scss'],
+    standalone: false
 })
 export class CoreUserGroupTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -17,9 +17,10 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-cms-site-user-credit-view',
-  templateUrl: './cms-site-user-credit-view.component.html',
-  styleUrls: ['./cms-site-user-credit-view.component.scss'],
+    selector: 'app-cms-site-user-credit-view',
+    templateUrl: './cms-site-user-credit-view.component.html',
+    styleUrls: ['./cms-site-user-credit-view.component.scss'],
+    standalone: false
 })
 export class CmsSiteUserCreditViewComponent implements OnInit {
   static nextId = 0;

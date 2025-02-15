@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreTokenNotificationModel, CoreTokenNotificationService,
+  CoreEnumService, CoreTokenConnectionModel, CoreTokenConnectionService,
   ErrorExceptionResult,
   ErrorExceptionResultBase,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
@@ -20,26 +20,27 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coretoken-notification-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-coretoken-notification-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
-export class CoreTokenNotificationEditComponent extends EditBaseComponent<CoreTokenNotificationService, CoreTokenNotificationModel, string>
+export class CoreTokenConnectionEditComponent extends EditBaseComponent<CoreTokenConnectionService, CoreTokenConnectionModel, string>
   implements OnInit, OnDestroy {
   requestId = '';
   constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CoreTokenNotificationEditComponent>,
+    private dialogRef: MatDialogRef<CoreTokenConnectionEditComponent>,
     public coreEnumService: CoreEnumService,
-    public coreTokenNotificationService: CoreTokenNotificationService,
+    public coreTokenConnectionService: CoreTokenConnectionService,
     private cmsToastrService: CmsToastrService,
     private tokenHelper: TokenHelper,
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
     public translate: TranslateService,
   ) {
-    super(coreTokenNotificationService, new CoreTokenNotificationModel(), publicHelper, translate);
+    super(coreTokenConnectionService, new CoreTokenConnectionModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
 
@@ -52,7 +53,7 @@ export class CoreTokenNotificationEditComponent extends EditBaseComponent<CoreTo
 
 
   dataModelResult: ErrorExceptionResultBase = new ErrorExceptionResultBase();
-  dataModel: CoreTokenNotificationModel = new CoreTokenNotificationModel();
+  dataModel: CoreTokenConnectionModel = new CoreTokenConnectionModel();
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
@@ -122,9 +123,9 @@ export class CoreTokenNotificationEditComponent extends EditBaseComponent<CoreTo
     });
 
     /*َAccess Field*/
-    this.coreTokenNotificationService.setAccessLoad();
-    this.coreTokenNotificationService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.coreTokenNotificationService.ServiceGetOneById(this.requestId).subscribe({
+    this.coreTokenConnectionService.setAccessLoad();
+    this.coreTokenConnectionService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+    this.coreTokenConnectionService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {
         /*َAccess Field*/
         //  this.dataAccessModel = next.access;

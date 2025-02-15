@@ -6,8 +6,9 @@ import { ApplicationAppModel, ApplicationAppService, FormInfoModel } from 'ntk-c
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-download',
-  templateUrl: './download.component.html',
+    selector: 'app-download',
+    templateUrl: './download.component.html',
+    standalone: false
 })
 export class ApplicationAppDownloadComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

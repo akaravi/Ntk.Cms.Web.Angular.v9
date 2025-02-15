@@ -21,9 +21,9 @@ import { CoreModuleDataTaskEditComponent } from '../edit/edit.component';
 import { CoreModuleDataTaskViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodule-data-task-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodule-data-task-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleDataTaskListComponent extends ListBaseComponent<CoreModuleDataTaskService, CoreModuleDataTaskModel, string>
   implements OnInit, OnDestroy {

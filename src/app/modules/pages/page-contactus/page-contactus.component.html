@@ -1,5 +1,5 @@
 <div class="page-content pb-3 loader-container">
-  <app-progress-spinner [optionsInfoAreaId]="this.constructor.name"> </app-progress-spinner>
+  <app-progress-spinner [optionsInfoAreaId]="constructor.name"> </app-progress-spinner>
 
   <div class="card card-full rounded-m pb-4">
     <div class="drag-line"></div>
@@ -15,7 +15,7 @@
 
 
     <div class="card contact-form">
-      <div class="content" *ngIf="this.formInfo?.formSubmitedStatus !== enumFormSubmitedStatus.Success">
+      <div class="content" *ngIf="formInfo?.formSubmitedStatus !== enumFormSubmitedStatus.Success">
         <form (ngSubmit)="onFormSubmit()" #vform="ngForm">
           <fieldset>
             <div class="form-field form-name">
@@ -74,7 +74,7 @@
       </div>
     </div>
 
-    <div class="form-sent" *ngIf="this.formInfo?.formSubmitedStatus === enumFormSubmitedStatus.Success">
+    <div class="form-sent" *ngIf="formInfo?.formSubmitedStatus === enumFormSubmitedStatus.Success">
       <div class="card card-style ">
         <div class="shadow-l rounded-m gradient-green ms-n1 mb-0 ">
           <h1 class="color-white text-center pt-4"><i
@@ -87,7 +87,7 @@
             {{'TITLE.Tracking_Code' | translate}} :
             {{this.dataModelResult.item.id}}
           </p>
-          <div [innerHTML]="this.dataModelResult.item?.virtual_Departemen?.DefaultAnswerBody"></div>
+          <div [innerHTML]="dataModelResult.item?.virtual_Departemen?.DefaultAnswerBody"></div>
         </div>
       </div>
     </div>

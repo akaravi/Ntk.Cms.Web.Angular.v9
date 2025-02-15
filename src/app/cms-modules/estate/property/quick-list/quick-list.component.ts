@@ -27,8 +27,9 @@ import { EstatePropertyQuickViewComponent } from "../quick-view/quick-view.compo
 
 
 @Component({
-  selector: "app-estate-property-quick-list",
-  templateUrl: "./quick-list.component.html",
+    selector: "app-estate-property-quick-list",
+    templateUrl: "./quick-list.component.html",
+    standalone: false
 })
 export class EstatePropertyQuickListComponent extends ListBaseComponent<EstatePropertyService, EstatePropertyModel, string>
   implements OnInit, OnDestroy, AfterViewInit {

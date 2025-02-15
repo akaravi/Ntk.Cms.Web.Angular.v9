@@ -21,8 +21,9 @@ import { environment } from 'src/environments/environment';
 import { SmsMainCustomerCreditAddComponent } from '../add/add.component';
 import { SmsMainCustomerCreditEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-sms-customercredit-list',
-  templateUrl: './list.component.html'
+    selector: 'app-sms-customercredit-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class SmsMainCustomerCreditListComponent extends ListBaseComponent<SmsMainCustomerCreditService, SmsMainCustomerCreditModel, string> implements OnInit, OnDestroy {
   requestLinkApiPathId = '';

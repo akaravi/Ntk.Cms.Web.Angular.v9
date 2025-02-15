@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-pages',
-  templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.scss'],
+    selector: 'app-pages',
+    templateUrl: './pages.component.html',
+    styleUrls: ['./pages.component.scss'],
+    standalone: false
 })
 export class PagesComponent implements OnInit {
   @HostBinding('class') class = 'd-flex flex-column flex-root';

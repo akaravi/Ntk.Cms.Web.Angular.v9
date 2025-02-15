@@ -22,8 +22,9 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 import { CoreModuleEntityEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-core-module-entity-list',
-  templateUrl: './list.component.html',
+    selector: 'app-core-module-entity-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleEntityListComponent extends ListBaseComponent<CoreModuleEntityService, CoreModuleEntityModel, number>
   implements OnInit, OnDestroy {

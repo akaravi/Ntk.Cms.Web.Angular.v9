@@ -20,9 +20,10 @@ import { environment } from 'src/environments/environment';
 import { EstateCategoryRackAddComponent } from '../add/add.component';
 import { EstateCategoryRackEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-category-rack-list-mobile',
-  templateUrl: './list.mobile.component.html',
-  styleUrls: ['list.mobile.component.scss']
+    selector: 'app-estate-category-rack-list-mobile',
+    templateUrl: './list.mobile.component.html',
+    styleUrls: ['list.mobile.component.scss'],
+    standalone: false
 })
 export class EstateCategoryRackListMobileComponent extends ListBaseComponent<EstateCategoryRackService, EstateCategoryRackModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

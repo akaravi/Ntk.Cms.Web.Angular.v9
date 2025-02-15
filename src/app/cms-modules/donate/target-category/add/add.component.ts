@@ -16,9 +16,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-donate-target-category-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+    selector: 'app-donate-target-category-add',
+    templateUrl: './add.component.html',
+    styleUrls: ['./add.component.scss'],
+    standalone: false
 })
 export class DonateTargetCategoryAddComponent extends AddBaseComponent<DonateTargetCategoryService, DonateTargetCategoryModel, number> implements OnInit {
   requestParentId = 0;

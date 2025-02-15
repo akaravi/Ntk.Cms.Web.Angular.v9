@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-application',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-application',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class ApplicationComponent implements OnInit {
 

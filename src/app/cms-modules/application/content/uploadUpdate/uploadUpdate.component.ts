@@ -8,9 +8,10 @@ import { ApplicationAppModel, ApplicationAppService, DataFieldInfoModel, FormInf
 import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 @Component({
-  selector: 'app-upload-update',
-  templateUrl: './uploadUpdate.component.html',
-  styleUrls: ['./uploadUpdate.component.scss']
+    selector: 'app-upload-update',
+    templateUrl: './uploadUpdate.component.html',
+    styleUrls: ['./uploadUpdate.component.scss'],
+    standalone: false
 })
 export class ApplicationAppUploadUpdateComponent implements OnInit {
   constructorInfoAreaId = this.constructor.name;

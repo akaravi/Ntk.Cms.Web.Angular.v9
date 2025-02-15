@@ -22,9 +22,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-contact-config-site',
-  templateUrl: './config-site.component.html',
-  styleUrls: ['./config-site.component.scss']
+    selector: 'app-contact-config-site',
+    templateUrl: './config-site.component.html',
+    styleUrls: ['./config-site.component.scss'],
+    standalone: false
 })
 export class ContactConfigSiteComponent implements OnInit {
   requestLinkSiteId = 0;

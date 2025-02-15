@@ -15,8 +15,9 @@ class chipModel {
   value: string;
 }
 @Component({
-  selector: 'app-estate-property-autocomplete',
-  templateUrl: './autocomplete.component.html'
+    selector: 'app-estate-property-autocomplete',
+    templateUrl: './autocomplete.component.html',
+    standalone: false
 })
 export class EstatePropertyCompleteComponent implements OnInit {
   static nextId = 0;

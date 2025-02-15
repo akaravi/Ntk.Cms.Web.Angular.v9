@@ -15,9 +15,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-polling-category-selector',
-  templateUrl: './selector.component.html',
-
+    selector: 'app-polling-category-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class PollingCategorySelectorComponent implements OnInit {
   static nextId = 0;

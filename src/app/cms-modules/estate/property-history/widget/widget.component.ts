@@ -12,9 +12,9 @@ import { CmsConfirmationDialogService } from 'src/app/shared/cms-confirmation-di
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-estate-property-history-widget',
-  templateUrl: './widget.component.html',
-
+    selector: 'app-estate-property-history-widget',
+    templateUrl: './widget.component.html',
+    standalone: false
 })
 
 export class EstatePropertyHistoryWidgetComponent implements OnInit, OnDestroy {

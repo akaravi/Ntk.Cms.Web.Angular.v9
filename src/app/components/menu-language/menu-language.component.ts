@@ -15,9 +15,10 @@ interface LanguageFlag {
   active?: boolean;
 }
 @Component({
-  selector: 'app-menu-language',
-  templateUrl: './menu-language.component.html',
-  styleUrls: ['./menu-language.component.scss']
+    selector: 'app-menu-language',
+    templateUrl: './menu-language.component.html',
+    styleUrls: ['./menu-language.component.scss'],
+    standalone: false
 })
 export class MenuLanguageComponent implements OnInit {
   static nextId = 0;

@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChange } from '@angular/core';
 
 @Component({
-  selector: 'app-password-strength',
-  templateUrl: './password-strength.component.html',
-  styleUrls: ['./password-strength.component.scss']
+    selector: 'app-password-strength',
+    templateUrl: './password-strength.component.html',
+    styleUrls: ['./password-strength.component.scss'],
+    standalone: false
 })
 export class PasswordStrengthComponent implements OnChanges {
   static nextId = 0;

@@ -75,9 +75,9 @@
     </div>
 
     <!--captchaText Field-->
-    <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="" *ngIf="this.diffSeconds<0">
-    <mat-icon *ngIf="this.diffSeconds<0" matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
-    <div class="input-style no-borders has-icon validate-field mb-4" *ngIf="this.diffSeconds<0">
+    <img src="{{captchaModel.image}}" (click)="onCaptchaOrder()" class="mb-3" alt="" *ngIf="diffSeconds<0">
+    <mat-icon *ngIf="diffSeconds<0" matSuffix (click)="onCaptchaOrder()">refresh</mat-icon>
+    <div class="input-style no-borders has-icon validate-field mb-4" *ngIf="diffSeconds<0">
       <i class="fa fa-quote-left"></i>
       <input [(ngModel)]="dataModelAuthUserSignInBySms.captchaText" name="dataModelAuthUserSignInBySms.captchaText"
         #captchaText id="dataModelAuthUserSignInBySms.captchaText" [disabled]=" !formInfo.buttonSubmittedEnabled"

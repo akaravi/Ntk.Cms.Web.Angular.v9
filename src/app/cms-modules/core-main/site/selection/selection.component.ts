@@ -15,12 +15,14 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
+import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 
 
 @Component({
-  selector: 'app-site-selection',
-  templateUrl: './selection.component.html',
-  styleUrls: ['./selection.component.scss']
+    selector: 'app-site-selection',
+    templateUrl: './selection.component.html',
+    styleUrls: ['./selection.component.scss'],
+    standalone: false
 })
 export class CoreSiteSelectionComponent implements OnInit {
 
@@ -32,6 +34,7 @@ export class CoreSiteSelectionComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     public translate: TranslateService,
   ) {

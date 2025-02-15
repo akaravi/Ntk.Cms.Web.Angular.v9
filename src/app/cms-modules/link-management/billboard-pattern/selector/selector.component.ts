@@ -17,8 +17,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-linkmanagement-billboard-pattern-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-linkmanagement-billboard-pattern-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class LinkManagementBillboardPatternSelectorComponent implements OnInit {
   static nextId = 0;

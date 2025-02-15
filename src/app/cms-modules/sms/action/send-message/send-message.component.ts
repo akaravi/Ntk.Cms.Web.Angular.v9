@@ -21,9 +21,10 @@ export class DateByClock {
 }
 
 @Component({
-  selector: 'app-sms-action-send-message',
-  templateUrl: './send-message.component.html',
-  styleUrls: ['./send-message.component.scss'],
+    selector: 'app-sms-action-send-message',
+    templateUrl: './send-message.component.html',
+    styleUrls: ['./send-message.component.scss'],
+    standalone: false
 })
 export class SmsActionSendMessageComponent implements OnInit {
   requestLinkApiPathId = '';

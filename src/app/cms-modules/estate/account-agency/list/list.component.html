@@ -1,5 +1,5 @@
-<app-estate-account-expert-header *ngIf="this.requestLinkAccountUserId?.length>0"
-  [optionId]="this.requestLinkAccountUserId">
+<app-estate-account-expert-header *ngIf="requestLinkAccountUserId?.length>0"
+  [optionId]="requestLinkAccountUserId">
 </app-estate-account-expert-header>
 <app-cms-html-list [optionsListInfoAreaId]="constructorInfoAreaId" [optionGuideNoticeKey]="'accountagency.content.list'"
   [(optionActionGuideNoticeDisplay)]="viewGuideNotice" (optionOnActionButtonMemoRow)="onActionButtonMemoRow()"

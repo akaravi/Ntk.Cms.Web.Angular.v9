@@ -32,8 +32,8 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12" *ngIf="this.tableRowSelected && this.tableRowSelected?.id>0">
-    <app-core-modulesaleitem-listview [optionHeaderId]="this.tableRowSelected?.id">
+  <div class="col-12" *ngIf="tableRowSelected && this.tableRowSelected?.id>0">
+    <app-core-modulesaleitem-listview [optionHeaderId]="tableRowSelected?.id">
     </app-core-modulesaleitem-listview>
   </div>
 </div>

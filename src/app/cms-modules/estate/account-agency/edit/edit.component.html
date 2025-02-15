@@ -72,7 +72,7 @@
             <em>{{ DescriptionHidden.value.length }} / 500</em>
           </div>
           <!-- LinkCmsUserId Field -->
-          <app-cms-user-selector *ngIf="this.tokenHelper.isAdminSite" (optionChange)="onActionSelectorUser($event)"
+          <app-cms-user-selector *ngIf="tokenHelper.isAdminSite" (optionChange)="onActionSelectorUser($event)"
             [optionDisabled]="!fieldsInfo['linkCmsUserId']?.accessEditField"
             [optionSelectForce]="dataModel.linkCmsUserId" [optionPlaceholder]="'TITLE.USER' | translate">
           </app-cms-user-selector>
@@ -123,7 +123,7 @@
           </app-cms-location-autocomplete>
           <hr>
           <!-- AccessWatchRowSite Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.accessWatchRowSite" class="font-600 font-14">
                 {{fieldsInfo['accessWatchRowSite']?.fieldTitle}}</h5>
@@ -131,13 +131,13 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowSite"
-                  [(ngModel)]="this.dataModel.accessWatchRowSite" name="dataModel.accessWatchRowSite">
+                  [(ngModel)]="dataModel.accessWatchRowSite" name="dataModel.accessWatchRowSite">
                 <label class="custom-control-label" for="dataModel.accessWatchRowSite"></label>
               </div>
             </div>
           </div>
           <!-- accessWatchRowOtherAgency Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.accessWatchRowOtherAgency" class="font-600 font-14">
                 {{fieldsInfo['accessWatchRowOtherAgency']?.fieldTitle}}</h5>
@@ -145,13 +145,13 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowOtherAgency"
-                  [(ngModel)]="this.dataModel.accessWatchRowOtherAgency" name="dataModel.accessWatchRowOtherAgency">
+                  [(ngModel)]="dataModel.accessWatchRowOtherAgency" name="dataModel.accessWatchRowOtherAgency">
                 <label class="custom-control-label" for="dataModel.accessWatchRowOtherAgency"></label>
               </div>
             </div>
           </div>
           <!-- accessWatchRowOtherAgent Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.accessWatchRowOtherAgent" class="font-600 font-14">
                 {{fieldsInfo['accessWatchRowOtherAgent']?.fieldTitle}}</h5>
@@ -159,13 +159,13 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.accessWatchRowOtherAgent"
-                  [(ngModel)]="this.dataModel.accessWatchRowOtherAgent" name="dataModel.accessWatchRowOtherAgent">
+                  [(ngModel)]="dataModel.accessWatchRowOtherAgent" name="dataModel.accessWatchRowOtherAgent">
                 <label class="custom-control-label" for="dataModel.accessWatchRowOtherAgent"></label>
               </div>
             </div>
           </div>
           <!-- accessAllowShareRowWatchOtherAgency Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.accessAllowShareRowWatchOtherAgency" class="font-600 font-14">
                 {{fieldsInfo['accessAllowShareRowWatchOtherAgency']?.fieldTitle}}</h5>
@@ -173,14 +173,14 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.accessAllowShareRowWatchOtherAgency"
-                  [(ngModel)]="this.dataModel.accessAllowShareRowWatchOtherAgency"
+                  [(ngModel)]="dataModel.accessAllowShareRowWatchOtherAgency"
                   name="dataModel.accessAllowShareRowWatchOtherAgency">
                 <label class="custom-control-label" for="dataModel.accessAllowShareRowWatchOtherAgency"></label>
               </div>
             </div>
           </div>
           <!-- accessAllowShareRowWatchOtherAgent Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.accessAllowShareRowWatchOtherAgent" class="font-600 font-14">
                 {{fieldsInfo['accessAllowShareRowWatchOtherAgent']?.fieldTitle}}</h5>
@@ -188,7 +188,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.accessAllowShareRowWatchOtherAgent"
-                  [(ngModel)]="this.dataModel.accessAllowShareRowWatchOtherAgent"
+                  [(ngModel)]="dataModel.accessAllowShareRowWatchOtherAgent"
                   name="dataModel.accessAllowShareRowWatchOtherAgent">
                 <label class="custom-control-label" for="dataModel.accessAllowShareRowWatchOtherAgent"></label>
               </div>
@@ -196,7 +196,7 @@
           </div>
           <hr>
           <!-- notificationWorkAreaEstate Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.notificationWorkAreaEstate" class="font-600 font-14">
                 {{fieldsInfo['notificationWorkAreaEstate']?.fieldTitle}}</h5>
@@ -204,13 +204,13 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.notificationWorkAreaEstate"
-                  [(ngModel)]="this.dataModel.notificationWorkAreaEstate" name="dataModel.notificationWorkAreaEstate">
+                  [(ngModel)]="dataModel.notificationWorkAreaEstate" name="dataModel.notificationWorkAreaEstate">
                 <label class="custom-control-label" for="dataModel.notificationWorkAreaEstate"></label>
               </div>
             </div>
           </div>
           <!-- notificationWorkAreaCustomerOrder Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.notificationWorkAreaCustomerOrder" class="font-600 font-14">
                 {{fieldsInfo['notificationWorkAreaCustomerOrder']?.fieldTitle}}</h5>
@@ -218,7 +218,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataModel.notificationWorkAreaCustomerOrder"
-                  [(ngModel)]="this.dataModel.notificationWorkAreaCustomerOrder"
+                  [(ngModel)]="dataModel.notificationWorkAreaCustomerOrder"
                   name="dataModel.notificationWorkAreaCustomerOrder">
                 <label class="custom-control-label" for="dataModel.notificationWorkAreaCustomerOrder"></label>
               </div>
@@ -238,7 +238,7 @@
             [optionPlaceholder]="'TITLE.Property_personnel' | translate ">
           </app-estate-account-expert-selector>
           <!-- accessShareAgencyToUser Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataModel.accessAllowShareRowWatchOtherAgency" class="font-600 font-14">
                 accessShareAgencyToUser</h5>
@@ -246,7 +246,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataEstateAccountAgencyExpertModel.accessShareAgencyToUser"
-                  [(ngModel)]="this.dataEstateAccountAgencyExpertModel.accessShareAgencyToUser"
+                  [(ngModel)]="dataEstateAccountAgencyExpertModel.accessShareAgencyToUser"
                   name="dataEstateAccountAgencyExpertModel.accessShareAgencyToUser">
                 <label class="custom-control-label"
                   for="dataEstateAccountAgencyExpertModel.accessShareAgencyToUser"></label>
@@ -254,7 +254,7 @@
             </div>
           </div>
           <!-- accessShareUserToAgency Field -->
-          <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+          <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
             <div class="pt-1">
               <h5 data-trigger-switch="dataEstateAccountAgencyExpertModel.accessShareUserToAgency"
                 class="font-600 font-14">accessShareUserToAgency</h5>
@@ -262,7 +262,7 @@
             <div class="ms-auto me-3 pe-2">
               <div class="custom-control ios-switch small-switch">
                 <input type="checkbox" class="ios-input" id="dataEstateAccountAgencyExpertModel.accessShareUserToAgency"
-                  [(ngModel)]="this.dataEstateAccountAgencyExpertModel.accessShareUserToAgency"
+                  [(ngModel)]="dataEstateAccountAgencyExpertModel.accessShareUserToAgency"
                   name="dataEstateAccountAgencyExpertModel.accessShareUserToAgency">
                 <label class="custom-control-label"
                   for="dataEstateAccountAgencyExpertModel.accessShareUserToAgency"></label>
@@ -271,7 +271,7 @@
           </div>
           <button type="button" class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight"
             (click)="onActionDataGetAddGroup()"
-            *ngIf="this.dataEstateAccountAgencyExpertModel.linkEstateExpertId && this.dataEstateAccountAgencyExpertModel.linkEstateExpertId.length>0"
+            *ngIf="dataEstateAccountAgencyExpertModel.linkEstateExpertId && this.dataEstateAccountAgencyExpertModel.linkEstateExpertId.length>0"
             type="button">&#x2b;
           </button>
           <!-- TABLE  -->

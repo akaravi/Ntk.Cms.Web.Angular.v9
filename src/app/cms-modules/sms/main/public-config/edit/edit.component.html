@@ -14,7 +14,7 @@
       <!-- RecordStatus Field -->
       <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
         [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-        [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+        [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
         [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
 
 
@@ -55,7 +55,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.abilityCreditCheck"
-              [(ngModel)]="this.dataModel.abilityCreditCheck" name="dataModel.abilityCreditCheck">
+              [(ngModel)]="dataModel.abilityCreditCheck" name="dataModel.abilityCreditCheck">
             <label class="custom-control-label" for="dataModel.abilityCreditCheck"></label>
           </div>
         </div>
@@ -69,7 +69,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.abilityDelivery"
-              [(ngModel)]="this.dataModel.abilityDelivery" name="dataModel.abilityDelivery">
+              [(ngModel)]="dataModel.abilityDelivery" name="dataModel.abilityDelivery">
             <label class="custom-control-label" for="dataModel.abilityDelivery"></label>
           </div>
         </div>
@@ -83,7 +83,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.abilityReceive"
-              [(ngModel)]="this.dataModel.abilityReceive" name="dataModel.abilityReceive">
+              [(ngModel)]="dataModel.abilityReceive" name="dataModel.abilityReceive">
             <label class="custom-control-label" for="dataModel.abilityReceive"></label>
           </div>
         </div>

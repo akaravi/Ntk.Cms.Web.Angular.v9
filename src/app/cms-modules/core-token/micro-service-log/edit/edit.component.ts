@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import {
-  CoreEnumService, CoreTokenMicroServiceLogModel, CoreTokenMicroServiceLogService,
+  CoreEnumService, CoreLogTokenMicroServiceModel, CoreLogTokenMicroServiceService,
   ErrorExceptionResult,
   FormInfoModel, InfoEnumModel, ManageUserAccessDataTypesEnum
 } from 'ntk-cms-api';
@@ -19,26 +19,27 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-coretoken-microservicelog-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
+    selector: 'app-coretoken-microservicelog-edit',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss'],
+    standalone: false
 })
-export class CoreTokenMicroServiceLogEditComponent extends EditBaseComponent<CoreTokenMicroServiceLogService, CoreTokenMicroServiceLogModel, string>
+export class CoreLogTokenMicroServiceEditComponent extends EditBaseComponent<CoreLogTokenMicroServiceService, CoreLogTokenMicroServiceModel, string>
   implements OnInit, OnDestroy {
   requestId = '';
   constructorInfoAreaId = this.constructor.name;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CoreTokenMicroServiceLogEditComponent>,
+    private dialogRef: MatDialogRef<CoreLogTokenMicroServiceEditComponent>,
     public coreEnumService: CoreEnumService,
-    public coreTokenMicroServiceLogService: CoreTokenMicroServiceLogService,
+    public coreLogTokenMicroServiceService: CoreLogTokenMicroServiceService,
     private cmsToastrService: CmsToastrService,
     public publicHelper: PublicHelper,
     private cdr: ChangeDetectorRef,
     private tokenHelper: TokenHelper,
     public translate: TranslateService,
   ) {
-    super(coreTokenMicroServiceLogService, new CoreTokenMicroServiceLogModel(), publicHelper, translate);
+    super(coreLogTokenMicroServiceService, new CoreLogTokenMicroServiceModel(), publicHelper, translate);
 
     this.publicHelper.processService.cdr = this.cdr;
     if (data) {
@@ -52,8 +53,8 @@ export class CoreTokenMicroServiceLogEditComponent extends EditBaseComponent<Cor
 
 
 
-  dataModelResult: ErrorExceptionResult<CoreTokenMicroServiceLogModel> = new ErrorExceptionResult<CoreTokenMicroServiceLogModel>();
-  dataModel: CoreTokenMicroServiceLogModel = new CoreTokenMicroServiceLogModel();
+  dataModelResult: ErrorExceptionResult<CoreLogTokenMicroServiceModel> = new ErrorExceptionResult<CoreLogTokenMicroServiceModel>();
+  dataModel: CoreLogTokenMicroServiceModel = new CoreLogTokenMicroServiceModel();
 
   formInfo: FormInfoModel = new FormInfoModel();
 
@@ -121,9 +122,9 @@ export class CoreTokenMicroServiceLogEditComponent extends EditBaseComponent<Cor
     });
 
     /*َAccess Field*/
-    this.coreTokenMicroServiceLogService.setAccessLoad();
-    this.coreTokenMicroServiceLogService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
-    this.coreTokenMicroServiceLogService.ServiceGetOneById(this.requestId).subscribe({
+    this.coreLogTokenMicroServiceService.setAccessLoad();
+    this.coreLogTokenMicroServiceService.setAccessDataType(ManageUserAccessDataTypesEnum.Editor);
+    this.coreLogTokenMicroServiceService.ServiceGetOneById(this.requestId).subscribe({
       next: (ret) => {
         /*َAccess Field*/
         //  this.dataAccessModel = next.access;

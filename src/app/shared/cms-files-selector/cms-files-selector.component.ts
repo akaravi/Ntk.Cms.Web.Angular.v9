@@ -6,8 +6,9 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-cms-files-selector',
-  templateUrl: './cms-files-selector.component.html',
+    selector: 'app-cms-files-selector',
+    templateUrl: './cms-files-selector.component.html',
+    standalone: false
 })
 export class CmsFilesSelectorComponent implements OnInit {
   static nextId = 0;

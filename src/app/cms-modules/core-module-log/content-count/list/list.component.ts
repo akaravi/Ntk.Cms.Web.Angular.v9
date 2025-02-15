@@ -21,9 +21,9 @@ import { CoreModuleLogContentCountEditComponent } from '../edit/edit.component';
 import { CoreModuleLogContentCountViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodulelog-content-count-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodulelog-content-count-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleLogContentCountListComponent extends ListBaseComponent<CoreModuleLogContentCountService, CoreModuleLogContentCountModel, string>
   implements OnInit, OnDestroy {

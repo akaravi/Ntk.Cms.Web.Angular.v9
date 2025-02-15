@@ -20,9 +20,10 @@ import { environment } from 'src/environments/environment';
 import { EstateAdsTypeAddComponent } from '../add/add.component';
 import { EstateAdsTypeEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-ads-type-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-estate-ads-type-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class EstateAdsTypeListComponent extends ListBaseComponent<EstateAdsTypeService, EstateAdsTypeModel, string> implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

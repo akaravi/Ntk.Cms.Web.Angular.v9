@@ -24,8 +24,9 @@ import { environment } from 'src/environments/environment';
 import { ApplicationLogNotificationActionSendComponent } from '../action-send/action-send.component';
 import { ApplicationLogNotificationViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-application-notification-list',
-  templateUrl: './list.component.html',
+    selector: 'app-application-notification-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class ApplicationLogNotificationListComponent extends ListBaseComponent<ApplicationLogNotificationService, ApplicationLogNotificationModel, string>
   implements OnInit, OnDestroy {

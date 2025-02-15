@@ -16,8 +16,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-blog-content-selector',
-  templateUrl: './selector.component.html',
+    selector: 'app-blog-content-selector',
+    templateUrl: './selector.component.html',
+    standalone: false
 })
 export class BlogContentSelectorComponent implements OnInit {
   static nextId = 0;

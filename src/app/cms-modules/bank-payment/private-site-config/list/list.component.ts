@@ -27,8 +27,9 @@ import { BankPaymentPrivateSiteConfigAddComponent } from '../add/add.component';
 import { BankPaymentPrivateSiteConfigEditComponent } from '../edit/edit.component';
 import { BankPaymentPrivateSiteConfigPaymentTestComponent } from '../paymentTest/paymentTest.component';
 @Component({
-  selector: 'app-bankpayment-privateconfig-list',
-  templateUrl: './list.component.html',
+    selector: 'app-bankpayment-privateconfig-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class BankPaymentPrivateSiteConfigListComponent extends ListBaseComponent<BankPaymentPrivateSiteConfigService, BankPaymentPrivateSiteConfigModel, number>
   implements OnInit, OnDestroy {

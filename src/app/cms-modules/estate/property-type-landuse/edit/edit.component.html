@@ -48,7 +48,7 @@
         </mat-error>
       </div>
       <!-- createdYearActive Field -->
-      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+      <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
         <div class="pt-1">
           <h5 data-trigger-switch="dataModel.createdYearActive" class="font-600 font-14">
             {{fieldsInfo['createdYearActive']?.fieldTitle}}</h5>
@@ -56,7 +56,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.createdYearActive"
-              [(ngModel)]="this.dataModel.createdYearActive" name="dataModel.createdYearActive">
+              [(ngModel)]="dataModel.createdYearActive" name="dataModel.createdYearActive">
             <label class="custom-control-label" for="dataModel.createdYearActive"></label>
           </div>
         </div>
@@ -102,7 +102,7 @@
         </mat-error>
       </div>
       <!-- partitionActive Field -->
-      <div *ngIf="this.tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
+      <div *ngIf="tokenHelper.isAdminSite || this.tokenHelper.isSupportSite" class="d-flex mb-3">
         <div class="pt-1">
           <h5 data-trigger-switch="dataModel.partitionActive" class="font-600 font-14">
             {{fieldsInfo['partitionActive']?.fieldTitle}}</h5>
@@ -110,7 +110,7 @@
         <div class="ms-auto me-3 pe-2">
           <div class="custom-control ios-switch small-switch">
             <input type="checkbox" class="ios-input" id="dataModel.partitionActive"
-              [(ngModel)]="this.dataModel.partitionActive" name="dataModel.partitionActive">
+              [(ngModel)]="dataModel.partitionActive" name="dataModel.partitionActive">
             <label class="custom-control-label" for="dataModel.partitionActive"></label>
           </div>
         </div>

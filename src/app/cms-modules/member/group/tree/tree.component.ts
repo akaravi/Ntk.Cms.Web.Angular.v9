@@ -30,8 +30,9 @@ import { environment } from 'src/environments/environment';
 import { MemberGroupAddComponent } from '../add/add.component';
 import { MemberGroupEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-member-group-tree',
-  templateUrl: './tree.component.html'
+    selector: 'app-member-group-tree',
+    templateUrl: './tree.component.html',
+    standalone: false
 })
 export class MemberGroupTreeComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

@@ -17,8 +17,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-sms-log-inbox-view',
-  templateUrl: './view.component.html',
+    selector: 'app-sms-log-inbox-view',
+    templateUrl: './view.component.html',
+    standalone: false
 })
 export class SmsLogInBoxViewComponent implements OnInit, OnDestroy {
   requestId = '';

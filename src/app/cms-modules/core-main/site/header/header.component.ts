@@ -17,9 +17,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { CmsLinkToComponent } from 'src/app/shared/cms-link-to/cms-link-to.component';
 import { environment } from 'src/environments/environment';
 @Component({
-  selector: 'app-core-site-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-core-site-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class CoreSiteHeaderComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;

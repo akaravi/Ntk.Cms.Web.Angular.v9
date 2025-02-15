@@ -21,9 +21,9 @@ import { CoreModuleLogFavoriteEditComponent } from '../edit/edit.component';
 import { CoreModuleLogFavoriteViewComponent } from '../view/view.component';
 
 @Component({
-  selector: 'app-coremodulelog-favorite-list',
-  templateUrl: './list.component.html',
-
+    selector: 'app-coremodulelog-favorite-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class CoreModuleLogFavoriteListComponent extends ListBaseComponent<CoreModuleLogFavoriteService, CoreModuleLogFavoriteModel, string>
   implements OnInit, OnDestroy {

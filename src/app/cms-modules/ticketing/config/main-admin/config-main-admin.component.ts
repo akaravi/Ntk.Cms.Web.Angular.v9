@@ -22,9 +22,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-ticketing-config-mainadmin',
-  templateUrl: './config-main-admin.component.html',
-  styleUrls: ['./config-main-admin.component.scss']
+    selector: 'app-ticketing-config-mainadmin',
+    templateUrl: './config-main-admin.component.html',
+    styleUrls: ['./config-main-admin.component.scss'],
+    standalone: false
 })
 export class TicketingConfigMainAdminComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

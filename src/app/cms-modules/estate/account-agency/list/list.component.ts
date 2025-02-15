@@ -20,8 +20,9 @@ import { environment } from 'src/environments/environment';
 import { EstateAccountAgencyAddComponent } from '../add/add.component';
 import { EstateAccountAgencyEditComponent } from '../edit/edit.component';
 @Component({
-  selector: 'app-estate-account-agency-list',
-  templateUrl: './list.component.html',
+    selector: 'app-estate-account-agency-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class EstateAccountAgencyListComponent extends ListBaseComponent<EstateAccountAgencyService, EstateAccountAgencyModel, string> implements OnInit, OnDestroy {
   requestLinkAccountUserId = '';

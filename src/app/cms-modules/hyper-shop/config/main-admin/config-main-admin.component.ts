@@ -24,9 +24,10 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-hypershop-config-mainadmin',
-  templateUrl: './config-main-admin.component.html',
-  styleUrls: ['./config-main-admin.component.scss']
+    selector: 'app-hypershop-config-mainadmin',
+    templateUrl: './config-main-admin.component.html',
+    styleUrls: ['./config-main-admin.component.scss'],
+    standalone: false
 })
 export class HyperShopConfigMainAdminComponent implements OnInit, OnDestroy {
   requestLinkSiteId = 0;

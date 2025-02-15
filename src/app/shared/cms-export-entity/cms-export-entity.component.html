@@ -48,7 +48,7 @@
         </mat-error>
       </div>
       <!-- ReportFormatFileId Field -->
-      <div *ngIf="this.dataModel.fileType===EnumExportFileTypeReport"
+      <div *ngIf="dataModel.fileType===EnumExportFileTypeReport"
         class="input-style has-borders input-style-always-active validate-field no-icon mb-4">
         <label for="dataModel.reportFormatFileId" class="color-highlight">{{'TITLE.Report_Format' | translate}}</label>
         <select id="dataModel.reportFormatFileId" [(ngModel)]="dataModel.reportFormatFileId"

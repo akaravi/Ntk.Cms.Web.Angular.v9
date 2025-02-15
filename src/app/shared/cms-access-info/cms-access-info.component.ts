@@ -5,8 +5,9 @@ import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-cms-access-info',
-  templateUrl: './cms-access-info.component.html',
+    selector: 'app-cms-access-info',
+    templateUrl: './cms-access-info.component.html',
+    standalone: false
 })
 export class CmsAccessInfoComponent implements OnInit {
   static nextId = 0;

@@ -15,9 +15,10 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 @Component({
-  selector: 'app-estate-property-action',
-  templateUrl: './action.component.html',
-  styleUrls: ['./action.component.scss'],
+    selector: 'app-estate-property-action',
+    templateUrl: './action.component.html',
+    styleUrls: ['./action.component.scss'],
+    standalone: false
 })
 export class EstatePropertyActionComponent implements OnInit {
 

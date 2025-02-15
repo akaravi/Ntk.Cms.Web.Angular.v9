@@ -8,8 +8,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 
 
 @Component({
-  selector: 'app-estate-account-agency-selectionlist',
-  templateUrl: './selectionlist.component.html',
+    selector: 'app-estate-account-agency-selectionlist',
+    templateUrl: './selectionlist.component.html',
+    standalone: false
 })
 export class EstateAccountAgencySelectionlistComponent implements OnInit {
 

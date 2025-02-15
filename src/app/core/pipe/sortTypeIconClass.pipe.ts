@@ -3,7 +3,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SortTypeEnum } from 'ntk-cms-api';
 
 @Pipe({
-  name: 'sortTypeIconClass'
+    name: 'sortTypeIconClass',
+    standalone: false
 })
 export class SortTypeIconClassPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) { }

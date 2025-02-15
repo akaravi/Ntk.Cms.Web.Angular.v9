@@ -18,8 +18,9 @@ import { CmsToastrService } from 'src/app/core/services/cmsToastr.service';
 import { PageInfoService } from 'src/app/core/services/page-info.service';
 
 @Component({
-  selector: 'app-ticketing-departemenoperator-list',
-  templateUrl: './list.component.html'
+    selector: 'app-ticketing-departemenoperator-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class TicketingDepartemenOperatorListComponent extends ListBaseComponent<TicketingDepartemenOperatorService, TicketingDepartemenOperatorModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;

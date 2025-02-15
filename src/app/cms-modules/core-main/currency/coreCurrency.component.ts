@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-core-currency',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-core-currency',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class CoreCurrencyComponent implements OnInit {
 

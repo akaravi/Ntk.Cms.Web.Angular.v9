@@ -22,8 +22,9 @@ import { TicketingTaskAddComponent } from '../add/add.component';
 import { TicketingTaskEditComponent } from '../edit/edit.component';
 import { TicketingTaskViewComponent } from '../view/view.component';
 @Component({
-  selector: 'app-ticketing-task-list',
-  templateUrl: './list.component.html'
+    selector: 'app-ticketing-task-list',
+    templateUrl: './list.component.html',
+    standalone: false
 })
 export class TicketingTaskListComponent extends ListBaseComponent<TicketingTaskService, TicketingTaskModel, number> implements OnInit, OnDestroy {
   requestDepartemenId = 0;

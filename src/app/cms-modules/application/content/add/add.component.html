@@ -16,7 +16,7 @@
           <!-- RecordStatus Field -->
           <app-cms-enum-record-status-selector *ngIf="fieldsInfo['recordStatus']?.accessWatchField"
             [(model)]="dataModel.recordStatus" [optionDisabled]="false"
-            [optionLabel]="this.fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
+            [optionLabel]="fieldsInfo['recordStatus']?.fieldTitle" [optionRequired]="true"
             [optionSelectFirstItem]="true"></app-cms-enum-record-status-selector>
           <!-- Lang Field -->
           <div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
@@ -37,13 +37,13 @@
           </div>
           <!-- LinkSourceId Field -->
           <app-application-source-selector (optionChange)="onActionSelectSource($event)" [optionSelectFirstItem]="true"
-            [optionSelectForce]="this.dataModel.linkSourceId"
+            [optionSelectForce]="dataModel.linkSourceId"
             [optionPlaceholder]="fieldsInfo['linkSourceId']?.fieldTitle"
             [optionDisabled]="!fieldsInfo['linkSourceId']?.accessAddField"></app-application-source-selector>
           <!-- LinkThemeConfigId Field -->
           <app-application-themeconfig-selector (optionChange)="onActionSelectTheme($event)"
-            *ngIf="this.dataModel?.linkSourceId>0" [optionSelectForce]="this.dataModel.linkThemeConfigId"
-            [optionSelectParentForce]="this.dataModel.linkSourceId"
+            *ngIf="dataModel?.linkSourceId>0" [optionSelectForce]="dataModel.linkThemeConfigId"
+            [optionSelectParentForce]="dataModel.linkSourceId"
             [optionPlaceholder]="fieldsInfo['linkThemeConfigId']?.fieldTitle" [optionSelectFirstItem]="true"
             [optionDisabled]="!fieldsInfo['linkThemeConfigId']?.accessAddField">
           </app-application-themeconfig-selector>
