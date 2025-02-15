@@ -134,14 +134,24 @@ export class AppComponent implements OnInit {
 
     this.cmsApiStoreSubscribe = this.tokenHelper.onInitAppComponentStateOnChange().subscribe({
       next: (state) => {
-        if (state.tokenInfoStore.siteId > 0 && state.tokenInfoStore.userId > 0 && environment.production)
-          this.getSupport();
-        debugger;
-        if (state.tokenInfoStore.userId > 0) {
-          this.signalrService.login(state.tokenInfoStore.token);
-        } else {
-          this.signalrService.logout();
-        }
+        //if (state.tokenInfoStore.siteId > 0 && state.tokenInfoStore.userId > 0 && environment.production)
+        //  this.getSupport();
+        //if (state.tokenInfoStore.userId > 0) {
+        //  this.signalrService.login(state.tokenInfoStore.token);
+        //} else {
+        //  this.signalrService.logout();
+        //}
+      }
+    });
+
+    this.tokenHelper.getTokenInfoStateOnChange().subscribe((state) => {
+      if (state.siteId > 0 && state.userId > 0 && environment.production)
+        this.getSupport();
+      debugger;
+      if (state.userId > 0) {
+        this.signalrService.login(state.token);
+      } else {
+        this.signalrService.logout();
       }
     });
     const url = window.location.href;

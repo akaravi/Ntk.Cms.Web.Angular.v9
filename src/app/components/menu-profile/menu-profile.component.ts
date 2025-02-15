@@ -26,14 +26,6 @@ export class MenuProfileComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private router: Router
   ) {
-    this.tokenHelper.getTokenInfoState().then((value) => {
-      this.tokenInfo = value;
-      this.cdr.detectChanges();
-    });
-    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
-      this.tokenInfo = value;
-      this.cdr.detectChanges();
-    });
 
   }
 
@@ -46,7 +38,14 @@ export class MenuProfileComponent implements OnInit {
   disabledAllow = false;
   themeStore = new ThemeStoreModel();
   ngOnInit(): void {
-
+    this.tokenHelper.getTokenInfoState().then((value) => {
+      this.tokenInfo = value;
+      this.cdr.detectChanges();
+    });
+    this.cmsApiStoreSubscribe = this.tokenHelper.getTokenInfoStateOnChange().subscribe((value) => {
+      this.tokenInfo = value;
+      this.cdr.detectChanges();
+    });
     this.publicHelper.getStateOnChange().subscribe((value) => {
       this.themeStore = value.themeStore;
     });

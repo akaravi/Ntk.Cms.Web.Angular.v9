@@ -82,7 +82,6 @@ export class AuthSingInComponent implements OnInit {
           this.cmsToastrService.typeSuccessLogin();
           if (res.item.siteId > 0) {
             this.onNavigate = true;
-            this.tokenHelper.setTokenInfoState(res.item);
             setTimeout(() => this.router.navigate(['/dashboard']), 500);
           }
           else {

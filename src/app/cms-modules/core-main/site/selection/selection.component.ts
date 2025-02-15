@@ -135,7 +135,6 @@ export class CoreSiteSelectionComponent implements OnInit {
             this.lastSelectSiteId.splice(indexId, 1);
           this.lastSelectSiteId.push(res.item.siteId);
           localStorage.setItem(this.SELECT_SITE_LOCAL_STORAGE_KEY, this.lastSelectSiteId + '');
-          this.tokenHelper.setTokenInfoState(res.item);
           /**Select Site */
         }
         else {

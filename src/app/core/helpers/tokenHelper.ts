@@ -9,7 +9,7 @@ import {
 import { Observable, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CmsStoreService } from '../reducers/cmsStore.service';
-import { ProcessOrderModel, ReducerCmsStore, SET_Process_Order, SET_TOKEN_DEVICE, SET_TOKEN_INFO } from '../reducers/reducer.factory';
+import { ProcessOrderModel, ReducerCmsStore } from '../reducers/reducer.factory';
 import { ThemeService } from '../services/theme.service';
 const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
 @Injectable({
@@ -24,15 +24,17 @@ export class TokenHelper {
   ) {
     this.consoleLog = environment.ProgressConsoleLog;
     //**Token */
-    this.coreAuthService.tokenInfoSubject.subscribe((value) => {
-      this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
+    this.coreAuthService.tokenInfoSubject.subscribe((state) => {
+    //  this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
       if (environment.consoleLog)
         console.log("SET_TOKEN_INFO");
+      this.tokenInfo = state;
     })
-    this.coreAuthService.tokenDeviceSubject.subscribe((value) => {
-      this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
+    this.coreAuthService.tokenDeviceSubject.subscribe((state) => {
+    //  this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
       if (environment.consoleLog)
         console.log("SET_TOKEN_DEVICE");
+      this.deviceTokenInfo =state;
     })
     //**Token */
   }
@@ -53,11 +55,11 @@ export class TokenHelper {
   /*
     /opny use on main page
     */
-  onInitAppComponentStateOnChange(): Observable<ReducerCmsStore> {
+  onInitAppComponentStateOnChange(): Observable<ReducerCmsStore> {    
     return this.cmsStoreService.getState((state) => {
       if (environment.consoleLog)
         console.log("onInitAppComponentStateOnChange:tokenhelper");
-      this.tokenInfo = state.tokenInfoStore;
+      //this.tokenInfo = state.tokenInfoStore;
       this.setDirectionThemeBylanguage(this.tokenInfo.language);
       this.CheckIsAdmin();
       return state;
@@ -84,36 +86,32 @@ export class TokenHelper {
     if (!token || token.length === 0)
       return new TokenInfoModel();
 
-    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.tokenInfoStore?.userId > 0) {
-      this.tokenInfo = storeSnapshot.tokenInfoStore;
-      return storeSnapshot.tokenInfoStore;
-    }
+     // const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+     // if (storeSnapshot?.tokenInfoStore?.userId > 0) {
+      //  this.tokenInfo = storeSnapshot.tokenInfoStore;
+       // return storeSnapshot.tokenInfoStore;
+      //}
     return await firstValueFrom(this.coreAuthService.ServiceCurrentToken())
       .then((ret) => {
-        this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: ret.item });
+        //this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: ret.item });
         this.tokenInfo = ret.item;
         return ret.item;
       });
   }
-  setTokenInfoState(model: TokenInfoModel): void {
-    if (!model)
-      this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: model });
-  }
+  
   async getTokenDeviceState(): Promise<TokenDeviceModel> {
     const token = this.coreAuthService.getDeviceToken();
     if (!token || token.length === 0)
       return new TokenDeviceModel();
 
-    const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    if (storeSnapshot?.deviceTokenInfoStore) {
-      this.deviceTokenInfo = storeSnapshot.deviceTokenInfoStore;
-
-      return storeSnapshot.deviceTokenInfoStore;
-    }
+    //const storeSnapshot = this.cmsStoreService.getStateSnapshot();
+    //if (storeSnapshot?.deviceTokenInfoStore) {
+    //  this.deviceTokenInfo = storeSnapshot.deviceTokenInfoStore;
+      //  return storeSnapshot.deviceTokenInfoStore;
+    //}
     return await firstValueFrom(this.coreAuthService.ServiceCurrentDeviceToken())
       .then((ret) => {
-        this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: ret.item });
+        //this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: ret.item });
         this.deviceTokenInfo = ret.item;
         return ret.item;
       });
