@@ -78,7 +78,7 @@ export class TokenHelper {
   getTokenDeviceStateOnChange(): Observable<TokenDeviceModel> {
     return this.coreAuthService.tokenDeviceSubject;
   }
- 
+
   async getTokenInfoState(): Promise<TokenInfoModel> {
     const token = this.coreAuthService.getUserToken();
     if (!token || token.length === 0)
@@ -95,6 +95,10 @@ export class TokenHelper {
         this.tokenInfo = ret.item;
         return ret.item;
       });
+  }
+  setTokenInfoState(model: TokenInfoModel): void {
+    if (!model)
+      this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: model });
   }
   async getTokenDeviceState(): Promise<TokenDeviceModel> {
     const token = this.coreAuthService.getDeviceToken();

@@ -15,6 +15,7 @@ import { PublicHelper } from 'src/app/core/helpers/publicHelper';
 import { CmsTranslationService } from 'src/app/core/i18n/translation.service';
 import { CmsImageThumbnailPipe } from 'src/app/core/pipe/cms-image-thumbnail.pipe';
 import { CmsToastrService } from '../../../../core/services/cmsToastr.service';
+import { TokenHelper } from 'src/app/core/helpers/tokenHelper';
 
 
 @Component({
@@ -33,6 +34,7 @@ export class CoreSiteSelectionComponent implements OnInit {
     private cmsToastrService: CmsToastrService,
     private cdr: ChangeDetectorRef,
     public publicHelper: PublicHelper,
+    public tokenHelper: TokenHelper,
     private router: Router,
     public translate: TranslateService,
   ) {
@@ -133,6 +135,7 @@ export class CoreSiteSelectionComponent implements OnInit {
             this.lastSelectSiteId.splice(indexId, 1);
           this.lastSelectSiteId.push(res.item.siteId);
           localStorage.setItem(this.SELECT_SITE_LOCAL_STORAGE_KEY, this.lastSelectSiteId + '');
+          this.tokenHelper.setTokenInfoState(res.item);
           /**Select Site */
         }
         else {

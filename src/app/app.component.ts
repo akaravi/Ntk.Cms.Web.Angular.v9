@@ -136,6 +136,7 @@ export class AppComponent implements OnInit {
       next: (state) => {
         if (state.tokenInfoStore.siteId > 0 && state.tokenInfoStore.userId > 0 && environment.production)
           this.getSupport();
+        debugger;
         if (state.tokenInfoStore.userId > 0) {
           this.signalrService.login(state.tokenInfoStore.token);
         } else {

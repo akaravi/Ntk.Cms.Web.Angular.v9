@@ -81,6 +81,8 @@ export function TranslateHttpLoaderFactory(http: HttpClient) {
       useFactory: (signalrService: CmsSignalrService) => () => {
         signalrService.initiateSignalrConnection();
         signalrService.addListenerMessage(null);
+        signalrService.addListenerActionLogin();
+        signalrService.addListenerActionLogout();
       },
       deps: [CmsSignalrService],
       multi: true,
