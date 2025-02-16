@@ -100,9 +100,9 @@ export class CmsLinkToComponent implements OnInit {
       this.dataModel.linkApiPathId = model.id;
       this.sendByShow = false;
       if (model.apiAbilitySendByDirect)
-        this.dataModel.sendByQeue = false;
+        this.dataModel.sendByQueue = false;
       if (model.apiAbilitySendByQueue)
-        this.dataModel.sendByQeue = true;
+        this.dataModel.sendByQueue = true;
       if (model.apiAbilitySendByQueue && model.apiAbilitySendByDirect)
         this.sendByShow = true;
     }
