@@ -21,10 +21,10 @@ export class DateByClock {
 }
 
 @Component({
-    selector: 'app-sms-action-send-message',
-    templateUrl: './send-message.component.html',
-    styleUrls: ['./send-message.component.scss'],
-    standalone: false
+  selector: 'app-sms-action-send-message',
+  templateUrl: './send-message.component.html',
+  styleUrls: ['./send-message.component.scss'],
+  standalone: false
 })
 export class SmsActionSendMessageComponent implements OnInit {
   requestLinkApiPathId = '';
@@ -208,7 +208,17 @@ export class SmsActionSendMessageComponent implements OnInit {
     if (model && model.id.length > 0) {
       this.dataModel.linkApiPathId = model.id;
       this.dataModel.linkFromNumber = null;
-
+      this.dataModel['sendByQueueDisabled'] = false;
+      if (model.apiAbilitySendByQueue == true && model.apiAbilitySendByDirect == true) {
+        this.dataModel.sendByQueue = true;
+        this.dataModel['sendByQueueDisabled'] = false;
+      } else if (model.apiAbilitySendByQueue == true) {
+        this.dataModel.sendByQueue = true;
+        this.dataModel['sendByQueueDisabled'] = true;
+      } else if (model.apiAbilitySendByDirect == true) {
+        this.dataModel.sendByQueue = false;
+        this.dataModel['sendByQueueDisabled'] = true;
+      }
     }
   }
   dataMessageCategoryModel: SmsMainMessageCategoryModel = new SmsMainMessageCategoryModel();

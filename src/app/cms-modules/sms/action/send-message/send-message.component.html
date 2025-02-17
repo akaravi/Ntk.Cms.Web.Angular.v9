@@ -256,7 +256,7 @@
                   </div>
                   <div class="ms-auto me-3 pe-2">
                     <div class="custom-control ios-switch small-switch">
-                      <input type="checkbox" class="ios-input" id="dataModel.sendByQueue"
+                      <input type="checkbox" class="ios-input" id="dataModel.sendByQueue" [disabled]="dataModel['sendByQueueDisabled']"
                         [(ngModel)]="dataModel.sendByQueue" name="dataModel.sendByQueue">
                       <label class="custom-control-label" for="dataModel.sendByQueue"></label>
                     </div>
