@@ -25,16 +25,16 @@ export class TokenHelper {
     this.consoleLog = environment.ProgressConsoleLog;
     //**Token */
     this.coreAuthService.tokenInfoSubject.subscribe((state) => {
-    //  this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
+      //  this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: value });
       if (environment.consoleLog)
         console.log("SET_TOKEN_INFO");
       this.tokenInfo = state;
     })
     this.coreAuthService.tokenDeviceSubject.subscribe((state) => {
-    //  this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
+      //  this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: value });
       if (environment.consoleLog)
         console.log("SET_TOKEN_DEVICE");
-      this.deviceTokenInfo =state;
+      this.deviceTokenInfo = state;
     })
     //**Token */
   }
@@ -55,7 +55,7 @@ export class TokenHelper {
   /*
     /opny use on main page
     */
-  onInitAppComponentStateOnChange(): Observable<ReducerCmsStore> {    
+  onInitAppComponentStateOnChange(): Observable<ReducerCmsStore> {
     return this.cmsStoreService.getState((state) => {
       if (environment.consoleLog)
         console.log("onInitAppComponentStateOnChange:tokenhelper");
@@ -85,20 +85,25 @@ export class TokenHelper {
     const token = this.coreAuthService.getUserToken();
     if (!token || token.length === 0)
       return new TokenInfoModel();
+    //step 1
+    if (this.tokenInfo && this.tokenInfo.token?.length > 0)
+      return this.tokenInfo;
+    //step 2
+    this.coreAuthService.tokenInfoSubject.subscribe((state) => {
+      this.tokenInfo = state;
+    })
 
-     // const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-     // if (storeSnapshot?.tokenInfoStore?.userId > 0) {
-      //  this.tokenInfo = storeSnapshot.tokenInfoStore;
-       // return storeSnapshot.tokenInfoStore;
-      //}
-    return await firstValueFrom(this.coreAuthService.ServiceCurrentToken())
+    if (this.tokenInfo && this.tokenInfo.token?.length > 0)
+      return this.tokenInfo;
+    //step 3
+    return firstValueFrom(this.coreAuthService.ServiceCurrentToken())
       .then((ret) => {
         //this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: ret.item });
         this.tokenInfo = ret.item;
         return ret.item;
       });
   }
-  
+
   async getTokenDeviceState(): Promise<TokenDeviceModel> {
     const token = this.coreAuthService.getDeviceToken();
     if (!token || token.length === 0)
@@ -107,7 +112,7 @@ export class TokenHelper {
     //const storeSnapshot = this.cmsStoreService.getStateSnapshot();
     //if (storeSnapshot?.deviceTokenInfoStore) {
     //  this.deviceTokenInfo = storeSnapshot.deviceTokenInfoStore;
-      //  return storeSnapshot.deviceTokenInfoStore;
+    //  return storeSnapshot.deviceTokenInfoStore;
     //}
     return await firstValueFrom(this.coreAuthService.ServiceCurrentDeviceToken())
       .then((ret) => {

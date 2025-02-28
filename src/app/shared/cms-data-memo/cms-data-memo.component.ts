@@ -70,7 +70,6 @@ export class CmsDataMemoComponent implements OnInit {
     const pName = this.constructor.name + 'main';
     this.translate.get('MESSAGE.get_information_list').subscribe((str: string) => { this.publicHelper.processService.processStart(pName, str, this.constructorInfoAreaId); });
     /*filter CLone*/
-    this.dataModel.moduleEntityId = this.dataModel.moduleEntityId + "";
     if (this.dataModel.moduleEntityId && this.dataModel.moduleEntityId.length > 0) {
       this.service.ServiceMemoGetAllEntity(this.dataModel.moduleEntityId).subscribe({
         next: (ret) => {
