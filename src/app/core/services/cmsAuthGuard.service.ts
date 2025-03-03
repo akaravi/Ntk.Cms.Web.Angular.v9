@@ -19,7 +19,6 @@ export class CmsAuthGuard implements OnDestroy {
     const token = this.tokenHelper.coreAuthService.getUserToken();
     if (!token || token.length === 0) {
       this.router.navigate(['auth'], { queryParams: { returnUrl: state.url } });
-      //this.router.navigate(['page'], { queryParams: { returnUrl: state.url } });
       return false;
     }
 
@@ -27,17 +26,10 @@ export class CmsAuthGuard implements OnDestroy {
     await this.tokenHelper.getTokenInfoState().then((value) => {
       tokenInfo = value
     });
-    if (tokenInfo && tokenInfo.userId > 0 && tokenInfo.siteId > 0)
+    if (tokenInfo && tokenInfo.userId > 0 )
       return true;
 
-    // while (!this.runSubscribe) {
-    //   await this.delay(10000);
-    // }
-    if (tokenInfo && tokenInfo.userId > 0) {
-      return true;
-    }
     this.router.navigate(['auth'], { queryParams: { returnUrl: state.url } });
-    //this.router.navigate(['page'], { queryParams: { returnUrl: state.url } });
     return false;
   }
   delay(ms: number) {
