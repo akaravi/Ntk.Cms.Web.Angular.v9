@@ -10,10 +10,7 @@ import { environment } from 'src/environments/environment';
 export class PanelComponent implements OnInit {
   env = environment;
   constructor() { }
-
   ngOnInit(): void {
 
   }
-
-
 }

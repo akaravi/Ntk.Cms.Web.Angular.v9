@@ -3,9 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 //test karavi indonarimani
 import { DeviceTypeEnum, OperatingSystemTypeEnum } from "ntk-cms-api";
+import { EnvironmentModel } from "src/app/core/models/environmentModel";
+
 declare var require: any;
 
-export const environment = {
+export const environment :EnvironmentModel= {
   production: true,
   checkAccess: false,
   consoleLog: false,
