@@ -55,7 +55,7 @@ export class CmsToastrService {
   }
   typeSuccessSetStatus(str: string): void {
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeSuccessSetStatus');
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Success') + ': ' + str;
     }
     this.toastr.success(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeSuccessSetStatus'));
@@ -109,7 +109,7 @@ export class CmsToastrService {
   typeSuccessAppBuild(str: string): void {
     // let message = 'دستور ساخت اپ ثب شد';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeSuccessAppBuild');
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Message') + ': ' + str;
     }
     this.toastr.success(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeSuccessAppBuild'));
@@ -123,7 +123,7 @@ export class CmsToastrService {
     // let message = 'خطا در اتصال به اینترنت.لطفا اتصال به اینترنت را بررسی کنید';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorInternetConnection');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorInternetConnection'));
@@ -132,7 +132,7 @@ export class CmsToastrService {
     // let message = 'حساب کاربری شما مورد تایید نمی باشد.لطفا مجدد وارد حساب کاربری شوید';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorUserToken');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorUserToken'));
@@ -141,7 +141,7 @@ export class CmsToastrService {
     // let message = 'دسترسی جدید تایید نشد';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAccessChange');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAccessChange'));
@@ -150,7 +150,7 @@ export class CmsToastrService {
     // let message = 'شناسه دستگاه شما مورد تایید نمی باشد.اطفا با پستبانی تماس بگیرید';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorDeviceToken');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorDeviceToken'));
@@ -160,7 +160,7 @@ export class CmsToastrService {
     // let message = 'نوع فعالیت در این صفحه مشخص نمی باشد';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorComponentAction');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorComponentAction'));
@@ -170,7 +170,7 @@ export class CmsToastrService {
     // let message = 'مقادیر فرم مورد تایید نمی باشد';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorFormInvalid');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorFormInvalid'));
@@ -179,7 +179,7 @@ export class CmsToastrService {
     // let message = 'خطا در دریافت دسترسی های ';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorGetAccess');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorGetAccess'));
@@ -188,7 +188,7 @@ export class CmsToastrService {
     // let message = 'دسترسی اضافه کردن  ندارید';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAccessAdd');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAccessAdd'));
@@ -197,7 +197,7 @@ export class CmsToastrService {
     // let message = 'دسترسی مشاهده کردن ندارید';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAccessWatch');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAccessWatch'));
@@ -206,7 +206,7 @@ export class CmsToastrService {
     // let message = 'دسترسی ویرایش کردن ندارید';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAccessEdit');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAccessEdit'));
@@ -215,7 +215,7 @@ export class CmsToastrService {
     // let message = 'دسترسی حذف کردن ندارید';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAccessDelete');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAccessDelete'));
@@ -224,7 +224,7 @@ export class CmsToastrService {
     // let message = 'خطا در دریافت ردیف ';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorGetOne');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorGetOne'));
@@ -234,7 +234,7 @@ export class CmsToastrService {
     // let message = 'خطا در تغییر وضعیت ';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSetStatus');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorSetStatus'));
@@ -243,7 +243,7 @@ export class CmsToastrService {
     // let message = 'خطا در دریافت لیست ';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorGetAll');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorGetAll'));
@@ -253,7 +253,7 @@ export class CmsToastrService {
     // let message = 'خطا در اضافه کردن';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAdd');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAdd'));
@@ -262,7 +262,7 @@ export class CmsToastrService {
     // let message = 'خطا در اضافه کردن مطالب مشابه';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAddSimilar');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAddSimilar'));
@@ -271,7 +271,7 @@ export class CmsToastrService {
     // let message = 'خطا در اضافه کردن سایر اطلاعات';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAddOtherInfo');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAddOtherInfo'));
@@ -280,7 +280,7 @@ export class CmsToastrService {
     // let message = 'خطا در اضافه کردن تگها';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAddTag');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAddTag'));
@@ -289,7 +289,7 @@ export class CmsToastrService {
     // let message = 'خطا در حذف کردن تگها';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorRemoveTag');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorRemoveTag'));
@@ -298,7 +298,7 @@ export class CmsToastrService {
     // let message = 'خطا در حذف کردن سایر اطلاعات';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorRemoveOtherInfo');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorRemoveOtherInfo'));
@@ -307,7 +307,7 @@ export class CmsToastrService {
     // let message = 'خطا در حذف کردن اطلاعات مشابه';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorRemoveSimilar');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorRemoveSimilar'));
@@ -316,7 +316,7 @@ export class CmsToastrService {
     // let message = 'خطا در ساخت عکس کپچا';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorGetCpatcha');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorGetCpatcha'));
@@ -325,7 +325,7 @@ export class CmsToastrService {
     // let message = 'اطلاعات وارد شده تکراری است';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAddDuplicate');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAddDuplicate'));
@@ -335,7 +335,7 @@ export class CmsToastrService {
     // let message = 'خطا در حذف کردن';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorRemove');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorRemove'));
@@ -345,7 +345,7 @@ export class CmsToastrService {
     // let message = 'خطا در ویرایش کردن';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorEdit');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorEdit'));
@@ -355,7 +355,7 @@ export class CmsToastrService {
     // let message = 'خطا در جابجا کردن';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorMove');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorMove'));
@@ -364,7 +364,7 @@ export class CmsToastrService {
   typeErrorLogin(str: string = ''): void {
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorLogin');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorLogin'));
@@ -374,7 +374,7 @@ export class CmsToastrService {
     // let message = 'ردیف اطلاعات جهت ویرایش مشخص نیست';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorEditRowIsNull');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorEditRowIsNull'));
@@ -384,7 +384,7 @@ export class CmsToastrService {
     // let message = 'ردیف اطلاعات جهت حذف مشخص نیست';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorDeleteRowIsNull');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorDeleteRowIsNull'));
@@ -394,7 +394,7 @@ export class CmsToastrService {
     // let message = 'ردیف والد اطلاعات جهت ثبت مشخص نیست';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorAddRowParentIsNull');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorAddRowParentIsNull'));
@@ -402,7 +402,7 @@ export class CmsToastrService {
   typeErrorGetPosition(str: string = ''): void {
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorGetPosition');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorGetPosition'));
@@ -411,7 +411,7 @@ export class CmsToastrService {
     // let message = 'برروز خطا در خارج شدن از حساب کاربری';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorLogout');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorLogout'));
@@ -420,7 +420,7 @@ export class CmsToastrService {
     // let message = 'برروز خطا در ایجاد حساب کاربری';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorRegistery');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorRegistery'));
@@ -429,7 +429,7 @@ export class CmsToastrService {
     // let message = 'برروز خطا در انتخاب';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelected');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorSelected'));
@@ -438,13 +438,13 @@ export class CmsToastrService {
     // let message = 'برروز خطا در انتخاب';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelectedRow');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorSelectedRow'));
   }
   typeErrorMessage(message: string, title: string = 'Error!'): void {
-
+if( message?.length>0)
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + title);
   }
 
@@ -488,7 +488,7 @@ export class CmsToastrService {
     // let message = 'فرم کامل نیست';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorForNotComplete');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.error(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorForNotComplete'));
@@ -498,7 +498,7 @@ export class CmsToastrService {
 
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeWarningRecordStatusNoAvailable');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.warning(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorSelected'));
@@ -511,7 +511,7 @@ export class CmsToastrService {
     // let message = 'برروز خطا در انتخاب';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelected');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.warning(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorSelected'));
@@ -520,7 +520,7 @@ export class CmsToastrService {
     // let message = 'برروز خطا در انتخاب';
     let message = this.translate.instant('ERRORMESSAGE.MESSAGE.typeErrorSelected');
 
-    if (str && str.length > 0) {
+    if (str?.length > 0) {
       message = message + ' ' + this.translate.instant('ERRORMESSAGE.TITLE.Error') + ': ' + str;
     }
     this.toastr.warning(message.replace(/(?:\r\n|\r|\n)/g, '<br>'), this.now() + this.translate.instant('ERRORMESSAGE.TITLE.typeErrorSelected'));
