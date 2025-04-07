@@ -96,7 +96,7 @@ export function TranslateHttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: TranslateHttpLoaderFactory,// (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
+        useFactory: TranslateHttpLoaderFactory,
         deps: [HttpClient]
       },
     }),

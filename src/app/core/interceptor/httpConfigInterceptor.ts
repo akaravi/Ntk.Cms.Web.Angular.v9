@@ -32,13 +32,13 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         return event;
       }),
       catchError((error: HttpErrorResponse) => {
-
         if (error.status === 0) {
           this.cmsToastrService.typeError(error.status, error.message);
           return null;
         }
         if (error.status === 401) {
           //this.cmsToastrService.typeErrorUserToken();
+          localStorage.removeItem('userToken');
           this.router.navigate(['auth/singin']);
           return null;
         }

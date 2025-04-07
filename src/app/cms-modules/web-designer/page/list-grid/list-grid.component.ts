@@ -388,7 +388,6 @@ export class WebDesignerMainPageListGridComponent extends ListBaseComponent<WebD
       this.cmsToastrService.typeErrorSelected();
       return;
     }
-    // const urlTemplate = environment.cmsServerConfig.configHtmlBuilderServerPath + 'htmlbuilder/?id=' + model.id + '&token=' + encodeURIComponent(this.tokenInfo.token);
     window.open(model.htmlBuilderUrl, '_blank');
   }
   onActionButtonHtmlView(model: WebDesignerMainPageModel = this.tableRowSelected): void {

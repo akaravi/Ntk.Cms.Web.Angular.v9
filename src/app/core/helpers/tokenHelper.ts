@@ -98,9 +98,13 @@ export class TokenHelper {
     //step 3
     return firstValueFrom(this.coreAuthService.ServiceCurrentToken())
       .then((ret) => {
-        //this.cmsStoreService.setState({ type: SET_TOKEN_INFO, payload: ret.item });
         this.tokenInfo = ret.item;
         return ret.item;
+      })
+      .catch((error)=>{
+        if (environment.consoleLog)
+        console.log("Error_TOKEN_INFO");
+return new TokenInfoModel();
       });
   }
 
@@ -116,7 +120,6 @@ export class TokenHelper {
     //}
     return await firstValueFrom(this.coreAuthService.ServiceCurrentDeviceToken())
       .then((ret) => {
-        //this.cmsStoreService.setState({ type: SET_TOKEN_DEVICE, payload: ret.item });
         this.deviceTokenInfo = ret.item;
         return ret.item;
       });
