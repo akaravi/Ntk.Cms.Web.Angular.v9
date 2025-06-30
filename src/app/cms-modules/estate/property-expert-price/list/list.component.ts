@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   CoreCurrencyModel,
   CoreCurrencyService,
-  ErrorExceptionResult, ErrorExceptionResultBase, EstateContractTypeModel, EstateContractTypeService, EstateEnumService, EstatePriceInquiryDtoModel, EstatePropertyExpertPriceModel,
+  ErrorExceptionResult, ErrorExceptionResultBase, EstateContractTypeModel, EstateContractTypeService, EstateEnumService, EstatePriceInquiryDtoModel, EstatePropertyExpertPriceFilterModel, EstatePropertyExpertPriceModel,
   EstatePropertyExpertPriceService, EstatePropertyTypeLanduseModel, EstatePropertyTypeLanduseService, EstatePropertyTypeUsageModel, EstatePropertyTypeUsageService, FilterDataModel,
   FilterModel, InfoEnumModel, RecordStatusEnum, SortTypeEnum
 } from 'ntk-cms-api';
@@ -63,7 +63,7 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     this.filteModelContent.sortType = SortTypeEnum.Descending;
 
   }
-  filteModelContent = new FilterModel();
+  filteModelContent = new EstatePropertyExpertPriceFilterModel();
   dataModelEstatePropertyExpertPriceTypeEnumResult: ErrorExceptionResult<InfoEnumModel> = new ErrorExceptionResult<InfoEnumModel>();
   dataModelEstatePropertyTypeUsageResult: ErrorExceptionResult<EstatePropertyTypeUsageModel> = new ErrorExceptionResult<EstatePropertyTypeUsageModel>();
   dataModelEstatePropertyTypeLanduseResult: ErrorExceptionResult<EstatePropertyTypeLanduseModel> = new ErrorExceptionResult<EstatePropertyTypeLanduseModel>();
@@ -458,7 +458,10 @@ export class EstatePropertyExpertPriceListComponent extends ListBaseComponent<Es
     );
 
   }
+  onActionSelectorLocation(model: number[] | null): void {
 
+    this.filteModelContent.linkLocationIds = model;
+  }
 
 
 

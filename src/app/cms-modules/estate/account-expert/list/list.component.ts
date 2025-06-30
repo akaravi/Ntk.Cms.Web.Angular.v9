@@ -201,7 +201,7 @@ export class EstateAccountExpertListComponent extends ListBaseComponent<EstateAc
 
   onActionSelectorLocation(model: number[] | null): void {
 
-    this.filteModelContent.locationListIds = model;
+    this.filteModelContent.linkLocationIds = model;
   }
   onActionSelectorLocationWorkArea(model: number[] | null): void {
 
