@@ -78,7 +78,10 @@
   text-align: right !important;
   //float: right;
 }
-
+/*for mat-paginator*/
+.mat-mdc-paginator-range-label {
+    direction: ltr;
+}
 /*for moadl scrol*/
 .mat-mdc-dialog-component-host {
   display: block !important;
