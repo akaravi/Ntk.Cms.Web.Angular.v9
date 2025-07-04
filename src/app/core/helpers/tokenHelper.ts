@@ -127,7 +127,7 @@ return new TokenInfoModel();
 
   setDirectionThemeBylanguage(language) {
     if (!language || language.length === 0)
-      language = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate.getDefaultLang() || 'fa';// this.cmsTranslationService.getSelectedLanguage()
+      language = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate.getDefaultLang() || 'fa';
     if (language === 'ar' || language === 'fa') {
       this.themeService.updateThemeDirection("ltr");
     } else {
