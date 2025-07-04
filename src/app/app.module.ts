@@ -1,13 +1,11 @@
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LOCATION_INITIALIZED, LocationStrategy } from '@angular/common';
 import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { MAT_CHIPS_DEFAULT_OPTIONS } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { CURRENCY_MASK_CONFIG, CurrencyMaskConfig } from 'ng2-currency-mask';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -19,19 +17,19 @@ import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { ComponentsModule } from './components/components.module';
-import { appInitializerFactory } from './core/i18n/app.initializer.factory';
+//import { appInitializerFactory } from './core/i18n/app.initializer.factory';
 import { CmsStoreModule } from './core/reducers/cmsStore.module';
 import { CmsAuthService } from './core/services/cmsAuth.service';
 import { SharedModule } from './shared/shared.module';
 import { CmsSignalrService } from './core/services/cmsSignalr.service';
+
+
 declare module "@angular/core" {
   interface ModuleWithProviders<T = any> {
     ngModule: Type<T>;
 
   }
 }
-
-
 export const CUSTOM_MAT_COLOR_FORMATS: MatColorFormats = {
   display: {
     colorInput: 'hex'
@@ -46,7 +44,27 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   suffix: "",
   thousands: " "
 };
+const LOCALIZATION_LOCAL_STORAGE_KEY = 'language';
+export function appInitializerFactory(translate: TranslateService, injector: Injector, authService: CmsAuthService) {
+  return () => new Promise<any>((resolve: any) => {
+    authService.getUserByToken().subscribe().add(resolve);
+    const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
+    locationInitialized.then(() => {
 
+      const langToSet = localStorage.getItem(LOCALIZATION_LOCAL_STORAGE_KEY) || this.translate?.getDefaultLang() || 'fa';
+      translate.setDefaultLang(langToSet);
+      translate.use(langToSet).subscribe(() => {
+        if (environment.consoleLog)
+          console.info(`Successfully initialized language:'${langToSet}' '`);
+      }, err => {
+        if (environment.consoleLog)
+          console.error(`Problem with '${langToSet}' language initialization.'`);
+      }, () => {
+        resolve(null);
+      });
+    });
+  });
+}
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');

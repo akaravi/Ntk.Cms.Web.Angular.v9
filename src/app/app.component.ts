@@ -36,8 +36,7 @@ import { ThemeService } from './core/services/theme.service';
 })
 
 export class AppComponent implements OnInit {
-  title = 'ntk-cms-web';
-  constructorInfoAreaId = this.constructor.name;
+  
   constructor(
     private router: Router,
     private titleService: Title,
@@ -123,12 +122,12 @@ export class AppComponent implements OnInit {
     this.process$ = processService.processSubject;
 
   }
-
+title = 'ntk-cms-web';
+  constructorInfoAreaId = this.constructor.name;
   process$: Observable<ProcessModel>;
-
-
   cmsApiStoreSubscribe: Subscription;
   dataSupportModelResult: ErrorExceptionResult<CoreSiteSupportModel>;
+  
   ngOnInit() {
     this.themeService.onInitAppComponentStateOnChange();
 

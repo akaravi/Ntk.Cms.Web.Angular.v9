@@ -3,8 +3,6 @@ import * as signalR from "@microsoft/signalr";
 import { ToastrService } from 'ngx-toastr';
 import { CmsNotificationModel, ErrorExceptionResultBase } from 'ntk-cms-api';
 import { environment } from 'src/environments/environment';
-import { CmsStoreService } from '../reducers/cmsStore.service';
-import { ProcessOrderModel, SET_Process_Order, SET_Theme_STATE } from '../reducers/reducer.factory';
 import { PublicHelper } from '../helpers/publicHelper';
 import { HubConnectionState } from '@microsoft/signalr';
 
@@ -27,9 +25,9 @@ export class CmsSignalrService {
     const userToken = localStorage.getItem('userToken');
     const deviceToken = localStorage.getItem('deviceToken');
 
-    var messageHeaders: signalR.MessageHeaders = {
-      "deviceToken": deviceToken
-    };
+    // var messageHeaders: signalR.MessageHeaders = {
+    //   "deviceToken": deviceToken
+    // };
     try {
       this.hubConnection = new signalR.HubConnectionBuilder()
         .withUrl(environment.cmsServerConfig.configHubServerPath + 'notify',
