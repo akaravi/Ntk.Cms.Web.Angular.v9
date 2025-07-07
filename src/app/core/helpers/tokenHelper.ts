@@ -113,11 +113,6 @@ return new TokenInfoModel();
     if (!token || token.length === 0)
       return new TokenDeviceModel();
 
-    //const storeSnapshot = this.cmsStoreService.getStateSnapshot();
-    //if (storeSnapshot?.deviceTokenInfoStore) {
-    //  this.deviceTokenInfo = storeSnapshot.deviceTokenInfoStore;
-    //  return storeSnapshot.deviceTokenInfoStore;
-    //}
     return await firstValueFrom(this.coreAuthService.ServiceCurrentDeviceToken())
       .then((ret) => {
         this.deviceTokenInfo = ret.item;

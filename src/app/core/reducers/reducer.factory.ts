@@ -3,8 +3,6 @@ import { ConnectionStatusModel } from '../models/connectionStatusModel';
 import { ThemeStoreModel } from '../models/themeStoreModel';
 
 export interface ReducerCmsStore {
-  //tokenInfoStore: TokenInfoModel;
-  //deviceTokenInfoStore: TokenDeviceModel;
   processInfoStore: Map<string, ProcessInfoModel>;
   processOrderStore: ProcessOrderModel[];
   coreSiteResultStore: ErrorExceptionResult<CoreSiteModel>;
@@ -17,8 +15,6 @@ export interface ReducerCmsStore {
 }
 
 export const initialState: ReducerCmsStore = {
-  //tokenInfoStore: new TokenInfoModel(),
-  //deviceTokenInfoStore: new TokenDeviceModel(),
   processInfoStore: new Map<string, ProcessInfoModel>(),
   processOrderStore: [],
   coreSiteResultStore: new ErrorExceptionResult<CoreSiteModel>(),
@@ -46,10 +42,6 @@ export interface AppStoreModel {
 // REDUCERS
 export function stateReducer(state: ReducerCmsStore = initialState, action: Actions): ReducerCmsStore {
   switch (action.type) {
-    //case SET_TOKEN_INFO:
-    //  return { ...state, tokenInfoStore: action.payload };
-    //case SET_TOKEN_DEVICE:
-    //  return { ...state, deviceTokenInfoStore: action.payload };
     case SET_Process_Info:
       return { ...state, processInfoStore: action.payload };
     case SET_Process_Order:
