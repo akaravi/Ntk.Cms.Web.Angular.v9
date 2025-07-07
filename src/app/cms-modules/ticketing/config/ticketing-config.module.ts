@@ -15,10 +15,12 @@ import { TicketingConfigCheckUserComponent } from './check-user/check-user.compo
 import { TicketingConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { TicketingConfigSiteComponent } from './site/config-site.component';
 import { TicketingConfigRouting } from './ticketing-config.routing';
+import { TicketingConfigComponent } from './ticketing-config.component';
 
 
 @NgModule({
   declarations: [
+    TicketingConfigComponent,
     /*Config*/
     TicketingConfigMainAdminComponent,
     TicketingConfigSiteComponent,

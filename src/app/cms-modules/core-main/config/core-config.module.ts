@@ -14,10 +14,12 @@ import { CoreConfigCheckUserComponent } from './check-user/check-user.component'
 import { CoreConfigRouting } from './core-config.routing';
 import { CoreConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { CoreConfigSiteComponent } from './site/config-site.component';
+import { CoreConfigComponent } from './core-config.component';
 
 
 @NgModule({
   declarations: [
+    CoreConfigComponent,
     /*Config*/
     CoreConfigMainAdminComponent,
     CoreConfigSiteComponent,

@@ -14,10 +14,12 @@ import { BlogConfigCheckSiteComponent } from './check-site/check-site.component'
 import { BlogConfigCheckUserComponent } from './check-user/check-user.component';
 import { BlogConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { BlogConfigSiteComponent } from './site/config-site.component';
+import { BlogConfigComponent } from './blog-config.component';
 
 
 @NgModule({
   declarations: [
+    BlogConfigComponent,
     /*Config*/
     BlogConfigMainAdminComponent,
     BlogConfigSiteComponent,

@@ -13,10 +13,12 @@ import { PollingConfigCheckUserComponent } from './check-user/check-user.compone
 import { PollingConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { PollingConfigRouting } from './polling-config.routing';
 import { PollingConfigSiteComponent } from './site/config-site.component';
+import { PollingConfigComponent } from './polling-config.component';
 
 
 @NgModule({
   declarations: [
+    PollingConfigComponent,
     /*Config*/
     PollingConfigMainAdminComponent,
     PollingConfigSiteComponent,

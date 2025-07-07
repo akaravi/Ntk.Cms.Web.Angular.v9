@@ -11,8 +11,10 @@ import { ApiTelegramConfigCheckSiteComponent } from './check-site/check-site.com
 import { ApiTelegramConfigCheckUserComponent } from './check-user/check-user.component';
 import { ApiTelegramConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { ApiTelegramConfigSiteComponent } from './site/config-site.component';
+import { ApiTelegramConfigComponent } from './api-telegram-config.component';
 @NgModule({
   declarations: [
+    ApiTelegramConfigComponent,
     /*Config*/
     ApiTelegramConfigMainAdminComponent,
     ApiTelegramConfigSiteComponent,

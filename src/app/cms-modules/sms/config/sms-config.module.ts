@@ -16,10 +16,12 @@ import { SmsConfigMainAdminComponent } from './main-admin/config-main-admin.comp
 import { SmsConfigSiteComponent } from './site/config-site.component';
 import { SmsConfigRouting } from './sms-config.routing';
 import { SmsSharedModule } from '../shared/sms.shared.module';
+import { SmsConfigComponent } from './sms-config.component';
 
 
 @NgModule({
   declarations: [
+    SmsConfigComponent,
     /*Config*/
     SmsConfigMainAdminComponent,
     SmsConfigSiteComponent,

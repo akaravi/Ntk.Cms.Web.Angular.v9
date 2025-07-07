@@ -15,10 +15,12 @@ import { HyperShopConfigCheckUserComponent } from './check-user/check-user.compo
 import { HyperShopConfigRouting } from './hyper-shop-config.routing';
 import { HyperShopConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { HyperShopConfigSiteComponent } from './site/config-site.component';
+import { HyperShopConfigComponent } from './hyper-shop-config.component';
 
 
 @NgModule({
   declarations: [
+    HyperShopConfigComponent,
     /*Config*/
     HyperShopConfigMainAdminComponent,
     HyperShopConfigSiteComponent,

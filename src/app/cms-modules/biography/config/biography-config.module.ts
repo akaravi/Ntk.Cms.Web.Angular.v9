@@ -11,8 +11,10 @@ import { BiographyConfigCheckSiteComponent } from './check-site/check-site.compo
 import { BiographyConfigCheckUserComponent } from './check-user/check-user.component';
 import { BiographyConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { BiographyConfigSiteComponent } from './site/config-site.component';
+import { BiographyConfigComponent } from './biography-config.component';
 @NgModule({
   declarations: [
+    BiographyConfigComponent,
     /*Config*/
     BiographyConfigMainAdminComponent,
     BiographyConfigSiteComponent,

@@ -11,8 +11,10 @@ import { ArticleConfigCheckSiteComponent } from './check-site/check-site.compone
 import { ArticleConfigCheckUserComponent } from './check-user/check-user.component';
 import { ArticleConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { ArticleConfigSiteComponent } from './site/config-site.component';
+import { ArticleConfigComponent } from './article-config.component';
 @NgModule({
   declarations: [
+    ArticleConfigComponent,
     /*Config*/
     ArticleConfigMainAdminComponent,
     ArticleConfigSiteComponent,

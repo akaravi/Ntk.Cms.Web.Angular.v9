@@ -12,10 +12,12 @@ import { ContactConfigCheckUserComponent } from './check-user/check-user.compone
 import { ContactConfigRouting } from './contact-config.routing';
 import { ContactConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { ContactConfigSiteComponent } from './site/config-site.component';
+import { ContactConfigComponent } from './contact-config.component';
 
 
 @NgModule({
   declarations: [
+    ContactConfigComponent,
     /*Config*/
     ContactConfigMainAdminComponent,
     ContactConfigSiteComponent,

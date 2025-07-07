@@ -15,10 +15,12 @@ import { DonateConfigCheckUserComponent } from './check-user/check-user.componen
 import { DonateConfigRouting } from './donate-config.routing';
 import { DonateConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { DonateConfigSiteComponent } from './site/config-site.component';
+import { DonateConfigComponent } from './donate-config.component';
 
 
 @NgModule({
   declarations: [
+    DonateConfigComponent,
     /*Config*/
     DonateConfigMainAdminComponent,
     DonateConfigSiteComponent,

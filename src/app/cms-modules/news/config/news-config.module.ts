@@ -12,8 +12,10 @@ import { NewsConfigCheckUserComponent } from './check-user/check-user.component'
 import { NewsConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { NewsConfigRouting } from './news-config.routing';
 import { NewsConfigSiteComponent } from './site/config-site.component';
+import { NewsConfigComponent } from './news-config.component';
 @NgModule({
   declarations: [
+    NewsConfigComponent,
     /*Config*/
     NewsConfigMainAdminComponent,
     NewsConfigSiteComponent,

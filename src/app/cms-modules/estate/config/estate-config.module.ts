@@ -15,10 +15,12 @@ import { EstateConfigCheckUserComponent } from './check-user/check-user.componen
 import { EstateConfigRouting } from './estate-config.routing';
 import { EstateConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { EstateConfigSiteComponent } from './site/config-site.component';
+import { EstateConfigComponent } from './estate-config.component';
 
 
 @NgModule({
   declarations: [
+    EstateConfigComponent,
     /*Config*/
     EstateConfigMainAdminComponent,
     EstateConfigSiteComponent,

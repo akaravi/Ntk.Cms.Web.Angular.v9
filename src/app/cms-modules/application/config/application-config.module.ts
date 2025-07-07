@@ -14,10 +14,12 @@ import { ApplicationConfigCheckSiteComponent } from './check-site/check-site.com
 import { ApplicationConfigCheckUserComponent } from './check-user/check-user.component';
 import { ApplicationConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { ApplicationConfigSiteComponent } from './site/config-site.component';
+import { ApplicationConfigComponent } from './application-config.component';
 
 
 @NgModule({
   declarations: [
+    ApplicationConfigComponent,
     /*Config*/
     ApplicationConfigMainAdminComponent,
     ApplicationConfigSiteComponent,

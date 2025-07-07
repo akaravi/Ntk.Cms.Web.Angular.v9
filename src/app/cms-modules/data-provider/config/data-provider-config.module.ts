@@ -15,10 +15,12 @@ import { DataProviderConfigCheckUserComponent } from './check-user/check-user.co
 import { DataProviderConfigRouting } from './data-provider-config.routing';
 import { DataProviderConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { DataProviderConfigSiteComponent } from './site/config-site.component';
+import { DataProviderConfigComponent } from './data-provider-config.component';
 
 
 @NgModule({
   declarations: [
+    DataProviderConfigComponent,
     /*Config*/
     DataProviderConfigMainAdminComponent,
     DataProviderConfigSiteComponent,

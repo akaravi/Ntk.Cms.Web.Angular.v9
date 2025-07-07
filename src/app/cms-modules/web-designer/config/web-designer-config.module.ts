@@ -12,8 +12,10 @@ import { WebDesignerConfigCheckUserComponent } from './check-user/check-user.com
 import { WebDesignerConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { WebDesignerConfigSiteComponent } from './site/config-site.component';
 import { WebDesignerConfigRouting } from './web-designer-config.routing';
+import { WebDesignerConfigComponent } from './web-designer-config.component';
 @NgModule({
   declarations: [
+    WebDesignerConfigComponent,
     /*Config*/
     WebDesignerConfigMainAdminComponent,
     WebDesignerConfigSiteComponent,

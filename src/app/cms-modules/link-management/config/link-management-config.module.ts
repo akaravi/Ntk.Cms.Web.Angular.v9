@@ -13,10 +13,12 @@ import { LinkManagementConfigCheckUserComponent } from './check-user/check-user.
 import { LinkManagementConfigRouting } from './link-management-config.routing';
 import { LinkManagementConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { LinkManagementConfigSiteComponent } from './site/config-site.component';
+import { LinkManagementConfigComponent } from './link-management-config.component';
 
 
 @NgModule({
   declarations: [
+    LinkManagementConfigComponent,
     /*Config*/
     LinkManagementConfigMainAdminComponent,
     LinkManagementConfigSiteComponent,

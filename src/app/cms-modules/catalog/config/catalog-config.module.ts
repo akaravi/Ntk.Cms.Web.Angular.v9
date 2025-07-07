@@ -14,10 +14,12 @@ import { CatalogConfigCheckSiteComponent } from './check-site/check-site.compone
 import { CatalogConfigCheckUserComponent } from './check-user/check-user.component';
 import { CatalogConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { CatalogConfigSiteComponent } from './site/config-site.component';
+import { CatalogConfigComponent } from './catalog-config.component';
 
 
 @NgModule({
   declarations: [
+    CatalogConfigComponent,
     /*Config*/
     CatalogConfigMainAdminComponent,
     CatalogConfigSiteComponent,

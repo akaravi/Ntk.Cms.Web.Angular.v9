@@ -11,8 +11,10 @@ import { BankPaymentConfigCheckSiteComponent } from './check-site/check-site.com
 import { BankPaymentConfigCheckUserComponent } from './check-user/check-user.component';
 import { BankPaymentConfigMainAdminComponent } from './main-admin/config-main-admin.component';
 import { BankPaymentConfigSiteComponent } from './site/config-site.component';
+import { BankPaymentConfigComponent } from './bank-payment-config.component';
 @NgModule({
   declarations: [
+    BankPaymentConfigComponent,
     /*Config*/
     BankPaymentConfigMainAdminComponent,
     BankPaymentConfigSiteComponent,
