@@ -1,3 +1,30 @@
+download
+https://downloadly.ir/theme/metronic/
+*INDO*************************************************
+
+npm uninstal  ngx-ntk-cron-editor
+npm uninstal  ngx-ntk-file-picker
+npm uninstal  ngx-ntk-icon-picker
+npm uninstal  ngx-ntk-mat-color-picker
+npm uninstal  ngx-ntk-pannellum
+npm uninstal  ngx-ntk-smart-module
+npm uninstal  ntk-cms-api
+npm uninstal  ntk-cms-filemanager
+  
+  
+npm instal   ngx-ntk-cron-editor
+npm instal   ngx-ntk-file-picker
+npm instal   ngx-ntk-icon-picker
+npm instal   ngx-ntk-mat-color-picker
+npm instal   ngx-ntk-pannellum
+npm instal   ngx-ntk-smart-module
+npm instal   ntk-cms-api
+npm instal   ntk-cms-filemanager
+
+
+
+*INDO*************************************************
+
 *MEMO*************************************************
 برای رفع مشکل نام فولدر ها
 *MEMO*************************************************
