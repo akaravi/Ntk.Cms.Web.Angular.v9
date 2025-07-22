@@ -101,10 +101,10 @@ export class TokenHelper {
         this.tokenInfo = ret.item;
         return ret.item;
       })
-      .catch((error)=>{
+      .catch((error) => {
         if (environment.consoleLog)
-        console.log("Error_TOKEN_INFO");
-return new TokenInfoModel();
+          console.log("Error_TOKEN_INFO");
+        return new TokenInfoModel();
       });
   }
 

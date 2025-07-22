@@ -1,5 +1,3 @@
-download
-https://downloadly.ir/theme/metronic/
 *INDO*************************************************
 
 npm uninstal  ngx-ntk-cron-editor
