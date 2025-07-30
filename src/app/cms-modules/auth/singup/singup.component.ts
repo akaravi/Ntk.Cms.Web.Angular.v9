@@ -12,9 +12,9 @@ import { PageInfoService } from 'src/app/core/services/page-info.service';
 import { environment } from 'src/environments/environment';
 import { SingupRuleComponent } from '../singupRule/singupRule.Component';
 @Component({
-    selector: 'app-auth-singup',
-    templateUrl: './singup.component.html',
-    standalone: false
+  selector: 'app-auth-singup',
+  templateUrl: './singup.component.html',
+  standalone: false
 })
 export class AuthSingUpComponent implements OnInit, OnDestroy {
   constructorInfoAreaId = this.constructor.name;
@@ -35,7 +35,7 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
   @ViewChild('vform', { static: false }) formGroup: FormGroup;
 
   formInfo: FormInfoModel = new FormInfoModel();
-  Roulaccespt = '';
+  roulaccespt = '';
   isLoading$: Observable<boolean>;
   captchaModel: CaptchaModel = new CaptchaModel();
   expireDate: Date;
@@ -187,20 +187,22 @@ export class AuthSingUpComponent implements OnInit, OnDestroy {
     });
   }
   onRoulaccespt(): void {
+    if (this.roulaccespt)
+      return;
     const dialogRef = this.dialog.open(SingupRuleComponent, {
       height: "90%",
       width: "90%",
     });
     dialogRef.afterClosed().subscribe(result => {
       // console.log(`Dialog result: ${result}`);
-      this.Roulaccespt = result;
+      this.roulaccespt = result;
       //console.log(result);
     });
   }
   passwordValid(event): void {
     this.passwordIsValid = event;
   }
-   onCaptchaOrder(): void {
+  onCaptchaOrder(): void {
     if (this.onCaptchaOrderInProcess) {
       return;
     }

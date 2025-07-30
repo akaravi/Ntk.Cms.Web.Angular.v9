@@ -100,9 +100,15 @@
       <i class="fa fa-check disabled valid color-green-dark"></i>
       <em>({{'TITLE.Necessary'| translate}})</em>
     </div>
-
+    <div class="form-check icon-check text-start float-start opacity-50">
+      <input class="form-check-input" type="checkbox" id="roulaccespt" [(ngModel)]="roulaccespt" name="roulaccespt">
+      <label class="form-check-label font-13" for="roulaccespt" (click)="onRoulaccespt()">قوانین را مطاله کرده
+        ام</label>
+      <i class="icon-check-1 far fa-circle color-gray-dark font-14"></i>
+      <i class="icon-check-2 fa fa-check-circle font-14 color-highlight"></i>
+    </div>
     <button type="submit" *ngIf="!onNavigate"
-      [disabled]="!Roulaccespt ||vform.invalid || !formInfo.buttonSubmittedEnabled" style="width: 100%;"
+      [disabled]="!roulaccespt ||vform.invalid || !formInfo.buttonSubmittedEnabled" style="width: 100%;"
       class="btn font-13 font-600 btn-s m-1 rounded-s shadow-xl border-0 gradient-highlight">
       {{'AUTH.REGISTER.CREATE_AN_ACCOUNT' | translate}}
     </button>
